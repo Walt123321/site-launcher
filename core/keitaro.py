@@ -85,20 +85,27 @@ def create_offer(domain: str, zip_bytes, callback=None):
     }
 
     r = post(f"{BASE_URL}/offers", payload)
-
+    
     if callback:
         callback(f"📨 offer response: {r.status_code}")
-
+    
+    # якщо офер уже існує
+    if r.status_code == 422 and "Name has already used" in r.text:
+        if callback:
+            callback(f"♻️ {domain}: offer already exists, trying reuse...")
+    
+        existing_id = find_offer_by_name(domain)
+    
+        if existing_id:
+            return existing_id
+    
+        raise Exception("Offer exists but ID not found")
+    
     if r.status_code != 200:
         raise Exception(r.text)
-
+    
     data = r.json()
-
-    if "id" not in data:
-        raise Exception(f"Offer ID missing: {data}")
-
     return data["id"]
-
 # =====================================================
 # CAMPAIGN
 # =====================================================
@@ -123,6 +130,26 @@ def create_campaign(domain: str, callback=None):
         callback(f"✅ {domain}: campaign #{data['id']}")
 
     return data["id"]
+
+
+def find_offer_by_name(domain):
+    r = requests.get(
+        f"{BASE_URL}/offers",
+        headers=HEADERS,
+        timeout=TIMEOUT,
+        verify=False
+    )
+
+    if r.status_code != 200:
+        return None
+
+    data = r.json()
+
+    for row in data:
+        if row.get("name") == domain:
+            return row.get("id")
+
+    return None
 
 
 # =====================================================
@@ -199,43 +226,49 @@ def create_domain(domain: str, campaign_id: int, callback=None):
 # HTTPS CHECK
 # =====================================================
 
-def check_https(domain: str, callback=None, max_checks=20):
+def check_https(domain: str, callback=None, max_checks=60):
     url = f"https://{domain}"
 
-    for _ in range(max_checks):
+    for i in range(max_checks):
+
         try:
             if callback:
-                callback(f"🌐 {domain}: HTTPS check...")
+                callback(f"🌐 {domain}: checking site...")
 
             r = requests.get(
                 url,
                 timeout=20,
-                verify=False
+                verify=False,
+                allow_redirects=True
             )
 
-            if r.status_code == 200:
-                html = r.text.lower()
+            html = r.text.lower()
 
-                breadcrumb = (
-                    "breadcrumblist" in html
-                    and "application/ld+json" in html
-                )
+            code_ok = r.status_code == 200
 
+            breadcrumb_ok = (
+                "breadcrumblist" in html
+                and "application/ld+json" in html
+            )
+
+            # ГОТОВО
+            if code_ok and breadcrumb_ok:
                 if callback:
-                    callback(f"✅ {domain}: HTTPS OK")
+                    callback(f"✅ {domain}: FULL READY")
+                return True, True
 
-                return True, breadcrumb
+            # сайт є, але не готовий
+            if code_ok:
+                if callback:
+                    callback(f"🟡 {domain}: code 200, waiting breadcrumbs...")
 
-        except:
+        except Exception:
             pass
-
-        if callback:
-            callback(f"⏳ {domain}: waiting DNS/SSL...")
 
         time.sleep(30)
 
     if callback:
-        callback(f"⚠️ {domain}: HTTPS timeout")
+        callback(f"⚠️ {domain}: timeout")
 
     return False, False
 
