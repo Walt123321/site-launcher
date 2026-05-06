@@ -1434,8 +1434,12 @@ elif st.session_state.step == 2:
     # --- AUTO: одразу перевіряємо домени при заході на крок 2 (1 раз) ---
     if not st.session_state.get("step2_autocheck_done"):
         st.session_state.step2_autocheck_done = True
-        with st.spinner("🔎 Автоматично перевіряю домени…"):
+        st.session_state.phase = "search"
+
+        with st.spinner("🔎 Автоматично перевіряю домени..."):
             step2_check_domains()
+
+        st.session_state.phase = "checked"
         st.rerun()
 
 
@@ -1534,6 +1538,8 @@ elif st.session_state.step == 2:
             disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count))
         ):
             st.session_state.run_generation = True
+            st.session_state.phase = "generate"
+            st.rerun()
 
         if st.session_state.get("run_generation"):
 
@@ -1567,6 +1573,7 @@ elif st.session_state.step == 2:
                 # -------------------------
                 # LANG.PHP
                 # -------------------------
+                st.session_state.phase = "generate"
                 status_box.info("🟡 Генерую lang.php файли...")
 
                 files = generate_lang_files_multi(
@@ -1598,6 +1605,7 @@ elif st.session_state.step == 2:
 
                 zip_map = {}
 
+                st.session_state.phase = "zip"
                 status_box.info("🟡 Пакую ZIP архіви...")
 
                 for item in files:
@@ -1625,11 +1633,14 @@ elif st.session_state.step == 2:
                 log_messages = []
 
                 def live_log(txt):
-                    print(txt)
-                    log_messages.append(txt)
+                    if txt == "WAIT_SSL":
+                        st.session_state.phase = "wait"
+                    else:
+                        status_box.info(txt)
     
 
 
+                st.session_state.phase = "keitaro"
                 status_box.info("🟡 Запускаю Keitaro...")
 
                 results = create_multiple_projects(
@@ -1650,7 +1661,9 @@ elif st.session_state.step == 2:
                 if errors:
                     status_box.error(f"❌ Є помилки: {len(errors)}")
                 else:
+                    st.session_state.phase = "done"
                     status_box.success("✅ Усі сайти створені!")
+                    
 
                 with result_box:
                     for row in results:
@@ -1660,6 +1673,7 @@ elif st.session_state.step == 2:
                 st.session_state.run_generation = False
 
             except Exception as e:
+                st.session_state.phase = "error"
                 status_box.error(f"❌ Помилка: {str(e)}")
                 st.session_state.run_generation = False
 
