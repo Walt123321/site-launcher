@@ -27,43 +27,53 @@ from core.lang_pipeline import generate_lang_files_multi
 # ---- Page config (must be before any st.* calls) ----
 
 def _get_favicon():
-    ss = st.session_state
+    # Page icon in browser tab
 
-    # процес запуску
-    if ss.get("run_generation"):
-        return "⚙️"
+    step = int(st.session_state.get("step", 1))
 
-    # архіви готові
-    if ss.get("archives_ready"):
-        return "📦"
+    domains_checked = bool(st.session_state.get("domains_checked_done"))
+    archives_ready = bool(st.session_state.get("archives_ready"))
+    has_files = bool(st.session_state.get("generated_files"))
 
-    # keitaro завершився
-    results = ss.get("keitaro_results", [])
+    # NEW:
+    projects = st.session_state.get("keitaro_results", [])
 
-    if results:
+    all_ready = False
+    if projects:
         good = [
-            r for r in results
-            if r.get("https") is True and r.get("breadcrumb") is True
+            p for p in projects
+            if p.get("https") is True and p.get("breadcrumb") is True
         ]
+        all_ready = len(good) == len(projects)
 
-        if len(good) == len(results):
+    # -------------------------
+    # STEP 2
+    # -------------------------
+    if step == 2:
+        return "🌐" if domains_checked else "🔎"
+
+    # -------------------------
+    # STEP 3
+    # -------------------------
+    if step == 3:
+
+        # якщо сайти реально відкрились + breadcrumb
+        if all_ready:
             return "✅"
 
-        bad = [r for r in results if r.get("error")]
-        if bad:
-            return "❌"
+        # якщо архіви готові
+        if archives_ready:
+            return "📦"
 
-        return "🌐"
+        # якщо lang.php готові
+        if has_files:
+            return "⚙️"
 
-    # домени перевірені
-    if ss.get("checking_domains"):
-        return "🔎"
-
-    if ss.get("domains_checked_done"):
-        return "🌐"
+        return "🛠️"
 
     return "🚀"
-    
+
+
 _brand_for_title = (st.session_state.get("brand") or "").strip()
 _page_title = f"{_brand_for_title}" if _brand_for_title else "Site Launcher"
 
@@ -1008,8 +1018,6 @@ def add_manual_domain():
 
 
 def step2_check_domains():
-    st.session_state.checking_domains = True
-    st.rerun()
     if not st.session_state.domain_candidates:
         step2_generate_candidates()
 
@@ -1026,9 +1034,6 @@ def step2_check_domains():
 
     st.toast("Перевірку завершено ✅")
     st.session_state.needs_rerun = True
-    st.session_state.checking_domains = False
-    st.session_state.domains_checked_done = True
-    st.rerun()
 
 def _domain_sort_key(domain: str, brand: str, cc_tld: str | None) -> tuple:
     """
@@ -1531,13 +1536,13 @@ elif st.session_state.step == 2:
         st.divider()
         st.checkbox("Сформувати ревʼю", key="generate_review")
 
-#        st.button(
-#            "➡️ Далі до Кроку 3",
-#            type="primary",
-#            disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count)),
-#            use_container_width=True,
-#            on_click=step2_continue,
-#        )
+        st.button(
+            "➡️ Далі до Кроку 3",
+            type="primary",
+            disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count)),
+            use_container_width=True,
+            on_click=step2_continue,
+        )
 
         st.markdown("---")
 
@@ -1548,9 +1553,6 @@ elif st.session_state.step == 2:
             disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count))
         ):
             st.session_state.run_generation = True
-            st.session_state.keitaro_results = []
-            st.session_state.archives_ready = False
-            st.rerun()
 
         if st.session_state.get("run_generation"):
 
@@ -1633,8 +1635,6 @@ elif st.session_state.step == 2:
                     )
 
                 progress.progress(0.45)
-                st.session_state.archives_ready = True
-                st.rerun()
 
                 # -------------------------
                 # KEITARO
@@ -1649,7 +1649,7 @@ elif st.session_state.step == 2:
     
 
 
-                status_box.info("🟡 Keitaro: Створення оферів / кампаній / доменів...")
+                status_box.info("🟡 Запускаю Keitaro...")
 
                 results = create_multiple_projects(
                     domains=domains,
@@ -1658,10 +1658,6 @@ elif st.session_state.step == 2:
                     max_workers=min(5, total)
                 )
 
-                st.session_state.keitaro_results = results
-                st.session_state.run_generation = False
-                st.rerun()
-                
                 if log_messages:
                     st.text_area("Logs", "\n".join(log_messages), height=250)
 
@@ -1685,9 +1681,6 @@ elif st.session_state.step == 2:
             except Exception as e:
                 status_box.error(f"❌ Помилка: {str(e)}")
                 st.session_state.run_generation = False
-                st.session_state.keitaro_results = [{"error": str(e)}]
-                st.rerun()
-
 
 
 
