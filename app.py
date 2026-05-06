@@ -13,10 +13,6 @@ from pathlib import Path
 from typing import Optional
 from core.review_pipeline import generate_review
 from core.keitaro import create_full_project
-
-
-
-
 from core.options import build_geo_labels, build_language_labels, bcp47_from, TOP_GEO_ORDER
 from core.geo_detect import detect_geo_lang
 from core.domain_suggest import generate_domain_candidates
@@ -24,54 +20,29 @@ from core.domain_check import check_domains_rdap
 from core.lang_pipeline import generate_lang_files_multi
 
 
+
+if "phase" not in st.session_state:
+    st.session_state.phase = "idle"
+
+
 # ---- Page config (must be before any st.* calls) ----
 
 def _get_favicon():
-    # Page icon in browser tab
+    phase = st.session_state.get("phase", "idle")
 
-    step = int(st.session_state.get("step", 1))
+    icons = {
+        "idle": "🚀",
+        "search": "🔎",
+        "checked": "🌐",
+        "generate": "⚙️",
+        "zip": "📦",
+        "keitaro": "🛰️",
+        "wait": "⏳",
+        "done": "✅",
+        "error": "❌",
+    }
 
-    domains_checked = bool(st.session_state.get("domains_checked_done"))
-    archives_ready = bool(st.session_state.get("archives_ready"))
-    has_files = bool(st.session_state.get("generated_files"))
-
-    # NEW:
-    projects = st.session_state.get("keitaro_results", [])
-
-    all_ready = False
-    if projects:
-        good = [
-            p for p in projects
-            if p.get("https") is True and p.get("breadcrumb") is True
-        ]
-        all_ready = len(good) == len(projects)
-
-    # -------------------------
-    # STEP 2
-    # -------------------------
-    if step == 2:
-        return "🌐" if domains_checked else "🔎"
-
-    # -------------------------
-    # STEP 3
-    # -------------------------
-    if step == 3:
-
-        # якщо сайти реально відкрились + breadcrumb
-        if all_ready:
-            return "✅"
-
-        # якщо архіви готові
-        if archives_ready:
-            return "📦"
-
-        # якщо lang.php готові
-        if has_files:
-            return "⚙️"
-
-        return "🛠️"
-
-    return "🚀"
+    return icons.get(phase, "🚀")
 
 
 _brand_for_title = (st.session_state.get("brand") or "").strip()
@@ -1481,7 +1452,17 @@ elif st.session_state.step == 2:
     
     with left:
         st.markdown("### 2.1 Перевірка доступності доменів")
-        st.button("🔁 Перевірити ще раз", on_click=step2_check_domains, use_container_width=True)
+        def run_domain_check():
+            st.session_state.phase = "search"
+            step2_check_domains()
+            st.session_state.phase = "checked"
+
+        st.button(
+            "🔁 Перевірити ще раз",
+            on_click=run_domain_check,
+            use_container_width=True
+        )
+        
 
         st.divider()
         st.markdown("### 2.2 Вибір доменів")
