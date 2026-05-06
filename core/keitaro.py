@@ -297,6 +297,8 @@ def prepare_project(domain: str, zip_bytes: bytes, callback=None):
 
 
 def finalize_project(project: dict, callback=None):
+    if callback:
+        callback("WAIT_SSL")
     domain = project["domain"]
 
     https_ok, breadcrumb_ok = check_https(domain, callback)
