@@ -27,35 +27,40 @@ from core.lang_pipeline import generate_lang_files_multi
 # ---- Page config (must be before any st.* calls) ----
 
 def _get_favicon():
+    ss = st.session_state
 
-    # success
-    projects = st.session_state.get("keitaro_results", [])
-    if projects:
-        ready = [
-            x for x in projects
-            if x.get("https") and x.get("breadcrumb")
-        ]
-        if len(ready) == len(projects):
-            return "✅"
-
-    # archives ready
-    if st.session_state.get("archives_ready"):
-        return "📦"
-
-    # currently generating / uploading
-    if st.session_state.get("run_generation"):
+    # процес запуску
+    if ss.get("run_generation"):
         return "⚙️"
 
-    # domains checked
-    if st.session_state.get("domains_checked_done"):
+    # архіви готові
+    if ss.get("archives_ready"):
+        return "📦"
+
+    # keitaro завершився
+    results = ss.get("keitaro_results", [])
+
+    if results:
+        good = [
+            r for r in results
+            if r.get("https") is True and r.get("breadcrumb") is True
+        ]
+
+        if len(good) == len(results):
+            return "✅"
+
+        bad = [r for r in results if r.get("error")]
+        if bad:
+            return "❌"
+
         return "🌐"
 
-    # checking domains
-    if st.session_state.get("step2_autocheck_done"):
-        return "🔎"
+    # домени перевірені
+    if ss.get("domains_checked_done"):
+        return "🌐"
 
     return "🚀"
-
+    
 _brand_for_title = (st.session_state.get("brand") or "").strip()
 _page_title = f"{_brand_for_title}" if _brand_for_title else "Site Launcher"
 
@@ -1535,6 +1540,8 @@ elif st.session_state.step == 2:
             disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count))
         ):
             st.session_state.run_generation = True
+            st.session_state.keitaro_results = []
+            st.session_state.archives_ready = False
             st.rerun()
 
         if st.session_state.get("run_generation"):
@@ -1618,6 +1625,8 @@ elif st.session_state.step == 2:
                     )
 
                 progress.progress(0.45)
+                st.session_state.archives_ready = True
+                st.rerun()
 
                 # -------------------------
                 # KEITARO
@@ -1641,6 +1650,10 @@ elif st.session_state.step == 2:
                     max_workers=min(5, total)
                 )
 
+                st.session_state.keitaro_results = results
+                st.session_state.run_generation = False
+                st.rerun()
+                
                 if log_messages:
                     st.text_area("Logs", "\n".join(log_messages), height=250)
 
@@ -1664,6 +1677,9 @@ elif st.session_state.step == 2:
             except Exception as e:
                 status_box.error(f"❌ Помилка: {str(e)}")
                 st.session_state.run_generation = False
+                st.session_state.keitaro_results = [{"error": str(e)}]
+                st.rerun()
+
 
 
 
