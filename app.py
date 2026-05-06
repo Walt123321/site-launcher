@@ -27,52 +27,71 @@ from core.lang_pipeline import generate_lang_files_multi
 # ---- Page config (must be before any st.* calls) ----
 
 def _get_favicon():
-    # Page icon in browser tab
 
     step = int(st.session_state.get("step", 1))
 
     domains_checked = bool(st.session_state.get("domains_checked_done"))
     archives_ready = bool(st.session_state.get("archives_ready"))
     has_files = bool(st.session_state.get("generated_files"))
+    is_running = bool(st.session_state.get("run_generation"))
 
-    # NEW:
     projects = st.session_state.get("keitaro_results", [])
 
     all_ready = False
+    any_created = False
+
     if projects:
+        any_created = True
+
         good = [
             p for p in projects
             if p.get("https") is True and p.get("breadcrumb") is True
         ]
+
         all_ready = len(good) == len(projects)
+
+    # -------------------------
+    # STEP 1
+    # -------------------------
+    if step == 1:
+        return "🚀"
 
     # -------------------------
     # STEP 2
     # -------------------------
     if step == 2:
-        return "🌐" if domains_checked else "🔎"
+
+        if all_ready:
+            return "✅"
+
+        if is_running:
+            return "⚙️"
+
+        if any_created:
+            return "📦"
+
+        if domains_checked:
+            return "🌐"
+
+        return "🔎"
 
     # -------------------------
     # STEP 3
     # -------------------------
     if step == 3:
 
-        # якщо сайти реально відкрились + breadcrumb
         if all_ready:
             return "✅"
 
-        # якщо архіви готові
         if archives_ready:
             return "📦"
 
-        # якщо lang.php готові
         if has_files:
-            return "⚙️"
+            return "📄"
 
         return "🛠️"
 
     return "🚀"
-
 
 _brand_for_title = (st.session_state.get("brand") or "").strip()
 _page_title = f"{_brand_for_title}" if _brand_for_title else "Site Launcher"
@@ -1649,7 +1668,7 @@ elif st.session_state.step == 2:
     
 
 
-                status_box.info("🟡 Запускаю Keitaro...")
+                status_box.info("🟡 Створення оферів / кампаній / доменів...")
 
                 results = create_multiple_projects(
                     domains=domains,
