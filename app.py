@@ -259,10 +259,8 @@ def init_state():
 
 
 def reset_all():
-    # ВАЖЛИВО: кнопка reset натискається після того, як віджети сайдбару вже створені.
-    # Тому не можна "м'яко" присвоювати значення widget-key'ам в цьому ж ререндері.
-    # Робимо повне очищення і НЕ продовжуємо поточний ререндер — одразу rerun.
     st.session_state.clear()
+    st.rerun()
 
 
 
@@ -1647,6 +1645,30 @@ elif st.session_state.step == 2:
                     max_workers=min(5, total)
                 )
 
+                errors = [r for r in results if r.get("error")]
+                
+                progress.progress(1.0)
+                
+                if errors:
+                    status_box.error(f"❌ Є помилки: {len(errors)}")
+                    st.session_state.phase = "error"
+                else:
+                    status_box.success("✅ Усі сайти створені!")
+                    st.session_state.phase = "success"
+                
+                with result_box:
+                    for row in results:
+                        st.markdown(f"### 🌐 {row['domain']}")
+                        st.json(row)
+                
+                st.session_state.run_generation = False
+                st.rerun()
+
+                if ready:
+                    favicon = "success"
+                else:
+                    favicon = "error"
+    
                 if log_messages:
                     st.text_area("Logs", "\n".join(log_messages), height=250)
 
@@ -1659,8 +1681,8 @@ elif st.session_state.step == 2:
                     status_box.error(f"❌ Є помилки: {len(errors)}")
                     st.session_state.phase = "error"
                 else:
-                    st.session_state.phase = "done"
                     st.session_state.phase = "success"
+                    st.rerun()
                     
 
                 with result_box:
@@ -1669,11 +1691,13 @@ elif st.session_state.step == 2:
                         st.json(row)
 
                 st.session_state.run_generation = False
+                st.rerun()
 
             except Exception as e:
                 st.session_state.phase = "error"
                 status_box.error(f"❌ Помилка: {str(e)}")
                 st.session_state.run_generation = False
+                st.rerun()
 
 
 
