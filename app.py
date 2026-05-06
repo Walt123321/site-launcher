@@ -18,17 +18,18 @@ from core.geo_detect import detect_geo_lang
 from core.domain_suggest import generate_domain_candidates
 from core.domain_check import check_domains_rdap
 from core.lang_pipeline import generate_lang_files_multi
- 
- 
+
+
+
 if "phase" not in st.session_state:
     st.session_state.phase = "idle"
- 
- 
+
+
 # ---- Page config (must be before any st.* calls) ----
- 
+
 def _get_favicon():
     state = st.session_state.get("favicon_state", "idle")
- 
+
     icons = {
         "idle": "🚀",
         "search": "🔎",
@@ -37,20 +38,20 @@ def _get_favicon():
         "success": "✅",
         "error": "❌",
     }
- 
+
     return icons.get(state, "🚀")
- 
- 
+
+
 _brand_for_title = (st.session_state.get("brand") or "").strip()
 _page_title = f"{_brand_for_title}" if _brand_for_title else "Site Launcher"
- 
+
 st.set_page_config(
     page_title=_page_title,
     page_icon=_get_favicon(),
     layout="wide",
 )
- 
-# ✅ ДОДАЙ ЦЕ ВІДРАЗУ ПІСЛЯ set_page_config() - динамічна фавіконка
+
+# ✅ ФУНКЦІЯ ДЛЯ ДИНАМІЧНОЇ ЗМІНИ ФАВІКОНКИ
 def update_favicon():
     """Оновлює фавіконку в реальному часі через JavaScript"""
     state = st.session_state.get("favicon_state", "idle")
@@ -67,10 +68,10 @@ def update_favicon():
     emoji = icons.get(state, "🚀")
     
     # Динамічна HTML/JS для оновлення фавіконки
-    components.html(f"""
+    html_script = """
     <script>
         // Оновлює favicon через data URI
-        const icon = '{emoji}';
+        const icon = '""" + emoji + """';
         const canvas = document.createElement('canvas');
         canvas.width = 64;
         canvas.height = 64;
@@ -94,7 +95,8 @@ def update_favicon():
             document.head.appendChild(link);
         }
     </script>
-    """, height=0)
+    """
+    components.html(html_script, height=0)
 
 GEO_PATH = "core/geo_defaults.json"
 UNKNOWN_GEO_LABEL = "🏳️ Невідомо / Unknown"
@@ -297,6 +299,9 @@ def init_state():
     st.session_state.setdefault("generate_review", False)
     st.session_state.setdefault("generated_review", None)
     st.session_state.setdefault("step3_review_autogen_done", False)
+    
+    # ✅ ДОДАЙ ІНІЦІАЛІЗАЦІЮ ФАВІКОНКИ
+    st.session_state.setdefault("favicon_state", "idle")
     st.session_state.setdefault("review_generation_error", None)
     
 
@@ -892,6 +897,8 @@ def run_detect():
     st.session_state.detect_lang = None
     st.session_state.detect_details = []
     st.session_state.needs_rerun = True
+    st.session_state["favicon_state"] = "search"
+    update_favicon()
 
     domain_candidates = generate_domain_candidates(brand, None)
 
@@ -910,6 +917,8 @@ def run_detect():
     st.session_state.detect_lang = lang_guess
     st.session_state.detect_details = details
     st.session_state.needs_rerun = True
+    st.session_state["favicon_state"] = "checked"
+    update_favicon()
 
 
 def apply_detect():
@@ -1474,15 +1483,13 @@ elif st.session_state.step == 2:
     # --- AUTO: одразу перевіряємо домени при заході на крок 2 (1 раз) ---
     if not st.session_state.get("step2_autocheck_done"):
         st.session_state.step2_autocheck_done = True
-        st.session_state["favicon_state"] = "search"
-        update_favicon()
+        st.session_state.phase = "search"
 
         with st.spinner("🔎 Автоматично перевіряю домени..."):
             step2_check_domains()
 
-        st.session_state["favicon_state"] = "checked"
-        update_favicon()
-        
+        st.session_state.phase = "checked"
+        st.rerun()
 
 
     st.session_state.sites_count = st.radio(
@@ -1580,9 +1587,8 @@ elif st.session_state.step == 2:
             disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count))
         ):
             st.session_state.run_generation = True
-            st.session_state["favicon_state"] = "generate"
-            update_favicon()
-
+            st.session_state.phase = "generate"
+            st.rerun()
 
         if st.session_state.get("run_generation"):
 
@@ -1616,9 +1622,7 @@ elif st.session_state.step == 2:
                 # -------------------------
                 # LANG.PHP
                 # -------------------------
-                st.session_state["favicon_state"] = "generate"
-                update_favicon()
-
+                st.session_state.phase = "generate"
                 status_box.info("🟡 Генерую lang.php файли...")
 
                 files = generate_lang_files_multi(
@@ -1701,13 +1705,10 @@ elif st.session_state.step == 2:
                 
                 if errors:
                     status_box.error(f"❌ Є помилки: {len(errors)}")
-                    st.session_state["favicon_state"] = "error"
-                    update_favicon()
+                    st.session_state.phase = "error"
                 else:
                     status_box.success("✅ Усі сайти створені!")
-                    st.session_state["favicon_state"] = "success"
-                    update_favicon()
-
+                    st.session_state.phase = "success"
                 
                 with result_box:
                     for row in results:
@@ -1732,12 +1733,10 @@ elif st.session_state.step == 2:
 
                 if errors:
                     status_box.error(f"❌ Є помилки: {len(errors)}")
-                    st.session_state["favicon_state"] = "error"
-                    update_favicon()
+                    st.session_state.phase = "error"
                 else:
-                    st.session_state["favicon_state"] = "success"
-                    update_favicon()
-
+                    st.session_state.phase = "success"
+                    st.rerun()
                     
 
                 with result_box:
@@ -1749,8 +1748,7 @@ elif st.session_state.step == 2:
                 st.rerun()
 
             except Exception as e:
-                st.session_state["favicon_state"] = "error"
-                update_favicon()
+                st.session_state.phase = "error"
                 status_box.error(f"❌ Помилка: {str(e)}")
                 st.session_state.run_generation = False
                 st.rerun()
@@ -1891,6 +1889,8 @@ elif st.session_state.step == 3:
 
             if should_autogen or st.button("🚀 Згенерувати / Перегенерувати"):
                 st.session_state["step3_autogen_done"] = True
+                st.session_state["favicon_state"] = "generate"
+                update_favicon()
                 try:
                     files = generate_lang_files_multi(
                         template1_bytes=open(TEMPLATES["template_1"]["lang"], "rb").read(),
@@ -1909,11 +1909,15 @@ elif st.session_state.step == 3:
                     )
 
                     st.session_state["generated_files"] = files
+                    st.session_state["favicon_state"] = "success"
+                    update_favicon()
                     status.success("Готово ✅")
                     progress.progress(1.0)
                     st.session_state["auto_download_done"] = False
 
                 except Exception as e:
+                    st.session_state["favicon_state"] = "error"
+                    update_favicon()
                     st.error(f"Помилка: {e}")
 
             files = st.session_state.get("generated_files") or []
@@ -1980,6 +1984,8 @@ elif st.session_state.step == 3:
             
             if should_autogen_review:
                 review_box = st.empty()
+                st.session_state["favicon_state"] = "generate"
+                update_favicon()
             
                 try:
                     review_box.info("⏳ Генерую ревʼю...")
@@ -2007,6 +2013,8 @@ elif st.session_state.step == 3:
                     st.session_state["generated_review"] = review
                     st.session_state["review_generation_error"] = None
                     st.session_state["step3_review_autogen_done"] = True
+                    st.session_state["favicon_state"] = "success"
+                    update_favicon()
             
                     review_box.empty()
                     st.success("Ревʼю згенеровано ✅")
@@ -2015,6 +2023,8 @@ elif st.session_state.step == 3:
                     st.session_state["generated_review"] = None
                     st.session_state["review_generation_error"] = str(e)
                     st.session_state["step3_review_autogen_done"] = False
+                    st.session_state["favicon_state"] = "error"
+                    update_favicon()
                     review_box.error(f"Помилка генерації ревʼю: {e}")
             
             # --- REVIEW UI ---
