@@ -28,68 +28,59 @@ from core.lang_pipeline import generate_lang_files_multi
 
 def _get_favicon():
 
-    step = int(st.session_state.get("step", 1))
-
+    run_generation = bool(st.session_state.get("run_generation"))
+    checking_domains = bool(st.session_state.get("checking_domains"))
     domains_checked = bool(st.session_state.get("domains_checked_done"))
+
+    generated_files = bool(st.session_state.get("generated_files"))
     archives_ready = bool(st.session_state.get("archives_ready"))
-    has_files = bool(st.session_state.get("generated_files"))
-    is_running = bool(st.session_state.get("run_generation"))
 
-    projects = st.session_state.get("keitaro_results", [])
-
-    all_ready = False
-    any_created = False
-
-    if projects:
-        any_created = True
-
-        good = [
-            p for p in projects
-            if p.get("https") is True and p.get("breadcrumb") is True
-        ]
-
-        all_ready = len(good) == len(projects)
+    results = st.session_state.get("keitaro_results", [])
+    last_error = st.session_state.get("last_error")
 
     # -------------------------
-    # STEP 1
+    # ERROR FIRST
     # -------------------------
-    if step == 1:
-        return "🚀"
+    if last_error:
+        return "❌"
 
     # -------------------------
-    # STEP 2
+    # ACTIVE PROCESS
     # -------------------------
-    if step == 2:
+    if run_generation:
+        return "⚙️"
 
-        if all_ready:
-            return "✅"
-
-        if is_running:
-            return "⚙️"
-
-        if any_created:
-            return "📦"
-
-        if domains_checked:
-            return "🌐"
-
+    if checking_domains:
         return "🔎"
 
     # -------------------------
-    # STEP 3
+    # KEITARO READY
     # -------------------------
-    if step == 3:
+    if results:
+        good = [
+            r for r in results
+            if r.get("https") is True and r.get("breadcrumb") is True
+        ]
 
-        if all_ready:
+        if len(good) == len(results):
             return "✅"
 
-        if archives_ready:
-            return "📦"
+        return "📦"
 
-        if has_files:
-            return "📄"
+    # -------------------------
+    # GENERATED FILES
+    # -------------------------
+    if archives_ready:
+        return "📦"
 
-        return "🛠️"
+    if generated_files:
+        return "📄"
+
+    # -------------------------
+    # DOMAINS
+    # -------------------------
+    if domains_checked:
+        return "🌐"
 
     return "🚀"
 
@@ -1668,7 +1659,7 @@ elif st.session_state.step == 2:
     
 
 
-                status_box.info("🟡 Створення оферів / кампаній / доменів...")
+                status_box.info("🟡 Keitaro: Створення оферів / кампаній / доменів...")
 
                 results = create_multiple_projects(
                     domains=domains,
