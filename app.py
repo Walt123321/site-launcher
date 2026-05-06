@@ -1588,7 +1588,6 @@ elif st.session_state.step == 2:
         ):
             st.session_state.run_generation = True
             st.session_state.favicon_state = "generate"
-            st.rerun()
 
         if st.session_state.get("run_generation"):
 
@@ -1716,7 +1715,6 @@ elif st.session_state.step == 2:
                         st.json(row)
                 
                 st.session_state.run_generation = False
-                st.rerun()
 
                 if ready:
                     favicon = "success"
@@ -1736,7 +1734,7 @@ elif st.session_state.step == 2:
                     st.session_state.favicon_state = "error"
                 else:
                     st.session_state.favicon_state = "success"
-                    st.rerun()
+
                     
 
                 with result_box:
@@ -1745,13 +1743,11 @@ elif st.session_state.step == 2:
                         st.json(row)
 
                 st.session_state.run_generation = False
-                st.rerun()
 
             except Exception as e:
                 st.session_state.favicon_state = "error"
                 status_box.error(f"❌ Помилка: {str(e)}")
                 st.session_state.run_generation = False
-                st.rerun()
 
 
 
