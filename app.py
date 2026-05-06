@@ -28,21 +28,18 @@ if "phase" not in st.session_state:
 # ---- Page config (must be before any st.* calls) ----
 
 def _get_favicon():
-    phase = st.session_state.get("phase", "idle")
+    state = st.session_state.get("favicon_state", "idle")
 
     icons = {
         "idle": "🚀",
         "search": "🔎",
         "checked": "🌐",
         "generate": "⚙️",
-        "zip": "📦",
-        "keitaro": "🛰️",
-        "wait": "⏳",
-        "done": "✅",
+        "success": "✅",
         "error": "❌",
     }
 
-    return icons.get(phase, "🚀")
+    return icons.get(state, "🚀")
 
 
 _brand_for_title = (st.session_state.get("brand") or "").strip()
@@ -1660,9 +1657,10 @@ elif st.session_state.step == 2:
 
                 if errors:
                     status_box.error(f"❌ Є помилки: {len(errors)}")
+                    st.session_state.phase = "error"
                 else:
                     st.session_state.phase = "done"
-                    status_box.success("✅ Усі сайти створені!")
+                    st.session_state.phase = "success"
                     
 
                 with result_box:
