@@ -56,6 +56,9 @@ def _get_favicon():
         return "🌐"
 
     # домени перевірені
+    if ss.get("checking_domains"):
+        return "🔎"
+
     if ss.get("domains_checked_done"):
         return "🌐"
 
@@ -1005,6 +1008,8 @@ def add_manual_domain():
 
 
 def step2_check_domains():
+    st.session_state.checking_domains = True
+    st.rerun()
     if not st.session_state.domain_candidates:
         step2_generate_candidates()
 
@@ -1021,6 +1026,9 @@ def step2_check_domains():
 
     st.toast("Перевірку завершено ✅")
     st.session_state.needs_rerun = True
+    st.session_state.checking_domains = False
+    st.session_state.domains_checked_done = True
+    st.rerun()
 
 def _domain_sort_key(domain: str, brand: str, cc_tld: str | None) -> tuple:
     """
@@ -1523,13 +1531,13 @@ elif st.session_state.step == 2:
         st.divider()
         st.checkbox("Сформувати ревʼю", key="generate_review")
 
-        st.button(
-            "➡️ Далі до Кроку 3",
-            type="primary",
-            disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count)),
-            use_container_width=True,
-            on_click=step2_continue,
-        )
+#        st.button(
+#            "➡️ Далі до Кроку 3",
+#            type="primary",
+#            disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count)),
+#            use_container_width=True,
+#            on_click=step2_continue,
+#        )
 
         st.markdown("---")
 
