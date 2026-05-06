@@ -28,59 +28,31 @@ from core.lang_pipeline import generate_lang_files_multi
 
 def _get_favicon():
 
-    run_generation = bool(st.session_state.get("run_generation"))
-    checking_domains = bool(st.session_state.get("checking_domains"))
-    domains_checked = bool(st.session_state.get("domains_checked_done"))
-
-    generated_files = bool(st.session_state.get("generated_files"))
-    archives_ready = bool(st.session_state.get("archives_ready"))
-
-    results = st.session_state.get("keitaro_results", [])
-    last_error = st.session_state.get("last_error")
-
-    # -------------------------
-    # ERROR FIRST
-    # -------------------------
-    if last_error:
-        return "❌"
-
-    # -------------------------
-    # ACTIVE PROCESS
-    # -------------------------
-    if run_generation:
-        return "⚙️"
-
-    if checking_domains:
-        return "🔎"
-
-    # -------------------------
-    # KEITARO READY
-    # -------------------------
-    if results:
-        good = [
-            r for r in results
-            if r.get("https") is True and r.get("breadcrumb") is True
+    # success
+    projects = st.session_state.get("keitaro_results", [])
+    if projects:
+        ready = [
+            x for x in projects
+            if x.get("https") and x.get("breadcrumb")
         ]
-
-        if len(good) == len(results):
+        if len(ready) == len(projects):
             return "✅"
 
+    # archives ready
+    if st.session_state.get("archives_ready"):
         return "📦"
 
-    # -------------------------
-    # GENERATED FILES
-    # -------------------------
-    if archives_ready:
-        return "📦"
+    # currently generating / uploading
+    if st.session_state.get("run_generation"):
+        return "⚙️"
 
-    if generated_files:
-        return "📄"
-
-    # -------------------------
-    # DOMAINS
-    # -------------------------
-    if domains_checked:
+    # domains checked
+    if st.session_state.get("domains_checked_done"):
         return "🌐"
+
+    # checking domains
+    if st.session_state.get("step2_autocheck_done"):
+        return "🔎"
 
     return "🚀"
 
@@ -1563,6 +1535,7 @@ elif st.session_state.step == 2:
             disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count))
         ):
             st.session_state.run_generation = True
+            st.rerun()
 
         if st.session_state.get("run_generation"):
 
