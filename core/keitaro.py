@@ -3,10 +3,9 @@ import urllib3
 import base64
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
-urllib3.disable_warnings()
 import streamlit as st
 
+urllib3.disable_warnings()
 
 # =====================================================
 # CONFIG
@@ -31,30 +30,6 @@ HEADERS = {
 # HELPERS
 # =====================================================
 
-def set_config(
-    api_key: str,
-    base_url: str,
-    campaign_group_id: int = 2,
-    offer_group_id: int = 3,
-    domain_group_id: int = 2
-):
-    global API_KEY, BASE_URL
-    global CAMPAIGN_GROUP_ID, OFFER_GROUP_ID, DOMAIN_GROUP_ID
-    global HEADERS
-
-    API_KEY = api_key
-    BASE_URL = base_url.rstrip("/")
-
-    CAMPAIGN_GROUP_ID = campaign_group_id
-    OFFER_GROUP_ID = offer_group_id
-    DOMAIN_GROUP_ID = domain_group_id
-
-    HEADERS = {
-        "Api-Key": API_KEY,
-        "Content-Type": "application/json"
-    }
-
-
 def post(url, payload):
     return requests.post(
         url,
@@ -65,14 +40,63 @@ def post(url, payload):
     )
 
 
+def get(url):
+    return requests.get(
+        url,
+        headers=HEADERS,
+        timeout=TIMEOUT,
+        verify=False
+    )
+
+
+# =====================================================
+# FIND EXISTING
+# =====================================================
+
+def find_offer_by_name(domain):
+    r = get(f"{BASE_URL}/offers")
+    if r.status_code != 200:
+        return None
+
+    for row in r.json():
+        if row.get("name") == domain:
+            return row["id"]
+
+    return None
+
+
+def find_campaign_by_name(domain):
+    r = get(f"{BASE_URL}/campaigns")
+    if r.status_code != 200:
+        return None
+
+    for row in r.json():
+        if row.get("name") == domain:
+            return row["id"]
+
+    return None
+
+
+def find_domain_by_name(domain):
+    r = get(f"{BASE_URL}/domains")
+    if r.status_code != 200:
+        return None
+
+    for row in r.json():
+        if row.get("name") == domain:
+            return row["id"]
+
+    return None
+
+
 # =====================================================
 # OFFER
 # =====================================================
 
-def create_offer(domain: str, zip_bytes, callback=None):
+def create_offer(domain, zip_bytes, callback=None):
 
     if callback:
-        callback(f"📦 {domain}: uploading ZIP...")
+        callback(f"📦 {domain}: uploading ZIP")
 
     archive_b64 = base64.b64encode(zip_bytes).decode()
 
@@ -85,32 +109,26 @@ def create_offer(domain: str, zip_bytes, callback=None):
     }
 
     r = post(f"{BASE_URL}/offers", payload)
-    
-    if callback:
-        callback(f"📨 offer response: {r.status_code}")
-    
-    # якщо офер уже існує
-    if r.status_code == 422 and "Name has already used" in r.text:
-        if callback:
-            callback(f"♻️ {domain}: offer already exists, trying reuse...")
-    
-        existing_id = find_offer_by_name(domain)
-    
-        if existing_id:
-            return existing_id
-    
-        raise Exception("Offer exists but ID not found")
-    
-    if r.status_code != 200:
-        raise Exception(r.text)
-    
-    data = r.json()
-    return data["id"]
+
+    if r.status_code == 200:
+        return r.json()["id"]
+
+    if r.status_code == 422:
+        existing = find_offer_by_name(domain)
+        if existing:
+            if callback:
+                callback(f"♻️ {domain}: offer reused")
+            return existing
+
+    raise Exception(f"OFFER ERROR {r.status_code}: {r.text}")
+
+
 # =====================================================
 # CAMPAIGN
 # =====================================================
 
-def create_campaign(domain: str, callback=None):
+def create_campaign(domain, callback=None):
+
     payload = {
         "name": domain,
         "alias": domain,
@@ -121,42 +139,28 @@ def create_campaign(domain: str, callback=None):
 
     r = post(f"{BASE_URL}/campaigns", payload)
 
-    if r.status_code != 200:
-        raise Exception(f"Campaign error {r.status_code}: {r.text}")
+    if r.status_code == 200:
+        cid = r.json()["id"]
+        if callback:
+            callback(f"✅ {domain}: campaign #{cid}")
+        return cid
 
-    data = r.json()
+    if r.status_code == 422:
+        existing = find_campaign_by_name(domain)
+        if existing:
+            if callback:
+                callback(f"♻️ {domain}: campaign reused")
+            return existing
 
-    if callback:
-        callback(f"✅ {domain}: campaign #{data['id']}")
-
-    return data["id"]
-
-
-def find_offer_by_name(domain):
-    r = requests.get(
-        f"{BASE_URL}/offers",
-        headers=HEADERS,
-        timeout=TIMEOUT,
-        verify=False
-    )
-
-    if r.status_code != 200:
-        return None
-
-    data = r.json()
-
-    for row in data:
-        if row.get("name") == domain:
-            return row.get("id")
-
-    return None
+    raise Exception(f"CAMPAIGN ERROR {r.status_code}: {r.text}")
 
 
 # =====================================================
 # FLOW
 # =====================================================
 
-def create_flow(domain: str, campaign_id: int, offer_id: int, callback=None):
+def create_flow(domain, campaign_id, offer_id, callback=None):
+
     payload = {
         "campaign_id": campaign_id,
         "type": "forced",
@@ -178,66 +182,68 @@ def create_flow(domain: str, campaign_id: int, offer_id: int, callback=None):
     r = post(f"{BASE_URL}/streams", payload)
 
     if r.status_code != 200:
-        raise Exception(f"Flow error {r.status_code}: {r.text}")
+        raise Exception(f"FLOW ERROR {r.status_code}: {r.text}")
 
-    data = r.json()
+    fid = r.json()["id"]
 
     if callback:
-        callback(f"✅ {domain}: flow #{data['id']}")
+        callback(f"✅ {domain}: flow #{fid}")
 
-    return data["id"]
+    return fid
 
 
 # =====================================================
 # DOMAIN
 # =====================================================
 
-def create_domain(domain: str, campaign_id: int, callback=None):
+def create_domain(domain, campaign_id, callback=None):
+
     payload = {
         "name": domain,
         "default_campaign_id": campaign_id,
         "group_id": DOMAIN_GROUP_ID,
-        "catch_not_found": False,
-        "notes": "",
         "ssl_redirect": True,
-        "allow_indexing": True,
-        "admin_dashboard": False
+        "allow_indexing": True
     }
 
     r = post(f"{BASE_URL}/domains", payload)
 
-    if r.status_code != 200:
-        raise Exception(f"Domain error {r.status_code}: {r.text}")
+    if r.status_code == 200:
+        data = r.json()
 
-    data = r.json()
+        if isinstance(data, list):
+            did = data[0]["id"]
+        else:
+            did = data["id"]
 
-    if isinstance(data, list):
-        domain_id = data[0]["id"]
-    else:
-        domain_id = data["id"]
+        if callback:
+            callback(f"✅ {domain}: domain #{did}")
 
-    if callback:
-        callback(f"✅ {domain}: domain #{domain_id}")
+        return did
 
-    return domain_id
+    if r.status_code == 422:
+        existing = find_domain_by_name(domain)
+        if existing:
+            if callback:
+                callback(f"♻️ {domain}: domain reused")
+            return existing
+
+    raise Exception(f"DOMAIN ERROR {r.status_code}: {r.text}")
 
 
 # =====================================================
 # HTTPS CHECK
 # =====================================================
 
-def check_https(domain: str, callback=None, max_checks=60):
+def check_https(domain, callback=None, max_checks=600):
     url = f"https://{domain}"
 
     for i in range(max_checks):
 
         try:
-            if callback:
-                callback(f"🌐 {domain}: checking site...")
-
             r = requests.get(
                 url,
-                timeout=20,
+                timeout=30,
                 verify=False,
                 allow_redirects=True
             )
@@ -251,19 +257,22 @@ def check_https(domain: str, callback=None, max_checks=60):
                 and "application/ld+json" in html
             )
 
-            # ГОТОВО
             if code_ok and breadcrumb_ok:
                 if callback:
                     callback(f"✅ {domain}: FULL READY")
                 return True, True
 
-            # сайт є, але не готовий
             if code_ok:
                 if callback:
-                    callback(f"🟡 {domain}: code 200, waiting breadcrumbs...")
+                    callback(f"🟡 {domain}: waiting breadcrumbs")
+
+            else:
+                if callback:
+                    callback(f"🟡 {domain}: waiting HTTPS")
 
         except Exception:
-            pass
+            if callback:
+                callback(f"🟡 {domain}: DNS / SSL pending")
 
         time.sleep(30)
 
@@ -274,10 +283,10 @@ def check_https(domain: str, callback=None, max_checks=60):
 
 
 # =====================================================
-# CREATE FULL PROJECT
+# PROJECT
 # =====================================================
 
-def prepare_project(domain: str, zip_bytes: bytes, callback=None):
+def prepare_project(domain, zip_bytes, callback=None):
 
     if callback:
         callback(f"🚀 {domain}: START")
@@ -296,12 +305,15 @@ def prepare_project(domain: str, zip_bytes: bytes, callback=None):
     }
 
 
-def finalize_project(project: dict, callback=None):
+def finalize_project(project, callback=None):
+
     if callback:
         callback("WAIT_SSL")
-    domain = project["domain"]
 
-    https_ok, breadcrumb_ok = check_https(domain, callback)
+    https_ok, breadcrumb_ok = check_https(
+        project["domain"],
+        callback
+    )
 
     project["https"] = https_ok
     project["breadcrumb"] = breadcrumb_ok
@@ -309,43 +321,34 @@ def finalize_project(project: dict, callback=None):
     return project
 
 
-def create_full_project(domain: str, zip_bytes: bytes, callback=None):
-    project = prepare_project(domain, zip_bytes, callback)
-    project = finalize_project(project, callback)
-    return project
+def create_full_project(domain, zip_bytes, callback=None):
+    p = prepare_project(domain, zip_bytes, callback)
+    return finalize_project(p, callback)
 
 
 # =====================================================
-# MULTI PROJECTS
+# MULTI
 # =====================================================
 
-def create_multiple_projects(domains, zip_map, callback=None, max_workers=5):
+def create_multiple_projects(domains, zip_map, callback=None, max_workers=3):
 
-    final_results = []
+    results = []
 
-    # ==========================================
-    # SINGLE DOMAIN MODE
-    # ==========================================
+    # -------------------------------------------------
+    # SINGLE
+    # -------------------------------------------------
     if len(domains) == 1:
+
         domain = domains[0]
 
         try:
-            if callback:
-                callback(f"🚀 Single mode: {domain}")
-
-            if domain not in zip_map:
-                return [{
-                    "domain": domain,
-                    "error": "ZIP not found"
-                }]
-
-            result = create_full_project(
-                domain,
-                zip_map[domain],
-                callback
-            )
-
-            return [result]
+            return [
+                create_full_project(
+                    domain,
+                    zip_map[domain],
+                    callback
+                )
+            ]
 
         except Exception as e:
             return [{
@@ -353,75 +356,67 @@ def create_multiple_projects(domains, zip_map, callback=None, max_workers=5):
                 "error": str(e)
             }]
 
-    # ==========================================
-    # MULTI DOMAIN MODE
-    # ==========================================
+    # -------------------------------------------------
+    # MULTI STAGE 1
+    # -------------------------------------------------
     prepared = []
 
     if callback:
-        callback("🚀 Stage 1: creating projects...")
+        callback("🚀 Stage 1: Keitaro create")
 
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+    # sequential safer than threads for Keitaro
+    for domain in domains:
 
-        futures = {}
-
-        for domain in domains:
-
+        try:
             if domain not in zip_map:
-                final_results.append({
+                results.append({
                     "domain": domain,
-                    "error": "ZIP not found"
+                    "error": "ZIP missing"
                 })
                 continue
 
-            futures[
-                executor.submit(
-                    prepare_project,
-                    domain,
-                    zip_map[domain],
-                    callback
-                )
-            ] = domain
+            obj = prepare_project(
+                domain,
+                zip_map[domain],
+                callback
+            )
 
-        for future in as_completed(futures):
-            domain = futures[future]
+            prepared.append(obj)
 
-            try:
-                prepared.append(future.result())
+        except Exception as e:
+            results.append({
+                "domain": domain,
+                "error": str(e)
+            })
 
-            except Exception as e:
-                final_results.append({
-                    "domain": domain,
-                    "error": str(e)
-                })
-
-    # ==========================================
-    # HTTPS CHECK
-    # ==========================================
+    # -------------------------------------------------
+    # MULTI STAGE 2
+    # -------------------------------------------------
     if callback:
-        callback("🌐 Stage 2: waiting HTTPS...")
+        callback("🌐 Stage 2: SSL waiting")
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
 
         futures = {
             executor.submit(
                 finalize_project,
-                project,
+                p,
                 callback
-            ): project["domain"]
-            for project in prepared
+            ): p["domain"]
+            for p in prepared
         }
 
         for future in as_completed(futures):
+
             domain = futures[future]
 
             try:
-                final_results.append(future.result())
+                results.append(future.result())
 
             except Exception as e:
-                final_results.append({
+                results.append({
                     "domain": domain,
                     "error": str(e)
                 })
 
-    return final_results
+    return results
