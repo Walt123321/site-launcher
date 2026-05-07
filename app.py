@@ -1452,7 +1452,7 @@ elif st.session_state.step == 2:
         st.rerun()
 
     # =====================================================
-    # CHECK DOMAINS PROCESS
+    # DOMAIN CHECK
     # =====================================================
     if st.session_state.get("currently_checking_domains"):
         with st.spinner("🔎 Перевіряю домени..."):
@@ -1463,7 +1463,7 @@ elif st.session_state.step == 2:
         st.rerun()
 
     # =====================================================
-    # TOP SETTINGS
+    # SETTINGS
     # =====================================================
     st.session_state.sites_count = st.radio(
         "Скільки сайтів запускаємо?",
@@ -1472,16 +1472,16 @@ elif st.session_state.step == 2:
         horizontal=True
     )
 
+    chosen = list(st.session_state.chosen_domains)
+    k = int(st.session_state.sites_count)
+
     left, right = st.columns([2, 3])
 
     # =====================================================
-    # LEFT SIDE
+    # LEFT
     # =====================================================
     with left:
 
-        # -------------------------------------------------
-        # RECHECK
-        # -------------------------------------------------
         st.markdown("### 2.1 Перевірка доступності доменів")
 
         def rerun_check():
@@ -1497,16 +1497,10 @@ elif st.session_state.step == 2:
 
         st.divider()
 
-        # -------------------------------------------------
-        # CHOSEN DOMAINS
-        # -------------------------------------------------
         st.markdown("### 2.2 Вибір доменів")
-
-        chosen = list(st.session_state.chosen_domains)
-        k = int(st.session_state.sites_count)
-
         st.write(f"Обери **{k}** домен(и). Обрано: **{len(chosen)}/{k}**")
 
+        # templates
         dt = st.session_state.get("domain_templates") or {}
 
         for i, d in enumerate(chosen):
@@ -1515,6 +1509,29 @@ elif st.session_state.step == 2:
 
         st.session_state.domain_templates = dt
 
+        # -------------------------------------------------
+        # DUPLICATE WARNING UI
+        # -------------------------------------------------
+        if st.session_state.get("pending_duplicate_warning"):
+            st.warning("⚠️ У таблиці знайдено дублікати бренду або домену")
+
+            c1, c2 = st.columns(2)
+
+            with c1:
+                if st.button("✅ Все одно запускати", use_container_width=True):
+
+                    st.session_state.pending_duplicate_warning = False
+                    st.session_state.force_start = True
+                    st.rerun()
+
+            with c2:
+                if st.button("❌ Скасувати", use_container_width=True):
+                    st.session_state.pending_duplicate_warning = False
+                    st.rerun()
+
+        # -------------------------------------------------
+        # CHOSEN DOMAINS
+        # -------------------------------------------------
         if chosen:
             for d in chosen:
 
@@ -1579,30 +1596,44 @@ elif st.session_state.step == 2:
         # =====================================================
         # START BUTTON
         # =====================================================
-        if st.button(
+        start_clicked = st.button(
             "🚀 СТВОРИТИ І ДОДАТИ В KEITARO",
             use_container_width=True,
             type="primary",
             disabled=(len(chosen) != k)
-        ):
+        )
+
+        if start_clicked or st.session_state.get("force_start"):
+
+            st.session_state.force_start = False
 
             brand = (st.session_state.get("brand") or "").strip()
             geo_code = st.session_state.get("geo_code") or "UNKNOWN"
             target_lang = st.session_state.get("target_lang") or "en"
 
-            dup_brand_all = []
-            dup_domain_all = []
+            # ---------------------------------------------
+            # CHECK DUPLICATES
+            # ---------------------------------------------
+            if not st.session_state.get("skip_duplicate_check"):
 
-            for d in chosen:
-                dup_brand, dup_domain = find_duplicates(brand, d)
+                found_dup = False
 
-                dup_brand_all.extend(dup_brand)
-                dup_domain_all.extend(dup_domain)
+                for d in chosen:
+                    dup_brand, dup_domain = find_duplicates(brand, d)
 
-            if dup_brand_all or dup_domain_all:
-                st.session_state.pending_duplicate_warning = True
-                st.rerun()
+                    if dup_brand or dup_domain:
+                        found_dup = True
+                        break
 
+                if found_dup:
+                    st.session_state.pending_duplicate_warning = True
+                    st.rerun()
+
+            st.session_state.skip_duplicate_check = False
+
+            # ---------------------------------------------
+            # CREATE SHEET ROWS
+            # ---------------------------------------------
             rows = []
 
             for d in chosen:
@@ -1626,45 +1657,6 @@ elif st.session_state.step == 2:
             st.session_state.currently_generating = True
             st.session_state.favicon_state = "generate"
             st.rerun()
-
-        # =====================================================
-        # DUPLICATE WARNING
-        # =====================================================
-        if st.session_state.get("pending_duplicate_warning"):
-
-            st.warning("⚠️ У таблиці знайдено дублікати бренду або домену")
-
-            if st.button("✅ Все одно запускати", use_container_width=True):
-
-                st.session_state.pending_duplicate_warning = False
-
-                brand = (st.session_state.get("brand") or "").strip()
-                geo_code = st.session_state.get("geo_code") or "UNKNOWN"
-                target_lang = st.session_state.get("target_lang") or "en"
-
-                rows = []
-
-                for d in chosen:
-
-                    tpl = dt.get(d, "template_1")
-                    tpl_label = TEMPLATES[tpl]["label"]
-
-                    row_id = append_launch({
-                        "brand": brand,
-                        "geo": _geo_name(geo_code),
-                        "gl": geo_code.lower(),
-                        "hl": target_lang.split("-")[0],
-                        "domain": d,
-                        "template": tpl_label,
-                        "review": "Так" if st.session_state.generate_review else "Ні"
-                    })
-
-                    rows.append(row_id)
-
-                st.session_state.sheet_rows = rows
-                st.session_state.currently_generating = True
-                st.session_state.favicon_state = "generate"
-                st.rerun()
 
         # =====================================================
         # GENERATION PROCESS
@@ -1695,9 +1687,9 @@ elif st.session_state.step == 2:
                     if d not in dt:
                         dt[d] = "template_1"
 
-                # -------------------------------------------------
+                # ---------------------------------------------
                 # LANG FILES
-                # -------------------------------------------------
+                # ---------------------------------------------
                 status_box.info("🟡 Генерую lang.php...")
                 st.session_state.favicon_state = "generate"
 
@@ -1718,9 +1710,9 @@ elif st.session_state.step == 2:
 
                 progress.progress(0.25)
 
-                # -------------------------------------------------
+                # ---------------------------------------------
                 # ZIP
-                # -------------------------------------------------
+                # ---------------------------------------------
                 status_box.info("🟡 Пакую ZIP...")
                 st.session_state.favicon_state = "zip"
 
@@ -1734,14 +1726,12 @@ elif st.session_state.step == 2:
                 zip_map = {}
 
                 for item in files:
-
                     domain = item["domain"]
                     tpl_id = dt.get(domain, "template_1")
-                    tpl_dir = TEMPLATE_DIRS[tpl_id]
 
                     zip_map[domain] = build_domain_site_zip(
                         domain=domain,
-                        site_template_dir=tpl_dir,
+                        site_template_dir=TEMPLATE_DIRS[tpl_id],
                         lang_php_content=item["content"],
                         target_lang=target_lang,
                         geo_code=geo_code.lower(),
@@ -1750,22 +1740,24 @@ elif st.session_state.step == 2:
 
                 progress.progress(0.45)
 
-                # -------------------------------------------------
+                # ---------------------------------------------
                 # KEITARO
-                # -------------------------------------------------
+                # ---------------------------------------------
                 from core.keitaro import create_multiple_projects
 
                 def live_log(txt):
 
                     if txt == "WAIT_SSL":
+                        status_box.info("🟡 Очікування підняття сайту...")
                         st.session_state.favicon_state = "wait"
 
                         for row_id in st.session_state.sheet_rows:
                             update_status(row_id, "Очікування підняття сайту")
+
                     else:
                         status_box.info(txt)
 
-                status_box.info("🟡 Запускаю Keitaro...")
+                status_box.info("🟡 Створюю кампанії / оффери / домени...")
                 st.session_state.favicon_state = "keitaro"
 
                 for row_id in st.session_state.sheet_rows:
@@ -1775,12 +1767,20 @@ elif st.session_state.step == 2:
                     domains=domains,
                     zip_map=zip_map,
                     callback=live_log,
-                    max_workers=min(5, total)
+                    max_workers=1
                 )
 
                 progress.progress(1.0)
 
                 errors = [x for x in results if x.get("error")]
+
+                # ---------------------------------------------
+                # READY ONLY IF WAIT_SSL HAPPENED
+                # ---------------------------------------------
+                got_ssl_wait = any(
+                    (r.get("status") == "success")
+                    for r in results
+                )
 
                 if errors:
                     status_box.error(f"❌ Є помилки: {len(errors)}")
@@ -1789,12 +1789,20 @@ elif st.session_state.step == 2:
                     for row_id in st.session_state.sheet_rows:
                         update_status(row_id, "Помилка")
 
-                else:
-                    status_box.success("✅ Усі сайти створені!")
+                elif got_ssl_wait:
+
+                    status_box.success("✅ Усі сайти готові!")
                     st.session_state.favicon_state = "success"
 
                     for row_id in st.session_state.sheet_rows:
                         update_status(row_id, "Сайт готовий")
+
+                else:
+                    status_box.warning("🟡 Проєкти створені, очікуємо SSL / домени")
+                    st.session_state.favicon_state = "wait"
+
+                    for row_id in st.session_state.sheet_rows:
+                        update_status(row_id, "Очікування підняття сайту")
 
                 with result_box:
                     for row in results:
@@ -1816,7 +1824,7 @@ elif st.session_state.step == 2:
                 st.rerun()
 
     # =====================================================
-    # RIGHT COLUMN
+    # RIGHT
     # =====================================================
     with right:
 
@@ -1894,10 +1902,7 @@ elif st.session_state.step == 2:
                         st.code(domain, language="text")
 
                     with cols[2]:
-                        st.link_button(
-                            "🔗 Відкрити",
-                            f"https://{domain}"
-                        )
+                        st.link_button("🔗 Відкрити", f"https://{domain}")
 
                     with cols[3]:
                         disabled_pick = is_chosen or (is_full and not is_chosen)
@@ -1911,16 +1916,9 @@ elif st.session_state.step == 2:
 
         elif st.session_state.domain_candidates:
 
-            st.info(
-                "Домени згенеровані. "
-                "Натисни 'Перевірити ще раз', "
-                "щоб побачити статус."
-            )
-
+            st.info("Домени згенеровані. Натисни перевірку ще раз.")
             st.code(
-                "\n".join(
-                    st.session_state.domain_candidates[:80]
-                ),
+                "\n".join(st.session_state.domain_candidates[:80]),
                 language="text"
             )
 
