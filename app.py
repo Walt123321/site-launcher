@@ -1601,7 +1601,7 @@ elif st.session_state.step == 2:
 
             if dup_brand_all or dup_domain_all:
                 st.session_state.pending_duplicate_warning = True
-                st.stop()
+                st.rerun()
 
             rows = []
 
