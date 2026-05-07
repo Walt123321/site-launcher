@@ -21,7 +21,7 @@ def connect_sheet():
 
     client = gspread.authorize(creds)
     sheet = client.open_by_url(
-        "https://docs.google.com/spreadsheets/d/....../edit?pli=1&gid=0#gid=0"
+        st.secrets["google_sheet_url"]
     ).worksheet(SHEET_NAME)
 
     return sheet
