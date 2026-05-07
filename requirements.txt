@@ -8,6 +8,8 @@ rapidfuzz
 asyncwhois
 openai
 Unidecode
-
+gspread
+google-auth
+google-auth-oauthlib
 
 
