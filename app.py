@@ -1716,36 +1716,6 @@ elif st.session_state.step == 2:
                         st.json(row)
                 
                 st.session_state.run_generation = False
-                st.rerun()
-
-                if ready:
-                    favicon = "success"
-                else:
-                    favicon = "error"
-    
-                if log_messages:
-                    st.text_area("Logs", "\n".join(log_messages), height=250)
-
-                    
-                errors = [r for r in results if r.get("error")]
-
-                progress.progress(1.0)
-
-                if errors:
-                    status_box.error(f"❌ Є помилки: {len(errors)}")
-                    st.session_state.favicon_state = "error"
-                else:
-                    st.session_state.favicon_state = "success"
-                    st.rerun()
-                    
-
-                with result_box:
-                    for row in results:
-                        st.markdown(f"### 🌐 {row['domain']}")
-                        st.json(row)
-
-                st.session_state.run_generation = False
-                st.rerun()
 
             except Exception as e:
                 st.session_state.favicon_state = "error"
