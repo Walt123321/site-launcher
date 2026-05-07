@@ -1522,6 +1522,7 @@ elif st.session_state.step == 2:
 
                     st.session_state.pending_duplicate_warning = False
                     st.session_state.force_start = True
+                    st.session_state.skip_duplicate_check = True
                     st.rerun()
 
             with c2:
