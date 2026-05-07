@@ -1484,7 +1484,7 @@ elif st.session_state.step == 2:
     if not st.session_state.get("step2_autocheck_done"):
         st.session_state.step2_autocheck_done = True
         st.session_state.favicon_state = "search"
-        time.sleep(0.1)
+        time.sleep(0.5)
         update_favicon()
 
         with st.spinner("🔎 Автоматично перевіряю домени..."):
@@ -1510,7 +1510,7 @@ elif st.session_state.step == 2:
         st.markdown("### 2.1 Перевірка доступності доменів")
         def run_domain_check():
             st.session_state.favicon_state = "search"
-            time.sleep(0.1)
+            time.sleep(0.5)
             update_favicon()
             step2_check_domains()
             st.session_state.favicon_state = "checked"
