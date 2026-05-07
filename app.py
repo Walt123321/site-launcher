@@ -51,53 +51,6 @@ st.set_page_config(
     layout="wide",
 )
 
-# ✅ ФУНКЦІЯ ДЛЯ ДИНАМІЧНОЇ ЗМІНИ ФАВІКОНКИ
-def update_favicon():
-    """Оновлює фавіконку в реальному часі через JavaScript"""
-    state = st.session_state.get("favicon_state", "idle")
-    
-    icons = {
-        "idle": "🚀",
-        "search": "🔎",
-        "checked": "🌐",
-        "generate": "⚙️",
-        "success": "✅",
-        "error": "❌",
-    }
-    
-    emoji = icons.get(state, "🚀")
-    
-    # Динамічна HTML/JS для оновлення фавіконки
-    html_script = """
-    <script>
-        // Оновлює favicon через data URI
-        const icon = '""" + emoji + """';
-        const canvas = document.createElement('canvas');
-        canvas.width = 64;
-        canvas.height = 64;
-        const ctx = canvas.getContext('2d');
-        
-        // Білий фон
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, 64, 64);
-        
-        // Емодзі в центрі
-        ctx.font = 'bold 40px Arial';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(icon, 32, 32);
-        
-        // Оновлюємо або створюємо favicon
-        const link = document.querySelector("link[rel='icon']") || document.createElement('link');
-        link.rel = 'icon';
-        link.href = canvas.toDataURL();
-        if (!document.querySelector("link[rel='icon']")) {
-            document.head.appendChild(link);
-        }
-    </script>
-    """
-    components.html(html_script, height=0)
-
 GEO_PATH = "core/geo_defaults.json"
 UNKNOWN_GEO_LABEL = "🏳️ Невідомо / Unknown"
 TOTAL_STEPS = 3
@@ -303,6 +256,11 @@ def init_state():
     # ✅ ДОДАЙ ІНІЦІАЛІЗАЦІЮ ФАВІКОНКИ
     st.session_state.setdefault("favicon_state", "idle")
     st.session_state.setdefault("review_generation_error", None)
+    
+    # ✅ ФЛАГИ ДЛЯ ОПЕРАЦІЙ (щоб фавіконка працювала правильно)
+    st.session_state.setdefault("currently_checking_domains", False)  # Перевіркаіконка доменів
+    st.session_state.setdefault("currently_generating", False)        # Генерація сайтів
+    st.session_state.setdefault("currently_creating_keitaro", False)  # Створення в кейтаро
     
 
     st.session_state.setdefault("auto_download_done", False)
@@ -898,7 +856,6 @@ def run_detect():
     st.session_state.detect_details = []
     st.session_state.needs_rerun = True
     st.session_state["favicon_state"] = "search"
-    update_favicon()
 
     domain_candidates = generate_domain_candidates(brand, None)
 
@@ -918,7 +875,6 @@ def run_detect():
     st.session_state.detect_details = details
     st.session_state.needs_rerun = True
     st.session_state["favicon_state"] = "checked"
-    update_favicon()
 
 
 def apply_detect():
@@ -1480,18 +1436,30 @@ if st.session_state.step == 1:
 
 elif st.session_state.step == 2:
     st.subheader("Крок 2 — Домени: генерація → перевірка → вибір + таска на покупку")
-    # --- AUTO: одразу перевіряємо домени при заході на крок 2 (1 раз) ---
+    
+    # ============================================
+    # 1️⃣ ПЕРШИЙ ЗАПУСК: встановлюємо флаг і фавіконку
+    # ============================================
     if not st.session_state.get("step2_autocheck_done"):
         st.session_state.step2_autocheck_done = True
         st.session_state.favicon_state = "search"
-        st.rerun()
-
+        st.session_state.currently_checking_domains = True  # ← ФЛАГ
+        st.rerun()  # ← Браузер бачить 🔎
+    
+    # ============================================
+    # 2️⃣ ДРУГИЙ ЗАПУСК: робимо перевірку
+    # ============================================
+    if st.session_state.get("currently_checking_domains"):
         with st.spinner("🔎 Автоматично перевіряю домени..."):
             step2_check_domains()
-
+        
         st.session_state.favicon_state = "checked"
-        st.rerun()
+        st.session_state.currently_checking_domains = False  # ← Вимикаємо флаг
+        st.rerun()  # ← Браузер бачить ✅
 
+    # ============================================
+    # 3️⃣ ТРЕТІЙ ЗАПУСК: нормальна робота
+    # ============================================
 
     st.session_state.sites_count = st.radio(
         "Скільки сайтів запускаємо?",
@@ -1508,10 +1476,8 @@ elif st.session_state.step == 2:
         st.markdown("### 2.1 Перевірка доступності доменів")
         def run_domain_check():
             st.session_state.favicon_state = "search"
+            st.session_state.currently_checking_domains = True  # ← ФЛАГ
             st.rerun()
-            step2_check_domains()
-            st.session_state.favicon_state = "checked"
-            update_favicon()
 
         st.button(
             "🔁 Перевірити ще раз",
@@ -1519,6 +1485,14 @@ elif st.session_state.step == 2:
             use_container_width=True
         )
         
+        # Якщо натиснули кнопку, тепер робимо операцію
+        if st.session_state.get("currently_checking_domains"):
+            with st.spinner("🔎 Перевіряю домени..."):
+                step2_check_domains()
+            
+            st.session_state.favicon_state = "checked"
+            st.session_state.currently_checking_domains = False
+            st.rerun()
 
         st.divider()
         st.markdown("### 2.2 Вибір доменів")
@@ -1589,12 +1563,14 @@ elif st.session_state.step == 2:
             type="primary",
             disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count))
         ):
-            st.session_state.run_generation = True
             st.session_state.favicon_state = "generate"
-            update_favicon()
+            st.session_state.currently_generating = True  # ← ФЛАГ
             st.rerun()
 
-        if st.session_state.get("run_generation"):
+        # ============================================
+        # Якщо натиснули кнопку, робимо генерацію
+        # ============================================
+        if st.session_state.get("currently_generating"):
 
             # НЕ міняємо оригінальні ключі domain_templates
             domains = list(st.session_state.chosen_domains)
@@ -1627,7 +1603,6 @@ elif st.session_state.step == 2:
                 # LANG.PHP
                 # -------------------------
                 st.session_state.favicon_state = "generate"
-                update_favicon()
                 status_box.info("🟡 Генерую lang.php файли...")
 
                 files = generate_lang_files_multi(
@@ -1660,7 +1635,6 @@ elif st.session_state.step == 2:
                 zip_map = {}
 
                 st.session_state.favicon_state = "zip"
-                update_favicon()
                 status_box.info("🟡 Пакую ZIP архіви...")
 
                 for item in files:
@@ -1690,14 +1664,12 @@ elif st.session_state.step == 2:
                 def live_log(txt):
                     if txt == "WAIT_SSL":
                         st.session_state.favicon_state = "wait"
-                        update_favicon()
                     else:
                         status_box.info(txt)
     
 
 
                 st.session_state.favicon_state = "keitaro"
-                update_favicon()
                 status_box.info("🟡 Запускаю Keitaro...")
 
                 results = create_multiple_projects(
@@ -1714,24 +1686,21 @@ elif st.session_state.step == 2:
                 if errors:
                     status_box.error(f"❌ Є помилки: {len(errors)}")
                     st.session_state.favicon_state = "error"
-                    update_favicon()
                 else:
                     status_box.success("✅ Усі сайти створені!")
                     st.session_state.favicon_state = "success"
-                    update_favicon()
                 
                 with result_box:
                     for row in results:
                         st.markdown(f"### 🌐 {row['domain']}")
                         st.json(row)
                 
-                st.session_state.run_generation = False
+                st.session_state.currently_generating = False  # ← Вимикаємо флаг
 
             except Exception as e:
                 st.session_state.favicon_state = "error"
-                update_favicon()
                 status_box.error(f"❌ Помилка: {str(e)}")
-                st.session_state.run_generation = False
+                st.session_state.currently_generating = False  # ← Вимикаємо флаг
                 st.rerun()
 
 
@@ -1868,10 +1837,25 @@ elif st.session_state.step == 3:
                 and (not st.session_state.get("step3_autogen_done"))
             )
 
-            if should_autogen or st.button("🚀 Згенерувати / Перегенерувати"):
+            # ============================================
+            # КНОПКА / АВТОГЕНЕРАЦІЯ
+            # ============================================
+            if should_autogen:
+                # Автогенерація: встановлюємо флаг
                 st.session_state["step3_autogen_done"] = True
                 st.session_state["favicon_state"] = "generate"
-                update_favicon()
+                st.session_state["currently_generating"] = True
+                st.rerun()
+            elif st.button("🚀 Згенерувати / Перегенерувати"):
+                # Кнопка: встановлюємо флаг
+                st.session_state["favicon_state"] = "generate"
+                st.session_state["currently_generating"] = True
+                st.rerun()
+
+            # ============================================
+            # РОБИМО ГЕНЕРАЦІЮ (якщо флаг встановлений)
+            # ============================================
+            if st.session_state.get("currently_generating"):
                 try:
                     files = generate_lang_files_multi(
                         template1_bytes=open(TEMPLATES["template_1"]["lang"], "rb").read(),
@@ -1891,15 +1875,15 @@ elif st.session_state.step == 3:
 
                     st.session_state["generated_files"] = files
                     st.session_state["favicon_state"] = "success"
-                    update_favicon()
                     status.success("Готово ✅")
                     progress.progress(1.0)
                     st.session_state["auto_download_done"] = False
+                    st.session_state["currently_generating"] = False  # ← Вимикаємо флаг
 
                 except Exception as e:
                     st.session_state["favicon_state"] = "error"
-                    update_favicon()
                     st.error(f"Помилка: {e}")
+                    st.session_state["currently_generating"] = False  # ← Вимикаємо флаг
 
             files = st.session_state.get("generated_files") or []
             if not files:
@@ -1966,7 +1950,6 @@ elif st.session_state.step == 3:
             if should_autogen_review:
                 review_box = st.empty()
                 st.session_state["favicon_state"] = "generate"
-                update_favicon()
             
                 try:
                     review_box.info("⏳ Генерую ревʼю...")
@@ -1995,7 +1978,6 @@ elif st.session_state.step == 3:
                     st.session_state["review_generation_error"] = None
                     st.session_state["step3_review_autogen_done"] = True
                     st.session_state["favicon_state"] = "success"
-                    update_favicon()
             
                     review_box.empty()
                     st.success("Ревʼю згенеровано ✅")
@@ -2005,7 +1987,6 @@ elif st.session_state.step == 3:
                     st.session_state["review_generation_error"] = str(e)
                     st.session_state["step3_review_autogen_done"] = False
                     st.session_state["favicon_state"] = "error"
-                    update_favicon()
                     review_box.error(f"Помилка генерації ревʼю: {e}")
             
             # --- REVIEW UI ---
