@@ -1696,6 +1696,7 @@ elif st.session_state.step == 2:
                         st.json(row)
                 
                 st.session_state.currently_generating = False  # ← Вимикаємо флаг
+                st.rerun()  # ← ДОДАВ! Щоб браузер бачив ✅
 
             except Exception as e:
                 st.session_state.favicon_state = "error"
