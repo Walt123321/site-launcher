@@ -1456,7 +1456,7 @@ elif st.session_state.step == 2:
         st.session_state.favicon_state = "checked"
         st.session_state.currently_checking_domains = False  # ← Вимикаємо флаг
         st.rerun()  # ← Браузер бачить ✅
-
+    
     # ============================================
     # 3️⃣ ТРЕТІЙ ЗАПУСК: нормальна робота
     # ============================================
