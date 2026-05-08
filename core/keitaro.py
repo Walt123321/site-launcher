@@ -1,8 +1,7 @@
 import requests
 import urllib3
 import base64
-import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor
 import streamlit as st
 
 urllib3.disable_warnings()
@@ -25,7 +24,6 @@ HEADERS = {
     "Content-Type": "application/json"
 }
 
-
 # =====================================================
 # HELPERS
 # =====================================================
@@ -47,7 +45,6 @@ def get(url):
         timeout=TIMEOUT,
         verify=False
     )
-
 
 # =====================================================
 # FIND EXISTING
@@ -88,7 +85,6 @@ def find_domain_by_name(domain):
 
     return None
 
-
 # =====================================================
 # OFFER
 # =====================================================
@@ -111,17 +107,23 @@ def create_offer(domain, zip_bytes, callback=None):
     r = post(f"{BASE_URL}/offers", payload)
 
     if r.status_code == 200:
-        return r.json()["id"]
+        oid = r.json()["id"]
+
+        if callback:
+            callback(f"✅ {domain}: offer #{oid}")
+
+        return oid
 
     if r.status_code == 422:
         existing = find_offer_by_name(domain)
+
         if existing:
             if callback:
                 callback(f"♻️ {domain}: offer reused")
+
             return existing
 
     raise Exception(f"OFFER ERROR {r.status_code}: {r.text}")
-
 
 # =====================================================
 # CAMPAIGN
@@ -141,19 +143,22 @@ def create_campaign(domain, callback=None):
 
     if r.status_code == 200:
         cid = r.json()["id"]
+
         if callback:
             callback(f"✅ {domain}: campaign #{cid}")
+
         return cid
 
     if r.status_code == 422:
         existing = find_campaign_by_name(domain)
+
         if existing:
             if callback:
                 callback(f"♻️ {domain}: campaign reused")
+
             return existing
 
     raise Exception(f"CAMPAIGN ERROR {r.status_code}: {r.text}")
-
 
 # =====================================================
 # FLOW
@@ -191,7 +196,6 @@ def create_flow(domain, campaign_id, offer_id, callback=None):
 
     return fid
 
-
 # =====================================================
 # DOMAIN
 # =====================================================
@@ -211,10 +215,7 @@ def create_domain(domain, campaign_id, callback=None):
     if r.status_code == 200:
         data = r.json()
 
-        if isinstance(data, list):
-            did = data[0]["id"]
-        else:
-            did = data["id"]
+        did = data[0]["id"] if isinstance(data, list) else data["id"]
 
         if callback:
             callback(f"✅ {domain}: domain #{did}")
@@ -223,70 +224,20 @@ def create_domain(domain, campaign_id, callback=None):
 
     if r.status_code == 422:
         existing = find_domain_by_name(domain)
+
         if existing:
             if callback:
                 callback(f"♻️ {domain}: domain reused")
+
             return existing
 
     raise Exception(f"DOMAIN ERROR {r.status_code}: {r.text}")
-
-
-# =====================================================
-# HTTPS CHECK
-# =====================================================
-
-def check_https(domain, callback=None, max_checks=600):
-    url = f"https://{domain}"
-
-    for i in range(max_checks):
-
-        try:
-            r = requests.get(
-                url,
-                timeout=30,
-                verify=False,
-                allow_redirects=True
-            )
-
-            html = r.text.lower()
-
-            code_ok = r.status_code == 200
-
-            breadcrumb_ok = (
-                "breadcrumblist" in html
-                and "application/ld+json" in html
-            )
-
-            if code_ok and breadcrumb_ok:
-                if callback:
-                    callback(f"✅ {domain}: FULL READY")
-                return True, True
-
-            if code_ok:
-                if callback:
-                    callback(f"🟡 {domain}: waiting breadcrumbs")
-
-            else:
-                if callback:
-                    callback(f"🟡 {domain}: waiting HTTPS")
-
-        except Exception:
-            if callback:
-                callback(f"🟡 {domain}: DNS / SSL pending")
-
-        time.sleep(30)
-
-    if callback:
-        callback(f"⚠️ {domain}: timeout")
-
-    return False, False
-
 
 # =====================================================
 # PROJECT
 # =====================================================
 
-def prepare_project(domain, zip_bytes, callback=None):
+def create_full_project(domain, zip_bytes, callback=None):
 
     if callback:
         callback(f"🚀 {domain}: START")
@@ -301,70 +252,18 @@ def prepare_project(domain, zip_bytes, callback=None):
         "offer_id": offer_id,
         "campaign_id": campaign_id,
         "flow_id": flow_id,
-        "domain_id": domain_id
+        "domain_id": domain_id,
+        "status": "success"
     }
-
-
-def finalize_project(project, callback=None):
-
-    if callback:
-        callback("WAIT_SSL")
-
-    https_ok, breadcrumb_ok = check_https(
-        project["domain"],
-        callback
-    )
-
-    project["https"] = https_ok
-    project["breadcrumb"] = breadcrumb_ok
-
-    return project
-
-
-def create_full_project(domain, zip_bytes, callback=None):
-    p = prepare_project(domain, zip_bytes, callback)
-    return finalize_project(p, callback)
-
 
 # =====================================================
 # MULTI
 # =====================================================
 
-def create_multiple_projects(domains, zip_map, callback=None, max_workers=3):
+def create_multiple_projects(domains, zip_map, callback=None, max_workers=1):
 
     results = []
 
-    # -------------------------------------------------
-    # SINGLE
-    # -------------------------------------------------
-    if len(domains) == 1:
-
-        domain = domains[0]
-
-        try:
-            return [
-                create_full_project(
-                    domain,
-                    zip_map[domain],
-                    callback
-                )
-            ]
-
-        except Exception as e:
-            return [{
-                "domain": domain,
-                "error": str(e)
-            }]
-
-    # -------------------------------------------------
-    # MULTI STAGE 1
-    # -------------------------------------------------
-    prepared = []
-
-    if callback:
-        callback("🚀 Stage 1: Keitaro create")
-
-    # sequential safer than threads for Keitaro
     for domain in domains:
 
         try:
@@ -375,48 +274,18 @@ def create_multiple_projects(domains, zip_map, callback=None, max_workers=3):
                 })
                 continue
 
-            obj = prepare_project(
+            result = create_full_project(
                 domain,
                 zip_map[domain],
                 callback
             )
 
-            prepared.append(obj)
+            results.append(result)
 
         except Exception as e:
             results.append({
                 "domain": domain,
                 "error": str(e)
             })
-
-    # -------------------------------------------------
-    # MULTI STAGE 2
-    # -------------------------------------------------
-    if callback:
-        callback("🌐 Stage 2: SSL waiting")
-
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-
-        futures = {
-            executor.submit(
-                finalize_project,
-                p,
-                callback
-            ): p["domain"]
-            for p in prepared
-        }
-
-        for future in as_completed(futures):
-
-            domain = futures[future]
-
-            try:
-                results.append(future.result())
-
-            except Exception as e:
-                results.append({
-                    "domain": domain,
-                    "error": str(e)
-                })
 
     return results
