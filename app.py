@@ -1478,7 +1478,7 @@ elif st.session_state.step == 2:
     left, right = st.columns([2, 3])
 
     # =====================================================
-    # LEFT
+    # LEFT COLUMN
     # =====================================================
     with left:
 
@@ -1500,7 +1500,9 @@ elif st.session_state.step == 2:
         st.markdown("### 2.2 Вибір доменів")
         st.write(f"Обери **{k}** домен(и). Обрано: **{len(chosen)}/{k}**")
 
-        # templates
+        # =====================================================
+        # TEMPLATES
+        # =====================================================
         dt = st.session_state.get("domain_templates") or {}
 
         for i, d in enumerate(chosen):
@@ -1509,17 +1511,17 @@ elif st.session_state.step == 2:
 
         st.session_state.domain_templates = dt
 
-        # -------------------------------------------------
-        # DUPLICATE WARNING UI
-        # -------------------------------------------------
+        # =====================================================
+        # DUPLICATE WARNING
+        # =====================================================
         if st.session_state.get("pending_duplicate_warning"):
+
             st.warning("⚠️ У таблиці знайдено дублікати бренду або домену")
 
             c1, c2 = st.columns(2)
 
             with c1:
                 if st.button("✅ Все одно запускати", use_container_width=True):
-
                     st.session_state.pending_duplicate_warning = False
                     st.session_state.force_start = True
                     st.session_state.skip_duplicate_check = True
@@ -1530,14 +1532,15 @@ elif st.session_state.step == 2:
                     st.session_state.pending_duplicate_warning = False
                     st.rerun()
 
-        # -------------------------------------------------
+        # =====================================================
         # CHOSEN DOMAINS
-        # -------------------------------------------------
+        # =====================================================
         if chosen:
+
             for d in chosen:
 
                 tpl = dt.get(d, "template_1")
-                favicon_path = TEMPLATES.get(tpl, TEMPLATES["template_1"]).get("favicon")
+                favicon_path = TEMPLATES[tpl]["favicon"]
 
                 c1, c2, c3, c4 = st.columns([0.7, 3.2, 2.4, 0.8])
 
@@ -1612,9 +1615,9 @@ elif st.session_state.step == 2:
             geo_code = st.session_state.get("geo_code") or "UNKNOWN"
             target_lang = st.session_state.get("target_lang") or "en"
 
-            # ---------------------------------------------
+            # -------------------------------------------------
             # CHECK DUPLICATES
-            # ---------------------------------------------
+            # -------------------------------------------------
             if not st.session_state.get("skip_duplicate_check"):
 
                 found_dup = False
@@ -1632,9 +1635,9 @@ elif st.session_state.step == 2:
 
             st.session_state.skip_duplicate_check = False
 
-            # ---------------------------------------------
+            # -------------------------------------------------
             # CREATE SHEET ROWS
-            # ---------------------------------------------
+            # -------------------------------------------------
             rows = []
 
             for d in chosen:
@@ -1665,7 +1668,6 @@ elif st.session_state.step == 2:
         if st.session_state.get("currently_generating"):
 
             domains = list(st.session_state.chosen_domains)
-            total = len(domains)
 
             progress = st.progress(0)
             status_box = st.empty()
@@ -1684,13 +1686,9 @@ elif st.session_state.step == 2:
 
                 dt = dict(st.session_state.get("domain_templates", {}))
 
-                for d in domains:
-                    if d not in dt:
-                        dt[d] = "template_1"
-
-                # ---------------------------------------------
+                # -------------------------------------------------
                 # LANG FILES
-                # ---------------------------------------------
+                # -------------------------------------------------
                 status_box.info("🟡 Генерую lang.php...")
                 st.session_state.favicon_state = "generate"
 
@@ -1709,11 +1707,11 @@ elif st.session_state.step == 2:
                     geo_defaults=geo,
                 )
 
-                progress.progress(0.25)
+                progress.progress(0.30)
 
-                # ---------------------------------------------
+                # -------------------------------------------------
                 # ZIP
-                # ---------------------------------------------
+                # -------------------------------------------------
                 status_box.info("🟡 Пакую ZIP...")
                 st.session_state.favicon_state = "zip"
 
@@ -1739,26 +1737,17 @@ elif st.session_state.step == 2:
                         brand=brand
                     )
 
-                progress.progress(0.45)
+                progress.progress(0.55)
 
-                # ---------------------------------------------
-                # KEITARO
-                # ---------------------------------------------
+                # -------------------------------------------------
+                # KEITARO ONLY
+                # -------------------------------------------------
                 from core.keitaro import create_multiple_projects
 
                 def live_log(txt):
+                    status_box.info(txt)
 
-                    if txt == "WAIT_SSL":
-                        status_box.info("🟡 Очікування підняття сайту...")
-                        st.session_state.favicon_state = "wait"
-
-                        for row_id in st.session_state.sheet_rows:
-                            update_status(row_id, "Очікування підняття сайту")
-
-                    else:
-                        status_box.info(txt)
-
-                status_box.info("🟡 Створюю кампанії / оффери / домени...")
+                status_box.info("🟡 Створюю в Keitaro...")
                 st.session_state.favicon_state = "keitaro"
 
                 for row_id in st.session_state.sheet_rows:
@@ -1775,35 +1764,21 @@ elif st.session_state.step == 2:
 
                 errors = [x for x in results if x.get("error")]
 
-                # ---------------------------------------------
-                # READY ONLY IF WAIT_SSL HAPPENED
-                # ---------------------------------------------
-                got_ssl_wait = any(
-                    (r.get("status") == "success")
-                    for r in results
-                )
-
                 if errors:
+
                     status_box.error(f"❌ Є помилки: {len(errors)}")
                     st.session_state.favicon_state = "error"
 
                     for row_id in st.session_state.sheet_rows:
                         update_status(row_id, "Помилка")
 
-                elif got_ssl_wait:
+                else:
 
-                    status_box.success("✅ Усі сайти готові!")
+                    status_box.success("✅ Усі проєкти створені!")
                     st.session_state.favicon_state = "success"
 
                     for row_id in st.session_state.sheet_rows:
-                        update_status(row_id, "Сайт готовий")
-
-                else:
-                    status_box.warning("🟡 Проєкти створені, очікуємо SSL / домени")
-                    st.session_state.favicon_state = "wait"
-
-                    for row_id in st.session_state.sheet_rows:
-                        update_status(row_id, "Очікування підняття сайту")
+                        update_status(row_id, "Очікує покупку домену")
 
                 with result_box:
                     for row in results:
@@ -1825,7 +1800,7 @@ elif st.session_state.step == 2:
                 st.rerun()
 
     # =====================================================
-    # RIGHT
+    # RIGHT COLUMN
     # =====================================================
     with right:
 
@@ -1893,9 +1868,6 @@ elif st.session_state.step == 2:
                         star = " ⭐ Рекомендую" if domain == recommended else ""
                         st.markdown(f"**{badge}** — `{domain}`{star}")
 
-                        if domain == recommended:
-                            st.caption("⭐ Найкращий доступний варіант")
-
                         if reason:
                             st.caption(reason)
 
@@ -1906,12 +1878,10 @@ elif st.session_state.step == 2:
                         st.link_button("🔗 Відкрити", f"https://{domain}")
 
                     with cols[3]:
-                        disabled_pick = is_chosen or (is_full and not is_chosen)
-
                         st.button(
                             "✅ Обрано" if is_chosen else "➕ Обрати",
                             key=f"pick_{domain}",
-                            disabled=disabled_pick,
+                            disabled=is_chosen or (is_full and not is_chosen),
                             on_click=lambda d=domain: add_domain(d)
                         )
 
@@ -1925,7 +1895,6 @@ elif st.session_state.step == 2:
 
         else:
             st.info("Натисни 'Перевірити домени'.")
-
 # ---------------------------
 # STEP 3
 # ---------------------------
