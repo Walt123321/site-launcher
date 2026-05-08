@@ -1778,7 +1778,7 @@ elif st.session_state.step == 2:
                     st.session_state.favicon_state = "success"
 
                     for row_id in st.session_state.sheet_rows:
-                        update_status(row_id, "Очікує покупку домену")
+                        update_status(row_id, "Очікування підняття сайту")
 
                 with result_box:
                     for row in results:
