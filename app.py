@@ -1587,16 +1587,6 @@ elif st.session_state.step == 2:
 
         st.checkbox("Сформувати ревʼю", key="generate_review")
 
-        st.button(
-            "➡️ Далі до Кроку 3",
-            type="primary",
-            use_container_width=True,
-            disabled=(len(chosen) != k),
-            on_click=step2_continue
-        )
-
-        st.markdown("---")
-
         # =====================================================
         # START BUTTON
         # =====================================================
@@ -1798,6 +1788,17 @@ elif st.session_state.step == 2:
 
                 st.session_state.currently_generating = False
                 st.rerun()
+
+
+        st.button(
+            "➡️ Далі до Кроку 3",
+            use_container_width=True,
+            disabled=(len(chosen) != k),
+            on_click=step2_continue
+        )
+
+        st.markdown("---")
+
 
     # =====================================================
     # RIGHT COLUMN
