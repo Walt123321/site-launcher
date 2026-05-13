@@ -332,7 +332,7 @@ def detect_geo_lang(
     preferred_geo_order: List[str],
     domain_candidates: List[str],
     search_limit: int = 10,
-    probe_limit: int = 24,
+    probe_limit: int = 30,
 ) -> Tuple[Optional[str], Optional[str], str, List[ProbeResult]]:
     """
     Returns:
