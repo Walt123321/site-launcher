@@ -871,7 +871,7 @@ def run_detect():
         preferred_geo_order=TOP_GEO_ORDER,
         domain_candidates=domain_candidates,
         search_limit=10,
-        probe_limit=12
+        probe_limit=24
     )
 
     st.session_state.detect_status = "done"
