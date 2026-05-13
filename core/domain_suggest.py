@@ -36,13 +36,35 @@ def _forms(words: List[str]) -> Tuple[str, str]:
 
 def generate_domain_candidates(brand: str, ccTLD: Optional[str]) -> List[str]:
     """
-    Патерни генерації доменів:
-    1 слово:
-      brand.com, brand.net, brand.org, brand.<ccTLD>, brand-<ccTLD>.com
-    2 слова:
-      concat/hyphen + ті самі
-    + новий набір TLD: .online, .site, .info, .cfd, .website
-    + додаткові варіанти з translit/slugify якщо бренд не латинкою
+    🔥 ПОВНА генерація УСІХ варіантів доменів
+
+    Генерує:
+    1️⃣  concat-форма: булькантай (для .com, .net, .org, .io, .pro, .online, .site, .info, .cfd, .website, .app)
+    2️⃣  hyphen-форма: булк-кант-ай (для .com, .net, .org, .io, .pro, .online, .site, .info, .cfd, .website, .app)
+    3️⃣  官方варіанти (concat-official.com, hyphen-official.com)
+    4️⃣  Географічні (якщо ccTLD указаний)
+    
+    Приклад (BulkQuant AI + ccTLD=ua):
+    ✅ bulkquantai.com
+    ✅ bulkquantai.net
+    ✅ bulkquantai.org
+    ✅ bulkquantai.io
+    ✅ bulkquantai.pro
+    ✅ bulkquantai.online
+    ✅ bulkquantai.site
+    ✅ bulkquantai.info
+    ✅ bulkquantai.cfd
+    ✅ bulkquantai.website
+    ✅ bulkquantai.app
+    ✅ bulk-quant-ai.com
+    ✅ bulk-quant-ai.net
+    ... (усі TLD для гіфену)
+    ✅ bulkquantai-official.com
+    ✅ bulk-quant-ai-official.com
+    ✅ bulkquantai.ua
+    ✅ bulk-quant-ai.ua
+    ✅ bulkquantai-ua.com
+    ✅ bulk-quant-ai-ua.com
     """
     words = _split_brand_words(brand)
     base_raw_concat, base_raw_hyph = _forms(words)
@@ -56,7 +78,7 @@ def generate_domain_candidates(brand: str, ccTLD: Optional[str]) -> List[str]:
     if not base_hyph:
         base_hyph = base_concat
 
-    # 🆕 Розширений список TLD (все одразу перевіримо паралельно)
+    # 🆕 УСІХ TLD (повна генерація)
     tlds = ["com", "net", "org", "io", "pro", "online", "site", "info", "cfd", "website", "app"]
     out = []
 
@@ -64,21 +86,30 @@ def generate_domain_candidates(brand: str, ccTLD: Optional[str]) -> List[str]:
         if s and s not in out:
             out.append(s)
 
-    # Основні варіанти з усіма TLD
+    # ===== ФАЗА 1: ОСНОВНІ (concat + hyphen) + ВСІ TLD =====
     for b in [base_concat, base_hyph]:
         for t in tlds:
             add(f"{b}.{t}")
 
-    # --- official варіанти ---
+    # ===== ФАЗА 2: OFFICIAL =====
     for b in [base_concat, base_hyph]:
         add(f"{b}-official.com")
 
-    # --- географічні варіанти ---
+    # ===== ФАЗА 3: ГЕОГРАФІЧНІ (якщо ccTLD) =====
     if ccTLD:
-        add(f"{base_concat}.{ccTLD}")
-        add(f"{base_hyph}.{ccTLD}")
-        # geo in sld
-        add(f"{base_concat}-{ccTLD}.com")
-        add(f"{base_hyph}-{ccTLD}.com")
+        ccTLD_lower = ccTLD.lower().strip(".")
+        
+        # Базові + ccTLD
+        add(f"{base_concat}.{ccTLD_lower}")
+        add(f"{base_hyph}.{ccTLD_lower}")
+        
+        # geo in sld (brand-ua.com)
+        add(f"{base_concat}-{ccTLD_lower}.com")
+        add(f"{base_hyph}-{ccTLD_lower}.com")
+        
+        # geo in sld для інших базових TLD
+        for t in ["net", "org"]:
+            add(f"{base_concat}-{ccTLD_lower}.{t}")
+            add(f"{base_hyph}-{ccTLD_lower}.{t}")
 
     return out
