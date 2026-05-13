@@ -36,11 +36,12 @@ def _forms(words: List[str]) -> Tuple[str, str]:
 
 def generate_domain_candidates(brand: str, ccTLD: Optional[str]) -> List[str]:
     """
-    Патерни як ти казав:
+    Патерни генерації доменів:
     1 слово:
       brand.com, brand.net, brand.org, brand.<ccTLD>, brand-<ccTLD>.com
     2 слова:
       concat/hyphen + ті самі
+    + новий набір TLD: .online, .site, .info, .cfd, .website
     + додаткові варіанти з translit/slugify якщо бренд не латинкою
     """
     words = _split_brand_words(brand)
@@ -55,13 +56,15 @@ def generate_domain_candidates(brand: str, ccTLD: Optional[str]) -> List[str]:
     if not base_hyph:
         base_hyph = base_concat
 
-    tlds = ["com", "net", "org", "io", "pro"]
+    # 🆕 Розширений список TLD (все одразу перевіримо паралельно)
+    tlds = ["com", "net", "org", "io", "pro", "online", "site", "info", "cfd", "website", "app"]
     out = []
 
     def add(s: str):
         if s and s not in out:
             out.append(s)
 
+    # Основні варіанти з усіма TLD
     for b in [base_concat, base_hyph]:
         for t in tlds:
             add(f"{b}.{t}")
@@ -70,15 +73,12 @@ def generate_domain_candidates(brand: str, ccTLD: Optional[str]) -> List[str]:
     for b in [base_concat, base_hyph]:
         add(f"{b}-official.com")
 
+    # --- географічні варіанти ---
     if ccTLD:
         add(f"{base_concat}.{ccTLD}")
         add(f"{base_hyph}.{ccTLD}")
         # geo in sld
         add(f"{base_concat}-{ccTLD}.com")
         add(f"{base_hyph}-{ccTLD}.com")
-
-    # трішки бонусних загальних
-    for t in ["info", "site", "app"]:
-        add(f"{base_concat}.{t}")
 
     return out
