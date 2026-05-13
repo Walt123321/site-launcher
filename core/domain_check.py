@@ -14,6 +14,14 @@ HARDCODED_RDAP = {
     "org": ["https://rdap.publicinterestregistry.org/rdap/domain/"],
     "info": ["https://rdap.afilias.net/rdap/domain/"],
     "biz": ["https://rdap.nic.biz/domain/"],
+    # 🆕 Нові TLD
+    "online": ["https://rdap.nic.online/domain/"],
+    "site": ["https://rdap.nic.site/domain/"],
+    "cfd": ["https://rdap.nic.cfd/domain/"],
+    "website": ["https://rdap.nic.website/domain/"],
+    "io": ["https://rdap.nic.io/domain/"],
+    "pro": ["https://rdap.nic.pro/domain/"],
+    "app": ["https://rdap.nic.app/domain/"],
 }
 
 
@@ -108,26 +116,25 @@ def check_domains_rdap(
     domains: List[str],
     timeout: float = 6.0,
     max_workers: int = 10,
-    stop_after_free: int = 5,
-    priority_count: int = 10,  # 🔥 нове
+    stop_after_free: int = None,
+    check_all: bool = True,
 ) -> List[Dict]:
     """
-    🔥 ШВИДКА перевірка доменів
+    🔥 ШВИДКА перевірка ВСІХ доменів паралельно
 
-    ✔ паралельна
-    ✔ гарантує перевірку топ-доменів (priority)
-    ✔ early stop тільки для другорядних
+    ✔ перевіряє ВСІ домени
+    ✔ паралельна обробка (10+ потоків)
+    ✔ швидко завдяки ThreadPoolExecutor
 
     Args:
         domains: список доменів
-        timeout: timeout HTTP
-        max_workers: кількість потоків
-        stop_after_free: зупинка після N вільних
-        priority_count: скільки перших доменів перевірити ОБОВʼЯЗКОВО
+        timeout: timeout HTTP (сек)
+        max_workers: кількість потоків (за замовч. 10)
+        stop_after_free: ігнорується, все для совіміст.
+        check_all: якщо True — перевіряє ВСІ, якщо False — старий режим
     """
 
     results: List[Dict] = []
-    free_count = 0
 
     clean_domains = [
         d.strip().lower()
@@ -138,44 +145,15 @@ def check_domains_rdap(
     if not clean_domains:
         return results
 
-    # 🔥 Розбиваємо
-    priority = clean_domains[:priority_count]
-    rest = clean_domains[priority_count:]
-
-    # =========================
-    # 🔴 PHASE 1: PRIORITY
-    # =========================
+    # 🔥 Паралельна обробка ВСІХ доменів одночасно
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = [
-            executor.submit(_check_one_domain, d, timeout)
-            for d in priority
-        ]
+        futures = {
+            executor.submit(_check_one_domain, d, timeout): d
+            for d in clean_domains
+        }
 
         for future in as_completed(futures):
             res = future.result()
             results.append(res)
-
-            if res["status"] == "free":
-                free_count += 1
-
-    # =========================
-    # 🔴 PHASE 2: REST + EARLY STOP
-    # =========================
-    if rest:
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {
-                executor.submit(_check_one_domain, d, timeout): d
-                for d in rest
-            }
-
-            for future in as_completed(futures):
-                res = future.result()
-                results.append(res)
-
-                if res["status"] == "free":
-                    free_count += 1
-
-                if free_count >= stop_after_free:
-                    break
 
     return results
