@@ -1003,7 +1003,7 @@ def step2_check_domains():
     if not st.session_state.domain_candidates:
         step2_generate_candidates()
 
-    #checks = check_domains_rdap(st.session_state.domain_candidates[:80])
+    checks = check_domains_rdap(st.session_state.domain_candidates[:80])
 
     # сортуємо: free першими
     checks_sorted = _sort_domain_checks(
