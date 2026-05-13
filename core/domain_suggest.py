@@ -30,6 +30,16 @@ def _split_brand_words(brand: str) -> List[str]:
     return [brand.lower()]
 
 
+def _forms(words: List[str]) -> Tuple[str, str]:
+    """Генерує concat та hyphen форми з списку слів"""
+    if not words:
+        return "", ""
+    if len(words) == 1:
+        w = words[0]
+        return w, w
+    return "".join(words), "-".join(words)
+
+
 def _get_all_possible_forms(brand: str) -> List[Tuple[str, str]]:
     """
     Генерує ВСІ можливі форми для бренду.
