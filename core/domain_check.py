@@ -14,15 +14,13 @@ HARDCODED_RDAP = {
     "org": ["https://rdap.publicinterestregistry.org/rdap/domain/"],
     "info": ["https://rdap.afilias.net/rdap/domain/"],
     "biz": ["https://rdap.nic.biz/domain/"],
-    # 🆕 Нові TLD
-    "online": ["https://rdap.nic.online/domain/"],
-    "site": ["https://rdap.nic.site/domain/"],
-    "cfd": ["https://rdap.nic.cfd/domain/"],
-    "website": ["https://rdap.nic.website/domain/"],
     "io": ["https://rdap.nic.io/domain/"],
     "pro": ["https://rdap.nic.pro/domain/"],
     "app": ["https://rdap.nic.app/domain/"],
+    # 🔴 ВИДАЛЕНО: online, site, cfd, website — вони не мають працюючих RDAP!
+    # Використовуватимуть fallback https://rdap.org/domain/
 }
+
 
 
 def _tld(domain: str) -> str:
