@@ -679,10 +679,17 @@ def _build_tsv_row(brand: str, geo_code: str, lang_code: str, domains: list[str]
     """
 
     brand = (brand or "").strip()
-    geo_name = _geo_name(geo_code or "UNKNOWN")
-
-    # GL (geo) — типу cz
-    gl = (geo_code or "").lower()
+    
+    # Перевіряємо, чи це мультигео режим
+    geo_normalized = (geo_code or "").upper().strip()
+    is_multi_geo = (geo_normalized == "UNKNOWN" or not geo_code)
+    
+    if is_multi_geo:
+        geo_name = "Мультигео"
+        gl = "gb"  # Дефолтний код для мультигео
+    else:
+        geo_name = _geo_name(geo_code or "UNKNOWN")
+        gl = (geo_code or "").lower()
 
     # HL (lang) — типу cs
     hl = (lang_code or "").split("-")[0].lower()
