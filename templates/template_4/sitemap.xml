@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
     <url>
         <loc>https://{{DOMAIN}}/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
     </url>
-
     <url> 
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
     </url>
-
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
     </url>
-
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
     </url>
-
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
     </url>
-
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
     </url>
-
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
     </url>
-
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
     </url>
 </urlset>
