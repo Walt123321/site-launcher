@@ -342,8 +342,14 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
     if app_price and app_currency:
         content = re.sub(r"\$currency\s*=\s*'.*?';", f"$currency = '{app_price}{app_currency}';", content)
 
-    # Якщо geo_code = "UNKNOWN" → мультигео режим
-    if geo_code == "UNKNOWN" or not geo_code:
+    # Перевіряємо, чи це мультигео режим (невідоме гео)
+    geo_normalized = (geo_code or "").upper().strip()
+    is_multi_geo = (geo_normalized == "UNKNOWN" or not geo_code)
+    
+    if is_multi_geo:
+        # ============================================
+        # МУЛЬТИГЕО РЕЖИМ (невідоме гео)
+        # ============================================
         # $form_country = '' (порожньо)
         content = re.sub(
             r"\$form_country\s*=\s*'.*?';",
@@ -358,7 +364,7 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
             content
         )
         
-        # $form_language = підставляємо тільки мову
+        # $form_language = підставляємо тільки мову (без дефісу)
         base_lang = (target_lang or "en").split("-")[0].split("_")[0]
         content = re.sub(
             r"\$form_language\s*=\s*'.*?';",
@@ -373,7 +379,9 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
             content
         )
     else:
-        # Звичайний режим з конкретною країною
+        # ============================================
+        # ЗВИЧАЙНИЙ РЕЖИМ (конкретна країна)
+        # ============================================
         geo_lower = (geo_code or "").lower()
 
         content = re.sub(
