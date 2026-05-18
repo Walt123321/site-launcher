@@ -342,35 +342,66 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
     if app_price and app_currency:
         content = re.sub(r"\$currency\s*=\s*'.*?';", f"$currency = '{app_price}{app_currency}';", content)
 
-    # $form_country / $form_phone_country
-    geo_lower = (geo_code or "").lower()
+    # Якщо geo_code = "UNKNOWN" → мультигео режим
+    if geo_code == "UNKNOWN" or not geo_code:
+        # $form_country = '' (порожньо)
+        content = re.sub(
+            r"\$form_country\s*=\s*'.*?';",
+            f"$form_country = '';",
+            content
+        )
+        
+        # $form_phone_country = 'auto' (автоопределение)
+        content = re.sub(
+            r"\$form_phone_country\s*=\s*'.*?';",
+            f"$form_phone_country = 'auto';",
+            content
+        )
+        
+        # $form_language = підставляємо тільки мову
+        base_lang = (target_lang or "en").split("-")[0].split("_")[0]
+        content = re.sub(
+            r"\$form_language\s*=\s*'.*?';",
+            f"$form_language = '{base_lang}';",
+            content,
+        )
+        
+        # $form_only_countries = json_encode([]) (порожній масив)
+        content = re.sub(
+            r"\$form_only_countries\s*=\s*json_encode\(\[.*?\]\);",
+            f'$form_only_countries = json_encode([]);',
+            content
+        )
+    else:
+        # Звичайний режим з конкретною країною
+        geo_lower = (geo_code or "").lower()
 
-    content = re.sub(
-        r"\$form_country\s*=\s*'.*?';",
-        f"$form_country = '{geo_lower}';",
-        content
-    )
+        content = re.sub(
+            r"\$form_country\s*=\s*'.*?';",
+            f"$form_country = '{geo_lower}';",
+            content
+        )
 
-    content = re.sub(
-        r"\$form_phone_country\s*=\s*'.*?';",
-        f"$form_phone_country = '{geo_lower}';",
-        content
-    )
+        content = re.sub(
+            r"\$form_phone_country\s*=\s*'.*?';",
+            f"$form_phone_country = '{geo_lower}';",
+            content
+        )
 
-    # $form_language
-    base_lang = (target_lang or "").split("-")[0].split("_")[0]
-    content = re.sub(
-        r"\$form_language\s*=\s*'.*?';",
-        f"$form_language = '{base_lang}';",
-        content,
-    )
+        # $form_language
+        base_lang = (target_lang or "").split("-")[0].split("_")[0]
+        content = re.sub(
+            r"\$form_language\s*=\s*'.*?';",
+            f"$form_language = '{base_lang}';",
+            content,
+        )
 
-    # $form_only_countries
-    content = re.sub(
-        r"\$form_only_countries\s*=\s*json_encode\(\[.*?\]\);",
-        f'$form_only_countries = json_encode(["{geo_lower}"]);',
-        content
-    )
+        # $form_only_countries
+        content = re.sub(
+            r"\$form_only_countries\s*=\s*json_encode\(\[.*?\]\);",
+            f'$form_only_countries = json_encode(["{geo_lower}"]);',
+            content
+        )
 
     # $form_is_autologin не чіпаємо
     return content
