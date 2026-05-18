@@ -338,13 +338,18 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
     # $source
     content = re.sub(r'\$source\s*=\s*".*?";', f'$source = "{brand}";', content)
 
-    # $currency = '250EUR'  <- з lang.php ($app_price + $app_currency)
-    if app_price and app_currency:
-        content = re.sub(r"\$currency\s*=\s*'.*?';", f"$currency = '{app_price}{app_currency}';", content)
-
     # Перевіряємо, чи це мультигео режим (невідоме гео)
     geo_normalized = (geo_code or "").upper().strip()
     is_multi_geo = (geo_normalized == "UNKNOWN" or not geo_code)
+    
+    # $currency = '250EUR'  <- з lang.php ($app_price + $app_currency)
+    # Для мультигео використовуємо дефолтне 250EUR
+    if is_multi_geo:
+        # Мультигео: дефолтна валюта 250EUR
+        content = re.sub(r"\$currency\s*=\s*'.*?';", f"$currency = '250EUR';", content)
+    elif app_price and app_currency:
+        # Звичайний режим: використовуємо передану валюту
+        content = re.sub(r"\$currency\s*=\s*'.*?';", f"$currency = '{app_price}{app_currency}';", content)
     
     if is_multi_geo:
         # ============================================
