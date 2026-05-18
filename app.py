@@ -308,17 +308,31 @@ def clipboard_button(text: str, label: str, key: str):
         height=44,
     )
 
-def _render_placeholders(text: str, domain: str, target_lang: str) -> str:
-    # {{DOMAIN}}, {{SITE_URL}}, {{LANG}}, {{LASTMOD}}
-
+def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Optional[str] = None, app_currency: Optional[str] = None) -> str:
+    """
+    Підставляє плейсхолдери:
+    {{DOMAIN}} → домен
+    {{SITE_URL}} → https://домен
+    {{LANG}} → мова (en, cs, тощо)
+    {{LASTMOD}} → поточна дата (YYYY-MM-DD)
+    {{CURRENCY}} → валюта (250EUR)
+    """
     from datetime import datetime
-    lastmod = datetime.now().strftime("%Y-%m-%d")  # Формат: 2025-05-18
+    
+    lastmod = datetime.now().strftime("%Y-%m-%d")
+    
+    # Формуємо currency
+    if app_price and app_currency:
+        currency = f"{app_price}{app_currency}"
+    else:
+        currency = "250EUR"  # Дефолт для мультигео
     
     return (
         text.replace("{{DOMAIN}}", domain)
             .replace("{{SITE_URL}}", f"https://{domain}")
             .replace("{{LANG}}", target_lang)
             .replace("{{LASTMOD}}", lastmod)
+            .replace("{{CURRENCY}}", currency)
     )
 
 def extract_lang_vars(lang_php: str) -> dict:
@@ -436,8 +450,9 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
                 content
             )
     else:
-        # Якщо $currency взагалі немає в файлі, додаємо в кінець
-        content = content.rstrip() + "\n$currency = '250EUR'; // Fallback валюта\n"
+        # Якщо $currency взагалі немає в файлі, додаємо ПЕРЕД ?>
+        # Знаходимо ?> і додаємо строку перед нею
+        content = content.replace("?>", "$currency = '250EUR'; // Fallback валюта\n?>")
     
     return content
 
@@ -490,7 +505,7 @@ def build_domain_site_zip(
                 # 3) robots.txt / sitemap.xml (та інші текстові) — плейсхолдери домену/мови
                 elif p.suffix.lower() in TEXT_EXTS:
                     raw_text = raw_bytes.decode("utf-8", errors="replace")
-                    rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang)
+                    rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency)
                     out_bytes = rendered.encode("utf-8")
 
                 else:
@@ -544,7 +559,7 @@ def build_all_sites_zip(
 
                     elif p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
-                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang)
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency)
                         out_bytes = rendered.encode("utf-8")
 
                     else:
@@ -608,7 +623,7 @@ def build_all_sites_zip_multi(
                         out_bytes = patched.encode("utf-8")
                     elif p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
-                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang)
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency)
                         out_bytes = rendered.encode("utf-8")
                     else:
                         out_bytes = raw_bytes
