@@ -309,15 +309,11 @@ def clipboard_button(text: str, label: str, key: str):
     )
 
 def _render_placeholders(text: str, domain: str, target_lang: str) -> str:
-    # {{DOMAIN}}, {{SITE_URL}}, {{LANG}}, {{LASTMOD}}
-    from datetime import datetime
-    lastmod = datetime.now().strftime("%Y-%m-%d")
-    
+    # {{DOMAIN}}, {{SITE_URL}}, {{LANG}}
     return (
         text.replace("{{DOMAIN}}", domain)
             .replace("{{SITE_URL}}", f"https://{domain}")
             .replace("{{LANG}}", target_lang)
-            .replace("{{LASTMOD}}", lastmod)
     )
 
 def extract_lang_vars(lang_php: str) -> dict:
@@ -421,6 +417,23 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
         )
 
     # $form_is_autologin не чіпаємо
+    
+    # ============================================
+    # FALLBACK: гарантуємо що $currency присутня
+    # ============================================
+    # Якщо regex не спрацював і $currency все ще не замінена, додаємо дефолтну
+    if "$currency" in content:
+        # Перевіримо чи $currency = '' (порожня)
+        if "$currency = ''" in content or '$currency = ""' in content:
+            content = re.sub(
+                r"\$currency\s*=\s*['\"]?['\"];",
+                "$currency = '250EUR';",
+                content
+            )
+    else:
+        # Якщо $currency взагалі немає в файлі, додаємо в кінець
+        content = content.rstrip() + "\n$currency = '250EUR'; // Fallback валюта\n"
+    
     return content
 
 def build_domain_site_zip(
