@@ -309,11 +309,16 @@ def clipboard_button(text: str, label: str, key: str):
     )
 
 def _render_placeholders(text: str, domain: str, target_lang: str) -> str:
-    # {{DOMAIN}}, {{SITE_URL}}, {{LANG}}
+    # {{DOMAIN}}, {{SITE_URL}}, {{LANG}}, {{LASTMOD}}
+
+    from datetime import datetime
+    lastmod = datetime.now().strftime("%Y-%m-%d")  # Формат: 2025-05-18
+    
     return (
         text.replace("{{DOMAIN}}", domain)
             .replace("{{SITE_URL}}", f"https://{domain}")
             .replace("{{LANG}}", target_lang)
+            .replace("{{LASTMOD}}", lastmod)
     )
 
 def extract_lang_vars(lang_php: str) -> dict:
