@@ -27,6 +27,7 @@ $canonical = 'https://' . $host . $uri;
 ?>
 
 <link rel="canonical" href="<?= htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8'); ?>" />
+<meta name="msvalidate.01" content="688C28A9085E183027B817E185356A11" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
