@@ -85,6 +85,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 </script>
 
 
+  <meta name="msvalidate.01" content="688C28A9085E183027B817E185356A11" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="canonical" href="<?= htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8'); ?>" />
