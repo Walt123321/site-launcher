@@ -19,6 +19,11 @@
 
 <link rel="canonical" href="<?= $canonical ?>">
 
+
+<meta property="og:site_name" content="<?= $site_name ?>">
+
+
+
 </head>
 
 <body>
