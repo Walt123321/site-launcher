@@ -1733,7 +1733,7 @@ def generate_lang_files(
                 raise RuntimeError(f"TEMPLATE_4 FAILED: {e}")
 
 
-        # -------------------------
+# -------------------------
         # TEMPLATE 5
         # -------------------------
         elif template_kind == "template_5":
@@ -1748,7 +1748,8 @@ def generate_lang_files(
                 # --- BASIC VARS ---
                 price = _make_price(geo_currency)
         
-                content = _set_php_var(content, "site_name", "$source", numeric=False)
+                # ФІКС: Замість "$source" тепер передаємо реальний brand, який приходить з інтерфейсу
+                content = _set_php_var(content, "site_name", brand, numeric=False)
                 content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
                 content = _set_php_var(content, "site_domain", domain, numeric=False)
                 content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
@@ -1795,16 +1796,29 @@ def generate_lang_files(
                 # ❗ initials більше НЕ використовуємо
         
                 # =========================
-                # TRANSLATION
+                # TRANSLATION WITH CONTEXT
                 # =========================
+                # Формуємо залізобетонні правила локалізації для цього шаблону
+                custom_instructions = (
+                    f"Context & Rules for this specific translation task:\n"
+                    f"- The brand name is '{brand}'. It must stay as '{brand}' everywhere.\n"
+                    f"- Treat short uppercase terms like 'LIVE', 'COMMUNITY', 'GET STARTED WITH', 'KNOWLEDGE BASE' "
+                    f"as translatable text. Do NOT leave them in English. Translate them into natural {target_lang} (e.g. НАЖИВО, СПІЛЬНОТА).\n"
+                    f"- Critical: All testimonials/user reviews ($home_review_1_text, etc.) MUST be strictly "
+                    f"translated using MASCULINE (MALE) grammatical forms (e.g., in Ukrainian/Russian: 'я чув', 'я шукав', 'наважився', 'вражений').\n"
+                    f"- Avoid literal translations for technical phrases: 'AI Core Operational' -> 'ШІ-ядро активне', 'AI Signal Engine' -> 'Аналітичний центр ШІ'."
+                )
+
                 if progress_cb:
-                    progress_cb((idx - 1) / total + 0.7 / total, f"Translating...")
+                    progress_cb((idx - 1) / total + 0.7 / total, f"Translating (Pass 1)...")
         
                 strings, spans = _extract_strings(content)
         
                 if strings:
+                    # Додаємо інструкції додатковим параметром, якщо твоя функція це підтримує, 
+                    # або вбудовуємо контекст прямо в запит до LLM всередині функції.
                     outs = _llm_transform_strings_onepass(
-                        client, model, strings, target_lang, geo_code
+                        client, model, strings, target_lang, geo_code, instructions=custom_instructions
                     )
                     content = _apply_strings(content, spans, outs)
         
@@ -1812,14 +1826,15 @@ def generate_lang_files(
                 strings, spans = _extract_strings(content)
         
                 if strings:
+                    if progress_cb:
+                        progress_cb((idx - 1) / total + 0.9 / total, f"Translating (Pass 2)...")
                     outs = _llm_transform_strings_onepass(
-                        client, model, strings, target_lang, geo_code
+                        client, model, strings, target_lang, geo_code, instructions=custom_instructions
                     )
                     content = _apply_strings(content, spans, outs)
         
             except Exception as e:
                 raise RuntimeError(f"TEMPLATE_5 FAILED: {e}")
-
 
         # -------------------------
         # TEMPLATE 2 (fixed flow)
