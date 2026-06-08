@@ -173,7 +173,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                             </div>
 
                             <div class="hero-signal-badge" id="heroSignalBadge">
-                                <?= $home_signal_long ?>
+                                LONG
                             </div>
 
                         </div>
@@ -427,7 +427,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                         </div>
 
                         <div class="signal-badge neutral">
-                            <?= $home_signal_watch ?>
+                            WATCH
                         </div>
 
                     </div>
@@ -496,7 +496,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                         </div>
 
                         <div class="signal-badge sell">
-                            <?= $home_signal_short ?>
+                            SHORT
                         </div>
 
                     </div>
