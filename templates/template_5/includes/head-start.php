@@ -6,7 +6,7 @@ if (empty($lang_loaded)) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= $site_lang; ?>">
 <head>
 
     <meta charset="UTF-8">
