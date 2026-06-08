@@ -1,6 +1,6 @@
 <?php
 // MANUAL
-$site_name = "Maxima Ultra";
+$site_name = "Test";
 $app_price = 250;
 $site_domain = "{{DOMAIN}}";
 $site_url = "https://$site_domain";
