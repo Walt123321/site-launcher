@@ -123,9 +123,6 @@ $home_label_buyer_activity = "Buyer Activity";
 $home_label_market_activity = "Market Activity";
 $home_label_risk_level = "Risk Level";
 $home_label_updated = "Updated";
-$home_signal_long = "LONG";
-$home_signal_short = "SHORT";
-$home_signal_watch = "WATCH";
 $home_label_live = "LIVE";
 $home_label_live_analysis = "LIVE ANALYSIS";
 
