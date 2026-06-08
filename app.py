@@ -12,39 +12,40 @@ import zipfile
 from pathlib import Path
 from typing import Optional
 from core.review_pipeline import generate_review
-
-
-
-
+from core.keitaro import create_full_project
 from core.options import build_geo_labels, build_language_labels, bcp47_from, TOP_GEO_ORDER
 from core.geo_detect import detect_geo_lang
 from core.domain_suggest import generate_domain_candidates
 from core.domain_check import check_domains_rdap
 from core.lang_pipeline import generate_lang_files_multi
+from core.google_sheet import (
+    find_duplicates,
+    append_launch,
+    update_status
+)
+
+
+
+
+if "favicon_state" not in st.session_state:
+    st.session_state.favicon_state = "idle"
 
 
 # ---- Page config (must be before any st.* calls) ----
 
 def _get_favicon():
-    # Page icon in the browser tab (cheap status indicator).
-    step = int(st.session_state.get("step", 1))
-    domains_checked = bool(st.session_state.get("domains_checked_done"))
-    archives_ready = bool(st.session_state.get("archives_ready"))
-    has_files = bool(st.session_state.get("generated_files"))
+    state = st.session_state.get("favicon_state", "idle")
 
-    # Step 2: show planet ONLY after all domains were checked
-    if step == 2:
-        return "🌐" if domains_checked else "🔎"
+    icons = {
+        "idle": "🚀",
+        "search": "🔎",
+        "checked": "🌐",
+        "generate": "⚙️",
+        "success": "✅",
+        "error": "❌",
+    }
 
-    # Step 3: show check ONLY after archives were built
-    if step == 3:
-        if archives_ready:
-            return "✅"
-        if has_files:
-            return "📦"
-        return "⚙️"
-
-    return "🚀"
+    return icons.get(state, "🚀")
 
 
 _brand_for_title = (st.session_state.get("brand") or "").strip()
@@ -263,17 +264,23 @@ def init_state():
     st.session_state.setdefault("generate_review", False)
     st.session_state.setdefault("generated_review", None)
     st.session_state.setdefault("step3_review_autogen_done", False)
+    
+    # ✅ ДОДАЙ ІНІЦІАЛІЗАЦІЮ ФАВІКОНКИ
+    st.session_state.setdefault("favicon_state", "idle")
     st.session_state.setdefault("review_generation_error", None)
+    
+    # ✅ ФЛАГИ ДЛЯ ОПЕРАЦІЙ (щоб фавіконка працювала правильно)
+    st.session_state.setdefault("currently_checking_domains", False)  # Перевіркаіконка доменів
+    st.session_state.setdefault("currently_generating", False)        # Генерація сайтів
+    st.session_state.setdefault("currently_creating_keitaro", False)  # Створення в кейтаро
     
 
     st.session_state.setdefault("auto_download_done", False)
 
 
 def reset_all():
-    # ВАЖЛИВО: кнопка reset натискається після того, як віджети сайдбару вже створені.
-    # Тому не можна "м'яко" присвоювати значення widget-key'ам в цьому ж ререндері.
-    # Робимо повне очищення і НЕ продовжуємо поточний ререндер — одразу rerun.
     st.session_state.clear()
+    st.rerun()
 
 
 
@@ -307,12 +314,31 @@ def clipboard_button(text: str, label: str, key: str):
         height=44,
     )
 
-def _render_placeholders(text: str, domain: str, target_lang: str) -> str:
-    # {{DOMAIN}}, {{SITE_URL}}, {{LANG}}
+def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Optional[str] = None, app_currency: Optional[str] = None) -> str:
+    """
+    Підставляє плейсхолдери:
+    {{DOMAIN}} → домен
+    {{SITE_URL}} → https://домен
+    {{LANG}} → мова (en, cs, тощо)
+    {{LASTMOD}} → поточна дата (YYYY-MM-DD)
+    {{CURRENCY}} → валюта (250EUR)
+    """
+    from datetime import datetime
+    
+    lastmod = datetime.now().strftime("%Y-%m-%d")
+    
+    # Формуємо currency
+    if app_price and app_currency:
+        currency = f"{app_price}{app_currency}"
+    else:
+        currency = "250EUR"  # Дефолт для мультигео
+    
     return (
         text.replace("{{DOMAIN}}", domain)
             .replace("{{SITE_URL}}", f"https://{domain}")
             .replace("{{LANG}}", target_lang)
+            .replace("{{LASTMOD}}", lastmod)
+            .replace("{{CURRENCY}}", currency)
     )
 
 def extract_lang_vars(lang_php: str) -> dict:
@@ -337,41 +363,103 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
     # $source
     content = re.sub(r'\$source\s*=\s*".*?";', f'$source = "{brand}";', content)
 
+    # Перевіряємо, чи це мультигео режим (невідоме гео)
+    geo_normalized = (geo_code or "").upper().strip()
+    is_multi_geo = (geo_normalized == "UNKNOWN" or not geo_code)
+    
     # $currency = '250EUR'  <- з lang.php ($app_price + $app_currency)
-    if app_price and app_currency:
+    # Для мультигео використовуємо дефолтне 250EUR
+    if is_multi_geo:
+        # Мультигео: дефолтна валюта 250EUR
+        content = re.sub(r"\$currency\s*=\s*'.*?';", f"$currency = '250EUR';", content)
+    elif app_price and app_currency:
+        # Звичайний режим: використовуємо передану валюту
         content = re.sub(r"\$currency\s*=\s*'.*?';", f"$currency = '{app_price}{app_currency}';", content)
+    
+    if is_multi_geo:
+        # ============================================
+        # МУЛЬТИГЕО РЕЖИМ (невідоме гео)
+        # ============================================
+        # $form_country = '' (порожньо)
+        content = re.sub(
+            r"\$form_country\s*=\s*'.*?';",
+            f"$form_country = '';",
+            content
+        )
+        
+        # $form_phone_country = 'auto' (автоопределение)
+        content = re.sub(
+            r"\$form_phone_country\s*=\s*'.*?';",
+            f"$form_phone_country = 'auto';",
+            content
+        )
+        
+        # $form_language = підставляємо тільки мову (без дефісу)
+        base_lang = (target_lang or "en").split("-")[0].split("_")[0]
+        content = re.sub(
+            r"\$form_language\s*=\s*'.*?';",
+            f"$form_language = '{base_lang}';",
+            content,
+        )
+        
+        # $form_only_countries = json_encode([]) (порожній масив)
+        content = re.sub(
+            r"\$form_only_countries\s*=\s*json_encode\(\[.*?\]\);",
+            f'$form_only_countries = json_encode([]);',
+            content
+        )
+    else:
+        # ============================================
+        # ЗВИЧАЙНИЙ РЕЖИМ (конкретна країна)
+        # ============================================
+        geo_lower = (geo_code or "").lower()
 
-    # $form_country / $form_phone_country
-    geo_lower = (geo_code or "").lower()
+        content = re.sub(
+            r"\$form_country\s*=\s*'.*?';",
+            f"$form_country = '{geo_lower}';",
+            content
+        )
 
-    content = re.sub(
-        r"\$form_country\s*=\s*'.*?';",
-        f"$form_country = '{geo_lower}';",
-        content
-    )
+        content = re.sub(
+            r"\$form_phone_country\s*=\s*'.*?';",
+            f"$form_phone_country = '{geo_lower}';",
+            content
+        )
 
-    content = re.sub(
-        r"\$form_phone_country\s*=\s*'.*?';",
-        f"$form_phone_country = '{geo_lower}';",
-        content
-    )
+        # $form_language
+        base_lang = (target_lang or "").split("-")[0].split("_")[0]
+        content = re.sub(
+            r"\$form_language\s*=\s*'.*?';",
+            f"$form_language = '{base_lang}';",
+            content,
+        )
 
-    # $form_language
-    base_lang = (target_lang or "").split("-")[0].split("_")[0]
-    content = re.sub(
-        r"\$form_language\s*=\s*'.*?';",
-        f"$form_language = '{base_lang}';",
-        content,
-    )
-
-    # $form_only_countries
-    content = re.sub(
-        r"\$form_only_countries\s*=\s*json_encode\(\[.*?\]\);",
-        f'$form_only_countries = json_encode(["{geo_lower}"]);',
-        content
-    )
+        # $form_only_countries
+        content = re.sub(
+            r"\$form_only_countries\s*=\s*json_encode\(\[.*?\]\);",
+            f'$form_only_countries = json_encode(["{geo_lower}"]);',
+            content
+        )
 
     # $form_is_autologin не чіпаємо
+    
+    # ============================================
+    # FALLBACK: гарантуємо що $currency присутня
+    # ============================================
+    # Якщо regex не спрацював і $currency все ще не замінена, додаємо дефолтну
+    if "$currency" in content:
+        # Перевіримо чи $currency = '' (порожня)
+        if "$currency = ''" in content or '$currency = ""' in content:
+            content = re.sub(
+                r"\$currency\s*=\s*['\"]?['\"];",
+                "$currency = '250EUR';",
+                content
+            )
+    else:
+        # Якщо $currency взагалі немає в файлі, додаємо ПЕРЕД ?>
+        # Знаходимо ?> і додаємо строку перед нею
+        content = content.replace("?>", "$currency = '250EUR'; // Fallback валюта\n?>")
+    
     return content
 
 def build_domain_site_zip(
@@ -423,7 +511,7 @@ def build_domain_site_zip(
                 # 3) robots.txt / sitemap.xml (та інші текстові) — плейсхолдери домену/мови
                 elif p.suffix.lower() in TEXT_EXTS:
                     raw_text = raw_bytes.decode("utf-8", errors="replace")
-                    rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang)
+                    rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency)
                     out_bytes = rendered.encode("utf-8")
 
                 else:
@@ -477,7 +565,7 @@ def build_all_sites_zip(
 
                     elif p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
-                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang)
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency)
                         out_bytes = rendered.encode("utf-8")
 
                     else:
@@ -541,7 +629,7 @@ def build_all_sites_zip_multi(
                         out_bytes = patched.encode("utf-8")
                     elif p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
-                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang)
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency)
                         out_bytes = rendered.encode("utf-8")
                     else:
                         out_bytes = raw_bytes
@@ -634,10 +722,17 @@ def _build_tsv_row(brand: str, geo_code: str, lang_code: str, domains: list[str]
     """
 
     brand = (brand or "").strip()
-    geo_name = _geo_name(geo_code or "UNKNOWN")
-
-    # GL (geo) — типу cz
-    gl = (geo_code or "").lower()
+    
+    # Перевіряємо, чи це мультигео режим
+    geo_normalized = (geo_code or "").upper().strip()
+    is_multi_geo = (geo_normalized == "UNKNOWN" or not geo_code)
+    
+    if is_multi_geo:
+        geo_name = "Мультигео"
+        gl = "gb"  # Дефолтний код для мультигео
+    else:
+        geo_name = _geo_name(geo_code or "UNKNOWN")
+        gl = (geo_code or "").lower()
 
     # HL (lang) — типу cs
     hl = (lang_code or "").split("-")[0].lower()
@@ -860,6 +955,7 @@ def run_detect():
     st.session_state.detect_lang = None
     st.session_state.detect_details = []
     st.session_state.needs_rerun = True
+    st.session_state["favicon_state"] = "search"
 
     domain_candidates = generate_domain_candidates(brand, None)
 
@@ -869,7 +965,7 @@ def run_detect():
         preferred_geo_order=TOP_GEO_ORDER,
         domain_candidates=domain_candidates,
         search_limit=10,
-        probe_limit=12
+        probe_limit=30
     )
 
     st.session_state.detect_status = "done"
@@ -878,6 +974,7 @@ def run_detect():
     st.session_state.detect_lang = lang_guess
     st.session_state.detect_details = details
     st.session_state.needs_rerun = True
+    st.session_state["favicon_state"] = "checked"
 
 
 def apply_detect():
@@ -1436,17 +1533,32 @@ if st.session_state.step == 1:
 # STEP 2
 # ---------------------------
 
-
 elif st.session_state.step == 2:
     st.subheader("Крок 2 — Домени: генерація → перевірка → вибір + таска на покупку")
-    # --- AUTO: одразу перевіряємо домени при заході на крок 2 (1 раз) ---
+
+    # =====================================================
+    # AUTO CHECK FIRST OPEN
+    # =====================================================
     if not st.session_state.get("step2_autocheck_done"):
         st.session_state.step2_autocheck_done = True
-        with st.spinner("🔎 Автоматично перевіряю домени…"):
-            step2_check_domains()
+        st.session_state.currently_checking_domains = True
+        st.session_state.favicon_state = "search"
         st.rerun()
 
+    # =====================================================
+    # DOMAIN CHECK
+    # =====================================================
+    if st.session_state.get("currently_checking_domains"):
+        with st.spinner("🔎 Перевіряю домени..."):
+            step2_check_domains()
 
+        st.session_state.currently_checking_domains = False
+        st.session_state.favicon_state = "checked"
+        st.rerun()
+
+    # =====================================================
+    # SETTINGS
+    # =====================================================
     st.session_state.sites_count = st.radio(
         "Скільки сайтів запускаємо?",
         [1, 2, 3, 4, 5],
@@ -1454,112 +1566,385 @@ elif st.session_state.step == 2:
         horizontal=True
     )
 
+    chosen = list(st.session_state.chosen_domains)
+    k = int(st.session_state.sites_count)
+
     left, right = st.columns([2, 3])
 
-    
-    
+    # =====================================================
+    # LEFT COLUMN
+    # =====================================================
     with left:
+
         st.markdown("### 2.1 Перевірка доступності доменів")
-        st.button("🔁 Перевірити ще раз", on_click=step2_check_domains, use_container_width=True)
+
+        def rerun_check():
+            st.session_state.currently_checking_domains = True
+            st.session_state.favicon_state = "search"
+            st.rerun()
+
+        st.button(
+            "🔁 Перевірити ще раз",
+            on_click=rerun_check,
+            use_container_width=True
+        )
 
         st.divider()
-        st.markdown("### 2.2 Вибір доменів")
-        k = int(st.session_state.sites_count)
-        chosen = st.session_state.chosen_domains
 
+        st.markdown("### 2.2 Вибір доменів")
         st.write(f"Обери **{k}** домен(и). Обрано: **{len(chosen)}/{k}**")
 
-        
-
-    
-        # --- Template selection lives HERE (Step 2) ---
+        # =====================================================
+        # TEMPLATES
+        # =====================================================
         dt = st.session_state.get("domain_templates") or {}
-        # ensure defaults exist for already chosen domains (alternating 1,2,1...)
-        for i_d, d in enumerate(chosen):
+
+        for i, d in enumerate(chosen):
             if d not in dt:
-                dt[d] = "template_1" if (i_d % 2 == 0) else "template_2"
-        st.session_state["domain_templates"] = dt
+                dt[d] = "template_1" if i % 2 == 0 else "template_4"
 
+        st.session_state.domain_templates = dt
+
+        # =====================================================
+        # DUPLICATE WARNING
+        # =====================================================
+        if st.session_state.get("pending_duplicate_warning"):
+
+            st.warning("⚠️ У таблиці знайдено дублікати бренду або домену")
+
+            c1, c2 = st.columns(2)
+
+            with c1:
+                if st.button("✅ Все одно запускати", use_container_width=True):
+                    st.session_state.pending_duplicate_warning = False
+                    st.session_state.force_start = True
+                    st.session_state.skip_duplicate_check = True
+                    st.rerun()
+
+            with c2:
+                if st.button("❌ Скасувати", use_container_width=True):
+                    st.session_state.pending_duplicate_warning = False
+                    st.rerun()
+
+        # =====================================================
+        # CHOSEN DOMAINS
+        # =====================================================
         if chosen:
-            for d in chosen:
-                tpl = dt.get(d, "template_1")
-                favicon_path = TEMPLATES.get(tpl, TEMPLATES["template_1"]).get("favicon")
 
-                c_fav, c_dom, c_tpl, c_rm = st.columns([0.6, 3.2, 2.4, 0.8], gap="small")
-                with c_fav:
+            for d in chosen:
+
+                tpl = dt.get(d, "template_1")
+                favicon_path = TEMPLATES[tpl]["favicon"]
+
+                c1, c2, c3, c4 = st.columns([0.7, 3.2, 2.4, 0.8])
+
+                with c1:
                     if os.path.exists(favicon_path):
                         st.image(favicon_path, width=22)
                     else:
                         st.write("🧩")
-                with c_dom:
+
+                with c2:
                     st.code(d, language="text")
-                with c_tpl:
-                    # quick per-domain selector
+
+                with c3:
                     new_tpl = st.selectbox(
                         " ",
                         options=list(TEMPLATES.keys()),
-                        index=list(TEMPLATES.keys()).index(tpl) if tpl in TEMPLATES else 0,
-                        format_func=lambda x: f"{TEMPLATES[x]['label']}",
+                        index=list(TEMPLATES.keys()).index(tpl),
+                        format_func=lambda x: TEMPLATES[x]["label"],
                         key=f"tpl_{d}",
-                        label_visibility="collapsed",
+                        label_visibility="collapsed"
                     )
+
                     if new_tpl != tpl:
                         dt[d] = new_tpl
-                        st.session_state["domain_templates"] = dt
-                with c_rm:
-                    st.button("🗑️", key=f"rm_{d}", on_click=lambda dd=d: remove_domain(dd), help="Прибрати домен")
+                        st.session_state.domain_templates = dt
+
+                with c4:
+                    st.button(
+                        "🗑️",
+                        key=f"rm_{d}",
+                        on_click=lambda dd=d: remove_domain(dd)
+                    )
+
         else:
             st.info("Поки нічого не обрано.")
 
-        st.button("🧹 Очистити вибір", on_click=clear_domains, use_container_width=True)
+        st.button(
+            "🧹 Очистити вибір",
+            on_click=clear_domains,
+            use_container_width=True
+        )
+
         st.divider()
+
         st.checkbox("Сформувати ревʼю", key="generate_review")
+
+        # =====================================================
+        # START BUTTON
+        # =====================================================
+        start_clicked = st.button(
+            "🚀 СТВОРИТИ І ДОДАТИ В KEITARO",
+            use_container_width=True,
+            type="primary",
+            disabled=(len(chosen) != k)
+        )
+
+        if start_clicked or st.session_state.get("force_start"):
+
+            st.session_state.force_start = False
+
+            brand = (st.session_state.get("brand") or "").strip()
+            geo_code = st.session_state.get("geo_code") or "UNKNOWN"
+            target_lang = st.session_state.get("target_lang") or "en"
+
+            # -------------------------------------------------
+            # CHECK DUPLICATES
+            # -------------------------------------------------
+            if not st.session_state.get("skip_duplicate_check"):
+
+                found_dup = False
+
+                for d in chosen:
+                    dup_brand, dup_domain = find_duplicates(brand, d)
+
+                    if dup_brand or dup_domain:
+                        found_dup = True
+                        break
+
+                if found_dup:
+                    st.session_state.pending_duplicate_warning = True
+                    st.rerun()
+
+            st.session_state.skip_duplicate_check = False
+
+            # -------------------------------------------------
+            # CREATE SHEET ROWS
+            # -------------------------------------------------
+            rows = []
+
+            for d in chosen:
+
+                tpl = dt.get(d, "template_1")
+                tpl_label = TEMPLATES[tpl]["label"]
+
+                row_id = append_launch({
+                    "brand": brand,
+                    "geo": _geo_name(geo_code),
+                    "gl": geo_code.lower(),
+                    "hl": target_lang.split("-")[0],
+                    "domain": d,
+                    "template": tpl_label,
+                    "review": "Так" if st.session_state.generate_review else "Ні"
+                })
+
+                rows.append(row_id)
+
+            st.session_state.sheet_rows = rows
+            st.session_state.currently_generating = True
+            st.session_state.favicon_state = "generate"
+            st.rerun()
+
+        # =====================================================
+        # GENERATION PROCESS
+        # =====================================================
+        if st.session_state.get("currently_generating"):
+
+            domains = list(st.session_state.chosen_domains)
+
+            progress = st.progress(0)
+            status_box = st.empty()
+            result_box = st.container()
+
+            try:
+                brand = (st.session_state.get("brand") or "").strip()
+                geo_code = st.session_state.get("geo_code") or "UNKNOWN"
+                target_lang = st.session_state.get("target_lang") or "en"
+
+                geo_currency = "EUR"
+                if geo_code in geo:
+                    geo_currency = geo[geo_code].get("currency", "EUR")
+
+                MODEL = "gpt-5-mini"
+
+                dt = dict(st.session_state.get("domain_templates", {}))
+
+                # -------------------------------------------------
+                # LANG FILES
+                # -------------------------------------------------
+                status_box.info("🟡 Генерую lang.php...")
+                st.session_state.favicon_state = "generate"
+
+                files = generate_lang_files_multi(
+                    template1_bytes=open(TEMPLATES["template_1"]["lang"], "rb").read(),
+                    template2_bytes=open(TEMPLATES["template_2"]["lang"], "rb").read(),
+                    template3_bytes=open(TEMPLATES["template_3"]["lang"], "rb").read(),
+                    template4_bytes=open(TEMPLATES["template_4"]["lang"], "rb").read(),
+                    template5_bytes=open(TEMPLATES["template_5"]["lang"], "rb").read(),
+                    domain_templates=dt,
+                    geo_code=geo_code,
+                    geo_currency=geo_currency,
+                    target_lang=target_lang,
+                    domains=domains,
+                    brand=brand,
+                    model=MODEL,
+                    geo_defaults=geo,
+                )
+
+                progress.progress(0.30)
+
+                # -------------------------------------------------
+                # ZIP
+                # -------------------------------------------------
+                status_box.info("🟡 Пакую ZIP...")
+                st.session_state.favicon_state = "zip"
+
+                TEMPLATE_DIRS = {
+                    "template_1": "templates/template_1-1",
+                    "template_2": "templates/template_2",
+                    "template_3": "templates/template_3",
+                    "template_4": "templates/template_4",
+                    "template_5": "templates/template_5",
+                }
+
+                zip_map = {}
+
+                for item in files:
+                    domain = item["domain"]
+                    tpl_id = dt.get(domain, "template_1")
+
+                    zip_map[domain] = build_domain_site_zip(
+                        domain=domain,
+                        site_template_dir=TEMPLATE_DIRS[tpl_id],
+                        lang_php_content=item["content"],
+                        target_lang=target_lang,
+                        geo_code=geo_code.lower(),
+                        brand=brand
+                    )
+
+                progress.progress(0.55)
+
+                # -------------------------------------------------
+                # KEITARO ONLY
+                # -------------------------------------------------
+                from core.keitaro import create_multiple_projects
+
+                def live_log(txt):
+                    status_box.info(txt)
+
+                status_box.info("🟡 Створюю в Keitaro...")
+                st.session_state.favicon_state = "keitaro"
+
+                for row_id in st.session_state.sheet_rows:
+                    update_status(row_id, "Додається в Keitaro")
+
+                results = create_multiple_projects(
+                    domains=domains,
+                    zip_map=zip_map,
+                    callback=live_log,
+                    max_workers=1
+                )
+
+                progress.progress(1.0)
+
+                errors = [x for x in results if x.get("error")]
+
+                if errors:
+
+                    status_box.error(f"❌ Є помилки: {len(errors)}")
+                    st.session_state.favicon_state = "error"
+
+                    for row_id in st.session_state.sheet_rows:
+                        update_status(row_id, "Помилка")
+
+                else:
+
+                    status_box.success("✅ Усі проєкти створені!")
+                    st.session_state.favicon_state = "success"
+
+                    for row_id in st.session_state.sheet_rows:
+                        update_status(row_id, "Очікування підняття сайту")
+
+                with result_box:
+                    for row in results:
+                        st.markdown(f"### 🌐 {row['domain']}")
+                        st.json(row)
+
+                st.session_state.currently_generating = False
+                st.rerun()
+
+            except Exception as e:
+
+                status_box.error(f"❌ Помилка: {str(e)}")
+                st.session_state.favicon_state = "error"
+
+                for row_id in st.session_state.get("sheet_rows", []):
+                    update_status(row_id, "Помилка")
+
+                st.session_state.currently_generating = False
+                st.rerun()
+
 
         st.button(
             "➡️ Далі до Кроку 3",
-            type="primary",
-            disabled=(len(st.session_state.chosen_domains) != int(st.session_state.sites_count)),
             use_container_width=True,
-            on_click=step2_continue,
+            disabled=(len(chosen) != k),
+            on_click=step2_continue
         )
 
+        st.markdown("---")
 
+
+    # =====================================================
+    # RIGHT COLUMN
+    # =====================================================
     with right:
+
         st.markdown("### Список доменів")
         st.markdown("### ➕ Додати домен вручну")
-        
+
         c1, c2 = st.columns([3, 1])
+
         with c1:
             st.text_input(
                 " ",
                 key="manual_domain_input",
                 placeholder="example.com",
-                label_visibility="collapsed",
+                label_visibility="collapsed"
             )
+
         with c2:
-            st.button("Додати", on_click=add_manual_domain, use_container_width=True)
-        
+            st.button(
+                "Додати",
+                on_click=add_manual_domain,
+                use_container_width=True
+            )
+
         st.divider()
 
-        st.caption(f"Кандидатів: {len(st.session_state.domain_candidates)} | Перевірено: {len(st.session_state.domain_checks)}")
+        st.caption(
+            f"Кандидатів: {len(st.session_state.domain_candidates)} | "
+            f"Перевірено: {len(st.session_state.domain_checks)}"
+        )
 
-        # 1) якщо є checks — показуємо checks (free зверху, зелені)
         if st.session_state.domain_checks:
-            # ⭐ Знаходимо рекомендований домен: перший "free" у відсортованому списку
+
             recommended = None
+
             for r in st.session_state.domain_checks:
                 if (r.get("status") or "").lower() == "free":
-                    recommended = r.get("domain", "")
+                    recommended = r["domain"]
                     break
 
             for row in st.session_state.domain_checks[:120]:
+
                 domain = row.get("domain", "")
-                status = row.get("status", "unknown")  # free|taken|unknown
+                status = row.get("status", "unknown")
                 reason = row.get("reason", "")
 
-                is_chosen = domain in st.session_state.chosen_domains
-                k = int(st.session_state.sites_count)
-                is_full = len(st.session_state.chosen_domains) >= k
+                is_chosen = domain in chosen
+                is_full = len(chosen) >= k
 
                 if status == "free":
                     badge = "🟩 Вільний"
@@ -1570,39 +1955,43 @@ elif st.session_state.step == 2:
                 else:
                     badge = "🟨 Невідомо"
 
-
                 box = st.container(border=True)
+
                 with box:
-                    top = st.columns([3, 1, 1, 1])
-                    with top[0]:
-                        star = " ⭐ Рекомендую" if (recommended and domain == recommended) else ""
+
+                    cols = st.columns([3, 1, 1, 1])
+
+                    with cols[0]:
+                        star = " ⭐ Рекомендую" if domain == recommended else ""
                         st.markdown(f"**{badge}** — `{domain}`{star}")
-                        if recommended and domain == recommended:
-                            st.caption("⭐ Рекомендований варіант (найкращий з доступних)")
 
                         if reason:
                             st.caption(reason)
 
-                    with top[1]:
-                        st.markdown('<div class="hide-code-text">', unsafe_allow_html=True)
+                    with cols[1]:
                         st.code(domain, language="text")
-                        st.markdown('</div>', unsafe_allow_html=True)
-                    with top[2]:
-                        st.link_button("🔗 Відкрити", f"https://{domain}")
-                    with top[3]:
-                        disabled_pick = is_chosen or (is_full and not is_chosen)
-                        label = "✅ Обрано" if is_chosen else "➕ Обрати"
-                        st.button(label, key=f"pick_{domain}", disabled=disabled_pick, on_click=lambda d=domain: add_domain(d))
 
-        # 2) якщо checks ще нема, але кандидати є — показуємо список кандидатів (без статусу)
+                    with cols[2]:
+                        st.link_button("🔗 Відкрити", f"https://{domain}")
+
+                    with cols[3]:
+                        st.button(
+                            "✅ Обрано" if is_chosen else "➕ Обрати",
+                            key=f"pick_{domain}",
+                            disabled=is_chosen or (is_full and not is_chosen),
+                            on_click=lambda d=domain: add_domain(d)
+                        )
+
         elif st.session_state.domain_candidates:
-            st.info("Домени згенеровані. Натисни “Перевірити домени”, щоб побачити статус (вільний/зайнятий).")
-            st.code("\n".join(st.session_state.domain_candidates[:80]), language="text")
+
+            st.info("Домени згенеровані. Натисни перевірку ще раз.")
+            st.code(
+                "\n".join(st.session_state.domain_candidates[:80]),
+                language="text"
+            )
 
         else:
-            st.info("Натисни “Перевірити домени”.")
-
-
+            st.info("Натисни 'Перевірити домени'.")
 # ---------------------------
 # STEP 3
 # ---------------------------
@@ -1656,8 +2045,25 @@ elif st.session_state.step == 3:
                 and (not st.session_state.get("step3_autogen_done"))
             )
 
-            if should_autogen or st.button("🚀 Згенерувати / Перегенерувати"):
+            # ============================================
+            # КНОПКА / АВТОГЕНЕРАЦІЯ
+            # ============================================
+            if should_autogen:
+                # Автогенерація: встановлюємо флаг
                 st.session_state["step3_autogen_done"] = True
+                st.session_state["favicon_state"] = "generate"
+                st.session_state["currently_generating"] = True
+                st.rerun()
+            elif st.button("🚀 Згенерувати / Перегенерувати"):
+                # Кнопка: встановлюємо флаг
+                st.session_state["favicon_state"] = "generate"
+                st.session_state["currently_generating"] = True
+                st.rerun()
+
+            # ============================================
+            # РОБИМО ГЕНЕРАЦІЮ (якщо флаг встановлений)
+            # ============================================
+            if st.session_state.get("currently_generating"):
                 try:
                     files = generate_lang_files_multi(
                         template1_bytes=open(TEMPLATES["template_1"]["lang"], "rb").read(),
@@ -1677,12 +2083,16 @@ elif st.session_state.step == 3:
                     )
 
                     st.session_state["generated_files"] = files
+                    st.session_state["favicon_state"] = "success"
                     status.success("Готово ✅")
                     progress.progress(1.0)
                     st.session_state["auto_download_done"] = False
+                    st.session_state["currently_generating"] = False  # ← Вимикаємо флаг
 
                 except Exception as e:
+                    st.session_state["favicon_state"] = "error"
                     st.error(f"Помилка: {e}")
+                    st.session_state["currently_generating"] = False  # ← Вимикаємо флаг
 
             files = st.session_state.get("generated_files") or []
             if not files:
@@ -1749,6 +2159,7 @@ elif st.session_state.step == 3:
             
             if should_autogen_review:
                 review_box = st.empty()
+                st.session_state["favicon_state"] = "generate"
             
                 try:
                     review_box.info("⏳ Генерую ревʼю...")
@@ -1776,6 +2187,7 @@ elif st.session_state.step == 3:
                     st.session_state["generated_review"] = review
                     st.session_state["review_generation_error"] = None
                     st.session_state["step3_review_autogen_done"] = True
+                    st.session_state["favicon_state"] = "success"
             
                     review_box.empty()
                     st.success("Ревʼю згенеровано ✅")
@@ -1784,6 +2196,7 @@ elif st.session_state.step == 3:
                     st.session_state["generated_review"] = None
                     st.session_state["review_generation_error"] = str(e)
                     st.session_state["step3_review_autogen_done"] = False
+                    st.session_state["favicon_state"] = "error"
                     review_box.error(f"Помилка генерації ревʼю: {e}")
             
             # --- REVIEW UI ---
