@@ -1734,7 +1734,7 @@ def generate_lang_files(
 
 
         # -------------------------
-        # TEMPLATE 4
+        # TEMPLATE 5
         # -------------------------
         elif template_kind == "template_5":
                 
@@ -1932,6 +1932,7 @@ def generate_lang_files_multi(
     template2_bytes: bytes,
     template3_bytes: bytes,
     template4_bytes: bytes,
+    template5_bytes: bytes,
     geo_code: Optional[str],
     geo_currency: str,
     target_lang: str,
@@ -1970,6 +1971,10 @@ def generate_lang_files_multi(
         elif kind in ("template_4", "t4", "4", "template4"):
             tpl = template4_bytes
             tk = "template_4"
+
+        elif kind in ("template_5", "t5", "5", "template5"):
+            tpl = template5_bytes
+            tk = "template_5"
 
         else:
             tpl = template1_bytes
