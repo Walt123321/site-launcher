@@ -822,17 +822,6 @@ def _generate_specials_via_llm(
     if not address:
         address = f"Main Street 10, 10000 Capital City, {cc}"
 
-    return {
-        "adress_name": address,
-        "feedback_strong_1": personas[0],
-        "feedback_strong_2": personas[1],
-        "feedback_strong_3": personas[2],
-        "feedback_strong_4": personas[3],
-        "page_title_main": title,
-        "page_description_main": desc,
-    }
-    
-
     def _norm_source_dash(s: str) -> str:
         s = (s or "").strip()
         if s.startswith("$source") and not s.startswith("$source —"):
@@ -1196,12 +1185,6 @@ def _apply_strings(content: str, spans: List[Tuple[int, int]], outs: List[str]) 
 
     return content
 
-    pairs = list(zip(spans, outs))
-    pairs.sort(key=lambda x: x[0][0], reverse=True)
-    for (start, end), new_text in pairs:
-        content = content[:start] + _escape_php_string(new_text) + content[end:]
-    return content
-
 
 gender_map = {
     "feedback_description_1": "female",
@@ -1219,6 +1202,7 @@ def _llm_transform_strings_onepass(
     strings: List[str],
     target_lang: str,
     geo_code: str,
+    instructions: Optional[str] = None,
 ) -> List[str]:
     """
     1 LLM-запит на весь список рядків.
@@ -1249,7 +1233,7 @@ def _llm_transform_strings_onepass(
         "4) Return only plain strings inside JSON.\n"
         "5) No explanations."
         "6) Some strings are user reviews. Gender order:1 female, 2 female, 3 male, 4 female, 5 male, 6 male.  Ensure the translation keeps the correct gender."
-        
+        + (f"\n\nAdditional instructions:\n{instructions}" if instructions else "")
     )
 
     task = (
@@ -1297,7 +1281,24 @@ def _llm_batch_transform(client: OpenAI, model: str, strings: List[str], target_
         protected_list.append(ps)
         maps.append(mp)
 
+    system = (
+        "You are processing a list of website phrases. "
+        "Return ONLY strict JSON: {\"out\": [\"...\", \"...\"]}. "
+        f"The output language MUST be strictly ISO language code: {target_lang}. "
+        "Translate EVERY string to the target language. Do NOT mix languages. "
+        "Rules:\n"
+        "1) Length of 'out' equals length of 'in'.\n"
+        "2) Keep order.\n"
+        "3) Do NOT modify tokens like __PH0__, __PH1__.\n"
+        "4) Return only plain strings inside JSON.\n"
+        "5) No explanations."
+    )
 
+    task = (
+        "Rewrite each string in German with light uniqueness, preserving meaning."
+        if mode == "unique"
+        else f"Translate each string into ISO language '{target_lang}' with light uniqueness, preserving meaning."
+    )
 
     def run_once(batch: List[str]) -> Optional[List[str]]:
         data = _llm_json(
