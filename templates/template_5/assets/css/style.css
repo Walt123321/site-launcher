@@ -2251,3 +2251,8 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+
+#higher {
+    text-transform: capitalize;
+}
