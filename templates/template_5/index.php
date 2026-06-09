@@ -780,7 +780,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
 <section
     class="contact-section"
-    id="contact"
 >
 
     <div class="container">
@@ -812,6 +811,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                 action="./integration/send.php"
                 method="post"
                 id="lead-form"
+                id="contact"
             >
                 <input type="hidden" name="js_token" value="<?= $jsToken ?>">
                 <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
