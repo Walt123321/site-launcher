@@ -306,7 +306,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
         <div class="section-heading center">
 
             <span id="higher">
-                <?= $home_signals_eyebrow ?>
+                <?= mb_strtoupper($home_signals_eyebrow, 'UTF-8') ?>
             </span>
 
 <h2><?= $home_signals_title ?></h2>
@@ -568,7 +568,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                 <div class="section-heading">
 
                     <span id="higher">
-                        <?= $home_why_eyebrow ?>
+                        <?= mb_strtoupper($home_why_eyebrow, 'UTF-8') ?>
                     </span>
 
 <h2><?= $home_why_title ?></h2>
@@ -634,9 +634,9 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
         <!-- HEADING -->
         <div class="section-heading center">
 
-            <span id="higher">
-                <?= $home_reviews_eyebrow ?>
-            </span>
+                <span id="higher">
+                    <?= mb_strtoupper($home_reviews_eyebrow, 'UTF-8') ?>
+                </span>
 
 <h2><?= $home_reviews_title ?></h2>
 
@@ -793,7 +793,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                 <div class="section-heading">
 
                     <span id="higher">
-                        <?= $home_contact_eyebrow ?>
+                        <?= mb_strtoupper($home_contact_eyebrow, 'UTF-8') ?>
                     </span>
 
 <h2><?= $home_contact_title ?></h2>
@@ -1048,7 +1048,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
         <div class="section-heading center">
 
             <span id="higher">
-                <?= $home_faq_eyebrow ?>
+                <?= mb_strtoupper($home_faq_eyebrow, 'UTF-8') ?>
             </span>
 
 <h2><?= $home_faq_title ?></h2>
