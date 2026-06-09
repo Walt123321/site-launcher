@@ -158,7 +158,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
                         <div class="terminal-preview-status">
                             <span class="live-circle"></span>
-                            <?= $home_label_live ?>
+                            LIVE
                         </div>
 
                     </div>
