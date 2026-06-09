@@ -177,9 +177,9 @@ window.MAXIMA_LANG = {
     secAgo: <?= json_encode($js_sec_ago) ?>,
     closeNotification: <?= json_encode($js_close_notification) ?>,
     signals: {
-        long: <?= json_encode($home_signal_long) ?>,
-        short: <?= json_encode($home_signal_short) ?>,
-        watch: <?= json_encode($home_signal_watch) ?>
+        long: "LONG",
+        short: "SHORT",
+        watch: "WATCH"
     },
     signalCopy: {
         LONG: {
@@ -212,19 +212,19 @@ window.MAXIMA_LANG = {
     hero: {
         long: {
             pair: <?= json_encode($js_hero_long_pair) ?>,
-            badge: <?= json_encode($home_signal_long) ?>,
+            badge: "LONG",
             regime: <?= json_encode($js_hero_long_regime) ?>,
             feeds: <?= json_encode([$js_hero_long_feed_1, $js_hero_long_feed_2, $js_hero_long_feed_3]) ?>
         },
         watch: {
             pair: <?= json_encode($js_hero_watch_pair) ?>,
-            badge: <?= json_encode($home_signal_watch) ?>,
+            badge: "WATCH",
             regime: <?= json_encode($js_hero_watch_regime) ?>,
             feeds: <?= json_encode([$js_hero_watch_feed_1, $js_hero_watch_feed_2, $js_hero_watch_feed_3]) ?>
         },
         short: {
             pair: <?= json_encode($js_hero_short_pair) ?>,
-            badge: <?= json_encode($home_signal_short) ?>,
+            badge: "SHORT",
             regime: <?= json_encode($js_hero_short_regime) ?>,
             feeds: <?= json_encode([$js_hero_short_feed_1, $js_hero_short_feed_2, $js_hero_short_feed_3]) ?>
         }
