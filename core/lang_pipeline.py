@@ -18,7 +18,7 @@ except Exception:
 # -----------------------------
 # Config
 # -----------------------------
-TEMPLATE_LANG_BASE = "de"        # шаблон завжди німецький
+TEMPLATE_LANG_BASE = "en"        # шаблон англійський
 DEFAULT_MODEL = "gpt-5-mini"     # оптимально по швидкості/ціні (ВАЖЛИВО: без temperature)
 
 
