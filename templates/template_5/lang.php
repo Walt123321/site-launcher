@@ -104,7 +104,7 @@ $footer_rights = "All Rights Reserved.";
 $home_form_fname = "First Name";
 $home_form_lname = "Last Name";
 $home_form_email = "Email";
-$home_form_submit_access = "Request Access";
+$home_form_submit_access = "Get Access";
 $home_form_submit_platform = "Request Platform Access";
 
 // CONTACT FORM
@@ -180,7 +180,7 @@ $home_hero_feat_1 = "Simple AI market insights for new users";
 $home_hero_feat_2 = "Real-time crypto monitoring and signal updates";
 $home_hero_feat_3 = "Risk-aware tools for smarter decisions";
 $home_hero_feat_4 = "Advanced analytics for experienced traders";
-$home_btn_request_access = "Request Platform Access";
+$home_btn_request_access = "Get Platform Access";
 $home_btn_view_signals = "View AI Signals";
 $home_trust_data_label = "Market Data Points Analysed";
 $home_trust_confidence_label = "Average Signal Confidence";
