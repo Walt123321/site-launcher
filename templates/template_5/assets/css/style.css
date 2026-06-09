@@ -2426,13 +2426,19 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, strong {
     align-items: center;      
     justify-content: center;  
     gap: 8px;                 
-    white-space: nowrap;      
+    
 }
-
 
 .status-dot {
     flex-shrink: 0;           
     display: inline-block;    
+}
+
+
+@media (min-width: 992px) {
+    .ai-status {
+        white-space: nowrap; 
+    }
 }
 
 
