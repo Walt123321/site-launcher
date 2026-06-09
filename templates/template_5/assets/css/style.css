@@ -2330,3 +2330,89 @@ html {
         left: 150%; 
     }
 }
+
+
+/* ==========================================================================
+   ГЛОБАЛЬНИЙ ФІКС ДЛЯ ІДЕАЛЬНОГО ХЕДЕРА
+   ========================================================================== */
+
+/* 1. Головна обгортка: вирівнюємо всі три блоки строго по центру по вертикалі */
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Мінімальний зазор між лого, навою та кнопками */
+    width: 100%;
+}
+
+/* 2. Логотип: фіксуємо, щоб довгий підзаголовок не розтягував його по вертикалі */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0; /* Забороняємо логотипу стискатися */
+    text-decoration: none;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Забороняємо переноси в підзаголовку лого */
+.logo-subtitle {
+    white-space: nowrap; 
+}
+
+/* 3. Навігація: РІШЕННЯ ДЛЯ ДОВГИХ ТЕКСТІВ */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Оптимальний зазор між посиланнями */
+    flex-grow: 1; /* Навігація займає весь вільний простір по центру */
+    margin: 0 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    white-space: nowrap; /* ЗАБОРОНЯЄМО ТЕКСТУ ПЕРЕНОСИТИСЯ НА ДВА РЯДКИ */
+    text-transform: uppercase; /* Робимо всі пункти в одному стилі (опціонально) */
+    font-size: 13px; /* Трохи зменшуємо шрифт для балансу, якщо тексту багато */
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+/* Специфічний фікс для довгого пункту FAQ */
+.nav a[href*="#faq"] {
+    font-size: 12px; /* Робимо "Часті питання" трохи компактнішими */
+}
+
+/* 4. Права частина: збираємо кнопки в акуратний інлайн-блок */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Рівномірний зазор між статусом і кнопками */
+    flex-shrink: 0; /* Кнопки не повинні стискатися */
+}
+
+/* Статус ШІ */
+.ai-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+/* Вирівнювання тексту всередині кнопок хедера */
+.header-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    height: 40px; /* Фіксована однакова висота для всіх кнопок в хедері */
+    padding: 0 16px;
+    text-decoration: none;
+    border-radius: 8px; /* Акуратні преміум кути */
+}
