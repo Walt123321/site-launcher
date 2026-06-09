@@ -2434,3 +2434,21 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, strong {
     flex-shrink: 0;           
     display: inline-block;    
 }
+
+
+.hero-feature {
+    display: flex;
+    align-items: flex-start; 
+    gap: 12px;               
+    
+}
+
+
+.feature-dot {
+    flex-shrink: 0;          
+    margin-top: 6px;         
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
