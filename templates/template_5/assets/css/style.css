@@ -2441,6 +2441,11 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, strong {
     }
 }
 
+@media (max-width: 991px) {
+    .ai-status {
+        display: none;
+    }
+}
 
 .hero-feature {
     display: flex;
