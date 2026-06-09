@@ -2256,3 +2256,9 @@ html {
 #higher {
     text-transform: capitalize;
 }
+
+
+.hero-label {
+    text-align: center;
+
+}
