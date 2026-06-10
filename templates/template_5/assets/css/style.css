@@ -2238,11 +2238,6 @@ body {
     color: black;
 }
 
-@media (max-width: 1240px) {
-    .ai-status {
-        display: none;
-    }
-}
 
 .iti__dropdown-content {
   background-color: #1c2532 !important;
@@ -2263,7 +2258,7 @@ html {
 
 }
 
-.hero-buttons a.btn-primary-main[href="#contact"] {
+.hero-buttons a.btn-primary-main[href$="#lead-form"] {
     display: inline-flex;  
     align-items: center;   
     justify-content: center; 
@@ -2276,7 +2271,7 @@ html {
     animation: ultimatePulse 1.6s infinite ease-in-out;
 }
 
-.hero-buttons a.btn-primary-main[href="#contact"]::after {
+.hero-buttons a.btn-primary-main[href$="#lead-form"]::after {
     content: '';
     position: absolute;
     top: 0;
@@ -2294,7 +2289,7 @@ html {
     animation: flareWave 3.2s infinite ease-in-out; 
 }
 
-.hero-buttons a.btn-primary-main[href="#contact"]:hover {
+.hero-buttons a.btn-primary-main[href$="#lead-form"]:hover {
     transform: translateY(-2px) scale(1.03);
     animation: none; 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -2422,7 +2417,6 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, strong {
 
 
 .ai-status {
-    display: inline-flex;
     align-items: center;      
     justify-content: center;  
     gap: 8px;                 
