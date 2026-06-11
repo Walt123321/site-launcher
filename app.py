@@ -1509,7 +1509,7 @@ if st.session_state.step == 1:
     if st.session_state.brand and st.session_state.geo_code != "UNKNOWN" and st.session_state.target_lang != "unknown":
         hl = st.session_state.target_lang.split("-")[0]
         q = urllib.parse.quote_plus(st.session_state.brand.strip())
-        serp_url = f"https://www.google.com/search?q={q}&gl={geo[st.session_state.geo_code]['gl']}&hl={hl}"
+        serp_url = f"https://www.google.com/search?q={q}&gl={geo[st.session_state.geo_code]['gl']}&hl={hl}&peek_pws=0"
         st.link_button("Відкрити Google SERP", serp_url, use_container_width=True)
         st.code(serp_url, language="text")
     else:
