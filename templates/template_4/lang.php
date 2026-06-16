@@ -27,7 +27,7 @@ $quiz_consultant_name = 'Olivia';
 $quiz_consultant_role = 'Onboarding Assistant';
 
 $quiz_text_welcome   = "Hello! This is $quiz_consultant_name, your personal onboarding assistant at $site_name. Excellent news! Your access is officially pre-approved. Please allow us to configure your professional profile now!";
-$quiz_text_q1        = "To ensure full regulatory and legal compliance, please confirm if your current residence is in Italy?";
+$quiz_text_q1        = "To ensure full regulatory and legal compliance, please confirm your country of current residence: $country_name.";
 $quiz_text_a1_yes    = "Yes, this is my current residence";
 $quiz_text_a1_no     = "No";
 
