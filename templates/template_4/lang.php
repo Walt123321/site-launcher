@@ -27,11 +27,11 @@ $quiz_consultant_name = 'Olivia';
 $quiz_consultant_role = 'Onboarding Assistant';
 
 $quiz_text_welcome   = "Hello! This is $quiz_consultant_name, your personal onboarding assistant at $site_name. Excellent news! Your access is officially pre-approved. Please allow us to configure your professional profile now!";
-$quiz_text_q1        = "To ensure full regulatory and legal compliance, please confirm your country of current residence: $country_name.";
+$quiz_text_q1 = "To ensure full regulatory and legal compliance, please confirm your country of current residence: $country_name";
 $quiz_text_a1_yes    = "Yes, this is my current residence";
 $quiz_text_a1_no     = "No";
 
-$quiz_text_q2        = "Perfect. Please select the appropriate age category to identify the most suitable financial instruments:";
+$quiz_text_q2 = "Perfect. Please select the appropriate age category to find the most suitable financial instruments:";
 
 $quiz_text_q3        = "Is there an active bank account or a credit card available to receive regular daily dividend payments?";
 $quiz_text_a3_yes    = "Yes, an active account is available";
@@ -42,7 +42,7 @@ $quiz_text_a4_1      = "Official Employment / Self-employed";
 $quiz_text_a4_2      = "Passive Income / Personal Savings";
 $quiz_text_a4_3      = "Other sources";
 
-$quiz_text_q5        = "Excellent! The final requirement is a brief voice verification via a telephone call from our manager to secure this allocation. These calls occur between 11:00 AM and 8:00 PM. Will it be possible to accept this call?";
+$quiz_text_q5 = "Great! The final step is a brief phone verification from our manager to confirm your registration. Calls are made from 11:00 AM to 8:00 PM. Will you be able to take the call?";
 $quiz_text_a5_yes    = "Yes, this time is convenient for the call";
 $quiz_text_a5_no     = "Please initiate the call immediately";
 
@@ -53,7 +53,7 @@ $quiz_placeholder_fname = "First Name";
 $quiz_placeholder_lname = "Last Name";
 $quiz_placeholder_email = "Email Address";
 $quiz_placeholder_phone = "Phone Number";
-$quiz_btn_submit        = "ACTIVATE SECURE TRADING NOW";
+$quiz_btn_submit = "Activate Trading";
 $quiz_text_typing       = "is typing a message...";
 $quiz_text_processing   = "Processing request...";
 
