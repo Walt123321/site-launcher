@@ -1531,6 +1531,8 @@ def generate_lang_files(
             content = _set_php_var(content, "rating_count", str(rating_count), numeric=True)
             content = _set_php_var(content, "site_lang", target_lang, numeric=False)
             content = _set_php_var(content, "site_gmail", _gmail_for_domain(domain), numeric=False)
+            if country_name:
+                content = _set_php_var(content, "country_name", country_name, numeric=False)
 
             # 2) LLM спец-генерація (через $source)
             gen = _generate_specials_via_llm(
@@ -1668,6 +1670,8 @@ def generate_lang_files(
                 content = _set_php_var(content, "app_price", str(price), numeric=True)
                 content = _set_php_var(content, "site_lang", target_lang, numeric=False)
                 content = _set_php_var(content, "site_gmail", _gmail_for_domain(domain), numeric=False)
+                if country_name:
+                    content = _set_php_var(content, "country_name", country_name, numeric=False)
         
                 # --- RATING ---
                 rating_value = round(random.uniform(4.6, 5.0), 1)
@@ -1757,6 +1761,8 @@ def generate_lang_files(
                 content = _set_php_var(content, "app_price", str(price), numeric=True)
                 content = _set_php_var(content, "site_lang", target_lang, numeric=False)
                 content = _set_php_var(content, "site_gmail", _gmail_for_domain(domain), numeric=False)
+                if country_name:
+                    content = _set_php_var(content, "country_name", country_name, numeric=False)
         
                 # --- RATING ---
                 rating_value = round(random.uniform(4.6, 5.0), 1)
