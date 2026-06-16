@@ -26,30 +26,36 @@ $hero_text = "Experience a new era of trading with our advanced crypto trading p
 $quiz_consultant_name = 'Olivia';
 $quiz_consultant_role = 'Onboarding Assistant';
 
-$quiz_text_welcome   = "Hi! I'm $quiz_consultant_name, your personal onboarding assistant at $site_name. Great news! Your access has been pre-approved. You can start with a minimum deposit of just $app_price $app_currency. Let's configure your profile!";$quiz_text_q1        = "To ensure full regulatory compliance, please confirm: Are you currently a resident of $country_name?";
-$quiz_text_a1_yes    = "Yes, I am";
+$quiz_text_welcome   = "Hello! This is " . $quiz_consultant_name . ", your personal onboarding assistant at " . $site_name . ". Excellent news! Your access is officially pre-approved. Registration requires a minimum deposit of just " . $app_currency . $app_price . ". Please allow us to configure your professional profile now!";
+$quiz_text_q1        = "To ensure full regulatory and legal compliance, please confirm if your current residence is in Italy?";
+$quiz_text_a1_yes    = "Yes, this is my current residence";
 $quiz_text_a1_no     = "No";
-$quiz_text_q2        = "Perfect. To match you with the right financial instruments, please select your age group:";
-$quiz_text_q3        = "Do you have an active bank account or credit card ready to receive your daily dividend payouts?";
-$quiz_text_a3_yes    = "Yes, fully ready";
-$quiz_text_a3_no     = "Not yet";
-$quiz_text_q4        = "What is your primary source of income? (This helps us customize your risk tools).";
-$quiz_text_a4_1      = "Employed / Self-employed";
-$quiz_text_a4_2      = "Passive income / Savings";
-$quiz_text_a4_3      = "Other";
-$quiz_text_q5        = "Excellent! The final step is a quick voice verification call from our manager to secure your spot. They usually call between 11:00 and 20:00. Will you be available?";
-$quiz_text_a5_yes    = "Yes, ready for the call";
-$quiz_text_a5_no     = "Call me as soon as possible";
-$quiz_text_loader    = "Analyzing your options and initializing account parameters...";
-$quiz_text_final_ttl = "Account Authorized! 🎉 Your secure workspace is configured. Complete the final verification steps below to secure your daily payouts:";
+
+$quiz_text_q2        = "Perfect. Please select the appropriate age category to identify the most suitable financial instruments:";
+
+$quiz_text_q3        = "Is there an active bank account or a credit card available to receive regular daily dividend payments?";
+$quiz_text_a3_yes    = "Yes, an active account is available";
+$quiz_text_a3_no     = "Not available yet";
+
+$quiz_text_q4        = "Please specify the primary source of personal income. (This parameter helps customize the system risk management settings).";
+$quiz_text_a4_1      = "Official Employment / Self-employed";
+$quiz_text_a4_2      = "Passive Income / Personal Savings";
+$quiz_text_a4_3      = "Other sources";
+
+$quiz_text_q5        = "Excellent! The final requirement is a brief voice verification via a telephone call from our manager to secure this allocation. These calls occur between 11:00 AM and 8:00 PM. Will it be possible to accept this call?";
+$quiz_text_a5_yes    = "Yes, this time is convenient for the call";
+$quiz_text_a5_no     = "Please initiate the call immediately";
+
+$quiz_text_loader    = "Analyzing the requested options and initializing secure account configuration parameters...";
+$quiz_text_final_ttl = "Account Successfully Authorized! 🎉 The secure digital workspace is fully configured. Please complete the final verification steps below to guarantee daily payments:";
 
 $quiz_placeholder_fname = "First Name";
 $quiz_placeholder_lname = "Last Name";
 $quiz_placeholder_email = "Email Address";
 $quiz_placeholder_phone = "Phone Number";
-$quiz_btn_submit        = "START TRADING NOW";
-$quiz_text_typing       = "is typing...";
-$quiz_text_processing   = "Processing...";
+$quiz_btn_submit        = "ACTIVATE SECURE TRADING NOW";
+$quiz_text_typing       = "is typing a message...";
+$quiz_text_processing   = "Processing request...";
 
 
 // TITLE/DESCRIPTION
