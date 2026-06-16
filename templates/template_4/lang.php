@@ -26,7 +26,7 @@ $hero_text = "Experience a new era of trading with our advanced crypto trading p
 $quiz_consultant_name = 'Olivia';
 $quiz_consultant_role = 'Onboarding Assistant';
 
-$quiz_text_welcome   = "Hi! I'm $quiz_consultant_name, your personal onboarding assistant at $site_name. Great news! Your access has been pre-approved. You can start with a minimum deposit of just $app_price $app_currency. Let's configure your profile!";$quiz_text_q1        = "To ensure full regulatory compliance, please confirm: Are you currently a resident of $country?";
+$quiz_text_welcome   = "Hi! I'm $quiz_consultant_name, your personal onboarding assistant at $site_name. Great news! Your access has been pre-approved. You can start with a minimum deposit of just $app_price $app_currency. Let's configure your profile!";$quiz_text_q1        = "To ensure full regulatory compliance, please confirm: Are you currently a resident of $country_name?";
 $quiz_text_a1_yes    = "Yes, I am";
 $quiz_text_a1_no     = "No";
 $quiz_text_q2        = "Perfect. To match you with the right financial instruments, please select your age group:";
