@@ -17,6 +17,42 @@ $review_4_author = "Passive Income Seeker";
 $home_meta_title = "$site_name | AI Trading Platform";
 $home_meta_description = "$site_name ⭐ — intelligent AI trading platform for real-time market analysis and clear trading signals ⚡ Try smart tools & insights with a guided tour.";
 $hero_text = "Experience a new era of trading with our advanced crypto trading platform. With $site_name AI technology, you can optimise your returns and make informed investment decisions.";
+
+
+// ==========================================
+// CHAT-QUIZ TRANSLATIONS & CONFIGURATION
+// ==========================================
+
+$quiz_consultant_name = 'Olivia';
+$quiz_consultant_role = 'Onboarding Assistant';
+
+$quiz_text_welcome   = "Hi! I'm $quiz_consultant_name, your personal onboarding assistant at " . $site_name . ". Great news! Your access has been pre-approved. You can start with a minimum deposit of just " . $app_price . $app_currency . ". Let's configure your profile!";
+$quiz_text_q1        = "To ensure full regulatory compliance, please confirm: Are you currently a resident of $country?";
+$quiz_text_a1_yes    = "Yes, I am";
+$quiz_text_a1_no     = "No";
+$quiz_text_q2        = "Perfect. To match you with the right financial instruments, please select your age group:";
+$quiz_text_q3        = "Do you have an active bank account or credit card ready to receive your daily dividend payouts?";
+$quiz_text_a3_yes    = "Yes, fully ready";
+$quiz_text_a3_no     = "Not yet";
+$quiz_text_q4        = "What is your primary source of income? (This helps us customize your risk tools).";
+$quiz_text_a4_1      = "Employed / Self-employed";
+$quiz_text_a4_2      = "Passive income / Savings";
+$quiz_text_a4_3      = "Other";
+$quiz_text_q5        = "Excellent! The final step is a quick voice verification call from our manager to secure your spot. They usually call between 11:00 and 20:00. Will you be available?";
+$quiz_text_a5_yes    = "Yes, ready for the call";
+$quiz_text_a5_no     = "Call me as soon as possible";
+$quiz_text_loader    = "Analyzing your options and initializing account parameters...";
+$quiz_text_final_ttl = "Account Authorized! 🎉 Your secure workspace is configured. Complete the final verification steps below to secure your daily payouts:";
+
+$quiz_placeholder_fname = "First Name";
+$quiz_placeholder_lname = "Last Name";
+$quiz_placeholder_email = "Email Address";
+$quiz_placeholder_phone = "Phone Number";
+$quiz_btn_submit        = "START TRADING NOW";
+$quiz_text_typing       = "is typing...";
+$quiz_text_processing   = "Processing...";
+
+
 // TITLE/DESCRIPTION
 $sign_meta_title = "Sign Up | $site_name";
 $sign_meta_description = "Join $site_name and choose a plan that fits your trading goals.";
