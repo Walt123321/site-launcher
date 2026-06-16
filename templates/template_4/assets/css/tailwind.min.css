@@ -2141,7 +2141,9 @@
 }
 .iti .iti__selected-dial-code {
   margin-left: 4px;
-  color: #ffffff;
+}
+.cq-pure-custom-form .iti .iti__selected-dial-code {
+    color: rgb(255, 255, 255) !important;
 }
 .iti--container {
   z-index: 1060;
