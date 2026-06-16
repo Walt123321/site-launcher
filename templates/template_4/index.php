@@ -1642,6 +1642,47 @@ $stars = str_repeat('★', (int) round($rating_value));
     });
   });
 </script>
+
+<div id="cq-form-card" hidden aria-hidden="true" style="display: none !important;">
+  <form id="cq-isolated-form" class="leadform rf-form js-rf-form cq-pure-custom-form" method="post" action="./integration/send.php">
+    <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
+    <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
+      <input type="text" name="website" tabindex="-1" autocomplete="off">
+      <input type="text" name="company" style="position:absolute; left:-9999px;">
+    </div>
+    <input type="hidden" name="country" value="<?= $form_country; ?>">
+    <input type="hidden" name="language" value="<?= $form_language; ?>">
+    <input type="hidden" name="phone_country" value="<?= $form_phone_country; ?>">
+    <input type="hidden" name="only_countries" value='<?= $form_only_countries; ?>'>
+    <div class="form-preloader hidden">
+      <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
+        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+      </svg>
+    </div>
+    <div class="absolute inset-0 z-20 hidden items-center justify-center bg-white/50 group-data-loading:flex">
+      <svg class="text-primary animate-spin" width="76" height="75" viewBox="0 0 76 75" fill="none">
+        <circle cx="38" cy="37.195" r="28" stroke="#E5E7EB" stroke-width="8" />
+        <path d="M49.808 62.585a27.998 27.998 0 0 0 7.13-46.014 28 28 0 0 0-30.746-4.763" stroke="currentColor"
+          stroke-width="8" stroke-linecap="round" />
+      </svg>
+    </div>
+    <div class="cq-field-group">
+      <input type="text" name="fname" id="cq-field-fname" placeholder="<?= htmlspecialchars($quiz_placeholder_fname) ?>" required>
+    </div>
+    <div class="cq-field-group">
+      <input type="text" name="lname" id="cq-field-lname" placeholder="<?= htmlspecialchars($quiz_placeholder_lname) ?>" required>
+    </div>
+    <div class="cq-field-group">
+      <input type="email" name="email" id="cq-field-email" placeholder="<?= htmlspecialchars($quiz_placeholder_email) ?>" required>
+    </div>
+    <div class="cq-field-group">
+      <input type="tel" name="fullphone" id="cq-field-phone" placeholder="" required>
+      <span class="error-msg hide"></span>
+    </div>
+    <button type="submit" class="submit" id="cq-custom-submit-btn"><?= $quiz_btn_submit ?></button>
+  </form>
+</div>
+
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
   <script src="./integration/validation.js"></script>
   <script src="./assets/js/lazyload.min.js" defer></script>
@@ -1928,98 +1969,14 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleTyping(false);
             appendAgentMessage(quizLang.finalTitle);
 
-            // СТВОРЕННЯ ФОРМИ З PHP ДИНАМІЧНИМИ ДАНИМИ ТА ПЛЕЙСХОЛДЕРАМИ
-            const formCard = document.createElement('div');
-            formCard.style.cssText = "width: 100% !important; background-color: #16161a !important; border: 1px solid #27272a !important; padding: 18px !important; border-radius: 16px !important; box-sizing: border-box !important; margin-top: 6px !important; box-shadow: inset 0 2px 4px rgba(0,0,0,0.4) !important; animation: chatIn 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;";
-            
-            formCard.innerHTML = `
-                <form id="cq-isolated-form" class="cq-pure-custom-form" method="POST" action="send.php">
-                    <input type="hidden" name="domain" value="<?= $site_domain ?? $_SERVER['HTTP_HOST'] ?>">
-                    <input type="hidden" name="language" value="<?= $site_lang ?? 'en' ?>">
-                    <input type="hidden" name="currency" value="<?= $app_currency ?? 'GBP' ?>">
-                    <input type="hidden" name="country" value="gb">
-                    <input type="hidden" name="fullphone" id="cq-hidden-fullphone" value="">
-                    
-                    <input type="hidden" name="pfb" value="<?= $_GET['pfb'] ?? $_SESSION['pfb'] ?? '' ?>">
-                    <input type="hidden" name="source" value="<?= $_GET['source'] ?? $_SESSION['source'] ?? '' ?>">
-                    <input type="hidden" name="click_id" value="<?= $_GET['click_id'] ?? $_SESSION['click_id'] ?? '' ?>">
-                    <input type="hidden" name="utm_campaign" value="<?= $_GET['utm_campaign'] ?? $_SESSION['utm_campaign'] ?? '' ?>">
-                    <input type="hidden" name="utm_source" value="<?= $_GET['utm_source'] ?? $_SESSION['utm_source'] ?? '' ?>">
-                    <input type="hidden" name="utm_medium" value="<?= $_GET['utm_medium'] ?? $_SESSION['utm_medium'] ?? '' ?>">
-                    <input type="hidden" name="utm_content" value="<?= $_GET['utm_content'] ?? $_SESSION['utm_content'] ?? '' ?>">
-                    <input type="hidden" name="utm_term" value="<?= $_GET['utm_term'] ?? $_SESSION['utm_term'] ?? '' ?>">
-
-                    <div class="cq-field-group">
-                        <input type="text" name="first_name" id="cq-field-fname" placeholder="<?= htmlspecialchars($quiz_placeholder_fname) ?>" required>
-                    </div>
-                    <div class="cq-field-group">
-                        <input type="text" name="last_name" id="cq-field-lname" placeholder="<?= htmlspecialchars($quiz_placeholder_lname) ?>" required>
-                    </div>
-                    <div class="cq-field-group">
-                        <input type="email" name="email" id="cq-field-email" placeholder="<?= htmlspecialchars($quiz_placeholder_email) ?>" required>
-                    </div>
-                    <div class="cq-field-group cq-phone-row">
-                        <div class="cq-phone-prefix-box">
-                            <span class="cq-flag-icon">🇬🇧</span>
-                            <span class="cq-prefix-code">+44</span>
-                        </div>
-                        <input type="tel" name="phone_number" id="cq-field-phone" placeholder="<?= htmlspecialchars($quiz_placeholder_phone) ?>" required>
-                    </div>
-                    <button type="submit" id="cq-custom-submit-btn"><?= $quiz_btn_submit ?></button>
-                </form>
-            `;
-            
-            messagesContainer.appendChild(formCard);
+            const formCard = document.getElementById('cq-form-card');
+            if (formCard) {
+                formCard.style.cssText = "width: 100% !important; background-color: #16161a !important; border: 1px solid #27272a !important; padding: 18px !important; border-radius: 16px !important; box-sizing: border-box !important; margin-top: 6px !important; box-shadow: inset 0 2px 4px rgba(0,0,0,0.4) !important; animation: chatIn 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; display: block !important;";
+                formCard.removeAttribute('hidden');
+                formCard.setAttribute('aria-hidden', 'false');
+                messagesContainer.appendChild(formCard);
+            }
             controlsContainer.style.setProperty('display', 'none', 'important');
-            
-            const freshForm = document.getElementById('cq-isolated-form');
-            const submitBtn = document.getElementById('cq-custom-submit-btn');
-
-            freshForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                const rawPhone = document.getElementById('cq-field-phone').value.replace(/[^0-9]/g, '');
-                if (!rawPhone || rawPhone.length < 5) {
-                    alert('Please enter a valid phone number.');
-                    return;
-                }
-
-                // Зшиваємо динамічний телефонний префікс з налаштувань
-                const finalPrefix = `<?= $quiz_phone_prefix ?>`;
-                document.getElementById('cq-hidden-fullphone').value = finalPrefix + rawPhone;
-
-                submitBtn.disabled = true;
-                submitBtn.textContent = quizLang.processing;
-                submitBtn.style.opacity = "0.7";
-
-                const formData = new FormData(freshForm);
-
-                fetch('send.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (!response.ok) throw new Error('Network error');
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.redirect_url) {
-                        window.location.href = data.redirect_url;
-                    } else {
-                        const clickId = formData.get('click_id') || 'SEO';
-                        const pfb = formData.get('pfb') || 'SEO';
-                        const lang = formData.get('language') || 'en';
-                        window.location.href = `Thanks.php?click_id=${clickId}&pfb=${pfb}&language=${lang}`;
-                    }
-                })
-                .catch(error => {
-                    console.error('Submission Error:', error);
-                    const clickId = formData.get('click_id') || 'SEO';
-                    const pfb = formData.get('pfb') || 'SEO';
-                    const lang = formData.get('language') || 'en';
-                    window.location.href = `Thanks.php?click_id=${clickId}&pfb=${pfb}&language=${lang}`;
-                });
-            });
 
             scrollToBottom();
             setTimeout(() => celebration.remove(), 4000);
@@ -2048,9 +2005,20 @@ document.addEventListener('DOMContentLoaded', () => {
     padding: 0 !important;
 }
 
+.cq-pure-custom-form .iti {
+    width: 100% !important;
+    display: block !important;
+}
+
+.cq-pure-custom-form .iti__selected-country {
+    background-color: #27272a !important;
+    padding-right: 5px !important;
+    border-radius: 7px 0 0 7px !important;
+}
+
 .cq-pure-custom-form input[type="text"],
 .cq-pure-custom-form input[type="email"],
-.cq-pure-custom-form input[type="tel"] {
+.cq-pure-custom-form input[type="tel"]:not(.iti__tel-input) {
     display: block !important;
     width: 100% !important;
     height: 48px !important;
@@ -2074,6 +2042,27 @@ document.addEventListener('DOMContentLoaded', () => {
 .cq-pure-custom-form input:focus {
     border-color: #6B5FA7 !important;
     background-color: #222226 !important;
+}
+
+.cq-pure-custom-form .iti__tel-input {
+    display: block !important;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    box-sizing: border-box !important;
+    background-color: #1e1e22 !important;
+    color: #ffffff !important;
+    border: 1px solid #27272a !important;
+    border-radius: 8px !important;
+    padding-right: 16px !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 48px !important;
+    outline: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, background-color 0.2s ease !important;
 }
 
 .cq-phone-row {
@@ -2111,9 +2100,9 @@ document.addEventListener('DOMContentLoaded', () => {
     font-weight: 500 !important;
 }
 
-.cq-pure-custom-form input[type="tel"] {
+/* .cq-pure-custom-form input[type="tel"] {
     padding-left: 90px !important;
-}
+} */
 
 #cq-custom-submit-btn {
     width: 100% !important;
