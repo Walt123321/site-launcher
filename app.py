@@ -224,6 +224,7 @@ def init_state():
     # step1 confirmation
     st.session_state.setdefault("serp_checked", False)
     st.session_state.setdefault("decision", None)  # go|no
+    st.session_state.setdefault("confirm_unknown_pending", False)
 
     # detect results
     st.session_state.setdefault("detect_status", "idle")   # idle|running|done
@@ -1014,7 +1015,13 @@ def mark_serp_checked():
     st.toast("SERP перевірено ✅")
 
 
-def decision_go():
+def _is_unknown_geo_or_lang() -> bool:
+    geo_unknown = st.session_state.get("geo_code", "UNKNOWN") == "UNKNOWN"
+    lang_unknown = st.session_state.get("target_lang", "unknown") == "unknown"
+    return geo_unknown or lang_unknown
+
+
+def _do_decision_go():
     st.session_state.decision = "go"
     st.session_state.step1_done = True
     st.session_state.step = 2
@@ -1024,6 +1031,27 @@ def decision_go():
     st.session_state.generated_files = []
     st.session_state["generated_site_zips"] = {}
     st.session_state.pop("last_generation_time", None)
+    st.session_state.confirm_unknown_pending = False
+
+
+def decision_go():
+    # Якщо гео або мова не визначені — спочатку питаємо підтвердження,
+    # щоб уберегти від випадкового запуску з "Unknown".
+    if _is_unknown_geo_or_lang() and not st.session_state.get("confirm_unknown_pending", False):
+        st.session_state.confirm_unknown_pending = True
+        st.session_state.needs_rerun = True
+        return
+    _do_decision_go()
+
+
+def decision_go_confirmed():
+    # Викликається з кнопки підтвердження — запускаємось примусово.
+    _do_decision_go()
+
+
+def decision_go_cancel_unknown():
+    st.session_state.confirm_unknown_pending = False
+    st.session_state.needs_rerun = True
 
 
 
@@ -1523,6 +1551,28 @@ if st.session_state.step == 1:
         st.button("✅ Запускаємось", type="primary", on_click=decision_go, disabled=not st.session_state.serp_checked, use_container_width=True)
     with cols[2]:
         st.button("⛔ Не заходимо (очистити все)", on_click=decision_no, use_container_width=True)
+
+    if st.session_state.confirm_unknown_pending:
+        geo_label_now = st.session_state.geo_choice_label
+        lang_now = st.session_state.target_lang
+        st.warning(
+            f"⚠️ Гео: **{geo_label_now}**, мова: **{lang_now}**. "
+            f"Точно запускаємось з таким гео/мовою?"
+        )
+        confirm_cols = st.columns([1, 1, 2])
+        with confirm_cols[0]:
+            st.button(
+                "✅ Так, точно запускаємось",
+                type="primary",
+                on_click=decision_go_confirmed,
+                use_container_width=True,
+            )
+        with confirm_cols[1]:
+            st.button(
+                "↩️ Ні, повернутись",
+                on_click=decision_go_cancel_unknown,
+                use_container_width=True,
+            )
 
     if not st.session_state.serp_checked:
         st.caption("Щоб перейти на Крок 2, спочатку натисни “Я перевірив SERP”.")
