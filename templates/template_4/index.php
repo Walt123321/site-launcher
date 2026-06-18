@@ -4,11 +4,22 @@ if (empty($_SESSION['js_token'])) {
     $_SESSION['js_token'] = bin2hex(random_bytes(16));
 }
 $jsToken = $_SESSION['js_token'];
+
+if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
+    $host = substr($_SERVER['HTTP_HOST'], 4);
+    header("Location: https://" . $host . $_SERVER['REQUEST_URI'], true, 301);
+    exit();
+}
+
+include_once 'indexnow.php';
+
 require_once 'offer_seo.php';
 include 'lang.php';
+
 $host = $_SERVER['HTTP_HOST'];
-$uri = strtok($_SERVER['REQUEST_URI'], '?'); // без GET-параметрів
+$uri = strtok($_SERVER['REQUEST_URI'], '?'); 
 $canonical = 'https://' . $host . $uri;
+
 function initials($text) {
     $words = explode(' ', trim($text));
     $result = '';
@@ -19,13 +30,6 @@ function initials($text) {
         if (mb_strlen($result) >= 2) break;
     }
     return $result;
-}
-?>
-<?php
-if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
-    $host = substr($_SERVER['HTTP_HOST'], 4);
-    header("Location: https://" . $host . $_SERVER['REQUEST_URI'], true, 301);
-    exit();
 }
 ?>
 <!DOCTYPE html>
