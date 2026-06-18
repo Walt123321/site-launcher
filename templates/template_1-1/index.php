@@ -29,12 +29,6 @@ if ($uri === "/lander/{$host}/index.php") {
 
 <html class="w-mod-js wf-manrope-n4-active wf-manrope-n5-active wf-manrope-n6-active wf-active w-mod-ix" data-wf-page="67c1ba3acfe5c27126bcc1f5" data-wf-site="67c1ba3acfe5c27126bcc191" lang="<?= $site_lang ?>">
 <head>
-<?php
-$host = $_SERVER['HTTP_HOST'];
-$uri = strtok($_SERVER['REQUEST_URI'], '?'); // без GET-параметрів
-
-$canonical = 'https://' . $host . $uri;
-?>
 
 <link rel="canonical" href="<?= htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8'); ?>" />
 <meta name="msvalidate.01" content="688C28A9085E183027B817E185356A11" />
