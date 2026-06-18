@@ -30,12 +30,6 @@ if ($uri === "/lander/{$host}/index.php") {
 <html lang="<?= $site_lang ?>" style="filter: hue-rotate(3deg);">
 
 <head>
-<?php
-$host = $_SERVER['HTTP_HOST'];
-$uri = strtok($_SERVER['REQUEST_URI'], '?'); // без GET-параметрів
-
-$canonical = 'https://' . $host . $uri;
-?>
 
 <link rel="canonical" href="<?= htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8'); ?>" />
 <meta name="msvalidate.01" content="688C28A9085E183027B817E185356A11" />
