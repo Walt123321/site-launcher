@@ -6,17 +6,18 @@ $app_price = 250;
 $rating_value = 4.7;
 $rating_count = 1808;
 $app_currency = "EUR";
-$site_lang = "de-DE";
-$adress_name = "Friedrichstraße 120, 10117 Berlin, Deutschland";
-$site_gmail = "support.finora-ai@gmail.com";
-$footer_contact_address = "Adresse: $adress_name";
-$footer_contact_email = "E-Mail: $site_gmail";
-$feedback_strong_1 = "Elias, 31 Jahre, Hamburg";
-$feedback_strong_2 = "Sophie, 36 Jahre, München";
-$feedback_strong_3 = "Lukas, 42 Jahre, Köln";
-$feedback_strong_4 = "Miriam, 47 Jahre, Stuttgart";
-$page_title_main = "$source — Offiziell, sicher & vertrauenswürdig: Krypto-Plattform mit KI-Autopilot, verifiziert";
-$page_description_main = "$source — Offiziell, verifiziert. 🚀 KI im Autopilot für maximale Sicherheit. ✅ Vertrauenswürdig, mit Kapitalschutz und stabilen Ergebnissen. 🔒 Jetzt starten. ⭐";
+$site_lang = "en-GB";
+$adress_name = "120 Friedrich Street, Berlin 10117, Germany";
+$site_gmail = "[support.finora-ai@gmail.com](mailto:support.finora-ai@gmail.com)";
+$footer_contact_address = "Address: $adress_name";
+$footer_contact_email = "Email: $site_gmail";
+$feedback_strong_1 = "Elias, 31, Hamburg";
+$feedback_strong_2 = "Sophie, 36, Munich";
+$feedback_strong_3 = "Lukas, 42, Cologne";
+$feedback_strong_4 = "Miriam, 47, Stuttgart";
+$page_title_main = "$source — Official, secure & trusted: AI-powered crypto platform with autopilot, verified";
+$page_description_main = "$source — Official and verified. 🚀 AI autopilot for maximum security. ✅ Trusted platform with capital protection and consistent results. 🔒 Get started today. ⭐";
+
 
 // ==========================================
 // CHAT-QUIZ TRANSLATIONS & CONFIGURATION
@@ -57,365 +58,354 @@ $quiz_text_typing       = "is typing a message...";
 $quiz_text_processing   = "Processing request...";
 
 
-// Über-uns-Seite
-$page_title_about = "Über uns | $source – Mission und Team";
-$page_description_about = "Erfahren Sie, was $source antreibt: unsere Werte, Ziele und das Expertenteam hinter der Plattform. Sehen Sie, wie wir Sicherheit, Transparenz, Nutzerfokus und Innovation vereinen.";
+// ABOUT US PAGE
+$page_title_about = "About Us | $source – Our Mission and Team";
+$page_description_about = "Discover what drives $source: our values, objectives, and the expert team behind the platform. Learn how we combine security, transparency, user focus, and innovation.";
 
-// Bedingungen-Seite
-$page_title_conditions = "Nutzungsbedingungen | $source – Regeln und Richtlinien";
-$page_description_conditions = "Lesen Sie die Nutzungsbedingungen von $source. Dieses Dokument definiert Nutzerpflichten und Plattformrichtlinien und sorgt für volle Transparenz und rechtliche Klarheit.";
+// TERMS & CONDITIONS PAGE
+$page_title_conditions = "Terms and Conditions | $source – Rules and Guidelines";
+$page_description_conditions = "Read the Terms and Conditions of $source. This document outlines user responsibilities and platform policies, ensuring complete transparency and legal clarity.";
 
-// Kontakt-Seite
-$page_title_contact = "Kontakt | $source – Support und Hilfe";
-$page_description_contact = "Fragen zur Registrierung, Ihrem Konto oder zu Transaktionen? Kontaktieren Sie $source – unser Support reagiert schnell, professionell und zuverlässig.";
+// CONTACT PAGE
+$page_title_contact = "Contact Us | $source – Support and Assistance";
+$page_description_contact = "Questions about registration, your account, or transactions? Contact $source – our support team responds quickly, professionally, and reliably.";
 
-// FAQ-Seite
-$page_title_faq = "Häufig gestellte Fragen | $source – Antworten und Informationen";
-$page_description_faq = "Finden Sie klare, leicht verständliche Antworten auf zentrale Fragen zu Einzahlungen, Auszahlungen, Sicherheit und Handel auf $source. Unser Support steht für weitere Fragen jederzeit zur Verfügung.";
+// FAQ PAGE
+$page_title_faq = "Frequently Asked Questions | $source – Answers and Information";
+$page_description_faq = "Find clear and easy-to-understand answers to key questions about deposits, withdrawals, security, and trading on $source. Our support team is always available for additional assistance.";
 
-// Datenschutz-Seite
-$page_title_private = "Datenschutzerklärung | Schutz Ihrer personenbezogenen Daten";
-$page_description_private = "Erfahren Sie, wie wir Ihre personenbezogenen Daten erfassen, verarbeiten und schützen. Unsere Datenschutzerklärung gewährleistet Transparenz, Sicherheit und verantwortungsvollen Umgang mit Informationen.";
+// PRIVACY POLICY PAGE
+$page_title_private = "Privacy Policy | Protecting Your Personal Information";
+$page_description_private = "Learn how we collect, process, and protect your personal information. Our Privacy Policy ensures transparency, security, and responsible data management.";
 
-// Registrierungs-Seite
-$page_title_register = "$source | Plattformzugang | Schnelle Registrierung";
-$page_description_register = "Melden Sie sich schnell und unkompliziert bei $source an und erhalten Sie in wenigen Minuten vollen Zugriff auf alle Funktionen. Geben Sie Ihre Daten ein und legen Sie sofort los.";
+// REGISTRATION PAGE
+$page_title_register = "$source | Platform Access | Fast Registration";
+$page_description_register = "Sign up with $source quickly and easily and gain full access to all platform features within minutes. Enter your details and get started right away.";
 
 // ---------------------------------------------------------------------------------------------------
 
-// HEADER FÜR ALLE SEITEN
-$text_why_invest = "Warum investieren?";
-$text_how_to_invest = "Wie investieren?";
-$text_who_we_are = "Über uns";
-$text_investment_risks = "Anlagerisiken";
-$text_benefits = "Vorteile";
+// HEADER FOR ALL PAGES
+$text_why_invest = "Why Invest?";
+$text_how_to_invest = "How to Invest";
+$text_who_we_are = "About Us";
+$text_investment_risks = "Investment Risks";
+$text_benefits = "Benefits";
 $text_faq = "FAQ";
-$text_log_in = "Anmelden";
-$text_sign_up = "Registrieren";
+$text_log_in = "Log In";
+$text_sign_up = "Sign Up";
 
 // ---------------------------------------------------------------------------------------------------
 
-// FOOTER FÜR ALLE SEITEN
+// FOOTER FOR ALL PAGES
 
 $footer_logo_name = $source;
-$footer_link_why_invest = "Warum investieren?";
-$footer_link_how_to_invest = "Wie investieren?";
-$footer_link_investment_risks = "Anlagerisiken";
-$footer_link_benefits = "Vorteile";
+$footer_link_why_invest = "Why Invest?";
+$footer_link_how_to_invest = "How to Invest";
+$footer_link_investment_risks = "Investment Risks";
+$footer_link_benefits = "Benefits";
 $footer_link_faq = "FAQ";
-$footer_link_who_we_are = "Über uns";
-$footer_link_contact = "Kontakt";
-$footer_link_privacy_policy = "Datenschutz";
-$footer_link_terms_conditions = "Nutzungsbedingungen";
-$footer_link_registration = "Registrierung";
+$footer_link_who_we_are = "About Us";
+$footer_link_contact = "Contact";
+$footer_link_privacy_policy = "Privacy Policy";
+$footer_link_terms_conditions = "Terms and Conditions";
+$footer_link_registration = "Registration";
 
-$footer_contact_title = "Kontaktinformationen";
-$footer_contact_address = "Adresse: $adress_name";
-$footer_contact_email = "E-Mail: $site_gmail";
+$footer_contact_title = "Contact Information";
+$footer_contact_address = "Address: $adress_name";
+$footer_contact_email = "Email: $site_gmail";
 
-$footer_description = "$source bietet eine zuverlässige, sichere Online-Handelsplattform, die finanzielle Abläufe klar, nachvollziehbar und effizient gestaltet. Ob Einsteiger oder erfahrener Investor – unsere Lösung vereint moderne Werkzeuge, persönlichen Support und eine intuitive Oberfläche. Tausende Nutzer weltweit vertrauen $source aufgrund von Transparenz, hohen Sicherheitsstandards und Kundennähe. Der Schutz Ihrer Daten und Ihres Kapitals hat stets Priorität und wird durch fortschrittliche Sicherheitstechnologien gestützt. Werden Sie Teil der $source-Community und investieren Sie mit Vertrauen.";
+$footer_description = "$source provides a reliable and secure online trading platform designed to make financial activities clear, transparent, and efficient. Whether you are a beginner or an experienced investor, our solution combines advanced tools, dedicated support, and an intuitive interface. Thousands of users worldwide trust $source because of its transparency, high security standards, and customer-focused approach. Protecting your data and capital remains our top priority, supported by advanced security technologies. Join the $source community and invest with confidence.";
 $footer_copyright = "© $source 2026";
 
 // ---------------------------------------------------------------------------------------------------
 
-// FORMULARE (ALLE BEREICHE)
-$placeholder_fname = "Vorname";
-$placeholder_lname = "Nachname";
-$placeholder_email = "E-Mail-Adresse";
-$button_sign_up = "Registrieren";
+// FORMS (ALL SECTIONS)
+$placeholder_fname = "First Name";
+$placeholder_lname = "Last Name";
+$placeholder_email = "Email Address";
+$button_sign_up = "Sign Up";
 
 // ---------------------------------------------------------------------------------------------------
 
-// HERO-BEREICH
-$heading_main = "$source – KI-basierte automatisierte Investmentplattform für Aktien und Kryptowährungen";
-$text_intro = "Beginnen Sie Ihre Investmentreise mit $source – einer intelligenten Plattform, die künstliche Intelligenz nutzt, um automatisch in Aktien- und Kryptomärkte zu investieren. Starten Sie ab $currency ohne Vorerfahrung – unterstützt durch Echtzeitanalysen für optimale Resultate.";
+// HERO SECTION
+$heading_main = "$source – AI-Powered Automated Investment Platform for Stocks and Cryptocurrencies";
+$text_intro = "Start your investment journey with $source, an intelligent platform that uses artificial intelligence to automatically invest in stock and cryptocurrency markets. Begin with as little as $currency and no prior experience while benefiting from real-time analysis designed to optimize results.";
 
-// Warum investieren? BEREICH
-$heading_reasons = "Warum eine Anlage mit $source sinnvoll ist";
-$text_protect_capital = "Schützen Sie Ihr Kapital vor Inflation und verfolgen Sie eine zukunftsorientierte Strategie";
-$text_inflation = "Inflation verringert langsam die Kaufkraft. Statt Ersparnisse ungenutzt zu lassen, bieten clevere Anlageansätze langfristiges Wachstum. Automatisierte Systeme erhöhen die Stabilität und schaffen eine solide finanzielle Basis.";
-$heading_auto_investing = "Automatisiertes Investieren – auch ohne Börsenkenntnisse";
-$text_auto_investing = "$source verwaltet Ihre Anlagen mit fortschrittlicher KI. Keine Charts oder ständige Marktbeobachtung nötig – das System erkennt Chancen in Echtzeit und setzt Kapital strategisch ein. Investieren Sie effektiv und sparen Sie Zeit.";
-$heading_min_invest = "Mit $currency investieren – einfach und zugänglich";
-$text_min_invest = "Mit einem Anfangsbetrag ab $currency profitieren Sie von der leistungsstarken KI-Technologie von $source, die auf nachhaltiges Wachstum ausgerichtet ist. Ideal für alle, die ohne hohe Hürden anfangen möchten.";
-$heading_control = "Volle Kontrolle und transparente Übersicht";
-$text_control = "Mit $source behalten Sie stets die volle Kontrolle über Ihr Kapital. Gewinne können nach Wunsch reinvestiert oder ausgezahlt werden. Die Plattform ist fair, transparent und frei von versteckten Kosten.";
-$button_signup = "Jetzt registrieren";
+// WHY INVEST SECTION
+$heading_reasons = "Why Investing with $source Makes Sense";
+$text_protect_capital = "Protect Your Capital from Inflation and Build a Forward-Thinking Strategy";
+$text_inflation = "Inflation gradually reduces purchasing power over time. Instead of leaving savings idle, smart investment strategies can help achieve long-term growth. Automated systems improve stability and help create a stronger financial foundation.";
+$heading_auto_investing = "Automated Investing — No Market Experience Required";
+$text_auto_investing = "$source manages your investments using advanced AI technology. No need to analyze charts or monitor markets constantly — the system identifies opportunities in real time and allocates capital strategically. Invest efficiently while saving valuable time.";
+$heading_min_invest = "Start Investing with $currency — Simple and Accessible";
+$text_min_invest = "With an initial investment starting from just $currency, you can access the powerful AI technology behind $source, designed to support sustainable growth. Ideal for anyone looking to get started without significant barriers.";
+$heading_control = "Full Control and Complete Transparency";
+$text_control = "With $source, you always maintain full control over your capital. Profits can be reinvested or withdrawn whenever you choose. The platform is transparent, fair, and free from hidden fees.";
+$button_signup = "Register Now";
 
-// CALCULATOR BEREICH
-$text_expected_returns = "Welche realistischen Renditen sind mit $source möglich?";
-$text_my_investment = "MEINE INVESTITION:";
-$text_usage_period = "DAUER:";
-$text_days = "Tage";
+// CALCULATOR SECTION
+$text_expected_returns = "What Realistic Returns Can Be Achieved with $source?";
+$text_my_investment = "MY INVESTMENT:";
+$text_usage_period = "PERIOD:";
+$text_days = "Days";
 
-// Wie KI-Investments funktionieren
-$text_h2_ai_investments = "Wie KI-gestützte Anlagen mit $source funktionieren";
-$text_h3_registration = "Schnelle Registrierung – sofortiger Start mit $source";
-$text_p_registration = "Nach der Registrierung erhalten Sie Unterstützung von einer persönlichen Kontaktperson. Das Konto ist in der Regel innerhalb weniger Minuten einsatzbereit.";
-$text_h3_trading_approach = "Strategieentwicklung für konsistente Ergebnisse";
-$text_p_trading_approach = "Mit $source profitieren Sie von einer Handelsstrategie, die auf Ihre Ziele und Ihr Risikoniveau zugeschnitten ist – für stetiges, nachhaltiges Wachstum.";
-$text_h3_ai_trading = "Automatische Marktüberwachung und KI-Entscheidungen";
-$text_p_ai_trading = "$source analysiert Märkte in Echtzeit mit modernster KI, erkennt Chancen und führt Trades autonom aus – präzise, effizient und ohne manuelle Eingriffe.";
-$text_h3_profit_flexibility = "Flexibles Gewinnmanagement";
-$text_p_profit_flexibility = "Entscheiden Sie jederzeit, ob Sie Gewinne auszahlen oder reinvestieren möchten. Ihr Kapital bleibt verfügbar.";
+// HOW AI INVESTING WORKS
+$text_h2_ai_investments = "How AI-Powered Investing Works with $source";
+$text_h3_registration = "Fast Registration – Get Started with $source in Minutes";
+$text_p_registration = "After registration, you will receive support from a dedicated account representative. Your account is typically ready to use within just a few minutes.";
+$text_h3_trading_approach = "Personalized Strategy for Consistent Results";
+$text_p_trading_approach = "With $source, you benefit from an investment strategy tailored to your financial goals and risk preferences, helping you pursue steady and sustainable growth.";
+$text_h3_ai_trading = "Automated Market Monitoring and AI Decision-Making";
+$text_p_ai_trading = "$source analyzes markets in real time using advanced artificial intelligence, identifies opportunities, and executes trades automatically with precision, efficiency, and no manual intervention required.";
+$text_h3_profit_flexibility = "Flexible Profit Management";
+$text_p_profit_flexibility = "Choose at any time whether to withdraw your profits or reinvest them to support future growth. Your capital remains fully accessible.";
 
-// RISIKOMANAGEMENT
-$text_h2_risk_control = "Risikomanagement und Schutz mit $source";
-$text_h3_ai_analysis = "Intelligente Marktanalyse durch selbstlernende KI";
-$text_p_ai_analysis = "$source verwendet fortschrittliche, selbstlernende Algorithmen, die große Datenmengen in Echtzeit analysieren – Preise, Volumen, Nachrichten, Stimmungsbilder in sozialen Medien, makroökonomische Signale und technische Muster. Die KI deckt versteckte Chancen auf, bewertet Wahrscheinlichkeiten und filtert automatisch riskante Marktphasen heraus, sodass präzise, emotionsfreie Handelssignale entstehen. Das System passt sich kontinuierlich an neue Bedingungen an und balanciert Rendite und Risiko für eine robuste, nachhaltige Strategie über die Zeit.";
-$text_h3_custom_risk = "Ihr persönliches Risikoprofil – individuell optimiert";
-$text_p_custom_risk = "Jeder Investor ist anders: manche streben starkes Wachstum an, andere legen Wert auf Sicherheit. $source ermöglicht eine genaue Anpassung des Risikoprofils – von defensiv über ausgewogen bis wachstumsorientiert. Nach der Auswahl optimiert die KI kontinuierlich Parameter wie Positionsgröße, Stop-Loss, Take-Profit und Ein-/Ausstiegsfrequenz. Die Strategie bleibt stets automatisch auf Ihre Ziele und Ihr persönliches Komfortniveau abgestimmt.";
-$text_h3_transparency = "Maximale Transparenz und Kontrolle über Ihr Kapital";
-$text_p_transparency = "Auf $source herrscht vollständige Transparenz. Jede Transaktion – Kauf, Verkauf, Änderungen, Gebühren – wird detailliert und in Echtzeit dokumentiert. Keine versteckten Kosten, keine Überraschungen. Ihr Dashboard zeigt Kontostand, Historie, Gewinn-/Verlustkurven, Statistiken und Risikopositionen übersichtlich an. Sie behalten stets die Kontrolle: Die Plattform arbeitet für Sie, nicht umgekehrt.";
+// RISK MANAGEMENT
+$text_h2_risk_control = "Risk Management and Capital Protection with $source";
+$text_h3_ai_analysis = "Intelligent Market Analysis Powered by Self-Learning AI";
+$text_p_ai_analysis = "$source utilizes advanced self-learning algorithms capable of processing vast amounts of data in real time, including price movements, trading volume, news events, social sentiment, macroeconomic indicators, and technical market patterns. The AI identifies hidden opportunities, evaluates probabilities, and automatically filters out high-risk market conditions to generate precise and objective trading signals. The system continuously adapts to changing market environments, balancing potential returns and risk exposure to support a resilient long-term investment strategy.";
+$text_h3_custom_risk = "A Personalized Risk Profile Tailored to Your Needs";
+$text_p_custom_risk = "Every investor has unique goals. Some prioritize growth, while others focus on capital preservation. $source allows you to customize your risk profile, ranging from conservative to balanced or growth-oriented strategies. Once selected, the AI continuously optimizes factors such as position sizing, stop-loss levels, take-profit targets, and trading frequency. Your strategy remains aligned with your objectives and comfort level at all times.";
+$text_h3_transparency = "Complete Transparency and Full Control of Your Capital";
+$text_p_transparency = "Transparency is a core principle of $source. Every transaction—including purchases, sales, adjustments, and fees—is recorded and displayed in real time. There are no hidden charges and no unexpected surprises. Your dashboard provides a clear overview of account balances, transaction history, profit and loss performance, statistics, and risk exposure. You remain fully in control while the platform works on your behalf.";
 
-// VORTEILE
-$text_h2_benefits = "Ihre Vorteile mit $source – systematisch und nachhaltig investieren";
-$text_h3_ai_investing = "Mit moderner KI investieren – präzise und mühelos";
-$text_p_ai_investing = "Sie müssen keine Stunden mit dem Studieren von Charts oder Nachrichten verbringen. Die KI von $source arbeitet kontinuierlich: sie analysiert Tausende Märkte, erkennt Muster in Millisekunden, prognostiziert Bewegungen mit hoher Genauigkeit und führt Trades zum richtigen Zeitpunkt aus. Professioneller algorithmischer Handel ohne technische Vorkenntnisse.";
-$text_h3_easy_investing = "Einfach investieren – sicher und für alle geeignet";
-$text_p_easy_investing = "$source ist so gestaltet, dass jeder starten kann – unabhängig von Erfahrung oder Kapital. Die Oberfläche ist intuitiv: klare Schritte, einfache Einstellungen und leicht verständliche Inhalte (auch in Ihrer bevorzugten Sprache). Selbst Anfänger können ihre erste automatisierte Strategie in 10–15 Minuten aktivieren. Videos, Anleitungen und ein reaktionsschneller Support stehen zur Verfügung.";
-$text_h3_support = "Persönlicher Support für Ihren Erfolg";
-$text_p_support = "Nach Ihrer Ersteinzahlung wird Ihnen ein persönlicher Berater zugewiesen – ein Experte, der bei der Festlegung Ihres Risikoprofils hilft, Funktionen erklärt, Einstiegsparameter empfiehlt und während der Nutzung Ihr Ansprechpartner bleibt.";
-$text_h3_opportunities = "Unbegrenzte Möglichkeiten – Einkommen wächst mit Ihrem Kapital";
-$text_p_opportunities = "Mit $source arbeitet Ihr Kapital kontinuierlich, auch wenn Sie reisen oder schlafen. Automatische Optimierung und Reinvestition von Gewinnen können potenziell exponentielles Wachstum erzeugen. Kein Bildschirmstress, keine Emotionen: Prüfen Sie Ergebnisse gelegentlich und entnehmen Sie Gewinne. So bauen Sie eine langfristige passive Einkommensquelle auf.";
+// BENEFITS
+$text_h2_benefits = "The Advantages of $source – Invest Systematically for Long-Term Growth";
+$text_h3_ai_investing = "Invest with Advanced AI – Accurate and Effortless";
+$text_p_ai_investing = "There is no need to spend hours studying charts or monitoring financial news. The AI behind $source operates around the clock, analyzing thousands of market signals, identifying patterns within milliseconds, forecasting movements with remarkable accuracy, and executing trades at optimal moments. Experience professional algorithmic investing without technical expertise.";
+$text_h3_easy_investing = "Simple, Secure Investing for Everyone";
+$text_p_easy_investing = "$source is designed to make investing accessible regardless of your experience level or available capital. The platform features an intuitive interface, straightforward setup steps, and easy-to-understand educational content available in your preferred language. Even first-time investors can activate their initial automated strategy within 10–15 minutes. Video tutorials, guides, and responsive customer support are always available.";
+$text_h3_support = "Dedicated Support Focused on Your Success";
+$text_p_support = "Following your initial deposit, you will be assigned a personal advisor who can help define your risk profile, explain platform features, recommend starting parameters, and provide guidance throughout your experience with $source.";
+$text_h3_opportunities = "Unlimited Potential – Growth That Scales with Your Capital";
+$text_p_opportunities = "With $source, your capital continues working even while you travel, relax, or sleep. Automated optimization and profit reinvestment can support long-term compounding growth. No emotional trading, no constant screen monitoring—simply review your results periodically and access profits whenever needed. It is a practical approach to building a sustainable source of passive income.";
 
-// FEEDBACK
-$feedback_h2_title = "Erfahrungsberichte von Nutzern";
+// TESTIMONIALS
+$feedback_h2_title = "What Our Users Say";
 
-$feedback_h3_1 = "Von $currency zum Nebeneinkommen";
-$feedback_p_1 = "Ich hatte keine Erfahrung, aber alles lief automatisch. Bald sah ich die ersten Ergebnisse und verdiene jetzt ein stetiges zusätzliches Einkommen.";
+$feedback_h3_1 = "From $currency to a Reliable Extra Income";
+$feedback_p_1 = "I had no prior investing experience, yet everything worked automatically. Before long, I began seeing positive results and now enjoy a steady source of additional income.";
 
-$feedback_h3_2 = "Perfekt für Einsteiger – einfach und effektiv";
-$feedback_p_2 = "Der Einstieg mit $source war überraschend einfach. Dank persönlicher Betreuung erziele ich regelmäßig solide Ergebnisse ohne Stress.";
+$feedback_h3_2 = "Perfect for Beginners – Simple and Effective";
+$feedback_p_2 = "Getting started with $source was surprisingly easy. Thanks to the personal guidance provided, I now achieve consistent results without unnecessary stress.";
 
-$feedback_h3_3 = "Mein Kapital arbeitet endlich für mich";
-$feedback_p_3 = "Anstatt Ersparnisse untätig liegen zu lassen, investiere ich jetzt smart. $source liefert konstante Ergebnisse ohne Aufwand.";
+$feedback_h3_3 = "My Capital Finally Works for Me";
+$feedback_p_3 = "Instead of leaving my savings idle, I now invest intelligently. $source delivers consistent performance without requiring constant attention or effort.";
 
-$feedback_h3_4 = "Finanzielle Freiheit – überall auf der Welt";
-$feedback_p_4 = "Ich wollte reisen und weiterhin Einkommen generieren. Mit $source kann ich das: Ich habe jederzeit Zugriff auf meine Erträge.";
+$feedback_h3_4 = "Financial Freedom Wherever I Am";
+$feedback_p_4 = "I wanted the flexibility to travel while continuing to generate income. With $source, I can monitor my investments and access my returns from anywhere in the world.";
 
-// PARTNER
-$partners_h2_title = "Partner und Kooperationen";
-
-// FAQ & KONTAKT
-$faq_h2_title = "Häufig gestellte Fragen – klare und verständliche Antworten";
-$contact_h2_title = "Kontaktieren Sie uns";
-
-$lang['faq_q1'] = 'Wie viel Kapital benötige ich, um mit %s zu starten?';
-$lang['faq_a1'] = 'Sie können mit einem Betrag ab %s starten. Viele Nutzer beginnen klein, um die Plattform kennenzulernen, und erhöhen ihre Investition später schrittweise – je nach Zielen und Risikobereitschaft.';
-
-$lang['faq_q2'] = 'Wie lange dauert eine Auszahlung bei %s?';
-$lang['faq_a2'] = 'Auszahlungsanfragen werden in der Regel innerhalb von 24 Stunden bearbeitet. Je nach Zahlungsmethode und Bank kann die Gutschrift anschließend 1–3 Werktage dauern.';
-
-$lang['faq_q3'] = 'Wie schützt %s meine Anlage?';
-$lang['faq_a3'] = 'Als moderne Plattform setzt %s mehrschichtige Sicherheitsmaßnahmen ein, wie verschlüsselte Datenübertragung, verifizierte Konten und laufendes Risikomanagement. Zusätzlich können Sie Ihre Sicherheitsoptionen im Profil anpassen, um den Schutz weiter zu erhöhen.';
-
-$lang['faq_q4'] = 'Brauche ich Erfahrung, um %s zu nutzen?';
-$lang['faq_a4'] = 'Nein, überhaupt nicht! %s ist so konzipiert, dass Einsteiger sich schnell zurechtfinden. Die Oberfläche führt Sie Schritt für Schritt durch Einrichtung und Nutzung, und Sie können jederzeit Einstellungen anpassen, wenn Sie mehr Kontrolle wünschen.';
+// PARTNERS
+$partners_h2_title = "Partners and Strategic Collaborations";
 
 
+// FAQ & CONTACT
+$faq_h2_title = "Frequently Asked Questions – Clear and Straightforward Answers";
+$contact_h2_title = "Get in Touch with Us";
 
+$lang['faq_q1'] = 'How much capital do I need to start with %s?';
+$lang['faq_a1'] = 'You can get started with as little as %s. Many users begin with a smaller amount to familiarize themselves with the platform and gradually increase their investment over time based on their goals and risk tolerance.';
 
+$lang['faq_q2'] = 'How long do withdrawals take on %s?';
+$lang['faq_a2'] = 'Withdrawal requests are typically processed within 24 hours. Depending on your payment provider and banking institution, funds may then arrive within 1–3 business days.';
 
+$lang['faq_q3'] = 'How does %s protect my investment?';
+$lang['faq_a3'] = 'As a modern investment platform, %s employs multiple layers of security, including encrypted data transmission, account verification procedures, and continuous risk monitoring. You can also customize security settings within your profile to further enhance account protection.';
 
-
-
-
-
-
-
-
+$lang['faq_q4'] = 'Do I need prior experience to use %s?';
+$lang['faq_a4'] = 'Not at all. %s is designed to be accessible for beginners. The platform guides you through each step of setup and use, while still allowing you to customize settings whenever you want greater control over your investment strategy.';
 
 // ---------------------------------------------------------------------------------------------------
 
-// ÜBER-UNS-SEITE
-$about_heading = "Über uns";
-$about_text_1 = "$source wurde mit dem klaren Ziel entwickelt, jedem Investor – vom absoluten Anfänger bis zum professionellen Trader – eine sichere, moderne und vollständig transparente Umgebung für automatisierte Investments in Aktien und Kryptowährungen zu bieten. Wir sind überzeugt, dass nachhaltiger Erfolg an den Finanzmärkten kein Zufall ist, sondern auf Klarheit, Offenheit und gegenseitigem Vertrauen beruht. Deshalb folgt jede Interaktion mit der Plattform – von der ersten Registrierung bis zur Auszahlung von Gewinnen – diesen Prinzipien. Jeder Prozess, jede Transaktion und jede Anlageentscheidung basiert auf objektiven Daten und ist nachvollziehbar, ohne versteckte Mechanismen oder undurchsichtige Verfahren.";
+// ABOUT US PAGE
+$about_heading = "About Us";
 
-$about_text_2 = "Unser Team vereint qualifizierte Spezialisten: Entwickler für KI- und algorithmische Handelssysteme, Finanzanalysten mit umfassender Erfahrung an den wichtigsten Märkten, Cybersicherheitsexperten und Compliance-Fachleute. Wir entwickeln nicht nur ein Produkt – wir überwachen, testen und optimieren kontinuierlich jede Komponente der Plattform. Von der Qualität der Echtzeit-Marktdaten über die Stabilität der Serverinfrastruktur bis hin zur Genauigkeit der Handelssignale: Alle Elemente unterliegen mehrschichtigen Qualitätskontrollen und unabhängigen Audits. Unser Ziel ist es, zuverlässige, reproduzierbare und greifbare Innovationen für Sie zu liefern.";
+$about_text_1 = "$source was created with a clear mission: to provide every investor—from complete beginners to experienced professionals—with a secure, modern, and fully transparent environment for automated investing in stocks and cryptocurrencies. We believe that long-term success in financial markets is built on clarity, openness, and mutual trust rather than chance. For this reason, every interaction with the platform—from registration to profit withdrawals—is guided by these principles. Every process, transaction, and investment decision is based on objective data and remains transparent, without hidden mechanisms or unclear procedures.";
 
-$about_image = "team.png"; // НЕ ТРОГАТЬ!!!
+$about_text_2 = "Our team brings together highly qualified specialists, including AI and algorithmic trading developers, financial analysts with extensive experience across global markets, cybersecurity experts, and compliance professionals. We do more than build technology—we continuously monitor, test, and improve every component of the platform. From the quality of real-time market data and server infrastructure stability to the accuracy of trading signals, every element undergoes rigorous quality assurance and independent auditing. Our objective is to deliver reliable, repeatable, and meaningful innovation that creates real value for our users.";
+
+$about_image = "team.png"; // DO NOT MODIFY!!!
 $about_image_alt = "Team";
 
-$about_text_3 = "Der Schutz Ihrer personenbezogenen Daten und Ihres Kapitals hat für uns Priorität. $source arbeitet nach international anerkannten Sicherheitsstandards: DSGVO- und PCI-DSS-Konformität sowie fortschrittliche Verschlüsselungsprotokolle (TLS 1.3+, AES-256). Gelder werden auf getrennten Konten bei regulierten Finanzinstituten verwahrt. Unabhängige Penetrationstests und vollständige Sicherheitsprüfungen stellen sicher, dass Informationen und Vermögenswerte auf einem Niveau geschützt sind, das mit großen Banken und globalen Investmentsystemen vergleichbar ist.";
+$about_text_3 = "Protecting your personal information and financial assets is one of our highest priorities. $source operates in accordance with internationally recognized security standards, including GDPR and PCI-DSS compliance, while utilizing advanced encryption technologies such as TLS 1.3+ and AES-256. Client funds are held in segregated accounts with regulated financial institutions. Independent penetration testing and comprehensive security assessments help ensure that user information and assets are protected at a level comparable to major banking and investment systems.";
 
-$about_text_4 = "Technologie ist wesentlich, aber wir wissen, dass der Erfolg eines Investors nicht allein von Algorithmen abhängt. Deshalb kombinieren wir leistungsstarke Automatisierung mit erstklassigem persönlichem Service. Jeder registrierte Nutzer hat einen persönlichen Ansprechpartner – einen Profi, der die Strategie an Ihre Ziele anpasst, Funktionen erklärt, Fragen beantwortet und Sie während der Nutzung unterstützt. Keine anonymen Chatbots: sprechen Sie mit Menschen, die an Ihrem finanziellen Fortschritt arbeiten.";
+$about_text_4 = "Technology is essential, but we understand that successful investing depends on more than algorithms alone. That is why we combine powerful automation with exceptional personal support. Every registered user is assigned a dedicated account representative—a knowledgeable professional who can help tailor strategies to individual goals, explain platform features, answer questions, and provide ongoing guidance. No anonymous chatbots—just real people committed to supporting your financial progress.";
 
-$about_text_5 = "Innovation ist für uns kein Schlagwort, sondern tägliches Engagement. Unser Team analysiert neue Marktmuster, verbessert Machine-Learning-Modelle, integriert neue Datenquellen und entwickelt Funktionen, die den Handel effizienter machen. Jedes Update wird mit historischen Daten und in kontrollierten Live-Umgebungen getestet, bevor es allen Nutzern zur Verfügung steht. Wir versprechen keine Wunder oder Garantien: Wir stellen Werkzeuge bereit, die Ihnen in einem Markt, in dem Geschwindigkeit, Genauigkeit und Anpassungsfähigkeit zählen, einen Wettbewerbsvorteil verschaffen sollen.";
+$about_text_5 = "For us, innovation is not simply a buzzword—it is a daily commitment. Our team continuously studies emerging market behaviors, improves machine-learning models, integrates new sources of information, and develops features that make investing more efficient. Every enhancement is tested using historical data and controlled live environments before becoming available to users. We do not promise miracles or guaranteed outcomes. Instead, we provide advanced tools designed to help investors gain a competitive advantage in markets where speed, precision, and adaptability matter.";
 
-$about_text_6 = "Für Tausende von Nutzern war $source der erste ernsthafte Einstieg in automatisiertes Investieren. Viele begannen mit bescheidenem Kapital und konservativen Risikoprofilen und haben dank stabiler Ergebnisse, hoher Transparenz und persönlicher Betreuung ihre Möglichkeiten schrittweise erweitert. Wir sind stolz darauf, neue finanzielle Perspektiven nicht nur für Profis, sondern auch für jene zu bieten, die Investieren für kompliziert, zeitaufwändig oder unzugänglich hielten. Bei uns kann jeder mit Vertrauen starten, da verifizierte Technologie und ein engagiertes Team für Sie arbeiten.";
+$about_text_6 = "For thousands of users, $source has become their first serious step into automated investing. Many started with modest capital and conservative risk profiles before gradually expanding their portfolios through consistent results, transparency, and personalized support. We take pride in opening new financial opportunities not only for experienced investors but also for those who once considered investing too complex, time-consuming, or inaccessible. With verified technology and a dedicated team behind you, getting started can feel both simple and secure.";
 
-$about_text_7 = "Kurz gesagt: $source ist weit mehr als eine Handelsplattform. Es ist ein integriertes Ökosystem, das auf voller Transparenz, höchster Professionalität und solidem Vertrauen basiert. Wir vereinen modernste KI-Technologien mit menschlicher Expertise, strengem Risikomanagement und persönlicher Unterstützung für jeden Nutzer. Unser Ziel ist es, Ihr verlässlicher Partner beim Aufbau eines stabilen, dauerhaften Vermögens zu sein. Mit $source investieren Sie nicht blind: Sie investieren strukturiert, sicherheitsorientiert und behalten stets die volle Kontrolle über Ihre Entscheidungen.";
+$about_text_7 = "In short, $source is far more than a trading platform. It is a comprehensive ecosystem built on transparency, professionalism, and trust. By combining cutting-edge artificial intelligence with human expertise, disciplined risk management, and dedicated support, we aim to be a reliable long-term partner in helping users build and grow their financial future. With $source, you do not invest blindly—you invest with structure, confidence, and complete control over your decisions.";
+
+
+// ---------------------------------------------------------------------------------------------------
+// TERMS & CONDITIONS
+$terms_heading = "Terms and Conditions";
+
+$terms_text_1 = "This document sets out the general terms and conditions (the 'Terms') governing the use of the $source platform. It defines the rights and obligations between you as a user and the platform operator. Please read these Terms carefully and in full before using the platform, opening an account, or carrying out any transactions. They form the legal basis of your relationship with the platform and are binding on both parties.";
+
+$terms_text_2 = "By registering, logging in, using any platform features, or engaging in any activity on $source, you expressly and fully agree to these Terms and Conditions. The platform may only be used by individuals who are at least 18 years old and legally capable of entering into binding agreements. Minors and individuals without full legal capacity are not permitted to use the platform. If we suspect a violation of these age requirements, we reserve the right to suspend, restrict, or permanently terminate the relevant account.";
+
+$terms_text_3 = "The operation of the platform may occasionally be affected by technical interruptions, maintenance periods, software updates, or service outages caused by factors such as market volatility, increased server demand, or external events. While we strive to maintain a high level of service availability, uninterrupted access cannot be guaranteed. Platform features, algorithms, pricing structures, and available markets may be expanded, modified, restricted, or discontinued at any time without creating entitlement to claims against $source.";
+
+$terms_text_4 = "All content available on the platform—including text, graphics, design elements, software, algorithms, trademarks, logos, and AI-generated analyses—is protected by intellectual property laws and remains the property of $source or its licensors. Any reproduction, distribution, public display, modification, or commercial use without our prior written consent is strictly prohibited and may result in civil or criminal liability.";
+
+$terms_text_5 = "As a user, you are responsible for ensuring that all information provided to us, including identification details, contact information, and payment data, is accurate, complete, and up to date. Providing false, misleading, or incomplete information may result in account restrictions, delayed withdrawals, suspension, or legal action. Personal data is processed exclusively in accordance with our Privacy Policy and applicable data protection regulations. We maintain high standards of security, confidentiality, and transparency.";
+
+$terms_text_6 = "All investment and trading decisions made through $source, whether executed manually or through AI-powered automation, remain solely your responsibility and are undertaken at your own risk. $source provides technical infrastructure and analytical tools but does not offer personal financial advice, investment recommendations, or guarantees of profit. Financial markets, including stocks and cryptocurrencies, can be highly volatile and may result in the partial or complete loss of invested capital. Past performance should never be considered a reliable indicator of future results. Only invest funds that you can afford to lose.";
+
+$terms_text_7 = "We reserve the right to modify, update, or supplement these Terms at any time in response to regulatory developments, technological changes, or evolving market requirements. Users will be informed in advance, typically at least 14 days before the changes become effective, via email, platform notifications, or announcements on the website. Continued use of the platform following the effective date of any amendments constitutes acceptance of the updated Terms. If significant changes are introduced, you may choose to close your account.";
+
+$terms_text_8 = "Security and transparency are fundamental principles of our business. We utilize advanced encryption technologies, perform regular security audits, maintain client funds in segregated accounts, and apply strict compliance procedures, including KYC and AML controls, to provide the highest possible level of protection. All activities and transactions are documented clearly and transparently. We are committed to fair, honest, and customer-focused service because your trust is our most valuable asset.";
 
 // ---------------------------------------------------------------------------------------------------
 
-// AGB
-$terms_heading = "Nutzungsbedingungen";
+// CONTACT PAGE
+$contact_heading = "Contact Us";
 
-$terms_text_1 = "Dieses Dokument legt die allgemeinen Bedingungen (die 'Bedingungen') für die Nutzung der $source-Plattform fest. Es regelt die Rechte und Pflichten zwischen Ihnen als Nutzer und dem Plattformbetreiber. Bitte lesen Sie diese Bedingungen sorgfältig und vollständig, bevor Sie die Plattform nutzen, ein Konto eröffnen oder Transaktionen durchführen. Sie bilden die rechtliche Grundlage der Nutzung und sind für beide Parteien verbindlich.";
+$contact_intro = "Our dedicated support team is available to assist you with any questions or concerns regarding $source. Whether you are seeking information, have already registered, or actively use the platform, we are committed to providing professional and personalized assistance whenever you need it.";
 
-$terms_text_2 = "Mit der Registrierung, dem Einloggen, der Nutzung der angebotenen Funktionen oder der Ausführung anderer Aktivitäten auf $source akzeptieren Sie diese Nutzungsbedingungen ausdrücklich und vollständig. Die Nutzung von $source ist nur volljährigen Personen ab 18 Jahren gestattet. Minderjährige oder nicht voll geschäftsfähige Personen dürfen die Plattform nicht nutzen. Bei Verdacht auf Verstoß gegen diese Altersanforderung behalten wir uns das Recht vor, Konten zu sperren, einzuschränken oder zu löschen.";
+$contact_how_to = "How to Contact Us";
 
-$terms_text_3 = "Der Betrieb der Plattform kann vorübergehend technischen Unterbrechungen, Wartungsfenstern, Updates oder Ausfällen unterliegen – z. B. durch Marktschwankungen, hohe Serverauslastung oder äußere Ereignisse. Wir streben eine hohe Verfügbarkeit an, können jedoch keinen ununterbrochenen Betrieb garantieren. Funktionen, Algorithmen, Preismodelle oder verfügbare Märkte können jederzeit erweitert, geändert, eingeschränkt oder eingestellt werden, ohne daraus Ansprüche gegenüber $source abzuleiten.";
+$contact_how_to_text = "We provide fast and accurate support for all matters related to your account and your experience with $source. Our team operates Monday through Friday during standard business hours (CET) and prioritizes every inquiry with care and professionalism. Common areas where we can assist include:";
 
-$terms_text_4 = "Alle Inhalte der Plattform – Texte, Grafiken, Design, Software, Algorithmen, Marken, Logos und KI-basierte Analysen – sind durch Urheber-, Marken- und sonstige Rechte geschützt und Eigentum von $source oder dessen Lizenzgebern. Jegliche Vervielfältigung, Verbreitung, öffentliche Zugänglichmachung oder kommerzielle Nutzung ohne unsere ausdrückliche schriftliche Zustimmung ist untersagt und kann zivil- und strafrechtliche Folgen haben.";
+$contact_list_1 = "Account registration, verification, and complete account management, including profile and risk-setting adjustments";
+$contact_list_2 = "Technical assistance with platform usage, application functionality, or troubleshooting issues";
+$contact_list_3 = "Questions regarding deposits, withdrawals, processing times, and supported payment methods";
+$contact_list_4 = "Detailed information about platform features, investment strategies, AI algorithms, and available trading tools";
+$contact_list_5 = "Feedback, suggestions, and ideas that can help improve and expand the platform";
+$contact_list_6 = "Support for any additional inquiries, from general questions to personalized assistance";
 
-$terms_text_5 = "Als Nutzer sind Sie dafür verantwortlich, dass alle gemachten Angaben (z. B. Identifikationsdaten, Kontakte, Zahlungsinformationen) korrekt, vollständig und aktuell sind. Falsche oder irreführende Informationen können zur Kontosperrung, Zurückhaltung von Auszahlungen oder rechtlichen Schritten führen. Ihre personenbezogenen Daten werden ausschließlich gemäß unserer Datenschutzerklärung und der DSGVO verarbeitet. Wir wenden hohe Sicherheits- und Transparenzstandards an.";
+$contact_send_message = "Send a Message";
 
-$terms_text_6 = "Alle Anlage- und Handelsentscheidungen, die Sie über $source treffen – ob manuell oder über KI-Automationen – liegen in Ihrer alleinigen Verantwortung und erfolgen auf eigenes Risiko. $source stellt eine technische Infrastruktur bereit, bietet jedoch keine persönliche Finanzberatung, Empfehlungen oder Gewinngarantien. Finanzmärkte (einschließlich Aktien und Kryptowährungen) können sehr volatil sein und zum vollständigen Verlust des eingesetzten Kapitals führen. Vergangene Wertentwicklungen sind kein verlässlicher Indikator für zukünftige Ergebnisse. Investieren Sie nur Mittel, deren Verlust Sie verkraften können.";
+$contact_send_message_text = "Use the secure contact form below to submit your inquiry. Please complete all relevant fields so that we can process your request as accurately and efficiently as possible. On business days, responses are typically provided within 24 hours and often much sooner. For urgent technical matters, live chat support is available on weekdays from 9:00 AM to 6:00 PM.";
 
-$terms_text_7 = "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu aktualisieren oder zu ergänzen – etwa aufgrund regulatorischer Änderungen, technischer Entwicklungen oder neuer Marktanforderungen. Wir informieren Sie rechtzeitig (in der Regel mindestens 14 Tage vorher) per E-Mail, Plattformnachrichten oder auf der Website. Die fortgesetzte Nutzung der Plattform nach Inkrafttreten der Änderungen gilt als Zustimmung. Bei wesentlichen Änderungen können Sie Ihr Konto schließen.";
+$contact_info = "Contact Information";
 
-$terms_text_8 = "Sicherheit und Transparenz sind Kernprinzipien unseres Handelns. Wir nutzen moderne Verschlüsselungstechnologien, führen regelmäßige Sicherheitsprüfungen durch, verwahren Kundengelder auf separaten Konten und wenden strenge Compliance-Prozesse (KYC/AML) an, um höchstmöglichen Schutz zu gewährleisten. Alle Abläufe und Transaktionen werden klar und nachvollziehbar dokumentiert. Wir verpflichten uns zu fairer, ehrlicher und kundenorientierter Zusammenarbeit: Ihr Vertrauen ist unser wertvollstes Gut.";
-
-// ---------------------------------------------------------------------------------------------------
-
-// KONTAKTSEITE
-$contact_heading = "Kontakt";
-
-$contact_intro = "Unser spezialisiertes Support-Team steht Ihnen für Fragen und Anliegen rund um $source zuverlässig und kompetent zur Verfügung. Ob Sie Informationen wünschen, bereits registriert sind oder die Plattform nutzen – wir kümmern uns persönlich, damit Sie sich stets gut betreut fühlen.";
-
-$contact_how_to = "Wie Sie uns kontaktieren";
-
-$contact_how_to_text = "Wir helfen Ihnen schnell und präzise in allen Belangen zu Ihrem Konto und zur Nutzung von $source. Das Team ist von Montag bis Freitag während der Geschäftszeiten (MEZ) tätig und bearbeitet Anfragen mit hoher Priorität. Typische Bereiche, in denen wir Sie unterstützen:";
-
-$contact_list_1 = "Kontoeröffnung und Verifizierung sowie vollständige Kontoverwaltung (inkl. Profil- und Risiko-Einstellungen)";
-$contact_list_2 = "Technische Unterstützung bei Nutzung der Plattform, der App oder bei Fehlern";
-$contact_list_3 = "Fragen zu Einzahlungen, Auszahlungen, Bearbeitungszeiten und unterstützten Zahlungsmethoden";
-$contact_list_4 = "Detaillierte Informationen zu Funktionen, Strategien, KI-Algorithmen und verfügbaren Trading-Tools";
-$contact_list_5 = "Feedback, Ideen und Verbesserungsvorschläge zur Weiterentwicklung der Plattform";
-$contact_list_6 = "Support für alle weiteren Anliegen – von allgemeinen Fragen bis zu individuellen Bedürfnissen";
-
-$contact_send_message = "Nachricht senden";
-
-$contact_send_message_text = "Nutzen Sie das sichere Kontaktformular unten. Füllen Sie alle relevanten Felder aus, damit wir Ihre Anfrage genau und schnell bearbeiten können. Sie erhalten in der Regel an Werktagen innerhalb von 24 Stunden eine Antwort – oft früher. Bei dringenden technischen Problemen steht ein Live-Chat (werktags 9–18 Uhr) zur Verfügung.";
-
-$contact_info = "Kontaktinformationen";
-
-$contact_info_text = "Unser Ziel ist es, Ihre Erfahrung mit $source so angenehm, reibungslos und erfolgreich wie möglich zu gestalten. Daher legen wir Wert auf klare Kommunikation, Transparenz und lösungsorientierten Support. Sie können uns über das Formular, per E-Mail oder – in ausgewählten Fällen – telefonisch kontaktieren. Ihre Zufriedenheit und Sicherheit haben bei uns Priorität.";
+$contact_info_text = "Our goal is to make your experience with $source as smooth, convenient, and successful as possible. We place great importance on clear communication, transparency, and solution-oriented support. You can contact us through the form below, by email, or, in selected cases, by phone. Your satisfaction and security remain our highest priorities.";
 
 // ---------------------------------------------------------------------------------------------------
 
-// FAQ-SEITE
-$faq_page_heading = "Häufig gestellte Fragen – FAQ";
-$faq_page_subheading = "Haben Sie Fragen? Finden Sie hier die Antworten.";
-$faq_page_intro_1 = "In diesem Abschnitt finden Sie prägnante Antworten zu zentralen Themen rund um Konten, Zahlungen, Sicherheit und Plattformnutzung.";
-$faq_page_intro_2 = "Unser Anspruch ist, Sie Schritt für Schritt zu begleiten und Zweifel von Anfang an auszuräumen.";
-$faq_page_intro_3 = "Für konkrete Fragen steht Ihnen unser Team stets persönlich zur Verfügung.";
-$faq_page_section_heading = "FAQ – Antworten auf häufige Fragen der Nutzer";
+// FAQ PAGE
+$faq_page_heading = "Frequently Asked Questions – FAQ";
+$faq_page_subheading = "Have Questions? Find the Answers Here.";
+$faq_page_intro_1 = "This section provides concise answers to the most common questions regarding accounts, payments, security, and platform usage.";
+$faq_page_intro_2 = "Our goal is to guide you step by step and help eliminate uncertainty from the very beginning.";
+$faq_page_intro_3 = "If you require further assistance, our support team is always available to provide personal guidance.";
+$faq_page_section_heading = "FAQ – Answers to Our Users' Most Common Questions";
+
 
 // ---------------------------------------------------------------------------------------------------
+// PRIVACY POLICY
+$private_policy_heading = "Privacy Policy";
 
-// DATENSCHUTZ
-$private_policy_heading = "Datenschutzerklärung";
+$private_policy_intro = "At $source, protecting and responsibly handling your personal information is a top priority. We process data transparently, for clearly defined purposes, and in accordance with applicable data protection laws. This Privacy Policy explains what information we collect, why we collect it, how long we retain it, and the measures we take to keep it secure.";
 
-$private_policy_intro = "Der verantwortungsvolle Umgang mit Ihren personenbezogenen Daten ist für $source von höchster Bedeutung. Wir verarbeiten Informationen transparent, zu definierten Zwecken und in Übereinstimmung mit geltendem Recht – insbesondere der DSGVO. In dieser Richtlinie erklären wir, welche Daten wir erfassen, warum wir sie nutzen, wie lange wir sie speichern und wie wir sie schützen.";
+$private_policy_section_1_heading = "1. Data Controller";
+$private_policy_section_1_text = "The operator of the $source website and platform acts as the controller responsible for processing your personal data. Relevant contact information and additional company details can be found on this website. If you have any privacy-related questions, you may contact our data protection team.";
 
-$private_policy_section_1_heading = "1. Verantwortliche Stelle";
-$private_policy_section_1_text = "Die für Ihre personenbezogenen Daten im Sinne der DSGVO verantwortliche Stelle ist der Betreiber der $source-Website und Plattform. Relevante Kontaktdaten und weitere Informationen finden Sie im Impressum dieser Seite. Bei Datenschutzfragen können Sie sich an unseren Datenschutzbeauftragten wenden.";
-
-$private_policy_section_2_heading = "2. Erhobene Daten";
-$private_policy_section_2_text = "Wir erheben und verarbeiten nur die Daten, die zur Erbringung unserer Dienste, zur Erfüllung gesetzlicher Verpflichtungen und zur sicheren Betriebsführung der Plattform erforderlich sind. Dazu gehören insbesondere:";
+$private_policy_section_2_heading = "2. Information We Collect";
+$private_policy_section_2_text = "We only collect and process information necessary to provide our services, comply with legal obligations, and maintain the secure operation of the platform. This may include:";
 $private_policy_section_2_list = [
-    "Identitätsdaten: Vorname und Nachname, Geburtsdatum (zur Alters- und Identitätsüberprüfung).",
-    "Kontaktdaten: E-Mail-Adresse, Telefonnummer (optional), Wohnsitzland und gegebenenfalls Adresse.",
-    "Konto- und Transaktionsinformationen: Zahlungsdetails, Ein- und Auszahlungen, Transaktionshistorie.",
-    "Technische und Nutzungsdaten: IP-Adresse, Browsertyp, Geräteinformationen, Zugriffszeiten, Logdaten.",
-    "Verifizierungsdokumente: Ausweisdokumente, Adressnachweis oder andere Unterlagen für KYC/AML-Prüfungen (nur wenn gesetzlich erforderlich)."
+"Identity information: first name, last name, and date of birth for age and identity verification purposes.",
+"Contact information: email address, telephone number (where provided), country of residence, and, where applicable, postal address.",
+"Account and transaction information: payment details, deposits, withdrawals, and transaction history.",
+"Technical and usage information: IP address, browser type, device details, access times, and system log data.",
+"Verification documentation: identification documents, proof of address, or other materials required for KYC and AML compliance procedures."
 ];
-$private_policy_section_2_note = "Besondere Kategorien personenbezogener Daten (z. B. Gesundheitsdaten oder religiöse Überzeugungen) werden in der Regel nicht erhoben, es sei denn, dies ist gesetzlich ausdrücklich erforderlich oder erfolgt mit Ihrer ausdrücklichen Einwilligung.";
+$private_policy_section_2_note = "We generally do not collect special categories of personal data, such as health information or religious beliefs, unless legally required or explicitly authorized by you.";
 
-$private_policy_section_3_heading = "3. Erhebungsmethoden";
-$private_policy_section_3_text = "Ihre Daten werden über verschiedene sichere Kanäle erhoben:";
+$private_policy_section_3_heading = "3. How Information Is Collected";
+$private_policy_section_3_text = "Your information may be collected through several secure channels:";
 $private_policy_section_3_list = [
-    "Direkt von Ihnen: zum Beispiel bei der Registrierung, Pflege Ihres Profils, Einreichung von Verifizierungsdokumenten oder Nutzung des Kontaktformulars.",
-    "Automatisch: z. B. über Cookies, Server-Logdateien, Analysetools und Geräteinformationen während der Nutzung der Plattform.",
-    "Über Dritte: wie Zahlungsanbieter (für Ein- und Auszahlungen), Identitätsprüfungsdienste (KYC/AML) oder – mit Ihrer Einwilligung – Social-Login-Dienste."
+"Directly from you, for example during registration, profile updates, document verification, or when contacting support.",
+"Automatically through cookies, server logs, analytics tools, and device information while you use the platform.",
+"From trusted third parties, such as payment providers, identity verification services, or social login providers when you choose to use them."
 ];
 
-$private_policy_section_4_heading = "4. Verarbeitungszwecke";
-$private_policy_section_4_text = "Wir verarbeiten Ihre personenbezogenen Daten nur für klare und legitime Zwecke:";
+$private_policy_section_4_heading = "4. Purposes of Processing";
+$private_policy_section_4_text = "We process your personal information only for legitimate and clearly defined purposes:";
 $private_policy_section_4_list = [
-    "Einrichtung, Verwaltung und Bereitstellung Ihres Benutzerkontos und der Plattformfunktionen.",
-    "Durchführung und Sicherung von Zahlungsprozessen (Ein- und Auszahlungen).",
-    "Persönlicher Kundensupport und Bearbeitung Ihrer Anfragen.",
-    "Erfüllung gesetzlicher und regulatorischer Pflichten (z. B. KYC-, AML- und Steueranforderungen).",
-    "Gewährleistung der IT-Sicherheit und Schutz vor Betrug, Missbrauch und Angriffen.",
-    "Optimierung der Benutzererfahrung und Weiterentwicklung der Plattform.",
-    "Marketing- und Informationszwecke – nur auf Grundlage Ihrer ausdrücklichen Einwilligung."
+"Creating, managing, and maintaining your user account and access to platform features.",
+"Processing and securing deposits, withdrawals, and payment-related activities.",
+"Providing customer support and responding to inquiries.",
+"Complying with legal and regulatory obligations, including KYC, AML, and tax-related requirements.",
+"Maintaining platform security and preventing fraud, abuse, or unauthorized access.",
+"Improving platform performance, functionality, and user experience.",
+"Providing marketing communications and updates where you have given explicit consent."
 ];
 
-$private_policy_section_5_heading = "5. Rechtsgrundlagen der Verarbeitung";
+$private_policy_section_5_heading = "5. Legal Basis for Processing";
 $private_policy_section_5_list = [
-    "Erfüllung eines Vertrags oder vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO).",
-    "Erfüllung rechtlicher Verpflichtungen (Art. 6 Abs. 1 lit. c DSGVO), z. B. im Zusammenhang mit Geldwäschebekämpfung.",
-    "Wahrung berechtigter Interessen (Art. 6 Abs. 1 lit. f DSGVO), z. B. zur Sicherstellung der Stabilität und Sicherheit der Plattform.",
-    "Ihre ausdrückliche Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), beispielsweise für Marketing oder optionale Zusatzfunktionen."
+"Performance of a contract or steps taken prior to entering into a contract.",
+"Compliance with legal obligations, including anti-money laundering and regulatory requirements.",
+"Legitimate business interests, such as maintaining platform security, reliability, and operational stability.",
+"Your explicit consent, for example when receiving marketing communications or using optional platform features."
 ];
 
-$private_policy_section_6_heading = "6. Datenweitergabe";
-$private_policy_section_6_text = "Ihre Daten werden nur dann weitergegeben, wenn es erforderlich ist, und ausschließlich an sorgfältig ausgewählte Partner:";
+$private_policy_section_6_heading = "6. Sharing of Information";
+$private_policy_section_6_text = "Your information is shared only when necessary and exclusively with carefully selected service providers and partners:";
 $private_policy_section_6_list = [
-    "Zahlungsdienstleister und Banken zur Abwicklung von Ein- und Auszahlungen.",
-    "Spezialisierte Dienstleister für die Durchführung von KYC/AML-Prüfungen.",
-    "IT- und Cloud-Anbieter, mit denen wir entsprechende Auftragsverarbeitungsverträge geschlossen haben.",
-    "Analyse- und Sicherheitstools, die – soweit möglich – mit anonymisierten oder pseudonymisierten Daten arbeiten.",
-    "Externe Berater (z. B. Anwälte, Steuerberater) im Rahmen gesetzlicher Verpflichtungen.",
-    "Behörden oder Gerichte, wenn eine gesetzliche Verpflichtung besteht oder Rechte durchgesetzt werden müssen."
+"Payment service providers and banking institutions for transaction processing.",
+"Specialized providers assisting with identity verification and compliance checks.",
+"Technology and cloud service providers operating under appropriate data processing agreements.",
+"Analytics and security service providers that, where possible, utilize anonymized or pseudonymized information.",
+"Professional advisors such as legal or tax consultants where required.",
+"Regulatory authorities, courts, or law enforcement agencies when legally obligated."
 ];
-$private_policy_section_6_note = "Ihre personenbezogenen Daten werden nicht zu kommerziellen Zwecken an Dritte übertragen oder verkauft.";
+$private_policy_section_6_note = "We do not sell, rent, or otherwise transfer your personal information to third parties for commercial purposes.";
 
-$private_policy_section_7_heading = "7. Internationale Datenübermittlungen";
-$private_policy_section_7_text = "In einigen Fällen nutzen wir Anbieter (z. B. Cloud- oder Analyse-Dienste) außerhalb des Europäischen Wirtschaftsraums. In solchen Fällen treffen wir angemessene Schutzmaßnahmen, wie EU-Standardvertragsklauseln, verbindliche Unternehmensregeln oder Angemessenheitsbeschlüsse der Europäischen Kommission, um ein angemessenes Datenschutzniveau sicherzustellen.";
+$private_policy_section_7_heading = "7. International Data Transfers";
+$private_policy_section_7_text = "Certain service providers, including cloud hosting or analytics partners, may operate outside your jurisdiction. Whenever international data transfers occur, we implement appropriate safeguards such as standard contractual clauses or other recognized legal mechanisms to ensure an adequate level of data protection.";
 
-$private_policy_section_8_heading = "8. Datensicherheit";
-$private_policy_section_8_text = "Zum Schutz Ihrer Daten ergreifen wir umfangreiche technische und organisatorische Maßnahmen:";
+$private_policy_section_8_heading = "8. Data Security";
+$private_policy_section_8_text = "We implement comprehensive technical and organizational measures to protect your information:";
 $private_policy_section_8_list = [
-    "Verschlüsselte Datenübertragung mittels aktueller Protokolle (z. B. TLS 1.3+).",
-    "Starke Verschlüsselung sensibler Daten im Ruhezustand (z. B. AES-256).",
-    "Regelmäßige Sicherheitsprüfungen, Penetrationstests und Reviews durch unabhängige Spezialisten.",
-    "Kontinuierliche Überwachung der Systeme auf verdächtige Aktivitäten und Angriffsversuche.",
-    "Strenge Zugriffsbeschränkungen und rollenbasierte Berechtigungen innerhalb des Teams.",
-    "Aufbewahrung von Kundengeldern auf getrennten Konten bei regulierten Partnerinstituten."
+"Encrypted data transmission using modern security protocols such as TLS 1.3+.",
+"Strong encryption of sensitive information at rest using technologies such as AES-256.",
+"Regular security assessments, penetration testing, and independent reviews.",
+"Continuous monitoring for suspicious activities and potential security threats.",
+"Strict access controls and role-based permissions for authorized personnel.",
+"Segregated safeguarding of client funds through regulated financial partners."
 ];
-$private_policy_section_8_note = "Ein absoluter Schutz gegen alle Risiken kann technisch nicht garantiert werden, aber wir reduzieren solche Risiken mit unseren Maßnahmen auf ein sehr niedriges Niveau.";
+$private_policy_section_8_note = "Although no security system can guarantee absolute protection, we continuously work to minimize risks and maintain a high level of security.";
 
-$private_policy_section_9_heading = "9. Speicherdauer";
-$private_policy_section_9_text = "Wir speichern Ihre Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzlich vorgeschrieben ist:";
+$private_policy_section_9_heading = "9. Data Retention";
+$private_policy_section_9_text = "Personal information is retained only for as long as necessary to fulfill the purposes outlined in this Policy or to satisfy legal requirements:";
 $private_policy_section_9_list = [
-    "Für die Dauer der aktiven Nutzung Ihres Kontos und der vertraglichen Beziehung.",
-    "Nach Kontoschließung für die gesetzlich vorgeschriebene Dauer (z. B. 5–10 Jahre für steuerliche und regulatorische Zwecke).",
-    "Für zustimmungsbasierte Verarbeitung (z. B. Marketing) bis zum Widerruf Ihrer Einwilligung."
+"For the duration of your active account and contractual relationship with us.",
+"For additional periods required by tax, regulatory, or legal obligations.",
+"Until consent is withdrawn where processing is based solely on your consent."
 ];
-$private_policy_section_9_note = "Wenn Daten nicht mehr benötigt werden, löschen wir sie sicher oder anonymisieren sie.";
+$private_policy_section_9_note = "When information is no longer required, it is securely deleted or permanently anonymized.";
 
-$private_policy_section_10_heading = "10. Ihre Rechte als betroffene Person";
-$private_policy_section_10_text = "In Bezug auf Ihre personenbezogenen Daten stehen Ihnen umfangreiche Rechte zu. Insbesondere können Sie:";
+$private_policy_section_10_heading = "10. Your Rights";
+$private_policy_section_10_text = "Subject to applicable law, you may exercise the following rights regarding your personal information:";
 $private_policy_section_10_list = [
-    "Fordern Sie Informationen darüber an, welche Daten wir über Sie speichern.",
-    "Verlangen Sie die Berichtigung unrichtiger oder die Vervollständigung unvollständiger Daten.",
-    "Verlangen Sie die Löschung Ihrer Daten, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.",
-    "Verlangen Sie die Einschränkung der Verarbeitung in bestimmten Fällen.",
-    "Erhalten Sie Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format (Datenübertragbarkeit).",
-    "Widerrufen Sie erteilte Einwilligungen jederzeit mit Wirkung für die Zukunft.",
-    "Reichen Sie eine Beschwerde bei einer zuständigen Datenschutzaufsichtsbehörde ein."
+"Request access to the information we hold about you.",
+"Request correction of inaccurate or incomplete information.",
+"Request deletion of your information where legally permissible.",
+"Request restriction of processing under certain circumstances.",
+"Receive your information in a structured, commonly used, and machine-readable format.",
+"Withdraw previously granted consent at any time.",
+"Submit a complaint to a competent data protection authority."
 ];
 
-$private_policy_section_11_heading = "11. Cookies und ähnliche Technologien";
-$private_policy_section_11_text = "Wir verwenden Cookies und ähnliche Technologien, um die Funktionalität der Plattform sicherzustellen, die Nutzung zu analysieren und das Erlebnis zu optimieren. Essenzielle Cookies sind stets aktiv, während analytische und Marketing-Cookies Ihre vorherige Zustimmung erfordern. Weitere Details finden Sie in unserer Cookie-Richtlinie.";
+$private_policy_section_11_heading = "11. Cookies and Similar Technologies";
+$private_policy_section_11_text = "We use cookies and similar technologies to ensure platform functionality, analyze usage patterns, and improve user experience. Essential cookies are always active, while analytics and marketing cookies require your consent. Additional details can be found in our Cookie Policy.";
 
-$private_policy_section_12_heading = "12. Änderungen dieser Datenschutzerklärung";
-$private_policy_section_12_text = "Wir können diese Richtlinie von Zeit zu Zeit aktualisieren – etwa aufgrund gesetzlicher Änderungen, behördlicher Vorgaben oder neuer Funktionen. Die aktualisierte Version ist stets auf der Website verfügbar. Wir informieren Sie über relevante Änderungen per E-Mail oder direkt auf der Plattform.";
+$private_policy_section_12_heading = "12. Changes to This Privacy Policy";
+$private_policy_section_12_text = "We may update this Privacy Policy from time to time due to legal, regulatory, or operational changes. The most recent version will always be available on the website. Where significant changes occur, we may notify you by email or through platform notifications.";
 
-$private_policy_section_13_heading = "13. Kontakt für Datenschutzangelegenheiten";
-$private_policy_section_13_text = "Wenn Sie Fragen zum Datenschutz, zu dieser Richtlinie oder zur Ausübung Ihrer Rechte haben, kontaktieren Sie uns per E-Mail unter $site_gmail oder über das Kontaktformular der Seite. Unser Datenschutzbeauftragter wird Ihre Anfrage prüfen und zeitnah beantworten.";
+$private_policy_section_13_heading = "13. Privacy Contact Information";
+$private_policy_section_13_text = "If you have any questions regarding privacy, this Policy, or the exercise of your rights, please contact us via email at $site_gmail or through the website's contact form. We will review your request and respond as promptly as possible.";
 
-$private_policy_agreement = "Durch die Nutzung von $source bestätigen Sie, dass Sie diese Datenschutzerklärung gelesen haben und deren Inhalt akzeptieren.";
+$private_policy_agreement = "By using $source, you acknowledge that you have read and understood this Privacy Policy and agree to its terms.";
 
-$private_policy_thank_you = "Danke für Ihr Vertrauen. Der Schutz Ihrer Daten und Ihrer Privatsphäre ist und bleibt eine zentrale Priorität für uns.";
+$private_policy_thank_you = "Thank you for your trust. Protecting your information and respecting your privacy will always remain a core commitment of $source.";
 
 // ---------------------------------------------------------------------------------------------------
 
-// REGISTRIERUNG
-$register_heading = "Starten Sie jetzt mit $source und legen Sie in wenigen Minuten los";
+// REGISTRATION
+$register_heading = "Get Started with $source Today and Begin in Just a Few Minutes";
 ?>
