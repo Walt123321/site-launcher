@@ -1,5 +1,5 @@
 <?php
-$key = '8f36616428754b52b21c57e6c412e697'; 
+$key = '1954342f82644334803470a6243ad135'; 
 $domain = '{{DOMAIN}}'; 
 
 $endpoint = 'https://api.indexnow.org/IndexNow';
