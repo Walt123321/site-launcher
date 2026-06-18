@@ -18,7 +18,12 @@ include 'lang.php';
 
 $host = $_SERVER['HTTP_HOST'];
 $uri = strtok($_SERVER['REQUEST_URI'], '?'); 
-$canonical = 'https://' . $host . $uri;
+
+if ($uri === "/lander/{$host}/index.php") {
+    $canonical = 'https://' . $host . '/';
+} else {
+    $canonical = 'https://' . $host . $uri;
+}
 
 function initials($text) {
     $words = explode(' ', trim($text));
