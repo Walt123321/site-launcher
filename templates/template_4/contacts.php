@@ -4,7 +4,7 @@ if (empty($_SESSION['js_token'])) {
     $_SESSION['js_token'] = bin2hex(random_bytes(16));
 }
 $jsToken = $_SESSION['js_token'];
-require_once 'offer_seo.php';
+require_once './offer_seo.php';
 include 'lang.php';
 ?>
 <?php
@@ -155,6 +155,8 @@ $canonical = 'https://' . $host . $uri;
         document.getElementById("skeleton")?.remove();
       });
     </script>
+    <script src="./assets/js/lazyload.min.js" defer></script>
+    <script src="./assets/js/scripts.js" defer></script>
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/contacts.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/contacts.php" />
 <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/contacts.php" />
@@ -629,6 +631,62 @@ $canonical = 'https://' . $host . $uri;
       </div>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
+  <script src="./integration/validation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
+  <script src="./integration/validation.js"></script>
+  <script src="./assets/js/lazyload.min.js" defer></script>
+  <script src="./assets/js/scripts.js" defer></script>
+
+  
+<div id="cq-form-card" hidden aria-hidden="true" style="display: none !important;">
+  <form id="cq-isolated-form" class="leadform rf-form js-rf-form cq-pure-custom-form" method="post" action="./integration/send.php">
+    <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
+    <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
+      <input type="text" name="website" tabindex="-1" autocomplete="off">
+      <input type="text" name="company" style="position:absolute; left:-9999px;">
+    </div>
+    <input type="hidden" name="country" value="<?= $form_country; ?>">
+    <input type="hidden" name="language" value="<?= $form_language; ?>">
+    <input type="hidden" name="phone_country" value="<?= $form_phone_country; ?>">
+    <input type="hidden" name="only_countries" value='<?= $form_only_countries; ?>'>
+    <div class="form-preloader hidden">
+      <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
+        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+      </svg>
+    </div>
+    <div class="absolute inset-0 z-20 hidden items-center justify-center bg-white/50 group-data-loading:flex">
+      <svg class="text-primary animate-spin" width="76" height="75" viewBox="0 0 76 75" fill="none">
+        <circle cx="38" cy="37.195" r="28" stroke="#E5E7EB" stroke-width="8" />
+        <path d="M49.808 62.585a27.998 27.998 0 0 0 7.13-46.014 28 28 0 0 0-30.746-4.763" stroke="currentColor"
+          stroke-width="8" stroke-linecap="round" />
+      </svg>
+    </div>
+    <div class="cq-field-group">
+      <input type="text" name="fname" id="cq-field-fname" placeholder="<?= htmlspecialchars($quiz_placeholder_fname) ?>" required>
+    </div>
+    <div class="cq-field-group">
+      <input type="text" name="lname" id="cq-field-lname" placeholder="<?= htmlspecialchars($quiz_placeholder_lname) ?>" required>
+    </div>
+    <div class="cq-field-group">
+      <input type="email" name="email" id="cq-field-email" placeholder="<?= htmlspecialchars($quiz_placeholder_email) ?>" required>
+    </div>
+    <div class="cq-field-group">
+      <input type="tel" name="fullphone" id="cq-field-phone" placeholder="" required>
+      <span class="error-msg hide"></span>
+    </div>
+    <button type="submit" class="submit" id="cq-custom-submit-btn"><?= $quiz_btn_submit ?></button>
+  </form>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
+  <script src="./integration/validation.js"></script>
+  <script src="./assets/js/lazyload.min.js" defer></script>
+  <script src="./assets/js/scripts.js" defer></script>
+
+
+
+
 <div id="chat-quiz-root" style="position: fixed !important; bottom: 20px !important; right: 20px !important; z-index: 999999 !important; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important; box-sizing: border-box !important;">
     
     <button id="chat-toggle-btn" class="cq-pulse-button" style="position: relative !important; width: 62px !important; height: 62px !important; border-radius: 50% !important; background: linear-gradient(135deg, #8175be, #6B5FA7) !important; color: #ffffff !important; border: none !important; outline: none !important; cursor: pointer !important; box-shadow: 0 8px 24px rgba(107, 95, 167, 0.5) !important; display: flex !important; align-items: center !important; justify-content: center !important; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;">
@@ -1095,10 +1153,5 @@ document.addEventListener('DOMContentLoaded', () => {
     100% { transform: translateY(530px) rotate(360deg); opacity: 0; }
 }
 </style>
-
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-<script src="./integration/validation.js"></script>
-<script src="./assets/js/lazyload.min.js" defer></script>
-<script src="./assets/js/scripts.js" defer></script>
-</body>
+  </body>
 </html>
