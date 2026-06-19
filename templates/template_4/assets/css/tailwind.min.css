@@ -2142,6 +2142,9 @@
 .iti .iti__selected-dial-code {
   margin-left: 4px;
 }
+.cq-pure-custom-form .iti .iti__selected-dial-code {
+    color: rgb(255, 255, 255) !important;
+}
 .iti--container {
   z-index: 1060;
   padding: var(--iti-border-width);
@@ -2703,3 +2706,65 @@
   align-items: center;
 }
 
+
+/* =========================
+🌍 LANGUAGE SWITCHER STYLE
+========================= */
+
+.lang-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    max-width: 220px;
+}
+
+.lang-switcher a {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    font-size: 20px;
+    text-decoration: none;
+
+    transition: .2s ease;
+}
+
+.lang-switcher a:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.1);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .lang-switcher {
+        gap: 8px;
+        max-width: 190px;
+    }
+
+    .lang-switcher a {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .flex.justify-between.gap-5 {
+        align-items: flex-start;
+    }
+
+}

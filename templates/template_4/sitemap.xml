@@ -1,35 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+         xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://{{DOMAIN}}/</loc>
         <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/" />
     </url>
-    <url> 
+    <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sign.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/sign.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/sign.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/sign.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/sign.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/sign.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/sign.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/sign.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/sign.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/sign.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/sign.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/sign.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/sign.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/sign.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/sign.php" />
     </url>
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/product.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/product.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/product.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/product.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/product.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/product.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/product.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/product.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/product.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/product.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/product.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/product.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/product.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/product.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/product.php" />
     </url>
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/privacy.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/privacy.php" />
     </url>
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/offer.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/offer.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/offer.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/offer.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/offer.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/offer.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/offer.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/offer.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/offer.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/offer.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/offer.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/offer.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/offer.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/offer.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/offer.php" />
     </url>
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/faq.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/faq.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/faq.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/faq.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/faq.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/faq.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/faq.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/faq.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/faq.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/faq.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/faq.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/faq.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/faq.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/faq.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/faq.php" />
     </url>
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/contacts.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/contacts.php" />
     </url>
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/conditions.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/conditions.php" />
     </url>
 </urlset>

@@ -18,7 +18,7 @@ except Exception:
 # -----------------------------
 # Config
 # -----------------------------
-TEMPLATE_LANG_BASE = "de"        # шаблон завжди німецький
+TEMPLATE_LANG_BASE = "en"        # шаблон англійський
 DEFAULT_MODEL = "gpt-5-mini"     # оптимально по швидкості/ціні (ВАЖЛИВО: без temperature)
 
 
@@ -822,17 +822,6 @@ def _generate_specials_via_llm(
     if not address:
         address = f"Main Street 10, 10000 Capital City, {cc}"
 
-    return {
-        "adress_name": address,
-        "feedback_strong_1": personas[0],
-        "feedback_strong_2": personas[1],
-        "feedback_strong_3": personas[2],
-        "feedback_strong_4": personas[3],
-        "page_title_main": title,
-        "page_description_main": desc,
-    }
-    
-
     def _norm_source_dash(s: str) -> str:
         s = (s or "").strip()
         if s.startswith("$source") and not s.startswith("$source —"):
@@ -1196,12 +1185,6 @@ def _apply_strings(content: str, spans: List[Tuple[int, int]], outs: List[str]) 
 
     return content
 
-    pairs = list(zip(spans, outs))
-    pairs.sort(key=lambda x: x[0][0], reverse=True)
-    for (start, end), new_text in pairs:
-        content = content[:start] + _escape_php_string(new_text) + content[end:]
-    return content
-
 
 gender_map = {
     "feedback_description_1": "female",
@@ -1219,6 +1202,7 @@ def _llm_transform_strings_onepass(
     strings: List[str],
     target_lang: str,
     geo_code: str,
+    instructions: Optional[str] = None,
 ) -> List[str]:
     """
     1 LLM-запит на весь список рядків.
@@ -1249,7 +1233,7 @@ def _llm_transform_strings_onepass(
         "4) Return only plain strings inside JSON.\n"
         "5) No explanations."
         "6) Some strings are user reviews. Gender order:1 female, 2 female, 3 male, 4 female, 5 male, 6 male.  Ensure the translation keeps the correct gender."
-        
+        + (f"\n\nAdditional instructions:\n{instructions}" if instructions else "")
     )
 
     task = (
@@ -1297,7 +1281,24 @@ def _llm_batch_transform(client: OpenAI, model: str, strings: List[str], target_
         protected_list.append(ps)
         maps.append(mp)
 
+    system = (
+        "You are processing a list of website phrases. "
+        "Return ONLY strict JSON: {\"out\": [\"...\", \"...\"]}. "
+        f"The output language MUST be strictly ISO language code: {target_lang}. "
+        "Translate EVERY string to the target language. Do NOT mix languages. "
+        "Rules:\n"
+        "1) Length of 'out' equals length of 'in'.\n"
+        "2) Keep order.\n"
+        "3) Do NOT modify tokens like __PH0__, __PH1__.\n"
+        "4) Return only plain strings inside JSON.\n"
+        "5) No explanations."
+    )
 
+    task = (
+        "Rewrite each string in German with light uniqueness, preserving meaning."
+        if mode == "unique"
+        else f"Translate each string into ISO language '{target_lang}' with light uniqueness, preserving meaning."
+    )
 
     def run_once(batch: List[str]) -> Optional[List[str]]:
         data = _llm_json(
@@ -1530,6 +1531,8 @@ def generate_lang_files(
             content = _set_php_var(content, "rating_count", str(rating_count), numeric=True)
             content = _set_php_var(content, "site_lang", target_lang, numeric=False)
             content = _set_php_var(content, "site_gmail", _gmail_for_domain(domain), numeric=False)
+            if country_name:
+                content = _set_php_var(content, "country_name", country_name, numeric=False)
 
             # 2) LLM спец-генерація (через $source)
             gen = _generate_specials_via_llm(
@@ -1667,6 +1670,8 @@ def generate_lang_files(
                 content = _set_php_var(content, "app_price", str(price), numeric=True)
                 content = _set_php_var(content, "site_lang", target_lang, numeric=False)
                 content = _set_php_var(content, "site_gmail", _gmail_for_domain(domain), numeric=False)
+                if country_name:
+                    content = _set_php_var(content, "country_name", country_name, numeric=False)
         
                 # --- RATING ---
                 rating_value = round(random.uniform(4.6, 5.0), 1)
@@ -1731,6 +1736,141 @@ def generate_lang_files(
         
             except Exception as e:
                 raise RuntimeError(f"TEMPLATE_4 FAILED: {e}")
+
+
+# -------------------------
+        # TEMPLATE 5
+        # -------------------------
+        elif template_kind == "template_5":
+                
+            try:
+                if progress_cb:
+                    progress_cb((idx - 1) / total, f"Processing {domain}...")
+        
+                # --- DOMAIN FIX ---
+                content = content.replace("{{DOMAIN}}", domain)
+        
+                # --- BASIC VARS ---
+                price = _make_price(geo_currency)
+        
+                # ФІКС: Замість "$source" тепер передаємо реальний brand, який приходить з інтерфейсу
+                content = _set_php_var(content, "site_name", brand, numeric=False)
+                content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
+                content = _set_php_var(content, "site_domain", domain, numeric=False)
+                content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
+                content = _set_php_var(content, "app_price", str(price), numeric=True)
+                content = _set_php_var(content, "site_lang", target_lang, numeric=False)
+                content = _set_php_var(content, "site_gmail", _gmail_for_domain(domain), numeric=False)
+                if country_name:
+                    content = _set_php_var(content, "country_name", country_name, numeric=False)
+        
+                # --- RATING ---
+                rating_value = round(random.uniform(4.6, 5.0), 1)
+                rating_count = random.randint(300, 3000)
+        
+                content = _set_php_var(content, "rating_value", str(rating_value), numeric=True)
+                content = _set_php_var(content, "rating_count", str(rating_count), numeric=True)
+        
+                # =========================
+                # REVIEWS (NO NAMES, ONLY ROLES)
+                # =========================
+                if progress_cb:
+                    progress_cb((idx - 1) / total + 0.3 / total, f"Generating reviews...")
+        
+                roles = [
+                    "Private Investor",
+                    "Retail Trader",
+                    "Crypto Enthusiast",
+                    "Financial Analyst",
+                    "Independent Trader",
+                    "Part-time Investor",
+                    "Online Trader",
+                    "Forex Trader",
+                    "Stock Investor",
+                    "Digital Asset Trader",
+                    "Market Follower",
+                    "Beginner Trader",
+                    "Experienced Investor",
+                    "Portfolio Manager",
+                    "Passive Income Seeker"
+                ]
+        
+                selected_roles = random.sample(roles, 4)
+        
+                for i, role in enumerate(selected_roles, start=1):
+                    content = _set_php_var(content, f"review_{i}_author", role, numeric=False)
+        
+                # ❗ initials більше НЕ використовуємо
+        
+                # =========================
+                # TRANSLATION WITH CONTEXT
+                # =========================
+                # Формуємо залізобетонні правила локалізації для цього шаблону
+                custom_instructions = (
+                    f"=== CRITICAL LOCALIZATION RULES FOR TEMPLATE 5 ===\n"
+                    f"Target language: {target_lang}. Brand name: '{brand}'.\n"
+                    f"\n"
+                    f"RULE 1 — BRAND NAME:\n"
+                    f"The brand name '{brand}' must remain exactly as '{brand}' everywhere. Never translate or alter it.\n"
+                    f"\n"
+                    f"RULE 2 — MASCULINE GENDER IN TESTIMONIALS (applies to ALL languages):\n"
+                    f"Any string that is a user review, testimonial, or personal story MUST use MASCULINE (MALE) grammatical forms throughout.\n"
+                    f"This applies to every language. Examples by language:\n"
+                    f"  - Ukrainian/Russian: past-tense verbs ending in consonant/о for male (я чув, я шукав, наважився, я був вражений — NOT чула, шукала, наважилась).\n"
+                    f"  - Polish: masculine past tense (zacząłem, byłem, znalazłem — NOT zaczęłam, byłam).\n"
+                    f"  - German: masculine adjectives/pronouns (Ich war beeindruckt, ich habe gesucht — keep 'ich' neutral but any attributive adjectives in masculine form).\n"
+                    f"  - French: masculine agreement (j'étais impressionné — NOT impressionnée; j'ai trouvé — OK).\n"
+                    f"  - Italian: masculine past participle (sono rimasto, ho trovato — NOT rimasta).\n"
+                    f"  - Spanish: masculine agreement (estaba impresionado — NOT impresionada; decidí — OK).\n"
+                    f"  - Romanian: masculine forms (eram impresionat — NOT impresionată).\n"
+                    f"  - Czech/Slovak: masculine past tense (hledal jsem, byl jsem — NOT hledala jsem).\n"
+                    f"  - For any other language: always use the grammatical masculine form for the narrator/reviewer.\n"
+                    f"NEVER use female, neutral, or dual-gender (he/she, él/ella, er/sie) forms in testimonials.\n"
+                    f"\n"
+                    f"RULE 3 — UPPERCASE UI LABELS:\n"
+                    f"Short uppercase phrases like 'LIVE', 'COMMUNITY', 'GET STARTED WITH', 'KNOWLEDGE BASE', 'LIVE AI CORE', 'OVERVIEW', 'FEATURES', 'SUPPORT' "
+                    f"are UI labels, NOT system constants or code. They MUST be fully translated into {target_lang}. "
+                    f"Preserve the UPPERCASE style in the translation. Do NOT leave them in English.\n"
+                    f"Examples: 'LIVE' → 'НАЖИВО' (uk), 'EN DIRECT' (fr), 'EN VIVO' (es), 'DAL VIVO' (it), 'LIVE' only if the target language genuinely uses this loanword.\n"
+                    f"\n"
+                    f"RULE 4 — NATURAL TRANSLATION OF TECHNICAL MARKETING PHRASES:\n"
+                    f"Avoid robotic or literal word-for-word translations for these patterns. Translate the meaning naturally:\n"
+                    f"  - 'AI Core Operational' → convey 'AI system is active/running' naturally in {target_lang} (e.g. uk: 'ШІ-ядро активне', de: 'KI-Kern aktiv', fr: 'Noyau IA opérationnel').\n"
+                    f"  - 'AI Signal Engine' → convey 'AI signal analytics center' naturally (e.g. uk: 'Аналітичний центр ШІ', de: 'KI-Signalmotor', es: 'Motor de señales IA').\n"
+                    f"  - Apply the same principle to similar compound technical phrases: translate intent, not individual words.\n"
+                    f"\n"
+                    f"RULE 5 — PHP VARIABLES AND PLACEHOLDERS:\n"
+                    f"Any token starting with '$' (e.g. $site_name, $source, $app_price) MUST be copied into the translation exactly as-is. "
+                    f"Do NOT translate, rename, remove the '$' sign, or alter these in any way. "
+                    f"Tokens like __PH0__, __PH1__ etc. must also remain completely unchanged."
+                )
+
+                if progress_cb:
+                    progress_cb((idx - 1) / total + 0.7 / total, f"Translating (Pass 1)...")
+        
+                strings, spans = _extract_strings(content)
+        
+                if strings:
+                    # Додаємо інструкції додатковим параметром, якщо твоя функція це підтримує, 
+                    # або вбудовуємо контекст прямо в запит до LLM всередині функції.
+                    outs = _llm_transform_strings_onepass(
+                        client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                    )
+                    content = _apply_strings(content, spans, outs)
+        
+                # другий прохід (щоб добити залишки)
+                strings, spans = _extract_strings(content)
+        
+                if strings:
+                    if progress_cb:
+                        progress_cb((idx - 1) / total + 0.9 / total, f"Translating (Pass 2)...")
+                    outs = _llm_transform_strings_onepass(
+                        client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                    )
+                    content = _apply_strings(content, spans, outs)
+        
+            except Exception as e:
+                raise RuntimeError(f"TEMPLATE_5 FAILED: {e}")
 
         # -------------------------
         # TEMPLATE 2 (fixed flow)
@@ -1843,6 +1983,7 @@ def generate_lang_files_multi(
     template2_bytes: bytes,
     template3_bytes: bytes,
     template4_bytes: bytes,
+    template5_bytes: bytes,
     geo_code: Optional[str],
     geo_currency: str,
     target_lang: str,
@@ -1881,6 +2022,10 @@ def generate_lang_files_multi(
         elif kind in ("template_4", "t4", "4", "template4"):
             tpl = template4_bytes
             tk = "template_4"
+
+        elif kind in ("template_5", "t5", "5", "template5"):
+            tpl = template5_bytes
+            tk = "template_5"
 
         else:
             tpl = template1_bytes

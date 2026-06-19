@@ -2249,3 +2249,7 @@ dialog[open] {
     margin: 0 auto 0rem auto !important;
   }
 }
+
+#chat-quiz-root #cq-isolated-form .iti__selected-dial-code {
+  color: #ffffff !important;
+}

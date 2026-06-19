@@ -222,6 +222,14 @@ function validateEmail(email) {
     return { valid: true, message: "" };
 }
 
+function getThanksPageUrl(formAction) {
+    const thanksUrl = new URL(formAction, window.location.href);
+    thanksUrl.pathname = thanksUrl.pathname.replace(/\/integration\/send\.php$/i, '/Thanks.php');
+    thanksUrl.search = '';
+    thanksUrl.hash = '';
+    return thanksUrl;
+}
+
 function setupFormValidation(form) {
     const phone = form.querySelector('input[name="fullphone"]');
     const email = form.querySelector('input[name="email"]');
@@ -358,8 +366,13 @@ function setupFormValidation(form) {
         })
             .then(response => response.json())
             .then(data => {
-                const url = `Thanks.php?language=${encodeURIComponent(data.lead_language)}&phone=${encodeURIComponent(data.fullphone)}&pfb=${encodeURIComponent(data.pfb)}&click_id=${encodeURIComponent(data.click_id)}&redirect_url=${encodeURIComponent(data.redirect_url)}`;
-                window.location.href = url;
+                const thanksUrl = getThanksPageUrl(action);
+                thanksUrl.searchParams.set('language', data.lead_language || language.value || '');
+                thanksUrl.searchParams.set('phone', data.fullphone || phone.value || '');
+                thanksUrl.searchParams.set('pfb', data.pfb || 'SEO');
+                thanksUrl.searchParams.set('click_id', data.click_id || 'SEO');
+                thanksUrl.searchParams.set('redirect_url', data.redirect_url || '');
+                window.location.href = thanksUrl.href;
             })
             .catch(error => {
                 console.error('Error:', error);

@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en-HK">
-
 <head>
     <meta name="referrer" content="no-referrer">
     <meta charset="UTF-8">
@@ -9,20 +8,30 @@
     <title>Glückwünsche!</title>
     <link rel="stylesheet" href="thx/thx.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-
     <?php
     $pfb = isset($_GET['pfb']) ? $_GET['pfb'] : '';
     $click_id = isset($_GET['click_id']) ? $_GET['click_id'] : '';
     $redirect_url = isset($_GET['redirect_url']) ? $_GET['redirect_url'] : '';
     $language = isset($_GET['language']) ? $_GET['language'] : '';
     ?>
-
     <!-- fb pixel  -->
     <img height="1" width="1" src="https://www.facebook.com/tr?id=<?= $pfb; ?>&ev=Lead&noscript=1&eid=<?= $click_id; ?>" />
-
     <!-- redirect to autologin url after 3 seconds -->
-</head>
-
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/Thanks.php" />
+<link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/Thanks.php" />
+<link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/Thanks.php" />
+<link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/Thanks.php" />
+<link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/en/Thanks.php" />
+<link rel="alternate" hreflang="it" href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/Thanks.php" />
+<link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/Thanks.php" />
+<link rel="alternate" hreflang="nl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/Thanks.php" />
+<link rel="alternate" hreflang="pl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/Thanks.php" />
+<link rel="alternate" hreflang="pt" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/Thanks.php" />
+<link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/Thanks.php" />
+<link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/Thanks.php" />
+<link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/Thanks.php" />
+<link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/Thanks.php" />
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/Thanks.php" /></head>
 <body>
     <div class="thx">
         <div class="thx__container">
@@ -53,10 +62,8 @@
         let scene = document.getElementById('parallax');
         let parallaxInstance = new Parallax(scene);
     </script>
-
     <script>
         let language = '<?= $language; ?>';
-
         const translations = {
             en: {
                 title: "Congratulations on your successful registration in the system.",
@@ -143,19 +150,15 @@
                 text: "Do 24 hodin obdržíte hovor – nenechte si jej ujít, jinak byste mohli být zajímaví pro dalšího předplatitele!"
             },
         };
-
         function applyTranslation(lang) {
             const translation = translations[lang] || translations['en'];
             document.querySelector('.thx-left__title').textContent = translation.title;
             document.querySelector('.thx-left__text').innerHTML = translation.text;
             document.title = translation.title;
         }
-
         window.addEventListener('DOMContentLoaded', () => {
             applyTranslation(language);
         });
     </script>
-
 </body>
-
 </html>
