@@ -2,6 +2,12 @@
 $key = 'd9e0bfff82ed4689bc346c2fdd91ca09'; 
 $domain = '{{DOMAIN}}'; 
 
+$flag_file = __DIR__ . '/indexnow_sent.flag';
+
+if (file_exists($flag_file)) {
+    return;
+}
+
 $endpoint = 'https://api.indexnow.org/IndexNow';
 $keyLocation = "https://{$domain}/lander/{$domain}/{$key}.txt";
 
@@ -32,4 +38,8 @@ curl_close($ch);
 
 $log_message = date('Y-m-d H:i:s') . " | IndexNow Response Code: {$code}\n";
 file_put_contents(__DIR__ . '/indexnow_log.txt', $log_message, FILE_APPEND);
+
+if ($code == 202) {
+    file_put_contents($flag_file, 'done');
+}
 ?>
