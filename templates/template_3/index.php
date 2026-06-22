@@ -1390,8 +1390,6 @@ if ($uri === "/lander/{$host}/index.php") {
     });
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-
 
 
 <script>
@@ -1515,7 +1513,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div style="background-color: #12393b !important; border-bottom: 1px solid #183c3e !important; padding: 14px 18px !important; display: flex !important; align-items: center !important; justify-content: space-between !important; flex-direction: row !important;">
             <div style="display: flex !important; align-items: center !important; gap: 12px !important; flex-direction: row !important;">
                 <div style="position: relative !important; width: 40px !important; height: 40px !important; border-radius: 50% !important; border: 2px solid #e3ff34 !important; background-color: #183c3e !important; display: flex !important; align-items: center !important; justify-content: center !important; overflow: hidden !important; flex-shrink: 0 !important;">
-                    <img src="/consultant.png" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
+                    <img src="./consultant.png" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
                     <svg style="display: none; width: 22px; height: 22px; color: #a1a1aa;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     <span style="position: absolute !important; bottom: 0 !important; right: 0 !important; width: 9px !important; height: 9px !important; background-color: #10b981 !important; border: 1.5px solid #0f282a !important; border-radius: 50% !important;"></span>
                 </div>
@@ -1646,7 +1644,7 @@ document.addEventListener('DOMContentLoaded', () => {
         msg.style.cssText = "display: flex !important; gap: 10px !important; max-width: 88% !important; align-items: flex-start !important; flex-direction: row !important; text-align: left !important; animation: chatIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;";
         msg.innerHTML = `
             <div style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid #e3ff34; background-color: #183c3e; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; margin-top: 2px;">
-                <img src="/consultant.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:100%; object-fit:cover;">
+                <img src="./consultant.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:100%; object-fit:cover;">
                 <svg style="display:none; width:14px; height:14px; color:#a1a1aa;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
             </div>
             <div style="background-color: #12393b; color: #f4f4f5; padding: 11px 14px; border-radius: 14px; border-top-left-radius: 0; font-size: 13px; line-height: 1.45; border: 1px solid #183c3e; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
@@ -1962,7 +1960,6 @@ document.addEventListener('DOMContentLoaded', () => {
     100% { transform: translateY(530px) rotate(360deg); opacity: 0; }
 }
 </style>
-<script src="./integration/validation.js"></script>
 
 </body>
 

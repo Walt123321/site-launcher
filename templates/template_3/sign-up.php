@@ -936,6 +936,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<?php include './integration/chat_widget.php'; ?>
 </body>
 
 </html>

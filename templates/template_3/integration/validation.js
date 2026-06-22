@@ -351,6 +351,8 @@ function setupFormValidation(form) {
 
         const formData = new FormData(form);
         formData.append('js_token', Math.random().toString(36).substring(2, 15));
+        const subidMatch = document.cookie.match(/(?:^|;\s*)_subid=([^;]+)/);
+        formData.append('click_id', subidMatch ? decodeURIComponent(subidMatch[1]) : '');
         const action = form.action;
 
         fetch(action, {

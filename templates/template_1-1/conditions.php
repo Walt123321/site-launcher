@@ -623,6 +623,7 @@ document.addEventListener('click', function (e) {
 });
 </script>
   <script src="script.js"></script>
+<?php include './integration/chat_widget.php'; ?>
 </body>
 
 </html>

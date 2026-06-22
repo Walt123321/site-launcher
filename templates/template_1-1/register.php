@@ -634,11 +634,6 @@ $canonical = 'https://' . $host . $uri;
     });
     </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-
-  <!-- Keitaro -->
-  <script src="./integration/validation.js"></script>
-  
 
 
 <!-- FAQ -->
@@ -693,6 +688,7 @@ document.addEventListener('click', function (e) {
   <script src="script.js"></script>
 
 
+<?php include './integration/chat_widget.php'; ?>
 </body>
 
 </html>

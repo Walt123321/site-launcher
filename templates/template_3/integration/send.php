@@ -155,17 +155,16 @@ function getData($buyerData)
         // UTM and tracking data
         'domain' => $_SESSION['form_domain'],
         
-        'utm_campaign' => 'SEO',
-        'utm_medium' => 'SEO',
-        'utm_term' => 'SEO',
-        'fbclid'   => 'SEO',
-        'utm_source' => 'SEO',
-        'utm_placement' => 'SEO',
-        'adset_name'    => 'SEO',
-        'ad_id'         => 'SEO',
-        
+        'utm_campaign'  => !empty($_POST['utm_campaign']) ? $_POST['utm_campaign'] : 'SEO',
+        'utm_medium'    => !empty($_POST['utm_medium']) ? $_POST['utm_medium'] : 'SEO',
+        'utm_term'      => !empty($_POST['utm_term']) ? $_POST['utm_term'] : 'SEO',
+        'fbclid'        => !empty($_POST['fbclid']) ? $_POST['fbclid'] : 'SEO',
+        'utm_source'    => !empty($_POST['utm_source']) ? $_POST['utm_source'] : 'SEO',
+        'utm_placement' => !empty($_POST['utm_placement']) ? $_POST['utm_placement'] : 'SEO',
+        'adset_name'    => !empty($_POST['adset_name']) ? $_POST['adset_name'] : 'SEO',
+        'ad_id'         => !empty($_POST['ad_id']) ? $_POST['ad_id'] : 'SEO',
 
-        'click_id' => 'SEO',
+        'click_id' => !empty($_POST['click_id']) ? $_POST['click_id'] : (!empty($_COOKIE['_subid']) ? $_COOKIE['_subid'] : (!empty($_SESSION['click_id']) ? $_SESSION['click_id'] : 'SEO')),
         
         // Form configuration
         'is_autologin' => $_SESSION['form_is_autologin'],
@@ -294,6 +293,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         sendTGMessage("Error: Not all required fields have been submitted. Domain " . getPost('domain') . " IP: " . getIP(), TGBOT_TECHLOG_CHATID);
     }
 } else {
-    logError("Error: POST request was pending. Domain " . getPost('domain') . " IP: " . getIP());
-    sendTGMessage("Error: POST request was pending. Domain " . getPost('domain') . " IP: " . getIP(), TGBOT_TECHLOG_CHATID);
+    // GET-запити (боти/краулери) — повертаємо 405, нічого не шлємо в Telegram
+    http_response_code(405);
+    exit('Method Not Allowed');
 }
