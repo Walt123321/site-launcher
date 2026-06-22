@@ -46,6 +46,16 @@ def get(url):
         verify=False
     )
 
+
+def put(url, payload):
+    return requests.put(
+        url,
+        headers=HEADERS,
+        json=payload,
+        timeout=TIMEOUT,
+        verify=False
+    )
+
 # =====================================================
 # FIND EXISTING
 # =====================================================
@@ -119,9 +129,16 @@ def create_offer(domain, zip_bytes, callback=None):
 
         if existing:
             if callback:
-                callback(f"♻️ {domain}: offer reused")
+                callback(f"🔄 {domain}: offer exists, updating ZIP...")
 
-            return existing
+            r2 = put(f"{BASE_URL}/offers/{existing}", {"archive": archive_b64})
+
+            if r2.status_code == 200:
+                if callback:
+                    callback(f"✅ {domain}: offer #{existing} updated")
+                return existing
+
+            raise Exception(f"OFFER UPDATE ERROR {r2.status_code}: {r2.text}")
 
     raise Exception(f"OFFER ERROR {r.status_code}: {r.text}")
 
