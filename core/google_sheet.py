@@ -120,6 +120,12 @@ def append_launch(data):
         values=[values]
     )
 
+    if data.get("buyer"):
+        sheet.update(
+            range_name=f"T{row}",
+            values=[[data["buyer"]]]
+        )
+
     return row
 
 

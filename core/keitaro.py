@@ -129,10 +129,11 @@ def create_offer(domain, zip_bytes, callback=None):
 # CAMPAIGN
 # =====================================================
 
-def create_campaign(domain, callback=None):
+def create_campaign(domain, callback=None, buyer=None):
+    campaign_name = f"{domain} | {buyer}" if buyer else domain
 
     payload = {
-        "name": domain,
+        "name": campaign_name,
         "alias": domain,
         "type": "position",
         "state": "active",
@@ -150,7 +151,7 @@ def create_campaign(domain, callback=None):
         return cid
 
     if r.status_code == 422:
-        existing = find_campaign_by_name(domain)
+        existing = find_campaign_by_name(campaign_name)
 
         if existing:
             if callback:
@@ -237,13 +238,13 @@ def create_domain(domain, campaign_id, callback=None):
 # PROJECT
 # =====================================================
 
-def create_full_project(domain, zip_bytes, callback=None):
+def create_full_project(domain, zip_bytes, callback=None, buyer=None):
 
     if callback:
         callback(f"🚀 {domain}: START")
 
     offer_id = create_offer(domain, zip_bytes, callback)
-    campaign_id = create_campaign(domain, callback)
+    campaign_id = create_campaign(domain, callback, buyer=buyer)
     flow_id = create_flow(domain, campaign_id, offer_id, callback)
     domain_id = create_domain(domain, campaign_id, callback)
 
@@ -260,7 +261,7 @@ def create_full_project(domain, zip_bytes, callback=None):
 # MULTI
 # =====================================================
 
-def create_multiple_projects(domains, zip_map, callback=None, max_workers=1):
+def create_multiple_projects(domains, zip_map, callback=None, max_workers=1, buyer=None):
 
     results = []
 
@@ -277,7 +278,8 @@ def create_multiple_projects(domains, zip_map, callback=None, max_workers=1):
             result = create_full_project(
                 domain,
                 zip_map[domain],
-                callback
+                callback,
+                buyer=buyer,
             )
 
             results.append(result)

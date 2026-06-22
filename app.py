@@ -58,6 +58,7 @@ st.set_page_config(
 )
 
 GEO_PATH = "core/geo_defaults.json"
+BUYERS_PATH = "buyers.json"
 UNKNOWN_GEO_LABEL = "🏳️ Невідомо / Unknown"
 TOTAL_STEPS = 3
 TEMPLATES = {
@@ -197,6 +198,22 @@ def load_geo(_file_mtime: float):
         return json.load(f)
 
 
+def load_buyers() -> list:
+    try:
+        with open(BUYERS_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
+def save_buyer(name: str):
+    buyers = load_buyers()
+    if name and name not in buyers:
+        buyers.append(name)
+        with open(BUYERS_PATH, "w", encoding="utf-8") as f:
+            json.dump(buyers, f, ensure_ascii=False, indent=2)
+
+
 geo = load_geo(_mtime(GEO_PATH))
 geo_labels, geo_label_to_code = build_geo_labels(geo)
 lang_labels, lang_label_to_code = build_language_labels()
@@ -211,6 +228,7 @@ def init_state():
     st.session_state.setdefault("step2_done", False)
 
     st.session_state.setdefault("brand", "")
+    st.session_state.setdefault("buyer_name", "")
 
     # controlled widget keys
     st.session_state.setdefault("geo_choice_label", UNKNOWN_GEO_LABEL)
@@ -1414,6 +1432,19 @@ with st.container(border=True):
 with st.sidebar:
     st.header("Параметри")
 
+    # --- Buyer selector ---
+    _buyers = load_buyers()
+    _buyer_opts = _buyers + ["+ Додати нового"]
+    _buyer_sel = st.selectbox("👤 Баер", options=_buyer_opts, key="buyer_select")
+    if _buyer_sel == "+ Додати нового":
+        _new_buyer = st.text_input("Твоє ім'я", key="new_buyer_input", placeholder="Андрей")
+        if st.button("Додати", key="add_buyer_btn") and (_new_buyer or "").strip():
+            save_buyer(_new_buyer.strip())
+            st.session_state.buyer_name = _new_buyer.strip()
+            st.rerun()
+    else:
+        st.session_state.buyer_name = _buyer_sel or ""
+
     st.text_input("Бренднейм", key="brand", placeholder="CapvexOne / capvex one / πλάτων")
 
     if st.session_state.geo_choice_label == UNKNOWN_GEO_LABEL:
@@ -1786,7 +1817,8 @@ elif st.session_state.step == 2:
                     "hl": target_lang.split("-")[0],
                     "domain": d,
                     "template": tpl_label,
-                    "review": "Так" if st.session_state.generate_review else "Ні"
+                    "review": "Так" if st.session_state.generate_review else "Ні",
+                    "buyer": st.session_state.get("buyer_name", ""),
                 })
 
                 rows.append(row_id)
@@ -1893,7 +1925,8 @@ elif st.session_state.step == 2:
                     domains=domains,
                     zip_map=zip_map,
                     callback=live_log,
-                    max_workers=1
+                    max_workers=1,
+                    buyer=st.session_state.get("buyer_name") or None,
                 )
 
                 progress.progress(1.0)
