@@ -151,6 +151,7 @@ function getData($buyerData)
         'affiliate_id' => $_SESSION['affiliate_id'] ?? '',
         'offer_id' => $_SESSION['offer_id'] ?? '',
         'buyer_affid' => $_SESSION['buyer_affid'] ?? '',
+        'buyer_name'   => BUYER_NAME,
         
         // UTM and tracking data
         'domain' => $_SESSION['form_domain'],

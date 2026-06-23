@@ -333,7 +333,7 @@ def clipboard_button(text: str, label: str, key: str):
         height=44,
     )
 
-def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Optional[str] = None, app_currency: Optional[str] = None) -> str:
+def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Optional[str] = None, app_currency: Optional[str] = None, buyer: str = "") -> str:
     """
     Підставляє плейсхолдери:
     {{DOMAIN}} → домен
@@ -341,23 +341,25 @@ def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Op
     {{LANG}} → мова (en, cs, тощо)
     {{LASTMOD}} → поточна дата (YYYY-MM-DD)
     {{CURRENCY}} → валюта (250EUR)
+    {{BUYER_NAME}} → ім'я баєра
     """
     from datetime import datetime
-    
+
     lastmod = datetime.now().strftime("%Y-%m-%d")
-    
+
     # Формуємо currency
     if app_price and app_currency:
         currency = f"{app_price}{app_currency}"
     else:
         currency = "250EUR"  # Дефолт для мультигео
-    
+
     return (
         text.replace("{{DOMAIN}}", domain)
             .replace("{{SITE_URL}}", f"https://{domain}")
             .replace("{{LANG}}", target_lang)
             .replace("{{LASTMOD}}", lastmod)
             .replace("{{CURRENCY}}", currency)
+            .replace("{{BUYER_NAME}}", buyer or "")
     )
 
 def extract_lang_vars(lang_php: str) -> dict:
@@ -488,6 +490,7 @@ def build_domain_site_zip(
     target_lang: str,
     geo_code: str,
     brand: str,
+    buyer: str = "",
 ) -> bytes:
     root = Path(site_template_dir)
     if not root.exists() or not root.is_dir():
@@ -530,7 +533,7 @@ def build_domain_site_zip(
                 # 3) robots.txt / sitemap.xml (та інші текстові) — плейсхолдери домену/мови
                 elif p.suffix.lower() in TEXT_EXTS:
                     raw_text = raw_bytes.decode("utf-8", errors="replace")
-                    rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency)
+                    rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer)
                     out_bytes = rendered.encode("utf-8")
 
                 else:
@@ -1902,7 +1905,8 @@ elif st.session_state.step == 2:
                         lang_php_content=item["content"],
                         target_lang=target_lang,
                         geo_code=geo_code.lower(),
-                        brand=brand
+                        brand=brand,
+                        buyer=st.session_state.get("buyer_name", ""),
                     )
 
                 progress.progress(0.55)
@@ -2218,6 +2222,7 @@ elif st.session_state.step == 3:
                                 target_lang=target_lang,
                                 geo_code=geo_code.lower(),
                                 brand=brand,
+                                buyer=st.session_state.get("buyer_name", ""),
                             )
 
                         st.download_button(

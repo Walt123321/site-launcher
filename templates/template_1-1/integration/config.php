@@ -13,6 +13,7 @@ define('ELNOPY_ENDPOINT', 'https://yourleads.org/api/affiliates/v2/leads');
 
 // Session security
 define('SECURE_SESSION_TOKEN', 'SECURE_SESSION_AUTHENTICATION_TOKEN');
+define('BUYER_NAME', '{{BUYER_NAME}}');
 
 /**
  * Get buyer data from session
