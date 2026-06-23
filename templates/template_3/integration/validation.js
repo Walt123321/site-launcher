@@ -54,7 +54,25 @@ const disposableEmailDomains = [
     'mrotzis.com',
     'wnbaldwy.com',
     'bwmyga.com',
+    'devaza.id',
+    'mx-mailsrv.com',
+    'jephy-webmail.com',
+    'denipl.net',
 ];
+
+const suspiciousDomainKeywords = ['webmail', 'mailsrv', 'mx-'];
+const freeEmailProviders = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com'];
+
+function hasSuspiciousDomainKeyword(domain) {
+    const d = domain.toLowerCase();
+    return suspiciousDomainKeywords.some(kw => d.includes(kw));
+}
+
+function isGmailDotTrick(localPart, domain) {
+    if (!freeEmailProviders.includes(domain.toLowerCase())) return false;
+    const dots = (localPart.match(/\./g) || []).length;
+    return dots >= 3;
+}
 
 function getLanguageByGeo(geo) {
     return languagesByCountry[geo] || 'uk';
@@ -218,6 +236,14 @@ function validateEmail(email) {
 
     if (isDisposableEmailDomain(domain)) {
         return { valid: false, message: "Disposable email addresses are not allowed" };
+    }
+
+    if (hasSuspiciousDomainKeyword(domain)) {
+        return { valid: false, message: "Invalid email address" };
+    }
+
+    if (isGmailDotTrick(localPart, domain)) {
+        return { valid: false, message: "Invalid email address" };
     }
 
     return { valid: true, message: "" };
