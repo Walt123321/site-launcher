@@ -325,11 +325,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const phone = document.getElementById('cq-field-phone');
                 if (phone && window.intlTelInput) {
-                    const iti = window.intlTelInput.getInstance(phone);
-                    if (iti) {
-                        const country = iti.getSelectedCountryData().iso2;
-                        iti.setCountry(country);
+                    const existingIti = window.intlTelInput.getInstance(phone);
+                    let savedCountry = 'auto';
+                    if (existingIti) {
+                        savedCountry = existingIti.getSelectedCountryData().iso2 || 'auto';
+                        existingIti.destroy();
                     }
+                    window.intlTelInput(phone, {
+                        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/utils.js",
+                        separateDialCode: true,
+                        initialCountry: savedCountry || 'auto',
+                        geoIpLookup: function(success, failure) {
+                            fetch("https://ipapi.co/json")
+                                .then(function(res) { return res.json(); })
+                                .then(function(data) { success(data.country_code); })
+                                .catch(function() { failure(); });
+                        }
+                    });
                 }
             }
             controlsContainer.style.setProperty('display', 'none', 'important');
