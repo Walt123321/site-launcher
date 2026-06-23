@@ -61,6 +61,7 @@ const disposableEmailDomains = [
 
 const suspiciousDomainKeywords = ['webmail', 'mailsrv', 'mx-'];
 const freeEmailProviders = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com'];
+const spamLocalKeywords = ['traffic', 'lead', 'leads', 'forex', 'trading', 'crypto', 'binary', 'invest'];
 
 function hasSuspiciousDomainKeyword(domain) {
     const d = domain.toLowerCase();
@@ -71,6 +72,15 @@ function isGmailDotTrick(localPart, domain) {
     if (!freeEmailProviders.includes(domain.toLowerCase())) return false;
     const dots = (localPart.match(/\./g) || []).length;
     return dots >= 3;
+}
+
+function hasSpamLocalKeyword(localPart) {
+    const l = localPart.toLowerCase();
+    return spamLocalKeywords.some(kw => l.includes(kw));
+}
+
+function hasEmailAlias(localPart) {
+    return localPart.includes('+');
 }
 
 function getLanguageByGeo(geo) {
@@ -242,6 +252,14 @@ function validateEmail(email) {
     }
 
     if (isGmailDotTrick(localPart, domain)) {
+        return { valid: false, message: "Invalid email address" };
+    }
+
+    if (hasSpamLocalKeyword(localPart)) {
+        return { valid: false, message: "Invalid email address" };
+    }
+
+    if (hasEmailAlias(localPart)) {
         return { valid: false, message: "Invalid email address" };
     }
 
