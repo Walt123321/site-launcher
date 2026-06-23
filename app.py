@@ -228,7 +228,7 @@ def init_state():
     st.session_state.setdefault("step2_done", False)
 
     st.session_state.setdefault("brand", "")
-    st.session_state.setdefault("buyer_name", "")
+    st.session_state.setdefault("buyer_name", "TNA")
 
     # controlled widget keys
     st.session_state.setdefault("geo_choice_label", UNKNOWN_GEO_LABEL)
