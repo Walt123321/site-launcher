@@ -152,7 +152,7 @@ def create_offer(domain, zip_bytes, callback=None, buyer=None):
 # =====================================================
 
 def create_campaign(domain, callback=None, buyer=None):
-    campaign_name = f"{domain} | {buyer}" if buyer else domain
+    campaign_name = domain
 
     payload = {
         "name": campaign_name,
