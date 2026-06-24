@@ -791,21 +791,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const phone = document.getElementById('cq-field-phone');
                 if (phone && window.intlTelInput) {
                     const existingIti = window.intlTelInput.getInstance(phone);
-                    let savedCountry = 'auto';
-                    if (existingIti) {
-                        savedCountry = existingIti.getSelectedCountryData().iso2 || 'auto';
-                        existingIti.destroy();
-                    }
+                    if (existingIti) existingIti.destroy();
+                    const phoneCountryEl = document.querySelector('#cq-isolated-form input[name="phone_country"]');
                     window.intlTelInput(phone, {
                         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/utils.js",
                         separateDialCode: true,
-                        initialCountry: savedCountry || 'auto',
-                        geoIpLookup: function(success, failure) {
-                            fetch("https://ipapi.co/json")
-                                .then(function(res) { return res.json(); })
-                                .then(function(data) { success(data.country_code); })
-                                .catch(function() { failure(); });
-                        }
+                        initialCountry: phoneCountryEl ? phoneCountryEl.value : 'auto'
                     });
                 }
             }

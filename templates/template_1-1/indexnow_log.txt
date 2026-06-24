@@ -1,0 +1,10 @@
+2026-06-23 13:37:54 | IndexNow Response Code: 400
+2026-06-23 13:37:54 | IndexNow Response Code: 400
+2026-06-23 13:38:01 | IndexNow Response Code: 400
+2026-06-23 13:39:02 | IndexNow Response Code: 400
+2026-06-23 13:39:02 | IndexNow Response Code: 400
+2026-06-23 13:39:49 | IndexNow Response Code: 400
+2026-06-23 13:41:23 | IndexNow Response Code: 400
+2026-06-23 13:41:24 | IndexNow Response Code: 400
+2026-06-23 13:41:24 | IndexNow Response Code: 400
+2026-06-23 13:41:25 | IndexNow Response Code: 400
