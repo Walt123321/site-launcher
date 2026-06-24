@@ -15,9 +15,14 @@ BASE_URL = st.secrets["KEITARO_BASE_URL"].rstrip("/")
 
 TIMEOUT = 120
 
-CAMPAIGN_GROUP_ID = 2
-OFFER_GROUP_ID = 3
-DOMAIN_GROUP_ID = 2
+BUYER_GROUPS = {
+    "TNA": {"campaign": 2, "offer": 3, "domain": 2},
+    "VVK": {"campaign": 6, "offer": 6, "domain": 6},
+}
+_DEFAULT_GROUPS = {"campaign": 2, "offer": 3, "domain": 2}
+
+def _groups(buyer):
+    return BUYER_GROUPS.get(buyer or "", _DEFAULT_GROUPS)
 
 HEADERS = {
     "Api-Key": API_KEY,
@@ -99,7 +104,7 @@ def find_domain_by_name(domain):
 # OFFER
 # =====================================================
 
-def create_offer(domain, zip_bytes, callback=None):
+def create_offer(domain, zip_bytes, callback=None, buyer=None):
 
     if callback:
         callback(f"📦 {domain}: uploading ZIP")
@@ -108,7 +113,7 @@ def create_offer(domain, zip_bytes, callback=None):
 
     payload = {
         "name": domain,
-        "group_id": OFFER_GROUP_ID,
+        "group_id": _groups(buyer)["offer"],
         "offer_type": "local",
         "state": "active",
         "archive": archive_b64
@@ -154,7 +159,7 @@ def create_campaign(domain, callback=None, buyer=None):
         "alias": domain,
         "type": "position",
         "state": "active",
-        "group_id": CAMPAIGN_GROUP_ID
+        "group_id": _groups(buyer)["campaign"]
     }
 
     r = post(f"{BASE_URL}/campaigns", payload)
@@ -218,12 +223,12 @@ def create_flow(domain, campaign_id, offer_id, callback=None):
 # DOMAIN
 # =====================================================
 
-def create_domain(domain, campaign_id, callback=None):
+def create_domain(domain, campaign_id, callback=None, buyer=None):
 
     payload = {
         "name": domain,
         "default_campaign_id": campaign_id,
-        "group_id": DOMAIN_GROUP_ID,
+        "group_id": _groups(buyer)["domain"],
         "ssl_redirect": True,
         "allow_indexing": True
     }
@@ -260,10 +265,10 @@ def create_full_project(domain, zip_bytes, callback=None, buyer=None):
     if callback:
         callback(f"🚀 {domain}: START")
 
-    offer_id = create_offer(domain, zip_bytes, callback)
+    offer_id = create_offer(domain, zip_bytes, callback, buyer=buyer)
     campaign_id = create_campaign(domain, callback, buyer=buyer)
     flow_id = create_flow(domain, campaign_id, offer_id, callback)
-    domain_id = create_domain(domain, campaign_id, callback)
+    domain_id = create_domain(domain, campaign_id, callback, buyer=buyer)
 
     return {
         "domain": domain,

@@ -1437,16 +1437,8 @@ with st.sidebar:
 
     # --- Buyer selector ---
     _buyers = load_buyers()
-    _buyer_opts = _buyers + ["+ Додати нового"]
-    _buyer_sel = st.selectbox("👤 Баер", options=_buyer_opts, key="buyer_select")
-    if _buyer_sel == "+ Додати нового":
-        _new_buyer = st.text_input("Твоє ім'я", key="new_buyer_input", placeholder="Андрей")
-        if st.button("Додати", key="add_buyer_btn") and (_new_buyer or "").strip():
-            save_buyer(_new_buyer.strip())
-            st.session_state.buyer_name = _new_buyer.strip()
-            st.rerun()
-    else:
-        st.session_state.buyer_name = _buyer_sel or ""
+    _buyer_sel = st.selectbox("👤 Баер", options=_buyers, key="buyer_select")
+    st.session_state.buyer_name = _buyer_sel or ""
 
     st.text_input("Бренднейм", key="brand", placeholder="CapvexOne / capvex one / πλάτων")
 
