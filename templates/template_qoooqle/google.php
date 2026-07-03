@@ -9,6 +9,7 @@ require_once __DIR__ . '/translations.php';
 // --- Resolve active language ---
 $lang_param = isset($_GET['lang']) ? $_GET['lang'] : null;
 $lang = get_active_lang($offer_lang, $lang_param);
+echo "offer_lang=[$offer_lang] lang=[$lang]"; exit;
 $t = isset($translations[$lang]) ? $translations[$lang] : $translations['en'];
 
 // --- HTML lang attribute (cz -> cs) ---
