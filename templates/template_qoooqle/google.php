@@ -23,6 +23,45 @@ function q_rpl($val, $brand) {
 }
 $t = q_rpl($t, $brand_name);
 
+// --- Dynamic Headquarters Override based on resolved active language ---
+$geo_headquarters = [
+    'es' => 'Madrid, España',
+    'it' => 'Roma, Italia',
+    'fr' => 'París, Francia',
+    'de' => 'Berlín, Alemania',
+    'pt' => 'Lisboa, Portugal',
+    'nl' => 'Ámsterdam, Países Bajos',
+    'tr' => 'Estambul, Turquía',
+    'cz' => 'Praga, República Checa',
+    'pl' => 'Varsovia, Polonia',
+    'ro' => 'Bucarest, Rumanía',
+    'no' => 'Oslo, Noruega',
+    'sv' => 'Estocolmo, Suecia',
+    'gb' => 'Londres, Reino Unido',
+    'en' => 'London, United Kingdom',
+];
+$t['headquarters_val'] = isset($geo_headquarters[$lang]) ? $geo_headquarters[$lang] : 'London, United Kingdom';
+
+// --- Extra tabs translations ---
+$tab_ai_map = [
+    'en' => 'AI Mode', 'es' => 'Modo IA', 'it' => 'Modalità IA', 'fr' => 'Mode IA',
+    'de' => 'KI-Modus', 'pt' => 'Modo IA', 'nl' => 'AI-modus', 'tr' => 'Yapay Zeka',
+    'cz' => 'Režim AI', 'pl' => 'Tryb AI', 'ro' => 'Mod AI', 'no' => 'AI-modus', 'sv' => 'AI-läge'
+];
+$tab_shopping_map = [
+    'en' => 'Shopping', 'es' => 'Compras', 'it' => 'Shopping', 'fr' => 'Shopping',
+    'de' => 'Shopping', 'pt' => 'Compras', 'nl' => 'Winkelen', 'tr' => 'Alışveriş',
+    'cz' => 'Nákupy', 'pl' => 'Zakupy', 'ro' => 'Cumpărături', 'no' => 'Shopping', 'sv' => 'Shopping'
+];
+$tab_short_videos_map = [
+    'en' => 'Short videos', 'es' => 'Vídeos cortos', 'it' => 'Video brevi', 'fr' => 'Vidéos courtes',
+    'de' => 'Kurzvideos', 'pt' => 'Vídeos curtos', 'nl' => "Korte video's", 'tr' => 'Kısa videolar',
+    'cz' => 'Krátká videa', 'pl' => 'Krótkie wideo', 'ro' => 'Videoclipuri scurte', 'no' => 'Korte videoer', 'sv' => 'Kortvideor'
+];
+$t['tab_ai'] = isset($tab_ai_map[$lang]) ? $tab_ai_map[$lang] : 'AI Mode';
+$t['tab_shopping'] = isset($tab_shopping_map[$lang]) ? $tab_shopping_map[$lang] : 'Shopping';
+$t['tab_short_videos'] = isset($tab_short_videos_map[$lang]) ? $tab_short_videos_map[$lang] : 'Short videos';
+
 // --- Brand initials for favicon placeholder ---
 $brand_initials_src = preg_split('/\s+/', trim($brand_name));
 $brand_initials = '';
@@ -109,24 +148,17 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
 <header class="google-header">
     <div class="header-top">
         <div class="google-logo">
-            <svg viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#4285F4" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
-                <path fill="#EA4335" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
-                <path fill="#FBBC05" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z"/>
-                <path fill="#4285F4" d="M225 3v65h-9.5V3h9.5z"/>
-                <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.28-7.98l19.82-8.23c-1.09-2.77-4.36-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/>
-                <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z"/>
-            </svg>
+            <svg aria-hidden="true" height="30" viewBox="0 0 92 30" width="92" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M83.4 23.08a7.4 7.4 0 0 0 6.34-3.52l-2.3-1.5a4.8 4.8 0 0 1-3.9 2.2 4.6 4.6 0 0 1-3.99-2.4l10.33-4.39a7 7 0 0 0-.28-1.07c-1.23-3.16-3.38-4.6-6.28-4.6-4.42 0-7.43 3.22-7.43 7.68 0 4.56 3.17 7.6 7.5 7.6m-4.51-7.61v-.17c0-2.93 1.68-4.9 4.32-4.9 1.26 0 2.39.57 3.15 1.9zM74.3 2.41h-3.08v20.23h3.08zM61.77 29.2q7.18 0 7.17-8.22V8.23h-2.93v1.8h-.06c-.92-1.43-2.66-2.23-4.62-2.23-4.24 0-6.82 3.23-6.82 7.54 0 4.3 2.51 7.46 6.93 7.46a5.5 5.5 0 0 0 4.47-2.26h.1v1.31c0 2.9-1.5 4.6-4.29 4.6-1.82 0-3.03-1-3.92-2.68l-2.66 1.17c1.4 2.96 3.4 4.26 6.63 4.26m0-9.2c-2.59 0-4.24-1.9-4.24-4.75 0-2.74 1.64-4.71 4.25-4.71s4.23 1.83 4.23 4.7c0 2.9-1.7 4.76-4.24 4.76m-16.01 3.1c4.44 0 7.6-3.24 7.6-7.72 0-4.4-3.12-7.67-7.6-7.67-4.24 0-7.57 3-7.57 7.67 0 4.45 3.15 7.73 7.57 7.73m0-2.68c-2.68 0-4.56-2.2-4.56-5.04s1.98-4.99 4.56-4.99c2.73 0 4.57 2.2 4.57 5 0 2.87-1.88 5.03-4.57 5.03M29.33 23.1c4.41 0 7.6-3.23 7.6-7.72 0-4.4-3.12-7.67-7.6-7.67-4.23 0-7.57 3-7.57 7.67 0 4.45 3.15 7.73 7.57 7.73m0-2.68c-2.68 0-4.56-2.2-4.56-5.04s1.98-4.99 4.56-4.99c2.73 0 4.57 2.2 4.57 5 0 2.87-1.88 5.03-4.57 5.03M10.35 23.1c5.89.06 9.9-3.9 9.9-9.98q0-.75-.14-1.7h-9.8v2.93h6.87c-.36 3.83-3.06 5.82-6.76 5.82-4.15 0-7.33-3.12-7.33-7.66 0-4.47 3.03-7.6 7.33-7.6 2.16 0 3.76.67 5.35 2.3l2.05-2.14c-1.8-2.1-4.4-3.1-7.44-3.1-5.9 0-10.49 4.43-10.49 10.5 0 5.8 4.43 10.58 10.46 10.64"></path></svg>
         </div>
         <div class="search-bar-wrapper">
             <div class="search-bar">
                 <span class="search-text"><?php echo htmlspecialchars($brand_name); ?></span>
                 <div class="search-icons">
                     <div class="icon-btn" title="keyboard">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9aa0a6" stroke-width="1.6"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h12"/></svg>
+                        <svg viewBox="0 -960 960 960" width="20" height="20"><path fill="var(--bbQxAb)" d="M160-200q-33 0-56.5-23.5T80-280v-400q0-33 23.5-56.5T160-760h640q33 0 56.5 23.5T880-680v400q0 33-23.5 56.5T800-200H160Zm160-120h320v-80H320v80ZM200-440h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80ZM200-560h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Z"></path></svg>
                     </div>
                     <div class="icon-btn" title="voice search">
-                        <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285f4" d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path fill="#34a853" d="M19 11a1 1 0 0 0-2 0 5 5 0 0 1-10 0 1 1 0 0 0-2 0 7 7 0 0 0 6 6.92V20H9a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2h-2v-2.08A7 7 0 0 0 19 11z"/></svg>
+                        <svg viewBox="0 -960 960 960" width="20" height="20"><path fill="var(--bbQxAb)" d="M480-400q-50 0-85-35t-35-85v-240q0-50 35-85t85-35q50 0 85 35t35 85v240q0 50-35 85t-85 35Zm-40 280v-123q-104-14-172-93t-68-184h80q0 83 58.5 141.5T480-320q83 0 141.5-58.5T680-520h80q0 105-68 184t-172 93v123h-80Z"></path></svg>
                     </div>
                     <div class="search-divider"></div>
                     <div class="icon-btn" title="search by image">
@@ -147,7 +179,13 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
     </div>
     <div class="search-tabs-wrapper">
         <div class="search-tabs">
-            <div class="search-tab active"><?php echo htmlspecialchars($t['tab_all']); ?></div>
+            <div class="search-tab">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right: 5px;"><path d="M12 2L14.85 8.85L22 12L14.85 15.15L12 22L9.15 15.15L2 12L9.15 8.85L12 2Z"/></svg>
+                <?php echo htmlspecialchars($t['tab_ai']); ?>
+            </div>
+            <div class="search-tab active">
+                <?php echo htmlspecialchars($t['tab_all']); ?>
+            </div>
             <div class="search-tab">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
                 <?php echo htmlspecialchars($t['tab_images']); ?>
@@ -161,14 +199,18 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
                 <?php echo htmlspecialchars($t['tab_news']); ?>
             </div>
             <div class="search-tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 20l-6-3V4l6 3 6-3 6 3v13l-6-3-6 3z"/></svg>
-                <?php echo htmlspecialchars($t['tab_maps']); ?>
-            </div>
-            <div class="search-tab tab-more">
-                <?php echo htmlspecialchars($t['tab_more']); ?>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01"/></svg>
+                <?php echo htmlspecialchars($t['tab_shopping']); ?>
             </div>
             <div class="search-tab">
-                <?php echo htmlspecialchars($t['tab_tools']); ?>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right: 5px;"><path d="M19 12a1 1 0 0 0-1 1v4.38l-4.5-2.25V9.87l4.5-2.25V11a1 1 0 0 0 2 0V6a1 1 0 0 0-1.5-.87l-14 7a1 1 0 0 0 0 1.74l14 7A1 1 0 0 0 19 20v-7a1 1 0 0 0-1-1zm-8 1.62l-4.5-2.25v-2.74l4.5 2.25v2.74z"/></svg>
+                <?php echo htmlspecialchars($t['tab_short_videos']); ?>
+            </div>
+            <div class="search-tab tab-more">
+                <?php echo htmlspecialchars($t['tab_more']); ?> ▾
+            </div>
+            <div class="search-tab">
+                <?php echo htmlspecialchars($t['tab_tools']); ?> ▾
             </div>
         </div>
     </div>
@@ -183,9 +225,7 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
             <div class="result-item">
                 <a class="result-link" href="<?php echo htmlspecialchars($r['url']); ?>" target="_blank" rel="noopener">
                     <div class="result-source">
-                        <div class="icon-circle" style="background:<?php echo htmlspecialchars($r['color']); ?>">
-                            <?php echo htmlspecialchars(mb_strtoupper(mb_substr($r['domain'], 0, 1))); ?>
-                        </div>
+                        <img class="icon-circle" src="https://www.google.com/s2/favicons?domain=<?php echo urlencode($r['domain']); ?>&sz=64" alt="" style="background:#303134; padding:4px; box-sizing:border-box;">
                         <div class="source-info">
                             <span class="source-name"><?php echo htmlspecialchars($r['domain']); ?></span>
                             <span class="source-url">

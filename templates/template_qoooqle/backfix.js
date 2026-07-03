@@ -9,7 +9,7 @@
     var pathParts = window.location.pathname.split('/');
     // Check if we're inside a 2-letter language subdirectory
     var inSubdir = pathParts.length > 2 && pathParts[pathParts.length - 2].length === 2;
-    var langCode = inSubdir ? pathParts[pathParts.length - 2] : 'en'; // Default language
+    var langCode = inSubdir ? pathParts[pathParts.length - 2] : '{{LANG}}'; // Default language
 
     // Build target search parameters
     var searchParams = new URLSearchParams(window.location.search);
