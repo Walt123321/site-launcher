@@ -58,7 +58,8 @@ $supported_langs = ['en','es','it','fr','de','pt','nl','tr','cz','pl','ro','no',
 
 function get_active_lang($config_lang, $query_lang = null) {
     global $supported_langs;
-    $lang = $query_lang ?: $config_lang;
+    // Prioritize the template config language over query parameters to prevent Keitaro overrides
+    $lang = ($config_lang && $config_lang !== '{{' . 'LANG}}') ? $config_lang : ($query_lang ?: 'en');
     $lang = strtolower(trim($lang));
     if ($lang === 'cs') $lang = 'cz';
     $lang = preg_split('/[-–—_\s]+/u', $lang)[0];
