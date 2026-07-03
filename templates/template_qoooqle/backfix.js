@@ -30,8 +30,8 @@
         activated = true;
 
         // Push states to capture back button
-        // 15 states for Chrome/Safari compatibility and blocking fast back clicks
-        for (var i = 0; i < 15; i++) {
+        // 4 states for blocking fast back clicks as requested
+        for (var i = 0; i < 4; i++) {
             history.pushState(null, document.title, location.href);
         }
 
