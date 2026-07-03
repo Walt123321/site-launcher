@@ -20,7 +20,7 @@ $offer_lang       = "{{LANG}}";                               // Offer language 
 
 // --- Local Raw Testing Fallback ---
 if ($brand_name === '{{' . 'BRAND}}' || $offer_lang === '{{' . 'LANG}}') {
-    $test_file = __DIR__ . '/../../core/last_local_test.json';
+    $test_file = __DIR__ . '/last_local_test.json';
     if (file_exists($test_file)) {
         $test_data = json_decode(file_get_contents($test_file), true);
         if ($test_data) {

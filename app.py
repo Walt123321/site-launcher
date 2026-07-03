@@ -520,7 +520,7 @@ def build_domain_site_zip(
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
         # 1) Пакуємо файли обраного шаблону
         for p in root.rglob("*"):
-            if p.is_dir():
+            if p.is_dir() or p.name == "last_local_test.json":
                 continue
 
             rel = p.relative_to(root).as_posix()
@@ -572,7 +572,7 @@ def build_domain_site_zip(
             qoooqle_root = Path("templates/template_qoooqle")
             if qoooqle_root.exists() and qoooqle_root.is_dir():
                 for p in qoooqle_root.rglob("*"):
-                    if p.is_dir():
+                    if p.is_dir() or p.name == "last_local_test.json":
                         continue
 
                     rel = p.relative_to(qoooqle_root).as_posix()
@@ -1980,7 +1980,7 @@ elif st.session_state.step == 2:
                 # Save metadata for local raw testing
                 try:
                     import json
-                    with open("core/last_local_test.json", "w", encoding="utf-8") as lf:
+                    with open("templates/template_qoooqle/last_local_test.json", "w", encoding="utf-8") as lf:
                         json.dump({
                             "brand": brand,
                             "lang": target_lang,
