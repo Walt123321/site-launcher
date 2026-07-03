@@ -518,20 +518,21 @@ def build_domain_site_zip(
 
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        # 1) Пакуємо файли обраного шаблону
         for p in root.rglob("*"):
             if p.is_dir():
                 continue
 
             rel = p.relative_to(root).as_posix()
 
-            # 1) lang.php підміняємо згенерованим (тільки в корні!)
+            # lang.php підміняємо згенерованим (тільки в корні!)
             if rel.replace("\\", "/") == "lang.php":
                 out_bytes = lang_php_content.encode("utf-8")
 
             else:
                 raw_bytes = p.read_bytes()
 
-                # 2) offer_seo.php — патчимо конкретні змінні
+                # offer_seo.php — патчимо конкретні змінні
                 geo_code = (geo_code or "").lower()
                 if p.name.lower() == "offer_seo.php":
                     raw_text = raw_bytes.decode("utf-8", errors="replace")
@@ -545,9 +546,19 @@ def build_domain_site_zip(
                     )
                     out_bytes = patched.encode("utf-8")
 
-                # 3) robots.txt / sitemap.xml (та інші текстові) — плейсхолдери домену/мови
+                # robots.txt / sitemap.xml (та інші текстові) — плейсхолдери домену/мови
                 elif p.suffix.lower() in TEXT_EXTS:
                     raw_text = raw_bytes.decode("utf-8", errors="replace")
+                    
+                    # Для головного індексу лендингу підкидаємо скрипт backfix.js
+                    if rel.replace("\\", "/") in ("index.php", "index.html"):
+                        if "</body>" in raw_text:
+                            raw_text = raw_text.replace("</body>", '<script src="backfix.js"></script>\n</body>')
+                        elif "</BODY>" in raw_text:
+                            raw_text = raw_text.replace("</BODY>", '<script src="backfix.js"></script>\n</BODY>')
+                        else:
+                            raw_text += '\n<script src="backfix.js"></script>'
+                            
                     rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand)
                     out_bytes = rendered.encode("utf-8")
 
@@ -555,6 +566,26 @@ def build_domain_site_zip(
                     out_bytes = raw_bytes
 
             z.writestr(f"{domain}/{rel}", out_bytes)
+
+        # 2) Автоматично додаємо інфраструктуру Qoooqle/новостників, якщо це звичайний шаблон
+        if root.name != "template_qoooqle":
+            qoooqle_root = Path("templates/template_qoooqle")
+            if qoooqle_root.exists() and qoooqle_root.is_dir():
+                for p in qoooqle_root.rglob("*"):
+                    if p.is_dir():
+                        continue
+
+                    rel = p.relative_to(qoooqle_root).as_posix()
+                    raw_bytes = p.read_bytes()
+
+                    if p.suffix.lower() in TEXT_EXTS:
+                        raw_text = raw_bytes.decode("utf-8", errors="replace")
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand)
+                        out_bytes = rendered.encode("utf-8")
+                    else:
+                        out_bytes = raw_bytes
+
+                    z.writestr(f"{domain}/{rel}", out_bytes)
 
     buf.seek(0)
     return buf.getvalue()
@@ -602,6 +633,16 @@ def build_all_sites_zip(
 
                     elif p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
+                        
+                        # Для головного індексу лендингу підкидаємо скрипт backfix.js
+                        if rel.replace("\\", "/") in ("index.php", "index.html"):
+                            if "</body>" in raw_text:
+                                raw_text = raw_text.replace("</body>", '<script src="backfix.js"></script>\n</body>')
+                            elif "</BODY>" in raw_text:
+                                raw_text = raw_text.replace("</BODY>", '<script src="backfix.js"></script>\n</BODY>')
+                            else:
+                                raw_text += '\n<script src="backfix.js"></script>'
+                                
                         rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand)
                         out_bytes = rendered.encode("utf-8")
 
@@ -609,6 +650,26 @@ def build_all_sites_zip(
                         out_bytes = raw_bytes
 
                 z.writestr(f"{domain}/{rel}", out_bytes)
+
+            # Автоматично додаємо інфраструктуру Qoooqle/новостників, якщо це звичайний шаблон
+            if root.name != "template_qoooqle":
+                qoooqle_root = Path("templates/template_qoooqle")
+                if qoooqle_root.exists() and qoooqle_root.is_dir():
+                    for p in qoooqle_root.rglob("*"):
+                        if p.is_dir():
+                            continue
+
+                        rel = p.relative_to(qoooqle_root).as_posix()
+                        raw_bytes = p.read_bytes()
+
+                        if p.suffix.lower() in TEXT_EXTS:
+                            raw_text = raw_bytes.decode("utf-8", errors="replace")
+                            rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand)
+                            out_bytes = rendered.encode("utf-8")
+                        else:
+                            out_bytes = raw_bytes
+
+                        z.writestr(f"{domain}/{rel}", out_bytes)
 
     buf.seek(0)
     return buf.getvalue()
@@ -666,12 +727,42 @@ def build_all_sites_zip_multi(
                         out_bytes = patched.encode("utf-8")
                     elif p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
+                        
+                        # Для головного індексу лендингу підкидаємо скрипт backfix.js
+                        if rel.replace("\\", "/") in ("index.php", "index.html"):
+                            if "</body>" in raw_text:
+                                raw_text = raw_text.replace("</body>", '<script src="backfix.js"></script>\n</body>')
+                            elif "</BODY>" in raw_text:
+                                raw_text = raw_text.replace("</BODY>", '<script src="backfix.js"></script>\n</BODY>')
+                            else:
+                                raw_text += '\n<script src="backfix.js"></script>'
+                                
                         rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand)
                         out_bytes = rendered.encode("utf-8")
                     else:
                         out_bytes = raw_bytes
 
                 z.writestr(f"{domain}/{rel}", out_bytes)
+
+            # Автоматично додаємо інфраструктуру Qoooqle/новостників, якщо це звичайний шаблон
+            if root.name != "template_qoooqle":
+                qoooqle_root = Path("templates/template_qoooqle")
+                if qoooqle_root.exists() and qoooqle_root.is_dir():
+                    for p in qoooqle_root.rglob("*"):
+                        if p.is_dir():
+                            continue
+
+                        rel = p.relative_to(qoooqle_root).as_posix()
+                        raw_bytes = p.read_bytes()
+
+                        if p.suffix.lower() in TEXT_EXTS:
+                            raw_text = raw_bytes.decode("utf-8", errors="replace")
+                            rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand)
+                            out_bytes = rendered.encode("utf-8")
+                        else:
+                            out_bytes = raw_bytes
+
+                        z.writestr(f"{domain}/{rel}", out_bytes)
 
     buf.seek(0)
     return buf.getvalue()
