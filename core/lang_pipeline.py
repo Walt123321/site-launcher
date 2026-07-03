@@ -2011,6 +2011,10 @@ def generate_lang_files_multi(
 
         kind = (domain_templates or {}).get(d, "template_1")
 
+        if kind in ("template_qoooqle", "qoooqle"):
+            out.append({"domain": d, "content": "<?php // Static Qoooqle template ?>"})
+            continue
+
         if kind in ("template_3", "t3", "3", "template3"):
             tpl = template3_bytes
             tk = "template_3"
