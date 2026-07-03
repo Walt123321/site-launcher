@@ -61,8 +61,6 @@ function get_active_lang($config_lang, $query_lang = null) {
     $lang = $query_lang ?: $config_lang;
     $lang = strtolower(trim($lang));
     if ($lang === 'cs') $lang = 'cz';
-    if (strpos($lang, '-') !== false) {
-        $lang = explode('-', $lang)[0];
-    }
+    $lang = preg_split('/[-–—_\s]+/u', $lang)[0];
     return in_array($lang, $supported_langs) ? $lang : 'en';
 }
