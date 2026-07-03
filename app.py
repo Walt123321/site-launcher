@@ -74,23 +74,29 @@ TEMPLATES = {
         "favicon": "templates/template_2/favicon.svg",
         "lang": "templates/template_2/lang.php",
     },
-        "template_3": {
+    "template_3": {
         "label": "Шаблон 3",
         "dir": "templates/template_3",
         "favicon": "templates/template_3/favicon.svg",
         "lang": "templates/template_3/lang.php",
     },
-        "template_4": {
+    "template_4": {
         "label": "Шаблон 4",
         "dir": "templates/template_4",
         "favicon": "templates/template_4/favicon.svg",
         "lang": "templates/template_4/lang.php",
     },
-        "template_5": {
+    "template_5": {
         "label": "Шаблон 5",
         "dir": "templates/template_5",
         "favicon": "templates/template_5/favicon.svg",
         "lang": "templates/template_5/lang.php",
+    },
+    "template_qoooqle": {
+        "label": "Qoooqle SERP (Псевдо-Google)",
+        "dir": "templates/template_qoooqle",
+        "favicon": "templates/template_qoooqle/google.php",
+        "lang": "templates/template_qoooqle/newsnik1/lang.php",
     },
 }
 # Default template for Streamlit page icon (does not affect per-domain selection)
@@ -333,7 +339,7 @@ def clipboard_button(text: str, label: str, key: str):
         height=44,
     )
 
-def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Optional[str] = None, app_currency: Optional[str] = None, buyer: str = "") -> str:
+def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Optional[str] = None, app_currency: Optional[str] = None, buyer: str = "", brand: str = "") -> str:
     """
     Підставляє плейсхолдери:
     {{DOMAIN}} → домен
@@ -342,6 +348,9 @@ def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Op
     {{LASTMOD}} → поточна дата (YYYY-MM-DD)
     {{CURRENCY}} → валюта (250EUR)
     {{BUYER_NAME}} → ім'я баєра
+    {{BRAND}} → назва бренду
+    {{MIN_DEPOSIT}} → мінімальний депозит
+    {{DEPOSIT_CURRENCY}} → валюта депозиту
     """
     from datetime import datetime
 
@@ -353,6 +362,9 @@ def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Op
     else:
         currency = "250EUR"  # Дефолт для мультигео
 
+    min_dep = app_price if app_price else "250"
+    dep_cur = app_currency if app_currency else "EUR"
+
     return (
         text.replace("{{DOMAIN}}", domain)
             .replace("{{SITE_URL}}", f"https://{domain}")
@@ -360,6 +372,9 @@ def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Op
             .replace("{{LASTMOD}}", lastmod)
             .replace("{{CURRENCY}}", currency)
             .replace("{{BUYER_NAME}}", buyer or "")
+            .replace("{{BRAND}}", brand or "")
+            .replace("{{MIN_DEPOSIT}}", min_dep)
+            .replace("{{DEPOSIT_CURRENCY}}", dep_cur)
     )
 
 def extract_lang_vars(lang_php: str) -> dict:
@@ -509,8 +524,8 @@ def build_domain_site_zip(
 
             rel = p.relative_to(root).as_posix()
 
-            # 1) lang.php підміняємо згенерованим
-            if rel.replace("\\", "/").endswith("lang.php"):
+            # 1) lang.php підміняємо згенерованим (тільки в корні!)
+            if rel.replace("\\", "/") == "lang.php":
                 out_bytes = lang_php_content.encode("utf-8")
 
             else:
@@ -533,7 +548,7 @@ def build_domain_site_zip(
                 # 3) robots.txt / sitemap.xml (та інші текстові) — плейсхолдери домену/мови
                 elif p.suffix.lower() in TEXT_EXTS:
                     raw_text = raw_bytes.decode("utf-8", errors="replace")
-                    rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer)
+                    rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand)
                     out_bytes = rendered.encode("utf-8")
 
                 else:
@@ -567,7 +582,7 @@ def build_all_sites_zip(
 
                 rel = p.relative_to(root).as_posix()
 
-                if rel.replace("\\", "/").endswith("lang.php"):
+                if rel.replace("\\", "/") == "lang.php":
                     out_bytes = lang_php_content.encode("utf-8")
 
                 else:
@@ -587,7 +602,7 @@ def build_all_sites_zip(
 
                     elif p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
-                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency)
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand)
                         out_bytes = rendered.encode("utf-8")
 
                     else:
@@ -633,7 +648,7 @@ def build_all_sites_zip_multi(
                     continue
                 rel = p.relative_to(root).as_posix()
 
-                if rel.replace("\\", "/").endswith("lang.php"):
+                if rel.replace("\\", "/") == "lang.php":
                     out_bytes = lang_php_content.encode("utf-8")
                 else:
                     raw_bytes = p.read_bytes()
@@ -651,7 +666,7 @@ def build_all_sites_zip_multi(
                         out_bytes = patched.encode("utf-8")
                     elif p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
-                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency)
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand)
                         out_bytes = rendered.encode("utf-8")
                     else:
                         out_bytes = raw_bytes
@@ -1883,6 +1898,7 @@ elif st.session_state.step == 2:
                     "template_3": "templates/template_3",
                     "template_4": "templates/template_4",
                     "template_5": "templates/template_5",
+                    "template_qoooqle": "templates/template_qoooqle",
                 }
 
                 zip_map = {}
@@ -2192,6 +2208,7 @@ elif st.session_state.step == 3:
                     "template_3": "templates/template_3",
                     "template_4": "templates/template_4",
                     "template_5": "templates/template_5",
+                    "template_qoooqle": "templates/template_qoooqle",
                 }
 
                 dt = st.session_state.get("domain_templates", {})
