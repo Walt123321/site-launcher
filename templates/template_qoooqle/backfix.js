@@ -72,12 +72,5 @@
     // 3. Timeout: trigger after 2 seconds anyway
     setTimeout(activateBackBlock, 2000);
 
-    // Exit-Intent: redirect when mouse leaves viewport upwards (clientY < 20)
-    if (targetUrl) {
-        document.addEventListener('mouseleave', function(e) {
-            if (e.clientY < 20) {
-                location.replace(targetUrl);
-            }
-        });
-    }
+    // No automatic exit-intent redirect: only intercept browser back navigation.
 })();

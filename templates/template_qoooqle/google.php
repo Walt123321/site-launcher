@@ -90,8 +90,8 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
         if (!empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))) {
             return '<img src="' . htmlspecialchars($offer_favicon) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">';
         }
-        // Brand fallback: Golden star/crest
-        return '<svg viewBox="0 0 24 24" width="16" height="16" fill="#fbbc05" style="display:block;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+        $favicon_src = 'https://icons.duckduckgo.com/ip3/' . urlencode($offer_domain) . '.ico';
+        return '<img src="' . htmlspecialchars($favicon_src) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">';
     }
 
     // Determine consistent icon based on domain name hash
@@ -230,6 +230,7 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?php echo htmlspecialchars($brand_name . $t['search_title']); ?></title>
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="https://icons.duckduckgo.com/ip3/<?php echo urlencode($offer_domain); ?>.ico">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -345,7 +346,7 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
                         <?php if (!empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))): ?>
                         <img src="<?php echo htmlspecialchars($offer_favicon); ?>" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px;">
                         <?php else: ?>
-                        <div class="panel-brand-icon"><?php echo htmlspecialchars($brand_initials); ?></div>
+                        <img src="https://icons.duckduckgo.com/ip3/<?php echo urlencode($offer_domain); ?>.ico" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px; object-fit:cover;" onerror="this.style.display='none';">
                         <?php endif; ?>
                         <div class="panel-brand-name"><?php echo htmlspecialchars($brand_name); ?></div>
                     </div>
