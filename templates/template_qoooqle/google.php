@@ -225,7 +225,13 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
             <div class="result-item">
                 <a class="result-link" href="<?php echo htmlspecialchars($r['url']); ?>" target="_blank" rel="noopener">
                     <div class="result-source">
-                        <img class="icon-circle" src="https://www.google.com/s2/favicons?domain=<?php echo urlencode($r['domain']); ?>&sz=64" alt="" style="background:#303134; padding:4px; box-sizing:border-box;">
+                        <div class="icon-circle" style="background:#303134; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            <?php if ($r['domain'] === $offer_domain && !empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))): ?>
+                                <img src="<?php echo htmlspecialchars($offer_favicon); ?>" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+                            <?php else: ?>
+                                <svg focusable="false" viewBox="0 0 24 24" width="16" height="16" fill="#bdc1c6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path></svg>
+                            <?php endif; ?>
+                        </div>
                         <div class="source-info">
                             <span class="source-name"><?php echo htmlspecialchars($r['domain']); ?></span>
                             <span class="source-url">
@@ -275,7 +281,7 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
                 </div>
                 <div class="panel-body">
                     <div class="panel-official">
-                        <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 0 0-1.071-1.071L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.071 1.071L6.97 11.03z"/></svg>
+                        <svg viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 0 0-1.071-1.071L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.071 1.071L6.97 11.03z"/></svg>
                         <?php echo htmlspecialchars($t['official_badge']); ?>
                     </div>
                     <div class="panel-title"><?php echo htmlspecialchars($brand_name); ?></div>
