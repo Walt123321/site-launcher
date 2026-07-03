@@ -225,11 +225,17 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
             <div class="result-item">
                 <a class="result-link" href="<?php echo htmlspecialchars($r['url']); ?>" target="_blank" rel="noopener">
                     <div class="result-source">
-                        <div class="icon-circle" style="background:#303134; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                        <?php
+                            $domain_hash = md5($r['domain']);
+                            $hue = hexdec(substr($domain_hash, 0, 5)) % 360;
+                            $bg_color = "hsl({$hue}, 70%, 50%)";
+                            $initial = strtoupper(substr($r['domain'], 0, 1));
+                        ?>
+                        <div class="icon-circle" style="background:<?php echo $r['domain'] === $offer_domain && !empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/')) ? 'transparent' : $bg_color; ?>; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                             <?php if ($r['domain'] === $offer_domain && !empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))): ?>
                                 <img src="<?php echo htmlspecialchars($offer_favicon); ?>" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
                             <?php else: ?>
-                                <svg focusable="false" viewBox="0 0 24 24" width="16" height="16" fill="#bdc1c6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path></svg>
+                                <span style="color:#fff; font-size:14px; font-weight:bold; font-family:sans-serif;"><?php echo htmlspecialchars($initial); ?></span>
                             <?php endif; ?>
                         </div>
                         <div class="source-info">
