@@ -231,30 +231,31 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
     <div class="search-tabs-wrapper">
         <div class="search-tabs">
             <div class="search-tab">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right: 5px;"><path d="M12 2L14.85 8.85L22 12L14.85 15.15L12 22L9.15 15.15L2 12L9.15 8.85L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:5px;"><path d="M12 2L14.85 8.85L22 12L14.85 15.15L12 22L9.15 15.15L2 12L9.15 8.85L12 2Z"/></svg>
                 <?php echo htmlspecialchars($t['tab_ai']); ?>
             </div>
             <div class="search-tab active">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:5px;"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                 <?php echo htmlspecialchars($t['tab_all']); ?>
             </div>
             <div class="search-tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:5px;"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
                 <?php echo htmlspecialchars($t['tab_images']); ?>
             </div>
             <div class="search-tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="15" height="16" rx="2"/><polygon points="20 8 20 16 22 16 22 8" fill="currentColor" stroke="none"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:5px;"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4h-4z"/></svg>
                 <?php echo htmlspecialchars($t['tab_videos']); ?>
             </div>
             <div class="search-tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:5px;"><path d="M21 5c-1.1-.3-2.1-.5-3-.5-1.8 0-4 .5-6 2-2-1.5-4.2-2-6-2S2.1 5 1 5.3V19.1c0 .2.2.4.5.4.1 0 .2 0 .2-.1C3 18.8 5 18.5 6 18.5c1.8 0 4 .5 6 2 1.8-1.2 3.9-2 6-2 1.7 0 3.4.3 5 1 .1.1.2.1.3.1.3 0 .5-.2.5-.4V5.3c-.5-.2-1.2-.3-2.8-.3zM21 17c-1.4-.5-2.8-.8-4.2-.8-1.8 0-3.6.5-5.3 1.5V8c1.6-1.1 3.5-1.5 5.3-1.5 1.4 0 2.8.2 4.2.7V17z"/></svg>
                 <?php echo htmlspecialchars($t['tab_news']); ?>
             </div>
             <div class="search-tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:5px;"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
                 <?php echo htmlspecialchars($t['tab_shopping']); ?>
             </div>
             <div class="search-tab">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right: 5px;"><path d="M19 12a1 1 0 0 0-1 1v4.38l-4.5-2.25V9.87l4.5-2.25V11a1 1 0 0 0 2 0V6a1 1 0 0 0-1.5-.87l-14 7a1 1 0 0 0 0 1.74l14 7A1 1 0 0 0 19 20v-7a1 1 0 0 0-1-1zm-8 1.62l-4.5-2.25v-2.74l4.5 2.25v2.74z"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:5px;"><path d="M10 14.65v-5.3L15 12l-5 2.65zm7.77-4.33l-1.2-.5L18 9.06c1.8-.8 2.67-2.82 1.96-4.64-.7-1.8-2.7-2.7-4.5-2l-1.43.6-1.2-.5C14.5.83 13.1-.17 11.3.04c-1.8.2-3.2 1.6-3.4 3.4l-.06 1.55-1.2.5C5.07 6.2 4.17 7.9 4.7 9.7c.4 1.3 1.55 2.17 2.83 2.36l-.06 1.55c-.2 1.8 1 3.4 2.7 3.8 1.8.4 3.6-.5 4.3-2.2l.6-1.42 1.2.5c1.8.8 4-.1 4.64-1.96.7-1.82-.2-3.8-2-4.6zm-1.4 3.1l-2.2-.9-.6 1.5c-.3.8-1.2 1.3-2.1 1.1s-1.4-1-1.3-2l.1-2.8-2.3-1c-.8-.3-1.2-1.2-1-2.1.3-.8 1.1-1.3 2-1.1l2.2.9.6-1.5c.3-.8 1.2-1.3 2.1-1.1s1.4 1 1.3 2l-.1 2.8 2.3 1c.8.3 1.2 1.2 1 2.1-.3.8-1.2 1.3-2 1.1z"/></svg>
                 <?php echo htmlspecialchars($t['tab_short_videos']); ?>
             </div>
             <div class="search-tab tab-more">
