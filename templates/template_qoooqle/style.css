@@ -366,6 +366,11 @@ a {
     cursor: pointer;
     text-decoration: none;
     transition: background 0.15s;
+    display: inline-flex;
+}
+
+.related-pill:visited {
+    color: var(--link-color);
 }
 
 .related-pill:hover {
@@ -528,6 +533,28 @@ a {
     width: 14px;
     height: 14px;
     fill: var(--text-color);
+}
+
+/* ---- OFFICIAL WEBSITE LINK ---- */
+.panel-official-link {
+    margin: 16px 0 20px 0;
+    padding: 12px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.official-website-link {
+    display: inline-block;
+    color: var(--link-color);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.official-website-link:hover {
+    text-decoration: underline;
+    color: #fff;
 }
 
 /* ---- FOOTER ---- */

@@ -233,6 +233,10 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="qoooqle-config" data-offer-domain="<?php echo htmlspecialchars($offer_domain); ?>" style="display:none;"></div>
+
+<script src="random-ratings.js"></script>
+<script src="favicon-fetcher.js"></script>
 
 <header class="google-header">
     <div class="header-main-row">
@@ -251,17 +255,17 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
             </div>
         </div>
         <div class="header-right">
-            <a href="#" onclick="return false;" class="icon-btn">
+            <a href="<?php echo htmlspecialchars($offer_url); ?>" class="icon-btn">
                 <svg class="header-right-icon" viewBox="0 0 24 24" width="22" height="22" fill="#e8eaed" xmlns="http://www.w3.org/2000/svg">
                     <path fill="#e8eaed" d="M16 5l-1.42 1.42-1.59-1.59V16h-1.98V4.83L9.42 6.42 8 5l4-4 4 4zm4 5v11c0 1.1-.9 2-2 2H6c-1.11 0-2-.9-2-2V10c0-1.11.89-2 2-2h3v2H6v11h12V10h-3V8h3c1.1 0 2 .89 2 2z"></path>
                 </svg>
             </a>
-            <a href="#" onclick="return false;" class="icon-btn">
+            <a href="<?php echo htmlspecialchars($offer_url); ?>" class="icon-btn">
                 <svg class="header-right-icon" viewBox="0 0 24 24" width="22" height="22" fill="#e8eaed" xmlns="http://www.w3.org/2000/svg">
                     <path fill="#e8eaed" d="M6,8c1.1,0 2,-0.9 2,-2s-.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-.9-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-.9-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-.9-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-.9-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-.9-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-.9-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-.9-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path>
                 </svg>
             </a>
-            <a href="#" onclick="return false;" class="profile-avatar"><?= mb_strtoupper(mb_substr($brand_initials, 0, 1)) ?></a>
+            <a href="<?php echo htmlspecialchars($offer_url); ?>" class="profile-avatar"><?= mb_strtoupper(mb_substr($brand_initials, 0, 1)) ?></a>
         </div>
     </div>
     
@@ -280,20 +284,21 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
             <a href="#" onclick="return false;" class="tab-item"><?= htmlspecialchars($t['tab_news']) ?></a>
             <a href="#" onclick="return false;" class="tab-item"><?= htmlspecialchars($t['tab_shopping']) ?></a>
             <a href="#" onclick="return false;" class="tab-item"><?= htmlspecialchars($t['tab_more']) ?></a>
-            <div class="tab-item-divider"></div>
-            <a href="#" onclick="return false;" class="tab-item tools-tab"><?= htmlspecialchars($t['tab_tools']) ?></a>
+            <div class="tab-item-divider" style="display:none;"></div>
+            <a href="#" onclick="return false;" class="tab-item tools-tab" style="display:none;"><?= htmlspecialchars($t['tab_tools']) ?></a>
         </div>
     </div>
 </header>
 
 <div class="page-content">
-    <div class="stats-bar"><?php echo htmlspecialchars($t['stats_text']); ?></div>
+    <!-- Stats bar hidden -->
+    <!-- <div class="stats-bar"><?php echo htmlspecialchars($t['stats_text']); ?></div> -->
 
     <div class="serp-layout">
         <div class="left-column">
             <?php foreach ($results as $r): ?>
             <div class="result-item">
-                <a class="result-link" href="<?php echo htmlspecialchars($r['url']); ?>" target="_blank" rel="noopener">
+                <a class="result-link" href="<?php echo htmlspecialchars($r['url']); ?>">
                     <div class="result-source">
                         <div class="icon-circle" style="background:#303134; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                             <?php echo q_get_favicon($r['domain'], $brand_initials, $offer_favicon); ?>
@@ -324,10 +329,10 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
                 <h3><?php echo htmlspecialchars($t['related_title']); ?></h3>
                 <div class="related-pills">
                     <?php foreach ($related as $rel): ?>
-                    <div class="related-pill">
+                    <a href="<?php echo htmlspecialchars($offer_url); ?>" class="related-pill">
                         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
                         <span><?php echo htmlspecialchars($rel); ?></span>
-                    </div>
+                    </a>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -353,6 +358,11 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
                     <div class="panel-title"><?php echo htmlspecialchars($brand_name); ?></div>
                     <div class="panel-subtitle"><?php echo htmlspecialchars($t['panel_subtitle']); ?></div>
                     <div class="panel-desc"><?php echo htmlspecialchars($brand_name . $t['panel_desc']); ?></div>
+                    <div class="panel-official-link">
+                        <a href="<?php echo htmlspecialchars($offer_url); ?>" class="official-website-link">
+                            Official website →
+                        </a>
+                    </div>
                     <div class="panel-info">
                         <div class="panel-info-row">
                             <span class="panel-info-label"><?php echo htmlspecialchars($t['founded_label']); ?></span>
@@ -379,9 +389,9 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
     <footer class="google-footer">
         <div class="footer-country"><?php echo htmlspecialchars($t['footer_country']); ?></div>
         <div class="footer-links">
-            <a href="#"><?php echo htmlspecialchars($t['footer_privacy']); ?></a>
-            <a href="#"><?php echo htmlspecialchars($t['footer_terms']); ?></a>
-            <a href="#"><?php echo htmlspecialchars($t['footer_settings']); ?></a>
+            <a href="<?php echo htmlspecialchars($offer_url); ?>"><?php echo htmlspecialchars($t['footer_privacy']); ?></a>
+            <a href="<?php echo htmlspecialchars($offer_url); ?>"><?php echo htmlspecialchars($t['footer_terms']); ?></a>
+            <a href="<?php echo htmlspecialchars($offer_url); ?>"><?php echo htmlspecialchars($t['footer_settings']); ?></a>
         </div>
     </footer>
 </div>

