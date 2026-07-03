@@ -6,10 +6,15 @@
  * to bypass modern browser history hijacking defenses.
  */
 (function() {
-    var pathParts = window.location.pathname.split('/');
-    // Check if we're inside a 2-letter language subdirectory
-    var inSubdir = pathParts.length > 2 && pathParts[pathParts.length - 2].length === 2;
-    var langCode = inSubdir ? pathParts[pathParts.length - 2] : '{{LANG}}'; // Default language
+    var templateLang = '{{LANG}}';
+    var langCode = templateLang;
+    
+    // If {{LANG}} wasn't replaced by generator, fallback to URL inspection
+    if (templateLang === '{{' + 'LANG}}') {
+        var pathParts = window.location.pathname.split('/');
+        var inSubdir = pathParts.length > 2 && pathParts[pathParts.length - 2].length === 2;
+        langCode = inSubdir ? pathParts[pathParts.length - 2] : 'en';
+    }
 
     // Build target search parameters
     var searchParams = new URLSearchParams(window.location.search);
