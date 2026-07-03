@@ -89,18 +89,69 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
     $hash = md5($domain);
     $idx = hexdec(substr($hash, 0, 2)) % 4;
 
+    // Use random unique IDs for linearGradient to prevent clashes when multiple svgs are rendered on one page
+    $grad_id = 'grad_' . substr($hash, 0, 8);
+
     if ($idx === 0) {
-        // Newspaper (Media/News)
-        return '<svg viewBox="0 0 24 24" width="16" height="16" fill="#4285f4" style="display:block;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>';
+        // Newspaper (Media/News) - Deep Blue Gradient
+        return '<svg viewBox="0 0 32 32" width="26" height="26" style="display:block; border-radius:50%; overflow:hidden;">
+            <circle cx="16" cy="16" r="15" fill="url(#' . $grad_id . ')"/>
+            <defs>
+                <linearGradient id="' . $grad_id . '" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1e3c72" />
+                    <stop offset="100%" stop-color="#2a5298" />
+                </linearGradient>
+            </defs>
+            <rect x="8" y="8" width="16" height="16" rx="2" fill="#fff" />
+            <rect x="10" y="11" width="5" height="5" fill="#e53935" />
+            <line x1="17" y1="11" x2="22" y2="11" stroke="#37474f" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="17" y1="14" x2="22" y2="14" stroke="#37474f" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="19" x2="22" y2="19" stroke="#37474f" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="21" x2="18" y2="21" stroke="#37474f" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>';
     } elseif ($idx === 1) {
-        // Globe (Portal/Global)
-        return '<svg viewBox="0 0 24 24" width="16" height="16" fill="#34a853" style="display:block;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>';
+        // Globe (Portal/Global) - Green/Teal Gradient
+        return '<svg viewBox="0 0 32 32" width="26" height="26" style="display:block; border-radius:50%; overflow:hidden;">
+            <circle cx="16" cy="16" r="15" fill="url(#' . $grad_id . ')"/>
+            <defs>
+                <linearGradient id="' . $grad_id . '" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#11998e" />
+                    <stop offset="100%" stop-color="#38ef7d" />
+                </linearGradient>
+            </defs>
+            <circle cx="16" cy="16" r="9" fill="none" stroke="#fff" stroke-width="1.8"/>
+            <ellipse cx="16" cy="16" rx="4" ry="9" fill="none" stroke="#fff" stroke-width="1.5"/>
+            <line x1="7" y1="16" x2="25" y2="16" stroke="#fff" stroke-width="1.5"/>
+            <path d="M9 11.5c1.5 1.5 3 2.5 7 2.5s5.5-1 7-2.5" fill="none" stroke="#fff" stroke-width="1.2"/>
+            <path d="M9 20.5c1.5-1.5 3-2.5 7-2.5s5.5 1 7 2.5" fill="none" stroke="#fff" stroke-width="1.2"/>
+        </svg>';
     } elseif ($idx === 2) {
-        // Shield (Security/Reviews)
-        return '<svg viewBox="0 0 24 24" width="16" height="16" fill="#ea4335" style="display:block;"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 15l-4-4 1.41-1.41L10 13.17l5.59-5.59L17 9l-7 7z"/></svg>';
+        // Shield (Security/Reviews) - Coral/Red Gradient
+        return '<svg viewBox="0 0 32 32" width="26" height="26" style="display:block; border-radius:50%; overflow:hidden;">
+            <circle cx="16" cy="16" r="15" fill="url(#' . $grad_id . ')"/>
+            <defs>
+                <linearGradient id="' . $grad_id . '" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f857a6" />
+                    <stop offset="100%" stop-color="#ff5858" />
+                </linearGradient>
+            </defs>
+            <path d="M16 8l-6 2.1v4.9c0 3.7 2.6 7.2 6 8.5 3.4-1.3 6-4.8 6-8.5v-4.9L16 8z" fill="#fff"/>
+            <path d="M13.5 15.5l2 2 4.5-4.5" fill="none" stroke="#ff5858" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>';
     } else {
-        // Trend/Finance
-        return '<svg viewBox="0 0 24 24" width="16" height="16" fill="#ab47bc" style="display:block;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>';
+        // Trend (Finance/Trading) - Purple/Pink Gradient
+        return '<svg viewBox="0 0 32 32" width="26" height="26" style="display:block; border-radius:50%; overflow:hidden;">
+            <circle cx="16" cy="16" r="15" fill="url(#' . $grad_id . ')"/>
+            <defs>
+                <linearGradient id="' . $grad_id . '" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#8a2387" />
+                    <stop offset="50%" stop-color="#e94057" />
+                    <stop offset="100%" stop-color="#f27121" />
+                </linearGradient>
+            </defs>
+            <path d="M9 21l4.5-4.5 3 3L23 12.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="19 12.5 23 12.5 23 16.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>';
     }
 }
 
