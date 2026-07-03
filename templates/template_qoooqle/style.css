@@ -76,17 +76,16 @@ a {
     align-items: center;
     height: 44px;
     background: var(--search-bg);
-    border: 1px solid #5f6368;
+    border: 1px solid transparent;
     border-radius: 24px;
-    padding: 0 8px 0 16px;
+    padding: 0 16px;
     max-width: 692px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .search-bar:hover,
 .search-bar:focus-within {
-    background: #404144;
-    border-color: #5f6368;
+    background: #3c4043;
     box-shadow: 0 1px 6px rgba(0,0,0,0.3);
 }
 
@@ -219,12 +218,12 @@ a {
 }
 
 .search-tab:hover {
-    color: #8ab4f8;
+    color: var(--text-light);
 }
 
 .search-tab.active {
-    color: #8ab4f8;
-    border-bottom-color: #8ab4f8;
+    color: var(--text-light);
+    border-bottom-color: var(--text-light);
 }
 
 .search-tab svg {
