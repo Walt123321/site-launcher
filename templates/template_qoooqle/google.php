@@ -75,6 +75,35 @@ function q_lang_qs($lang, $brand) {
     return '?lang=' . urlencode($lang) . '&brand=' . urlencode($brand);
 }
 
+function q_get_favicon($domain, $brand_initials, $offer_favicon) {
+    global $offer_domain;
+    if ($domain === $offer_domain) {
+        if (!empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))) {
+            return '<img src="' . htmlspecialchars($offer_favicon) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">';
+        }
+        // Brand fallback: Golden star/crest
+        return '<svg viewBox="0 0 24 24" width="16" height="16" fill="#fbbc05" style="display:block;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+    }
+
+    // Determine consistent icon based on domain name hash
+    $hash = md5($domain);
+    $idx = hexdec(substr($hash, 0, 2)) % 4;
+
+    if ($idx === 0) {
+        // Newspaper (Media/News)
+        return '<svg viewBox="0 0 24 24" width="16" height="16" fill="#4285f4" style="display:block;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>';
+    } elseif ($idx === 1) {
+        // Globe (Portal/Global)
+        return '<svg viewBox="0 0 24 24" width="16" height="16" fill="#34a853" style="display:block;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>';
+    } elseif ($idx === 2) {
+        // Shield (Security/Reviews)
+        return '<svg viewBox="0 0 24 24" width="16" height="16" fill="#ea4335" style="display:block;"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 15l-4-4 1.41-1.41L10 13.17l5.59-5.59L17 9l-7 7z"/></svg>';
+    } else {
+        // Trend/Finance
+        return '<svg viewBox="0 0 24 24" width="16" height="16" fill="#ab47bc" style="display:block;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>';
+    }
+}
+
 $results = [
     [
         'domain'  => $offer_domain,
@@ -148,21 +177,43 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
 <header class="google-header">
     <div class="header-top">
         <div class="google-logo">
-            <svg aria-hidden="true" height="30" viewBox="0 0 92 30" width="92" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M83.4 23.08a7.4 7.4 0 0 0 6.34-3.52l-2.3-1.5a4.8 4.8 0 0 1-3.9 2.2 4.6 4.6 0 0 1-3.99-2.4l10.33-4.39a7 7 0 0 0-.28-1.07c-1.23-3.16-3.38-4.6-6.28-4.6-4.42 0-7.43 3.22-7.43 7.68 0 4.56 3.17 7.6 7.5 7.6m-4.51-7.61v-.17c0-2.93 1.68-4.9 4.32-4.9 1.26 0 2.39.57 3.15 1.9zM74.3 2.41h-3.08v20.23h3.08zM61.77 29.2q7.18 0 7.17-8.22V8.23h-2.93v1.8h-.06c-.92-1.43-2.66-2.23-4.62-2.23-4.24 0-6.82 3.23-6.82 7.54 0 4.3 2.51 7.46 6.93 7.46a5.5 5.5 0 0 0 4.47-2.26h.1v1.31c0 2.9-1.5 4.6-4.29 4.6-1.82 0-3.03-1-3.92-2.68l-2.66 1.17c1.4 2.96 3.4 4.26 6.63 4.26m0-9.2c-2.59 0-4.24-1.9-4.24-4.75 0-2.74 1.64-4.71 4.25-4.71s4.23 1.83 4.23 4.7c0 2.9-1.7 4.76-4.24 4.76m-16.01 3.1c4.44 0 7.6-3.24 7.6-7.72 0-4.4-3.12-7.67-7.6-7.67-4.24 0-7.57 3-7.57 7.67 0 4.45 3.15 7.73 7.57 7.73m0-2.68c-2.68 0-4.56-2.2-4.56-5.04s1.98-4.99 4.56-4.99c2.73 0 4.57 2.2 4.57 5 0 2.87-1.88 5.03-4.57 5.03M29.33 23.1c4.41 0 7.6-3.23 7.6-7.72 0-4.4-3.12-7.67-7.6-7.67-4.23 0-7.57 3-7.57 7.67 0 4.45 3.15 7.73 7.57 7.73m0-2.68c-2.68 0-4.56-2.2-4.56-5.04s1.98-4.99 4.56-4.99c2.73 0 4.57 2.2 4.57 5 0 2.87-1.88 5.03-4.57 5.03M10.35 23.1c5.89.06 9.9-3.9 9.9-9.98q0-.75-.14-1.7h-9.8v2.93h6.87c-.36 3.83-3.06 5.82-6.76 5.82-4.15 0-7.33-3.12-7.33-7.66 0-4.47 3.03-7.6 7.33-7.6 2.16 0 3.76.67 5.35 2.3l2.05-2.14c-1.8-2.1-4.4-3.1-7.44-3.1-5.9 0-10.49 4.43-10.49 10.5 0 5.8 4.43 10.58 10.46 10.64"></path></svg>
+            <svg aria-hidden="true" height="30" viewBox="0 0 92 30" width="92" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#4285F4" d="M10.35 23.1c5.89.06 9.9-3.9 9.9-9.98q0-.75-.14-1.7h-9.8v2.93h6.87c-.36 3.83-3.06 5.82-6.76 5.82-4.15 0-7.33-3.12-7.33-7.66 0-4.47 3.03-7.6 7.33-7.6 2.16 0 3.76.67 5.35 2.3l2.05-2.14c-1.8-2.1-4.4-3.1-7.44-3.1-5.9 0-10.49 4.43-10.49 10.5 0 5.8 4.43 10.58 10.46 10.64"/>
+                <path fill="#EA4335" d="M29.33 23.1c4.41 0 7.6-3.23 7.6-7.72 0-4.4-3.12-7.67-7.6-7.67-4.23 0-7.57 3-7.57 7.67 0 4.45 3.15 7.73 7.57 7.73zm0-2.68c-2.68 0-4.56-2.2-4.56-5.04s1.98-4.99 4.56-4.99c2.73 0 4.57 2.2 4.57 5 0 2.87-1.88 5.03-4.57 5.03"/>
+                <path fill="#FBBC05" d="M46.77 23.1c4.44 0 7.6-3.24 7.6-7.72 0-4.4-3.12-7.67-7.6-7.67-4.24 0-7.57 3-7.57 7.67 0 4.45 3.15 7.73 7.57 7.73zm0-2.68c-2.68 0-4.56-2.2-4.56-5.04s1.98-4.99 4.56-4.99c2.73 0 4.57 2.2 4.57 5 0 2.87-1.88 5.03-4.57 5.03"/>
+                <path fill="#4285F4" d="M61.77 29.2q7.18 0 7.17-8.22V8.23h-2.93v1.8h-.06c-.92-1.43-2.66-2.23-4.62-2.23-4.24 0-6.82 3.23-6.82 7.54 0 4.3 2.51 7.46 6.93 7.46a5.5 5.5 0 0 0 4.47-2.26h.1v1.31c0 2.9-1.5 4.6-4.29 4.6-1.82 0-3.03-1-3.92-2.68l-2.66 1.17c1.4 2.96 3.4 4.26 6.63 4.26m0-9.2c-2.59 0-4.24-1.9-4.24-4.75 0-2.74 1.64-4.71 4.25-4.71s4.23 1.83 4.23 4.7c0 2.9-1.7 4.76-4.24 4.76"/>
+                <path fill="#34A853" d="M74.3 2.41h-3.08v20.23h3.08z"/>
+                <path fill="#EA4335" d="M83.4 23.08a7.4 7.4 0 0 0 6.34-3.52l-2.3-1.5a4.8 4.8 0 0 1-3.9 2.2 4.6 4.6 0 0 1-3.99-2.4l10.33-4.39a7 7 0 0 0-.28-1.07c-1.23-3.16-3.38-4.6-6.28-4.6-4.42 0-7.43 3.22-7.43 7.68 0 4.56 3.17 7.6 7.5 7.6zm-4.51-7.61v-.17c0-2.93 1.68-4.9 4.32-4.9 1.26 0 2.39.57 3.15 1.9z"/>
+            </svg>
         </div>
         <div class="search-bar-wrapper">
             <div class="search-bar">
                 <span class="search-text"><?php echo htmlspecialchars($brand_name); ?></span>
                 <div class="search-icons">
                     <div class="icon-btn" title="keyboard">
-                        <svg viewBox="0 -960 960 960" width="20" height="20"><path fill="var(--bbQxAb)" d="M160-200q-33 0-56.5-23.5T80-280v-400q0-33 23.5-56.5T160-760h640q33 0 56.5 23.5T880-680v400q0 33-23.5 56.5T800-200H160Zm160-120h320v-80H320v80ZM200-440h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80ZM200-560h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Z"></path></svg>
+                        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#9aa0a6" d="M19 4H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V6h14v12zm-3-2h2v-2h-2v2zm-4 0h2v-2h-2v2zm-4 0h2v-2H8v2zm-3 0h2v-2H5v2zm4-4h8v-2H9v2zm5-4h2V6h-2v2zm-4 0h2V6h-2v2zm-4 0h2V6H6v2z"></path></svg>
                     </div>
                     <div class="icon-btn" title="voice search">
-                        <svg viewBox="0 -960 960 960" width="20" height="20"><path fill="var(--bbQxAb)" d="M480-400q-50 0-85-35t-35-85v-240q0-50 35-85t85-35q50 0 85 35t35 85v240q0 50-35 85t-85 35Zm-40 280v-123q-104-14-172-93t-68-184h80q0 83 58.5 141.5T480-320q83 0 141.5-58.5T680-520h80q0 105-68 184t-172 93v123h-80Z"></path></svg>
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="#4285f4" d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                            <path fill="#34a853" d="M11 18.92h2V22h-2z"/>
+                            <path fill="#fbbc05" d="M7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45.56 2.42 1.47 3.38v.32l-1.15 1.18z"/>
+                            <path fill="#ea4335" d="M12 16.93a4.97 5.25 0 0 1-3.54-1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"/>
+                        </svg>
                     </div>
                     <div class="search-divider"></div>
                     <div class="icon-btn" title="search by image">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4285f4" stroke-width="1.6"><path d="M4 8V6a2 2 0 0 1 2-2h2M4 16v2a2 2 0 0 0 2 2h2M20 8V6a2 2 0 0 0-2-2h-2M20 16v2a2 2 0 0 1-2 2h-2"/><circle cx="12" cy="12" r="3"/></svg>
+                        <svg class="Gdd5U" focusable="false" viewBox="0 0 192 192" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                          <rect fill="none" height="192" width="192"></rect>
+                          <g>
+                            <path d="M141.2,36H116c-3.3,0-6,2.7-6,6v10c0,3.3,2.7,6,6,6h18c4.4,0,8,3.6,8,8v18c0,3.3,2.7,6,6,6h10c3.3,0,6-2.7,6-6V56.8 C164,45.3,152.7,36,141.2,36z" fill="#EA4335"></path>
+                            <path d="M50.8,36c-11.5,0-20.8,9.3-20.8,20.8V82c0,3.3,2.7,6,6,6h10c3.3,0,6-2.7,6-6V64c0-4.4,3.6-8,8-8h18c3.3,0,6-2.7,6-6V42 c0-3.3-2.7-6-6-6H50.8z" fill="#4285F4"></path>
+                            <path d="M50.8,156H76c3.3,0,6-2.7,6-6v-10c0-3.3-2.7-6-6-6H58c-4.4,0-8-3.6-8-8v-18c0-3.3-2.7-6-6-6H34c-3.3,0-6,2.7-6,6v25.2 C28,146.7,39.3,156,50.8,156z" fill="#FBBC05"></path>
+                            <path d="M141.2,156c11.5,0,20.8-9.3,20.8-20.8V110c0-3.3-2.7-6-6-6h-10c-3.3,0-6,2.7-6,6v18c0,4.4-3.6,8-8,8h-18 c-3.3,0-6,2.7-6,6v10c0,3.3,2.7,6,6,6H141.2z" fill="#34A853"></path>
+                            <path d="M96,62c-18.8,0-34,15.2-34,34s15.2,34,34,34s34-15.2,34-34S114.8,62,96,62z M96,114c-9.9,0-18-8.1-18-18 s8.1-18,18-18s18,8.1,18,18S105.9,114,96,114z" fill="#4285F4"></path>
+                            <circle cx="132" cy="132" fill="#34A853" r="10"></circle>
+                          </g>
+                        </svg>
                     </div>
                 </div>
                 <div class="search-btn">
@@ -225,18 +276,8 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
             <div class="result-item">
                 <a class="result-link" href="<?php echo htmlspecialchars($r['url']); ?>" target="_blank" rel="noopener">
                     <div class="result-source">
-                        <?php
-                            $domain_hash = md5($r['domain']);
-                            $hue = hexdec(substr($domain_hash, 0, 5)) % 360;
-                            $bg_color = "hsl({$hue}, 70%, 50%)";
-                            $initial = strtoupper(substr($r['domain'], 0, 1));
-                        ?>
-                        <div class="icon-circle" style="background:<?php echo $r['domain'] === $offer_domain && !empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/')) ? 'transparent' : $bg_color; ?>; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                            <?php if ($r['domain'] === $offer_domain && !empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))): ?>
-                                <img src="<?php echo htmlspecialchars($offer_favicon); ?>" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
-                            <?php else: ?>
-                                <span style="color:#fff; font-size:14px; font-weight:bold; font-family:sans-serif;"><?php echo htmlspecialchars($initial); ?></span>
-                            <?php endif; ?>
+                        <div class="icon-circle" style="background:#303134; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            <?php echo q_get_favicon($r['domain'], $brand_initials, $offer_favicon); ?>
                         </div>
                         <div class="source-info">
                             <span class="source-name"><?php echo htmlspecialchars($r['domain']); ?></span>

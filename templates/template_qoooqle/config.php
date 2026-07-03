@@ -18,6 +18,29 @@ $founded_year     = "2021";                                   // Knowledge panel
 // --- Offer language ---
 $offer_lang       = "{{LANG}}";                               // Offer language (replaced dynamically)
 
+// --- Local Raw Testing Fallback ---
+if ($brand_name === '{{' . 'BRAND}}' || $offer_lang === '{{' . 'LANG}}') {
+    $test_file = __DIR__ . '/../../core/last_local_test.json';
+    if (file_exists($test_file)) {
+        $test_data = json_decode(file_get_contents($test_file), true);
+        if ($test_data) {
+            $brand_name = $test_data['brand'] ?? 'Test';
+            $offer_lang = $test_data['lang'] ?? 'en';
+            $offer_domain = $test_data['domain'] ?? 'test-official.com';
+            $offer_url = "https://" . $offer_domain;
+            $offer_register_url = $offer_url . "/register.php";
+            $offer_about_url = $offer_url . "/about.php";
+        }
+    } else {
+        $brand_name = 'Test';
+        $offer_lang = 'en';
+        $offer_domain = 'test-official.com';
+        $offer_url = 'https://test-official.com';
+        $offer_register_url = 'https://test-official.com/register.php';
+        $offer_about_url = 'https://test-official.com/about.php';
+    }
+}
+
 // --- Newsnik domains (placeholders — real domains TBD) ---
 $newsnik1_domain  = "newsnik1-placeholder.com";
 $newsnik2_domain  = "newsnik2-placeholder.com";

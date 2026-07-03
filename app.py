@@ -1977,6 +1977,19 @@ elif st.session_state.step == 2:
 
                 progress.progress(0.30)
 
+                # Save metadata for local raw testing
+                try:
+                    import json
+                    with open("core/last_local_test.json", "w", encoding="utf-8") as lf:
+                        json.dump({
+                            "brand": brand,
+                            "lang": target_lang,
+                            "domain": domains[0] if domains else "test-official.com",
+                            "geo": geo_code
+                        }, lf, ensure_ascii=False, indent=2)
+                except Exception:
+                    pass
+
                 # -------------------------------------------------
                 # ZIP
                 # -------------------------------------------------
