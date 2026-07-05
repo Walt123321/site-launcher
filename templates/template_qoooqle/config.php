@@ -27,18 +27,17 @@ if ($brand_name === '{{' . 'BRAND}}' || $offer_lang === '{{' . 'LANG}}') {
             $brand_name = $test_data['brand'] ?? 'Test';
             $offer_lang = $test_data['lang'] ?? 'en';
             $offer_domain = $test_data['domain'] ?? 'test-official.com';
-            // Point to local template for interactive transition testing
-            $offer_url = "../template_1-1/index.php?lang=" . urlencode($offer_lang) . "&brand=" . urlencode($brand_name);
-            $offer_register_url = "../template_1-1/register.php?lang=" . urlencode($offer_lang) . "&brand=" . urlencode($brand_name);
-            $offer_about_url = "../template_1-1/about.php?lang=" . urlencode($offer_lang) . "&brand=" . urlencode($brand_name);
+            $offer_url = "https://" . $offer_domain;
+            $offer_register_url = $offer_url . "/register.php";
+            $offer_about_url = $offer_url . "/about.php";
         }
     } else {
         $brand_name = 'Test';
         $offer_lang = 'en';
         $offer_domain = 'test-official.com';
-        $offer_url = '../template_1-1/index.php';
-        $offer_register_url = '../template_1-1/register.php';
-        $offer_about_url = '../template_1-1/about.php';
+        $offer_url = 'https://test-official.com';
+        $offer_register_url = 'https://test-official.com/register.php';
+        $offer_about_url = 'https://test-official.com/about.php';
     }
 }
 
