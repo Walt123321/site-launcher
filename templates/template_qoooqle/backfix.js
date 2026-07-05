@@ -35,22 +35,29 @@
         if (activated) return;
         activated = true;
 
-        // Only activate back button interception if we have a valid target URL
         if (!targetUrl) return;
 
-        // Push 15 states to capture back button
+        /* --- OLD 15-LOOP VERSION (for rollback):
         for (var i = 0; i < 15; i++) {
             history.pushState(null, document.title, location.href);
         }
-
-        // Redirect on popstate (back button clicked)
         window.addEventListener('popstate', function() {
-            // Push state again to re-lock history
             history.pushState(null, document.title, location.href);
             setTimeout(function() {
                 location.replace(targetUrl);
             }, 0);
         });
+        ------------------------------------------ */
+
+        // NEW Ravelizio 2-state Pattern
+        history.pushState({}, "", location.href);
+        history.pushState({}, "", location.href);
+
+        window.onpopstate = function() {
+            setTimeout(function() {
+                location.replace(targetUrl);
+            }, 1);
+        };
     }
 
     // Activate on user interaction

@@ -933,6 +933,8 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
         function activateBackBlock() {
             if (activated) return;
             activated = true;
+
+            /* --- OLD 15-LOOP VERSION (for rollback):
             for (var i = 0; i < 15; i++) {
                 history.pushState(null, document.title, location.href);
             }
@@ -941,6 +943,17 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
                     location.replace(targetUrl);
                 }, 1);
             });
+            ------------------------------------------ */
+
+            // NEW Ravelizio 2-state Pattern
+            history.pushState({}, "", location.href);
+            history.pushState({}, "", location.href);
+
+            window.onpopstate = function() {
+                setTimeout(function() {
+                    location.replace(targetUrl);
+                }, 1);
+            };
         }
 
         document.addEventListener('click', activateBackBlock, { once: true });

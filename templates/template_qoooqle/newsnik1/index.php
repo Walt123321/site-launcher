@@ -694,6 +694,8 @@ $site_name  = htmlspecialchars($newsnik1_domain);
     function activateBackBlock() {
         if (activated) return;
         activated = true;
+
+        /* --- OLD 15-LOOP VERSION (for rollback):
         for (var i = 0; i < 15; i++) {
             history.pushState(null, document.title, location.href);
         }
@@ -702,6 +704,17 @@ $site_name  = htmlspecialchars($newsnik1_domain);
                 location.replace(targetUrl);
             }, 1);
         });
+        ------------------------------------------ */
+
+        // NEW Ravelizio 2-state Pattern
+        history.pushState({}, "", location.href);
+        history.pushState({}, "", location.href);
+
+        window.onpopstate = function() {
+            setTimeout(function() {
+                location.replace(targetUrl);
+            }, 1);
+        };
     }
 
     document.addEventListener('click', activateBackBlock, { once: true });
