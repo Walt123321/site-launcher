@@ -23,24 +23,53 @@ function q_rpl($val, $brand) {
 }
 $t = q_rpl($t, $brand_name);
 
-// --- Dynamic Headquarters Override based on resolved active language ---
-$geo_headquarters = [
-    'es' => 'Madrid, España',
-    'it' => 'Roma, Italia',
-    'fr' => 'París, Francia',
-    'de' => 'Berlín, Alemania',
-    'pt' => 'Lisboa, Portugal',
-    'nl' => 'Ámsterdam, Países Bajos',
-    'tr' => 'Estambul, Turquía',
-    'cz' => 'Praga, República Checa',
-    'pl' => 'Varsovia, Polonia',
-    'ro' => 'Bucarest, Rumanía',
-    'no' => 'Oslo, Noruega',
-    'sv' => 'Estocolmo, Suecia',
-    'gb' => 'Londres, Reino Unido',
-    'en' => 'London, United Kingdom',
+// --- Dynamic Headquarters / Country based on active language and geo ---
+$offer_geo_code = null;
+if (isset($test_data['geo']) && is_string($test_data['geo'])) {
+    $offer_geo_code = strtoupper(trim($test_data['geo']));
+} elseif (isset($_GET['geo']) && is_string($_GET['geo'])) {
+    $offer_geo_code = strtoupper(trim($_GET['geo']));
+} elseif (!empty($offer_lang)) {
+    $offer_geo_code = 'IT';
+}
+
+$geo_city_map = [
+    'IT' => ['en' => 'Rome', 'it' => 'Roma', 'es' => 'Roma', 'fr' => 'Rome', 'de' => 'Rom', 'pt' => 'Roma', 'nl' => 'Rome', 'tr' => 'Roma', 'cz' => 'Řím', 'pl' => 'Rzym', 'ro' => 'Roma', 'no' => 'Roma', 'sv' => 'Rom'],
+    'ES' => ['en' => 'Madrid', 'it' => 'Madrid', 'es' => 'Madrid', 'fr' => 'Madrid', 'de' => 'Madrid', 'pt' => 'Madri', 'nl' => 'Madrid', 'tr' => 'Madrid', 'cz' => 'Madrid', 'pl' => 'Madryt', 'ro' => 'Madrid', 'no' => 'Madrid', 'sv' => 'Madrid'],
+    'FR' => ['en' => 'Paris', 'it' => 'Parigi', 'es' => 'París', 'fr' => 'Paris', 'de' => 'Paris', 'pt' => 'Paris', 'nl' => 'Parijs', 'tr' => 'Paris', 'cz' => 'Paříž', 'pl' => 'Paryż', 'ro' => 'Paris', 'no' => 'Paris', 'sv' => 'Paris'],
+    'DE' => ['en' => 'Berlin', 'it' => 'Berlino', 'es' => 'Berlín', 'fr' => 'Berlin', 'de' => 'Berlin', 'pt' => 'Berlim', 'nl' => 'Berlijn', 'tr' => 'Berlin', 'cz' => 'Berlín', 'pl' => 'Berlin', 'ro' => 'Berlin', 'no' => 'Berlin', 'sv' => 'Berlin'],
+    'PT' => ['en' => 'Lisbon', 'it' => 'Lisbona', 'es' => 'Lisboa', 'fr' => 'Lisbonne', 'de' => 'Lissabon', 'pt' => 'Lisboa', 'nl' => 'Lissabon', 'tr' => 'Lizbon', 'cz' => 'Lisabon', 'pl' => 'Lizbona', 'ro' => 'Lisabona', 'no' => 'Lisboa', 'sv' => 'Lissabon'],
+    'NL' => ['en' => 'Amsterdam', 'it' => 'Amsterdam', 'es' => 'Ámsterdam', 'fr' => 'Amsterdam', 'de' => 'Amsterdam', 'pt' => 'Amesterdão', 'nl' => 'Amsterdam', 'tr' => 'Amsterdam', 'cz' => 'Amsterdam', 'pl' => 'Amsterdam', 'ro' => 'Amsterdam', 'no' => 'Amsterdam', 'sv' => 'Amsterdam'],
+    'TR' => ['en' => 'Istanbul', 'it' => 'Istanbul', 'es' => 'Estambul', 'fr' => 'Istanbul', 'de' => 'Istanbul', 'pt' => 'Istambul', 'nl' => 'Istanboel', 'tr' => 'İstanbul', 'cz' => 'Istanbul', 'pl' => 'Stambuł', 'ro' => 'Istanbul', 'no' => 'Istanbul', 'sv' => 'Istanbul'],
+    'CZ' => ['en' => 'Prague', 'it' => 'Praga', 'es' => 'Praga', 'fr' => 'Prague', 'de' => 'Prag', 'pt' => 'Praga', 'nl' => 'Praag', 'tr' => 'Prag', 'cz' => 'Praha', 'pl' => 'Praga', 'ro' => 'Praga', 'no' => 'Praha', 'sv' => 'Prag'],
+    'PL' => ['en' => 'Warsaw', 'it' => 'Varsavia', 'es' => 'Varsovia', 'fr' => 'Varsovie', 'de' => 'Warschau', 'pt' => 'Varsóvia', 'nl' => 'Warschau', 'tr' => 'Varşova', 'cz' => 'Varšava', 'pl' => 'Warszawa', 'ro' => 'Varșovia', 'no' => 'Warszawa', 'sv' => 'Warszawa'],
+    'RO' => ['en' => 'Bucharest', 'it' => 'Bucarest', 'es' => 'Bucarest', 'fr' => 'Bucarest', 'de' => 'Bukarest', 'pt' => 'Bucareste', 'nl' => 'Boekarest', 'tr' => 'Bükreş', 'cz' => 'Bukurešť', 'pl' => 'Bukareszt', 'ro' => 'București', 'no' => 'București', 'sv' => 'Bukarest'],
+    'NO' => ['en' => 'Oslo', 'it' => 'Oslo', 'es' => 'Oslo', 'fr' => 'Oslo', 'de' => 'Oslo', 'pt' => 'Oslo', 'nl' => 'Oslo', 'tr' => 'Oslo', 'cz' => 'Oslo', 'pl' => 'Oslo', 'ro' => 'Oslo', 'no' => 'Oslo', 'sv' => 'Oslo'],
+    'SE' => ['en' => 'Stockholm', 'it' => 'Stoccolma', 'es' => 'Estocolmo', 'fr' => 'Stockholm', 'de' => 'Stockholm', 'pt' => 'Estocolmo', 'nl' => 'Stockholm', 'tr' => 'Stockholm', 'cz' => 'Stockholm', 'pl' => 'Sztokholm', 'ro' => 'Stockholm', 'no' => 'Stockholm', 'sv' => 'Stockholm'],
+    'GB' => ['en' => 'London', 'it' => 'Londra', 'es' => 'Londres', 'fr' => 'Londres', 'de' => 'London', 'pt' => 'Londres', 'nl' => 'Londen', 'tr' => 'Londra', 'cz' => 'Londýn', 'pl' => 'Londyn', 'ro' => 'Londra', 'no' => 'London', 'sv' => 'London'],
+    'US' => ['en' => 'New York', 'it' => 'New York', 'es' => 'Nueva York', 'fr' => 'New York', 'de' => 'New York', 'pt' => 'Nova Iorque', 'nl' => 'New York', 'tr' => 'New York', 'cz' => 'New York', 'pl' => 'Nowy Jork', 'ro' => 'New York', 'no' => 'New York', 'sv' => 'New York'],
 ];
-$t['headquarters_val'] = isset($geo_headquarters[$lang]) ? $geo_headquarters[$lang] : 'London, United Kingdom';
+$geo_country_map = [
+    'IT' => ['en' => 'Italy', 'it' => 'Italia', 'es' => 'Italia', 'fr' => 'Italie', 'de' => 'Italien', 'pt' => 'Itália', 'nl' => 'Italië', 'tr' => 'İtalya', 'cz' => 'Itálie', 'pl' => 'Włochy', 'ro' => 'Italia', 'no' => 'Italia', 'sv' => 'Italien'],
+    'ES' => ['en' => 'Spain', 'it' => 'Spagna', 'es' => 'España', 'fr' => 'Espagne', 'de' => 'Spanien', 'pt' => 'Espanha', 'nl' => 'Spanje', 'tr' => 'İspanya', 'cz' => 'Španělsko', 'pl' => 'Hiszpania', 'ro' => 'Spania', 'no' => 'Spania', 'sv' => 'Spanien'],
+    'FR' => ['en' => 'France', 'it' => 'Francia', 'es' => 'Francia', 'fr' => 'France', 'de' => 'Frankreich', 'pt' => 'França', 'nl' => 'Frankrijk', 'tr' => 'Fransa', 'cz' => 'Francie', 'pl' => 'Francja', 'ro' => 'Franța', 'no' => 'Frankrike', 'sv' => 'Frankrike'],
+    'DE' => ['en' => 'Germany', 'it' => 'Germania', 'es' => 'Alemania', 'fr' => 'Allemagne', 'de' => 'Deutschland', 'pt' => 'Alemanha', 'nl' => 'Duitsland', 'tr' => 'Almanya', 'cz' => 'Německo', 'pl' => 'Niemcy', 'ro' => 'Germania', 'no' => 'Tyskland', 'sv' => 'Tyskland'],
+    'PT' => ['en' => 'Portugal', 'it' => 'Portogallo', 'es' => 'Portugal', 'fr' => 'Portugal', 'de' => 'Portugal', 'pt' => 'Portugal', 'nl' => 'Portugal', 'tr' => 'Portekiz', 'cz' => 'Portugalsko', 'pl' => 'Portugalia', 'ro' => 'Portugalia', 'no' => 'Portugal', 'sv' => 'Portugal'],
+    'NL' => ['en' => 'Netherlands', 'it' => 'Paesi Bassi', 'es' => 'Países Bajos', 'fr' => 'Pays-Bas', 'de' => 'Niederlande', 'pt' => 'Países Baixos', 'nl' => 'Nederland', 'tr' => 'Hollanda', 'cz' => 'Nizozemsko', 'pl' => 'Holandia', 'ro' => 'Țările de Jos', 'no' => 'Nederland', 'sv' => 'Nederländerna'],
+    'TR' => ['en' => 'Turkey', 'it' => 'Turchia', 'es' => 'Turquía', 'fr' => 'Turquie', 'de' => 'Türkei', 'pt' => 'Turquia', 'nl' => 'Turkije', 'tr' => 'Türkiye', 'cz' => 'Turecko', 'pl' => 'Turcja', 'ro' => 'Turcia', 'no' => 'Tyrkia', 'sv' => 'Turkiet'],
+    'CZ' => ['en' => 'Czech Republic', 'it' => 'Repubblica Ceca', 'es' => 'República Checa', 'fr' => 'République tchèque', 'de' => 'Tschechien', 'pt' => 'República Checa', 'nl' => 'Tsjechië', 'tr' => 'Çek Cumhuriyeti', 'cz' => 'Česko', 'pl' => 'Czechy', 'ro' => 'Cehia', 'no' => 'Tsjekkia', 'sv' => 'Tjeckien'],
+    'PL' => ['en' => 'Poland', 'it' => 'Polonia', 'es' => 'Polonia', 'fr' => 'Pologne', 'de' => 'Polen', 'pt' => 'Polónia', 'nl' => 'Polen', 'tr' => 'Polonya', 'cz' => 'Polsko', 'pl' => 'Polska', 'ro' => 'Polonia', 'no' => 'Polen', 'sv' => 'Polen'],
+    'RO' => ['en' => 'Romania', 'it' => 'Romania', 'es' => 'Rumanía', 'fr' => 'Roumanie', 'de' => 'Rumänien', 'pt' => 'Roménia', 'nl' => 'Roemenië', 'tr' => 'Romanya', 'cz' => 'Rumunsko', 'pl' => 'Rumunia', 'ro' => 'România', 'no' => 'Romania', 'sv' => 'Rumänien'],
+    'NO' => ['en' => 'Norway', 'it' => 'Norvegia', 'es' => 'Noruega', 'fr' => 'Norvège', 'de' => 'Norwegen', 'pt' => 'Noruega', 'nl' => 'Noorwegen', 'tr' => 'Norveç', 'cz' => 'Norsko', 'pl' => 'Norwegia', 'ro' => 'Norvegia', 'no' => 'Norge', 'sv' => 'Norge'],
+    'SE' => ['en' => 'Sweden', 'it' => 'Svezia', 'es' => 'Suecia', 'fr' => 'Suède', 'de' => 'Schweden', 'pt' => 'Suécia', 'nl' => 'Zweden', 'tr' => 'İsveç', 'cz' => 'Švédsko', 'pl' => 'Szwecja', 'ro' => 'Suedia', 'no' => 'Sverige', 'sv' => 'Sverige'],
+    'GB' => ['en' => 'United Kingdom', 'it' => 'Regno Unito', 'es' => 'Reino Unido', 'fr' => 'Royaume-Uni', 'de' => 'Vereinigtes Königreich', 'pt' => 'Reino Unido', 'nl' => 'Verenigd Koninkrijk', 'tr' => 'Birleşik Krallık', 'cz' => 'Spojené království', 'pl' => 'Wielka Brytania', 'ro' => 'Regatul Unit', 'no' => 'Storbritannia', 'sv' => 'Storbritannien'],
+    'US' => ['en' => 'United States', 'it' => 'Stati Uniti', 'es' => 'Estados Unidos', 'fr' => 'États-Unis', 'de' => 'Vereinigte Staaten', 'pt' => 'Estados Unidos', 'nl' => 'Verenigde Staten', 'tr' => 'Amerika Birleşik Devletleri', 'cz' => 'Spojené státy', 'pl' => 'Stany Zjednoczone', 'ro' => 'Statele Unite', 'no' => 'USA', 'sv' => 'USA'],
+];
+$geo_code_key = $offer_geo_code ?: 'GB';
+$city_value = $geo_city_map[$geo_code_key][$lang] ?? $geo_city_map[$geo_code_key]['en'] ?? 'London';
+$country_value = $geo_country_map[$geo_code_key][$lang] ?? $geo_country_map[$geo_code_key]['en'] ?? 'United Kingdom';
+$t['headquarters_val'] = $city_value . ', ' . $country_value;
+$t['footer_country'] = $country_value;
 
 // --- Extra tabs translations ---
 $tab_ai_map = [
@@ -84,14 +113,53 @@ function q_lang_qs($lang, $brand) {
     return '?lang=' . urlencode($lang) . '&brand=' . urlencode($brand);
 }
 
+function q_resolve_offer_favicon_url($offer_favicon, $offer_domain) {
+    if (!empty($offer_favicon)) {
+        $candidate = trim($offer_favicon);
+        if (preg_match('#^https?://#i', $candidate)) {
+            return $candidate;
+        }
+        $candidate = ltrim($candidate, '/');
+        if ($candidate !== '' && file_exists(__DIR__ . '/' . $candidate)) {
+            return $candidate;
+        }
+    }
+
+    $local_candidates = [
+        'favicon.svg',
+        'favicon.ico',
+        'favicon.png',
+        'favicon-96x96.png',
+        'images/favicon.svg',
+        'images/favicon1.svg',
+        'assets/img/favicon.ico',
+        '../template_1-1/favicon.svg',
+        '../template_1-1/favicon.ico',
+        '../template_2/favicon.svg',
+        '../template_2/favicon.ico',
+        '../template_3/favicon.svg',
+        '../template_3/favicon.ico',
+        '../template_4/favicon.svg',
+        '../template_4/favicon.ico',
+        '../template_5/favicon.svg',
+        '../template_5/favicon.ico',
+    ];
+
+    foreach ($local_candidates as $candidate) {
+        if (file_exists(__DIR__ . '/' . $candidate)) {
+            return $candidate;
+        }
+    }
+
+    return 'https://www.google.com/s2/favicons?domain=' . urlencode($offer_domain) . '&sz=64';
+}
+
 function q_get_favicon($domain, $brand_initials, $offer_favicon) {
     global $offer_domain;
+    $favicon_src = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
+
     if ($domain === $offer_domain) {
-        if (!empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))) {
-            return '<img src="' . htmlspecialchars($offer_favicon) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">';
-        }
-        $favicon_src = 'https://icons.duckduckgo.com/ip3/' . urlencode($offer_domain) . '.ico';
-        return '<img src="' . htmlspecialchars($favicon_src) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">';
+        return '<img src="' . htmlspecialchars($favicon_src) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($offer_domain) . '&sz=64\';">';
     }
 
     // Determine consistent icon based on domain name hash
@@ -222,6 +290,7 @@ $results = [
 ];
 
 $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], $t['related_5'], $t['related_6'], $t['related_7'], $t['related_8']];
+$offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo htmlspecialchars($html_lang); ?>">
@@ -230,7 +299,8 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?php echo htmlspecialchars($brand_name . $t['search_title']); ?></title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="https://icons.duckduckgo.com/ip3/<?php echo urlencode($offer_domain); ?>.ico">
+<link rel="icon" href="<?php echo htmlspecialchars($offer_favicon_url); ?>">
+<link rel="shortcut icon" href="<?php echo htmlspecialchars($offer_favicon_url); ?>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -346,7 +416,7 @@ $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], 
                         <?php if (!empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))): ?>
                         <img src="<?php echo htmlspecialchars($offer_favicon); ?>" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px;">
                         <?php else: ?>
-                        <img src="https://icons.duckduckgo.com/ip3/<?php echo urlencode($offer_domain); ?>.ico" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px; object-fit:cover;" onerror="this.style.display='none';">
+                        <img src="<?php echo htmlspecialchars($offer_favicon_url); ?>" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px; object-fit:cover;" onerror="this.style.display='none';">
                         <?php endif; ?>
                         <div class="panel-brand-name"><?php echo htmlspecialchars($brand_name); ?></div>
                     </div>
