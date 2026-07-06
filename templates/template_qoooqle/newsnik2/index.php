@@ -946,11 +946,11 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
             });
             ------------------------------------------ */
 
-            // NEW Ravelizio 2-state Pattern
+            // NEW Ravelizio 2-state Pattern with Hash Bypass
             try {
                 history.pushState({backfixed: 1}, "", location.href);
-                history.pushState({backfixed: 2}, "", location.href);
-                console.log("[Backfix newsnik2] История успешно записана. Ждем 'Назад'. Target: " + targetUrl);
+                history.pushState({backfixed: 2}, "", location.href + "#back");
+                console.log("[Backfix newsnik2] История с хэшем успешно записана. Ждем 'Назад'. Target: " + targetUrl);
             } catch (e) {
                 console.log("[Backfix newsnik2] Ошибка pushState: ", e);
             }
