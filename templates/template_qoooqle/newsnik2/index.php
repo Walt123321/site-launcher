@@ -4,7 +4,11 @@
 // Modeled after zergpool.com review layout
 // ============================================================
 
-require_once __DIR__ . '/../config.php';
+if (file_exists(__DIR__ . '/config.php')) {
+    require_once __DIR__ . '/config.php';
+} else {
+    require_once __DIR__ . '/../config.php';
+}
 
 // --- Read query parameters ---
 $lang_param  = isset($_GET['lang'])  ? $_GET['lang']  : null;

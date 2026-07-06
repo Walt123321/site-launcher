@@ -587,6 +587,12 @@ def build_domain_site_zip(
 
                     z.writestr(f"{domain}/{rel}", out_bytes)
 
+                    # Automatically duplicate config.php into each newsnik folder
+                    if rel == "config.php":
+                        z.writestr(f"{domain}/newsnik1/config.php", out_bytes)
+                        z.writestr(f"{domain}/newsnik2/config.php", out_bytes)
+                        z.writestr(f"{domain}/newsnik3/config.php", out_bytes)
+
     buf.seek(0)
     return buf.getvalue()
 

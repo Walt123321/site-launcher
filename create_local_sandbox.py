@@ -72,5 +72,12 @@ for item in local_test_dir.rglob("*"):
         
         item.write_text(text, encoding="utf-8")
 
+# 7. Duplicate config.php to each newsnik folder for parity with compiled zip
+local_config = local_test_dir / "config.php"
+if local_config.exists():
+    shutil.copy2(local_config, local_test_dir / "newsnik1" / "config.php")
+    shutil.copy2(local_config, local_test_dir / "newsnik2" / "config.php")
+    shutil.copy2(local_config, local_test_dir / "newsnik3" / "config.php")
+
 print(f"Local sandbox created successfully in {local_test_dir}!")
 print(f"URL: http://localhost:8000/local_test/google.php?lang={lang}")

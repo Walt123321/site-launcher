@@ -5,7 +5,11 @@
 // ============================================================
 
 // 1. Include config
-require_once __DIR__ . '/../config.php';
+if (file_exists(__DIR__ . '/config.php')) {
+    require_once __DIR__ . '/config.php';
+} else {
+    require_once __DIR__ . '/../config.php';
+}
 
 // 2. Read query params
 $lang  = get_active_lang($offer_lang, isset($_GET['lang']) ? $_GET['lang'] : null);
