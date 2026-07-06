@@ -455,7 +455,7 @@ $content = [
                 ],
                 [
                     'Deposito minimo',
-                    '{{MIN_DEPOSITO}} {{VALUTA}}',
+                    '{{MIN_DEPOSIT}} {{CURRENCY}}',
                     '$ 500',
                     '$ 1000'
                 ],
@@ -529,7 +529,7 @@ $content = [
             'rating_title' => 'Note globale',
             'rating_verdict' => 'Fortement recommandé',
             'intro' => 'Dans le monde en évolution rapide du trading de cryptomonnaies, choisir le bon outil d’automatisation peut faire toute la différence. Aujourd\'hui, nous analysons {{BRAND}}, un nouveau robot automatisé qui crée des vagues dans la communauté commerciale. Notre objectif est de déterminer s’il s’agit d’un véritable pionnier doté de fonctionnalités innovantes ou simplement d’un autre imitateur.',
-            'what_is_title' => 'Qu\'est-ce que {{MARQUE}} ?',
+            'what_is_title' => 'Qu\'est-ce que {{BRAND}} ?',
             'what_is_text' => '{{BRAND}} est une plateforme de trading automatisée de pointe qui exploite l\'intelligence artificielle pour exécuter des transactions sur le marché volatil de la cryptographie. La plate-forme est conçue pour aider les traders débutants et expérimentés en gérant l\'analyse technique complexe et en exécutant les transactions instantanément. Contrairement aux robots standards, {{BRAND}} utilise une modélisation prédictive pour s\'adapter aux conditions changeantes du marché.',
             'features_title' => 'Principales caractéristiques de {{BRAND}}',
             'features' => [
@@ -611,7 +611,7 @@ $content = [
             'comparison_title' => '{{BRAND}} par rapport à d\'autres plates-formes',
             'comparison_headers' => [
                 'Fonctionnalité',
-                '{{MARQUE}}',
+                '{{BRAND}}',
                 'Concurrent A',
                 'Concurrent B'
             ],
@@ -780,7 +780,7 @@ $content = [
             'comparison_title' => '{{BRAND}} im Vergleich zu anderen Plattformen',
             'comparison_headers' => [
                 'Besonderheit',
-                '{{MARKE}}',
+                '{{BRAND}}',
                 'Konkurrent A',
                 'Konkurrent B'
             ],
@@ -962,7 +962,7 @@ $content = [
                 ],
                 [
                     'Depósito mínimo',
-                    '{{MIN_DEPOSIT}} {{MOEDA}}',
+                    '{{MIN_DEPOSIT}} {{CURRENCY}}',
                     'US$ 500',
                     'US$ 1.000'
                 ],
@@ -1036,7 +1036,7 @@ $content = [
             'rating_title' => 'Algemene beoordeling',
             'rating_verdict' => 'Sterk aanbevolen',
             'intro' => 'In de snel evoluerende wereld van de handel in cryptocurrency kan het kiezen van de juiste automatiseringstool het verschil maken. Vandaag analyseren we {{BRAND}}, een nieuwe geautomatiseerde bot die voor opschudding zorgt in de handelsgemeenschap. Ons doel is om vast te stellen of het een echte trendsetter is met innovatieve features of gewoon de zoveelste copycat.',
-            'what_is_title' => 'Wat is {{MERK}}?',
+            'what_is_title' => 'Wat is {{BRAND}}?',
             'what_is_text' => '{{BRAND}} is een geavanceerd geautomatiseerd handelsplatform dat kunstmatige intelligentie gebruikt om transacties uit te voeren in de volatiele cryptomarkt. Het platform is ontworpen om zowel beginnende als ervaren handelaren te helpen door de complexe technische analyse uit te voeren en transacties onmiddellijk uit te voeren. In tegenstelling tot standaardbots maakt {{BRAND}} gebruik van voorspellende modellen om zich aan te passen aan veranderende marktomstandigheden.',
             'features_title' => 'Belangrijkste kenmerken van {{BRAND}}',
             'features' => [
@@ -1118,7 +1118,7 @@ $content = [
             'comparison_title' => '{{BRAND}} versus andere platforms',
             'comparison_headers' => [
                 'Functie',
-                '{{MERK}}',
+                '{{BRAND}}',
                 'Concurrent A',
                 'Concurrent B'
             ],
@@ -1287,7 +1287,7 @@ $content = [
             'comparison_title' => '{{BRAND}} ve Diğer Platformlar Karşılaştırması',
             'comparison_headers' => [
                 'Özellik',
-                '{{MARKA}}',
+                '{{BRAND}}',
                 'Rakip A',
                 'Rakip B'
             ],
@@ -1625,7 +1625,7 @@ $content = [
             'comparison_title' => '{{BRAND}} kontra inne platformy',
             'comparison_headers' => [
                 'Funkcja',
-                '{{MARKA}}',
+                '{{BRAND}}',
                 'Konkurent A',
                 'Konkurent B'
             ],
@@ -1638,7 +1638,7 @@ $content = [
                 ],
                 [
                     'Minimalny depozyt',
-                    '{{MIN_DEPOSIT}} {{WALUTA}}',
+                    '{{MIN_DEPOSIT}} {{CURRENCY}}',
                     '500 dolarów',
                     '1000 dolarów'
                 ],
@@ -1963,7 +1963,7 @@ $content = [
             'comparison_title' => '{{BRAND}} vs andre plattformer',
             'comparison_headers' => [
                 'Trekk',
-                '{{MERKE}}',
+                '{{BRAND}}',
                 'Konkurrent A',
                 'Konkurrent B'
             ],
@@ -2132,7 +2132,7 @@ $content = [
             'comparison_title' => '{{BRAND}} kontra andra plattformar',
             'comparison_headers' => [
                 'Särdrag',
-                '{{STÄMPLA}}',
+                '{{BRAND}}',
                 'Konkurrent A',
                 'Konkurrent B'
             ],

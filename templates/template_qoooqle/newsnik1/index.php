@@ -11,6 +11,17 @@ if (file_exists(__DIR__ . '/config.php')) {
     require_once __DIR__ . '/../config.php';
 }
 
+// When deployed standalone on a shared newsnik domain, the register link must
+// point back to whichever offer domain sent the visitor here (?host=...),
+// since one deployment is reused across many future offers.
+$_host_param = isset($_GET['host']) ? trim($_GET['host']) : '';
+if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host_param)) {
+    $offer_register_url = 'https://' . $_host_param . '/register.php';
+    // Also let ?lang= win over config's generic fallback language (get_active_lang
+    // otherwise prioritizes $offer_lang, which is just 'en' on a standalone deploy).
+    $offer_lang = '{{' . 'LANG}}';
+}
+
 // 2. Read query params
 $lang  = get_active_lang($offer_lang, isset($_GET['lang']) ? $_GET['lang'] : null);
 $brand_name_param = isset($_GET['brand']) ? trim($_GET['brand']) : $brand_name;
@@ -693,7 +704,9 @@ $site_name  = htmlspecialchars($newsnik1_domain);
     var searchParams = new URLSearchParams(window.location.search);
     var lang = searchParams.get('lang') || 'en';
     var host = searchParams.get('host');
-    var targetUrl = host ? ("//" + host + "/google.php?lang=" + lang) : ('../google.php?lang=' + lang);
+    // No host means this standalone newsnik domain was hit directly (test/bot/bookmark),
+    // not via a real offer's google.php link — there's no local google.php to fall back to.
+    var targetUrl = host ? ("//" + host + "/google.php?lang=" + lang) : 'https://www.google.com';
     var activated = false;
 
     function activateBackBlock() {

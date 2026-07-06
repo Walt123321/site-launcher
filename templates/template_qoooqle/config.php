@@ -56,6 +56,16 @@ if ($brand_name === '{{' . 'BRAND}}' || $offer_lang === '{{' . 'LANG}}') {
     $newsnik3_url     = "newsnik3/index.php";
 }
 
+// Standalone newsnik deployments ship this config.php unrendered (no specific
+// offer to bind to), so MIN_DEPOSIT/DEPOSIT_CURRENCY need a generic fallback
+// instead of leaking the literal placeholder text into the page.
+if ($min_deposit === '{{' . 'MIN_DEPOSIT}}') {
+    $min_deposit = '250';
+}
+if ($deposit_currency === '{{' . 'DEPOSIT_CURRENCY}}') {
+    $deposit_currency = 'USD';
+}
+
 // ============================================================
 // LANGUAGE VALIDATION
 // ============================================================
