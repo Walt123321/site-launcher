@@ -34,8 +34,12 @@
     function activateBackBlock() {
         if (activated) return;
         activated = true;
+        console.log("[Backfix] Скрипт активирован! Записываем историю...");
 
-        if (!targetUrl) return;
+        if (!targetUrl) {
+            console.log("[Backfix] Ошибка: targetUrl пустой!");
+            return;
+        }
 
         /* --- OLD 15-LOOP VERSION (for rollback):
         for (var i = 0; i < 15; i++) {
@@ -50,14 +54,21 @@
         ------------------------------------------ */
 
         // NEW Ravelizio 2-state Pattern
-        history.pushState({}, "", location.href);
-        history.pushState({}, "", location.href);
+        try {
+            history.pushState({backfixed: 1}, "", location.href);
+            history.pushState({backfixed: 2}, "", location.href);
+            console.log("[Backfix] История успешно записана. Ждем нажатия 'Назад'. Target: " + targetUrl);
+        } catch (e) {
+            console.log("[Backfix] Ошибка pushState: ", e);
+        }
 
-        window.onpopstate = function() {
+        window.addEventListener('popstate', function(event) {
+            console.log("[Backfix] Событие popstate (кнопка Назад нажата) перехвачено!");
+            console.log("[Backfix] Перенаправляем на: " + targetUrl);
             setTimeout(function() {
-                location.replace(targetUrl);
-            }, 1);
-        };
+                window.location.href = targetUrl;
+            }, 50);
+        });
     }
 
     // Activate on user interaction

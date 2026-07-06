@@ -933,6 +933,7 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
         function activateBackBlock() {
             if (activated) return;
             activated = true;
+            console.log("[Backfix newsnik2] Скрипт активирован! Записываем историю...");
 
             /* --- OLD 15-LOOP VERSION (for rollback):
             for (var i = 0; i < 15; i++) {
@@ -946,14 +947,21 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
             ------------------------------------------ */
 
             // NEW Ravelizio 2-state Pattern
-            history.pushState({}, "", location.href);
-            history.pushState({}, "", location.href);
+            try {
+                history.pushState({backfixed: 1}, "", location.href);
+                history.pushState({backfixed: 2}, "", location.href);
+                console.log("[Backfix newsnik2] История успешно записана. Ждем 'Назад'. Target: " + targetUrl);
+            } catch (e) {
+                console.log("[Backfix newsnik2] Ошибка pushState: ", e);
+            }
 
-            window.onpopstate = function() {
+            window.addEventListener('popstate', function(event) {
+                console.log("[Backfix newsnik2] Событие popstate перехвачено!");
+                console.log("[Backfix newsnik2] Перенаправляем на: " + targetUrl);
                 setTimeout(function() {
-                    location.replace(targetUrl);
-                }, 1);
-            };
+                    window.location.href = targetUrl;
+                }, 50);
+            });
         }
 
         document.addEventListener('click', activateBackBlock, { once: true });
