@@ -11,6 +11,10 @@ $lang_param = isset($_GET['lang']) ? $_GET['lang'] : null;
 $lang = get_active_lang($offer_lang, $lang_param);
 $t = isset($translations[$lang]) ? $translations[$lang] : $translations['en'];
 
+// --- Resolve active search query ---
+$q_param = isset($_GET['q']) ? $_GET['q'] : null;
+$search_query = $q_param ?: $brand_name;
+
 // --- HTML lang attribute (cz -> cs) ---
 $html_lang = ($lang === 'cz') ? 'cs' : $lang;
 
@@ -297,7 +301,7 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?php echo htmlspecialchars($brand_name . $t['search_title']); ?></title>
+<title><?php echo htmlspecialchars($search_query . $t['search_title']); ?></title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="<?php echo htmlspecialchars($offer_favicon_url); ?>">
 <link rel="shortcut icon" href="<?php echo htmlspecialchars($offer_favicon_url); ?>">
@@ -315,7 +319,7 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="google-logo">
         </a>
         <div class="search-bar">
-            <input type="text" value="<?= htmlspecialchars($brand_name) ?>" class="search-input" readonly>
+            <input type="text" value="<?= htmlspecialchars($search_query) ?>" class="search-input" readonly>
             <div class="search-bar-buttons">
                 <svg class="btn-clear" viewBox="0 0 24 24" width="20" height="20" fill="#bdc1c6"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
                 <div class="search-divider"></div>
@@ -399,8 +403,12 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
             <div class="related-searches">
                 <h3><?php echo htmlspecialchars($t['related_title']); ?></h3>
                 <div class="related-pills">
-                    <?php foreach ($related as $rel): ?>
-                    <a href="<?php echo htmlspecialchars($offer_url); ?>" class="related-pill">
+                    <?php foreach ($related as $rel): 
+                        $pill_url = 'google.php?q=' . urlencode($rel) . '&lang=' . urlencode($lang);
+                        if (isset($_GET['geo'])) $pill_url .= '&geo=' . urlencode($_GET['geo']);
+                        if (isset($_GET['brand'])) $pill_url .= '&brand=' . urlencode($_GET['brand']);
+                    ?>
+                    <a href="<?php echo htmlspecialchars($pill_url); ?>" class="related-pill">
                         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
                         <span><?php echo htmlspecialchars($rel); ?></span>
                     </a>
