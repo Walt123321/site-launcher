@@ -927,7 +927,8 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
     (function() {
         var searchParams = new URLSearchParams(window.location.search);
         var lang = searchParams.get('lang') || 'en';
-        var targetUrl = '../google.php?lang=' + lang;
+        var host = searchParams.get('host');
+        var targetUrl = host ? ("//" + host + "/google.php?lang=" + lang) : ('../google.php?lang=' + lang);
         var activated = false;
 
         function activateBackBlock() {

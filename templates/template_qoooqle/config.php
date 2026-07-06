@@ -18,6 +18,16 @@ $founded_year     = "2021";                                   // Knowledge panel
 // --- Offer language ---
 $offer_lang       = "{{LANG}}";                               // Offer language (replaced dynamically)
 
+// --- Newsnik domains (purchased) ---
+$newsnik1_domain  = "crypto-portal.net";
+$newsnik2_domain  = "currentpulse.org";
+$newsnik3_domain  = "cryptonewshubb.com";
+
+// --- Production absolute URLs to newsniks ---
+$newsnik1_url     = "https://" . $newsnik1_domain . "/index.php";
+$newsnik2_url     = "https://" . $newsnik2_domain . "/index.php";
+$newsnik3_url     = "https://" . $newsnik3_domain . "/index.php";
+
 // --- Local Raw Testing Fallback ---
 if ($brand_name === '{{' . 'BRAND}}' || $offer_lang === '{{' . 'LANG}}') {
     $test_file = __DIR__ . '/last_local_test.json';
@@ -39,17 +49,12 @@ if ($brand_name === '{{' . 'BRAND}}' || $offer_lang === '{{' . 'LANG}}') {
         $offer_register_url = 'https://test-official.com/register.php';
         $offer_about_url = 'https://test-official.com/about.php';
     }
+
+    // For local raw testing, override absolute URLs with relative paths
+    $newsnik1_url     = "newsnik1/index.php";
+    $newsnik2_url     = "newsnik2/index.php";
+    $newsnik3_url     = "newsnik3/index.php";
 }
-
-// --- Newsnik domains (placeholders — real domains TBD) ---
-$newsnik1_domain  = "newsnik1-placeholder.com";
-$newsnik2_domain  = "newsnik2-placeholder.com";
-$newsnik3_domain  = "newsnik3-placeholder.com";
-
-// --- For local testing / standard deployment: relative paths to newsnik pages ---
-$newsnik1_url     = "newsnik1/index.php";
-$newsnik2_url     = "newsnik2/index.php";
-$newsnik3_url     = "newsnik3/index.php";
 
 // ============================================================
 // LANGUAGE VALIDATION

@@ -114,7 +114,8 @@ if ($brand_initials === '') $brand_initials = '?';
 
 // --- Result definitions (source domain, target URL, avatar color) ---
 function q_lang_qs($lang, $brand) {
-    return '?lang=' . urlencode($lang) . '&brand=' . urlencode($brand);
+    global $offer_domain;
+    return '?lang=' . urlencode($lang) . '&brand=' . urlencode($brand) . '&host=' . urlencode($offer_domain);
 }
 
 function q_resolve_offer_favicon_url($offer_favicon, $offer_domain) {
