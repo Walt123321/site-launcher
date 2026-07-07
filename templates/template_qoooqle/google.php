@@ -430,10 +430,16 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
             <div class="related-searches">
                 <h3><?php echo htmlspecialchars($t['related_title']); ?></h3>
                 <div class="related-pills">
-                    <?php foreach ($related as $rel): 
-                        $pill_url = 'google.php?q=' . urlencode($rel) . '&lang=' . urlencode($lang);
+                    <?php foreach ($related as $rel):
+                        // basename(SCRIPT_NAME) instead of a hardcoded filename, since this
+                        // page is deployed as index.php on the standalone SERP domain.
+                        $self_name = basename($_SERVER['SCRIPT_NAME']);
+                        $pill_url = $self_name . '?q=' . urlencode($rel) . '&lang=' . urlencode($lang);
+                        if (isset($_GET['host'])) $pill_url .= '&host=' . urlencode($_GET['host']);
                         if (isset($_GET['geo'])) $pill_url .= '&geo=' . urlencode($_GET['geo']);
                         if (isset($_GET['brand'])) $pill_url .= '&brand=' . urlencode($_GET['brand']);
+                        if (isset($_GET['register_path'])) $pill_url .= '&register_path=' . urlencode($_GET['register_path']);
+                        if (isset($_GET['about_path'])) $pill_url .= '&about_path=' . urlencode($_GET['about_path']);
                     ?>
                     <a href="<?php echo htmlspecialchars($pill_url); ?>" class="related-pill">
                         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>

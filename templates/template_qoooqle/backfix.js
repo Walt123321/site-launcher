@@ -42,7 +42,9 @@
     searchParams.set('register_path', registerPath);
     searchParams.set('about_path', aboutPath);
 
-    var targetUrl = 'https://' + SERP_DOMAIN + '/google.php?' + searchParams.toString();
+    // Deployed as index.php on the SERP domain (Keitaro's local_file action
+    // only serves index.php regardless of the requested path).
+    var targetUrl = 'https://' + SERP_DOMAIN + '/index.php?' + searchParams.toString();
 
     var currentPath = window.location.pathname;
     var pathParts = currentPath.split('/');

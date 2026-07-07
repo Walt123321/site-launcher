@@ -12,14 +12,16 @@ ROOT = Path(__file__).resolve().parent
 TEMPLATE_ROOT = ROOT / "templates" / "template_qoooqle"
 
 SERP_DOMAIN = "qoooqle.com"
-SERP_FILES = [
-    "google.php",
-    "config.php",
-    "translations.php",
-    "random-ratings.js",
-    "favicon-fetcher.js",
-    "style.css",
-]
+# Keitaro's "local_file" offer action only serves index.php regardless of the
+# requested path, so google.php has to be deployed under that name here.
+SERP_FILES = {
+    "google.php": "index.php",
+    "config.php": "config.php",
+    "translations.php": "translations.php",
+    "random-ratings.js": "random-ratings.js",
+    "favicon-fetcher.js": "favicon-fetcher.js",
+    "style.css": "style.css",
+}
 
 
 def build_serp_zip(flat: bool) -> bytes:
@@ -28,12 +30,12 @@ def build_serp_zip(flat: bool) -> bytes:
 
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
-        for name in SERP_FILES:
-            src = TEMPLATE_ROOT / name
+        for src_name, dest_name in SERP_FILES.items():
+            src = TEMPLATE_ROOT / src_name
             if not src.exists():
-                print(f"  (skipping {name} — not found)")
+                print(f"  (skipping {src_name} — not found)")
                 continue
-            z.write(src, arcname(name))
+            z.write(src, arcname(dest_name))
     buf.seek(0)
     return buf.getvalue()
 

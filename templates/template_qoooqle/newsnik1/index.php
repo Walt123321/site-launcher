@@ -716,7 +716,7 @@ $site_name  = htmlspecialchars($newsnik1_domain);
         backParams.set('host', host);
         if (brand) backParams.set('brand', brand);
         if (geo) backParams.set('geo', geo);
-        targetUrl = 'https://' + SERP_DOMAIN + '/google.php?' + backParams.toString();
+        targetUrl = 'https://' + SERP_DOMAIN + '/index.php?' + backParams.toString();
     } else {
         targetUrl = 'https://www.google.com';
     }
