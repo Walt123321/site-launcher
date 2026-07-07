@@ -7,9 +7,10 @@
 // --- Brand / Offer ---
 $brand_name       = "{{BRAND}}";                              // Brand name (replaced dynamically)
 $offer_url        = "{{SITE_URL}}";                           // Main offer homepage (replaced dynamically)
-$offer_register_url = "{{SITE_URL}}/register.php";             // Registration page
-$offer_about_url  = "{{SITE_URL}}/about.php";                  // About Us page
+$offer_register_url = "{{SITE_URL}}/{{REGISTER_PATH}}";        // Registration page (falls back to homepage if the chosen template has no separate register.php)
+$offer_about_url  = "{{SITE_URL}}/{{ABOUT_PATH}}";              // About Us page (falls back to homepage if the chosen template has no separate about.php)
 $offer_domain     = "{{DOMAIN}}";                             // Offer domain (replaced dynamically)
+$offer_geo        = "{{GEO}}";                                // GEO code, e.g. CZ (replaced dynamically)
 $offer_favicon    = "";                                       // Path to brand favicon (optional)
 $min_deposit      = "{{MIN_DEPOSIT}}";                        // Minimum deposit amount
 $deposit_currency = "{{DEPOSIT_CURRENCY}}";                  // Deposit currency
@@ -21,7 +22,7 @@ $offer_lang       = "{{LANG}}";                               // Offer language 
 // --- Newsnik domains (purchased) ---
 $newsnik1_domain  = "crypto-portal.net";
 $newsnik2_domain  = "currentpulse.org";
-$newsnik3_domain  = "cryptonewshubb.com";
+$newsnik3_domain  = "cryptonewshubb.net";
 
 // --- Production absolute URLs to newsniks ---
 $newsnik1_url     = "https://" . $newsnik1_domain . "/index.php";
@@ -76,7 +77,9 @@ function get_active_lang($config_lang, $query_lang = null) {
     // Prioritize the template config language over query parameters to prevent Keitaro overrides
     $lang = ($config_lang && $config_lang !== '{{' . 'LANG}}') ? $config_lang : ($query_lang ?: 'en');
     $lang = strtolower(trim($lang));
-    if ($lang === 'cs') $lang = 'cz';
+    // Strip any BCP-47 region suffix (e.g. "cs-CZ" from bcp47_from()) before
+    // normalizing, otherwise the exact-match "cs" check below never fires.
     $lang = preg_split('/[-–—_\s]+/u', $lang)[0];
+    if ($lang === 'cs') $lang = 'cz';
     return in_array($lang, $supported_langs) ? $lang : 'en';
 }

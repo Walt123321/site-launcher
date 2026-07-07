@@ -6,6 +6,36 @@
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/translations.php';
 
+// When deployed standalone on the shared SERP domain (qoooqle.com), this one
+// deployment is reused across every future offer — all offer context (brand,
+// domain, language, geo, register/about paths) arrives via query params
+// instead of a per-offer rendered config.php.
+$_host_param = isset($_GET['host']) ? trim($_GET['host']) : '';
+if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host_param)) {
+    $offer_domain = $_host_param;
+    $offer_url = 'https://' . $_host_param;
+
+    $_register_path = isset($_GET['register_path']) ? trim($_GET['register_path']) : 'register.php';
+    $_about_path = isset($_GET['about_path']) ? trim($_GET['about_path']) : 'about.php';
+    $offer_register_url = $offer_url . '/' . ltrim($_register_path, '/');
+    $offer_about_url = $offer_url . '/' . ltrim($_about_path, '/');
+
+    if (isset($_GET['brand']) && trim($_GET['brand']) !== '') {
+        $brand_name = trim($_GET['brand']);
+    }
+
+    // Let ?lang= win over config's generic fallback language, same as newsnik.
+    $offer_lang = '{{' . 'LANG}}';
+
+    // config.php's "Local Raw Testing Fallback" (triggered above by the line
+    // just above, and always true anyway on an unrendered standalone deploy)
+    // resets these to relative newsnikN/index.php paths for local testing —
+    // wrong here, since this google.php isn't sitting next to those folders.
+    $newsnik1_url = 'https://' . $newsnik1_domain . '/index.php';
+    $newsnik2_url = 'https://' . $newsnik2_domain . '/index.php';
+    $newsnik3_url = 'https://' . $newsnik3_domain . '/index.php';
+}
+
 // --- Resolve active language ---
 $lang_param = isset($_GET['lang']) ? $_GET['lang'] : null;
 $lang = get_active_lang($offer_lang, $lang_param);
@@ -33,7 +63,11 @@ if (isset($test_data['geo']) && is_string($test_data['geo'])) {
     $offer_geo_code = strtoupper(trim($test_data['geo']));
 } elseif (isset($_GET['geo']) && is_string($_GET['geo'])) {
     $offer_geo_code = strtoupper(trim($_GET['geo']));
+} elseif (!empty($offer_geo) && $offer_geo !== '{{' . 'GEO}}') {
+    // Real GEO baked into config.php at build time for this offer.
+    $offer_geo_code = strtoupper(trim($offer_geo));
 } elseif (!empty($offer_lang)) {
+    // Last-resort fallback only if nothing else is available.
     $offer_geo_code = 'IT';
 }
 
@@ -114,11 +148,16 @@ if ($brand_initials === '') $brand_initials = '?';
 
 // --- Result definitions (source domain, target URL, avatar color) ---
 function q_lang_qs($lang, $brand) {
-    global $offer_domain;
-    return '?lang=' . urlencode($lang) . '&brand=' . urlencode($brand) . '&host=' . urlencode($offer_domain);
+    global $offer_domain, $offer_geo_code;
+    $qs = '?lang=' . urlencode($lang) . '&brand=' . urlencode($brand) . '&host=' . urlencode($offer_domain);
+    if (!empty($offer_geo_code)) {
+        $qs .= '&geo=' . urlencode($offer_geo_code);
+    }
+    return $qs;
 }
 
 function q_resolve_offer_favicon_url($offer_favicon, $offer_domain) {
+    // Explicit per-offer override always wins, if configured.
     if (!empty($offer_favicon)) {
         $candidate = trim($offer_favicon);
         if (preg_match('#^https?://#i', $candidate)) {
@@ -130,53 +169,27 @@ function q_resolve_offer_favicon_url($offer_favicon, $offer_domain) {
         }
     }
 
-    $local_candidates = [
-        'favicon.svg',
-        'favicon.ico',
-        'favicon.png',
-        'favicon-96x96.png',
-        'images/favicon.svg',
-        'images/favicon1.svg',
-        'assets/img/favicon.ico',
-        '../template_1-1/favicon.svg',
-        '../template_1-1/favicon.ico',
-        '../template_2/favicon.svg',
-        '../template_2/favicon.ico',
-        '../template_3/favicon.svg',
-        '../template_3/favicon.ico',
-        '../template_4/favicon.svg',
-        '../template_4/favicon.ico',
-        '../template_5/favicon.svg',
-        '../template_5/favicon.ico',
-    ];
-
-    foreach ($local_candidates as $candidate) {
-        if (file_exists(__DIR__ . '/' . $candidate)) {
-            return $candidate;
-        }
-    }
-
+    // No override configured — fetch the offer domain's own real favicon
+    // instead of falling back to the template's static favicon.svg (same
+    // for every brand on that template, which made unrelated launches
+    // look identical in search results).
     return 'https://www.google.com/s2/favicons?domain=' . urlencode($offer_domain) . '&sz=64';
 }
 
-function q_get_favicon($domain, $brand_initials, $offer_favicon) {
-    global $offer_domain;
-    $favicon_src = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
-
-    if ($domain === $offer_domain) {
-        return '<img src="' . htmlspecialchars($favicon_src) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($offer_domain) . '&sz=64\';">';
-    }
-
-    // Determine consistent icon based on domain name hash
-    $hash = md5($domain);
+// One shared set of gradient icon designs, picked deterministically by a
+// hash of $seed (domain/brand) so every offer gets its own distinct look,
+// while staying visually consistent with the "beautiful" style already
+// used for the other result rows.
+function q_brand_icon_svg($seed, $size = 26) {
+    $hash = md5($seed);
     $idx = hexdec(substr($hash, 0, 2)) % 4;
 
-    // Use random unique IDs for linearGradient to prevent clashes when multiple svgs are rendered on one page
+    // Unique gradient IDs to prevent clashes when multiple svgs render on one page
     $grad_id = 'grad_' . substr($hash, 0, 8);
 
     if ($idx === 0) {
         // Newspaper (Media/News) - Deep Blue Gradient
-        return '<svg viewBox="0 0 32 32" width="26" height="26" style="display:block; border-radius:50%; overflow:hidden;">
+        return '<svg viewBox="0 0 32 32" width="' . $size . '" height="' . $size . '" style="display:block; border-radius:50%; overflow:hidden;">
             <circle cx="16" cy="16" r="15" fill="url(#' . $grad_id . ')"/>
             <defs>
                 <linearGradient id="' . $grad_id . '" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -193,7 +206,7 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
         </svg>';
     } elseif ($idx === 1) {
         // Globe (Portal/Global) - Green/Teal Gradient
-        return '<svg viewBox="0 0 32 32" width="26" height="26" style="display:block; border-radius:50%; overflow:hidden;">
+        return '<svg viewBox="0 0 32 32" width="' . $size . '" height="' . $size . '" style="display:block; border-radius:50%; overflow:hidden;">
             <circle cx="16" cy="16" r="15" fill="url(#' . $grad_id . ')"/>
             <defs>
                 <linearGradient id="' . $grad_id . '" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -209,7 +222,7 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
         </svg>';
     } elseif ($idx === 2) {
         // Shield (Security/Reviews) - Coral/Red Gradient
-        return '<svg viewBox="0 0 32 32" width="26" height="26" style="display:block; border-radius:50%; overflow:hidden;">
+        return '<svg viewBox="0 0 32 32" width="' . $size . '" height="' . $size . '" style="display:block; border-radius:50%; overflow:hidden;">
             <circle cx="16" cy="16" r="15" fill="url(#' . $grad_id . ')"/>
             <defs>
                 <linearGradient id="' . $grad_id . '" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -222,7 +235,7 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
         </svg>';
     } else {
         // Trend (Finance/Trading) - Purple/Pink Gradient
-        return '<svg viewBox="0 0 32 32" width="26" height="26" style="display:block; border-radius:50%; overflow:hidden;">
+        return '<svg viewBox="0 0 32 32" width="' . $size . '" height="' . $size . '" style="display:block; border-radius:50%; overflow:hidden;">
             <circle cx="16" cy="16" r="15" fill="url(#' . $grad_id . ')"/>
             <defs>
                 <linearGradient id="' . $grad_id . '" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -235,6 +248,19 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
             <polyline points="19 12.5 23 12.5 23 16.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>';
     }
+}
+
+function q_get_favicon($domain, $brand_initials, $offer_favicon) {
+    global $offer_domain;
+
+    // The offer's own rows show its real favicon (or explicit override).
+    if ($domain === $offer_domain) {
+        $favicon_src = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
+        return '<img src="' . htmlspecialchars($favicon_src) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($offer_domain) . '&sz=64\';">';
+    }
+
+    // Other (decoy) result rows get a distinct generated icon per domain.
+    return q_brand_icon_svg($domain, 26);
 }
 
 $results = [
@@ -440,7 +466,7 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
                     <div class="panel-desc"><?php echo htmlspecialchars($brand_name . $t['panel_desc']); ?></div>
                     <div class="panel-official-link">
                         <a href="<?php echo htmlspecialchars($offer_url); ?>" class="official-website-link">
-                            Official website →
+                            <?php echo htmlspecialchars($brand_name); ?> Official website →
                         </a>
                     </div>
                     <div class="panel-info">

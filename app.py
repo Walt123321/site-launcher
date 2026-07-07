@@ -339,7 +339,7 @@ def clipboard_button(text: str, label: str, key: str):
         height=44,
     )
 
-def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Optional[str] = None, app_currency: Optional[str] = None, buyer: str = "", brand: str = "") -> str:
+def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Optional[str] = None, app_currency: Optional[str] = None, buyer: str = "", brand: str = "", register_path: str = "register.php", about_path: str = "about.php", geo_code: str = "") -> str:
     """
     Підставляє плейсхолдери:
     {{DOMAIN}} → домен
@@ -351,6 +351,9 @@ def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Op
     {{BRAND}} → назва бренду
     {{MIN_DEPOSIT}} → мінімальний депозит
     {{DEPOSIT_CURRENCY}} → валюта депозиту
+    {{REGISTER_PATH}} → register.php, або "" якщо в обраному шаблоні його немає (лендинг з вбудованою формою)
+    {{ABOUT_PATH}} → about.php, або "" якщо в обраному шаблоні його немає
+    {{GEO}} → GEO код оффера (наприклад CZ), для Knowledge Panel у google.php
     """
     from datetime import datetime
 
@@ -368,6 +371,9 @@ def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Op
     return (
         text.replace("{{DOMAIN}}", domain)
             .replace("{{SITE_URL}}", f"https://{domain}")
+            .replace("{{REGISTER_PATH}}", register_path)
+            .replace("{{ABOUT_PATH}}", about_path)
+            .replace("{{GEO}}", geo_code or "")
             .replace("{{LANG}}", target_lang)
             .replace("{{LASTMOD}}", lastmod)
             .replace("{{CURRENCY}}", currency)
@@ -511,6 +517,11 @@ def build_domain_site_zip(
     if not root.exists() or not root.is_dir():
         raise FileNotFoundError(f"Не знайдено папку шаблону сайту: {site_template_dir}")
 
+    # Не всі шаблони мають окремі register.php/about.php (деякі вбудовують
+    # форму прямо в index.php) — лінки мають вести на корінь, а не на 404
+    register_path = "register.php" if (root / "register.php").exists() else ""
+    about_path = "about.php" if (root / "about.php").exists() else ""
+
     # витягнемо app_price/app_currency зі згенерованого lang.php
     lang_vars = extract_lang_vars(lang_php_content)
     app_price = lang_vars.get("app_price")
@@ -559,7 +570,7 @@ def build_domain_site_zip(
                         else:
                             raw_text += '\n<script src="backfix.js"></script>'
                             
-                    rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand)
+                    rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                     out_bytes = rendered.encode("utf-8")
 
                 else:
@@ -580,7 +591,7 @@ def build_domain_site_zip(
 
                     if p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
-                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand)
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                         out_bytes = rendered.encode("utf-8")
                     else:
                         out_bytes = raw_bytes
@@ -606,6 +617,8 @@ def build_all_sites_zip(
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
         root = Path(site_template_dir)
+        register_path = "register.php" if (root / "register.php").exists() else ""
+        about_path = "about.php" if (root / "about.php").exists() else ""
 
         for domain, lang_php_content in domain_to_langphp.items():
             # витягнемо app_price/app_currency
@@ -649,7 +662,7 @@ def build_all_sites_zip(
                             else:
                                 raw_text += '\n<script src="backfix.js"></script>'
                                 
-                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand)
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                         out_bytes = rendered.encode("utf-8")
 
                     else:
@@ -670,7 +683,7 @@ def build_all_sites_zip(
 
                         if p.suffix.lower() in TEXT_EXTS:
                             raw_text = raw_bytes.decode("utf-8", errors="replace")
-                            rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand)
+                            rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                             out_bytes = rendered.encode("utf-8")
                         else:
                             out_bytes = raw_bytes
@@ -705,6 +718,8 @@ def build_all_sites_zip_multi(
             root = Path(site_template_dir)
             if not root.exists() or not root.is_dir():
                 continue
+            register_path = "register.php" if (root / "register.php").exists() else ""
+            about_path = "about.php" if (root / "about.php").exists() else ""
 
             lang_vars = extract_lang_vars(lang_php_content)
             app_price = lang_vars.get("app_price")
@@ -743,7 +758,7 @@ def build_all_sites_zip_multi(
                             else:
                                 raw_text += '\n<script src="backfix.js"></script>'
                                 
-                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand)
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                         out_bytes = rendered.encode("utf-8")
                     else:
                         out_bytes = raw_bytes
@@ -763,7 +778,7 @@ def build_all_sites_zip_multi(
 
                         if p.suffix.lower() in TEXT_EXTS:
                             raw_text = raw_bytes.decode("utf-8", errors="replace")
-                            rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand)
+                            rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                             out_bytes = rendered.encode("utf-8")
                         else:
                             out_bytes = raw_bytes

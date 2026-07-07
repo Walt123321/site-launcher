@@ -14,7 +14,7 @@ TEMPLATE_ROOT = ROOT / "templates" / "template_qoooqle"
 NEWSNIK_DOMAINS = {
     1: "crypto-portal.net",
     2: "currentpulse.org",
-    3: "cryptonewshubb.com",
+    3: "cryptonewshubb.net",
 }
 
 
