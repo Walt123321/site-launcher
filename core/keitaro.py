@@ -18,6 +18,7 @@ TIMEOUT = 120
 BUYER_GROUPS = {
     "TNA": {"campaign": 2, "offer": 3, "domain": 2},
     "VVK": {"campaign": 6, "offer": 7, "domain": 8},
+    "BAM": {"campaign": 11, "offer": 10, "domain": 9},
 }
 _DEFAULT_GROUPS = {"campaign": 2, "offer": 3, "domain": 2}
 
