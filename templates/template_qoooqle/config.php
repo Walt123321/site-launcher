@@ -81,5 +81,6 @@ function get_active_lang($config_lang, $query_lang = null) {
     // normalizing, otherwise the exact-match "cs" check below never fires.
     $lang = preg_split('/[-–—_\s]+/u', $lang)[0];
     if ($lang === 'cs') $lang = 'cz';
+    if ($lang === 'nb' || $lang === 'nn') $lang = 'no';
     return in_array($lang, $supported_langs) ? $lang : 'en';
 }

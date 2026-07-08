@@ -604,6 +604,22 @@ def build_domain_site_zip(
                         z.writestr(f"{domain}/newsnik2/config.php", out_bytes)
                         z.writestr(f"{domain}/newsnik3/config.php", out_bytes)
 
+            # Per-launch newsnik content (translated/uniquified for this brand
+            # and target_lang), fetched at request time by the standalone
+            # newsnik domains. Falls back to their static lang.php content if
+            # generation fails (no API key, network issue, etc.) — never
+            # blocks the site build.
+            try:
+                from core.newsnik_content import generate_newsnik_content
+                newsnik_content = generate_newsnik_content(target_lang)
+                for nid, content in newsnik_content.items():
+                    z.writestr(
+                        f"{domain}/newsnik{nid}_content.json",
+                        json.dumps(content, ensure_ascii=False),
+                    )
+            except Exception as e:
+                print(f"[newsnik_content] Skipped for {domain}: {e}")
+
     buf.seek(0)
     return buf.getvalue()
 

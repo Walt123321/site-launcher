@@ -35,6 +35,26 @@ require_once __DIR__ . '/lang.php';
 // Get content for active language (fallback to English)
 $t = isset($content[$active_lang]) ? $content[$active_lang] : $content['en'];
 
+// When standalone (host present), prefer this specific offer's freshly
+// generated content (translated/unique per launch) over the static, shared
+// fallback above — best-effort with a short timeout, never blocks the page.
+if ($_host_param !== '' && function_exists('curl_init')) {
+    $ch = curl_init('https://' . $_host_param . '/newsnik3_content.json');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 2);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+    $body = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($body !== false && $http_code === 200) {
+        $decoded = json_decode($body, true);
+        if (is_array($decoded)) {
+            $t = $decoded;
+        }
+    }
+}
+
 // Helper: replace placeholders in a string
 function rpl($str) {
     if ($str === null) return '';

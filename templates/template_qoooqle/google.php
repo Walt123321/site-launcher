@@ -431,10 +431,11 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
                 <h3><?php echo htmlspecialchars($t['related_title']); ?></h3>
                 <div class="related-pills">
                     <?php foreach ($related as $rel):
-                        // basename(SCRIPT_NAME) instead of a hardcoded filename, since this
-                        // page is deployed as index.php on the standalone SERP domain.
-                        $self_name = basename($_SERVER['SCRIPT_NAME']);
-                        $pill_url = $self_name . '?q=' . urlencode($rel) . '&lang=' . urlencode($lang);
+                        // Hardcoded, not derived from $_SERVER['SCRIPT_NAME'] — Keitaro's
+                        // local_file routing doesn't reflect the real filename there, it
+                        // reflects its own internal request path (e.g. "/testqoooqle-com"),
+                        // which caused these links to 404.
+                        $pill_url = 'index.php?q=' . urlencode($rel) . '&lang=' . urlencode($lang);
                         if (isset($_GET['host'])) $pill_url .= '&host=' . urlencode($_GET['host']);
                         if (isset($_GET['geo'])) $pill_url .= '&geo=' . urlencode($_GET['geo']);
                         if (isset($_GET['brand'])) $pill_url .= '&brand=' . urlencode($_GET['brand']);
