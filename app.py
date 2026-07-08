@@ -92,6 +92,12 @@ TEMPLATES = {
         "favicon": "templates/template_5/favicon.svg",
         "lang": "templates/template_5/lang.php",
     },
+    "template_6": {
+        "label": "Шаблон 6",
+        "dir": "templates/template_6",
+        "favicon": "templates/template_6/favicon.svg",
+        "lang": "templates/template_6/lang.php",
+    },
     "template_qoooqle": {
         "label": "Qoooqle SERP (Псевдо-Google)",
         "dir": "templates/template_qoooqle",
@@ -518,9 +524,10 @@ def build_domain_site_zip(
         raise FileNotFoundError(f"Не знайдено папку шаблону сайту: {site_template_dir}")
 
     # Не всі шаблони мають окремі register.php/about.php (деякі вбудовують
-    # форму прямо в index.php) — лінки мають вести на корінь, а не на 404
-    register_path = "register.php" if (root / "register.php").exists() else ""
-    about_path = "about.php" if (root / "about.php").exists() else ""
+    # форму прямо в index.php) — лінки мають вести на корінь, а не на 404.
+    # Різні шаблони називають ці сторінки по-різному, тож перевіряємо всі відомі варіанти.
+    register_path = next((n for n in ("register.php", "sign-up.php", "sign.php") if (root / n).exists()), "")
+    about_path = next((n for n in ("about.php", "about-us.php") if (root / n).exists()), "")
 
     # витягнемо app_price/app_currency зі згенерованого lang.php
     lang_vars = extract_lang_vars(lang_php_content)
@@ -633,8 +640,8 @@ def build_all_sites_zip(
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
         root = Path(site_template_dir)
-        register_path = "register.php" if (root / "register.php").exists() else ""
-        about_path = "about.php" if (root / "about.php").exists() else ""
+        register_path = next((n for n in ("register.php", "sign-up.php", "sign.php") if (root / n).exists()), "")
+        about_path = next((n for n in ("about.php", "about-us.php") if (root / n).exists()), "")
 
         for domain, lang_php_content in domain_to_langphp.items():
             # витягнемо app_price/app_currency
@@ -734,8 +741,8 @@ def build_all_sites_zip_multi(
             root = Path(site_template_dir)
             if not root.exists() or not root.is_dir():
                 continue
-            register_path = "register.php" if (root / "register.php").exists() else ""
-            about_path = "about.php" if (root / "about.php").exists() else ""
+            register_path = next((n for n in ("register.php", "sign-up.php", "sign.php") if (root / n).exists()), "")
+            about_path = next((n for n in ("about.php", "about-us.php") if (root / n).exists()), "")
 
             lang_vars = extract_lang_vars(lang_php_content)
             app_price = lang_vars.get("app_price")
@@ -2002,6 +2009,7 @@ elif st.session_state.step == 2:
                     template3_bytes=open(TEMPLATES["template_3"]["lang"], "rb").read(),
                     template4_bytes=open(TEMPLATES["template_4"]["lang"], "rb").read(),
                     template5_bytes=open(TEMPLATES["template_5"]["lang"], "rb").read(),
+                    template6_bytes=open(TEMPLATES["template_6"]["lang"], "rb").read(),
                     domain_templates=dt,
                     geo_code=geo_code,
                     geo_currency=geo_currency,
@@ -2039,6 +2047,7 @@ elif st.session_state.step == 2:
                     "template_3": "templates/template_3",
                     "template_4": "templates/template_4",
                     "template_5": "templates/template_5",
+                    "template_6": "templates/template_6",
                     "template_qoooqle": "templates/template_qoooqle",
                 }
 
@@ -2307,6 +2316,7 @@ elif st.session_state.step == 3:
                         template3_bytes=open(TEMPLATES["template_3"]["lang"], "rb").read(),
                         template4_bytes=open(TEMPLATES["template_4"]["lang"], "rb").read(),
                         template5_bytes=open(TEMPLATES["template_5"]["lang"], "rb").read(),
+                        template6_bytes=open(TEMPLATES["template_6"]["lang"], "rb").read(),
                         domain_templates=st.session_state.get("domain_templates", {}),
                         geo_code=geo_code,
                         geo_currency=geo_currency,
@@ -2349,6 +2359,7 @@ elif st.session_state.step == 3:
                     "template_3": "templates/template_3",
                     "template_4": "templates/template_4",
                     "template_5": "templates/template_5",
+                    "template_6": "templates/template_6",
                     "template_qoooqle": "templates/template_qoooqle",
                 }
 

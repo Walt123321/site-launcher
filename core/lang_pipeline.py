@@ -1873,6 +1873,100 @@ def generate_lang_files(
                 raise RuntimeError(f"TEMPLATE_5 FAILED: {e}")
 
         # -------------------------
+        # TEMPLATE 6 (same structure as template 5, no review-author rotation)
+        # -------------------------
+        elif template_kind == "template_6":
+
+            try:
+                if progress_cb:
+                    progress_cb((idx - 1) / total, f"Processing {domain}...")
+
+                # --- DOMAIN FIX ---
+                content = content.replace("{{DOMAIN}}", domain)
+
+                # --- BASIC VARS ---
+                price = _make_price(geo_currency)
+
+                content = _set_php_var(content, "site_name", brand, numeric=False)
+                content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
+                content = _set_php_var(content, "site_domain", domain, numeric=False)
+                content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
+                content = _set_php_var(content, "app_price", str(price), numeric=True)
+                content = _set_php_var(content, "site_lang", target_lang, numeric=False)
+                content = _set_php_var(content, "site_gmail", _gmail_for_domain(domain), numeric=False)
+                if country_name:
+                    content = _set_php_var(content, "country_name", country_name, numeric=False)
+
+                # --- RATING ---
+                rating_value = round(random.uniform(4.6, 5.0), 1)
+                rating_count = random.randint(300, 3000)
+
+                content = _set_php_var(content, "rating_value", str(rating_value), numeric=True)
+                content = _set_php_var(content, "rating_count", str(rating_count), numeric=True)
+
+                # =========================
+                # TRANSLATION WITH CONTEXT
+                # =========================
+                custom_instructions = (
+                    f"=== CRITICAL LOCALIZATION RULES FOR TEMPLATE 6 ===\n"
+                    f"Target language: {target_lang}. Brand name: '{brand}'.\n"
+                    f"\n"
+                    f"RULE 1 — BRAND NAME:\n"
+                    f"The brand name '{brand}' must remain exactly as '{brand}' everywhere. Never translate or alter it.\n"
+                    f"\n"
+                    f"RULE 2 — MASCULINE GENDER IN TESTIMONIALS (applies to ALL languages):\n"
+                    f"Any string that is a user review, testimonial, or personal story MUST use MASCULINE (MALE) grammatical forms throughout.\n"
+                    f"This applies to every language. Examples by language:\n"
+                    f"  - Ukrainian/Russian: past-tense verbs ending in consonant/о for male (я чув, я шукав, наважився, я був вражений — NOT чула, шукала, наважилась).\n"
+                    f"  - Polish: masculine past tense (zacząłem, byłem, znalazłem — NOT zaczęłam, byłam).\n"
+                    f"  - German: masculine adjectives/pronouns (Ich war beeindruckt, ich habe gesucht — keep 'ich' neutral but any attributive adjectives in masculine form).\n"
+                    f"  - French: masculine agreement (j'étais impressionné — NOT impressionnée; j'ai trouvé — OK).\n"
+                    f"  - Italian: masculine past participle (sono rimasto, ho trovato — NOT rimasta).\n"
+                    f"  - Spanish: masculine agreement (estaba impresionado — NOT impresionada; decidí — OK).\n"
+                    f"  - Romanian: masculine forms (eram impresionat — NOT impresionată).\n"
+                    f"  - Czech/Slovak: masculine past tense (hledal jsem, byl jsem — NOT hledala jsem).\n"
+                    f"  - For any other language: always use the grammatical masculine form for the narrator/reviewer.\n"
+                    f"NEVER use female, neutral, or dual-gender (he/she, él/ella, er/sie) forms in testimonials.\n"
+                    f"\n"
+                    f"RULE 3 — UPPERCASE UI LABELS:\n"
+                    f"Short uppercase phrases are UI labels, NOT system constants or code. They MUST be fully translated into {target_lang}. "
+                    f"Preserve the UPPERCASE style in the translation. Do NOT leave them in English.\n"
+                    f"\n"
+                    f"RULE 4 — NATURAL TRANSLATION OF TECHNICAL MARKETING PHRASES:\n"
+                    f"Avoid robotic or literal word-for-word translations. Translate the meaning naturally, not word-for-word.\n"
+                    f"\n"
+                    f"RULE 5 — PHP VARIABLES AND PLACEHOLDERS:\n"
+                    f"Any token starting with '$' (e.g. $site_name, $source, $app_price) MUST be copied into the translation exactly as-is. "
+                    f"Do NOT translate, rename, remove the '$' sign, or alter these in any way. "
+                    f"Tokens like __PH0__, __PH1__ etc. must also remain completely unchanged."
+                )
+
+                if progress_cb:
+                    progress_cb((idx - 1) / total + 0.7 / total, f"Translating (Pass 1)...")
+
+                strings, spans = _extract_strings(content)
+
+                if strings:
+                    outs = _llm_transform_strings_onepass(
+                        client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                    )
+                    content = _apply_strings(content, spans, outs)
+
+                # другий прохід (щоб добити залишки)
+                strings, spans = _extract_strings(content)
+
+                if strings:
+                    if progress_cb:
+                        progress_cb((idx - 1) / total + 0.9 / total, f"Translating (Pass 2)...")
+                    outs = _llm_transform_strings_onepass(
+                        client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                    )
+                    content = _apply_strings(content, spans, outs)
+
+            except Exception as e:
+                raise RuntimeError(f"TEMPLATE_6 FAILED: {e}")
+
+        # -------------------------
         # TEMPLATE 2 (fixed flow)
         # -------------------------
         elif template_kind == "template_2":
@@ -1984,6 +2078,7 @@ def generate_lang_files_multi(
     template3_bytes: bytes,
     template4_bytes: bytes,
     template5_bytes: bytes,
+    template6_bytes: bytes,
     geo_code: Optional[str],
     geo_currency: str,
     target_lang: str,
@@ -2030,6 +2125,10 @@ def generate_lang_files_multi(
         elif kind in ("template_5", "t5", "5", "template5"):
             tpl = template5_bytes
             tk = "template_5"
+
+        elif kind in ("template_6", "t6", "6", "template6"):
+            tpl = template6_bytes
+            tk = "template_6"
 
         else:
             tpl = template1_bytes

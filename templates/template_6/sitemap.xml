@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://{{DOMAIN}}/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/about-us.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/contact.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+</urlset>
