@@ -148,10 +148,18 @@ if ($brand_initials === '') $brand_initials = '?';
 
 // --- Result definitions (source domain, target URL, avatar color) ---
 function q_lang_qs($lang, $brand) {
-    global $offer_domain, $offer_geo_code;
+    global $offer_domain, $offer_geo_code, $_register_path, $_about_path;
     $qs = '?lang=' . urlencode($lang) . '&brand=' . urlencode($brand) . '&host=' . urlencode($offer_domain);
     if (!empty($offer_geo_code)) {
         $qs .= '&geo=' . urlencode($offer_geo_code);
+    }
+    // Forward the offer's real register/about page filenames so the newsnik
+    // page's own CTA doesn't fall back to a hardcoded (possibly 404) path.
+    if (!empty($_register_path)) {
+        $qs .= '&register_path=' . urlencode($_register_path);
+    }
+    if (!empty($_about_path)) {
+        $qs .= '&about_path=' . urlencode($_about_path);
     }
     return $qs;
 }

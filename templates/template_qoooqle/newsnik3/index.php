@@ -13,7 +13,11 @@ if (file_exists(__DIR__ . '/config.php')) {
 // since one deployment is reused across many future offers.
 $_host_param = isset($_GET['host']) ? trim($_GET['host']) : '';
 if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host_param)) {
-    $offer_register_url = 'https://' . $_host_param . '/register.php';
+    // The offer's real register-page filename varies by template (register.php,
+    // sign.php, sign-up.php, ...) — forwarded via ?register_path= (see google.php),
+    // falling back to register.php only if it's somehow missing.
+    $_register_path = isset($_GET['register_path']) ? trim($_GET['register_path']) : 'register.php';
+    $offer_register_url = 'https://' . $_host_param . '/' . ltrim($_register_path, '/');
     // Also let ?lang= win over config's generic fallback language (get_active_lang
     // otherwise prioritizes $offer_lang, which is just 'en' on a standalone deploy).
     $offer_lang = '{{' . 'LANG}}';
