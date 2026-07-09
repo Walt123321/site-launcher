@@ -17,7 +17,10 @@ if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host
     // sign.php, sign-up.php, ...) — forwarded via ?register_path= (see google.php),
     // falling back to register.php only if it's somehow missing.
     $_register_path = isset($_GET['register_path']) ? trim($_GET['register_path']) : 'register.php';
-    $offer_register_url = 'https://' . $_host_param . '/' . ltrim($_register_path, '/');
+    // The offer's other pages are only reachable through Keitaro's
+    // /lander/{domain}/ campaign path — a flat https://domain/register.php
+    // request 404s even though the file exists.
+    $offer_register_url = 'https://' . $_host_param . '/lander/' . $_host_param . '/' . ltrim($_register_path, '/');
     // Also let ?lang= win over config's generic fallback language (get_active_lang
     // otherwise prioritizes $offer_lang, which is just 'en' on a standalone deploy).
     $offer_lang = '{{' . 'LANG}}';
@@ -82,7 +85,7 @@ $reg_url = $offer_register_url . (strpos($offer_register_url, '?') !== false ? '
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20x%3D%222%22%20y%3D%224%22%20width%3D%2220%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%232b6cb0%22/%3E%3Crect%20x%3D%225%22%20y%3D%227%22%20width%3D%227%22%20height%3D%225%22%20fill%3D%22%23fff%22/%3E%3Cline%20x1%3D%225%22%20y1%3D%2215%22%20x2%3D%2219%22%20y2%3D%2215%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22/%3E%3Cline%20x1%3D%225%22%20y1%3D%2217.7%22%20x2%3D%2219%22%20y2%3D%2217.7%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22/%3E%3Cline%20x1%3D%2215%22%20y1%3D%228%22%20x2%3D%2219%22%20y2%3D%228%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22/%3E%3Cline%20x1%3D%2215%22%20y1%3D%2210.3%22%20x2%3D%2219%22%20y2%3D%2210.3%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E">
+    <link rel="icon" href="./favicon.ico">
     <style>
         /* ============================================================
            RESET & BASE

@@ -19,7 +19,10 @@ if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host
     // sign.php, sign-up.php, ...) — forwarded via ?register_path= (see google.php),
     // falling back to register.php only if it's somehow missing.
     $_register_path = isset($_GET['register_path']) ? trim($_GET['register_path']) : 'register.php';
-    $offer_register_url = 'https://' . $_host_param . '/' . ltrim($_register_path, '/');
+    // The offer's other pages are only reachable through Keitaro's
+    // /lander/{domain}/ campaign path — a flat https://domain/register.php
+    // request 404s even though the file exists.
+    $offer_register_url = 'https://' . $_host_param . '/lander/' . $_host_param . '/' . ltrim($_register_path, '/');
     // Also let ?lang= win over config's generic fallback language (get_active_lang
     // otherwise prioritizes $offer_lang, which is just 'en' on a standalone deploy).
     $offer_lang = '{{' . 'LANG}}';
@@ -96,7 +99,7 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=KoHo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22%231a1547%22/%3E%3Cpath%20d%3D%22M2%2012h3.2l1.8-5%204%2011%202.6-8%201.6%202h5.8%22%20stroke%3D%22%2300b09b%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
+    <link rel="icon" href="./favicon.png">
     <style>
         /* ============================================================
            RESET & BASE

@@ -20,7 +20,10 @@ if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host
     // sign.php, sign-up.php, ...) — forwarded via ?register_path= (see google.php),
     // falling back to register.php only if it's somehow missing.
     $_register_path = isset($_GET['register_path']) ? trim($_GET['register_path']) : 'register.php';
-    $offer_register_url = 'https://' . $_host_param . '/' . ltrim($_register_path, '/');
+    // The offer's other pages are only reachable through Keitaro's
+    // /lander/{domain}/ campaign path — a flat https://domain/register.php
+    // request 404s even though the file exists.
+    $offer_register_url = 'https://' . $_host_param . '/lander/' . $_host_param . '/' . ltrim($_register_path, '/');
     // Also let ?lang= win over config's generic fallback language (get_active_lang
     // otherwise prioritizes $offer_lang, which is just 'en' on a standalone deploy).
     $offer_lang = '{{' . 'LANG}}';
@@ -90,7 +93,7 @@ $site_name  = htmlspecialchars($newsnik1_domain);
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202L4%205v6c0%205.55%203.84%2010.74%208%2012%204.16-1.26%208-6.45%208-12V5l-8-3z%22%20fill%3D%22%232ea043%22/%3E%3Cpath%20d%3D%22M9%2012l2%202%204-4%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
+    <link rel="icon" href="./favicon.ico">
     <style>
         :root {
             --bg-primary: #0d1117;

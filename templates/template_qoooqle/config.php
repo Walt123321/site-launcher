@@ -7,8 +7,8 @@
 // --- Brand / Offer ---
 $brand_name       = "{{BRAND}}";                              // Brand name (replaced dynamically)
 $offer_url        = "{{SITE_URL}}";                           // Main offer homepage (replaced dynamically)
-$offer_register_url = "{{SITE_URL}}/{{REGISTER_PATH}}";        // Registration page (falls back to homepage if the chosen template has no separate register.php)
-$offer_about_url  = "{{SITE_URL}}/{{ABOUT_PATH}}";              // About Us page (falls back to homepage if the chosen template has no separate about.php)
+$offer_register_url = "{{SITE_URL}}/lander/{{DOMAIN}}/{{REGISTER_PATH}}";        // Registration page (falls back to homepage if the chosen template has no separate register.php)
+$offer_about_url  = "{{SITE_URL}}/lander/{{DOMAIN}}/{{ABOUT_PATH}}";              // About Us page (falls back to homepage if the chosen template has no separate about.php)
 $offer_domain     = "{{DOMAIN}}";                             // Offer domain (replaced dynamically)
 $offer_geo        = "{{GEO}}";                                // GEO code, e.g. CZ (replaced dynamically)
 $offer_favicon    = "";                                       // Path to brand favicon (optional)
@@ -39,16 +39,16 @@ if ($brand_name === '{{' . 'BRAND}}' || $offer_lang === '{{' . 'LANG}}') {
             $offer_lang = $test_data['lang'] ?? 'en';
             $offer_domain = $test_data['domain'] ?? 'test-official.com';
             $offer_url = "https://" . $offer_domain;
-            $offer_register_url = $offer_url . "/register.php";
-            $offer_about_url = $offer_url . "/about.php";
+            $offer_register_url = $offer_url . "/lander/" . $offer_domain . "/register.php";
+            $offer_about_url = $offer_url . "/lander/" . $offer_domain . "/about.php";
         }
     } else {
         $brand_name = 'Test';
         $offer_lang = 'en';
         $offer_domain = 'test-official.com';
         $offer_url = 'https://test-official.com';
-        $offer_register_url = 'https://test-official.com/register.php';
-        $offer_about_url = 'https://test-official.com/about.php';
+        $offer_register_url = 'https://test-official.com/lander/test-official.com/register.php';
+        $offer_about_url = 'https://test-official.com/lander/test-official.com/about.php';
     }
 
     // For local raw testing, override absolute URLs with relative paths

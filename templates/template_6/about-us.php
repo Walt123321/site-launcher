@@ -31,6 +31,8 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <meta property="og:title" content="<?= $about_meta_title ?>">
     <meta property="og:description" content="<?= $about_meta_description ?>">
     <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-theme="dark">
 <?php include 'includes/header.php'; ?>
 
 <?php include 'includes/breadcrumb-schema.php'; ?>

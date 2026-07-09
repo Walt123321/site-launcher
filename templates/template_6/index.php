@@ -1,16 +1,4 @@
 <?php
-$global_svg_logo = "
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' class='fintech-logo-svg'>
-    <path d='M14 46 L26 32 L38 38 L50 16' stroke='%2310B981' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/>
-    <circle cx='26' cy='32' r='4' fill='%2310B981'/>
-    <circle cx='38' cy='38' r='4' fill='%2310B981'/>
-    <circle cx='50' cy='16' r='6' fill='%23FFF'/>
-    <circle cx='50' cy='16' r='3' fill='%2310B981'/>
-</svg>";
-
-$favicon_encoded = str_replace(["\r", "\n", " ", "#"], ["", "", "%20", "%23"], $global_svg_logo);
-?>
-<?php
 if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     $host = substr($_SERVER['HTTP_HOST'], 4);
     header("Location: https://" . $host . $_SERVER['REQUEST_URI'], true, 301);
@@ -45,6 +33,7 @@ else {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="<?= $canonical ?>">
     <title><?= $home_meta_title ?></title>
     <meta name="description" content="<?= $home_meta_description ?>">
     
@@ -52,9 +41,8 @@ else {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<?= $favicon_encoded ?>">
-    <link rel="icon" type="image/svg+xml" sizes="64x64" href="data:image/svg+xml;utf8,<?= $favicon_encoded ?>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<?= $favicon_encoded ?>">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="apple-touch-icon" href="./favicon.svg">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= $site_name ?> | Advanced AI Trading Platform">
@@ -136,7 +124,7 @@ else {
     <link rel="stylesheet" href="./integration/default-integration.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
 </head>
-<body data-theme="light">
+<body data-theme="dark">
 
 <?php include 'includes/header.php'; ?>
 
@@ -943,9 +931,7 @@ else {
             <div class="reviews-grid">
                 <div class="review-card">
                     <div>
-                        <div class="stars-container">
-                            <span style="font-size:14px; font-weight:700;">5.0</span>
-                        </div>
+                        <div class="stars-container" aria-label="5 out of 5 stars">★★★★★</div>
                         <p class="review-text"><?= $review_1_text ?></p>
                     </div>
                     <div class="reviewer-info">
@@ -959,9 +945,7 @@ else {
                 
                 <div class="review-card">
                     <div>
-                        <div class="stars-container">
-                            <span style="font-size:14px; font-weight:700;">4.9</span>
-                        </div>
+                        <div class="stars-container" aria-label="5 out of 5 stars">★★★★★</div>
                         <p class="review-text"><?= $review_2_text ?></p>
                     </div>
                     <div class="reviewer-info">
@@ -975,9 +959,7 @@ else {
     
                 <div class="review-card">
                     <div>
-                        <div class="stars-container">
-                            <span style="font-size:14px; font-weight:700;">5.0</span>
-                        </div>
+                        <div class="stars-container" aria-label="5 out of 5 stars">★★★★★</div>
                         <p class="review-text"><?= $review_3_text ?></p>
                     </div>
                     <div class="reviewer-info">
@@ -991,9 +973,7 @@ else {
     
                 <div class="review-card">
                     <div>
-                        <div class="stars-container">
-                            <span style="font-size:14px; font-weight:700;">4.8</span>
-                        </div>
+                        <div class="stars-container" aria-label="5 out of 5 stars">★★★★★</div>
                         <p class="review-text"><?= $review_4_text ?></p>
                     </div>
                     <div class="reviewer-info">

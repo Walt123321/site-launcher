@@ -107,11 +107,27 @@
 <div id="chat-quiz-root" style="position: fixed !important; bottom: 24px !important; right: 24px !important; z-index: 999999 !important; font-family: 'Inter', system-ui,   -apple-system, sans-serif !important; box-sizing: border-box !important;">
         
         <style>
-            /* Анімація пульсації головної кнопки кольором бренду */
+            /* Анімація пульсації головної кнопки кольором бренду.
+               box-shadow не можна анімувати напряму — кнопка вже має свій
+               box-shadow заданий інлайново з !important, тож пульсуємо
+               через transform на кнопці + окремий ::after кільце. */
             .cq-pulse-button {
-                animation: cq-brand-pulse 2s infinite;
+                animation: cq-brand-pulse 2s ease-in-out infinite;
+            }
+            .cq-pulse-button::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 50%;
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+                animation: cq-brand-pulse-ring 2s ease-out infinite;
+                pointer-events: none;
             }
             @keyframes cq-brand-pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.08); }
+            }
+            @keyframes cq-brand-pulse-ring {
                 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
                 70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
                 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }

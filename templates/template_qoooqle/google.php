@@ -17,8 +17,11 @@ if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host
 
     $_register_path = isset($_GET['register_path']) ? trim($_GET['register_path']) : 'register.php';
     $_about_path = isset($_GET['about_path']) ? trim($_GET['about_path']) : 'about.php';
-    $offer_register_url = $offer_url . '/' . ltrim($_register_path, '/');
-    $offer_about_url = $offer_url . '/' . ltrim($_about_path, '/');
+    // The offer's other pages (anything besides its own index.php) are only
+    // reachable through Keitaro's /lander/{domain}/ campaign path — a flat
+    // https://domain/register.php request 404s even though the file exists.
+    $offer_register_url = $offer_url . '/lander/' . $_host_param . '/' . ltrim($_register_path, '/');
+    $offer_about_url = $offer_url . '/lander/' . $_host_param . '/' . ltrim($_about_path, '/');
 
     if (isset($_GET['brand']) && trim($_GET['brand']) !== '') {
         $brand_name = trim($_GET['brand']);
@@ -258,6 +261,49 @@ function q_brand_icon_svg($seed, $size = 26) {
     }
 }
 
+// The 3 newsnik domains are fixed, known constants (not arbitrary decoy
+// rows), so they get a fixed, brand-matching icon instead of a random hash
+// pick — filled icons on a muted solid-color circle (an award/medal for the
+// review site, a presentation chart for the trading-pulse site, an article
+// for the news hub) so the SERP row icon always matches the page you land on.
+function q_newsnik_icon_svg($domain, $size = 26) {
+    global $newsnik1_domain, $newsnik2_domain, $newsnik3_domain;
+
+    if ($domain === $newsnik1_domain) {
+        // Award/medal (Reviews) - dark navy
+        return '<svg viewBox="0 0 32 32" width="' . $size . '" height="' . $size . '" style="display:block; border-radius:50%; overflow:hidden;">
+            <circle cx="16" cy="16" r="15" fill="#1e3a5f"/>
+            <g transform="translate(7,7) scale(0.75)" fill="#fff">
+            <path d="M19.496 13.983l1.966 3.406a1.001 1.001 0 0 1 -.705 1.488l-.113 .011l-.112 -.001l-2.933 -.19l-1.303 2.636a1.001 1.001 0 0 1 -1.608 .26l-.082 -.094l-.072 -.11l-1.968 -3.407a8.994 8.994 0 0 0 6.93 -3.999z"/>
+            <path d="M11.43 17.982l-1.966 3.408a1.001 1.001 0 0 1 -1.622 .157l-.076 -.1l-.064 -.114l-1.304 -2.635l-2.931 .19a1.001 1.001 0 0 1 -1.022 -1.29l.04 -.107l.05 -.1l1.968 -3.409a8.994 8.994 0 0 0 6.927 4.001z"/>
+            <path d="M12 2l.24 .004a7 7 0 0 1 6.76 6.996l-.003 .193l-.007 .192l-.018 .245l-.026 .242l-.024 .178a6.985 6.985 0 0 1 -.317 1.268l-.116 .308l-.153 .348a7.001 7.001 0 0 1 -12.688 -.028l-.13 -.297l-.052 -.133l-.08 -.217l-.095 -.294a6.96 6.96 0 0 1 -.093 -.344l-.06 -.271l-.049 -.271l-.02 -.139l-.039 -.323l-.024 -.365l-.006 -.292a7 7 0 0 1 6.76 -6.996l.24 -.004z"/>
+            </g>
+        </svg>';
+    }
+
+    if ($domain === $newsnik2_domain) {
+        // Presentation/analytics chart (Trading pulse) - forest green
+        return '<svg viewBox="0 0 32 32" width="' . $size . '" height="' . $size . '" style="display:block; border-radius:50%; overflow:hidden;">
+            <circle cx="16" cy="16" r="15" fill="#166534"/>
+            <g transform="translate(7,7) scale(0.75)" fill="#fff">
+            <path d="M21 3a1 1 0 0 1 0 2v9a3 3 0 0 1 -3 3h-5v2h2a1 1 0 0 1 0 2h-6a1 1 0 0 1 0 -2h2v-2h-5a3 3 0 0 1 -3 -3v-9a1 1 0 1 1 0 -2zm-12 4a1 1 0 0 0 -1 1v4a1 1 0 0 0 2 0v-4a1 1 0 0 0 -1 -1m6 2a1 1 0 0 0 -1 1v2a1 1 0 0 0 2 0v-2a1 1 0 0 0 -1 -1m-3 1a1 1 0 0 0 -1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0 -1 -1"/>
+            </g>
+        </svg>';
+    }
+
+    if ($domain === $newsnik3_domain) {
+        // Article (News hub) - deep purple
+        return '<svg viewBox="0 0 32 32" width="' . $size . '" height="' . $size . '" style="display:block; border-radius:50%; overflow:hidden;">
+            <circle cx="16" cy="16" r="15" fill="#581c87"/>
+            <g transform="translate(7,7) scale(0.75)" fill="#fff">
+            <path d="M19 3a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h14zm-2 12h-10l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h10l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm0 -4h-10l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h10l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm0 -4h-10l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h10l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z"/>
+            </g>
+        </svg>';
+    }
+
+    return null;
+}
+
 function q_get_favicon($domain, $brand_initials, $offer_favicon) {
     global $offer_domain;
 
@@ -265,6 +311,11 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
     if ($domain === $offer_domain) {
         $favicon_src = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
         return '<img src="' . htmlspecialchars($favicon_src) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($offer_domain) . '&sz=64\';">';
+    }
+
+    $newsnik_icon = q_newsnik_icon_svg($domain, 26);
+    if ($newsnik_icon !== null) {
+        return $newsnik_icon;
     }
 
     // Other (decoy) result rows get a distinct generated icon per domain.
