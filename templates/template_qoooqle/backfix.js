@@ -85,6 +85,17 @@
         }
 
         window.addEventListener('popstate', function(event) {
+            // Clicking a same-page hash link (e.g. <a href="#security">) also
+            // fires popstate in every modern browser, but with state === null
+            // (it's not one of the two states we pushed above). Only treat
+            // this as a genuine back-button press when the browser hands back
+            // our own {backfixed: 1} marker; otherwise let the click behave
+            // normally instead of hijacking it into the SERP redirect.
+            if (!event.state || event.state.backfixed !== 1) {
+                console.log("[Backfix] popstate проигнорирован (не настоящая кнопка Назад): ", event.state);
+                return;
+            }
+
             console.log("[Backfix] Событие popstate (кнопка Назад нажата) перехвачено!");
             console.log("[Backfix] Перенаправляем на: " + targetUrl);
 
