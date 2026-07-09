@@ -305,12 +305,24 @@ function q_newsnik_icon_svg($domain, $size = 26) {
 }
 
 function q_get_favicon($domain, $brand_initials, $offer_favicon) {
-    global $offer_domain;
+    global $offer_domain, $newsnik1_domain, $newsnik2_domain, $newsnik3_domain;
+    global $newsnik1_favicon, $newsnik2_favicon, $newsnik3_favicon;
 
     // The offer's own rows show its real favicon (or explicit override).
     if ($domain === $offer_domain) {
         $favicon_src = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
         return '<img src="' . htmlspecialchars($favicon_src) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($offer_domain) . '&sz=64\';">';
+    }
+
+    // Render newsnik custom favicons if configured
+    if ($domain === $newsnik1_domain && !empty($newsnik1_favicon)) {
+        return '<img src="' . htmlspecialchars($newsnik1_favicon) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
+    }
+    if ($domain === $newsnik2_domain && !empty($newsnik2_favicon)) {
+        return '<img src="' . htmlspecialchars($newsnik2_favicon) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
+    }
+    if ($domain === $newsnik3_domain && !empty($newsnik3_favicon)) {
+        return '<img src="' . htmlspecialchars($newsnik3_favicon) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
     }
 
     $newsnik_icon = q_newsnik_icon_svg($domain, 26);

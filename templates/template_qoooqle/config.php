@@ -29,8 +29,12 @@ $newsnik1_url     = "https://" . $newsnik1_domain . "/index.php";
 $newsnik2_url     = "https://" . $newsnik2_domain . "/index.php";
 $newsnik3_url     = "https://" . $newsnik3_domain . "/index.php";
 
+$newsnik1_favicon = "https://" . $newsnik1_domain . "/favicon.ico";
+$newsnik2_favicon = "https://" . $newsnik2_domain . "/favicon.png";
+$newsnik3_favicon = "https://" . $newsnik3_domain . "/favicon.ico";
+
 // --- Local Raw Testing Fallback ---
-if ($brand_name === '{{' . 'BRAND}}' || $offer_lang === '{{' . 'LANG}}') {
+if ($brand_name === '{{' . 'BRAND}}' || $offer_lang === '{{' . 'LANG}}' || (isset($_SERVER['HTTP_HOST']) && (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false))) {
     $test_file = __DIR__ . '/last_local_test.json';
     if (file_exists($test_file)) {
         $test_data = json_decode(file_get_contents($test_file), true);
@@ -55,6 +59,10 @@ if ($brand_name === '{{' . 'BRAND}}' || $offer_lang === '{{' . 'LANG}}') {
     $newsnik1_url     = "newsnik1/index.php";
     $newsnik2_url     = "newsnik2/index.php";
     $newsnik3_url     = "newsnik3/index.php";
+
+    $newsnik1_favicon = "newsnik1/favicon.ico";
+    $newsnik2_favicon = "newsnik2/favicon.png";
+    $newsnik3_favicon = "newsnik3/favicon.ico";
 }
 
 // Standalone newsnik deployments ship this config.php unrendered (no specific
