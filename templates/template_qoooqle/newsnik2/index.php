@@ -51,7 +51,6 @@ if ($_host_param !== '' && function_exists('curl_init')) {
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
     $body = curl_exec($ch);
     $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
 
     if ($body !== false && $http_code === 200) {
         $decoded = json_decode($body, true);
@@ -97,6 +96,7 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=KoHo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22%231a1547%22/%3E%3Cpath%20d%3D%22M2%2012h3.2l1.8-5%204%2011%202.6-8%201.6%202h5.8%22%20stroke%3D%22%2300b09b%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
     <style>
         /* ============================================================
            RESET & BASE
@@ -744,12 +744,12 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
          ============================================================ -->
     <header class="site-header">
         <div class="header-inner">
-            <a href="#" class="site-logo">Trading<span>Insights</span></a>
+            <a href="#" onclick="location.reload(); return false;" class="site-logo">Trading<span>Insights</span></a>
             <nav class="header-nav">
-                <a href="#"><?php echo $t['nav_home']; ?></a>
-                <a href="#"><?php echo $t['nav_reviews']; ?></a>
-                <a href="#"><?php echo $t['nav_guides']; ?></a>
-                <a href="#"><?php echo $t['nav_news']; ?></a>
+                <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_home']; ?></a>
+                <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_reviews']; ?></a>
+                <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_guides']; ?></a>
+                <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_news']; ?></a>
                 <a href="<?php echo $reg_url; ?>" class="header-cta"><?php echo $t['cta_button']; ?></a>
             </nav>
             <button class="menu-toggle" aria-label="Menu">
@@ -764,9 +764,9 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
     <section class="hero">
         <div class="hero-inner">
             <div class="hero-breadcrumb">
-                <a href="#"><?php echo $t['nav_home']; ?></a>
+                <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_home']; ?></a>
                 <span>›</span>
-                <a href="#"><?php echo $t['nav_reviews']; ?></a>
+                <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_reviews']; ?></a>
                 <span>›</span>
                 <?php echo $brand; ?>
             </div>
@@ -954,9 +954,9 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
             <div class="footer-bottom">
                 <span class="footer-copyright"><?php echo htmlspecialchars($t['footer_copyright'] ?? ('© ' . date('Y') . ' ' . $brand_name . '. All rights reserved.')); ?></span>
                 <div class="footer-links">
-                    <a href="#"><?php echo htmlspecialchars($t['footer_privacy'] ?? 'Privacy Policy'); ?></a>
-                    <a href="#"><?php echo htmlspecialchars($t['footer_terms'] ?? 'Terms & Conditions'); ?></a>
-                    <a href="#"><?php echo htmlspecialchars($t['footer_contact'] ?? 'Contact Us'); ?></a>
+                    <a href="#" onclick="location.reload(); return false;"><?php echo htmlspecialchars($t['footer_privacy'] ?? 'Privacy Policy'); ?></a>
+                    <a href="#" onclick="location.reload(); return false;"><?php echo htmlspecialchars($t['footer_terms'] ?? 'Terms & Conditions'); ?></a>
+                    <a href="#" onclick="location.reload(); return false;"><?php echo htmlspecialchars($t['footer_contact'] ?? 'Contact Us'); ?></a>
                 </div>
             </div>
         </div>

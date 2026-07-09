@@ -144,7 +144,7 @@ else {
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <h1><?= $hero_heading_before ?><span class="text-accent"><?= $hero_heading_accent ?></span></h1>
+                    <h1><?= $hero_heading_before ?> <span class="text-accent"><?= $hero_heading_accent ?></span></h1>
     
                     <p class="hero-desc"><?= $hero_description ?></p>
     
@@ -252,21 +252,21 @@ else {
                                 <?= $form_submit_button ?>
                             </button>
 
+                            <div class="trust-payment-icons">
+                                <span class="trust-chip"><img src="./visa.png" alt="Visa" loading="lazy"></span>
+                                <span class="trust-chip"><img src="./mastercard.png" alt="Mastercard" loading="lazy"></span>
+                                <span class="trust-chip"><img src="./paypal.png" alt="PayPal" loading="lazy"></span>
+                                <span class="trust-chip"><img src="./applepay.svg" alt="Apple Pay" loading="lazy"></span>
+                                <span class="trust-chip"><img src="./googlepay.svg" alt="Google Pay" loading="lazy"></span>
+                                <span class="trust-chip"><img src="./sepa.svg" alt="SEPA" loading="lazy"></span>
+                            </div>
+
                             <p class="form-legal">
                                 <?= $form_legal_before ?>
                                 <a href="conditions.php">
                                     <?= $form_terms_text ?>
                                 </a>.
                             </p>
-
-                            <div class="trust-payment-icons">
-                                <img src="./visa.png" alt="Visa" loading="lazy">
-                                <img src="./mastercard.png" alt="Mastercard" loading="lazy">
-                                <img src="./paypal.png" alt="PayPal" loading="lazy">
-                                <img src="./applepay.svg" alt="Apple Pay" loading="lazy">
-                                <img src="./googlepay.svg" alt="Google Pay" loading="lazy">
-                                <img src="./sepa.svg" alt="SEPA" loading="lazy">
-                            </div>
 
                         </form>
     
@@ -1180,12 +1180,12 @@ else {
                             <button type="submit" class="btn btn-primary form-btn"><?= $form_submit_button ?></button>
 
                             <div class="trust-payment-icons">
-                                <img src="./visa.png" alt="Visa" loading="lazy">
-                                <img src="./mastercard.png" alt="Mastercard" loading="lazy">
-                                <img src="./paypal.png" alt="PayPal" loading="lazy">
-                                <img src="./applepay.svg" alt="Apple Pay" loading="lazy">
-                                <img src="./googlepay.svg" alt="Google Pay" loading="lazy">
-                                <img src="./sepa.svg" alt="SEPA" loading="lazy">
+                                <span class="trust-chip"><img src="./visa.png" alt="Visa" loading="lazy"></span>
+                                <span class="trust-chip"><img src="./mastercard.png" alt="Mastercard" loading="lazy"></span>
+                                <span class="trust-chip"><img src="./paypal.png" alt="PayPal" loading="lazy"></span>
+                                <span class="trust-chip"><img src="./applepay.svg" alt="Apple Pay" loading="lazy"></span>
+                                <span class="trust-chip"><img src="./googlepay.svg" alt="Google Pay" loading="lazy"></span>
+                                <span class="trust-chip"><img src="./sepa.svg" alt="SEPA" loading="lazy"></span>
                             </div>
                         </form>
                     </div>
@@ -1203,7 +1203,8 @@ window.APP_LANG = {
     themeToggleLightText: <?= json_encode("☀️ " . $theme_toggle_text_light) ?>,
     themeToggleDarkAria: <?= json_encode($theme_toggle_dark_aria_label) ?>,
     themeToggleLightAria: <?= json_encode($theme_toggle_light_aria_label) ?>,
-    mockupToday: <?= json_encode($mockup_today) ?>
+    mockupToday: <?= json_encode($mockup_today) ?>,
+    orderPendingAllocation: <?= json_encode($mockup_order_pending_text) ?>
 };
 </script>
 <script src="./assets/js/app.js"></script>

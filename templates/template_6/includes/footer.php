@@ -4,7 +4,7 @@
                     <div class="footer-grid">
         
                         <div class="footer-brand">
-                            <a href="<?= $site_url ?>" class="logo">
+                            <a href="<?= $site_url ?>/index.php" class="logo">
                                 <div class="logo-icon" style="display: flex; align-items: center; justify-content: center;">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="width: 60%; height: 60%;">
                                         <path d="M14 46 L26 32 L38 38 L50 16" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -25,9 +25,9 @@
                             <h4><?= $footer_platform_title ?></h4>
         
                             <ul>
-                                <li><a href="<?= $site_url ?>/#platform"><?= $footer_platform_interface ?></a></li>
-                                <li><a href="<?= $site_url ?>/#features"><?= $nav_features ?></a></li>
-                                <li><a href="<?= $site_url ?>/#markets"><?= $footer_platform_markets ?></a></li>
+                                <li><a href="<?= $site_url ?>/index.php#platform"><?= $footer_platform_interface ?></a></li>
+                                <li><a href="<?= $site_url ?>/index.php#features"><?= $nav_features ?></a></li>
+                                <li><a href="<?= $site_url ?>/index.php#markets"><?= $footer_platform_markets ?></a></li>
                             </ul>
                         </div>
         

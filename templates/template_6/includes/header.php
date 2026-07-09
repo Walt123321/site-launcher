@@ -1,6 +1,6 @@
     <header class="header">
         <div class="container">
-            <a href="<?= $site_url ?>" class="logo" aria-label="<?= $site_name ?> homepage">
+            <a href="<?= $site_url ?>/index.php" class="logo" aria-label="<?= $site_name ?> homepage">
                 <div class="logo-icon" style="display: flex; align-items: center; justify-content: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="width: 60%; height: 60%;" aria-hidden="true">
                         <path d="M14 46 L26 32 L38 38 L50 16" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -14,13 +14,9 @@
             </a>
 
             <nav class="nav" id="mainNav" aria-label="<?= $header_nav_aria_label ?>">
-                <a href="<?= $site_url ?>/#platform" class="nav-link"><?= $nav_platform ?></a>
-                <a href="<?= $site_url ?>/#features" class="nav-link"><?= $nav_features ?></a>
-                <a href="<?= $site_url ?>/#markets" class="nav-link"><?= $nav_markets ?></a>
-                <a href="<?= $site_url ?>/#onboarding" class="nav-link"><?= $nav_process ?></a>
-                <a href="<?= $site_url ?>/#security" class="nav-link"><?= $nav_security ?></a>
-                <a href="<?= $site_url ?>/#reviews" class="nav-link"><?= $nav_reviews ?></a>
-                <a href="<?= $site_url ?>/#faq" class="nav-link"><?= $nav_faq ?></a>
+                <a href="<?= $site_url ?>/index.php#security" class="nav-link"><?= $nav_security ?></a>
+                <a href="<?= $site_url ?>/index.php#reviews" class="nav-link"><?= $nav_reviews ?></a>
+                <a href="<?= $site_url ?>/index.php#faq" class="nav-link"><?= $nav_faq ?></a>
                 <a href="about-us.php" class="nav-link"><?= $nav_about ?></a>
                 <a href="contact.php" class="nav-link"><?= $nav_contact ?></a>
             </nav>
@@ -30,7 +26,7 @@
                    🌙  <?= $theme_toggle_text ?>
                 </button>
 
-                <a href="<?= $site_url ?>/#signup" class="btn btn-primary" style="padding: 12px 24px; font-size: 14px; border-radius: 10px;">
+                <a href="<?= $site_url ?>/index.php#signup" class="btn btn-primary header-cta-btn">
                     <?= $header_cta_button ?>
                 </a>
 

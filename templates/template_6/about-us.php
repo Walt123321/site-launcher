@@ -108,3 +108,14 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 </section>
 
 <?php include 'includes/footer.php'; ?>
+<script>
+window.APP_LANG = {
+    themeToggleDarkText: <?= json_encode("🌙 " . $theme_toggle_text) ?>,
+    themeToggleLightText: <?= json_encode("☀️ " . $theme_toggle_text_light) ?>,
+    themeToggleDarkAria: <?= json_encode($theme_toggle_dark_aria_label) ?>,
+    themeToggleLightAria: <?= json_encode($theme_toggle_light_aria_label) ?>,
+    mockupToday: <?= json_encode($mockup_today) ?>,
+    orderPendingAllocation: <?= json_encode($mockup_order_pending_text) ?>
+};
+</script>
+<script src="./assets/js/app.js"></script>

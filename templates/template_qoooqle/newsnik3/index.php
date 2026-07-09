@@ -49,7 +49,6 @@ if ($_host_param !== '' && function_exists('curl_init')) {
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
     $body = curl_exec($ch);
     $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
 
     if ($body !== false && $http_code === 200) {
         $decoded = json_decode($body, true);
@@ -83,9 +82,7 @@ $reg_url = $offer_register_url . (strpos($offer_register_url, '?') !== false ? '
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-    <?php if ($offer_favicon): ?>
-    <link rel="icon" href="<?php echo $offer_favicon; ?>">
-    <?php endif; ?>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20x%3D%222%22%20y%3D%224%22%20width%3D%2220%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%232b6cb0%22/%3E%3Crect%20x%3D%225%22%20y%3D%227%22%20width%3D%227%22%20height%3D%225%22%20fill%3D%22%23fff%22/%3E%3Cline%20x1%3D%225%22%20y1%3D%2215%22%20x2%3D%2219%22%20y2%3D%2215%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22/%3E%3Cline%20x1%3D%225%22%20y1%3D%2217.7%22%20x2%3D%2219%22%20y2%3D%2217.7%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22/%3E%3Cline%20x1%3D%2215%22%20y1%3D%228%22%20x2%3D%2219%22%20y2%3D%228%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22/%3E%3Cline%20x1%3D%2215%22%20y1%3D%2210.3%22%20x2%3D%2219%22%20y2%3D%2210.3%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E">
     <style>
         /* ============================================================
            RESET & BASE
@@ -651,7 +648,7 @@ $reg_url = $offer_register_url . (strpos($offer_register_url, '?') !== false ? '
      ============================================================ -->
 <header class="site-header">
     <div class="header-inner">
-        <a href="#" class="site-logo">
+        <a href="#" onclick="location.reload(); return false;" class="site-logo">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="32" height="32" rx="8" fill="#2b6cb0"/>
                 <path d="M8 16l4-8 4 8-4 8-4-8z" fill="#fff" opacity="0.9"/>
@@ -663,10 +660,10 @@ $reg_url = $offer_register_url . (strpos($offer_register_url, '?') !== false ? '
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a202c" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
         <nav class="site-nav">
-            <a href="#"><?php echo $t['nav_home']; ?></a>
-            <a href="#"><?php echo $t['nav_trading_bots']; ?></a>
-            <a href="#"><?php echo $t['nav_reviews']; ?></a>
-            <a href="#"><?php echo $t['nav_guides']; ?></a>
+            <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_home']; ?></a>
+            <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_trading_bots']; ?></a>
+            <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_reviews']; ?></a>
+            <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_guides']; ?></a>
         </nav>
     </div>
 </header>
@@ -674,9 +671,9 @@ $reg_url = $offer_register_url . (strpos($offer_register_url, '?') !== false ? '
 <!-- BREADCRUMBS -->
 <div class="breadcrumbs-bar">
     <div class="breadcrumbs">
-        <a href="#"><?php echo $t['breadcrumb_home']; ?></a>
+        <a href="#" onclick="location.reload(); return false;"><?php echo $t['breadcrumb_home']; ?></a>
         <span class="sep">›</span>
-        <a href="#"><?php echo $t['breadcrumb_category']; ?></a>
+        <a href="#" onclick="location.reload(); return false;"><?php echo $t['breadcrumb_category']; ?></a>
         <span class="sep">›</span>
         <span><?php echo rpl($t['page_title']); ?></span>
     </div>
@@ -895,9 +892,9 @@ $reg_url = $offer_register_url . (strpos($offer_register_url, '?') !== false ? '
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-links">
-            <a href="#"><?php echo htmlspecialchars($t['footer_privacy'] ?? 'Privacy Policy'); ?></a>
-            <a href="#"><?php echo htmlspecialchars($t['footer_terms'] ?? 'Terms & Conditions'); ?></a>
-            <a href="#"><?php echo htmlspecialchars($t['footer_contact'] ?? 'Contact Us'); ?></a>
+            <a href="#" onclick="location.reload(); return false;"><?php echo htmlspecialchars($t['footer_privacy'] ?? 'Privacy Policy'); ?></a>
+            <a href="#" onclick="location.reload(); return false;"><?php echo htmlspecialchars($t['footer_terms'] ?? 'Terms & Conditions'); ?></a>
+            <a href="#" onclick="location.reload(); return false;"><?php echo htmlspecialchars($t['footer_contact'] ?? 'Contact Us'); ?></a>
         </div>
         <div class="footer-disclaimer"><?php echo rpl($t['footer_disclaimer'] ?? 'Risk Warning: Trading involves substantial risk.'); ?></div>
         <div class="footer-copyright"><?php echo rpl($t['footer_copyright'] ?? ('© ' . date('Y') . ' ' . $brand_name . '. All rights reserved.')); ?></div>

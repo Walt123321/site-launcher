@@ -90,7 +90,7 @@
             const overlay = document.getElementById('mockupOverlay');
             const headline = document.getElementById('overlayHeadline');
             
-            headline.innerText = `⚡ ${type} Order Pending Allocation`;
+            headline.innerText = `⚡ ${type} ${window.APP_LANG.orderPendingAllocation}`;
             overlay.classList.add('show');
         }
 

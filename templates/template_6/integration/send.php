@@ -212,7 +212,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         logTimingStats('CRM', $curl_crm);
         $status = curl_getinfo($curl_crm, CURLINFO_HTTP_CODE);
-        curl_close($curl_crm);
 
         $data['crm_response_status'] = $status;
         $decoded_response_crm = json_decode($response_crm, true);

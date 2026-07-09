@@ -481,7 +481,7 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
                     <div class="panel-desc"><?php echo htmlspecialchars($brand_name . $t['panel_desc']); ?></div>
                     <div class="panel-official-link">
                         <a href="<?php echo htmlspecialchars($offer_url); ?>" class="official-website-link">
-                            <?php echo htmlspecialchars($brand_name); ?> Official website →
+                            <?php echo htmlspecialchars($t['official_website_label']); ?> → <?php echo htmlspecialchars($offer_domain); ?>
                         </a>
                     </div>
                     <div class="panel-info">

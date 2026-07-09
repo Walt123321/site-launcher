@@ -89,21 +89,21 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                     <?= $form_submit_button ?>
                 </button>
 
+                <div class="trust-payment-icons">
+                    <span class="trust-chip"><img src="./visa.png" alt="Visa" loading="lazy"></span>
+                    <span class="trust-chip"><img src="./mastercard.png" alt="Mastercard" loading="lazy"></span>
+                    <span class="trust-chip"><img src="./paypal.png" alt="PayPal" loading="lazy"></span>
+                    <span class="trust-chip"><img src="./applepay.svg" alt="Apple Pay" loading="lazy"></span>
+                    <span class="trust-chip"><img src="./googlepay.svg" alt="Google Pay" loading="lazy"></span>
+                    <span class="trust-chip"><img src="./sepa.svg" alt="SEPA" loading="lazy"></span>
+                </div>
+
                 <p class="form-legal">
                     <?= $form_legal_before ?>
                     <a href="conditions.php">
                         <?= $form_terms_text ?>
                     </a>.
                 </p>
-
-                <div class="trust-payment-icons">
-                    <img src="./visa.png" alt="Visa" loading="lazy">
-                    <img src="./mastercard.png" alt="Mastercard" loading="lazy">
-                    <img src="./paypal.png" alt="PayPal" loading="lazy">
-                    <img src="./applepay.svg" alt="Apple Pay" loading="lazy">
-                    <img src="./googlepay.svg" alt="Google Pay" loading="lazy">
-                    <img src="./sepa.svg" alt="SEPA" loading="lazy">
-                </div>
 
             </form>
 
@@ -115,3 +115,14 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 <script src="./integration/validation.js"></script>
 
 <?php include 'includes/footer.php'; ?>
+<script>
+window.APP_LANG = {
+    themeToggleDarkText: <?= json_encode("🌙 " . $theme_toggle_text) ?>,
+    themeToggleLightText: <?= json_encode("☀️ " . $theme_toggle_text_light) ?>,
+    themeToggleDarkAria: <?= json_encode($theme_toggle_dark_aria_label) ?>,
+    themeToggleLightAria: <?= json_encode($theme_toggle_light_aria_label) ?>,
+    mockupToday: <?= json_encode($mockup_today) ?>,
+    orderPendingAllocation: <?= json_encode($mockup_order_pending_text) ?>
+};
+</script>
+<script src="./assets/js/app.js"></script>

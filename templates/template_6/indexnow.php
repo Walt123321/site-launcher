@@ -17,12 +17,12 @@ $data = [
     'keyLocation' => $keyLocation,
     'urlList' => [
         "https://{$domain}/index.php",
-        "https://{$domain}/about-us.php",
-        "https://{$domain}/contact.php",
-        "https://{$domain}/faq.php",
-        "https://{$domain}/sign.php",
-        "https://{$domain}/conditions.php",
-        "https://{$domain}/privacy.php"
+        "https://{$domain}/lander/{$domain}/about-us.php",
+        "https://{$domain}/lander/{$domain}/contact.php",
+        "https://{$domain}/lander/{$domain}/faq.php",
+        "https://{$domain}/lander/{$domain}/sign.php",
+        "https://{$domain}/lander/{$domain}/conditions.php",
+        "https://{$domain}/lander/{$domain}/privacy.php"
     ]
 ];
 

@@ -44,6 +44,7 @@ $translations = [
         'r6_snippet' => 'Discover what drives {{BRAND}}: our values, objectives, and the expert team behind the platform. Security, transparency, user focus, and innovation.',
 
         'official_badge'     => 'Official Profile',
+        'official_website_label' => 'Official website',
         'panel_subtitle'     => 'Financial Technology Company',
         'panel_desc'         => ' is an innovative AI-powered trading platform that combines advanced algorithmic technology with user-friendly interface. The platform offers automated trading, real-time market analysis, and intelligent investment tools for traders of all levels.',
         'founded_label'      => 'Founded',
@@ -107,6 +108,7 @@ $translations = [
         'r6_snippet' => 'Descubre qué impulsa a {{BRAND}}: nuestros valores, objetivos y el equipo de expertos detrás de la plataforma. Seguridad, transparencia, enfoque en el usuario e innovación.',
 
         'official_badge'     => 'Perfil Oficial',
+        'official_website_label' => 'Sitio web oficial',
         'panel_subtitle'     => 'Empresa de tecnología financiera',
         'panel_desc'         => ' es una innovadora plataforma de trading impulsada por IA que combina tecnología algorítmica avanzada con una interfaz fácil de usar. La plataforma ofrece trading automatizado, análisis de mercado en tiempo real y herramientas de inversión inteligentes para traders de todos los niveles.',
         'founded_label'      => 'Fundada',
@@ -170,6 +172,7 @@ $translations = [
         'r6_snippet' => 'Scopri cosa guida {{BRAND}}: i nostri valori, obiettivi e il team di esperti dietro la piattaforma. Sicurezza, trasparenza, attenzione all\'utente e innovazione.',
 
         'official_badge'     => 'Profilo Ufficiale',
+        'official_website_label' => 'Sito web ufficiale',
         'panel_subtitle'     => 'Azienda di tecnologia finanziaria',
         'panel_desc'         => ' è una piattaforma innovativa di trading basata sull\'IA che combina tecnologia algoritmica avanzata con un\'interfaccia intuitiva. La piattaforma offre trading automatizzato, analisi di mercato in tempo reale e strumenti di investimento intelligenti per trader di tutti i livelli.',
         'founded_label'      => 'Fondata',
@@ -233,6 +236,7 @@ $translations = [
         'r6_snippet' => 'Découvrez ce qui motive {{BRAND}} : nos valeurs, nos objectifs et l\'équipe d\'experts derrière la plateforme. Sécurité, transparence, orientation utilisateur et innovation.',
 
         'official_badge'     => 'Profil Officiel',
+        'official_website_label' => 'Site officiel',
         'panel_subtitle'     => 'Entreprise de technologie financière',
         'panel_desc'         => ' est une plateforme de trading innovante alimentée par l\'IA qui associe une technologie algorithmique avancée à une interface conviviale. La plateforme propose du trading automatisé, une analyse de marché en temps réel et des outils d\'investissement intelligents pour les traders de tous niveaux.',
         'founded_label'      => 'Fondée',
@@ -293,6 +297,7 @@ $translations = [
         'r6_snippet' => 'Erfahren Sie, was {{BRAND}} antreibt: unsere Werte, Ziele und das Expertenteam hinter der Plattform. Sicherheit, Transparenz, Nutzerorientierung und Innovation.',
 
         'official_badge'     => 'Offizielles Profil',
+        'official_website_label' => 'Offizielle Website',
         'panel_subtitle'     => 'Finanztechnologie-Unternehmen',
         'panel_desc'         => ' ist eine innovative KI-gestützte Handelsplattform, die fortschrittliche algorithmische Technologie mit einer benutzerfreundlichen Oberfläche verbindet. Die Plattform bietet automatisierten Handel, Echtzeit-Marktanalyse und intelligente Investitionstools für Trader aller Erfahrungsstufen.',
         'founded_label'      => 'Gegründet',
@@ -356,6 +361,7 @@ $translations = [
         'r6_snippet' => 'Descubra o que move o {{BRAND}}: os nossos valores, objetivos e a equipa de especialistas por trás da plataforma. Segurança, transparência, foco no utilizador e inovação.',
 
         'official_badge'     => 'Perfil Oficial',
+        'official_website_label' => 'Site oficial',
         'panel_subtitle'     => 'Empresa de tecnologia financeira',
         'panel_desc'         => ' é uma plataforma inovadora de trading alimentada por IA que combina tecnologia algorítmica avançada com uma interface intuitiva. A plataforma oferece trading automatizado, análise de mercado em tempo real e ferramentas de investimento inteligentes para traders de todos os níveis.',
         'founded_label'      => 'Fundada',
@@ -416,6 +422,7 @@ $translations = [
         'r6_snippet' => 'Ontdek wat {{BRAND}} drijft: onze waarden, doelstellingen en het expertteam achter het platform. Veiligheid, transparantie, gebruikersgerichtheid en innovatie.',
 
         'official_badge'     => 'Officieel Profiel',
+        'official_website_label' => 'Officiële website',
         'panel_subtitle'     => 'Financieel technologiebedrijf',
         'panel_desc'         => ' is een innovatief AI-gestuurd handelsplatform dat geavanceerde algoritmische technologie combineert met een gebruiksvriendelijke interface. Het platform biedt geautomatiseerde handel, realtime marktanalyse en intelligente beleggingstools voor traders van alle niveaus.',
         'founded_label'      => 'Opgericht',
@@ -476,6 +483,7 @@ $translations = [
         'r6_snippet' => '{{BRAND}}\'ı neyin yönlendirdiğini keşfedin: değerlerimiz, hedeflerimiz ve platformun arkasındaki uzman ekip. Güvenlik, şeffaflık, kullanıcı odaklılık ve inovasyon.',
 
         'official_badge'     => 'Resmi Profil',
+        'official_website_label' => 'Resmi web sitesi',
         'panel_subtitle'     => 'Finansal teknoloji şirketi',
         'panel_desc'         => ' gelişmiş algoritmik teknolojiyi kullanıcı dostu bir arayüzle birleştiren yenilikçi bir yapay zeka destekli ticaret platformudur. Platform, her seviyeden yatırımcı için otomatik ticaret, gerçek zamanlı piyasa analizi ve akıllı yatırım araçları sunmaktadır.',
         'founded_label'      => 'Kuruluş',
@@ -539,6 +547,7 @@ $translations = [
         'r6_snippet' => 'Zjistěte, co stojí za {{BRAND}}: naše hodnoty, cíle a tým odborníků stojící za platformou. Bezpečnost, transparentnost, zaměření na uživatele a inovace.',
 
         'official_badge'     => 'Oficiální profil',
+        'official_website_label' => 'Oficiální web',
         'panel_subtitle'     => 'Společnost v oblasti finanční technologie',
         'panel_desc'         => ' je inovativní obchodní platforma poháněná umělou inteligencí, která spojuje pokročilou algoritmickou technologii s uživatelsky přívětivým rozhraním. Platforma nabízí automatizované obchodování, analýzu trhu v reálném čase a inteligentní investiční nástroje pro obchodníky všech úrovní.',
         'founded_label'      => 'Založení',
@@ -602,6 +611,7 @@ $translations = [
         'r6_snippet' => 'Dowiedz się, co napędza {{BRAND}}: nasze wartości, cele i zespół ekspertów stojący za platformą. Bezpieczeństwo, transparentność, orientacja na użytkownika i innowacja.',
 
         'official_badge'     => 'Profil oficjalny',
+        'official_website_label' => 'Oficjalna strona',
         'panel_subtitle'     => 'Firma technologii finansowych',
         'panel_desc'         => ' to innowacyjna platforma handlowa oparta na AI, która łączy zaawansowaną technologię algorytmiczną z przyjaznym interfejsem użytkownika. Platforma oferuje automatyczny handel, analizę rynku w czasie rzeczywistym i inteligentne narzędzia inwestycyjne dla traderów na każdym poziomie.',
         'founded_label'      => 'Założona',
@@ -662,6 +672,7 @@ $translations = [
         'r6_snippet' => 'Descoperă ce motivează {{BRAND}}: valorile noastre, obiectivele și echipa de experți din spatele platformei. Securitate, transparență, orientare către utilizator și inovație.',
 
         'official_badge'     => 'Profil oficial',
+        'official_website_label' => 'Site oficial',
         'panel_subtitle'     => 'Companie de tehnologie financiară',
         'panel_desc'         => ' este o platformă inovatoare de tranzacționare alimentată de IA care combină tehnologia algoritmică avansată cu o interfață prietenoasă. Platforma oferă tranzacționare automatizată, analiză a pieței în timp real și instrumente inteligente de investiții pentru traderi de toate nivelurile.',
         'founded_label'      => 'Fondată',
@@ -722,6 +733,7 @@ $translations = [
         'r6_snippet' => 'Oppdag hva som driver {{BRAND}}: våre verdier, mål og ekspertteamet bak plattformen. Sikkerhet, åpenhet, brukerfokus og innovasjon.',
 
         'official_badge'     => 'Offisiell profil',
+        'official_website_label' => 'Offisiell nettside',
         'panel_subtitle'     => 'Finansteknologiselskap',
         'panel_desc'         => ' er en innovativ AI-drevet handelsplattform som kombinerer avansert algoritmisk teknologi med et brukervennlig grensesnitt. Plattformen tilbyr automatisert handel, markedsanalyse i sanntid og intelligente investeringsverktøy for tradere på alle nivåer.',
         'founded_label'      => 'Grunnlagt',
@@ -782,6 +794,7 @@ $translations = [
         'r6_snippet' => 'Upptäck vad som driver {{BRAND}}: våra värderingar, mål och expertteamet bakom plattformen. Säkerhet, transparens, användarfokus och innovation.',
 
         'official_badge'     => 'Officiell profil',
+        'official_website_label' => 'Officiell webbplats',
         'panel_subtitle'     => 'Finansteknikföretag',
         'panel_desc'         => ' är en innovativ AI-driven handelsplattform som kombinerar avancerad algoritmisk teknologi med ett användarvänligt gränssnitt. Plattformen erbjuder automatiserad handel, marknadsanalys i realtid och intelligenta investeringsverktyg för handlare på alla nivåer.',
         'founded_label'      => 'Grundat',

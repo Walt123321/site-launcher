@@ -78,7 +78,7 @@ $burger_menu_aria_label = "Menu";
 
 // HERO
 
-$hero_heading_before = "$site_name: A smarter, cleaner way to access ";
+$hero_heading_before = "$site_name: A smarter, cleaner way to access";
 $hero_heading_accent = "global markets";
 
 $hero_description = "New to trading? $site_name provides structured, AI-assisted tools designed to make your journey transparent. Explore crypto, forex, and stocks without tech chaos.";
@@ -153,6 +153,7 @@ $mockup_dashboard_title = "BTC / USD Dashboard";
 $mockup_today = "Today";
 $mockup_sell_button = "Sell";
 $mockup_buy_button = "Buy";
+$mockup_order_pending_text = "Order Pending Allocation";
 
 
 // FEATURES SECTION

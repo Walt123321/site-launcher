@@ -1938,7 +1938,16 @@ def generate_lang_files(
                     f"RULE 5 — PHP VARIABLES AND PLACEHOLDERS:\n"
                     f"Any token starting with '$' (e.g. $site_name, $source, $app_price) MUST be copied into the translation exactly as-is. "
                     f"Do NOT translate, rename, remove the '$' sign, or alter these in any way. "
-                    f"Tokens like __PH0__, __PH1__ etc. must also remain completely unchanged."
+                    f"Tokens like __PH0__, __PH1__ etc. must also remain completely unchanged.\n"
+                    f"\n"
+                    f"RULE 6 — SHORT HEADER/NAV LABELS MUST STAY SHORT:\n"
+                    f"Strings like 'FAQ', 'Platform', 'Markets', 'Reviews', 'Security' are single-word header navigation "
+                    f"labels with very little horizontal space in a fixed-height header bar. Translate them to the SHORTEST "
+                    f"natural equivalent in {target_lang} — prefer a single word over a phrase. "
+                    f"For 'FAQ' specifically: if {target_lang} commonly uses the loanword/acronym 'FAQ' as-is (as many languages do, "
+                    f"e.g. Italian, German, French, Spanish, Polish all commonly keep 'FAQ' in UI navigation), keep it as 'FAQ' "
+                    f"rather than expanding it into a full phrase like 'Domande Frequenti' — the expansion is technically correct "
+                    f"but breaks the header layout because it is much longer than the other one-word nav items next to it."
                 )
 
                 if progress_cb:

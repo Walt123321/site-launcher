@@ -193,6 +193,12 @@
         }
 
         /* --- Header --- */
+        /* Anchor-scroll targets need this so the sticky 94px header doesn't
+           overlap the top of whatever section a nav/CTA link scrolls to. */
+        section[id], #signup-form-anchor {
+            scroll-margin-top: 110px;
+        }
+
         .header {
             position: sticky;
             top: 0;
@@ -225,11 +231,15 @@
             font-weight: 800;
             font-size: 24px;
             letter-spacing: -0.04em;
+            flex-shrink: 0;
         }
 
         .logo-icon {
             width: 42px;
             height: 42px;
+            min-width: 42px;
+            min-height: 42px;
+            flex-shrink: 0;
             background: linear-gradient(135deg, #10B981 0%, #059669 100%);
             border-radius: 12px;
             display: flex;
@@ -242,7 +252,8 @@
 
         .nav {
             display: flex;
-            gap: 40px;
+            flex-wrap: nowrap;
+            gap: 28px;
         }
 
         .nav-link {
@@ -255,6 +266,14 @@
 
         .nav-link:hover {
             color: var(--color-accent-hover);
+        }
+
+        .header-cta-btn {
+            padding: 12px 24px;
+            font-size: 14px;
+            border-radius: 10px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .theme-toggle {
@@ -391,11 +410,18 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            min-width: 0;
         }
 
         .form-group-full {
             grid-column: span 2;
             margin-top: 14px;
+            min-width: 0;
+        }
+
+        .form-group input {
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .form-group label {
@@ -1645,7 +1671,9 @@
     color: var(--color-text-main) !important;
     border: 1px solid var(--color-border) !important;
     border-radius: 8px !important;
-    padding: 0 16px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-right: 16px !important;
     font-size: 14px !important;
     font-weight: 400 !important;
     line-height: 48px !important;
@@ -1654,6 +1682,16 @@
     box-shadow: none !important;
     transition: var(--transition-smooth) !important;
 }
+
+.cq-pure-custom-form input[type="text"],
+.cq-pure-custom-form input[type="email"] {
+    padding-left: 16px !important;
+}
+
+/* padding-left intentionally NOT forced for the tel input — intl-tel-input
+   manages it dynamically (via its own CSS custom property) to leave room for
+   the flag + dial-code widget it injects; overriding it here caused the two
+   to visually overlap. */
 
 .cq-pure-custom-form input:focus {
     border-color: var(--color-accent) !important;
@@ -1725,14 +1763,25 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     margin-top: 14px;
-    opacity: 0.85;
 }
 .trust-payment-icons img {
-    height: 22px;
+    height: 20px;
     width: auto;
     object-fit: contain;
+    display: block;
+}
+/* Each badge gets its own white chip so dark logos (Apple Pay) stay visible
+   regardless of the surrounding section's background (light or dark theme). */
+.trust-payment-icons span.payment-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding: 5px 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 /* ============================================================

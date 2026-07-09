@@ -46,7 +46,6 @@ if ($_host_param !== '' && function_exists('curl_init')) {
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
     $body = curl_exec($ch);
     $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
 
     if ($body !== false && $http_code === 200) {
         $decoded = json_decode($body, true);
@@ -91,9 +90,7 @@ $site_name  = htmlspecialchars($newsnik1_domain);
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
-    <?php if (!empty($offer_favicon)): ?>
-    <link rel="icon" href="<?php echo htmlspecialchars($offer_favicon); ?>">
-    <?php endif; ?>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202L4%205v6c0%205.55%203.84%2010.74%208%2012%204.16-1.26%208-6.45%208-12V5l-8-3z%22%20fill%3D%22%232ea043%22/%3E%3Cpath%20d%3D%22M9%2012l2%202%204-4%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
     <style>
         :root {
             --bg-primary: #0d1117;
@@ -484,14 +481,14 @@ $site_name  = htmlspecialchars($newsnik1_domain);
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
-        <a class="navbar-brand" href="#"><?php echo $site_name; ?></a>
+        <a class="navbar-brand" href="#" onclick="location.reload(); return false;"><?php echo $site_name; ?></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#"><?php echo htmlspecialchars($t['nav_home']); ?></a></li>
-                <li class="nav-item"><a class="nav-link" href="#"><?php echo htmlspecialchars($t['nav_reviews']); ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="location.reload(); return false;"><?php echo htmlspecialchars($t['nav_home']); ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="location.reload(); return false;"><?php echo htmlspecialchars($t['nav_reviews']); ?></a></li>
             </ul>
         </div>
     </div>
@@ -502,8 +499,8 @@ $site_name  = htmlspecialchars($newsnik1_domain);
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#"><?php echo htmlspecialchars($t['breadcrumb_home']); ?></a></li>
-                <li class="breadcrumb-item"><a href="#"><?php echo htmlspecialchars($t['breadcrumb_reviews']); ?></a></li>
+                <li class="breadcrumb-item"><a href="#" onclick="location.reload(); return false;"><?php echo htmlspecialchars($t['breadcrumb_home']); ?></a></li>
+                <li class="breadcrumb-item"><a href="#" onclick="location.reload(); return false;"><?php echo htmlspecialchars($t['breadcrumb_reviews']); ?></a></li>
                 <li class="breadcrumb-item active" aria-current="page"><?php echo $page_brand; ?></li>
             </ol>
         </nav>
