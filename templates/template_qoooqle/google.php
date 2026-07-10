@@ -315,14 +315,38 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
     }
 
     // Render newsnik custom favicons if configured
-    if ($domain === $newsnik1_domain && !empty($newsnik1_favicon)) {
-        return '<img src="' . htmlspecialchars($newsnik1_favicon) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
+    if ($domain === $newsnik1_domain) {
+        $local_fav = './newsnik1_favicon.ico';
+        if (!file_exists(__DIR__ . '/newsnik1_favicon.ico')) {
+            $local_fav = './newsnik1/favicon.png';
+            if (!file_exists(__DIR__ . '/newsnik1/favicon.png')) {
+                $local_fav = './newsnik1/favicon.ico';
+            }
+        }
+        $fav_url = file_exists(__DIR__ . '/' . ltrim($local_fav, './')) ? $local_fav : $newsnik1_favicon;
+        return '<img src="' . htmlspecialchars($fav_url) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
     }
-    if ($domain === $newsnik2_domain && !empty($newsnik2_favicon)) {
-        return '<img src="' . htmlspecialchars($newsnik2_favicon) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
+    if ($domain === $newsnik2_domain) {
+        $local_fav = './newsnik2_favicon.png';
+        if (!file_exists(__DIR__ . '/newsnik2_favicon.png')) {
+            $local_fav = './newsnik2/favicon.png';
+            if (!file_exists(__DIR__ . '/newsnik2/favicon.png')) {
+                $local_fav = './newsnik2/favicon.ico';
+            }
+        }
+        $fav_url = file_exists(__DIR__ . '/' . ltrim($local_fav, './')) ? $local_fav : $newsnik2_favicon;
+        return '<img src="' . htmlspecialchars($fav_url) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
     }
-    if ($domain === $newsnik3_domain && !empty($newsnik3_favicon)) {
-        return '<img src="' . htmlspecialchars($newsnik3_favicon) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
+    if ($domain === $newsnik3_domain) {
+        $local_fav = './newsnik3_favicon.ico';
+        if (!file_exists(__DIR__ . '/newsnik3_favicon.ico')) {
+            $local_fav = './newsnik3/favicon.png';
+            if (!file_exists(__DIR__ . '/newsnik3/favicon.png')) {
+                $local_fav = './newsnik3/favicon.ico';
+            }
+        }
+        $fav_url = file_exists(__DIR__ . '/' . ltrim($local_fav, './')) ? $local_fav : $newsnik3_favicon;
+        return '<img src="' . htmlspecialchars($fav_url) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
     }
 
     $newsnik_icon = q_newsnik_icon_svg($domain, 26);

@@ -123,12 +123,12 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                 <button type="submit" class="btn btn-primary form-btn"><?= $contact_form_submit ?></button>
 
                 <div class="trust-payment-icons">
-                    <span class="trust-chip"><img src="./visa.png" alt="Visa" loading="lazy"></span>
-                    <span class="trust-chip"><img src="./mastercard.png" alt="Mastercard" loading="lazy"></span>
-                    <span class="trust-chip"><img src="./paypal.png" alt="PayPal" loading="lazy"></span>
-                    <span class="trust-chip"><img src="./applepay.svg" alt="Apple Pay" loading="lazy"></span>
-                    <span class="trust-chip"><img src="./googlepay.svg" alt="Google Pay" loading="lazy"></span>
-                    <span class="trust-chip"><img src="./sepa.svg" alt="SEPA" loading="lazy"></span>
+                    <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./visa.png" alt="Visa" loading="lazy"></span>
+                    <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./mastercard.png" alt="Mastercard" loading="lazy"></span>
+                    <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./paypal.png" alt="PayPal" loading="lazy"></span>
+                    <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./applepay.svg" alt="Apple Pay" loading="lazy"></span>
+                    <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./googlepay.svg" alt="Google Pay" loading="lazy"></span>
+                    <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./sepa.svg" alt="SEPA" loading="lazy"></span>
                 </div>
 
             </form>

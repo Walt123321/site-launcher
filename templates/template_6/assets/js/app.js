@@ -99,7 +99,7 @@
             document.getElementById('mockupOverlay').classList.remove('show');
             
             // Плавний перехід до головної форми
-            const target = document.getElementById('signup');
+            const target = document.getElementById('signup-form-anchor');
             target.scrollIntoView({ behavior: 'smooth' });
             
             // Візуальний імпульс-підсвітка для картки форми через 600мс

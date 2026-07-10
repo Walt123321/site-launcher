@@ -21,6 +21,9 @@ SERP_FILES = {
     "random-ratings.js": "random-ratings.js",
     "favicon-fetcher.js": "favicon-fetcher.js",
     "style.css": "style.css",
+    "newsnik1_favicon.ico": "newsnik1_favicon.ico",
+    "newsnik2_favicon.png": "newsnik2_favicon.png",
+    "newsnik3_favicon.ico": "newsnik3_favicon.ico",
 }
 
 

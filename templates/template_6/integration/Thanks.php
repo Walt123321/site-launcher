@@ -21,6 +21,14 @@
     <img height="1" width="1" src="https://www.facebook.com/tr?id=<?= $pfb; ?>&ev=Lead&noscript=1&eid=<?= $click_id; ?>" />
 
     <!-- redirect to autologin url after 3 seconds -->
+    <?php if (!empty($redirect_url)): ?>
+    <meta http-equiv="refresh" content="3;url=<?= htmlspecialchars($redirect_url, ENT_QUOTES, 'UTF-8') ?>">
+    <script>
+        setTimeout(function() {
+            window.location.href = <?= json_encode($redirect_url) ?>;
+        }, 3000);
+    </script>
+    <?php endif; ?>
 </head>
 
 <body>
