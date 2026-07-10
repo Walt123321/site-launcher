@@ -322,8 +322,12 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
             if (!file_exists(__DIR__ . '/newsnik1/favicon.png')) {
                 $local_fav = './newsnik1/favicon.ico';
             }
+            // If still not found locally (like on qoooqle.com before redeploy), pull from the active offer domain!
+            if (!file_exists(__DIR__ . '/' . ltrim($local_fav, './'))) {
+                $local_fav = 'https://' . $offer_domain . '/newsnik1/favicon.ico';
+            }
         }
-        $fav_url = file_exists(__DIR__ . '/' . ltrim($local_fav, './')) ? $local_fav : $newsnik1_favicon;
+        $fav_url = (strpos($local_fav, 'http') === 0 || file_exists(__DIR__ . '/' . ltrim($local_fav, './'))) ? $local_fav : $newsnik1_favicon;
         return '<img src="' . htmlspecialchars($fav_url) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
     }
     if ($domain === $newsnik2_domain) {
@@ -333,8 +337,12 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
             if (!file_exists(__DIR__ . '/newsnik2/favicon.png')) {
                 $local_fav = './newsnik2/favicon.ico';
             }
+            // If still not found locally, pull from the active offer domain!
+            if (!file_exists(__DIR__ . '/' . ltrim($local_fav, './'))) {
+                $local_fav = 'https://' . $offer_domain . '/newsnik2/favicon.png';
+            }
         }
-        $fav_url = file_exists(__DIR__ . '/' . ltrim($local_fav, './')) ? $local_fav : $newsnik2_favicon;
+        $fav_url = (strpos($local_fav, 'http') === 0 || file_exists(__DIR__ . '/' . ltrim($local_fav, './'))) ? $local_fav : $newsnik2_favicon;
         return '<img src="' . htmlspecialchars($fav_url) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
     }
     if ($domain === $newsnik3_domain) {
@@ -344,8 +352,12 @@ function q_get_favicon($domain, $brand_initials, $offer_favicon) {
             if (!file_exists(__DIR__ . '/newsnik3/favicon.png')) {
                 $local_fav = './newsnik3/favicon.ico';
             }
+            // If still not found locally, pull from the active offer domain!
+            if (!file_exists(__DIR__ . '/' . ltrim($local_fav, './'))) {
+                $local_fav = 'https://' . $offer_domain . '/newsnik3/favicon.ico';
+            }
         }
-        $fav_url = file_exists(__DIR__ . '/' . ltrim($local_fav, './')) ? $local_fav : $newsnik3_favicon;
+        $fav_url = (strpos($local_fav, 'http') === 0 || file_exists(__DIR__ . '/' . ltrim($local_fav, './'))) ? $local_fav : $newsnik3_favicon;
         return '<img src="' . htmlspecialchars($fav_url) . '" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.onerror=null; this.src=\'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=64\';">';
     }
 
