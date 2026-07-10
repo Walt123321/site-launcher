@@ -25,6 +25,22 @@ if (strpos(strtolower($uri), '/lander/') !== false && basename($uri) === 'index.
 else {
     $canonical = 'https://' . $host . $uri;
 }
+// Keitaro's "local" offer only ever serves the one registered entry file —
+// sibling files (even ones used server-side, like lang.php) 404 on direct
+// request, so a real favicon.svg/.ico can never be fetched by the browser
+// on this domain. Inline SVG data URI, same icon as favicon.svg, so it
+// always renders regardless of Keitaro's routing.
+$global_svg_logo = "
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' class='fintech-logo-svg'>
+    <rect width='64' height='64' rx='14' fill='%230B0F19'/>
+    <path d='M14 46 L26 32 L38 38 L50 16' stroke='%2310B981' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/>
+    <circle cx='26' cy='32' r='4' fill='%2310B981'/>
+    <circle cx='38' cy='38' r='4' fill='%2310B981'/>
+    <circle cx='50' cy='16' r='6' fill='%23FFF'/>
+    <circle cx='50' cy='16' r='3' fill='%2310B981'/>
+</svg>";
+
+$favicon_encoded = str_replace(["\r", "\n", " ", "#"], ["", "", "%20", "%23"], $global_svg_logo);
 ?>
 
 
@@ -36,13 +52,13 @@ else {
     <link rel="canonical" href="<?= $canonical ?>">
     <title><?= $home_meta_title ?></title>
     <meta name="description" content="<?= $home_meta_description ?>">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-    <link rel="apple-touch-icon" href="./favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<?= $favicon_encoded ?>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<?= $favicon_encoded ?>">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= $site_name ?> | Advanced AI Trading Platform">
