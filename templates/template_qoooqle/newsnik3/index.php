@@ -85,7 +85,7 @@ $reg_url = $offer_register_url . (strpos($offer_register_url, '?') !== false ? '
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-    <link rel="icon" href="./favicon.ico">
+    <link rel="icon" type="image/png" href="data:image/png;base64,<?php echo base64_encode(file_get_contents(__DIR__ . '/favicon.png')); ?>">
     <style>
         /* ============================================================
            RESET & BASE
