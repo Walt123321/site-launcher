@@ -15,6 +15,7 @@
     --footer-bg: #f2f2f2;
     --star-color: #fbbc05;
     --bbQxAb: #70757a;
+    --visited-link-color: #609;
 }
 
 * {
@@ -304,6 +305,13 @@ a {
     text-decoration: underline;
 }
 
+/* Real Google turns a result title purple once its link has been visited
+   (and stays that way on back-navigation, since :visited is browser
+   history state, not something this template tracks itself). */
+.result-item a.result-link:visited .result-title {
+    color: var(--visited-link-color);
+}
+
 .result-snippet {
     color: var(--text-color);
     font-size: 14px;
@@ -392,6 +400,11 @@ a {
     border-radius: 8px;
     background: var(--bg-color);
     overflow: hidden;
+}
+
+.knowledge-panel-mobile {
+    display: none;
+    margin-bottom: 32px;
 }
 
 .panel-header-image {
@@ -609,6 +622,14 @@ a {
     .right-column {
         flex: 1 1 100%;
         max-width: 100%;
+    }
+
+    .right-column {
+        display: none;
+    }
+
+    .knowledge-panel-mobile {
+        display: block;
     }
 
     .search-tabs-wrapper {

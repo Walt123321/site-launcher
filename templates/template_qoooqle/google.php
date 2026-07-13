@@ -3,6 +3,67 @@
 // QOOOQLE — Google SERP Simulator (main entry page)
 // ============================================================
 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+function qoooqle_get_context_value($key, $default = '') {
+    if (isset($_GET[$key]) && trim((string) $_GET[$key]) !== '') {
+        return trim((string) $_GET[$key]);
+    }
+
+    if (isset($_SESSION['qoooqle_offer_context'][$key]) && trim((string) $_SESSION['qoooqle_offer_context'][$key]) !== '') {
+        return trim((string) $_SESSION['qoooqle_offer_context'][$key]);
+    }
+
+    return $default;
+}
+
+function qoooqle_store_context_if_needed() {
+    $context_keys = ['lang', 'host', 'brand', 'geo', 'register_path', 'about_path'];
+    $seen_context = false;
+
+    foreach ($context_keys as $key) {
+        if (isset($_GET[$key]) && trim((string) $_GET[$key]) !== '') {
+            $seen_context = true;
+            break;
+        }
+    }
+
+    if (!$seen_context) {
+        return;
+    }
+
+    $context = [];
+    foreach ($context_keys as $key) {
+        if (isset($_GET[$key]) && trim((string) $_GET[$key]) !== '') {
+            $context[$key] = trim((string) $_GET[$key]);
+        }
+    }
+
+    if (!empty($context)) {
+        $_SESSION['qoooqle_offer_context'] = $context;
+    }
+
+    $path = isset($_SERVER['REQUEST_URI']) ? parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) : (isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '/');
+    $path = $path ?: '/';
+
+    $keep_params = [];
+    if (isset($_GET['q']) && trim((string) $_GET['q']) !== '') {
+        $keep_params['q'] = trim((string) $_GET['q']);
+    }
+
+    $redirect_url = $path;
+    if (!empty($keep_params)) {
+        $redirect_url .= '?' . http_build_query($keep_params);
+    }
+
+    header('Location: ' . $redirect_url, true, 302);
+    exit;
+}
+
+qoooqle_store_context_if_needed();
+
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/translations.php';
 
@@ -10,21 +71,22 @@ require_once __DIR__ . '/translations.php';
 // deployment is reused across every future offer — all offer context (brand,
 // domain, language, geo, register/about paths) arrives via query params
 // instead of a per-offer rendered config.php.
-$_host_param = isset($_GET['host']) ? trim($_GET['host']) : '';
+$_host_param = qoooqle_get_context_value('host', '');
 if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host_param)) {
     $offer_domain = $_host_param;
     $offer_url = 'https://' . $_host_param;
 
-    $_register_path = isset($_GET['register_path']) ? trim($_GET['register_path']) : 'register.php';
-    $_about_path = isset($_GET['about_path']) ? trim($_GET['about_path']) : 'about.php';
+    $_register_path = qoooqle_get_context_value('register_path', 'register.php');
+    $_about_path = qoooqle_get_context_value('about_path', 'about.php');
     // The offer's other pages (anything besides its own index.php) are only
     // reachable through Keitaro's /lander/{domain}/ campaign path — a flat
     // https://domain/register.php request 404s even though the file exists.
     $offer_register_url = $offer_url . '/lander/' . $_host_param . '/' . ltrim($_register_path, '/');
     $offer_about_url = $offer_url . '/lander/' . $_host_param . '/' . ltrim($_about_path, '/');
 
-    if (isset($_GET['brand']) && trim($_GET['brand']) !== '') {
-        $brand_name = trim($_GET['brand']);
+    $brand_context = qoooqle_get_context_value('brand', '');
+    if ($brand_context !== '') {
+        $brand_name = trim($brand_context);
     }
 
     // Let ?lang= win over config's generic fallback language, same as newsnik.
@@ -64,8 +126,8 @@ $t = q_rpl($t, $brand_name);
 $offer_geo_code = null;
 if (isset($test_data['geo']) && is_string($test_data['geo'])) {
     $offer_geo_code = strtoupper(trim($test_data['geo']));
-} elseif (isset($_GET['geo']) && is_string($_GET['geo'])) {
-    $offer_geo_code = strtoupper(trim($_GET['geo']));
+} elseif (($geo_context = qoooqle_get_context_value('geo', '')) !== '') {
+    $offer_geo_code = strtoupper(trim($geo_context));
 } elseif (!empty($offer_geo) && $offer_geo !== '{{' . 'GEO}}') {
     // Real GEO baked into config.php at build time for this offer.
     $offer_geo_code = strtoupper(trim($offer_geo));
@@ -474,9 +536,58 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
     <!-- Stats bar hidden -->
     <!-- <div class="stats-bar"><?php echo htmlspecialchars($t['stats_text']); ?></div> -->
 
+    <?php
+    ob_start();
+    ?>
+    <div class="panel-header-image">
+        <div class="panel-brand-logo">
+            <?php if (!empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))): ?>
+            <img src="<?php echo htmlspecialchars($offer_favicon); ?>" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px;">
+            <?php else: ?>
+            <img src="<?php echo htmlspecialchars($offer_favicon_url); ?>" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px; object-fit:cover;" onerror="this.style.display='none';">
+            <?php endif; ?>
+            <div class="panel-brand-name"><?php echo htmlspecialchars($brand_name); ?></div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="panel-official">
+            <svg viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 0 0-1.071-1.071L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.071 1.071L6.97 11.03z"/></svg>
+            <?php echo htmlspecialchars($t['official_badge']); ?>
+        </div>
+        <div class="panel-title"><?php echo htmlspecialchars($brand_name); ?></div>
+        <div class="panel-subtitle"><?php echo htmlspecialchars($t['panel_subtitle']); ?></div>
+        <div class="panel-desc"><?php echo htmlspecialchars($brand_name . $t['panel_desc']); ?></div>
+        <div class="panel-official-link">
+            <a href="<?php echo htmlspecialchars($offer_url); ?>" class="official-website-link">
+                <?php echo htmlspecialchars($t['official_website_label']); ?> → <?php echo htmlspecialchars($offer_domain); ?>
+            </a>
+        </div>
+        <div class="panel-info">
+            <div class="panel-info-row">
+                <span class="panel-info-label"><?php echo htmlspecialchars($t['founded_label']); ?></span>
+                <span class="panel-info-value"><?php echo htmlspecialchars($founded_year); ?></span>
+            </div>
+            <div class="panel-info-row">
+                <span class="panel-info-label"><?php echo htmlspecialchars($t['headquarters_label']); ?></span>
+                <span class="panel-info-value"><?php echo htmlspecialchars($t['headquarters_val']); ?></span>
+            </div>
+            <div class="panel-info-row">
+                <span class="panel-info-label"><?php echo htmlspecialchars($t['type_label']); ?></span>
+                <span class="panel-info-value"><?php echo htmlspecialchars($t['type_val']); ?></span>
+            </div>
+            <div class="panel-info-row">
+                <span class="panel-info-label"><?php echo htmlspecialchars($t['focus_label']); ?></span>
+                <span class="panel-info-value"><?php echo htmlspecialchars($t['focus_val']); ?></span>
+            </div>
+        </div>
+    </div>
+    <?php
+    $knowledge_panel_inner = ob_get_clean();
+    ?>
+
     <div class="serp-layout">
         <div class="left-column">
-            <?php foreach ($results as $r): ?>
+            <?php foreach ($results as $r_index => $r): ?>
             <div class="result-item">
                 <a class="result-link" href="<?php echo htmlspecialchars($r['url']); ?>">
                     <div class="result-source">
@@ -503,6 +614,11 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
                     <?php endif; ?>
                 </a>
             </div>
+            <?php if ($r_index === 0): ?>
+            <div class="knowledge-panel knowledge-panel-mobile">
+                <?php echo $knowledge_panel_inner; ?>
+            </div>
+            <?php endif; ?>
             <?php endforeach; ?>
 
             <div class="related-searches">
@@ -530,49 +646,8 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
         </div>
 
         <div class="right-column">
-            <div class="knowledge-panel">
-                <div class="panel-header-image">
-                    <div class="panel-brand-logo">
-                        <?php if (!empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))): ?>
-                        <img src="<?php echo htmlspecialchars($offer_favicon); ?>" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px;">
-                        <?php else: ?>
-                        <img src="<?php echo htmlspecialchars($offer_favicon_url); ?>" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px; object-fit:cover;" onerror="this.style.display='none';">
-                        <?php endif; ?>
-                        <div class="panel-brand-name"><?php echo htmlspecialchars($brand_name); ?></div>
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <div class="panel-official">
-                        <svg viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 0 0-1.071-1.071L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.071 1.071L6.97 11.03z"/></svg>
-                        <?php echo htmlspecialchars($t['official_badge']); ?>
-                    </div>
-                    <div class="panel-title"><?php echo htmlspecialchars($brand_name); ?></div>
-                    <div class="panel-subtitle"><?php echo htmlspecialchars($t['panel_subtitle']); ?></div>
-                    <div class="panel-desc"><?php echo htmlspecialchars($brand_name . $t['panel_desc']); ?></div>
-                    <div class="panel-official-link">
-                        <a href="<?php echo htmlspecialchars($offer_url); ?>" class="official-website-link">
-                            <?php echo htmlspecialchars($t['official_website_label']); ?> → <?php echo htmlspecialchars($offer_domain); ?>
-                        </a>
-                    </div>
-                    <div class="panel-info">
-                        <div class="panel-info-row">
-                            <span class="panel-info-label"><?php echo htmlspecialchars($t['founded_label']); ?></span>
-                            <span class="panel-info-value"><?php echo htmlspecialchars($founded_year); ?></span>
-                        </div>
-                        <div class="panel-info-row">
-                            <span class="panel-info-label"><?php echo htmlspecialchars($t['headquarters_label']); ?></span>
-                            <span class="panel-info-value"><?php echo htmlspecialchars($t['headquarters_val']); ?></span>
-                        </div>
-                        <div class="panel-info-row">
-                            <span class="panel-info-label"><?php echo htmlspecialchars($t['type_label']); ?></span>
-                            <span class="panel-info-value"><?php echo htmlspecialchars($t['type_val']); ?></span>
-                        </div>
-                        <div class="panel-info-row">
-                            <span class="panel-info-label"><?php echo htmlspecialchars($t['focus_label']); ?></span>
-                            <span class="panel-info-value"><?php echo htmlspecialchars($t['focus_val']); ?></span>
-                        </div>
-                    </div>
-                </div>
+            <div class="knowledge-panel knowledge-panel-desktop">
+                <?php echo $knowledge_panel_inner; ?>
             </div>
         </div>
     </div>

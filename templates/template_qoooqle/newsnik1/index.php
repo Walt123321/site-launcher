@@ -4,6 +4,57 @@
 // Modeled after crypto-platform.reviews
 // ============================================================
 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+function qoooqle_get_context_value($key, $default = '') {
+    if (isset($_GET[$key]) && trim((string) $_GET[$key]) !== '') {
+        return trim((string) $_GET[$key]);
+    }
+
+    if (isset($_SESSION['qoooqle_offer_context'][$key]) && trim((string) $_SESSION['qoooqle_offer_context'][$key]) !== '') {
+        return trim((string) $_SESSION['qoooqle_offer_context'][$key]);
+    }
+
+    return $default;
+}
+
+function qoooqle_store_context_if_needed() {
+    $context_keys = ['lang', 'host', 'brand', 'geo', 'register_path', 'about_path'];
+    $seen_context = false;
+
+    foreach ($context_keys as $key) {
+        if (isset($_GET[$key]) && trim((string) $_GET[$key]) !== '') {
+            $seen_context = true;
+            break;
+        }
+    }
+
+    if (!$seen_context) {
+        return;
+    }
+
+    $context = [];
+    foreach ($context_keys as $key) {
+        if (isset($_GET[$key]) && trim((string) $_GET[$key]) !== '') {
+            $context[$key] = trim((string) $_GET[$key]);
+        }
+    }
+
+    if (!empty($context)) {
+        $_SESSION['qoooqle_offer_context'] = $context;
+    }
+
+    $path = isset($_SERVER['REQUEST_URI']) ? parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) : (isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '/');
+    $path = $path ?: '/';
+
+    header('Location: ' . $path, true, 302);
+    exit;
+}
+
+qoooqle_store_context_if_needed();
+
 // 1. Include config
 if (file_exists(__DIR__ . '/config.php')) {
     require_once __DIR__ . '/config.php';
@@ -14,12 +65,12 @@ if (file_exists(__DIR__ . '/config.php')) {
 // When deployed standalone on a shared newsnik domain, the register link must
 // point back to whichever offer domain sent the visitor here (?host=...),
 // since one deployment is reused across many future offers.
-$_host_param = isset($_GET['host']) ? trim($_GET['host']) : '';
+$_host_param = qoooqle_get_context_value('host', '');
 if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host_param)) {
     // The offer's real register-page filename varies by template (register.php,
     // sign.php, sign-up.php, ...) — forwarded via ?register_path= (see google.php),
     // falling back to register.php only if it's somehow missing.
-    $_register_path = isset($_GET['register_path']) ? trim($_GET['register_path']) : 'register.php';
+    $_register_path = qoooqle_get_context_value('register_path', 'register.php');
     // The offer's other pages are only reachable through Keitaro's
     // /lander/{domain}/ campaign path — a flat https://domain/register.php
     // request 404s even though the file exists.
@@ -30,8 +81,8 @@ if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host
 }
 
 // 2. Read query params
-$lang  = get_active_lang($offer_lang, isset($_GET['lang']) ? $_GET['lang'] : null);
-$brand_name_param = isset($_GET['brand']) ? trim($_GET['brand']) : $brand_name;
+$lang  = get_active_lang($offer_lang, qoooqle_get_context_value('lang', null));
+$brand_name_param = trim(qoooqle_get_context_value('brand', $brand_name));
 
 // 3. Include lang.php
 require_once __DIR__ . '/lang.php';
