@@ -245,10 +245,18 @@ function q_resolve_offer_favicon_url($offer_favicon, $offer_domain) {
         }
     }
 
-    // No override configured — fetch the offer domain's own real favicon
-    // instead of falling back to the template's static favicon.svg (same
-    // for every brand on that template, which made unrelated launches
-    // look identical in search results).
+    // No override configured — try the offer domain's own real favicon.ico
+    // first (reachable at Keitaro's /lander/{domain}/ campaign path, same
+    // convention already used for the register/about links above). Google's
+    // favicon-fetching proxy (used as an <img onerror> fallback wherever
+    // this URL is rendered) only has an icon cached once it has actually
+    // crawled the domain — a brand new offer domain shows Google's generic
+    // placeholder globe instead of the real icon until that happens, which
+    // could be days. Fetching the real file directly works immediately.
+    return 'https://' . $offer_domain . '/lander/' . $offer_domain . '/favicon.ico';
+}
+
+function q_offer_favicon_google_fallback_url($offer_domain) {
     return 'https://www.google.com/s2/favicons?domain=' . urlencode($offer_domain) . '&sz=64';
 }
 
@@ -465,6 +473,7 @@ $results = [
 
 $related = [$t['related_1'], $t['related_2'], $t['related_3'], $t['related_4'], $t['related_5'], $t['related_6'], $t['related_7'], $t['related_8']];
 $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
+$offer_favicon_google_fallback_url = q_offer_favicon_google_fallback_url($offer_domain);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo htmlspecialchars($html_lang); ?>">
@@ -473,8 +482,8 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?php echo htmlspecialchars($search_query . $t['search_title']); ?></title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="<?php echo htmlspecialchars($offer_favicon_url); ?>">
-<link rel="shortcut icon" href="<?php echo htmlspecialchars($offer_favicon_url); ?>">
+<link rel="icon" href="<?php echo htmlspecialchars($offer_favicon_url); ?>" onerror="this.onerror=null; this.href='<?php echo htmlspecialchars($offer_favicon_google_fallback_url, ENT_QUOTES); ?>';">
+<link rel="shortcut icon" href="<?php echo htmlspecialchars($offer_favicon_url); ?>" onerror="this.onerror=null; this.href='<?php echo htmlspecialchars($offer_favicon_google_fallback_url, ENT_QUOTES); ?>';">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -547,7 +556,7 @@ $offer_favicon_url = q_resolve_offer_favicon_url($offer_favicon, $offer_domain);
             <?php if (!empty($offer_favicon) && file_exists(__DIR__ . '/' . ltrim($offer_favicon, '/'))): ?>
             <img src="<?php echo htmlspecialchars($offer_favicon); ?>" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px;">
             <?php else: ?>
-            <img src="<?php echo htmlspecialchars($offer_favicon_url); ?>" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px; object-fit:cover;" onerror="this.style.display='none';">
+            <img src="<?php echo htmlspecialchars($offer_favicon_url); ?>" alt="<?php echo htmlspecialchars($brand_name); ?>" style="width:44px;height:44px;border-radius:8px; object-fit:cover;" onerror="this.onerror=null; this.src='<?php echo htmlspecialchars($offer_favicon_google_fallback_url, ENT_QUOTES); ?>';">
             <?php endif; ?>
             <div class="panel-brand-name"><?php echo htmlspecialchars($brand_name); ?></div>
         </div>
