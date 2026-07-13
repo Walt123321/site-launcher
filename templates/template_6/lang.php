@@ -13,7 +13,7 @@ $country_name = "United Kingdom";
 
 // META TITLE / DESCRIPTION (per page)
 $home_meta_title = "$site_name | Premium AI Trading Engine for Global Markets";
-$home_meta_description = "Access global markets with <?= $site_name ?> ⭐ Institutional AI analytics ⚡, low-latency execution ⚡, and zero clutter interfaces designed for modern financial growth.";
+$home_meta_description = "Access global markets with $site_name ⭐ Institutional AI analytics ⚡, low-latency execution ⚡, and zero clutter interfaces designed for modern financial growth.";
 
 
 
