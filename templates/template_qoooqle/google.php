@@ -102,7 +102,10 @@ if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host
 }
 
 // --- Resolve active language ---
-$lang_param = isset($_GET['lang']) ? $_GET['lang'] : null;
+// Same session fallback as host/brand/geo/register_path/about_path above —
+// the post-storage redirect strips ?lang= from the URL, so without this a
+// reloaded/related-search page silently drops back to English.
+$lang_param = qoooqle_get_context_value('lang', '');
 $lang = get_active_lang($offer_lang, $lang_param);
 $t = isset($translations[$lang]) ? $translations[$lang] : $translations['en'];
 
