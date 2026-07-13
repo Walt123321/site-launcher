@@ -632,7 +632,7 @@ a {
         display: block;
     }
 
-    .search-tabs-wrapper {
+    .header-tabs-row {
         padding-left: 16px;
     }
 
@@ -640,16 +640,42 @@ a {
         padding-left: 16px;
     }
 
-    .header-top {
-        padding: 6px 12px 0 12px;
+    /* Desktop header assumes ~692px of room for the search bar alone;
+       below 900px that overflows the viewport (icons get clipped off the
+       right edge). Real mobile Google drops the keyboard-shortcut icon
+       (touch has no keyboard) and the apps-grid/upload icons from the
+       header entirely, so shrink everything else to match. */
+    .header-main-row {
+        padding-left: 12px;
+        padding-right: 12px;
+        gap: 8px;
     }
 
     .google-logo {
-        margin-right: 12px;
+        height: 22px;
+    }
+
+    .search-bar {
+        height: 42px;
+        padding: 0 10px;
+    }
+
+    .search-bar-buttons {
+        gap: 8px;
+        margin-left: 6px;
+    }
+
+    .btn-kbd,
+    .search-divider {
+        display: none;
     }
 
     .header-right {
-        padding-left: 8px;
+        gap: 8px;
+    }
+
+    .header-right a.icon-btn {
+        display: none;
     }
 
     .related-pills {
