@@ -603,7 +603,7 @@ $offer_favicon_google_fallback_url = q_offer_favicon_google_fallback_url($offer_
             <div class="result-item">
                 <a class="result-link" href="<?php echo htmlspecialchars($r['url']); ?>">
                     <div class="result-source">
-                        <div class="icon-circle" style="background:#303134; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                        <div class="icon-circle" style="background:#ffffff; border:1px solid var(--border-color); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                             <?php echo q_get_favicon($r['domain'], $brand_initials, $offer_favicon); ?>
                         </div>
                         <div class="source-info">
