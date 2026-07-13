@@ -34,7 +34,12 @@ function qoooqle_store_context_if_needed() {
         return;
     }
 
-    $context = [];
+    // Merge into whatever's already stored — a link that only carries a
+    // subset of the context keys (e.g. a related-search pill only passes
+    // ?q=&lang=) must not wipe out host/brand/geo from an earlier visit.
+    $context = isset($_SESSION['qoooqle_offer_context']) && is_array($_SESSION['qoooqle_offer_context'])
+        ? $_SESSION['qoooqle_offer_context']
+        : [];
     foreach ($context_keys as $key) {
         if (isset($_GET[$key]) && trim((string) $_GET[$key]) !== '') {
             $context[$key] = trim((string) $_GET[$key]);
@@ -641,12 +646,22 @@ $offer_favicon_google_fallback_url = q_offer_favicon_google_fallback_url($offer_
                         // local_file routing doesn't reflect the real filename there, it
                         // reflects its own internal request path (e.g. "/testqoooqle-com"),
                         // which caused these links to 404.
+                        // Pull from the session-aware helper (not raw $_GET) — by the time
+                        // these pills render, the page's own URL only ever has ?q= (the
+                        // context-storage redirect above strips everything else), so a
+                        // plain isset($_GET[...]) check here was always false and the
+                        // pills silently dropped host/brand/geo on every click.
                         $pill_url = 'index.php?q=' . urlencode($rel) . '&lang=' . urlencode($lang);
-                        if (isset($_GET['host'])) $pill_url .= '&host=' . urlencode($_GET['host']);
-                        if (isset($_GET['geo'])) $pill_url .= '&geo=' . urlencode($_GET['geo']);
-                        if (isset($_GET['brand'])) $pill_url .= '&brand=' . urlencode($_GET['brand']);
-                        if (isset($_GET['register_path'])) $pill_url .= '&register_path=' . urlencode($_GET['register_path']);
-                        if (isset($_GET['about_path'])) $pill_url .= '&about_path=' . urlencode($_GET['about_path']);
+                        $pill_host = qoooqle_get_context_value('host', '');
+                        $pill_geo = qoooqle_get_context_value('geo', '');
+                        $pill_brand = qoooqle_get_context_value('brand', '');
+                        $pill_register_path = qoooqle_get_context_value('register_path', '');
+                        $pill_about_path = qoooqle_get_context_value('about_path', '');
+                        if ($pill_host !== '') $pill_url .= '&host=' . urlencode($pill_host);
+                        if ($pill_geo !== '') $pill_url .= '&geo=' . urlencode($pill_geo);
+                        if ($pill_brand !== '') $pill_url .= '&brand=' . urlencode($pill_brand);
+                        if ($pill_register_path !== '') $pill_url .= '&register_path=' . urlencode($pill_register_path);
+                        if ($pill_about_path !== '') $pill_url .= '&about_path=' . urlencode($pill_about_path);
                     ?>
                     <a href="<?php echo htmlspecialchars($pill_url); ?>" class="related-pill">
                         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
