@@ -105,6 +105,12 @@ TEMPLATES = {
         "lang": "templates/template_qoooqle/newsnik1/lang.php",
     },
 }
+# Hidden from the per-domain template picker but kept in TEMPLATES (still
+# referenced directly elsewhere — e.g. qoooqle is auto-included in every
+# site regardless of chosen base template, and already-generated domains
+# may still be assigned template_2 from before it was hidden).
+HIDDEN_TEMPLATE_KEYS = {"template_2", "template_qoooqle"}
+VISIBLE_TEMPLATE_KEYS = [k for k in TEMPLATES if k not in HIDDEN_TEMPLATE_KEYS]
 # Default template for Streamlit page icon (does not affect per-domain selection)
 DEFAULT_PAGE_TEMPLATE = "template_1"
 
@@ -1488,11 +1494,10 @@ def add_domain(domain: str):
     chosen.append(domain)
     st.session_state.chosen_domains = chosen
 
-    # default template assignment: 1st -> template_1, 2nd -> template_2, 3rd -> template_1 ...
+    # default template assignment (template_2 hidden from picker, no longer assigned by default)
     dt = st.session_state.get("domain_templates") or {}
     if domain not in dt:
-        idx = len(chosen) - 1
-        dt[domain] = "template_1" if (idx % 2 == 0) else "template_2"
+        dt[domain] = "template_1"
     st.session_state["domain_templates"] = dt
 
     st.session_state.needs_rerun = True
@@ -1860,6 +1865,13 @@ elif st.session_state.step == 2:
             for d in chosen:
 
                 tpl = dt.get(d, "template_1")
+                if tpl in HIDDEN_TEMPLATE_KEYS:
+                    # Was assigned before this template got hidden from the
+                    # picker — fall back so the selectbox below has a valid
+                    # index instead of raising ValueError.
+                    tpl = "template_1"
+                    dt[d] = tpl
+                    st.session_state.domain_templates = dt
                 favicon_path = TEMPLATES[tpl]["favicon"]
 
                 c1, c2, c3, c4 = st.columns([0.7, 3.2, 2.4, 0.8])
@@ -1876,8 +1888,8 @@ elif st.session_state.step == 2:
                 with c3:
                     new_tpl = st.selectbox(
                         " ",
-                        options=list(TEMPLATES.keys()),
-                        index=list(TEMPLATES.keys()).index(tpl),
+                        options=VISIBLE_TEMPLATE_KEYS,
+                        index=VISIBLE_TEMPLATE_KEYS.index(tpl),
                         format_func=lambda x: TEMPLATES[x]["label"],
                         key=f"tpl_{d}",
                         label_visibility="collapsed"

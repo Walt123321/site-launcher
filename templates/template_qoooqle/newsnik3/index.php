@@ -73,6 +73,9 @@ function rpl($str) {
 
 // Build registration URL with language
 $reg_url = $offer_register_url . (strpos($offer_register_url, '?') !== false ? '&' : '?') . 'lang=' . urlencode($active_lang);
+
+// Site header/logo must show this portal's own domain, not a fictional brand name
+$site_name = htmlspecialchars($newsnik3_domain, ENT_QUOTES, 'UTF-8');
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $active_lang; ?>">
@@ -657,7 +660,7 @@ $reg_url = $offer_register_url . (strpos($offer_register_url, '?') !== false ? '
                 <path d="M8 16l4-8 4 8-4 8-4-8z" fill="#fff" opacity="0.9"/>
                 <path d="M16 16l4-8 4 8-4 8-4-8z" fill="#fff" opacity="0.6"/>
             </svg>
-            <span>TradingBot Reviews</span>
+            <span><?php echo $site_name; ?></span>
         </a>
         <button class="nav-toggle" onclick="document.querySelector('.site-nav').classList.toggle('open')" aria-label="Menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a202c" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>

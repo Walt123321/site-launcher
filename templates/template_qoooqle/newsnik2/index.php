@@ -85,6 +85,9 @@ $deposit_display = $deposit_currency === 'EUR' ? '€' . $min_deposit : $min_dep
 // Registration URL
 $reg_url = htmlspecialchars($offer_register_url, ENT_QUOTES, 'UTF-8');
 
+// Site header/logo must show this portal's own domain, not a fictional brand name
+$site_name = htmlspecialchars($newsnik2_domain, ENT_QUOTES, 'UTF-8');
+
 // HTML lang attribute
 $html_lang = ($lang === 'cz') ? 'cs' : $lang;
 ?>
@@ -747,7 +750,7 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
          ============================================================ -->
     <header class="site-header">
         <div class="header-inner">
-            <a href="#" onclick="location.reload(); return false;" class="site-logo">Trading<span>Insights</span></a>
+            <a href="#" onclick="location.reload(); return false;" class="site-logo"><?php echo $site_name; ?></a>
             <nav class="header-nav">
                 <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_home']; ?></a>
                 <a href="#" onclick="location.reload(); return false;"><?php echo $t['nav_reviews']; ?></a>
