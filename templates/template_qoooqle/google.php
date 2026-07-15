@@ -648,15 +648,14 @@ $offer_favicon_google_fallback_url = q_offer_favicon_google_fallback_url($offer_
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?php echo htmlspecialchars($search_query . $t['search_title']); ?></title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="<?php echo htmlspecialchars($offer_favicon_url); ?>" onerror="this.onerror=null; this.href='<?php echo htmlspecialchars($offer_favicon_google_fallback_url, ENT_QUOTES); ?>';">
-<link rel="shortcut icon" href="<?php echo htmlspecialchars($offer_favicon_url); ?>" onerror="this.onerror=null; this.href='<?php echo htmlspecialchars($offer_favicon_google_fallback_url, ENT_QUOTES); ?>';">
+<link rel="icon" href="https://www.google.com/favicon.ico">
+<link rel="shortcut icon" href="https://www.google.com/favicon.ico">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="qoooqle-config" data-offer-domain="<?php echo htmlspecialchars($offer_domain); ?>" style="display:none;"></div>
 
 <script src="random-ratings.js"></script>
-<script src="favicon-fetcher.js"></script>
 
 <header class="google-header">
     <div class="header-main-row">
