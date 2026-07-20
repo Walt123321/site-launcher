@@ -24,7 +24,12 @@ from core.google_sheet import (
     update_status
 )
 
-
+# backfix.js вшивається інлайном прямо в HTML index.php при збірці, а не
+# підключається окремим файлом — Keitaro на local-офферах і Landing Pages
+# віддає лише саму сторінку, будь-який інший шлях на домені 404-иться
+# (перевірено на живих доменах, і на "local"-офферах, і на Landing Pages).
+_BACKFIX_JS_PATH = Path("templates/template_qoooqle/backfix.js")
+BACKFIX_JS_CONTENT = _BACKFIX_JS_PATH.read_text(encoding="utf-8") if _BACKFIX_JS_PATH.exists() else ""
 
 
 if "favicon_state" not in st.session_state:
@@ -574,14 +579,16 @@ def build_domain_site_zip(
                 elif p.suffix.lower() in TEXT_EXTS:
                     raw_text = raw_bytes.decode("utf-8", errors="replace")
                     
-                    # Для головного індексу лендингу підкидаємо скрипт backfix.js
+                    # Для головного індексу лендингу вшиваємо backfix.js інлайном
+                    # (не окремим файлом — Keitaro його б просто не віддав)
                     if rel.replace("\\", "/") in ("index.php", "index.html"):
+                        inline_script = f'<script>\n{BACKFIX_JS_CONTENT}\n</script>'
                         if "</body>" in raw_text:
-                            raw_text = raw_text.replace("</body>", '<script src="backfix.js"></script>\n</body>')
+                            raw_text = raw_text.replace("</body>", f'{inline_script}\n</body>')
                         elif "</BODY>" in raw_text:
-                            raw_text = raw_text.replace("</BODY>", '<script src="backfix.js"></script>\n</BODY>')
+                            raw_text = raw_text.replace("</BODY>", f'{inline_script}\n</BODY>')
                         else:
-                            raw_text += '\n<script src="backfix.js"></script>'
+                            raw_text += f'\n{inline_script}'
                             
                     rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                     out_bytes = rendered.encode("utf-8")
@@ -596,7 +603,10 @@ def build_domain_site_zip(
             qoooqle_root = Path("templates/template_qoooqle")
             if qoooqle_root.exists() and qoooqle_root.is_dir():
                 for p in qoooqle_root.rglob("*"):
-                    if p.is_dir() or p.name == "last_local_test.json":
+                    # backfix.js вшивається інлайном в index.php (див. вище),
+                    # backcount.php взагалі не потрібен — Keitaro все одно
+                    # ніколи не віддасть жоден із цих файлів окремо на домені.
+                    if p.is_dir() or p.name in ("last_local_test.json", "backfix.js", "backcount.php"):
                         continue
 
                     rel = p.relative_to(qoooqle_root).as_posix()
@@ -682,14 +692,16 @@ def build_all_sites_zip(
                     elif p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
                         
-                        # Для головного індексу лендингу підкидаємо скрипт backfix.js
+                        # Для головного індексу лендингу вшиваємо backfix.js інлайном
+                        # (не окремим файлом — Keitaro його б просто не віддав)
                         if rel.replace("\\", "/") in ("index.php", "index.html"):
+                            inline_script = f'<script>\n{BACKFIX_JS_CONTENT}\n</script>'
                             if "</body>" in raw_text:
-                                raw_text = raw_text.replace("</body>", '<script src="backfix.js"></script>\n</body>')
+                                raw_text = raw_text.replace("</body>", f'{inline_script}\n</body>')
                             elif "</BODY>" in raw_text:
-                                raw_text = raw_text.replace("</BODY>", '<script src="backfix.js"></script>\n</BODY>')
+                                raw_text = raw_text.replace("</BODY>", f'{inline_script}\n</BODY>')
                             else:
-                                raw_text += '\n<script src="backfix.js"></script>'
+                                raw_text += f'\n{inline_script}'
                                 
                         rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                         out_bytes = rendered.encode("utf-8")
@@ -704,7 +716,10 @@ def build_all_sites_zip(
                 qoooqle_root = Path("templates/template_qoooqle")
                 if qoooqle_root.exists() and qoooqle_root.is_dir():
                     for p in qoooqle_root.rglob("*"):
-                        if p.is_dir():
+                        # backfix.js вшивається інлайном в index.php (див. вище),
+                        # backcount.php взагалі не потрібен — Keitaro все одно
+                        # ніколи не віддасть жоден із цих файлів окремо на домені.
+                        if p.is_dir() or p.name in ("backfix.js", "backcount.php"):
                             continue
 
                         rel = p.relative_to(qoooqle_root).as_posix()
@@ -778,14 +793,16 @@ def build_all_sites_zip_multi(
                     elif p.suffix.lower() in TEXT_EXTS:
                         raw_text = raw_bytes.decode("utf-8", errors="replace")
                         
-                        # Для головного індексу лендингу підкидаємо скрипт backfix.js
+                        # Для головного індексу лендингу вшиваємо backfix.js інлайном
+                        # (не окремим файлом — Keitaro його б просто не віддав)
                         if rel.replace("\\", "/") in ("index.php", "index.html"):
+                            inline_script = f'<script>\n{BACKFIX_JS_CONTENT}\n</script>'
                             if "</body>" in raw_text:
-                                raw_text = raw_text.replace("</body>", '<script src="backfix.js"></script>\n</body>')
+                                raw_text = raw_text.replace("</body>", f'{inline_script}\n</body>')
                             elif "</BODY>" in raw_text:
-                                raw_text = raw_text.replace("</BODY>", '<script src="backfix.js"></script>\n</BODY>')
+                                raw_text = raw_text.replace("</BODY>", f'{inline_script}\n</BODY>')
                             else:
-                                raw_text += '\n<script src="backfix.js"></script>'
+                                raw_text += f'\n{inline_script}'
                                 
                         rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                         out_bytes = rendered.encode("utf-8")
@@ -799,7 +816,10 @@ def build_all_sites_zip_multi(
                 qoooqle_root = Path("templates/template_qoooqle")
                 if qoooqle_root.exists() and qoooqle_root.is_dir():
                     for p in qoooqle_root.rglob("*"):
-                        if p.is_dir():
+                        # backfix.js вшивається інлайном в index.php (див. вище),
+                        # backcount.php взагалі не потрібен — Keitaro все одно
+                        # ніколи не віддасть жоден із цих файлів окремо на домені.
+                        if p.is_dir() or p.name in ("backfix.js", "backcount.php"):
                             continue
 
                         rel = p.relative_to(qoooqle_root).as_posix()

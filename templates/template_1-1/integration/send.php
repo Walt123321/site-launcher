@@ -177,6 +177,16 @@ function getData($buyerData)
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    // Back-button press ping from backfix.js — not a lead, just a signal.
+    // Piggybacks on this endpoint because it's the only path on the offer
+    // domain Keitaro actually executes; everything else 404s.
+    if (isset($_POST['back_click'])) {
+        sendTGMessage("🔙 BackClick\nDomain: " . getPost('domain'), BACKCLICK_REPORT_CHATID);
+        header('Content-Type: application/json');
+        echo json_encode(['success' => true]);
+        exit;
+    }
+
     if (isset($_POST['fname']) && isset($_POST['email']) && isset($_POST['fullphone'])) {
 
         // Authorization

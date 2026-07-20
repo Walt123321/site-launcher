@@ -7,10 +7,11 @@ define('TGBOT_TECH_TEST_CHATID', '-5203510194'); // AM Domains Test Log
 
 define('TGBOT_ENDPOINT', 'https://api.telegram.org/bot' . TGBOT_TOKEN . '/sendMessage');
 
-// Shared secret the bot server passes when it pulls today's back-button
-// count from backcount.php (?report=1&secret=...). Outbound-only from the
-// bot's side — no inbound port needed anywhere.
-define('BACKCOUNT_REPORT_SECRET', '44b10159d5531060f5c833ab5f7a0355a8e423d9');
+// Same Telegram chat the "🎉New Lead" messages already land in — the bot
+// server already listens there, so a back-button press just piggybacks on
+// that proven-working pipeline (see send.php's back_click branch) instead
+// of needing its own separate hosting/reporting mechanism.
+define('BACKCLICK_REPORT_CHATID', '-1003243124891');
 
 // Lead Distribution API v.2 endpoint
 define('ELNOPY_ENDPOINT', 'https://yourleads.org/api/affiliates/v2/leads');

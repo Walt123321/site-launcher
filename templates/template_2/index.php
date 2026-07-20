@@ -5,6 +5,17 @@ if (empty($_SESSION['js_token'])) {
 }
 $jsToken = $_SESSION['js_token'];
 
+// Ловим click id прямо из URL (Keitaro подставляет его как параметр при
+// редиректе на лендинг) — раньше это никак не перехватывалось, если кука
+// _subid от Keitaro почему-то не проставлялась сама. Кладём и в сессию, и
+// в куку, чтобы существующая цепочка чтения в send.php/validation.js
+// подхватила его тем же путём, что и раньше.
+$incomingClickId = $_GET['subid'] ?? $_GET['click_id'] ?? $_GET['clickid'] ?? $_GET['sub_id'] ?? null;
+if (!empty($incomingClickId)) {
+    $_SESSION['click_id'] = $incomingClickId;
+    setcookie('_subid', $incomingClickId, time() + 86400 * 30, '/');
+}
+
 require_once 'offer_seo.php';
 include 'lang.php';
 ?>
