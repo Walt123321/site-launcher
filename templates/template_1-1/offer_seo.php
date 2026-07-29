@@ -15,6 +15,31 @@ $form_phone_country = 'de';                      // Страна телефон�
 $form_is_autologin = false;                        // Автологин (true/false)
 $form_only_countries = json_encode(["de"]);        // Разрешенные страны
 
+// ========================================
+// АВТООПРЕДЕЛЕНИЕ ГЕО ПО IP (только когда сайт запущен с гео "Unknown")
+// ========================================
+// При запуске с гео "Невідомо / Unknown" сюда прилетают маркеры
+// $form_country = '' и $form_phone_country = 'auto' вместо конкретной страны
+// (см. app.py). Определяем реальную страну посетителя на сервере — без
+// стороннего API и без похода из браузера (клиентский ipapi.co слишком
+// быстро упирался в лимит запросов):
+//   1) заголовок CF-IPCountry — если домен проксируется через Cloudflare;
+//   2) ?geo= / ?country= в URL — если Keitaro передаёт гео своим макросом.
+// Если ни то, ни другое не сработало — маркеры остаются как есть, и дальше
+// отрабатывает штатный клиентский фолбэк (validation.js).
+$_qq_geo_guess = strtolower((string) ($_SERVER['HTTP_CF_IPCOUNTRY'] ?? ''));
+if (!preg_match('/^[a-z]{2}$/', $_qq_geo_guess)) {
+    $_qq_geo_guess = preg_replace('/[^a-z]/', '', strtolower((string) ($_GET['geo'] ?? $_GET['country'] ?? '')));
+}
+if (preg_match('/^[a-z]{2}$/', $_qq_geo_guess)) {
+    if ($form_country === '') {
+        $form_country = $_qq_geo_guess;
+    }
+    if ($form_phone_country === 'auto') {
+        $form_phone_country = $_qq_geo_guess;
+    }
+}
+
 
 // ========================================
 // 2) ДАННЫЕ ДЛЯ CRM (ЛИЧНЫЙ СЕТАП БАЙЕРА)
