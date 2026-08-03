@@ -128,7 +128,7 @@ $button_sign_up = "Sign Up";
 // ---------------------------------------------------------------------------------------------------
 
 // HERO SECTION
-$heading_main = "$source – AI-Powered Automated Investment Platform for Stocks and Cryptocurrencies";
+$heading_main = "$source Platform";
 $text_intro = "Start your investment journey with $source, an intelligent platform that uses artificial intelligence to automatically invest in stock and cryptocurrency markets. Begin with as little as $currency and no prior experience while benefiting from real-time analysis designed to optimize results.";
 
 // WHY INVEST SECTION

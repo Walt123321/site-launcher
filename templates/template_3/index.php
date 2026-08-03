@@ -91,6 +91,10 @@ if ($uri === "/lander/{$host}/index.php") {
   <meta name="description" content="<?= $page_description_main ?>">
   <link rel="stylesheet" href="css/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/main-1.css">
+  <link rel="stylesheet" href="css/calculator.css">
+  <link rel="stylesheet" href="css/security-section.css">
+  <link rel="stylesheet" href="css/seo-section.css">
+  <link rel="stylesheet" href="css/faq-section.css">
   <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="shortcut icon" href="./favicon.ico" />
@@ -181,7 +185,7 @@ if ($uri === "/lander/{$host}/index.php") {
       }
     </style>
     <section class="welcome" aria-labelledby="welcome-title">
-      <h1 class="hide-mobile" style="text-align:center; color:#e3ff34; padding:20px;"><?= $source ?></h1>
+      <h1 class="hide-mobile" style="text-align:center; color:#e3ff34; padding:20px;"><?= $source ?> Platform</h1>
       <div class="welcome__main container">
         <div class="welcome__text">
           <span class="welcome__title" id="welcome-title">
@@ -355,6 +359,178 @@ if ($uri === "/lander/{$host}/index.php") {
     <span class="leaders__logo">
       <svg xmlns="http://www.w3.org/2000/svg" width="52" height="38" viewBox="0 0 52 38" fill="none"> <path d="M18.3364 14.0966L14.9802 17.4204C14.3396 18.0549 14.3396 19.0835 14.9802 19.718L18.6771 23.3792C19.3655 24.061 21.1066 23.4154 21.7951 22.7336L24.6495 19.9067C24.9571 19.602 25.1299 19.1888 25.1299 18.7579L25.1299 16.9812C25.1299 14.2894 27.3333 12.1073 30.0513 12.1073L34.8533 12.1073C37.5713 12.1073 39.7747 14.2894 39.7747 16.9812L39.7747 21.7368C39.7747 24.4286 37.5713 26.6107 34.8533 26.6107H33.0594C32.6243 26.6107 32.2071 26.7819 31.8994 27.0865L29.0449 29.9135C28.3565 30.5953 27.7046 32.3196 28.393 33.0014L32.0899 36.6626C32.7305 37.297 33.7692 37.297 34.4098 36.6626L37.977 33.1299C38.3999 32.711 38.5393 32.0988 38.4752 31.5099C38.3018 29.9167 38.8316 28.2627 40.0647 27.0415C41.2979 25.8203 42.968 25.2955 44.5766 25.4673C45.1713 25.5308 45.7895 25.3927 46.2124 24.9739L51.5195 19.718C52.1602 19.0835 52.1602 18.0549 51.5195 17.4204L46.7986 12.7451C46.3562 12.3069 45.7023 12.1788 45.0818 12.259C43.5575 12.456 41.9608 11.9747 40.7897 10.8149C39.6187 9.65514 39.1326 8.07386 39.3316 6.5642C39.4126 5.94971 39.2832 5.30218 38.8407 4.86398L34.4098 0.475842C33.7692 -0.158614 32.7305 -0.158614 32.0899 0.475843L26.9937 5.52281C26.5361 5.97603 26.4124 6.65078 26.5237 7.28217C26.8234 8.98185 26.3105 10.7946 24.985 12.1073C23.6595 13.42 21.8291 13.928 20.1129 13.6312C19.4753 13.5209 18.794 13.6434 18.3364 14.0966Z" fill="white"></path> <path d="M14.234 4.66122L17.5902 1.33743C18.2308 0.702975 19.2695 0.702974 19.9101 1.33743L23.607 4.99862C24.2954 5.68044 23.6435 7.40473 22.9551 8.08654L20.1007 10.9134C19.793 11.2181 19.3758 11.3892 18.9407 11.3892L17.1466 11.3892C14.4286 11.3892 12.2253 13.5713 12.2253 16.2631L12.2253 21.0188C12.2253 23.7105 14.4286 25.8926 17.1466 25.8926L21.9486 25.8926C24.6666 25.8926 26.87 23.7105 26.87 21.0188V19.2421C26.87 18.8113 27.0428 18.398 27.3505 18.0934L30.2049 15.2664C30.8934 14.5846 32.6345 13.939 33.3229 14.6208L37.0198 18.282C37.6604 18.9165 37.6604 19.9451 37.0198 20.5796L33.4527 24.1123C33.0298 24.5311 32.4115 24.6692 31.8169 24.6057C30.2082 24.4339 28.5381 24.9587 27.305 26.1799C26.0718 27.4011 25.542 29.0552 25.7154 30.6483C25.7796 31.2372 25.6401 31.8494 25.2172 32.2683L19.9101 37.5242C19.2695 38.1586 18.2308 38.1586 17.5902 37.5242L12.8693 32.8488C12.4268 32.4106 12.2974 31.7631 12.3784 31.1486C12.5774 29.6389 12.0914 28.0577 10.9203 26.8979C9.74922 25.7381 8.15253 25.2568 6.62816 25.4538C6.00768 25.534 5.35384 25.4059 4.91137 24.9677L0.480478 20.5796C-0.16016 19.9451 -0.160159 18.9165 0.480479 18.282L5.57662 13.235C6.03426 12.7818 6.71558 12.6593 7.35313 12.7696C9.06936 13.0664 10.8998 12.5584 12.2253 11.2457C13.5508 9.93299 14.0637 8.12026 13.764 6.42058C13.6526 5.78919 13.7763 5.11444 14.234 4.66122Z" fill="white"></path> </svg>
     </span>
+  </div>
+</section>
+
+<!-- Calculator Section -->
+<section class="calculator-section" id="calculator" aria-labelledby="calculator-title" data-currency="<?= $app_currency ?>">
+  <div class="calculator__main container">
+
+    <header class="subtitle">
+      <span class="subtitle__badge"><?= $calc_badge ?></span>
+      <h2 class="subtitle-h2 max-w-600" id="calculator-title">
+        <?= $calc_title ?>
+      </h2>
+    </header>
+
+    <div class="calculator__card">
+      <div class="calculator__grid">
+
+        <!-- Controls -->
+        <div class="calculator__controls">
+
+          <!-- Investment Amount -->
+          <div class="calculator__group">
+            <div class="calculator__label-row">
+              <label for="calc-amount-slider"><?= $calc_amount_label ?></label>
+              <div class="calculator__value-badge">
+                <span id="calc-amount-value">--</span>
+              </div>
+            </div>
+            <input
+              type="range"
+              id="calc-amount-slider"
+              class="calculator__slider"
+              min="<?= $app_price ?>"
+              value="<?= $app_price ?>"
+            >
+            <div class="calculator__range-labels">
+              <span id="calc-min-amount">--</span>
+              <span id="calc-max-amount">--</span>
+            </div>
+          </div>
+
+          <!-- Term Duration -->
+          <div class="calculator__group">
+            <div class="calculator__label-row">
+              <label for="calc-days-slider"><?= $calc_term_label ?></label>
+              <div class="calculator__value-badge">
+                <span id="calc-days-value">--</span>
+              </div>
+            </div>
+            <input
+              type="range"
+              id="calc-days-slider"
+              class="calculator__slider"
+              min="7"
+              max="90"
+              step="1"
+              value="30"
+            >
+            <div class="calculator__range-labels">
+              <span>7 Days</span>
+              <span>90 Days</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Output Box -->
+        <div class="calculator__results">
+          <div class="calculator__results-inner">
+
+            <div class="calculator__res-item">
+              <span class="calculator__res-label"><?= $calc_profit_label ?></span>
+              <span class="calculator__res-value highlight" id="calc-profit-value">--</span>
+            </div>
+
+            <div class="calculator__divider"></div>
+
+            <div class="calculator__res-item">
+              <span class="calculator__res-label"><?= $calc_total_label ?></span>
+              <span class="calculator__res-value" id="calc-total-value">--</span>
+            </div>
+
+            <a href="sign-up.php" class="calculator__btn">
+              <?= $calc_btn ?>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Security Section -->
+<section class="security-section" id="security" aria-labelledby="security-title">
+  <div class="security__main container">
+
+    <header class="subtitle">
+      <span class="subtitle__badge"><?= $security_badge ?></span>
+      <h2 class="subtitle-h2 max-w-600" id="security-title">
+        <?= $security_title ?>
+      </h2>
+    </header>
+
+    <div class="security__grid">
+
+      <!-- Card 1: Encryption -->
+      <div class="security__card">
+        <div class="security__icon-box">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <div class="security__card-body">
+          <h3 class="security__card-title"><?= $security_card1_title ?></h3>
+          <p class="security__card-desc">
+            <?= $security_card1_desc ?>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2: Segregated Accounts -->
+      <div class="security__card">
+        <div class="security__icon-box">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="security__card-body">
+          <h3 class="security__card-title"><?= $security_card2_title ?></h3>
+          <p class="security__card-desc">
+            <?= $security_card2_desc ?>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: API Protection -->
+      <div class="security__card">
+        <div class="security__icon-box">
+          <svg viewBox="0 0 24 24">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <div class="security__card-body">
+          <h3 class="security__card-title"><?= $security_card3_title ?></h3>
+          <p class="security__card-desc">
+            <?= $security_card3_desc ?>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4: Risk Control -->
+      <div class="security__card">
+        <div class="security__icon-box">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <div class="security__card-body">
+          <h3 class="security__card-title"><?= $security_card4_title ?></h3>
+          <p class="security__card-desc">
+            <?= $security_card4_desc ?>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -728,6 +904,164 @@ if ($uri === "/lander/{$host}/index.php") {
             <div class="pagination-swiper-dot"></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- SEO Text Section -->
+    <section class="seo-section" id="about-platform" aria-labelledby="seo-title-1">
+      <div class="seo__main container">
+
+        <header class="subtitle">
+          <span class="subtitle__badge"><?= $seo_badge ?></span>
+          <h2 class="subtitle-h2 max-w-700" id="seo-title-1">
+            <?= $seo_title ?>
+          </h2>
+        </header>
+
+        <div class="seo__card">
+          <div class="seo__content">
+
+            <p>
+              <?= $seo_p1 ?>
+            </p>
+
+            <!-- TODO: replace with the file supplied for the T3 SEO block once provided -->
+            <img class="seo__image" src="images/algorithmic-trading-engine.png" alt="<?= $seo_image_alt ?>" loading="lazy" decoding="async">
+
+            <div class="seo__features-grid">
+              <div class="seo__feature-item">
+                <div class="seo__feature-title"><?= $seo_feature1_title ?></div>
+                <p class="seo__feature-desc"><?= $seo_feature1_desc ?></p>
+              </div>
+              <div class="seo__feature-item">
+                <div class="seo__feature-title"><?= $seo_feature2_title ?></div>
+                <p class="seo__feature-desc"><?= $seo_feature2_desc ?></p>
+              </div>
+              <div class="seo__feature-item">
+                <div class="seo__feature-title"><?= $seo_feature3_title ?></div>
+                <p class="seo__feature-desc"><?= $seo_feature3_desc ?></p>
+              </div>
+            </div>
+
+            <h3 class="seo__subheading"><?= $seo_subheading1 ?></h3>
+
+            <p>
+              <?= $seo_p2 ?>
+            </p>
+
+            <p>
+              <?= $seo_p3 ?>
+            </p>
+
+            <h3 class="seo__subheading"><?= $seo_subheading2 ?></h3>
+
+            <ul class="seo__list">
+              <li class="seo__list-item">
+                <strong><?= $seo_list1_strong ?></strong> <?= $seo_list1_text ?>
+              </li>
+              <li class="seo__list-item">
+                <strong><?= $seo_list2_strong ?></strong> <?= $seo_list2_text ?>
+              </li>
+              <li class="seo__list-item">
+                <strong><?= $seo_list3_strong ?></strong> <?= $seo_list3_text ?>
+              </li>
+            </ul>
+
+            <p>
+              <?= $seo_p4 ?>
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section with Schema.org Structured Data -->
+    <section class="faq-section" id="calculator-faq" aria-labelledby="calculator-faq-title" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="faq__main container">
+
+        <header class="subtitle">
+          <span class="subtitle__badge"><?= $calc_faq_badge ?></span>
+          <h2 class="subtitle-h2 max-w-600" id="calculator-faq-title">
+            <?= $calc_faq_title ?>
+          </h2>
+        </header>
+
+        <div class="faq__list">
+
+          <div class="faq__item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+            <button class="faq__question" type="button" aria-expanded="false">
+              <span itemprop="name"><?= $calc_faq_q1 ?></span>
+              <span class="faq__icon">
+                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq__answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <div itemprop="text">
+                <p class="faq__answer-text"><?= $calc_faq_a1 ?></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq__item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+            <button class="faq__question" type="button" aria-expanded="false">
+              <span itemprop="name"><?= $calc_faq_q2 ?></span>
+              <span class="faq__icon">
+                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq__answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <div itemprop="text">
+                <p class="faq__answer-text"><?= $calc_faq_a2 ?></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq__item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+            <button class="faq__question" type="button" aria-expanded="false">
+              <span itemprop="name"><?= $calc_faq_q3 ?></span>
+              <span class="faq__icon">
+                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq__answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <div itemprop="text">
+                <p class="faq__answer-text"><?= $calc_faq_a3 ?></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq__item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+            <button class="faq__question" type="button" aria-expanded="false">
+              <span itemprop="name"><?= $calc_faq_q4 ?></span>
+              <span class="faq__icon">
+                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq__answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <div itemprop="text">
+                <p class="faq__answer-text"><?= $calc_faq_a4 ?></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq__item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+            <button class="faq__question" type="button" aria-expanded="false">
+              <span itemprop="name"><?= $calc_faq_q5 ?></span>
+              <span class="faq__icon">
+                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq__answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <div itemprop="text">
+                <p class="faq__answer-text"><?= $calc_faq_a5 ?></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
@@ -1509,6 +1843,8 @@ document.addEventListener("DOMContentLoaded", () => {
   <script src="./integration/validation.js"></script>
   <script src="./assets/js/lazyload.min.js" defer></script>
   <script src="./assets/js/scripts.js" defer></script>
+  <script src="js/calculator.js" defer></script>
+  <script src="js/faq-section.js" defer></script>
 
 <div id="chat-quiz-root" style="position: fixed !important; bottom: 20px !important; right: 20px !important; z-index: 999999 !important; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important; box-sizing: border-box !important;">
     

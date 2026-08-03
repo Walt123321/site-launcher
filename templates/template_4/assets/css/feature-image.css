@@ -1,0 +1,13 @@
+.feature-image {
+  margin: -28px -28px 18px -28px;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+  background: #eceaf5;
+}
+
+.feature-image img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}

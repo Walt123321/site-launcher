@@ -89,7 +89,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                     <?= $home_hero_label ?>
                 </div>
 
-                <h1><?= $home_hero_title ?></h1>
+                <h1 style="text-align:center;"><?= $home_hero_title ?></h1>
 
                 <p class="hero-description"><?= $home_hero_desc ?></p>
 

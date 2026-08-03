@@ -146,6 +146,20 @@ $feature_execution_title = "Fast execution";
 $feature_execution_text = "Optimized infrastructure ensures minimal latency and stable order execution across global markets.";
 $feature_analytics_title = "Real-time analytics";
 $feature_analytics_text = "Live data, advanced indicators, and market insights help you respond faster and make more informed trading decisions.";
+$feature_market_alt = "Multi-market trading ecosystem";
+$feature_execution_alt = "Ultra-fast trade execution";
+$feature_analytics_alt = "AI-powered real-time analytics";
+
+// ==========================================
+// CALCULATOR SECTION
+// ==========================================
+$calc_badge = "Trading Efficiency";
+$calc_title = "Calculate Your Performance Boost with $site_name";
+$calc_volume_label = "Monthly Trading Volume";
+$calc_trades_label = "Weekly Trades Frequency";
+$calc_time_label = "Time Saved on Market Analysis";
+$calc_boost_label = "Estimated Execution Yield Gain";
+$calc_btn = "Start Automating Now";
 // партнеры
 $partners_heading = "Our partners";
 // step

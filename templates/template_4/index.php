@@ -160,6 +160,8 @@ function initials($text) {
   <noscript>
     <link rel="stylesheet" href="./assets/css/tailwind.min.css" />
   </noscript>
+  <link rel="stylesheet" href="./assets/css/feature-image.css" />
+  <link rel="stylesheet" href="./assets/css/calculator.css" />
   <script>
     document.documentElement.classList.add("loading");
     const waitForStylesheet = (href, cb) => {
@@ -391,7 +393,7 @@ function initials($text) {
               </defs>
             </svg>
           </div>
-          <h1><?= $site_name ?></h1>
+          <h1 style="text-align:center;"><?= $site_name ?> Platform</h1>
             <p><?= $hero_text ?></p>
         </div>
         <form name="form" method="post"
@@ -649,6 +651,10 @@ function initials($text) {
     </div>
     <div class="feature-grid">
       <div class="feature-card">
+        <div class="feature-image">
+          <!-- TODO: replace with the file supplied for the T4 feature-section once provided -->
+          <img src="./global_tr_platform_1.png" alt="<?= $feature_market_alt ?>" loading="lazy" decoding="async">
+        </div>
         <div class="accent"></div>
         <h3><?= $feature_market_title ?></h3>
         <p>
@@ -656,6 +662,10 @@ function initials($text) {
         </p>
       </div>
       <div class="feature-card featured">
+        <div class="feature-image">
+          <!-- TODO: replace with the file supplied for the T4 feature-section once provided -->
+          <img src="./global_tr_platform_2.png" alt="<?= $feature_execution_alt ?>" loading="lazy" decoding="async">
+        </div>
         <div class="accent"></div>
         <h3><?= $feature_execution_title ?></h3>
         <p>
@@ -663,6 +673,10 @@ function initials($text) {
         </p>
       </div>
       <div class="feature-card">
+        <div class="feature-image">
+          <!-- TODO: replace with the file supplied for the T4 feature-section once provided -->
+          <img src="./global_tr_platform_3.png" alt="<?= $feature_analytics_alt ?>" loading="lazy" decoding="async">
+        </div>
         <div class="accent"></div>
         <h3><?= $feature_analytics_title ?></h3>
         <p>
@@ -672,6 +686,99 @@ function initials($text) {
     </div>
   </div>
 </section>
+
+<!-- Trading Efficiency & Yield Calculator Section -->
+<section class="calculator-section" id="calculator" aria-labelledby="calculator-title" data-currency="<?= $app_currency ?>">
+  <div class="calculator__main container">
+
+    <header class="subtitle">
+      <span class="subtitle__badge"><?= $calc_badge ?></span>
+      <h2 class="subtitle-h2 max-w-600" id="calculator-title">
+        <?= $calc_title ?>
+      </h2>
+    </header>
+
+    <div class="calculator__card">
+      <div class="calculator__grid">
+
+        <!-- Controls -->
+        <div class="calculator__controls">
+
+          <!-- Monthly Trading Volume -->
+          <div class="calculator__group">
+            <div class="calculator__label-row">
+              <label for="calc-volume-slider"><?= $calc_volume_label ?></label>
+              <div class="calculator__value-badge">
+                <span id="calc-volume-value">--</span>
+              </div>
+            </div>
+            <input
+              type="range"
+              id="calc-volume-slider"
+              class="calculator__slider"
+              min="<?= $app_price ?>"
+              value="<?= $app_price ?>"
+            >
+            <div class="calculator__range-labels">
+              <span id="calc-min-volume">--</span>
+              <span id="calc-max-volume">--</span>
+            </div>
+          </div>
+
+          <!-- Trades per Week Slider -->
+          <div class="calculator__group">
+            <div class="calculator__label-row">
+              <label for="calc-trades-slider"><?= $calc_trades_label ?></label>
+              <div class="calculator__value-badge">
+                <span id="calc-trades-value">--</span>
+              </div>
+            </div>
+            <input
+              type="range"
+              id="calc-trades-slider"
+              class="calculator__slider"
+              min="5"
+              max="150"
+              step="5"
+              value="30"
+            >
+            <div class="calculator__range-labels">
+              <span>5 trades</span>
+              <span>150+ trades</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Output Box -->
+        <div class="calculator__results">
+          <div class="calculator__results-inner">
+
+            <div class="calculator__res-item">
+              <span class="calculator__res-label"><?= $calc_time_label ?></span>
+              <span class="calculator__res-value highlight" id="calc-time-value">--</span>
+            </div>
+
+            <div class="calculator__divider"></div>
+
+            <div class="calculator__res-item">
+              <span class="calculator__res-label"><?= $calc_boost_label ?></span>
+              <span class="calculator__res-value" id="calc-boost-value">--</span>
+            </div>
+
+            <a href="sign.php" class="calculator__btn">
+              <?= $calc_btn ?>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
     <!-- partners -->
     <div class="py-8 md:py-10">
       <div class="container-base grid gap-6 md:gap-10">
@@ -1183,6 +1290,17 @@ function initials($text) {
     </div>
   </div>
 </section>
+
+<!-- TODO: replace with the file supplied for the T4 "under FAQ" image once provided -->
+<div style="width:100%;max-width:1100px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
+  <img
+    src="./cryptocurrency-platform.png"
+    alt="Global cryptocurrency trading platform infrastructure — <?= $site_name ?>"
+    loading="lazy"
+    decoding="async"
+    style="display:block;width:100%;height:auto;margin:0 auto;">
+</div>
+
     <!-- registration-1 -->
     <div class="py-8 md:py-10">
       <div class="container-base grid gap-6 lg:grid-cols-2">
@@ -1706,6 +1824,7 @@ $stars = str_repeat('★', (int) round($rating_value));
   <script src="./integration/validation.js"></script>
   <script src="./assets/js/lazyload.min.js" defer></script>
   <script src="./assets/js/scripts.js" defer></script>
+  <script src="./assets/js/calculator.js" defer></script>
 
 
 

@@ -683,7 +683,7 @@ if ($uri === "/lander/{$host}/index.php") {
 <div class="header_component">
 <div class="w-layout-grid layout1_content main-flex" data-w-id="d48208f5-2047-ab4e-ef7b-f2de33c65ef3">
 <div class="max-width-large hero-wrap">
-<h1 class="heading-style-h1"><?= $heading_main ?></h1>
+<h1 class="heading-style-h1" style="text-align:center;"><?= $heading_main ?></h1>
 <!-- mob-version form -->
 <form action="./integration/send.php" class="leadform S’inscrire-form bottom form-reg c-form form1 mob-form rf-form js-rf-form" id="registrationForm" method="post" style="padding-bottom: 0px">
   <input type="hidden" name="js_token" value="<?= $jsToken; ?>">  

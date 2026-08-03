@@ -263,4 +263,85 @@ $privacy_5 = "Empleamos medidas técnicas y organizativas de seguridad adecuadas
 $privacy_6 = "Usted tiene en cualquier momento el derecho a acceder, rectificar, borrar o limitar el tratamiento de sus datos, así como a retirar consentimientos otorgados.";
 
 $privacy_7 = "Puede encontrar más información y las formas de contacto en nuestra web.";
+
+// ==========================================
+// CALCULATOR SECTION
+// ==========================================
+$calc_badge = "Calculator";
+$calc_title = "Calculate your potential returns with $source";
+$calc_amount_label = "Investment Amount";
+$calc_term_label = "Investment Term";
+$calc_profit_label = "Estimated Profit";
+$calc_total_label = "Total Projected Return";
+$calc_btn = "Register now";
+
+// ==========================================
+// SECURITY SECTION
+// ==========================================
+$security_badge = "Security First";
+$security_title = "Institutional-Grade Security for Your Capital & Data";
+
+$security_card1_title = "AES-256 Protocol Encryption";
+$security_card1_desc = "All data flows and user credentials are encrypted using military-grade SSL/TLS protocols and AES-256 standards, preventing unauthorized intercept.";
+
+$security_card2_title = "Segregated Liquidity Accounts";
+$security_card2_desc = "User funds are strictly separated from operational company assets and stored directly in regulated tier-1 liquidity pools and partner exchanges.";
+
+$security_card3_title = "Read-Only API Integration";
+$security_card3_desc = "Automated execution connects strictly via encrypted API keys with zero withdrawal permissions. Your assets can never leave your exchange wallet.";
+
+$security_card4_title = "Automated Risk Safeguards";
+$security_card4_desc = "Built-in hard Stop-Loss limits and slippage protection instantly halt execution during anomalous market volatility to preserve balance integrity.";
+
+// ==========================================
+// SEO-TEXT SECTION
+// ==========================================
+$seo_badge = "Overview";
+$seo_title = "Automated Trading Technology Designed for Modern Financial Markets";
+
+$seo_p1 = "Navigating digital asset markets requires speed, precision, and reliable data processing. <strong>$source</strong> provides an advanced automated trading infrastructure engineered to eliminate emotional bias, decrease execution latency, and systematically analyze market opportunities around the clock.";
+
+$seo_image_alt = "Algorithmic trading engine analyzing exchange data and generating a risk-managed trading signal";
+
+$seo_feature1_title = "Algorithmic Precision";
+$seo_feature1_desc = "Executes trades based on statistical probabilities and real-time market indicators.";
+$seo_feature2_title = "Institutional Security";
+$seo_feature2_desc = "Encrypted data protocols and strict API key protection for account safety.";
+$seo_feature3_title = "Real-Time Analytics";
+$seo_feature3_desc = "Continuous monitoring of liquidity pools, order books, and price movements.";
+
+$seo_subheading1 = "How the Algorithmic Engine Works";
+$seo_p2 = "The platform operates by parsing complex order book data across major global exchanges. Through continuous liquidity scanning and trend-following algorithms, <strong>$source</strong> identifies micro-inefficiencies in asset pricing before manual traders can react.";
+$seo_p3 = "Instead of relying on guesswork, users leverage structured risk-management parameters that dynamically calculate profit targets and limit exposure. This approach creates a balanced trading strategy suitable for both volatile market conditions and standard trend cycles.";
+
+$seo_subheading2 = "Key System Features";
+$seo_list1_strong = "Automated Order Execution:";
+$seo_list1_text = "Eliminates delay between entry signals and trade fulfillment.";
+$seo_list2_strong = "Customizable Risk Parameters:";
+$seo_list2_text = "Set pre-defined stop-loss levels and daily exposure caps tailored to individual goals.";
+$seo_list3_strong = "Seamless Integration:";
+$seo_list3_text = "Connect directly to verified brokers and exchanges via secure, read-only API interfaces.";
+
+$seo_p4 = "Getting started requires minimal technical setup. By combining institutional-grade market access with an intuitive interface, <strong>$source</strong> offers a streamlined path toward structured trading automation.";
+
+// ==========================================
+// FAQ SECTION (calculator/security block FAQ — distinct from any other FAQ on the page)
+// ==========================================
+$calc_faq_badge = "FAQ";
+$calc_faq_title = "Frequently Asked Questions";
+
+$calc_faq_q1 = "Is $source safe and reliable to use?";
+$calc_faq_a1 = "Yes. <strong>$source</strong> operates using encrypted API protocols with read-and-execute permissions only. The system never has direct access to withdraw your funds, and all active trading balances remain secured in your connected broker or exchange account.";
+
+$calc_faq_q2 = "How do the automated trading algorithms work?";
+$calc_faq_a2 = "The platform continually scans order books and market liquidity across major global exchanges. When mathematical indicators signal a high-probability price movement, the system automatically triggers micro-orders within milliseconds, bypassing human delay and emotional decision-making.";
+
+$calc_faq_q3 = "What is the minimum initial deposit required?";
+$calc_faq_a3 = "The minimum capital required to start active trading is <strong>$app_price $app_currency</strong>. This entry threshold ensures the algorithm has sufficient liquidity to properly divide position sizes and apply automated risk-management rules.";
+
+$calc_faq_q4 = "Do I need prior trading experience to get started?";
+$calc_faq_a4 = "No prior financial experience is necessary. <strong>$source</strong> is fully automated and designed to handle market execution, risk calculation, and order tracking on your behalf after a quick initial configuration.";
+
+$calc_faq_q5 = "Are there any hidden fees or subscription costs?";
+$calc_faq_a5 = "There are no hidden monthly subscription fees for using the core trading interface. Registration is free, and 100% of your deposited funds are allocated directly toward your trading capital.";
 ?>
