@@ -341,6 +341,7 @@ $canonical = 'https://' . $host . $uri;
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3"><?= $privacy_s4_title ?></h2>
     <p><?= $privacy_s4_text ?></p>
+    <p><?= $privacy_google_choices ?></p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3"><?= $privacy_s5_title ?></h2>

@@ -6,6 +6,7 @@ $site_domain = "{{DOMAIN}}";
 $site_url = "";
 $rating_value = 4.6;
 $rating_count = 2648;
+$review_count = 134; // fixed (not randomized per page load) per JSON-LD requirements
 $app_currency = "EUR";
 $site_lang = "it-IT";
 // Reviews
@@ -318,6 +319,7 @@ $privacy_s3_title = "3. Data Sharing";
 $privacy_s3_text = "We may share data with partners, providers, and authorities if required.";
 $privacy_s4_title = "4. Cookies";
 $privacy_s4_text = "We use cookies for functionality and analytics. You can disable them.";
+$privacy_google_choices = 'You can manage how Google uses information from your visits through <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>, opt out of interest-based advertising using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>, or review <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" rel="noopener">Google\'s Privacy Policy</a> for more details.';
 $privacy_s5_title = "5. Data Retention";
 $privacy_s5_text = "Data is stored only as long as necessary.";
 $privacy_s6_title = "6. International Transfers";

@@ -67,20 +67,61 @@ if ($uri === "/lander/{$host}/index.php") {
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "logo": {
+    "@type": "ImageObject",
+    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+  },
+  "description": <?= json_encode($page_description_main) ?>,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": <?= json_encode($site_url . '/contact.php') ?>
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
   "@type": "SoftwareApplication",
-  "name": "<?= $site_name ?>",
-  "operatingSystem": "ANDROID, iOS",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url . '/') ?>,
+  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "description": <?= json_encode($page_description_main) ?>,
   "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web Browser",
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "<?= $rating_value ?>",
-    "ratingCount": "<?= $rating_count ?>"
+    "ratingValue": <?= json_encode((float) $rating_value) ?>,
+    "bestRating": 5,
+    "worstRating": 1,
+    "ratingCount": <?= json_encode((int) $rating_count) ?>,
+    "reviewCount": <?= json_encode((int) $review_count) ?>
   },
   "offers": {
     "@type": "Offer",
-    "price": "<?= $app_price ?>",
-    "priceCurrency": "<?= $app_currency ?>"
+    "price": <?= json_encode((string) $app_price) ?>,
+    "priceCurrency": <?= json_encode($app_currency) ?>,
+    "availability": "https://schema.org/InStock"
+  },
+  "author": {
+    "@type": "Brand",
+    "name": <?= json_encode($site_name) ?>
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "description": <?= json_encode($page_description_main) ?>,
+  "inLanguage": <?= json_encode($site_lang) ?>
 }
 </script>
 <link href="./favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"/>
@@ -98,6 +139,14 @@ if ($uri === "/lander/{$host}/index.php") {
 <title><?= $page_title_main ?></title>
 <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
 <meta content="website" property="og:type"/>
+<meta content="<?= $site_name ?>" property="og:site_name"/>
+<meta content="<?= $site_url ?>/" property="og:url"/>
+<meta content="<?= $page_title_main ?>" property="og:title"/>
+<meta content="<?= $page_description_main ?>" property="og:description"/>
+<meta content="<?= $site_url ?>/favicon-96x96.png" property="og:image"/>
+<meta content="96" property="og:image:width"/>
+<meta content="96" property="og:image:height"/>
+<meta content="<?= $site_name ?> logo" property="og:image:alt"/>
 <meta content="<?= $page_description_main ?>" name="description"/>
 <meta content="summary_large_image" name="twitter:card">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>

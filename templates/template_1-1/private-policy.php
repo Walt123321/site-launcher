@@ -494,6 +494,9 @@ $canonical = 'https://' . $host . $uri;
 <p class="text-size-regular" style="text-align: center;">
   <?= $private_policy_section_11_text ?>
 </p>
+<p class="text-size-regular" style="text-align: center;">
+  <?= $private_policy_google_choices ?>
+</p>
 
 <h3 class="heading-style-h4" style="margin-top: 40px;"><?= $private_policy_section_12_heading ?></h3>
 <p class="text-size-regular" style="text-align: center;">

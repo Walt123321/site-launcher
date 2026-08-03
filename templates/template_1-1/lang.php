@@ -5,6 +5,7 @@ $site_url = "https://finora-ai.org";
 $app_price = 250;
 $rating_value = 4.7;
 $rating_count = 1808;
+$review_count = 87; // fixed (not randomized per page load) per JSON-LD requirements
 $app_currency = "EUR";
 $site_lang = "en-GB";
 $adress_name = "120 Friedrich Street, Berlin 10117, Germany";
@@ -393,6 +394,7 @@ $private_policy_section_10_list = [
 
 $private_policy_section_11_heading = "11. Cookies and Similar Technologies";
 $private_policy_section_11_text = "We use cookies and similar technologies to ensure platform functionality, analyze usage patterns, and improve user experience. Essential cookies are always active, while analytics and marketing cookies require your consent. Additional details can be found in our Cookie Policy.";
+$private_policy_google_choices = 'You can manage how Google uses information from your visits through <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>, opt out of interest-based advertising using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>, or review <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" rel="noopener">Google\'s Privacy Policy</a> for more details.';
 
 $private_policy_section_12_heading = "12. Changes to This Privacy Policy";
 $private_policy_section_12_text = "We may update this Privacy Policy from time to time due to legal, regulatory, or operational changes. The most recent version will always be available on the website. Where significant changes occur, we may notify you by email or through platform notifications.";

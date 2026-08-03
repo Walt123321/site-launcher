@@ -58,38 +58,21 @@ else {
     <link rel="apple-touch-icon" href="./favicon-96x96.png" />
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= $site_name ?> | Advanced AI Trading Platform">
-    <meta property="og:description" content="Access global cryptocurrency markets with institutional low-latency execution, automated AI trading models, and multi-tenant secure    core infrastructure.">
-    <meta property="og:image" content="./app_cryptocurrency.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="480">
-    <meta property="og:image:height" content="800">
     <meta property="og:site_name" content="<?= $site_name ?>">
+    <meta property="og:url" content="<?= $site_url ?>/">
+    <meta property="og:title" content="<?= $home_meta_title ?>">
+    <meta property="og:description" content="<?= $home_meta_description ?>">
+    <meta property="og:image" content="<?= $site_url ?>/app_cryptocurrency.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="909">
+    <meta property="og:image:height" content="1731">
+    <meta property="og:image:alt" content="<?= $site_name ?> logo">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= $site_name ?> | Advanced AI Trading Platform">
     <meta name="twitter:description" content="Access global cryptocurrency markets with institutional low-latency execution, automated AI trading models, and multi-tenant  secure core infrastructure.">
     <meta name="twitter:image" content="./app_cryptocurrency.png">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "<?= $site_url ?>/#organization",
-          "name": "<?= $site_name ?>",
-          "url": "<?= $site_url ?>"
-        },
-        {
-          "@type": "WebSite",
-          "@id": "<?= $site_url ?>/#website",
-          "url": "<?= $site_url ?>",
-          "name": "<?= $site_name ?>"
-        }
-      ]
-    }
-    </script>
     <script type="application/ld+json">
     {
     "@context": "https://schema.org/",
@@ -111,23 +94,65 @@ else {
     ]
     }
     </script>
+
     <script type="application/ld+json">
     {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "<?= $site_name ?>",
-    "operatingSystem": "ANDROID, iOS",
-    "applicationCategory": "FinanceApplication",
-    "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "<?= $rating_value ?>",
-        "ratingCount": "<?= $rating_count ?>"
-    },
-    "offers": {
-        "@type": "Offer",
-        "price": "<?= $app_price ?>",
-        "priceCurrency": "<?= $app_currency ?>"
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": <?= json_encode($site_name) ?>,
+      "url": <?= json_encode($site_url) ?>,
+      "logo": {
+        "@type": "ImageObject",
+        "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+      },
+      "description": <?= json_encode($home_meta_description) ?>,
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": <?= json_encode($site_url . '/contact.php') ?>
+      }
     }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "SoftwareApplication",
+      "name": <?= json_encode($site_name) ?>,
+      "url": <?= json_encode($site_url . '/') ?>,
+      "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+      "description": <?= json_encode($home_meta_description) ?>,
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": <?= json_encode((float) $rating_value) ?>,
+        "bestRating": 5,
+        "worstRating": 1,
+        "ratingCount": <?= json_encode((int) $rating_count) ?>,
+        "reviewCount": <?= json_encode((int) $review_count) ?>
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": <?= json_encode((string) $app_price) ?>,
+        "priceCurrency": <?= json_encode($app_currency) ?>,
+        "availability": "https://schema.org/InStock"
+      },
+      "author": {
+        "@type": "Brand",
+        "name": <?= json_encode($site_name) ?>
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": <?= json_encode($site_name) ?>,
+      "url": <?= json_encode($site_url) ?>,
+      "description": <?= json_encode($home_meta_description) ?>,
+      "inLanguage": <?= json_encode($site_lang) ?>
     }
     </script>
 

@@ -75,20 +75,61 @@ function initials($text) {
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "logo": {
+    "@type": "ImageObject",
+    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+  },
+  "description": <?= json_encode($home_meta_description) ?>,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": <?= json_encode($site_url . '/contacts.php') ?>
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
   "@type": "SoftwareApplication",
-  "name": "<?= $site_name ?>",
-  "operatingSystem": "ANDROID, iOS",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url . '/') ?>,
+  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "description": <?= json_encode($home_meta_description) ?>,
   "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web Browser",
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "<?= $rating_value ?>",
-    "ratingCount": "<?= $rating_count ?>"
+    "ratingValue": <?= json_encode((float) $rating_value) ?>,
+    "bestRating": 5,
+    "worstRating": 1,
+    "ratingCount": <?= json_encode((int) $rating_count) ?>,
+    "reviewCount": <?= json_encode((int) $review_count) ?>
   },
   "offers": {
     "@type": "Offer",
-    "price": "<?= $app_price ?>",
-    "priceCurrency": "<?= $app_currency ?>"
+    "price": <?= json_encode((string) $app_price) ?>,
+    "priceCurrency": <?= json_encode($app_currency) ?>,
+    "availability": "https://schema.org/InStock"
+  },
+  "author": {
+    "@type": "Brand",
+    "name": <?= json_encode($site_name) ?>
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "description": <?= json_encode($home_meta_description) ?>,
+  "inLanguage": <?= json_encode($site_lang) ?>
 }
 </script>
   <meta name="msvalidate.01" content="688C28A9085E183027B817E185356A11" />
@@ -99,6 +140,15 @@ function initials($text) {
     <title><?= $home_meta_title ?></title>
     <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
     <meta name="description" content="<?= $home_meta_description ?>" />
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="<?= $site_name ?>">
+    <meta property="og:url" content="<?= $site_url ?>/">
+    <meta property="og:title" content="<?= $home_meta_title ?>">
+    <meta property="og:description" content="<?= $home_meta_description ?>">
+    <meta property="og:image" content="<?= $site_url ?>/favicon-96x96.png">
+    <meta property="og:image:width" content="96">
+    <meta property="og:image:height" content="96">
+    <meta property="og:image:alt" content="<?= $site_name ?> logo">
     <link rel="stylesheet" href="./integration/default-integration.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
 <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />

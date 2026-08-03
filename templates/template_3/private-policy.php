@@ -305,6 +305,10 @@ $canonical = 'https://' . $host . $uri;
     </p>
 
     <p style="text-align: center; max-width: 1000px; margin: 20px auto 0 auto;" class="leaders__description">
+        <?= $privacy_google_choices ?>
+    </p>
+
+    <p style="text-align: center; max-width: 1000px; margin: 20px auto 0 auto;" class="leaders__description">
         <?= $privacy_7 ?>
     </p>
 

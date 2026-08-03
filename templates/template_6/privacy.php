@@ -54,6 +54,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
             <h2><?= $privacy_h2_sharing ?></h2>
             <p><?= $privacy_p_sharing ?></p>
+            <p><?= $privacy_google_choices ?></p>
 
             <h2><?= $privacy_h2_security ?></h2>
             <p><?= $privacy_p_security ?></p>

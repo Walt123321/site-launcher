@@ -5,6 +5,7 @@ $site_url = "https://{{DOMAIN}}";
 $app_price = 250;
 $rating_value = 4.6;
 $rating_count = 2648;
+$review_count = 112; // fixed (not randomized per page load) per JSON-LD requirements
 $app_currency = "EUR";
 $site_lang = "it-IT";
 
@@ -261,6 +262,8 @@ $privacy_4 = "La comunicación de datos se realiza exclusivamente a proveedores 
 $privacy_5 = "Empleamos medidas técnicas y organizativas de seguridad adecuadas. Los datos se conservan solo durante el tiempo exigido por la ley o mientras sea necesario para el propósito correspondiente.";
 
 $privacy_6 = "Usted tiene en cualquier momento el derecho a acceder, rectificar, borrar o limitar el tratamiento de sus datos, así como a retirar consentimientos otorgados.";
+
+$privacy_google_choices = 'Puede gestionar cómo utiliza Google la información de sus visitas a través de <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>, excluirse de la publicidad basada en intereses con el <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">complemento de inhabilitación para navegadores de Google Analytics</a>, o consultar la <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" rel="noopener">Política de Privacidad de Google</a> para más información.';
 
 $privacy_7 = "Puede encontrar más información y las formas de contacto en nuestra web.";
 

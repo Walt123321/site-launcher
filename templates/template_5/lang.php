@@ -6,6 +6,7 @@ $site_domain = "{{DOMAIN}}";
 $site_url = "https://$site_domain";
 $rating_value = 4.6;
 $rating_count = 2648;
+$review_count = 68; // fixed (not randomized per page load) per JSON-LD requirements
 $app_currency = "EUR";
 $site_lang = "en-US";
 $country_name = "United Kingdom";
@@ -453,6 +454,7 @@ $privacy_p_prot_2 = "However, no online system can guarantee absolute security. 
 $privacy_h2_third = "Third-Party Service Providers";
 $privacy_p_third_1 = "$site_name may use third-party providers for hosting, analytics, communication, security, email delivery, CRM processing, or technical infrastructure.";
 $privacy_p_third_2 = "These providers may process limited information only as necessary to support website functionality and related services.";
+$privacy_google_choices = 'You can manage how Google uses information from your visits through <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>, opt out of interest-based advertising using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>, or review <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" rel="noopener">Google\'s Privacy Policy</a> for more details.';
 $privacy_h2_sale = "No Sale Of Personal Information";
 $privacy_p_sale_1 = "$site_name does not intend to sell personal information submitted through this website.";
 $privacy_p_sale_2 = "Information may be shared only when necessary for operational purposes, legal compliance, user communication, fraud prevention, or service-related processing.";

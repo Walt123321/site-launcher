@@ -6,6 +6,7 @@ $site_domain = "test.com";
 $site_url = "https://$site_domain";
 $rating_value = 4.6;
 $rating_count = 2648;
+$review_count = 95; // fixed (not randomized per page load) per JSON-LD requirements
 $app_currency = "EUR";
 $site_lang = "en-US";
 $country_name = "United Kingdom";
@@ -552,6 +553,7 @@ $privacy_h2_use = "How We Use Your Information";
 $privacy_p_use = "We use your information to provide and improve the Platform, to communicate with you, to verify your identity, and to comply with legal obligations.";
 $privacy_h2_sharing = "Sharing of Information";
 $privacy_p_sharing = "We do not sell your personal data. We may share information with trusted service providers who help us operate the Platform, subject to confidentiality obligations.";
+$privacy_google_choices = 'You can manage how Google uses information from your visits through <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>, opt out of interest-based advertising using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>, or review <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" rel="noopener">Google\'s Privacy Policy</a> for more details.';
 $privacy_h2_security = "Data Security";
 $privacy_p_security = "We use industry-standard technical and organizational measures to protect your data, including encryption of data in transit.";
 $privacy_h2_rights = "Your Rights";
