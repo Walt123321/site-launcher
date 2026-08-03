@@ -73,6 +73,7 @@ $canonical = 'https://' . $host . $uri;
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
   <title><?= $page_title_register ?></title>
+  <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
   <meta name="description" content="<?= $page_description_register ?>">
   <link rel="stylesheet" href="css/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/main-1.css">

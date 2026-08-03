@@ -14,7 +14,7 @@ $review_2_author = "Independent Trader";
 $review_3_author = "Digital Asset Trader";
 $review_4_author = "Passive Income Seeker";
 // MAIN TITLE/DESCRIPTION
-$home_meta_title = "$site_name | AI Trading Platform";
+$home_meta_title = "$site_name — Official Website | Trading Platform";
 $home_meta_description = "$site_name ⭐ — intelligent AI trading platform for real-time market analysis and clear trading signals ⚡ Try smart tools & insights with a guided tour.";
 $hero_text = "Experience a new era of trading with our advanced crypto trading platform. With $site_name AI technology, you can optimise your returns and make informed investment decisions.";
 

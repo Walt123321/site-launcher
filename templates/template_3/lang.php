@@ -30,7 +30,7 @@ $feedback_description_5 = "Funziona davvero! Ho iniziato ad usare la piattaforma
 $feedback_description_6 = "Sono stato licenziato due settimane fa. Pensavo fosse la fine. Ma ora guadagno circa 3.000 euro a settimana! Potrebbe non sembrare molto, ma per la prima volta da tanto tempo, ho di nuovo la speranza di un futuro stabile. Grazie mille!";
 
 // T,D MAIN
-$page_title_main = "$source – Guadagni automatici con trading AI | Registrati ora";
+$page_title_main = "$source — Official Website | Trading Platform";
 $page_description_main = "Scopri $source, la piattaforma di trading con intelligenza artificiale. Analisi automatica delle criptovalute, registrazione veloce e opportunità di guadagno per utenti in Italia.";
 
 

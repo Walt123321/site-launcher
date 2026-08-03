@@ -19,7 +19,7 @@ $review_4_author = "Passive Income Seeker";
 
 
 // META TITLE / DESCRIPTION (per page)
-$home_meta_title = "$site_name | AI Trading Platform";
+$home_meta_title = "$site_name — Official Website | Trading Platform";
 $home_meta_description = "$site_name ⭐ — intelligent AI trading platform for real-time market analysis and clear trading signals ⚡ Try smart tools & insights with a guided tour.";
 
 

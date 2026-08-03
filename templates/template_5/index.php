@@ -40,6 +40,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
 <?php include 'includes/head-start.php'; ?>
     <title><?= $home_meta_title ?></title>
+    <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
     <meta name="description" content="<?= $home_meta_description ?>" />
     <meta property="og:title" content="<?= $home_meta_title ?>">
     <meta property="og:description" content="<?= $home_meta_description ?>">
@@ -153,118 +154,73 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
             <!-- RIGHT -->
             <div class="hero-visual">
 
-                <div class="terminal-preview">
+                <form
+                    class="hero-lead-form contact-form leadform rf-form js-rf-form"
+                    action="./integration/send.php"
+                    method="post"
+                    id="hero-lead-form"
+                >
+                    <input type="hidden" name="js_token" value="<?= $jsToken ?>">
+                    <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
+                        <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        <input type="text" name="company" style="position:absolute; left:-9999px;">
+                    </div>
+                    <input type="hidden" name="country" value="<?= $form_country ?>">
+                    <input type="hidden" name="language" value="<?= $form_language ?>">
+                    <input type="hidden" name="phone_country" value="<?= $form_phone_country ?>">
+                    <input type="hidden" name="only_countries" value='<?= $form_only_countries ?>'>
+                    <div class="form-preloader hidden">
+                        <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
+                        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                        </svg>
+                    </div>
 
-                    <div class="terminal-preview-top">
+                    <div class="section-heading" style="margin-bottom: 16px;">
+                        <span id="higher"><?= mb_strtoupper($home_contact_eyebrow, 'UTF-8') ?></span>
+                        <h2 style="font-size: 22px;"><?= $home_contact_title ?></h2>
+                    </div>
 
-                        <div class="terminal-dots">
-                            <span class="terminal-dot red"></span>
-                            <span class="terminal-dot yellow"></span>
-                            <span class="terminal-dot green"></span>
-                        </div>
+                    <div class="form-grid">
 
-                        <div class="terminal-preview-title">
-                            <?= $home_terminal_title ?>
-                        </div>
+                        <input
+                            type="text"
+                            name="fname"
+                            placeholder="<?= $home_form_fname ?>"
+                            required
+                        >
 
-                        <div class="terminal-preview-status">
-                            <span class="live-circle"></span>
-                            LIVE
-                        </div>
+                        <input
+                            type="text"
+                            name="lname"
+                            placeholder="<?= $home_form_lname ?>"
+                            required
+                        >
 
                     </div>
 
-                    <div class="terminal-preview-body">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="<?= $home_form_email ?>"
+                        required
+                    >
 
-                        <div class="terminal-main-signal">
+                    <input
+                        type="tel"
+                        name="fullphone"
+                        placeholder=""
+                        required
+                    >
+                    <span class="error-msg hide"></span>
 
-                            <div>
-                                <span class="terminal-label"><?= $home_terminal_insight_label ?></span>
-                                <h3 id="heroSignalPair"><?= $js_hero_long_pair ?></h3>
-                            </div>
+                    <button
+                        type="submit"
+                        class="submit-btn submit"
+                    >
+                        <?= $home_form_submit_access ?>
+                    </button>
 
-                            <div class="hero-signal-badge" id="heroSignalBadge">
-                                LONG
-                            </div>
-
-                        </div>
-
-                        <div class="hero-live-chart">
-
-                            <svg viewBox="0 0 720 260" preserveAspectRatio="none">
-
-                                <defs>
-                                    <linearGradient id="heroLineGradient" x1="0" y1="0" x2="1" y2="1">
-                                        <stop offset="0%" stop-color="#10b981"/>
-                                        <stop offset="100%" stop-color="#3b82f6"/>
-                                    </linearGradient>
-
-                                    <linearGradient id="heroAreaGradient" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="#10b981" stop-opacity=".24"/>
-                                        <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-                                    </linearGradient>
-                                </defs>
-
-                                <path
-                                    id="heroChartArea"
-                                    d="M0 215 C120 180 220 205 340 135 C460 65 560 92 720 42 L720 260 L0 260 Z"
-                                    fill="url(#heroAreaGradient)"
-                                />
-
-                                <path
-                                    id="heroChartPath"
-                                    d="M0 215 C120 180 220 205 340 135 C460 65 560 92 720 42"
-                                    fill="none"
-                                    stroke="url(#heroLineGradient)"
-                                    stroke-width="5"
-                                    stroke-linecap="round"
-                                />
-
-                            </svg>
-
-                        </div>
-
-                        <div class="terminal-metrics">
-
-                            <div class="terminal-metric">
-                                <span><?= $home_label_ai_confidence ?></span>
-                                <strong id="heroConfidence">94%</strong>
-                            </div>
-
-                            <div class="terminal-metric">
-                                <span><?= $home_label_update_speed ?></span>
-                                <strong id="heroExecution">11ms</strong>
-                            </div>
-
-                            <div class="terminal-metric">
-                                <span><?= $home_label_market_mode ?></span>
-                                <strong id="heroRegime"><?= $js_hero_long_regime ?></strong>
-                            </div>
-
-                        </div>
-
-                        <div class="terminal-feed">
-
-                            <div class="terminal-feed-item positive">
-                                <span></span>
-                                <?= $home_terminal_feed_1 ?>
-                            </div>
-
-                            <div class="terminal-feed-item neutral">
-                                <span></span>
-                                <?= $home_terminal_feed_2 ?>
-                            </div>
-
-                            <div class="terminal-feed-item positive">
-                                <span></span>
-                                <?= $home_terminal_feed_3 ?>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                </form>
 
             </div>
 

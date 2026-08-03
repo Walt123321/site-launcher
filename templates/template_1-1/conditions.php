@@ -83,6 +83,7 @@ $canonical = 'https://' . $host . $uri;
   <link rel="stylesheet" href="./integration/default-integration.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
 <title><?= $page_title_conditions ?></title>
+<meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
 <meta property="og:type" content="website" />
 <meta name="description" content="<?= $page_description_conditions ?>">
   <meta content="summary_large_image" name="twitter:card" />

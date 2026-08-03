@@ -41,6 +41,7 @@ $active_translation = $thanks_translations[$language] ?? $thanks_translations['e
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= htmlspecialchars($active_translation['title']) ?></title>
+    <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
     <link rel="stylesheet" href="thx/thx.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 

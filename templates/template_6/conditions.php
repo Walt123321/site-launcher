@@ -27,6 +27,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
 <?php include 'includes/head-start.php'; ?>
     <title><?= $conditions_meta_title ?></title>
+    <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
     <meta name="description" content="<?= $conditions_meta_description ?>" />
     <meta property="og:title" content="<?= $conditions_meta_title ?>">
     <meta property="og:description" content="<?= $conditions_meta_description ?>">

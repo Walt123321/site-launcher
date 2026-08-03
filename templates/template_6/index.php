@@ -46,6 +46,7 @@ else {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="<?= $canonical ?>">
     <title><?= $home_meta_title ?></title>
+    <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
     <meta name="description" content="<?= $home_meta_description ?>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

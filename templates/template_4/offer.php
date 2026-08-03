@@ -66,6 +66,7 @@ $canonical = 'https://' . $host . $uri;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?= $offer_meta_title ?></title>
+    <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
     <meta name="description" content="<?= $offer_meta_description ?>" />
     <!-- Favicon -->
 <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />

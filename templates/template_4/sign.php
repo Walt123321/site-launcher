@@ -64,6 +64,7 @@ $canonical = 'https://' . $host . $uri;
 }
 </script>
     <title><?= $sign_meta_title ?></title>
+    <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="<?= $sign_meta_description ?>" />

@@ -15,7 +15,7 @@ $feedback_strong_1 = "Elias, 31, Hamburg";
 $feedback_strong_2 = "Sophie, 36, Munich";
 $feedback_strong_3 = "Lukas, 42, Cologne";
 $feedback_strong_4 = "Miriam, 47, Stuttgart";
-$page_title_main = "$source — Official, secure & trusted: AI-powered crypto platform with autopilot, verified";
+$page_title_main = "$source — Official Website | Trading Platform";
 $page_description_main = "$source — Official and verified. 🚀 AI autopilot for maximum security. ✅ Trusted platform with capital protection and consistent results. 🔒 Get started today. ⭐";
 
 

@@ -27,6 +27,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
 <?php include 'includes/head-start.php'; ?>
     <title><?= $contact_meta_title ?></title>
+    <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
     <meta name="description" content="<?= $contact_meta_description ?>" />
     <meta property="og:title" content="<?= $contact_meta_title ?>">
     <meta property="og:description" content="<?= $contact_meta_description ?>">

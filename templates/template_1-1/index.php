@@ -96,6 +96,7 @@ if ($uri === "/lander/{$host}/index.php") {
 <link href="./integration/default-integration.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" rel="stylesheet"/>
 <title><?= $page_title_main ?></title>
+<meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
 <meta content="website" property="og:type"/>
 <meta content="<?= $page_description_main ?>" name="description"/>
 <meta content="summary_large_image" name="twitter:card">
