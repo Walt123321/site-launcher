@@ -347,4 +347,42 @@ $calc_faq_a4 = "No prior financial experience is necessary. <strong>$source</str
 
 $calc_faq_q5 = "Are there any hidden fees or subscription costs?";
 $calc_faq_a5 = "There are no hidden monthly subscription fees for using the core trading interface. Registration is free, and 100% of your deposited funds are allocated directly toward your trading capital.";
+
+// ==========================================
+// RISK WARNING PAGE
+// ==========================================
+$page_title_risk_warning = "Risk Warning | $source";
+$page_description_risk_warning = "Understand the risks of automated crypto trading with $source, including market volatility, execution risk, and regulatory considerations.";
+$risk_warning_title = "Risk Warning";
+$risk_warning_intro = "Understanding risks is the first step toward confident trading.";
+
+$risk_warning_ai_heading = "How Our AI System Helps Manage Risk:";
+$risk_warning_ai_1 = "<strong>Algorithmic Efficiency & Emotionless Trading:</strong> Advanced algorithms analyze market signals to execute trades objectively at optimal moments.";
+$risk_warning_ai_2 = "<strong>Data-Driven Strategies:</strong> Strategies are based on verified market patterns and real-time analysis rather than guesswork.";
+$risk_warning_ai_3 = "<strong>Flexible Settings & Full Control:</strong> Adjust your risk parameters anytime. Track all balances and trades transparently on your dashboard with no hidden fees and restriction-free withdrawals.";
+
+$risk_warning_disclaimer = "<strong>Disclaimer:</strong> Trading always carries risk. Automated systems (including AI) do not guarantee profit, can fail due to software errors or unexpected market events, and require user monitoring. Past performance is not indicative of future results. This platform serves purely informational and marketing purposes and does not provide financial advice.";
+
+$risk_warning_s1_heading = "1. General & Cryptocurrency Market Risks";
+$risk_warning_s1_intro = "Cryptocurrencies are highly volatile, speculative assets that operate 24/7 with minimal regulatory oversight in most jurisdictions.";
+$risk_warning_s1_1 = "Values can fluctuate dramatically within short periods, potentially leading to a total loss of invested capital.";
+$risk_warning_s1_2 = "Market values can be heavily impacted by regulatory updates, technical developments, security breaches, or broader macroeconomic events.";
+$risk_warning_s1_3 = "Some assets may lose all value completely. Invest only funds you can afford to lose.";
+
+$risk_warning_s2_heading = "2. Execution, Liquidity & Leverage Risks";
+$risk_warning_s2_1 = "<strong>Market Volatility & Liquidity:</strong> Extreme price movements (10–20%+ daily) or low liquidity (especially in smaller coins) can lead to delays, platform outages, and severe execution slippage. Stop-loss orders cannot guarantee loss limits under extreme conditions.";
+$risk_warning_s2_2 = "<strong>Leverage & Margin Risks:</strong> Leveraged products amplify both gains and losses, meaning you can lose more than your initial deposit. Approximately 70–80% of retail investor accounts lose money when trading leveraged products.";
+
+$risk_warning_s3_heading = "3. Technical, Cybersecurity & Third-Party Risks";
+$risk_warning_s3_1 = "<strong>Technical Factors:</strong> Online trading inherently involves risks of internet disconnects, hardware/software errors, and service unavailability.";
+$risk_warning_s3_2 = "<strong>Cybersecurity:</strong> Cryptocurrency accounts are frequent targets for phishing, malware, and hacks. Transactions are irreversible; compromising your credentials can result in permanent loss.";
+$risk_warning_s3_3 = "<strong>Third-Party Platforms:</strong> This website may connect users to third-party platforms. We do not control, endorse, or guarantee their security, operations, or solvency. Always conduct your own due diligence before depositing funds on external platforms.";
+
+$risk_warning_s4_heading = "4. Regulatory, Tax & Final Provisions";
+$risk_warning_s4_1 = "<strong>Legal Compliance & Taxes:</strong> Regulatory frameworks vary widely and change rapidly. Users are solely responsible for ensuring their trading activity complies with local laws and for fulfilling their own tax obligations.";
+$risk_warning_s4_2 = "<strong>No Profit Guarantees:</strong> There is no \"safe\" or risk-free crypto trading. Any yield figures or performance examples are purely hypothetical.";
+$risk_warning_s4_3 = "<strong>Suitability:</strong> If you do not fully understand the risks, rely on essential funds, or trade with borrowed money, crypto trading is not suitable for you. Consult an independent licensed financial advisor if uncertain.";
+
+$risk_warning_contact = "<strong>Contact:</strong> For any questions regarding this statement or to submit an inquiry, please reach out to our official customer support team via the contact form on our website.";
+$footer_risk_warning = "Risk Warning";
 ?>

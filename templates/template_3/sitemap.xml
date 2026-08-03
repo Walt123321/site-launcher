@@ -25,4 +25,8 @@
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/about-us.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
 </urlset>

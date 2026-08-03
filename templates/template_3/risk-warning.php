@@ -72,9 +72,9 @@ $canonical = 'https://' . $host . $uri;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
-  <title><?= $page_title_contact ?></title>
+  <title><?= $page_title_risk_warning ?></title>
   <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
-  <meta name="description" content="<?= $page_description_contact ?>">
+  <meta name="description" content="<?= $page_description_risk_warning ?>">
   <link rel="stylesheet" href="css/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/main-1.css">
 
@@ -275,53 +275,61 @@ $canonical = 'https://' . $host . $uri;
               }
             </style>
 
-  <section class="welcome" aria-labelledby="welcome-title">
-  <section class="welcome" aria-labelledby="welcome-title">
-    <h1 style="text-align: center;"><?= $contact_title ?></h1>
+<section class="welcome" aria-labelledby="terms-title">
 
-    <p style="text-align: center; max-width: 1000px; margin: 0 auto;" class="leaders__description"><?= $contact_paragraph_1 ?></p>
+    <h1 id="terms-title" style="text-align: center;">
+        <?= $risk_warning_title ?>
+    </h1>
 
-    <h3 style="text-align: center; font-size: 32px"><?= $contact_subtitle ?></h3>
-    <p style="text-align: center; max-width: 1000px; margin: 0 auto;" class="leaders__description"><?= $contact_paragraph_2 ?></p>
+    <p style="text-align: center; max-width: 1000px; margin: 20px auto 0 auto;" class="leaders__description">
+        <?= $risk_warning_intro ?>
+    </p>
 
-    <ul class="welcome-list">
-        <?php foreach ($contact_list as $item): ?>
-            <li><?= $item ?></li>
-        <?php endforeach; ?>
+    <h3 style="text-align: center; margin-top: 32px;"><?= $risk_warning_ai_heading ?></h3>
+    <ul style="max-width: 1000px; margin: 16px auto 0 auto;">
+        <li><?= $risk_warning_ai_1 ?></li>
+        <li><?= $risk_warning_ai_2 ?></li>
+        <li><?= $risk_warning_ai_3 ?></li>
     </ul>
 
-    <div class="form" style="margin: 0 auto; margin-top: 40px; margin-bottom: 80px">
-      <form class="leadform rf-form js-rf-form" id="form" method="post" style="padding: 20px;" action="./integration/send.php">
-        <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
+    <p style="text-align: center; max-width: 1000px; margin: 24px auto 0 auto;" class="leaders__description">
+        <?= $risk_warning_disclaimer ?>
+    </p>
 
-        <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
-          <input type="text" name="website" tabindex="-1" autocomplete="off">
-          <input type="text" name="company" style="position:absolute; left:-9999px;">
-        </div>
+    <h3 style="text-align: center; margin-top: 32px;"><?= $risk_warning_s1_heading ?></h3>
+    <p style="text-align: center; max-width: 1000px; margin: 16px auto 0 auto;" class="leaders__description">
+        <?= $risk_warning_s1_intro ?>
+    </p>
+    <ul style="max-width: 1000px; margin: 16px auto 0 auto;">
+        <li><?= $risk_warning_s1_1 ?></li>
+        <li><?= $risk_warning_s1_2 ?></li>
+        <li><?= $risk_warning_s1_3 ?></li>
+    </ul>
 
+    <h3 style="text-align: center; margin-top: 32px;"><?= $risk_warning_s2_heading ?></h3>
+    <ul style="max-width: 1000px; margin: 16px auto 0 auto;">
+        <li><?= $risk_warning_s2_1 ?></li>
+        <li><?= $risk_warning_s2_2 ?></li>
+    </ul>
 
-        <input type="hidden" name="country" value="<?= $form_country; ?>">
-        <input type="hidden" name="language" value="<?= $form_language; ?>">
-        <input type="hidden" name="phone_country" value="<?= $form_phone_country; ?>">
-        <input type="hidden" name="only_countries" value='<?= $form_only_countries; ?>'>
+    <h3 style="text-align: center; margin-top: 32px;"><?= $risk_warning_s3_heading ?></h3>
+    <ul style="max-width: 1000px; margin: 16px auto 0 auto;">
+        <li><?= $risk_warning_s3_1 ?></li>
+        <li><?= $risk_warning_s3_2 ?></li>
+        <li><?= $risk_warning_s3_3 ?></li>
+    </ul>
 
+    <h3 style="text-align: center; margin-top: 32px;"><?= $risk_warning_s4_heading ?></h3>
+    <ul style="max-width: 1000px; margin: 16px auto 0 auto;">
+        <li><?= $risk_warning_s4_1 ?></li>
+        <li><?= $risk_warning_s4_2 ?></li>
+        <li><?= $risk_warning_s4_3 ?></li>
+    </ul>
 
-        <div class="form-preloader hidden">
-          <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
-              <circle class="path" cx="25" cy="25" r="20" fill="none"   stroke-width="5"></circle>
-          </svg>
-        </div>
+    <p style="text-align: center; max-width: 1000px; margin: 24px auto 0 auto;" class="leaders__description">
+        <?= $risk_warning_contact ?>
+    </p>
 
-        <input type="text" placeholder="<?= $contact_form_fname ?>" name="fname" required="">
-        <input type="text" placeholder="<?= $contact_form_lname ?>" name="lname" required="">
-        <input type="email" placeholder="<?= $contact_form_email ?>" name="email" required="">
-        <input type="tel" name="fullphone" required="">
-        <span class="error-msg hide"></span>
-        <button type="submit" class="submit" style="width: 100%"><?= $contact_form_submit ?></button>
-      </form>
-    </div>
-
-    <p style="text-align: center; max-width: 1000px; margin: 0 auto;" class="leaders__description"><?= $contact_paragraph_3 ?></p>
 </section>
 
 
@@ -890,28 +898,6 @@ $canonical = 'https://' . $host . $uri;
   </script>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
   <script src="./integration/validation.js"></script>
-
-<script>
-let links = document.querySelectorAll('a');
-let form = document.querySelector('#form2');
-
-links.forEach((el) => {
-    el.addEventListener('click', (e) => {
-
-        let href = el.getAttribute('href');
-
-        if (!href || href === "#" || href.trim() === "") {
-            e.preventDefault();
-
-            form.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
-        }
-
-    });
-});
-</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {

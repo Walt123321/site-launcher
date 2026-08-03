@@ -71,7 +71,6 @@ $canonical = 'https://' . $host . $uri;
 <link rel="shortcut icon" href="./favicon.svg" />
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
 <link rel="manifest" href="site.webmanifest" />
-  
   <style>
     .wf-force-outline-none[tabindex="-1"]:focus {
       outline: none;
@@ -83,10 +82,10 @@ $canonical = 'https://' . $host . $uri;
   </style>
   <link rel="stylesheet" href="./integration/default-integration.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
-<title><?= $page_title_about ?></title>
+<title><?= $page_title_risk_warning ?></title>
 <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
 <meta property="og:type" content="website" />
-<meta name="description" content="<?= $page_description_about ?>">
+<meta name="description" content="<?= $page_description_risk_warning ?>">
   <meta content="summary_large_image" name="twitter:card" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="Webflow" name="generator" />
@@ -278,7 +277,6 @@ $canonical = 'https://' . $host . $uri;
       display: flex;
       justify-content: space-between;
       width: 100%;
-      flex-wrap: wrap;
     }
 
     .slider-label {
@@ -314,22 +312,22 @@ $canonical = 'https://' . $host . $uri;
 
     <nav class="navbar_menu is-page-height-tablet w-nav-menu" role="navigation">
       <div class="navbar_menu-links">
-        <a class="navbar_link w-nav-link" href="<?= $site_url ?>/#why-invest" style="background-color: transparent">
+        <a class="navbar_link w-nav-link" href="<?= $site_url ?>#why-invest" style="background-color: transparent">
           <?= $text_why_invest ?>
         </a>
-        <a class="navbar_link w-nav-link" href="<?= $site_url ?>/#pricing" style="background-color: transparent">
+        <a class="navbar_link w-nav-link" href="<?= $site_url ?>#pricing" style="background-color: transparent">
           <?= $text_how_to_invest ?>
         </a>
         <a class="navbar_link w-nav-link" href="about.php" style="background-color: transparent">
           <?= $text_who_we_are ?>
         </a>
-        <a class="navbar_link w-nav-link" href="<?= $site_url ?>/#minimization" style="background-color: transparent">
+        <a class="navbar_link w-nav-link" href="<?= $site_url ?>#minimization" style="background-color: transparent">
           <?= $text_investment_risks ?>
         </a>
-        <a class="navbar_link w-nav-link" href="<?= $site_url ?>/#Beneficios" style="background-color: transparent">
+        <a class="navbar_link w-nav-link" href="<?= $site_url ?>#Beneficios" style="background-color: transparent">
           <?= $text_benefits ?>
         </a>
-        <a class="navbar_link w-nav-link" href="<?= $site_url ?>/#faq" style="background-color: transparent">
+        <a class="navbar_link w-nav-link" href="<?= $site_url ?>#faq" style="background-color: transparent">
           <?= $text_faq ?>
         </a>
       </div>
@@ -381,21 +379,51 @@ $canonical = 'https://' . $host . $uri;
               <div class="cta_card-content">
                 <div class="max-width-large">
                   <div class="cta-content-wrapper">
-<h1 class="heading-style-h1"><?= $about_heading ?></h1>
+<h1 class="heading-style-h1" style="text-align: center;"><?= $risk_warning_heading ?></h1>
 
-<p class="text-size-regular" style="text-align: center;"><?= $about_text_1 ?></p>
-<p class="text-size-regular" style="text-align: center;"><?= $about_text_2 ?></p>
+<p class="text-size-regular" style="text-align: center;"><?= $risk_warning_intro ?></p>
 
-<img src="<?= $about_image ?>" alt="<?= $about_image_alt ?>">
+<h3 class="heading-style-h4" style="margin-top: 40px;"><?= $risk_warning_ai_heading ?></h3>
+<ul>
+<?php foreach ($risk_warning_ai_list as $item): ?>
+  <li><?= $item ?></li>
+<?php endforeach; ?>
+</ul>
 
-<p class="text-size-regular" style="text-align: center;"><?= $about_text_3 ?></p>
-<p class="text-size-regular" style="text-align: center;"><?= $about_text_4 ?></p>
-<p class="text-size-regular" style="text-align: center;"><?= $about_text_5 ?></p>
-<p class="text-size-regular" style="text-align: center;"><?= $about_text_6 ?></p>
-<p class="text-size-regular" style="text-align: center;"><?= $about_text_7 ?></p>
+<p class="text-size-regular" style="text-align: center; margin-top: 24px;"><?= $risk_warning_disclaimer ?></p>
+
+<h3 class="heading-style-h4" style="margin-top: 40px;"><?= $risk_warning_s1_heading ?></h3>
+<p class="text-size-regular" style="text-align: center;"><?= $risk_warning_s1_intro ?></p>
+<ul>
+<?php foreach ($risk_warning_s1_list as $item): ?>
+  <li><?= $item ?></li>
+<?php endforeach; ?>
+</ul>
+
+<h3 class="heading-style-h4" style="margin-top: 40px;"><?= $risk_warning_s2_heading ?></h3>
+<ul>
+<?php foreach ($risk_warning_s2_list as $item): ?>
+  <li><?= $item ?></li>
+<?php endforeach; ?>
+</ul>
+
+<h3 class="heading-style-h4" style="margin-top: 40px;"><?= $risk_warning_s3_heading ?></h3>
+<ul>
+<?php foreach ($risk_warning_s3_list as $item): ?>
+  <li><?= $item ?></li>
+<?php endforeach; ?>
+</ul>
+
+<h3 class="heading-style-h4" style="margin-top: 40px;"><?= $risk_warning_s4_heading ?></h3>
+<ul>
+<?php foreach ($risk_warning_s4_list as $item): ?>
+  <li><?= $item ?></li>
+<?php endforeach; ?>
+</ul>
+
+<p class="text-size-regular" style="text-align: center; margin-top: 24px;"><?= $risk_warning_contact ?></p>
 
                   </div>
-
                 </div>
               </div>
               <img
@@ -524,11 +552,11 @@ $canonical = 'https://' . $host . $uri;
                 </div>
                 <div class="footer-list-wrapper">
                   <ul class="footer-list-first">
-                    <li><a class="navbar_link" href="<?= $site_url ?>/#why-invest" style="background-color: transparent"><span class="footer-link"><?= $footer_link_why_invest ?></span></a></li>
-                    <li><a class="navbar_link" href="<?= $site_url ?>/#pricing" style="background-color: transparent"><span class="footer-link"><?= $footer_link_how_to_invest ?></span></a></li>
-                    <li><a class="navbar_link" href="<?= $site_url ?>/#minimization" style="background-color: transparent"><span class="footer-link"><?= $footer_link_investment_risks ?></span></a></li>
-                    <li><a class="navbar_link" href="<?= $site_url ?>/#Beneficios" style="background-color: transparent"><span class="footer-link"><?= $footer_link_benefits ?></span></a></li>
-                    <li><a class="navbar_link" href="<?= $site_url ?>/#faq" style="background-color: transparent"><span class="footer-link"><?= $footer_link_faq ?></span></a></li>
+                    <li><a class="navbar_link" href="<?= $site_url ?>#why-invest" style="background-color: transparent"><span class="footer-link"><?= $footer_link_why_invest ?></span></a></li>
+                    <li><a class="navbar_link" href="<?= $site_url ?>#pricing" style="background-color: transparent"><span class="footer-link"><?= $footer_link_how_to_invest ?></span></a></li>
+                    <li><a class="navbar_link" href="<?= $site_url ?>#minimization" style="background-color: transparent"><span class="footer-link"><?= $footer_link_investment_risks ?></span></a></li>
+                    <li><a class="navbar_link" href="<?= $site_url ?>#Beneficios" style="background-color: transparent"><span class="footer-link"><?= $footer_link_benefits ?></span></a></li>
+                    <li><a class="navbar_link" href="<?= $site_url ?>#faq" style="background-color: transparent"><span class="footer-link"><?= $footer_link_faq ?></span></a></li>
                   </ul>
                   <ul class="footer-list-first">
                     <li><a class="navbar_link" href="about.php" style="background-color: transparent"><span class="footer-link"><?= $footer_link_who_we_are ?></span></a></li>
@@ -556,6 +584,7 @@ $canonical = 'https://' . $host . $uri;
     </div>
 </footer>
 
+
   <script
     src="jquery-3.5.1.min.dc5e7f18c8.js"
     type="text/javascript"></script>
@@ -564,13 +593,13 @@ $canonical = 'https://' . $host . $uri;
   <script src="jquery.min.js"></script>
   <div style="height: 0; overflow: hidden; position: absolute; width: 0">
     <a href="#">Pagina Principale</a>
-    <a href="<?= $site_url ?>/#why-invest">¿Por qué empezar a invertir?</a>
-    <a href="<?= $site_url ?>/#pricing">¿Cómo comenzar a invertir?    </a>
+    <a href="<?= $site_url ?>#why-invest">¿Por qué empezar a invertir?</a>
+    <a href="<?= $site_url ?>#pricing">¿Cómo comenzar a invertir?    </a>
     <a href="about.php">¿Quién está detrás de <?= $source ?>?</a>
-    <a href="<?= $site_url ?>/#minimization">Riesgos asociados a la inversión</a>
-    <a href="<?= $site_url ?>/#Beneficios">Ventajas    </a>
-    <a href="<?= $site_url ?>/#faq">FAQ</a>
-    <a href="">Contact</a>
+    <a href="<?= $site_url ?>#minimization">Riesgos asociados a la inversión</a>
+    <a href="<?= $site_url ?>#Beneficios">Ventajas    </a>
+    <a href="<?= $site_url ?>#faq">FAQ</a>
+    <a href="contact.php">Contact</a>
     <a href="private-policy.php">Pravila privatnosti</a>
     <a href="conditions.php">Terms and conditions</a>
   </div>

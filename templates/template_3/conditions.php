@@ -336,6 +336,7 @@ $canonical = 'https://' . $host . $uri;
         <li class="footer__nav-item"><a href="sign-up.php" class="no-scroll"><?= $footer_registration ?></a></li>
         <li class="footer__nav-item"><a href="conditions.php" class="no-scroll"><?= $footer_terms ?></a></li>
         <li class="footer__nav-item"><a href="private-policy.php" class="no-scroll"><?= $footer_privacy ?></a></li>
+        <li class="footer__nav-item"><a href="risk-warning.php" class="no-scroll"><?= $footer_risk_warning ?></a></li>
       </ul>
     </div>
 
