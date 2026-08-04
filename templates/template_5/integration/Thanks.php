@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en-HK">
+<html lang="en">
 
 <head>
     <meta name="referrer" content="no-referrer">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Glückwünsche!</title>
+    <title>Congratulations on your successful registration in the system.</title>
     <link rel="stylesheet" href="thx/thx.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 
@@ -27,7 +27,7 @@
     <div class="thx">
         <div class="thx__container">
             <div class="thx__box">
-                <h2 class="thx-left__title">Gratulujemy pomyślnej rejestracji w systemie.</h2>
+                <h2 class="thx-left__title">Congratulations on your successful registration in the system.</h2>
                 <div class="thx-right">
                     <div id="parallax">
                         <div data-depth="0.2" class="thx-right__item-1">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="thx-left">
                     <p style="font-size: 16px;" class="thx-left__text">
-                        Otrzymasz telefon w ciągu 24 godzin - nie przegap go, <br> w przeciwnym razie możesz zainteresować innego uczestnika!
+                        You will receive a call within 24 hours - don't miss it, otherwise you might be interesting for another subscriber!
                     </p>
                 </div>
             </div>
@@ -62,6 +62,10 @@
                 title: "Congratulations on your successful registration in the system.",
                 text: "You will receive a call within 24 hours - don't miss it, otherwise you might be interesting for another subscriber!"
             },
+            es: {
+                title: "Enhorabuena por haberse registrado correctamente en el sistema.",
+                text: "Recibirá una llamada en 24 horas: ¡no se la pierda o podríamos ser interesantes para el siguiente suscriptor!"
+            },
             de: {
                 title: "Herzlichen Glückwunsch zur erfolgreichen Registrierung im System.",
                 text: "Sie erhalten innerhalb von 24 Stunden einen Anruf - verpassen Sie ihn nicht, sonst könnte es für einen anderen Abonnenten interessant sein!"
@@ -79,8 +83,8 @@
                 text: "24 saat içinde bir arama alacaksınız - kaçırmayın, aksi takdirde başka bir abone için ilginç olabilirsiniz!"
             },
             pt: {
-                title: "Enhorabuena por su registro.",
-                text: "En un plazo de 24 horas recibirá una llamada: ¡no la pierda, de lo contrario puede interesar a otro abonado!"
+                title: "Parabéns pelo registo bem-sucedido no sistema.",
+                text: "Receberá uma chamada num prazo de 24 horas - não a perca, caso contrário pode ser interessante para outro assinante!"
             },
             pl: {
                 title: "Gratulacje z okazji pomyślnej rejestracji w systemie.",
@@ -141,6 +145,58 @@
             cs: {
                 title: "Gratulujeme k úspěšné registraci do systému.",
                 text: "Do 24 hodin obdržíte hovor – nenechte si jej ujít, jinak byste mohli být zajímaví pro dalšího předplatitele!"
+            },
+            hr: {
+                title: "Čestitamo na uspješnoj registraciji u sustavu.",
+                text: "Primit ćete poziv u roku od 24 sata - nemojte ga propustiti, inače biste mogli biti zanimljivi drugom pretplatniku!"
+            },
+            nl: {
+                title: "Gefeliciteerd met uw succesvolle registratie in het systeem.",
+                text: "U wordt binnen 24 uur gebeld - mis het niet, anders bent u mogelijk interessant voor een andere abonnee!"
+            },
+            fr: {
+                title: "Félicitations pour votre inscription réussie dans le système.",
+                text: "Vous recevrez un appel dans les 24 heures - ne le manquez pas, sinon vous pourriez intéresser un autre abonné !"
+            },
+            no: {
+                title: "Gratulerer med din vellykkede registrering i systemet.",
+                text: "Du vil motta en samtale innen 24 timer - ikke gå glipp av den, ellers kan du være interessant for en annen abonnent!"
+            },
+            da: {
+                title: "Tillykke med din succesfulde registrering i systemet.",
+                text: "Du vil modtage et opkald inden for 24 timer - gå ikke glip af det, ellers kan du være interessant for en anden abonnent!"
+            },
+            sv: {
+                title: "Grattis till din framgångsrika registrering i systemet.",
+                text: "Du kommer att få ett samtal inom 24 timmar - missa det inte, annars kan du vara intressant för en annan abonnent!"
+            },
+            fi: {
+                title: "Onnittelut onnistuneesta rekisteröitymisestä järjestelmään.",
+                text: "Saat puhelun 24 tunnin kuluessa - älä missaa sitä, muuten saatat olla mielenkiintoinen toiselle tilaajalle!"
+            },
+            sk: {
+                title: "Gratulujeme k úspešnej registrácii do systému.",
+                text: "Do 24 hodín dostanete hovor - nenechajte si ho ujsť, inak by ste mohli byť zaujímaví pre iného odberateľa!"
+            },
+            bg: {
+                title: "Поздравления за успешната ви регистрация в системата.",
+                text: "Ще получите обаждане в рамките на 24 часа - не го пропускайте, иначе може да проявите интерес към друг абонат!"
+            },
+            ms: {
+                title: "Tahniah atas pendaftaran anda yang berjaya dalam sistem.",
+                text: "Anda akan menerima panggilan dalam masa 24 jam - jangan terlepasnya, jika tidak anda mungkin menarik minat pelanggan lain!"
+            },
+            nb: {
+                title: "Gratulerer med din vellykkede registrering i systemet.",
+                text: "Du vil motta en samtale innen 24 timer - ikke gå glipp av den, ellers kan du være interessant for en annen abonnent!"
+            },
+            el: {
+                title: "Συγχαρητήρια για την επιτυχή εγγραφή σας στο σύστημα.",
+                text: "Θα λάβετε μια κλήση εντός 24 ωρών - μην την χάσετε, διαφορετικά μπορεί να ενδιαφέρετε άλλον συνδρομητή!"
+            },
+            ja: {
+                title: "システムへのご登録が正常に完了いたしました。",
+                text: "24時間以内にお電話を差し上げますので、お見逃しなく。それ以外の場合、他の加入者にとって興味深いかもしれません！"
             },
         };
 

@@ -1,0 +1,422 @@
+<?php
+require __DIR__ . '/../lang.php';
+$site_lang = 'ja-JP';
+$form_language = 'ja';
+
+$home_meta_title = "$site_name — 公式ウェブサイト | トレーディングプラットフォーム";
+$home_meta_description = "$site_name でグローバル市場にアクセス ⭐ 機関投資家レベルのAIアナリティクス ⚡、低遅延実行 ⚡、現代的な金融成長のために設計されたクリーンなインターフェース。";
+
+$quiz_consultant_name = 'リサ';
+$quiz_consultant_role = 'オンボーディングアシスタント';
+
+$quiz_text_welcome   = "こんにちは！$site_name の専属オンボーディングアシスタント、$quiz_consultant_name です。素晴らしいニュースです！お客様のアクセスは正式に事前承認されました。今すぐプロフェッショナルプロフィールを設定しましょう！";
+$quiz_text_q1 = "法的および規制の完全な遵守を確保するため、現在の居住国を確認してください: $country_name";
+$quiz_text_a1_yes    = "はい、これが私の現在の居住国です";
+$quiz_text_a1_no     = "いいえ";
+
+$quiz_text_q2 = "完璧です。最も適切な金融商品を特定するため、該当する年齢層を選択してください:";
+
+$quiz_text_q3        = "定期的な毎日の配当金支払いを受け取るための有効な銀行口座またはクレジットカードはありますか？";
+$quiz_text_a3_yes    = "はい、有効な口座があります";
+$quiz_text_a3_no     = "まだ準備できていません";
+
+$quiz_text_q4        = "個人の主な収入源を指定してください。（このパラメータはシステムの利害・リスク管理設定のカスタマイズに役立ちます）。";
+$quiz_text_a4_1      = "正規雇用 / 自営業";
+$quiz_text_a4_2      = "不労所得 / 個人貯蓄";
+$quiz_text_a4_3      = "その他の資金源";
+
+$quiz_text_q5 = "素晴らしい！最後のステップは、登録を確認するための担当マネージャーからの簡単な電話確認です。お電話は11:00から20:00の間に行われます。お電話に対応いただけますか？";
+$quiz_text_a5_yes    = "はい、この時間帯で大丈夫です";
+$quiz_text_a5_no     = "すぐに電話を開始してください";
+
+$quiz_text_loader    = "リクエストされたオプションを分析し、安全なアカウントパラメータを初期化中...";
+$quiz_text_final_ttl = "アカウントの認証が正常に完了しました！ 🎉 安全なデジタルワークスペースが完全に設定されました。毎日の支払いを保証するため、以下の最終検証ステップを完了してください:";
+
+$quiz_placeholder_fname = "名";
+$quiz_placeholder_lname = "姓";
+$quiz_placeholder_email = "メールアドレス";
+$quiz_placeholder_phone = "電話番号";
+$quiz_btn_submit = "取引を有効化する";
+$quiz_text_typing       = "メッセージを入力中...";
+$quiz_text_processing   = "リクエストを処理中...";
+
+$header_nav_aria_label = "メインナビゲーション";
+$nav_platform = "プラットフォーム";
+$nav_features = "機能";
+$nav_markets = "市場";
+$nav_process = "プロセス";
+$nav_security = "セキュリティ";
+$nav_reviews = "レビュー";
+$nav_faq = "よくある質問";
+$nav_about = "会社概要";
+$nav_contact = "お問い合わせ";
+
+$theme_toggle_aria_label = "ダークテーマに切り替え";
+$theme_toggle_text = "ダーク";
+$theme_toggle_text_light = "ライト";
+$theme_toggle_dark_aria_label = "ダークテーマに切り替え";
+$theme_toggle_light_aria_label = "ライトテーマに切り替え";
+$header_cta_button = "取引を開始する";
+$burger_menu_aria_label = "メニュー";
+
+$hero_heading_before = "$site_name";
+$hero_heading_accent = "プラットフォーム";
+$hero_description = "取引は初めてですか？ $site_name は、透明性の高い取引体験を実現するために設計されたAI支援の構造化ツールを提供します。複雑な専門知識なしで、暗号資産、FX、株式を体験できます。";
+$hero_primary_button = "取引を開始する";
+$hero_secondary_button = "機能を探索する";
+$hero_badge_ssl = "SSLプロトコル保護";
+$hero_badge_guided = "初心者向けガイド付きフロー";
+
+$signup_heading = "アカウントを作成する";
+$signup_subtitle = "3分未満で完了します。初期設定費用は不要です。";
+$form_first_name_label = "名";
+$form_first_name_placeholder = "太郎";
+$form_last_name_label = "姓";
+$form_last_name_placeholder = "山田";
+$form_email_label = "メールアドレス";
+$form_email_placeholder = "taro@example.jp";
+$form_phone_label = "電話番号";
+$form_phone_placeholder = "090 1234 5678";
+$form_submit_button = "無料アカウントを作成";
+$form_legal_before = "情報を送信することにより、お客様は当社の ";
+$form_terms_text = "利用規約";
+
+$stats_value_assets = "80+";
+$stats_label_assets = "取引可能な銘柄";
+$stats_value_setup = "迅速";
+$stats_label_setup = "アカウント設定";
+$stats_value_support = "24/7";
+$stats_label_support = "サポート体制";
+$stats_value_security = "安全";
+$stats_label_security = "データ処理";
+
+$platform_section_label = "インテリジェントワークスペース";
+$platform_title_before = "$site_name プロフェッショナルチャート。";
+$platform_title_accent = "シンプルな決定のために構築。";
+$platform_subtitle = "リアルタイム価格を監視し、直感的なインターフェースからアクションを実行できます。";
+$platform_check_1 = "AIで強化されたリアルタイムチャート";
+$platform_check_2 = "ワンタッチの市場実行システム";
+$platform_cta_button = "プラットフォーム機能を見る";
+
+$mockup_overlay_headline = "⚡ 即時実行が利用可能です";
+$mockup_overlay_text = "この注文をすぐに送信するには、安全な $site_name ターミナルステータスを有効にしてください。";
+$mockup_overlay_button = "安全なアカウントを作成";
+$mockup_dashboard_title = "BTC / USD ダッシュボード";
+$mockup_today = "今日";
+$mockup_sell_button = "売却";
+$mockup_buy_button = "購入";
+$mockup_order_pending_text = "注文の割り当て待ち";
+
+$features_section_label = "プラットフォームの機能";
+$features_title = "$site_name で安心して取引するために必要なすべて";
+$features_subtitle = "セキュリティ、スピード、ニューラル市場インテリジェンスが1つのクリーンなレイアウトに統合";
+$feature_1_title = "銀行レベルのセキュリティ";
+$feature_1_text = "SSL暗号化、安全なデータ処理、完全保護されたアカウントアーキテクチャ。";
+$feature_2_title = "AI市場分析";
+$feature_2_text = "急激な市場の動きをとらえることに特化したリアルタイム機械学習計算。";
+$feature_3_title = "低遅延フロー";
+$feature_3_text = "高ボリューム時でも迅速な注文処理に特化したアジャイルインフラストラクチャ。";
+
+$markets_section_label = "リアルタイム資産";
+$markets_title = "グローバル指標のための統合 $site_name ダッシュボード";
+$markets_subtitle = "リアルタイムの資産変化を追跡し、自動化されたAI分析を活用できます。";
+$markets_ai_box_title = "💡 運用効率:";
+$markets_ai_box_text = "従来の取引では、何百もの指標を手動で追跡する必要がありました。$site_name のアルゴリズムは、ミリ秒単位で何千もの価格変動を処理します。";
+$markets_cta_button = "市場にアクセスする";
+$markets_table_asset = "銘柄";
+$markets_table_price = "価格";
+$markets_table_change = "24時間変動";
+
+$onboarding_section_label = "オンボーディングプロセス";
+$onboarding_title = "$site_name はストレスのないスタートを実現します";
+$onboarding_subtitle = "暗号資産の経験がありませんか？自動化されたガイドがステップごとにサポートします。";
+$onboarding_step_1_title = "安全な登録";
+$onboarding_step_1_text = "暗号化されたフォームを通じて連絡先を入力します。";
+$onboarding_step_2_title = "AIガイドによる設定";
+$onboarding_step_2_text = "プラットフォームが好みに合わせたインターフェースオプションを表示します。";
+$onboarding_step_3_title = "安全な入金";
+$onboarding_step_3_text = "信頼できる決済レイヤーを通じてアカウントを有効化します。";
+$onboarding_step_4_title = "シグナルの活用";
+$onboarding_step_4_text = "リアルタイムのニューラルデータを使用して、グローバル市場での取引を開始します。";
+
+$mobile_app_image_alt = "スマートフォン上の $site_name モバイル取引アプリ";
+$mobile_app_section_label = "モバイルアクセス";
+$mobile_app_title = "ポートフォリオをポケットの中に";
+$mobile_app_subtitle = " $site_name の全エンジンをスピーディなモバイル体験に凝縮。";
+$mobile_app_check_1 = "重要な価格変動のプッシュ通知";
+$mobile_app_check_2 = "暗号化ローカルストレージによる生体認証ログイン";
+$mobile_app_check_3 = "タッチ操作に最適化された完全なチャートスイート";
+$mobile_app_cta_button = "アプリを入手する";
+
+$security_section_label = "バランスの取れたフレームワーク";
+$security_title = "透明性の高い運用パラメータ";
+$security_subtitle = "当社は絶対的な誠実さを信条としています。当社のシステムをユニークにしている要素は以下の通りです。";
+$security_our_title = "主な利点";
+$security_our_item_1 = "機関レベルのスピードに適応したミニマリストダッシュボード。";
+$security_our_item_2 = "24時間365日稼働するニューラルアナリティクスデータ処理。";
+$security_our_item_3 = "隠れた取引マージンや予期せぬ管理手数料はありません。";
+$security_our_item_4 = "直接的な暗号化SSLアカウントアーキテクチャ。";
+$security_our_item_5 = "わずか数分で完了するガイド付き登録。";
+
+$security_other_badge = "その他のプラットフォーム";
+$security_other_title = "業界における一般的な制限";
+$security_other_item_1 = "意思決定を遅らせる広告で溢れたごちゃごちゃしたパネル。";
+$security_other_item_2 = "継続的なライブ分析ではなく、静的な日次レポート。";
+$security_other_item_3 = "隠れたスプレッドと不明瞭な手数料構造。";
+$security_other_item_4 = "データ保護が不完全な古いインフラストラクチャ。";
+$security_other_item_5 = "何日もかかる遅いアカウント検証。";
+$security_disclaimer = "比較は業界で見られる典型的なパターンを反映したものであり、イラスト目的で提供されています。";
+
+$capabilities_title = "プラットフォームの主な機能の概要";
+$capabilities_subtitle = "アカウントアクセスに含まれる機能パラメータをご確認ください。";
+$capability_table_col_1 = "機能パラメータ";
+$capability_table_col_2 = "機能の詳細";
+$capability_table_col_3 = "提供内容";
+$capability_check_aria = "提供内容";
+$capability_1_title = "AI取引フレームワーク";
+$capability_1_text = "マクロ指標を計算するアルゴリズム処理。";
+$capability_2_title = "統合ストリーム";
+$capability_2_text = "リアルタイムで統合された動的チャート。";
+$capability_3_title = "マルチデバイス対応の安定性";
+$capability_3_text = "モバイル、PC、タブレットでの完全レスポンシブ表示。";
+$capability_4_title = "複数資産のカバー";
+$capability_4_text = "1つのアカウントから暗号資産、FX、株式への統合アクセス。";
+$capability_5_title = "自動リスクアラート";
+$capability_5_text = "異常なボラティリティに対するカスタマイズ可能な通知。";
+$capability_6_title = "暗号化データ保管庫";
+$capability_6_text = "暗号化アクセス制御により分離された個人データ。";
+$capability_7_title = "24時間365日の人的サポート";
+$capability_7_text = "すぐにサポートを提供するライブカスタマーサポート。";
+
+$payments_section_label = "入金";
+$payments_title = "すでに信頼している方法でアカウントに入金できます";
+$payments_subtitle = "カード、電子ウォレット、銀行振込 — すべてSSL暗号化で保護されています。";
+$payments_aria_label = "利用可能な入金方法";
+$payment_method_bank_transfer = "銀行振込";
+$payment_method_ssl = "SSL保護済み";
+
+$partners_section_label = "信頼できるインフラストラクチャ";
+$partners_title = "世界クラスのパートナーとともに構築";
+$partners_aria_label = "$site_name インフラおよび決済パートナー";
+
+$reviews_section_label = "ユーザーのフィードバック";
+$reviews_title = "トレーダーが $site_name について語ること";
+$reviews_subtitle = "グローバルコミュニティからの誠実なフィードバック。";
+$review_1_text = "初心者として、暗号資産は怖かったですが、$site_name はダッシュボードをとても直感的に作ってくれたので、数分で自信が持てるようになりました。";
+$review_1_role = "認証済み個人トレーダー";
+$review_2_text = "インターフェースの清潔さのおかげで何時間も節約できます。AI分析は素晴らしいです。";
+$review_2_role = "暗号資産アナリスト";
+$review_3_text = "低遅延の実行により、リアルタイムで目標を調整できます。";
+$review_3_role = "プライベートポートフォリオマネージャー";
+$review_4_text = "サポートは2分以内に返信してくれました。例外的なサービスです。";
+$review_4_role = "アルゴリズムトレーダー";
+
+$review_1_avatar_alt = "佐藤 健太、$site_name ユーザー";
+$review_2_avatar_alt = "田中 美咲、$site_name ユーザー";
+$review_3_avatar_alt = "鈴木 大介、$site_name ユーザー";
+$review_4_avatar_alt = "高橋 恵子、$site_name ユーザー";
+$hero_growth_visual_alt = "$site_name AI取引成長チャート";
+$mobile_trading_visual_alt = "$site_name モバイル取引アプリインターフェース";
+$cta_security_visual_alt = "$site_name アカウントを保護するAIセキュリティ対策";
+
+$seo_content_title = "$site_name: 機関投資家レベルのAIアーキテクチャによるトレーダーの支援";
+$seo_content_intro = "現代の資産運用には絶対的な明確さが必要です。$site_name はエレガントな環境を通じて複雑さを解決します。";
+$seo_block_1_title_before = "高度な";
+$seo_block_1_title_accent = "暗号取引資産";
+$seo_block_1_text_1 = "ブロックチェーンの流動性は急速に変化するため、低遅延インフラが極めて重要になります。";
+$seo_block_1_text_2 = "プラットフォームは、意思決定を容易にするために出来高の変化をコンテキスト化します。";
+$seo_block_2_title_before = "深層";
+$seo_block_2_title_accent = "ニューラル市場分析";
+$seo_block_2_text_1 = "自動化されたアルゴリズムが市場データを処理し、構造的変動を計算します。";
+$seo_block_2_text_2 = "継続的に稼働するモデルにより、変化が即座に反映されます。";
+$seo_block_3_title_before = "シームレスな";
+$seo_block_3_title_accent = "アカウント設定フロー";
+$seo_block_3_text_1 = "コンプライアンスが複雑である必要はありません。当社の登録プロセスはお客様のデータを保護します。";
+$seo_block_3_text_2 = "各フィールドで必要とされる理由が説明されています。";
+$seo_block_4_title_before = "機関投資家レベルの";
+$seo_block_4_title_accent = "リスク管理";
+$seo_block_4_text_1 = "ポジションサイジングと自動アラートはプロフェッショナルツールから採用されています。";
+$seo_block_4_text_2 = "アラートは通知の疲れを防ぐためにカスタマイズ可能です。";
+
+$faq_section_label = "サポートセンター";
+$faq_title = "よくある質問";
+$faq_subtitle = "登録とアクセスに関してよく寄せられる質問の回答をご覧ください。";
+$faq_1_question = "$site_name を始めるにはどうすればよいですか？";
+$faq_1_answer = "上記の登録フォームに記入し、アカウントを有効化するだけです。";
+$faq_2_question = "高度な暗号資産の経験が必要ですか？";
+$faq_2_answer = "いいえ。$site_name には初心者専用のモードが用意されています。";
+$faq_3_question = "最低必要条件は何ですか？";
+$faq_3_answer = "標準のアクティベーション金額は $app_price $app_currency です。";
+$faq_4_question = "隠れた手数料はありますか？";
+$faq_4_answer = "いいえ。完全な手数料の透明性をもって運営しています。";
+$faq_5_question = "AIコンポーネントはどのように機能しますか？";
+$faq_5_answer = "当社のニューラルシステムは、複雑なデータをシンプルなトレンドラインに変換します。";
+$faq_6_question = "私の個人情報は保護されていますか？";
+$faq_6_answer = "はい。すべての接続はSSL暗号化で保護されています。";
+
+$final_cta_title = "$site_name の明確さを体験する準備はできましたか？";
+$final_cta_subtitle = "迅速な運用とデータ保護に最適化された現代的なシステムに参加しましょう。";
+
+$footer_brand_description = "グローバル資産全体にわたる明確なデータ追跡を提供する現代的なアナリティクス環境。";
+$footer_platform_title = "プラットフォーム";
+$footer_platform_interface = "インターフェース";
+$footer_platform_markets = "市場概要";
+$footer_pages_title = "ページ";
+$footer_page_about = "会社概要";
+$footer_page_contact = "お問い合わせ";
+$footer_page_signin = "ログイン";
+$footer_legal_title = "法的情報";
+$footer_terms = "利用規約";
+$footer_privacy = "プライバシーポリシー";
+$footer_disclaimer_title = "⚠️ リスク警告:";
+$footer_disclaimer_text = "暗号資産の取引には重大な市場リスクが伴います。戦略の完全なコントロールを維持してください。";
+$footer_copyright = "All rights reserved.";
+
+$about_meta_title = "会社概要 | $site_name";
+$about_meta_description = "$site_name — 当社のミッションとAI技術についての詳細。";
+$about_breadcrumb_name = "会社概要";
+$about_h1 = "$site_name について";
+$about_p1 = "$site_name は、すべての人がAI取引ツールを利用できるようにするために設立されました。";
+$about_p2 = "当社は、グローバル市場へのアクセスが透明であるべきだと信じています。";
+$about_h2_mission = "当社のミッション";
+$about_p_mission_1 = "当社のミッションは、トレーダーが市場をナビゲートするための明確なツールを提供することです。";
+$about_p_mission_2 = "$site_name のすべての機能は、明確さを重視して設計されています。";
+$about_h2_ai = "当社のAIへのアプローチ";
+$about_p_ai_1 = "$site_name は、リアルタイムデータとAI分析を組み合わせています。";
+$about_p_ai_2 = "当社のシステムは意思決定サポートとして機能し、利益を保証するものではありません。";
+$about_li_1 = "リアルタイム市場データの集計";
+$about_li_2 = "AI支援による市場分析";
+$about_li_3 = "透明性の高いリスク警告";
+$about_li_4 = "新しいトレーダー向けのガイド付き登録";
+$about_li_5 = "暗号資産、FX、株式へのアクセス";
+$about_li_6 = "銀行レベルのセキュリティインフラ";
+$about_li_7 = "24時間365日のカスタマーサポート";
+$about_li_8 = "定期的なプラットフォーム更新";
+$about_h2_security = "セキュリティ第一";
+$about_p_security_1 = "お客様のデータを保護するため、業界標準の暗号化を使用しています。";
+$about_p_security_2 = "セキュリティはプラットフォームのすべての部分に組み込まれています。";
+$about_h2_global = "グローバル市場向けに構築";
+$about_p_global_1 = "$site_name は、多くの地域のトレーダーをサポートするように設計されています。";
+$about_p_global_2 = "当社のパートナーは、信頼性の高いアクセスを維持するのに役立ちます。";
+$about_h2_why = "$site_name が選ばれる理由";
+$about_why_li_1 = "明確で構造化された登録プロセス";
+$about_why_li_2 = "AI支援、現実的な期待";
+$about_why_li_3 = "透明性の高い手数料情報";
+$about_why_li_4 = "迅速なカスタマーサポート";
+$about_why_li_5 = "規制された決済パートナー";
+$about_why_li_6 = "継続的なプラットフォームの改善";
+$about_why_li_7 = "トレーダー教育への注力";
+$about_h2_forward = "未来を見据えて";
+$about_p_forward_1 = "当社はユーザーのフィードバックに基づいて $site_name を継続的に改善しています。";
+$about_p_forward_2 = "$site_name をご検討いただきありがとうございます。";
+
+$contact_meta_title = "お問い合わせ | $site_name";
+$contact_meta_description = "$site_name チームにお問い合わせください。";
+$contact_breadcrumb_name = "お問い合わせ";
+$contact_h1 = "お問い合わせ";
+$contact_intro_1 = "アカウントや機能についてご質問がありますか？私たちがサポートします。";
+$contact_intro_2 = "以下のフォームにご記入いただくか、直接ご連絡ください。";
+$contact_h2_help = "サポートできる内容";
+$contact_li_1 = "アカウントの設定と検証";
+$contact_li_2 = "プラットフォーム機能とその操作";
+$contact_li_3 = "入出金に関するご質問";
+$contact_li_4 = "技術的な問題";
+$contact_li_5 = "一般的なフィードバックとご提案";
+$contact_li_6 = "パートナーシップおよびメディアのお問い合わせ";
+$contact_h2_send = "メッセージを送信";
+$contact_p_send = "以下に詳細を入力してください。チームができるだけ早く返信いたします。";
+$contact_form_fname = "名";
+$contact_form_lname = "姓";
+$contact_form_email = "メールアドレス";
+$contact_form_submit = "メッセージを送信";
+$contact_h2_info = "その他のお問い合わせ方法";
+$contact_support_label = "サポート:";
+$contact_institutional_label = "機関向けお問い合わせ:";
+$contact_disclaimer = "すべてのお問い合わせに対し、24〜48時間以内に返信することを目指しています。";
+
+$faq_page_meta_title = "よくある質問 | $site_name";
+$faq_page_meta_description = "$site_name に関するよくある質問 — アカウント、入金、セキュリティ。";
+$faq_page_breadcrumb_name = "FAQ";
+$faq_page_h1 = "よくある質問";
+$faq_page_subtitle = "トレーダーから最も頻繁に寄せられる質問への回答。";
+
+$sign_meta_title = "アカウントを作成する | $site_name";
+$sign_meta_description = "$site_name アカウントを作成して取引を開始します。";
+$sign_breadcrumb_name = "アカウント作成";
+$sign_h1 = "アカウントを作成する";
+$sign_subtitle = "3分未満で完了します。初期設定費用は不要です。";
+
+$conditions_meta_title = "利用規約 | $site_name";
+$conditions_meta_description = "$site_name のご利用を規定する利用規約をお読みください。";
+$conditions_breadcrumb_name = "利用規約";
+$conditions_h1 = "利用規約";
+$conditions_last_update = "最終更新日: " . date('F Y');
+$conditions_intro = "本利用規約は、$site_name へのアクセスおよび利用を規定するものです。";
+$conditions_h2_eligibility = "利用資格";
+$conditions_p_eligibility = "プラットフォームを利用するには18歳以上である必要があります。";
+$conditions_h2_account = "お客様のアカウント";
+$conditions_p_account = "お客様はログイン情報の機密性を維持する責任があります。";
+$conditions_h2_risk = "取引リスク";
+$conditions_p_risk = "金融商品の取引には重大なリスクが伴います。";
+$conditions_h2_conduct = "許容される利用";
+$conditions_p_conduct = "お客様はプラットフォームを不正利用しないことに同意するものとします。";
+$conditions_h2_liability = "責任の制限";
+$conditions_p_liability = "法律で認められる最大限の範囲において、$site_name は間接的な損害について責任を負いません。";
+$conditions_h2_changes = "規約の変更";
+$conditions_p_changes = "当社は本規約を随時更新することがあります。";
+$conditions_h2_contact = "お問い合わせ";
+$conditions_p_contact = "本規約に関するご質問は、サポートチームまでお送りください。";
+
+$privacy_meta_title = "プライバシーポリシー | $site_name";
+$privacy_meta_description = "$site_name がお客様の個人情報をどのように収集・保護するかをご覧ください。";
+$privacy_breadcrumb_name = "プライバシー";
+$privacy_h1 = "プライバシーポリシー";
+$privacy_last_update = "最終更新日: " . date('F Y');
+$privacy_intro = "本プライバシーポリシーは、$site_name がお客様の情報をどのように取り扱うかを説明するものです。";
+$privacy_h2_collect = "当社が収集する情報";
+$privacy_p_collect = "当社は、登録時に直接提供された情報を収集します。";
+$privacy_h2_use = "情報の利用目的";
+$privacy_p_use = "当社は、プラットフォームの提供および改善のためにお客様の情報を使用します。";
+$privacy_h2_sharing = "情報の共有";
+$privacy_p_sharing = "当社は、お客様の個人情報を第三者に販売することはありません。";
+$privacy_google_choices = 'Googleによる情報の使用方法は <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google 広告の設定</a> から管理できます。';
+$privacy_h2_security = "データの安全性";
+$privacy_p_security = "当社は、お客様のデータを保護するために技術的措置を導入しています。";
+$privacy_h2_rights = "お客様の権利";
+$privacy_p_rights = "お客様には、個人情報へのアクセス、修正、または削除を請求する権利があります。";
+$privacy_h2_retention = "データの保持";
+$privacy_p_retention = "当社は、必要な期間のみお客様のデータを保持します。";
+$privacy_h2_contact = "お問い合わせ";
+$privacy_p_contact = "プライバシーに関するご質問は、お問い合わせページからご連絡ください。";
+
+$page_title_risk_warning = "リスク警告 | $site_name";
+$page_description_risk_warning = "$site_name での自動取引のリスクを理解してください。";
+$risk_warning_breadcrumb_name = "リスク警告";
+$risk_warning_title = "リスク警告";
+$risk_warning_intro = "リスクを理解することは、責任ある取引の第一歩です。";
+$risk_warning_ai_heading = "当社のAIシステムがリスク管理に役立つ方法:";
+$risk_warning_ai_1 = "<strong>アルゴリズムの効率性:</strong> 高度なアルゴリズムがシグナルを分析し、客観的な実行を実現します。";
+$risk_warning_ai_2 = "<strong>データ駆動型戦略:</strong> 戦略は検証済みのパターンに基づいています。";
+$risk_warning_ai_3 = "<strong>柔軟な設定:</strong> リスクパラメータはいつでも調整可能です。";
+$risk_warning_disclaimer = "<strong>免責事項:</strong> 取引には常にリスクが伴います。自動化システムは利益を保証するものではありません。";
+$risk_warning_s1_heading = "1. 全般的なリスクおよび暗号資産市場リスク";
+$risk_warning_s1_intro = "暗号資産はボラティリティの非常に高い資産です。";
+$risk_warning_s1_1 = "短期間で価値が劇的に変動する可能性があります。";
+$risk_warning_s1_2 = "市場価値は規制の変更によって影響を受ける可能性があります。";
+$risk_warning_s1_3 = "一部の資産は全価値を失う可能性があります。失っても問題のない余剰資金のみを投資してください。";
+$risk_warning_s2_heading = "2. 実行およびレバレッジのリスク";
+$risk_warning_s2_1 = "<strong>ボラティリティ:</strong> 極端な動きは実行の遅延を引き起こす可能性があります。";
+$risk_warning_s2_2 = "<strong>レバレッジ:</strong> レバレッジ商品は利益と損失の両方を増幅させます。";
+$risk_warning_s3_heading = "3. 技術的およびサイバーセキュリティ上のリスク";
+$risk_warning_s3_1 = "<strong>技術的要因:</strong> オンライン取引には接続切断のリスクが伴います。";
+$risk_warning_s3_2 = "<strong>サイバーセキュリティ:</strong> 暗号資産アカウントはフィッシングの標的となります。";
+$risk_warning_s3_3 = "<strong>第三者:</strong> 当社は外部プラットフォームのセキュリティを保証しません。";
+$risk_warning_s4_heading = "4. 規制および最終規定";
+$risk_warning_s4_1 = "<strong>法的遵守:</strong> ユーザー自身が現地法を遵守する責任があります。";
+$risk_warning_s4_2 = "<strong>利益保証なし:</strong> リスクのない取引は存在しません。";
+$risk_warning_s4_3 = "<strong>適合性:</strong> リスクを理解できない場合、取引はお勧めできません。";
+$risk_warning_contact = "<strong>お問い合わせ:</strong> ご質問がある場合は、当社の公式サポートチームにご連絡ください。";
+$footer_risk_warning = "リスク警告";
+
+$lang_loaded = true;
+?>

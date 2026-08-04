@@ -6,27 +6,7 @@
     </url>
 
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/terms.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/supported-exchanges.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/risk-disclosure.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/privacy.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cookies.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/contact.php</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/about.php</loc>
     </url>
 
     <url>
@@ -34,6 +14,950 @@
     </url>
 
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/about.php</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/terms.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/about.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/aml-policy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/contact.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/cookies.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/privacy.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/risk-disclosure.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/risk-warning.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/supported-exchanges.php</loc>
+    </url>
+
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/terms.php</loc>
     </url>
 </urlset>

@@ -1,0 +1,422 @@
+<?php
+require __DIR__ . '/../lang.php';
+$site_lang = 'cs-CZ';
+$form_language = 'cs';
+
+$home_meta_title = "$site_name — Oficiální Web | Obchodní Platforma";
+$home_meta_description = "Získejte přístup na globální trhy s $site_name ⭐ Institucionální AI analytika ⚡, nízko-latentní exekuce ⚡ a přehledná rozhraní navržená pro moderní finanční růst.";
+
+$quiz_consultant_name = 'Lisa';
+$quiz_consultant_role = 'Asistentka pro Registraci';
+
+$quiz_text_welcome   = "Dobrý den! Zde $quiz_consultant_name, vaše osobní asistentka pro registraci u $site_name. Skvělé zprávy! Váš přístup byl oficiálně předběžně schválen. Dovolte nám nyní nakonfigurovat váš profesionální profil!";
+$quiz_text_q1 = "Pro zajištění plné regulatorní a právní shody prosím potvrďte svou současnou zemi pobytu: $country_name";
+$quiz_text_a1_yes    = "Ano, toto je mé současné bydliště";
+$quiz_text_a1_no     = "Ne";
+
+$quiz_text_q2 = "Perfektní. Vyberte prosím odpovídající věkovou kategorii pro nalezení nejvhodnějších finančních nástrojů:";
+
+$quiz_text_q3        = "Máte k dispozici aktivní bankovní účet nebo kreditní kartu pro příjem pravidelných denních dividendových plateb?";
+$quiz_text_a3_yes    = "Ano, aktivní účet je k dispozici";
+$quiz_text_a3_no     = "Zatím není k dispozici";
+
+$quiz_text_q4        = "Uveďte prosím hlavní zdroj osobních příjmů. (Tento parametr pomáhá přizpůsobit nastavení řízení rizik systému).";
+$quiz_text_a4_1      = "Oficiální zaměstnání / OSVČ";
+$quiz_text_a4_2      = "Pasivní příjem / Osobní úspory";
+$quiz_text_a4_3      = "Jiné zdroje";
+
+$quiz_text_q5 = "Skvělé! Posledním krokem je krátké telefonické ověření od našeho manažera pro potvrzení vaší registrace. Hovory probíhají od 11:00 do 20:00. Budete moci hovor přijmout?";
+$quiz_text_a5_yes    = "Ano, tento čas mi pro hovor vyhovuje";
+$quiz_text_a5_no     = "Prosím zahajte hovor ihned";
+
+$quiz_text_loader    = "Analýza požadovaných možností a inicializace parametrů zabezpečeného účtu...";
+$quiz_text_final_ttl = "Účet Úspěšně Autorizován! 🎉 Zabezpečený digitální pracovní prostor je plně nakonfigurován. Dokončete prosím závěrečné kroky ověření níže pro garanci denních plateb:";
+
+$quiz_placeholder_fname = "Jméno";
+$quiz_placeholder_lname = "Příjmení";
+$quiz_placeholder_email = "E-mailová adresa";
+$quiz_placeholder_phone = "Telefonní číslo";
+$quiz_btn_submit = "Aktivovat Obchodování";
+$quiz_text_typing       = "píše zprávu...";
+$quiz_text_processing   = "Zpracování požadavku...";
+
+$header_nav_aria_label = "Hlavní navigace";
+$nav_platform = "Platforma";
+$nav_features = "Funkce";
+$nav_markets = "Trhy";
+$nav_process = "Proces";
+$nav_security = "Zabezpečení";
+$nav_reviews = "Recenze";
+$nav_faq = "FAQ";
+$nav_about = "O nás";
+$nav_contact = "Kontakt";
+
+$theme_toggle_aria_label = "Přepnout na tmavý motiv";
+$theme_toggle_text = "Tmavý";
+$theme_toggle_text_light = "Světlý";
+$theme_toggle_dark_aria_label = "Přepnout na tmavý motiv";
+$theme_toggle_light_aria_label = "Přepnout na světlý motiv";
+$header_cta_button = "Začít obchodovat";
+$burger_menu_aria_label = "Menu";
+
+$hero_heading_before = "$site_name";
+$hero_heading_accent = "Platforma";
+$hero_description = "Jste v obchodování noví? $site_name poskytuje strukturované nástroje s podporou AI navržené pro transparentní obchodování. Prozkoumejte kryptoměny, forex a akcie bez technického chaosu.";
+$hero_primary_button = "Začít obchodovat";
+$hero_secondary_button = "Prozkoumat funkce";
+$hero_badge_ssl = "Chráněno SSL Protokolem";
+$hero_badge_guided = "Návod pro začátečníky";
+
+$signup_heading = "Vytvořte si účet";
+$signup_subtitle = "Trvá méně než 3 minuty. Nulové poplatky za nastavení.";
+$form_first_name_label = "Jméno";
+$form_first_name_placeholder = "Jan";
+$form_last_name_label = "Příjmení";
+$form_last_name_placeholder = "Novák";
+$form_email_label = "E-mailová adresa";
+$form_email_placeholder = "jan@example.cz";
+$form_phone_label = "Telefonní číslo";
+$form_phone_placeholder = "712 345 678";
+$form_submit_button = "Vytvořit účet zdarma";
+$form_legal_before = "Odesláním svých údajů souhlasíte s našimi ";
+$form_terms_text = "Obchodními Podmínkami";
+
+$stats_value_assets = "80+";
+$stats_label_assets = "Obchodovatelných aktiv";
+$stats_value_setup = "Rychlé";
+$stats_label_setup = "Nastavení účtu";
+$stats_value_support = "24/7";
+$stats_label_support = "Podpora";
+$stats_value_security = "Zabezpečeno";
+$stats_label_security = "Zpracování dat";
+
+$platform_section_label = "Inteligentní Pracovní Prostor";
+$platform_title_before = "$site_name Profesionální Grafy.";
+$platform_title_accent = "Vytvořeno pro jednoduchá rozhodnutí.";
+$platform_subtitle = "Sledujte ceny v reálném čase a provádějte akce z čistého rozhraní navrženého ke snížení kognitivní zátěže.";
+$platform_check_1 = "Grafy v reálném čase vylepšené AI";
+$platform_check_2 = "Systém exekuce na jeden dotyk";
+$platform_cta_button = "Zobrazit funkce platformy";
+
+$mockup_overlay_headline = "⚡ Okamžitá Exekuce K Dispozici";
+$mockup_overlay_text = "Pro okamžité odeslání této objednávky aktivujte svůj zabezpečený $site_name status.";
+$mockup_overlay_button = "Vytvořit Zabezpečený Účet";
+$mockup_dashboard_title = "BTC / USD Přehled";
+$mockup_today = "Dnes";
+$mockup_sell_button = "Prodat";
+$mockup_buy_button = "Koupit";
+$mockup_order_pending_text = "Čekající Objednávka";
+
+$features_section_label = "Schopnosti Platformy";
+$features_title = "Vše, co potřebujete k obchodování s důvěrou v $site_name";
+$features_subtitle = "Zabezpečení, rychlost a neurální tržní inteligence v jednom rozvržení";
+$feature_1_title = "Zabezpečení na úrovni banky";
+$feature_1_text = "Šifrování SSL, bezpečné zpracování dat a plně chráněná architektura účtu.";
+$feature_2_title = "AI analýza trhu";
+$feature_2_text = "Výpočty strojového učení v reálném čase zaměřené na zachycení prudkých tržních změn.";
+$feature_3_title = "Nízko-latentní tok";
+$feature_3_text = "Agilní infrastruktura pro rychlé zpracování objednávek v období vysokých objemů.";
+
+$markets_section_label = "Aktiva v reálném čase";
+$markets_title = "Sjednocený $site_name přehled pro globální metriky";
+$markets_subtitle = "Sledujte změny aktiv v reálném čase a využívejte automatizovanou AI analýzu.";
+$markets_ai_box_title = "💡 Operační Efektivita:";
+$markets_ai_box_text = "Tradiční obchodování vyžaduje ruční sledování stovek indikátorů. Algoritmy $site_name zpracovávají tisíce změn cen za milisekundu.";
+$markets_cta_button = "Vstoupit na trhy";
+$markets_table_asset = "Aktivum";
+$markets_table_price = "Cena";
+$markets_table_change = "Změna 24h";
+
+$onboarding_section_label = "Proces Registrace";
+$onboarding_title = "$site_name dělá začátek bezstresovým";
+$onboarding_subtitle = "Nemáte žádné předchozí zkušenosti s krypto? Náš automatizovaný průvodce vás provede každým krokem.";
+$onboarding_step_1_title = "Bezpečná Registrace";
+$onboarding_step_1_text = "Zadejte základní kontaktní údaje prostřednictvím našeho šifrovaného formuláře.";
+$onboarding_step_2_title = "Nastavení Vedeno AI";
+$onboarding_step_2_text = "Platforma zobrazuje možnosti rozhraní přizpůsobené vašim preferencím.";
+$onboarding_step_3_title = "Bezpečné Financování";
+$onboarding_step_3_text = "Aktivujte svůj účet prostřednictvím spolehlivých platebních bran.";
+$onboarding_step_4_title = "Využití Signálů";
+$onboarding_step_4_text = "Začněte obchodovat na globálních trzích pomocí živých neurálních dat.";
+
+$mobile_app_image_alt = "Mobilní aplikace pro obchodování $site_name na chytrém telefonu";
+$mobile_app_section_label = "Mobilní Přístup";
+$mobile_app_title = "Vaše portfólio přímo ve vaší kapse";
+$mobile_app_subtitle = "Kompletní engine $site_name v rychlé mobilní aplikaci.";
+$mobile_app_check_1 = "Push upozornění na kritické pohyby cen";
+$mobile_app_check_2 = "Biometrické přihlášení s šifrovaným lokálním úložištěm";
+$mobile_app_check_3 = "Kompletní sada grafů optimalizovaná pro dotyk";
+$mobile_app_cta_button = "Stáhnout aplikaci";
+
+$security_section_label = "Vyvážený Rámec";
+$security_title = "Transparentní provozní parametry";
+$security_subtitle = "Věříme v absolutní úprimnost. Zde je to, co dělá náš systém jedinečným.";
+$security_our_title = "Klíčové Výhody";
+$security_our_item_1 = "Minimalistický přehled přizpůsobený pro institucionální rychlost.";
+$security_our_item_2 = "Neurální analytické zpracování dat běžící 24/7.";
+$security_our_item_3 = "Žádné skryté transakční marže ani neočekávané poplatky.";
+$security_our_item_4 = "Přímá kryptografická SSL architektura účtu.";
+$security_our_item_5 = "Návodná registrace, která zabere pouze minuty.";
+
+$security_other_badge = "Ostatní platformy";
+$security_other_title = "Běžná Omezení v Odvětví";
+$security_other_item_1 = "Přeplněná rozhraní s reklamami, která zpomalují rozhodování.";
+$security_other_item_2 = "Statické zprávy namísto průběžné živé analýzy.";
+$security_other_item_3 = "Skryté spready a nejasné struktury poplatků.";
+$security_other_item_4 = "Zastaralá infrastruktura s nekonzistentní ochranou dat.";
+$security_other_item_5 = "Pomalé ověření účtu, které může trvat dny.";
+$security_disclaimer = "Srovnání odráží typické vzorce v odvětví a slouží pro ilustrační účely.";
+
+$capabilities_title = "Hlavní schopnosti platformy přehledně";
+$capabilities_subtitle = "Prohlédněte si funkční parametry obsažené ve vašem přístupu k účtu.";
+$capability_table_col_1 = "Parametr Schopnosti";
+$capability_table_col_2 = "Funkční Detaily";
+$capability_table_col_3 = "Obsaženo";
+$capability_check_aria = "Obsaženo";
+$capability_1_title = "Rámec Pro Obchodování AI";
+$capability_1_text = "Algoritmické zpracování výpočtů makro metrik.";
+$capability_2_title = "Agregované Toky";
+$capability_2_text = "Konsolidované dynamické grafy v reálném čase.";
+$capability_3_title = "Stabilita Napříč Zařízeními";
+$capability_3_text = "Plně responzivní zobrazení na mobilu, počítači i tabletu.";
+$capability_4_title = "Pokrytí Více Aktiv";
+$capability_4_text = "Sjednocený přístup ke kryptu, forexu i akciím.";
+$capability_5_title = "Automatická Upozornění na Rizika";
+$capability_5_text = "Nastavitelná oznámení pro neobvyklou volatilitu.";
+$capability_6_title = "Šifrovaný Datový Trezor";
+$capability_6_text = "Osobní data izolovaná kryptografickým přístupem.";
+$capability_7_title = "24/7 Lidská Podpora";
+$capability_7_text = "Operátoři živé podpory připraveni ihned pomoci.";
+
+$payments_section_label = "Vklady";
+$payments_title = "Vložte prostředky metodami, kterým již důvěřujete";
+$payments_subtitle = "Karty, elektronické peněženky a bankovní převody — chráněny SSL šifrováním.";
+$payments_aria_label = "Akceptované metody vkladu";
+$payment_method_bank_transfer = "Bankovní Převod";
+$payment_method_ssl = "Zabezpečeno SSL";
+
+$partners_section_label = "Spolehlivá Infrastruktura";
+$partners_title = "Vytvořeno s partnery světové úrovně";
+$partners_aria_label = "Partnerští poskytovatelé infrastruktur $site_name";
+
+$reviews_section_label = "Zpětná Vazba Uživatelů";
+$reviews_title = "Co říkají obchodníci o $site_name";
+$reviews_subtitle = "Upřímná zpětná vazba od naší globální komunity.";
+$review_1_text = "Jako začátečník jsem měl z krypta strach. $site_name vytvořil přehled tak intuitivní, že jsem si věřil během několika minut.";
+$review_1_role = "Ověřený Drobný Obchodník";
+$review_2_text = "Čistota rozhraní mi šetří hodiny času. AI analýzy jsou skvělé.";
+$review_2_role = "Analytik Krypto Aktiv";
+$review_3_text = "Exekuce s nízkou latencí mi umožňuje upravovat cíle za chodu.";
+$review_3_role = "Soukromý Správce Portfolia";
+$review_4_text = "Podpora odpověděla do dvou minut. Výjimečné služby.";
+$review_4_role = "Algoritmický Obchodník";
+
+$review_1_avatar_alt = "Jan Novotný, uživatel $site_name";
+$review_2_avatar_alt = "Eva Dvořáková, uživatelka $site_name";
+$review_3_avatar_alt = "David Černý, uživatel $site_name";
+$review_4_avatar_alt = "Lenka Procházková, uživatelka $site_name";
+$hero_growth_visual_alt = "Graf růstu AI obchodování $site_name";
+$mobile_trading_visual_alt = "Rozhraní mobilní aplikace $site_name";
+$cta_security_visual_alt = "AI bezpečnostní opatření chránící účty $site_name";
+
+$seo_content_title = "$site_name: Posílení obchodníků prostřednictvím institucionální AI architektury";
+$seo_content_intro = "Moderní interakce s aktivy vyžaduje absolutní jasnost. $site_name řeší složitost prostřednictvím svého elegantního prostředí.";
+$seo_block_1_title_before = "Pokročilá";
+$seo_block_1_title_accent = "Krypto Aktiva";
+$seo_block_1_text_1 = "Likvidita blockchainu se mění rychle, což činí nízko-latentní infrastrukturu klíčovou.";
+$seo_block_1_text_2 = "Platforma poskytuje kontext změnám objemu pro snazší interpretaci.";
+$seo_block_2_title_before = "Hluboké";
+$seo_block_2_title_accent = "Neurální Analýzy Trhu";
+$seo_block_2_text_1 = "Automatizované algoritmy zpracovávají tržní data k výpočtu strukturálních variací.";
+$seo_block_2_text_2 = "Modely běžící nepřetržitě zobrazují změny ihned, jak nastanou.";
+$seo_block_3_title_before = "Bezproblémový";
+$seo_block_3_title_accent = "Proces Registrace Účtu";
+$seo_block_3_text_1 = "Dodržování předpisů nemusí být složité. Naše registrace chrání vaše data.";
+$seo_block_3_text_2 = "Každé pole vysvětluje, proč je požadováno.";
+$seo_block_4_title_before = "Institucionální Úroveň";
+$seo_block_4_title_accent = "Řízení Rizik";
+$seo_block_4_text_1 = "Dimenzování pozic a automatická upozornění vycházejí z profesionálních nástrojů.";
+$seo_block_4_text_2 = "Upozornění jsou nastavitelná pro zamezení únavě z notifikací.";
+
+$faq_section_label = "Centrum Podpory";
+$faq_title = "Často kladené otázky";
+$faq_subtitle = "Najděte okamžité odpovědi týkající se registrace a přístupu k platformě.";
+$faq_1_question = "Jak mohu začít s $site_name?";
+$faq_1_answer = "Stačí vyplnit registrační formulář výše a aktivovat účet.";
+$faq_2_question = "Potřebuji pokročilé krypto zkušenosti?";
+$faq_2_answer = "Ne. $site_name obsahuje speciální režim pro začátečníky.";
+$faq_3_question = "Jaký je minimální požadavek?";
+$faq_3_answer = "Standardní aktivace je $app_price $app_currency.";
+$faq_4_question = "Existují nějaké skryté poplatky?";
+$faq_4_answer = "Ne. Pracujeme s naprostou transparentností poplatků.";
+$faq_5_question = "Jak funguje AI komponenta?";
+$faq_5_answer = "Naše neurální systémy převádějí složitá data na jednoduché trendové čáry.";
+$faq_6_question = "Jsou má osobní data chráněna?";
+$faq_6_answer = "Ano. Každé spojení je zabezpečeno pomocí SSL.";
+
+$final_cta_title = "Jste připraveni zažít jasnost $site_name?";
+$final_cta_subtitle = "Připojte se k modernímu systému optimalizovanému pro rychlé operace a bezpečnost.";
+
+$footer_brand_description = "Moderní analytické prostředí nabízející přehledné sledování dat pro globale aktiva.";
+$footer_platform_title = "Platforma";
+$footer_platform_interface = "Rozhraní";
+$footer_platform_markets = "Přehled Trhů";
+$footer_pages_title = "Stránky";
+$footer_page_about = "O Nás";
+$footer_page_contact = "Kontakt";
+$footer_page_signin = "Přihlásit Se";
+$footer_legal_title = "Právní Informace";
+$footer_terms = "Podmínky Použití";
+$footer_privacy = "Zásady Ochrany Osobních Údajů";
+$footer_disclaimer_title = "⚠️ Upozornění na Riziko:";
+$footer_disclaimer_text = "Obchodování s krypto aktivy zahrnuje značné riziko tržní volatility. Si ponechte plnou kontrolu nad svou strategií.";
+$footer_copyright = "Všechna práva vyhrazena.";
+
+$about_meta_title = "O Nás | $site_name";
+$about_meta_description = "Zjistěte více o $site_name — naší misi a AI technologii.";
+$about_breadcrumb_name = "O Nás";
+$about_h1 = "O $site_name";
+$about_p1 = "$site_name byl vytvořen s cílem zpřístupnit AI obchodní nástroje všem.";
+$about_p2 = "Věříme, že přístup na globální trhy by měl být transparentní.";
+$about_h2_mission = "Naše Mise";
+$about_p_mission_1 = "Naší misí je poskytovat obchodníkům jasné nástroje pro navigaci na trzích.";
+$about_p_mission_2 = "Každá funkce na $site_name je navržena s ohledem na přehlednost.";
+$about_h2_ai = "Náš Přístup K AI";
+$about_p_ai_1 = "$site_name kombinuje data v reálném čase s AI analýzou.";
+$about_p_ai_2 = "Naše systémy slouží jako podpora rozhodování — nikoli jako záruka zisku.";
+$about_li_1 = "Agregace tržních dat v reálném čase";
+$about_li_2 = "Analýza trhu s podporou AI";
+$about_li_3 = "Transparentní upozornění na rizika";
+$about_li_4 = "Průvodce registrací pro nové obchodníky";
+$about_li_5 = "Přístup k více aktivům: krypto, forex, akcie";
+$about_li_6 = "Bezpečnostní architektura na úrovni banky";
+$about_li_7 = "24/7 zákaznická podpora";
+$about_li_8 = "Pravidelné aktualizace platformy";
+$about_h2_security = "Bezpečnost Na Prvním Místě";
+$about_p_security_1 = "K ochraně vašich dat používáme standardní šifrování.";
+$about_p_security_2 = "Bezpečnost je zabudována do každé části platformy.";
+$about_h2_global = "Vytvořeno Pro Globální Trhy";
+$about_p_global_1 = "$site_name podporuje obchodníky v mnoha regionech.";
+$about_p_global_2 = "Naši partneři nám pomáhají udržovat spolehlivý přístup.";
+$about_h2_why = "Proč Si Vybrat $site_name";
+$about_why_li_1 = "Jasná a strukturovaná registrace";
+$about_why_li_2 = "Podpora AI, realistická očekávání";
+$about_why_li_3 = "Transparentní informace o poplatcích";
+$about_why_li_4 = "Rychlá zákaznická podpora";
+$about_why_li_5 = "Regulovaní platební partneři";
+$about_why_li_6 = "Neustálé vylepšování platformy";
+$about_why_li_7 = "Důraz na vzdělávání obchodníků";
+$about_h2_forward = "Pohled Do Budoucna";
+$about_p_forward_1 = "$site_name neustále vylepšujeme na základě zpětné vazby.";
+$about_p_forward_2 = "Děkujeme, že zvažujete $site_name.";
+
+$contact_meta_title = "Kontakt | $site_name";
+$contact_meta_description = "Kontaktujte tým $site_name.";
+$contact_breadcrumb_name = "Kontakt";
+$contact_h1 = "Kontaktujte Nás";
+$contact_intro_1 = "Máte dotaz ohledně svého účtu nebo funkce? Jsme tu pro vás.";
+$contact_intro_2 = "Vyplňte formulář níže nebo nás kontaktujte přímo.";
+$contact_h2_help = "S Čím Vám Můžeme Pomoci";
+$contact_li_1 = "Nastavení a ověření účtu";
+$contact_li_2 = "Funkce platformy a jejich fungování";
+$contact_li_3 = "Dotazy k vkladům a výběrům";
+$contact_li_4 = "Technické problémy";
+$contact_li_5 = "Obecná zpětná vazba a návrhy";
+$contact_li_6 = "Partnerské a mediální dotazy";
+$contact_h2_send = "Napište Nám Zprávu";
+$contact_p_send = "Zadejte své údaje níže a náš tým vám odpoví co nejdříve.";
+$contact_form_fname = "Jméno";
+$contact_form_lname = "Příjmení";
+$contact_form_email = "E-mailová adresa";
+$contact_form_submit = "Odeslat Zprávu";
+$contact_h2_info = "Další Způsoby, Jak Nás Kontaktovat";
+$contact_support_label = "Podpora:";
+$contact_institutional_label = "Institucionální dotazy:";
+$contact_disclaimer = "Naším cílem je odpovědět na všechny dotazy do 24-48 hodin.";
+
+$faq_page_meta_title = "Často Kladené Otázky | $site_name";
+$faq_page_meta_description = "Často kladené otázky o $site_name — účty, vklady a bezpečnost.";
+$faq_page_breadcrumb_name = "FAQ";
+$faq_page_h1 = "Často Kladené Otázky";
+$faq_page_subtitle = "Odpovědi na otázky, které nám obchodníci kladou nejčastěji.";
+
+$sign_meta_title = "Vytvořte Si Účet | $site_name";
+$sign_meta_description = "Vytvořte si účet u $site_name a začněte obchodovat.";
+$sign_breadcrumb_name = "Registrovat";
+$sign_h1 = "Vytvořte Si Účet";
+$sign_subtitle = "Trvá méně než 3 minuty. Nulové poplatky za nastavení.";
+
+$conditions_meta_title = "Obchodní Podmínky | $site_name";
+$conditions_meta_description = "Přečtěte si Obchodní Podmínky upravující používání $site_name.";
+$conditions_breadcrumb_name = "Podmínky";
+$conditions_h1 = "Obchodní Podmínky";
+$conditions_last_update = "Poslední aktualizace: " . date('F Y');
+$conditions_intro = "Tyto Obchodní Podmínky upravují váš přístup k platformě $site_name.";
+$conditions_h2_eligibility = "Způsobilost";
+$conditions_p_eligibility = "Pro používání platformy vám musí být nejméně 18 let.";
+$conditions_h2_account = "Váš Účet";
+$conditions_p_account = "Jste odpovědní za zachování důvěrnosti svých přihlašovacích údajů.";
+$conditions_h2_risk = "Riziko Obchodování";
+$conditions_p_risk = "Obchodování s finančními nástroji přináší značná rizika.";
+$conditions_h2_conduct = "Přípustné Použití";
+$conditions_p_conduct = "Souhlasíte s tím, že nebudete platformu zneužívat.";
+$conditions_h2_liability = "Omezení Odpovědnosti";
+$conditions_p_liability = "V maximálním rozsahu povoleném zákonem nenese $site_name odpovědnost za nepřímé škody.";
+$conditions_h2_changes = "Změny Podmínek";
+$conditions_p_changes = "Tyto podmínky můžeme čas od času aktualizovat.";
+$conditions_h2_contact = "Kontakt";
+$conditions_p_contact = "Dotazy k těmto podmínkám lze zaslat týmu podpory.";
+
+$privacy_meta_title = "Zásady Ochrany Osobních Údajů | $site_name";
+$privacy_meta_description = "Zjistěte, jak $site_name shromažďuje a chrání vaše osobní údaje.";
+$privacy_breadcrumb_name = "Soukromí";
+$privacy_h1 = "Zásady Ochrany Osobních Údajů";
+$privacy_last_update = "Poslední aktualizace: " . date('F Y');
+$privacy_intro = "Tyto zásady ochrany osobních údajů vysvětlují, jak $site_name shromažďuje a chrání vaše údaje.";
+$privacy_h2_collect = "Informace, Které Shromažďujeme";
+$privacy_p_collect = "Shromažďujeme informace, které nám poskytnete přímo při registraci.";
+$privacy_h2_use = "Jak Vaše Informace Používáme";
+$privacy_p_use = "Informace používáme k poskytování a zlepšování platformy.";
+$privacy_h2_sharing = "Sdílení Informací";
+$privacy_p_sharing = "Vaše osobní údaje neprodáváme třetím stranám.";
+$privacy_google_choices = 'Způsob, jakým Google používá informace, můžete spravovat prostřednictvím <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Nastavení Reklam Google</a>.';
+$privacy_h2_security = "Bezpečnost Dat";
+$privacy_p_security = "K ochraně vašich dat používáme technická opatření.";
+$privacy_h2_rights = "Vaše Práva";
+$privacy_p_rights = "Máte právo na přístup k osobním údajům, jejich opravu nebo vymazání.";
+$privacy_h2_retention = "Uchovávání Dat";
+$privacy_p_retention = "Vaše údaje uchováváme pouze po nezbytně nutnou dobu.";
+$privacy_h2_contact = "Kontaktujte Nás";
+$privacy_p_contact = "V případě dotazů týkajících se soukromí nás kontaktujte přes stránku Kontakt.";
+
+$page_title_risk_warning = "Upozornění na Riziko | $site_name";
+$page_description_risk_warning = "Pochopte rizika automatizovaného obchodování s $site_name.";
+$risk_warning_breadcrumb_name = "Upozornění na Riziko";
+$risk_warning_title = "Upozornění na Riziko";
+$risk_warning_intro = "Pochopení rizik je prvním krokem k odpovědnému obchodování.";
+$risk_warning_ai_heading = "Jak Náš AI Systém Pomáhá Řídit Riziko:";
+$risk_warning_ai_1 = "<strong>Algoritmická Efektivita:</strong> Pokročilé algoritmy analyzují signály pro objektivní exekuci.";
+$risk_warning_ai_2 = "<strong>Strategie Založené na Datech:</strong> Strategie vycházejí z ověřených vzorců.";
+$risk_warning_ai_3 = "<strong>Flexibilní Nastavení:</strong> Upravte si své parametry rizika kdykoliv.";
+$risk_warning_disclaimer = "<strong>Odvolání Odpovědnosti:</strong> Obchodování vždy přináší riziko. Automatizované systémy nezaručují zisk.";
+$risk_warning_s1_heading = "1. Obecná Rizika a Rizika Krypto Trhu";
+$risk_warning_s1_intro = "Kryptoměny jsou vysoce volatilní aktiva.";
+$risk_warning_s1_1 = "Hodnoty mohou v krátkých obdobích drameticky kolísat.";
+$risk_warning_s1_2 = "Tržní hodnoty mohou být silně ovlivněny změnami regulací.";
+$risk_warning_s1_3 = "Některá aktiva mohou zcela ztratit hodnotu. Investujte pouze prostředky, které si můžete dovolit ztratit.";
+$risk_warning_s2_heading = "2. Rizika Exekuce a Pákového Efektu";
+$risk_warning_s2_1 = "<strong>Volatilita:</strong> Extrémní pohyby mohou způsobit zpoždění.";
+$risk_warning_s2_2 = "<strong>Pákový Efekt:</strong> Pákové produkty zesilují zisky i ztráty.";
+$risk_warning_s3_heading = "3. Technická a Kybernetická Rizika";
+$risk_warning_s3_1 = "<strong>Technické Faktory:</strong> Online obchodování přináší riziko výpadku připojení.";
+$risk_warning_s3_2 = "<strong>Kybernetická Bezpečnost:</strong> Krypto účty bývají terčem phishingových útoků.";
+$risk_warning_s3_3 = "<strong>Třetí Strany:</strong> Neručíme za bezpečnost externích platforem.";
+$risk_warning_s4_heading = "4. Regulatorní a Závěrečná Ustanovení";
+$risk_warning_s4_1 = "<strong>Právní Shoda:</strong> Uživatelé jsou sami odpovědní za dodržování místních zákonů.";
+$risk_warning_s4_2 = "<strong>Bez Záruk Zisku:</strong> Neexistuje žádné bezrizikové obchodování.";
+$risk_warning_s4_3 = "<strong>Vhodnost:</strong> Pokud rizikům nerozumíte, obchodování pro vás není vhodné.";
+$risk_warning_contact = "<strong>Kontakt:</strong> V případě dotazů kontaktujte náš oficiální tým podpory.";
+$footer_risk_warning = "Upozornění na Riziko";
+
+$lang_loaded = true;
+?>

@@ -1,0 +1,422 @@
+<?php
+require __DIR__ . '/../lang.php';
+$site_lang = 'nl-NL';
+$form_language = 'nl';
+
+$home_meta_title = "$site_name — Officiële Website | Handelsplatform";
+$home_meta_description = "Krijg toegang tot wereldwijde markten met $site_name ⭐ Institutionele AI-analyses ⚡, uitvoering met lage latentie ⚡ en overzichtelijke interfaces ontworpen voor moderne financiële groei.";
+
+$quiz_consultant_name = 'Lisa';
+$quiz_consultant_role = 'Onboarding Assistent';
+
+$quiz_text_welcome   = "Hallo! Dit is $quiz_consultant_name, uw persoonlijke onboarding assistent bij $site_name. Geweldig nieuws! Uw toegang is officieel vooraf goedgekeurd. Laat ons nu uw professionele profiel configureren!";
+$quiz_text_q1 = "Om te zorgen voor volledige wettelijke naleving, bevestigt u uw huidige woonland: $country_name";
+$quiz_text_a1_yes    = "Ja, dit is mijn huidige woonplaats";
+$quiz_text_a1_no     = "Nee";
+
+$quiz_text_q2 = "Perfect. Selecteer de juiste leeftijdsategorie om de meest geschikte financiële instrumenten te vinden:";
+
+$quiz_text_q3        = "Is er een actieve bankrekening of creditcard beschikbaar om regelmatige dagelijkse dividenduitkeringen te ontvangen?";
+$quiz_text_a3_yes    = "Ja, er is een actieve rekening beschikbaar";
+$quiz_text_a3_no     = "Nog niet beschikbaar";
+
+$quiz_text_q4        = "Geef de primaire bron van persoonlijk inkomen aan. (Deze parameter helpt bij het aanpassen van de risicobeheerinstellingen).";
+$quiz_text_a4_1      = "Officieel dienstverband / Zelfstandige";
+$quiz_text_a4_2      = "Passief inkomen / Persoonlijk spaargeld";
+$quiz_text_a4_3      = "Andere bronnen";
+
+$quiz_text_q5 = "Geweldig! De laatste stap is een korte telefonische verificatie door onze manager om uw registratie te bevestigen. Gesprekken vinden plaats tussen 11:00 en 20:00 uur. Kunt u het gesprek aannemen?";
+$quiz_text_a5_yes    = "Ja, deze tijd schikt voor het gesprek";
+$quiz_text_a5_no     = "Start het gesprek alstublieft direct";
+
+$quiz_text_loader    = "De gevraagde opties analyseren en veilige accountparameters initialiseren...";
+$quiz_text_final_ttl = "Account Succesvol Geautoriseerd! 🎉 Uw veilige digitale werkruimte is volledig geconfigureerd. Voltooi de laatste verificatiestappen hieronder om dagelijkse betalingen te garanderen:";
+
+$quiz_placeholder_fname = "Voornaam";
+$quiz_placeholder_lname = "Achternaam";
+$quiz_placeholder_email = "E-mailadres";
+$quiz_placeholder_phone = "Telefoonnummer";
+$quiz_btn_submit = "Handel Activeren";
+$quiz_text_typing       = "typt een bericht...";
+$quiz_text_processing   = "Verzoek verwerken...";
+
+$header_nav_aria_label = "Hoofdnavigatie";
+$nav_platform = "Platform";
+$nav_features = "Functies";
+$nav_markets = "Markten";
+$nav_process = "Proces";
+$nav_security = "Beveiliging";
+$nav_reviews = "Beoordelingen";
+$nav_faq = "Veelgestelde vragen";
+$nav_about = "Over ons";
+$nav_contact = "Contact";
+
+$theme_toggle_aria_label = "Schakel over naar donker thema";
+$theme_toggle_text = "Donker";
+$theme_toggle_text_light = "Licht";
+$theme_toggle_dark_aria_label = "Schakel over naar donker thema";
+$theme_toggle_light_aria_label = "Schakel over naar licht thema";
+$header_cta_button = "Start met handelen";
+$burger_menu_aria_label = "Menu";
+
+$hero_heading_before = "$site_name";
+$hero_heading_accent = "Platform";
+$hero_description = "Nieuw in handelen? $site_name biedt gestructureerde, AI-ondersteunde tools ontworpen om uw reis transparant te maken. Ontdek crypto, forex en aandelen zonder technische chaos.";
+$hero_primary_button = "Start met handelen";
+$hero_secondary_button = "Ontdek functies";
+$hero_badge_ssl = "SSL-protocol beschermd";
+$hero_badge_guided = "Begeleide beginnersflow";
+
+$signup_heading = "Maak uw account aan";
+$signup_subtitle = "Duurt minder dan 3 minuten. Geen instelkosten.";
+$form_first_name_label = "Voornaam";
+$form_first_name_placeholder = "Jan";
+$form_last_name_label = "Achternaam";
+$form_last_name_placeholder = "De Vries";
+$form_email_label = "E-mailadres";
+$form_email_placeholder = "jan@example.nl";
+$form_phone_label = "Telefoonnummer";
+$form_phone_placeholder = "6 12345678";
+$form_submit_button = "Maak een gratis account aan";
+$form_legal_before = "Door uw gegevens in te dienen, gaat u akkoord met onze ";
+$form_terms_text = "Algemene Voorwaarden";
+
+$stats_value_assets = "80+";
+$stats_label_assets = "Verhandelbare activa";
+$stats_value_setup = "Snel";
+$stats_label_setup = "Account instellen";
+$stats_value_support = "24/7";
+$stats_label_support = "Ondersteuning";
+$stats_value_security = "Veilig";
+$stats_label_security = "Gegevensverwerking";
+
+$platform_section_label = "Intelligente Werkruimte";
+$platform_title_before = "$site_name Professionele Grafieken.";
+$platform_title_accent = "Gebouwd voor eenvoudige beslissingen.";
+$platform_subtitle = "Volg realtime prijzen en voer acties uit vanuit een schone interface ontworpen om cognitieve belasting te verminderen.";
+$platform_check_1 = "Realtime AI-verbeterde grafieken";
+$platform_check_2 = "Eén-tik marktuitvoeringssysteem";
+$platform_cta_button = "Bekijk platformfuncties";
+
+$mockup_overlay_headline = "⚡ Directe Uitvoering Beschikbaar";
+$mockup_overlay_text = "Om deze order direct te routeren, activeert u uw veilige $site_name terminalstatus.";
+$mockup_overlay_button = "Maak Veilig Account Aan";
+$mockup_dashboard_title = "BTC / USD Dashboard";
+$mockup_today = "Vandaag";
+$mockup_sell_button = "Verkopen";
+$mockup_buy_button = "Kopen";
+$mockup_order_pending_text = "Order in behandeling";
+
+$features_section_label = "Platformmogelijkheden";
+$features_title = "Alles wat u nodig heeft om met $site_name vertrouwen te handelen";
+$features_subtitle = "Beveiliging, snelheid en neurale marktintelligentie gecombineerd in één duidelijke lay-out";
+$feature_1_title = "Beveiliging op bankniveau";
+$feature_1_text = "SSL-encryptie, veilige gegevensverwerking en volledig beschermde accountarchitectuur.";
+$feature_2_title = "AI-marktanalyse";
+$feature_2_text = "Realtime machine learning-berekeningen gericht op het opvangen van scherpe marktvariaties.";
+$feature_3_title = "Lage-latentie stromen";
+$feature_3_text = "Agile infrastructuur gericht op snelle orderafhandeling tijdens drukke periodes.";
+
+$markets_section_label = "Realtime activa";
+$markets_title = "Geïntegreerd $site_name dashboard voor wereldwijde statistieken";
+$markets_subtitle = "Volg realtime activawijzigingen en gebruik geautomatiseerde AI-analyse.";
+$markets_ai_box_title = "💡 Operationele Efficiëntie:";
+$markets_ai_box_text = "Traditioneel handelen vereist het handmatig volgen van honderden indicatoren. $site_name algoritmen verwerken duizenden prijsverschuivingen per milliseconde.";
+$markets_cta_button = "Toegang tot markten";
+$markets_table_asset = "Activa";
+$markets_table_price = "Prijs";
+$markets_table_change = "24u Verandering";
+
+$onboarding_section_label = "Onboarding Proces";
+$onboarding_title = "$site_name maakt beginnen stressvrij";
+$onboarding_subtitle = "Geen ervaring met crypto? Onze geautomatiseerde gids helpt u bij elke stap.";
+$onboarding_step_1_title = "Veilige Aanmelding";
+$onboarding_step_1_text = "Voer basiscontactgegevens in via ons sterk versleutelde formulier.";
+$onboarding_step_2_title = "AI-begeleide Instelling";
+$onboarding_step_2_text = "Het platform toont interface-opties afgestemd op uw voorkeuren.";
+$onboarding_step_3_title = "Veilige Financiering";
+$onboarding_step_3_text = "Activeer uw handelsbereik via betrouwbare betalingslagen.";
+$onboarding_step_4_title = "Signalen Gebruiken";
+$onboarding_step_4_text = "Begin te handelen op wereldwijde markten met live neurale datastromen.";
+
+$mobile_app_image_alt = "$site_name mobiele handelsapp op een smartphone";
+$mobile_app_section_label = "Mobiele Toegang";
+$mobile_app_title = "Uw portfolio, rechtstreeks in uw zak";
+$mobile_app_subtitle = "De volledige $site_name engine gecomprimeerd in een snelle mobiele ervaring.";
+$mobile_app_check_1 = "Pushmeldingen voor kritieke prijsbewegingen";
+$mobile_app_check_2 = "Biometrische inlog met versleutelde lokale opslag";
+$mobile_app_check_3 = "Volledige touch-geoptimaliseerde grafiekensuite";
+$mobile_app_cta_button = "Download de app";
+
+$security_section_label = "Gebalanceerd Kader";
+$security_title = "Transparante operationele parameters";
+$security_subtitle = "Wij geloven in absolute eerlijkheid. Dit is wat ons systeem onderscheidt.";
+$security_our_title = "Belangrijkste Voordelen";
+$security_our_item_1 = "Minimalistisch dashboard afgestemd op institutionele snelheid.";
+$security_our_item_2 = "Neurale analytische gegevensverwerking die 24/7 draait.";
+$security_our_item_3 = "Geen verborgen transactiemarges of onverwachte beheerkosten.";
+$security_our_item_4 = "Directe cryptografische SSL-accountarchitectuur.";
+$security_our_item_5 = "Begeleide onboarding die slechts minuten duurt.";
+
+$security_other_badge = "Andere platformen";
+$security_other_title = "Veelvoorkomende Beperkingen";
+$security_other_item_1 = "Overvolle dashboards met veel advertenties die beslissingen vertragen.";
+$security_other_item_2 = "Statische rapporten in plaats van continue live analyse.";
+$security_other_item_3 = "Verborgen spreads en onduidelijke kostenstructuren.";
+$security_other_item_4 = "Gedeelde infrastructuur met inconsequente gegevensbescherming.";
+$security_other_item_5 = "Trage accountverificatie die dagen kan duren.";
+$security_disclaimer = "De vergelijking weerspiegelt typische patronen in de sector en dient ter illustratie.";
+
+$capabilities_title = "Kernmogelijkheden van het platform in één oogopslag";
+$capabilities_subtitle = "Bekijk functionele parameters binnen uw accounttoegang.";
+$capability_table_col_1 = "Mogelijkheidsparameter";
+$capability_table_col_2 = "Functionele Details";
+$capability_table_col_3 = "Inbegrepen";
+$capability_check_aria = "Inbegrepen";
+$capability_1_title = "AI Handelskader";
+$capability_1_text = "Algoritmische verwerking die dynamisch macrometrieken berekent.";
+$capability_2_title = "Geaggregeerde Stromen";
+$capability_2_text = "Geconsolideerde realtime dynamische grafieken.";
+$capability_3_title = "Cross-Device Stabiliteit";
+$capability_3_text = "Volledig responsieve weergave op mobiel, desktop en tablets.";
+$capability_4_title = "Multi-Asset Dekking";
+$capability_4_text = "Geïntegreerde toegang tot crypto, forex en aandelen.";
+$capability_5_title = "Geautomatiseerde Risicowaarschuwingen";
+$capability_5_text = "Configureerbare meldingen voor ongebruikelijke volatiliteit.";
+$capability_6_title = "Verschut Gegevenskluis";
+$capability_6_text = "Persoonlijke gegevens geïsoleerd achter cryptografische toegangscontroles.";
+$capability_7_title = "24/7 Menselijke Ondersteuning";
+$capability_7_text = "Live ondersteuningsteams staan klaar voor vragen.";
+
+$payments_section_label = "Stortingen";
+$payments_title = "Financier uw account met vertrouwde methoden";
+$payments_subtitle = "Kaarten, e-wallets en bankoverschrijvingen — beschermd met SSL-encryptie.";
+$payments_aria_label = "Geaccepteerde stortingsmethoden";
+$payment_method_bank_transfer = "Bankoverschrijving";
+$payment_method_ssl = "SSL Beveiligd";
+
+$partners_section_label = "Betrouwbare Infrastructuur";
+$partners_title = "Gebouwd met hoogwaardige partners";
+$partners_aria_label = "$site_name infrastructuur- en betalingspartners";
+
+$reviews_section_label = "Gebruikersfeedback";
+$reviews_title = "Wat handelaren zeggen over $site_name";
+$reviews_subtitle = "Eerlijke feedback uit onze wereldwijde community.";
+$review_1_text = "Als beginner beangstigde crypto mij. $site_name maakte het dashboard zo intuïtief dat ik binnen enkele minuten vertrouwen kreeg.";
+$review_1_role = "Geverifieerde Particuliere Handelaar";
+$review_2_text = "De schone interface bespaart mij uren. AI-inzichten zijn erg nuttig.";
+$review_2_role = "Crypto Activa Analist";
+$review_3_text = "De lage latentie stelt mij in staat om doelen direct aan te passen.";
+$review_3_role = "Privé Portfolio Manager";
+$review_4_text = "Ondersteuning reageerde binnen twee minuten. Uitzonderlijke service.";
+$review_4_role = "Algoritmische Handelaar";
+
+$review_1_avatar_alt = "Michael De Jong, $site_name gebruiker";
+$review_2_avatar_alt = "Sanne Bakker, $site_name gebruiker";
+$review_3_avatar_alt = "David Van Dijk, $site_name gebruiker";
+$review_4_avatar_alt = "Emma Meijer, $site_name gebruiker";
+$hero_growth_visual_alt = "$site_name AI handelsgroeigrafiek";
+$mobile_trading_visual_alt = "$site_name mobiele handelsapp interface";
+$cta_security_visual_alt = "AI beveiligingsmaatregelen die $site_name accounts beschermen";
+
+$seo_content_title = "$site_name: Handelaren versterken via institutionele AI-architectuur";
+$seo_content_intro = "Moderne interactie met activa vereist absolute helderheid. $site_name lost complexiteit op door een elegante, responsieve omgeving.";
+$seo_block_1_title_before = "Geavanceerde";
+$seo_block_1_title_accent = "Crypto Handelsactiva";
+$seo_block_1_text_1 = "Blockchain-liquiditeit verandert snel, wat een lage-latentie infrastructuur essentieel maakt.";
+$seo_block_1_text_2 = "Het platform contextualiseert volumeverschuivingen voor betere besluitvorming.";
+$seo_block_2_title_before = "Diepgaande";
+$seo_block_2_title_accent = "Neurale Marktinzichten";
+$seo_block_2_text_1 = "Geautomatiseerde algoritmen verwerken marktgegevens om structurele variaties te berekenen.";
+$seo_block_2_text_2 = "Modellen draaien continu zodat verschuivingen direct zichtbaar worden.";
+$seo_block_3_title_before = "Wrijvingsloos";
+$seo_block_3_title_accent = "Account Instroomproces";
+$seo_block_3_text_1 = "Naleving hoeft niet ingewikkeld te zijn. Onze registratie beschermt uw gegevens.";
+$seo_block_3_text_2 = "Elk veld legt uit waarom het gevraagd wordt.";
+$seo_block_4_title_before = "Institutioneel Niveau";
+$seo_block_4_title_accent = "Risicobeheersing";
+$seo_block_4_text_1 = "Positiegrootte en geautomatiseerde waarschuwingen zijn overgenomen van professionele tools.";
+$seo_block_4_text_2 = "Waarschuwingen zijn configureerbaar per activa.";
+
+$faq_section_label = "Ondersteuningscentrum";
+$faq_title = "Veelgestelde vragen";
+$faq_subtitle = "Vind direct antwoorden over registratie en platformtoegang.";
+$faq_1_question = "Hoe kan ik starten met $site_name?";
+$faq_1_answer = "Vul het registratieformulier in en activeer uw account.";
+$faq_2_question = "Heb ik geavanceerde crypto-ervaring nodig?";
+$faq_2_answer = "Nee. $site_name heeft een speciale beginnersmodus.";
+$faq_3_question = "Wat is de minimale vereiste?";
+$faq_3_answer = "De standaard activatie is $app_price $app_currency.";
+$faq_4_question = "Zijn er verborgen kosten?";
+$faq_4_answer = "Nee. Wij werken met volledige kostentransparantie.";
+$faq_5_question = "Hoe werkt de AI-component?";
+$faq_5_answer = "Onze neurale systemen zetten complexe gegevens om in eenvoudige trendlijnen.";
+$faq_6_question = "Zijn mijn gegevens beschermd?";
+$faq_6_answer = "Ja. Elke verbinding is beveiligd met SSL.";
+
+$final_cta_title = "Klaar om de helderheid van $site_name te ervaren?";
+$final_cta_subtitle = "Sluit u aan bij een modern systeem geoptimaliseerd voor snelle operaties en gegevensbescherming.";
+
+$footer_brand_description = "Moderne analytische omgeving voor het volgen van wereldwijde activa.";
+$footer_platform_title = "Platform";
+$footer_platform_interface = "Interface";
+$footer_platform_markets = "Marktoverzicht";
+$footer_pages_title = "Pagina's";
+$footer_page_about = "Over Ons";
+$footer_page_contact = "Contact";
+$footer_page_signin = "Inloggen";
+$footer_legal_title = "Juridisch";
+$footer_terms = "Gebruiksvoorwaarden";
+$footer_privacy = "Privacybeleid";
+$footer_disclaimer_title = "⚠️ Risicowaarschuwing:";
+$footer_disclaimer_text = "Handelen in digitale crypto-activa omvat aanzienlijke marktrisico's. Behoud de volledige controle over uw strategie.";
+$footer_copyright = "Alle rechten voorbehouden.";
+
+$about_meta_title = "Over Ons | $site_name";
+$about_meta_description = "Lees meer over $site_name — onze missie en AI-technologie.";
+$about_breadcrumb_name = "Over Ons";
+$about_h1 = "Over $site_name";
+$about_p1 = "$site_name is gebouwd om gestructureerde AI-handelstools toegankelijk te maken.";
+$about_p2 = "Wij geloven dat toegang tot wereldwijde markten transparant moet zijn.";
+$about_h2_mission = "Onze Missie";
+$about_p_mission_1 = "Onze missie is om handelaren duidelijke tools te bieden voor crypto, forex en aandelen.";
+$about_p_mission_2 = "Elke functie op $site_name is ontworpen rond helderheid.";
+$about_h2_ai = "Onze AI-benadering";
+$about_p_ai_1 = "$site_name combineert realtime gegevens met AI-analyse.";
+$about_p_ai_2 = "Onze systemen dienen als beslissingsondersteuning — geen winstgarantie.";
+$about_li_1 = "Realtime marktdata-aggregatie";
+$about_li_2 = "AI-ondersteunde marktanalyse";
+$about_li_3 = "Transparante risicovermeldingen";
+$about_li_4 = "Begeleide onboarding voor beginners";
+$about_li_5 = "Multi-asset toegang: crypto, forex, aandelen";
+$about_li_6 = "Beveiligingsinfrastructuur op bankniveau";
+$about_li_7 = "24/7 klantenservice";
+$about_li_8 = "Regelmatige platformupdates";
+$about_h2_security = "Veiligheid Eerst";
+$about_p_security_1 = "Wij gebruiken industriestandaard versleuteling om uw gegevens te beschermen.";
+$about_p_security_2 = "Beveiliging is ingebouwd in elk onderdeel van het platform.";
+$about_h2_global = "Gebouwd voor Wereldwijde Markten";
+$about_p_global_1 = "$site_name ondersteunt handelaren in vele regio's.";
+$about_p_global_2 = "Onze partners helpen ons om betrouwbare toegang te behouden.";
+$about_h2_why = "Waarom Kiezen voor $site_name";
+$about_why_li_1 = "Duidelijke, gestructureerde onboarding";
+$about_why_li_2 = "AI-ondersteund, eerlijke verwachtingen";
+$about_why_li_3 = "Transparante tariefinformatie";
+$about_why_li_4 = "Snelle klantenservice";
+$about_why_li_5 = "Gereguleerde betalingspartners";
+$about_why_li_6 = "Continu platformverbeteringen";
+$about_why_li_7 = "Focus op educatie";
+$about_h2_forward = "Blik op de Toekomst";
+$about_p_forward_1 = "Wij verbeteren $site_name continu op basis van feedback.";
+$about_p_forward_2 = "Bedankt dat u $site_name overweegt.";
+
+$contact_meta_title = "Contact | $site_name";
+$contact_meta_description = "Neem contact op met het team van $site_name.";
+$contact_breadcrumb_name = "Contact";
+$contact_h1 = "Neem Contact Op";
+$contact_intro_1 = "Heeft u een vraag over uw account of een functie? Wij zijn er om te helpen.";
+$contact_intro_2 = "Vul het onderstaande formulier in of bereik ons rechtstreeks.";
+$contact_h2_help = "Waarmee Wij Kunnen Helpen";
+$contact_li_1 = "Account instellen en verificatie";
+$contact_li_2 = "Platformfuncties en werking";
+$contact_li_3 = "Vragen over stortingen en opnames";
+$contact_li_4 = "Technische problemen";
+$contact_li_5 = "Algemene feedback en suggesties";
+$contact_li_6 = "Partnerschapsaanvragen";
+$contact_h2_send = "Stuur Ons een Bericht";
+$contact_p_send = "Vul uw gegevens in en ons team neemt zo snel mogelijk contact op.";
+$contact_form_fname = "Voornaam";
+$contact_form_lname = "Achternaam";
+$contact_form_email = "E-mailadres";
+$contact_form_submit = "Bericht Verzenden";
+$contact_h2_info = "Andere Manieren om Ons te Bereiken";
+$contact_support_label = "Ondersteuning:";
+$contact_institutional_label = "Institutionele vragen:";
+$contact_disclaimer = "Wij proberen alle vragen binnen 24-48 uur te beantwoorden.";
+
+$faq_page_meta_title = "Veelgestelde Vragen | $site_name";
+$faq_page_meta_description = "Veelgestelde vragen over $site_name — accounts, stortingen en beveiliging.";
+$faq_page_breadcrumb_name = "FAQ";
+$faq_page_h1 = "Veelgestelde Vragen";
+$faq_page_subtitle = "Antwoorden op de meest gestelde vragen door handelaren.";
+
+$sign_meta_title = "Maak Uw Account Aan | $site_name";
+$sign_meta_description = "Maak uw $site_name account aan en begin met handelen.";
+$sign_breadcrumb_name = "Registreren";
+$sign_h1 = "Maak Uw Account Aan";
+$sign_subtitle = "Duurt minder dan 3 minuten. Geen instelkosten.";
+
+$conditions_meta_title = "Algemene Voorwaarden | $site_name";
+$conditions_meta_description = "Lees de Algemene Voorwaarden die van toepassing zijn op uw gebruik van $site_name.";
+$conditions_breadcrumb_name = "Voorwaarden";
+$conditions_h1 = "Algemene Voorwaarden";
+$conditions_last_update = "Laatst bijgewerkt: " . date('F Y');
+$conditions_intro = "Deze Algemene Voorwaarden regelen uw toegang tot en gebruik van $site_name.";
+$conditions_h2_eligibility = "Geschiktheid";
+$conditions_p_eligibility = "U moet ten minste 18 jaar oud zijn om het platform te gebruiken.";
+$conditions_h2_account = "Uw Account";
+$conditions_p_account = "U bent verantwoordelijk voor het geheimhouden van uw inloggegevens.";
+$conditions_h2_risk = "Handelsrisico";
+$conditions_p_risk = "Handelen in financiële instrumenten brengt aanzienlijke risico's met zich mee.";
+$conditions_h2_conduct = "Aanvaardbaar Gebruik";
+$conditions_p_conduct = "U gaat akkoord om het platform niet te misbruiken.";
+$conditions_h2_liability = "Beperking van Aansprakelijkheid";
+$conditions_p_liability = "Voor zover wettelijk toegestaan is $site_name niet aansprakelijk voor indirecte schade.";
+$conditions_h2_changes = "Wijzigingen in Voorwaarden";
+$conditions_p_changes = "Wij kunnen deze voorwaarden van tijd tot tijd bijwerken.";
+$conditions_h2_contact = "Contact";
+$conditions_p_contact = "Vragen over deze voorwaarden kunnen naar ons ondersteuningsteam worden gestuurd.";
+
+$privacy_meta_title = "Privacybeleid | $site_name";
+$privacy_meta_description = "Ontdek hoe $site_name uw persoonlijke gegevens verzamelt en beschermt.";
+$privacy_breadcrumb_name = "Privacy";
+$privacy_h1 = "Privacybeleid";
+$privacy_last_update = "Laatst bijgewerkt: " . date('F Y');
+$privacy_intro = "Dit privacybeleid legt uit hoe $site_name uw gegevens verzamelt en beschermt.";
+$privacy_h2_collect = "Informatie Die Wij Verzamelen";
+$privacy_p_collect = "Wij verzamelen informatie die u rechtstreeks verstrekt bij registratie.";
+$privacy_h2_use = "Hoe Wij Uw Informatie Gebruiken";
+$privacy_p_use = "Wij gebruiken uw informatie om het platform te leveren en te verbeteren.";
+$privacy_h2_sharing = "Delen van Informatie";
+$privacy_p_sharing = "Wij verkopen uw persoonlijke gegevens niet aan derden.";
+$privacy_google_choices = 'U kunt beheren hoe Google informatie gebruikt via <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads-instellingen</a>.';
+$privacy_h2_security = "Gegevensbeveiliging";
+$privacy_p_security = "Wij gebruiken technische maatregelen om uw gegevens te beschermen.";
+$privacy_h2_rights = "Uw Rechten";
+$privacy_p_rights = "U heeft het recht om uw persoonlijke gegevens in te zien, te corrigeren of te verwijderen.";
+$privacy_h2_retention = "Bewaartermijn";
+$privacy_p_retention = "Wij bewaren uw gegevens alleen zolang als nodig is.";
+$privacy_h2_contact = "Neem Contact Op";
+$privacy_p_contact = "Voor privacyvragen kunt u contact opnemen via onze contactpagina.";
+
+$page_title_risk_warning = "Risicowaarschuwing | $site_name";
+$page_description_risk_warning = "Begrijp de risico's van geautomatiseerd handelen met $site_name.";
+$risk_warning_breadcrumb_name = "Risicowaarschuwing";
+$risk_warning_title = "Risicowaarschuwing";
+$risk_warning_intro = "Risico's begrijpen is de eerste stap naar verantwoord handelen.";
+$risk_warning_ai_heading = "Hoe Ons AI-systeem Helpt bij Risicobeheer:";
+$risk_warning_ai_1 = "<strong>Algoritmische Efficiëntie:</strong> Geavanceerde algoritmen analyseren signalen voor objectieve uitvoering.";
+$risk_warning_ai_2 = "<strong>Datagestuurde Strategieën:</strong> Strategieën zijn gebaseerd op geverifieerde patronen.";
+$risk_warning_ai_3 = "<strong>Flexibele Instellingen:</strong> Pas uw risicoparameters op elk moment aan.";
+$risk_warning_disclaimer = "<strong>Disclaimer:</strong> Handelen brengt altijd risico's met zich mee. Geautomatiseerde systemen garanderen geen winst.";
+$risk_warning_s1_heading = "1. Algemene & Cryptomarktrisico's";
+$risk_warning_s1_intro = "Cryptovaluta zijn zeer volatiele activa met minimale regulering.";
+$risk_warning_s1_1 = "Waarden kunnen binnen korte periodes drastisch schommelen.";
+$risk_warning_s1_2 = "Marktwaarden kunnen sterk beïnvloed worden door regelgeving.";
+$risk_warning_s1_3 = "Sommige activa kunnen hun waarde volledig verliezen. Investeer alleen geld dat u kunt missen.";
+$risk_warning_s2_heading = "2. Uitvoerings- & Hefboomrisico's";
+$risk_warning_s2_1 = "<strong>Volatiliteit:</strong> Extreme bewegingen kunnen vertragingen veroorzaken.";
+$risk_warning_s2_2 = "<strong>Hefboomwerking:</strong> Hefboomproducten vergroten zowel winsten als verliezen.";
+$risk_warning_s3_heading = "3. Technische & Cyberbeveiligingsrisico's";
+$risk_warning_s3_1 = "<strong>Technische Factoren:</strong> Online handelen brengt risico's van verbindingsverlies met zich mee.";
+$risk_warning_s3_2 = "<strong>Cyberbeveiliging:</strong> Crypto-accounts zijn een doelwit voor phishing.";
+$risk_warning_s3_3 = "<strong>Externe Platformen:</strong> Wij garanderen niet voor de veiligheid van externe platformen.";
+$risk_warning_s4_heading = "4. Regelgeving & Slotbepalingen";
+$risk_warning_s4_1 = "<strong>Wettelijke Naleving:</strong> Gebruikers zijn zelf verantwoordelijk voor naleving van lokale wetten.";
+$risk_warning_s4_2 = "<strong>Geen Winstgaranties:</strong> Er bestaat geen risicovrij handelen.";
+$risk_warning_s4_3 = "<strong>Geschiktheid:</strong> Als u de risico's niet begrijpt, is handelen niet geschikt.";
+$risk_warning_contact = "<strong>Contact:</strong> Neem voor vragen contact op met onze klantenservice.";
+$footer_risk_warning = "Risicowaarschuwing";
+
+$lang_loaded = true;
+?>

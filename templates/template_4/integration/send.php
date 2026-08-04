@@ -142,7 +142,7 @@ function getData($buyerData)
         'ip' => getIP(),
         // 'ip' => '190.115.24.9',
     
-        'is_test' => isTestData($_POST),
+        'is_test' => isTestData($_POST) || !empty($_SESSION['is_test_site']),
         
         // Location and language data
         'country_code' => getPost('country'),
@@ -189,6 +189,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST['fname']) && isset($_POST['email']) && isset($_POST['fullphone'])) {
 
+        // Blocked email domains — known low-quality / non-counted sources.
+        // Rejected before any CRM/buyer notification so they never get forwarded or logged as real leads.
+        $bannedEmailDomains = ['web-library.net'];
+        $_submittedEmailDomain = strtolower(trim(substr((string) getPost('email'), strrpos((string) getPost('email'), '@') + 1)));
+        if (in_array($_submittedEmailDomain, $bannedEmailDomains, true)) {
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'lead_language' => getPost('language'),
+                'click_id' => 'SEO',
+                'redirect_url' => '',
+            ]);
+            exit;
+        }
+
+
         // Authorization
         $redirect_url = '';
 
@@ -222,7 +238,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         logTimingStats('CRM', $curl_crm);
         $status = curl_getinfo($curl_crm, CURLINFO_HTTP_CODE);
-        curl_close($curl_crm);
 
         $data['crm_response_status'] = $status;
         $decoded_response_crm = json_decode($response_crm, true);
@@ -262,11 +277,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             try {
-                if (isTestData($data)) {
+                if (!empty($_SESSION['is_test_site'])) {
+                    // Test-domain launch (see app.py's test-mode build): route
+                    // every notification to the test chat only, never the real
+                    // techlog or buyer/team-lead chats.
                     sendTGMessage(json_encode($data, JSON_PRETTY_PRINT), TGBOT_TECH_TEST_CHATID);
+                } else {
+                    if (isTestData($data)) {
+                        sendTGMessage(json_encode($data, JSON_PRETTY_PRINT), TGBOT_TECH_TEST_CHATID);
+                    }
+                    sendTGMessage(json_encode($data, JSON_PRETTY_PRINT), TGBOT_TECHLOG_CHATID);
+                    sendTGMessageToBuyers($BuyerTelegramMessage, $CURRENT_BUYER);
                 }
-                sendTGMessage(json_encode($data, JSON_PRETTY_PRINT), TGBOT_TECHLOG_CHATID);
-                sendTGMessageToBuyers($BuyerTelegramMessage, $CURRENT_BUYER);
             } catch (Exception $e) {
                 logError("Error while sending a telegram log: " . $e->getMessage());
             }
@@ -282,11 +304,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else {
             try {
-                if (isTestData($data)) {
+                if (!empty($_SESSION['is_test_site'])) {
+                    // Test-domain launch (see app.py's test-mode build): route
+                    // every notification to the test chat only, never the real
+                    // techlog or buyer/team-lead chats.
                     sendTGMessage(json_encode($data, JSON_PRETTY_PRINT), TGBOT_TECH_TEST_CHATID);
+                } else {
+                    if (isTestData($data)) {
+                        sendTGMessage(json_encode($data, JSON_PRETTY_PRINT), TGBOT_TECH_TEST_CHATID);
+                    }
+                    sendTGMessage(json_encode($data, JSON_PRETTY_PRINT), TGBOT_TECHLOG_CHATID);
+                    sendTGMessageToBuyers($BuyerTelegramMessage, $CURRENT_BUYER);
                 }
-                sendTGMessage(json_encode($data, JSON_PRETTY_PRINT), TGBOT_TECHLOG_CHATID);
-                sendTGMessageToBuyers($BuyerTelegramMessage, $CURRENT_BUYER);
             } catch (Exception $e) {
                 logError("Error while sending a telegram log: " . $e->getMessage());
             }

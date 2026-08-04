@@ -55,20 +55,61 @@ $canonical = 'https://' . $host . $uri;
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "logo": {
+    "@type": "ImageObject",
+    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+  },
+  "description": <?= json_encode($page_description_main) ?>,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": <?= json_encode($site_url . '/contact.php') ?>
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
   "@type": "SoftwareApplication",
-  "name": "<?= $site_name ?>",
-  "operatingSystem": "ANDROID, iOS",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url . '/') ?>,
+  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "description": <?= json_encode($page_description_main) ?>,
   "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web Browser",
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "<?= $rating_value ?>",
-    "ratingCount": "<?= $rating_count ?>"
+    "ratingValue": <?= json_encode((float) $rating_value) ?>,
+    "bestRating": 5,
+    "worstRating": 1,
+    "ratingCount": <?= json_encode((int) $rating_count) ?>,
+    "reviewCount": <?= json_encode((int) $review_count) ?>
   },
   "offers": {
     "@type": "Offer",
-    "price": "<?= $app_price ?>",
-    "priceCurrency": "<?= $app_currency ?>"
+    "price": <?= json_encode((string) $app_price) ?>,
+    "priceCurrency": <?= json_encode($app_currency) ?>,
+    "availability": "https://schema.org/InStock"
+  },
+  "author": {
+    "@type": "Brand",
+    "name": <?= json_encode($site_name) ?>
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "description": <?= json_encode($page_description_main) ?>,
+  "inLanguage": <?= json_encode($site_lang) ?>
 }
 </script>
   <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
@@ -76,21 +117,21 @@ $canonical = 'https://' . $host . $uri;
   <link rel="shortcut icon" href="./favicon.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
-  <style>
-    .wf-force-outline-none[tabindex="-1"]:focus {
-      outline: none;
-    }
-
-    .navbar_link {
-      font-size: 14px !important;
-    } 
-  </style>
+  
   <link rel="stylesheet" href="./integration/default-integration.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
 
 <title><?= $page_title_contact ?></title>
 <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
-<meta property="og:type" content="website" />
+<meta content="website" property="og:type"/>
+<meta content="<?= $site_name ?>" property="og:site_name"/>
+<meta content="<?= $canonical ?>" property="og:url"/>
+<meta content="<?= $page_title_contact ?>" property="og:title"/>
+<meta content="<?= $page_description_contact ?>" property="og:description"/>
+<meta content="<?= $site_url ?>/favicon-96x96.png" property="og:image"/>
+<meta content="96" property="og:image:width"/>
+<meta content="96" property="og:image:height"/>
+<meta content="<?= $site_name ?> logo" property="og:image:alt"/>
 <meta name="description" content="<?= $page_description_contact ?>">
 
   <meta content="summary_large_image" name="twitter:card" />
@@ -103,207 +144,40 @@ $canonical = 'https://' . $host . $uri;
     rel="stylesheet"
     type="text/css" />
 
-  <style>
-    @media (min-width: 992px) {
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="35ae0bc8-d895-deeb-51b5-eac5b8cf1794"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="30a34707-6eb3-a0bc-2b4d-b6131c4f1081"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="d48208f5-2047-ab4e-ef7b-f2de33c65ef3"] {
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        opacity: 0;
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="ad008d0b-ca72-3722-c6cd-77686dc346c0"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="ad008d0b-ca72-3722-c6cd-77686dc346ca"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="2f80477f-23b3-153b-6ac3-96fff2ff8cc6"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="2f80477f-23b3-153b-6ac3-96fff2ff8cd0"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="e5af3ea2-e489-ee58-2953-21b064fb8231"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="7ba489e7-d1c8-85f9-e8bd-3ff3761719bd"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="80108313-5a20-1c62-1343-f315aeb7ef3f"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="5fbbd9d6-b291-c21e-e69e-3700890e19df"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="58b3e01c-d462-a6d1-a3e6-4b1761832b31"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="58b3e01c-d462-a6d1-a3e6-4b1761832b38"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="58b3e01c-d462-a6d1-a3e6-4b1761832b40"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="58b3e01c-d462-a6d1-a3e6-4b1761832b47"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="58b3e01c-d462-a6d1-a3e6-4b1761832b4f"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-
-      html.w-mod-js:not(.w-mod-ix) [data-w-id="58b3e01c-d462-a6d1-a3e6-4b1761832b61"] {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -moz-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        -ms-transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-        transform: translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-      }
-    }
-  </style>
+  
 
   <script src="webfont.js" type="text/javascript"></script>
   <link rel="stylesheet" href="css.css" media="all" />
-  <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
   <link href="css2.css" rel="stylesheet" />
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/contact.php" />
+<link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/contact.php" />
+<link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/contact.php" />
+<link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/contact.php" />
+<link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/contact.php" />
+<link rel="alternate" hreflang="it" href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/contact.php" />
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/contact.php" />
+<link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/contact.php" />
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/contact.php" />
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/contact.php" />
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/contact.php" />
+<link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/contact.php" />
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/contact.php" />
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/contact.php" />
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/contact.php" />
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/contact.php" />
+<link rel="alternate" hreflang="nl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/contact.php" />
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/contact.php" />
+<link rel="alternate" hreflang="pl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/contact.php" />
+<link rel="alternate" hreflang="pt" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/contact.php" />
+<link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/contact.php" />
+<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/contact.php" />
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/contact.php" />
+<link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/contact.php" />
+<link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/contact.php" />
 
-  <style>
-    /* Стилі для відміток на слайдерах */
-    input[type="range"] {
-      width: 100%;
-      max-width: 800px;
-      accent-color: #ffd700;
-    }
+  
 
-    datalist {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 800px;
-      padding: 0;
-    }
-
-    datalist option {
-      padding: 0;
-      color: #ffd700;
-      font-weight: bold;
-    }
-
-    /* Контейнер для слайдера та міток */
-    .slider-container {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* Стилі для міток */
-    .slider-labels {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .slider-label {
-      color: #ffd700;
-      font-size: 12px;
-      transform: translateX(-50%);
-    }
-
-    a {
-      text-decoration: none !important;
-    }
-
-    .iti__selected-dial-code,
-    .iti__country-name {
-      color: #000 !important;
-    }
-
-    
-  </style>
-
+<link rel="stylesheet" href="contact-styles.css">
 </head>
 
 <body cz-shortcut-listen="true">
@@ -483,104 +357,7 @@ $canonical = 'https://' . $host . $uri;
       </div>
     </div>
   </section>
-  <style>
-    /* Obщие стили для формы */
-    input {
-      box-sizing: border-box;
-    }
-
-    .spacer-small img {
-      max-width: 700px;
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .S’inscrire-form {
-      width: 500px;
-      margin: 0 auto;
-      padding: 20px;
-      border-radius: 10px;
-      font-family: Arial, sans-serif;
-
-      background: radial-gradient(circle,
-          rgba(255, 255, 255, 0.5) 0%,
-          rgba(255, 255, 255, 0.5) 100%);
-    }
-
-    /* Стили для всех input полей */
-    .S’inscrire-form input[type="text"],
-    .S’inscrire-form input[type="tel"],
-    .S’inscrire-form input[type="email"] {
-      width: 100%;
-      padding: 25px;
-      margin-bottom: 15px;
-      border: 1px solid black;
-      border-radius: 15px;
-      font-size: 16px;
-      transition: border-color 0.3s ease;
-      color: black;
-    }
-
-    /* Стили для фокуса на input полях */
-    .S’inscrire-form input[type="text"]:focus,
-    .S’inscrire-form input[type="tel"]:focus,
-    .S’inscrire-form input[type="email"]:focus {
-      border-color: #039e36;
-      outline: none;
-    }
-
-    /* Кнопка отправки формы */
-    .btn_send {
-      background-color: #5217bf;
-      border: none;
-      padding: 15px;
-      color: #fff;
-      font-size: 18px;
-      cursor: pointer;
-      border-radius: 5px;
-      width: 100%;
-      transition: background-color 0.3s ease;
-    }
-
-    /* Эффект при наведении на кнопку */
-    .btn_send:hover {
-      background-color: #ff6347;
-      /* Более светлый оттенок оранжевого */
-    }
-
-    /* Стили для заголовка или блока, если он будет добавлен */
-    .block-center__wrapper {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    /* Стили для дополнительных элементов */
-    .input-holder {
-      position: relative;
-    }
-
-    .input-holder input {
-      padding-left: 15px;
-      /* Выравнивание текста внутри input */
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-      /* Пространство между полями */
-    }
-
-    /* Убираем нижний padding формы */
-    .form-reg {
-      padding-bottom: 0;
-      margin-top: 90px;
-    }
-
-    /* Стили для кнопок и их обертки */
-    .js-buttons {
-      margin-top: 20px;
-    }
-  </style>
+  
 
 <footer class="footer_component">
   <div class="padding-global">
@@ -621,6 +398,35 @@ $canonical = 'https://' . $host . $uri;
                 <span class="footer-link"><?= $footer_contact_address ?></span>
                 <span class="footer-link"><?= $footer_contact_email ?></span>
               </div>
+              <div class="footer-list-right footer-lang-switcher-wrapper">
+                <span class="heading-style-h4"><?= $footer_lang_switcher_title ?></span>
+                <div class="lang-switcher">
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/contact.php" hreflang="en" title="English">🇬🇧</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/contact.php" hreflang="de" title="Deutsch">🇩🇪</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/contact.php" hreflang="fr" title="Français">🇫🇷</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/contact.php" hreflang="es" title="Español">🇪🇸</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/contact.php" hreflang="it" title="Italiano">🇮🇹</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/contact.php" hreflang="bg" title="Български">🇧🇬</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/contact.php" hreflang="cs" title="Čeština">🇨🇿</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/contact.php" hreflang="da" title="Dansk">🇩🇰</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/contact.php" hreflang="el" title="Ελληνικά">🇬🇷</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/contact.php" hreflang="fi" title="Suomi">🇫🇮</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/contact.php" hreflang="hr" title="Hrvatski">🇭🇷</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/contact.php" hreflang="hu" title="Magyar">🇭🇺</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/contact.php" hreflang="ja" title="日本語">🇯🇵</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/contact.php" hreflang="ms" title="Bahasa Melayu">🇲🇾</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/contact.php" hreflang="nb" title="Norsk Bokmål">🇳🇴</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/contact.php" hreflang="nl" title="Nederlands">🇳🇱</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/contact.php" hreflang="no" title="Norsk">🇳🇴</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/contact.php" hreflang="pl" title="Polski">🇵🇱</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/contact.php" hreflang="pt" title="Português">🇵🇹</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/contact.php" hreflang="ro" title="Română">🇷🇴</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/contact.php" hreflang="ru" title="Русский">🇷🇺</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/contact.php" hreflang="sk" title="Slovenčina">🇸🇰</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/contact.php" hreflang="sv" title="Svenska">🇸🇪</a>
+                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/contact.php" hreflang="tr" title="Türkçe">🇹🇷</a>
+                </div>
+              </div>
             </div>
           </div>
           <p style="margin-top: 40px"><?= $footer_description ?></p>
@@ -631,9 +437,7 @@ $canonical = 'https://' . $host . $uri;
 </footer>
 
   <noscript>
-    <style>
-        .leadform { display:none; }
-    </style>
+    
     <div>To submit the form, enable JavaScript</div>
   </noscript>
 
@@ -645,15 +449,15 @@ $canonical = 'https://' . $host . $uri;
 
   <script src="jquery.min.js"></script>
   <div style="height: 0; overflow: hidden; position: absolute; width: 0">
-    <a href="#">Pagina Principale</a>
-    <a href="<?= $site_url ?>#why-invest">¿Por qué empezar a invertir?</a>
-    <a href="<?= $site_url ?>#pricing">¿Cómo comenzar a invertir?    </a>
-    <a href="about.php">¿Quién está detrás de <?= $source ?>?</a>
-    <a href="<?= $site_url ?>#minimization">Riesgos asociados a la inversión</a>
-    <a href="<?= $site_url ?>#Beneficios">Ventajas    </a>
+    <a href="#">Home Page</a>
+    <a href="<?= $site_url ?>#why-invest">Why Start Investing?</a>
+    <a href="<?= $site_url ?>#pricing">How to Start Investing?    </a>
+    <a href="about.php">Who Is Behind <?= $source ?>?</a>
+    <a href="<?= $site_url ?>#minimization">Investment Risks</a>
+    <a href="<?= $site_url ?>#Beneficios">Advantages    </a>
     <a href="<?= $site_url ?>#faq">FAQ</a>
     <a href="contact.php">Contact</a>
-    <a href="private-policy.php">Pravila privatnosti</a>
+    <a href="private-policy.php">Privacy Policy</a>
     <a href="conditions.php">Terms and conditions</a>
   </div>
 

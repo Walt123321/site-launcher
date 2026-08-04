@@ -331,7 +331,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.intlTelInput(phone, {
                         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/utils.js",
                         separateDialCode: true,
-                        initialCountry: phoneCountryEl ? phoneCountryEl.value : 'auto'
+                        initialCountry: phoneCountryEl ? phoneCountryEl.value : 'auto',
+                        geoIpLookup: function (success, failure) {
+                            fetch("https://ipapi.co/json")
+                                .then(function (res) { return res.json(); })
+                                .then(function (data) { success(data.country_code); })
+                                .catch(function () { failure(); });
+                        }
                     });
                 }
             }

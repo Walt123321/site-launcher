@@ -2,7 +2,7 @@
 // Redirect if default language
 include '../lang.php';
 $extractLang = str_replace('-', '', strtolower(explode('-', $site_lang)[0]));
-$currentLang = 'sv';
+$currentLang = 'de';
 if ($extractLang === $currentLang) {
     header('HTTP/1.1 301 Moved Permanently');
     header('Location: ' . $site_url . "/lander/" . $site_domain . "/privacy.php");
@@ -40,13 +40,13 @@ $canonical = 'https://' . $host . $uri;
       "@type": "ListItem",
       "position": 1,
       "name": "<?= $site_name ?>",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/sv/"
+      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/de/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "💸 Integritetspolicy 💸",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/sv/#heading-style-h1"
+      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/de/#heading-style-h1"
     }
   ]
 }
@@ -73,7 +73,7 @@ $canonical = 'https://' . $host . $uri;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Integritetspolicy | <?= $site_name ?></title>
-    <meta name="description" content="Lär dig hur <?= $site_name ?> samlar in och skyddar dina data." />
+    <meta name="description" content="Läs om hur <?= $site_name ?> samlar in och skyddar dina uppgifter." />
     <!-- Favicon -->
 <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
@@ -161,8 +161,6 @@ $canonical = 'https://' . $host . $uri;
         document.getElementById("skeleton")?.remove();
       });
     </script>
-    <script src="../assets/js/lazyload.min.js" defer></script>
-    <script src="../assets/js/scripts.js" defer></script>
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/privacy.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/privacy.php" />
 <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/privacy.php" />
@@ -177,7 +175,17 @@ $canonical = 'https://' . $host . $uri;
 <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/privacy.php" />
 <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/privacy.php" />
 <link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/privacy.php" />
-<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/privacy.php" /></head>
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/privacy.php" />
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/privacy.php" />
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/privacy.php" />
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/privacy.php" />
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/privacy.php" />
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/privacy.php" />
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/privacy.php" />
+<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/privacy.php" />
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/privacy.php" />
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/privacy.php" />
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/privacy.php" /></head>
   <body class="flex min-h-screen flex-col">
     <!-- skeleton -->
     <div id="skeleton">
@@ -192,16 +200,16 @@ $canonical = 'https://' . $host . $uri;
     <div class="container-base">
       <div
         class="rounded-custom flex min-h-[70px] items-center justify-between gap-8 border bg-white px-4.5 py-3 md:px-8">
-        <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none uppercase header-nav-logo" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">
-          <span class="text-primary inline-block header-logo">
-            <img src="../favicon-96x96.png" class="footer-logo" alt="logo">
+        <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none uppercase header-nav-logotyp" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">
+          <span class="text-primary inline-block header-logotyp">
+            <img src="../favicon-96x96.png" class="footer-logotyp" alt="logotyp">
           </span>
           <?= $site_name ?>
         </a>
 <nav class="hiddens grow justify-center lg:flex">
   <ul class="flex flex-row flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-5 lg:gap-x-7">
     <li>
-      <a class="data-active:text-primary" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">Hem</a>
+      <a class="data-active:text-primary" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">Hem</a>
     </li>
     <li>
       <a class="data-active:text-primary" href="product.php">Produkt</a>
@@ -210,7 +218,7 @@ $canonical = 'https://' . $host . $uri;
       <a class="data-active:text-primary" href="offer.php">Erbjudande</a>
     </li>
     <li>
-      <a class="data-active:text-primary" href="contacts.php">Kontakt</a>
+      <a class="data-active:text-primary" href="contacts.php">Kontakta oss</a>
     </li>
     <li>
       <a class="data-active:text-primary" href="faq.php">FAQ</a>
@@ -230,7 +238,7 @@ $canonical = 'https://' . $host . $uri;
             </span>
           </a>
           <a class="inline-flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full border-2"
-            href="sign.php" aria-label="Sign In">
+            href="sign.php" aria-label="Logga in">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29" fill="none">
               <path
                 d="M1 13.7998C0.447715 13.7998 -4.82823e-08 14.2475 0 14.7998C4.82823e-08 15.3521 0.447715 15.7998 1 15.7998L1 13.7998ZM17.8071 15.5069C18.1976 15.1164 18.1976 14.4832 17.8071 14.0927L11.4431 7.72874C11.0526 7.33821 10.4195 7.33821 10.0289 7.72874C9.63841 8.11926 9.63841 8.75243 10.0289 9.14295L15.6858 14.7998L10.0289 20.4567C9.63841 20.8472 9.63841 21.4803 10.0289 21.8709C10.4195 22.2614 11.0526 22.2614 11.4431 21.8709L17.8071 15.5069ZM1 15.7998L17.1 15.7998L17.1 13.7998L1 13.7998L1 15.7998Z"
@@ -240,7 +248,7 @@ $canonical = 'https://' . $host . $uri;
             </svg>
           </a>
         </div>
-        <button class="menu-icon" data-menu-icon aria-label="open menu">
+        <button class="menu-icon" data-menu-icon aria-label="öppna menyn">
           <svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect y="3" width="38" height="4" rx="2" fill="currentColor" />
             <rect y="15" width="38" height="4" rx="2" fill="currentColor" />
@@ -252,7 +260,7 @@ $canonical = 'https://' . $host . $uri;
     <nav class="mobile-menu" data-mobile-menu>
       <ul class="flex flex-col flex-wrap items-center justify-center gap-y-8">
         <li>
-          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">Hem</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">Hem</a>
         </li>
         <li>
           <a href="product.php">Produkt</a>
@@ -261,10 +269,10 @@ $canonical = 'https://' . $host . $uri;
           <a href="offer.php">Erbjudande</a>
         </li>
         <!-- <li>
-      <a href="/team">Our team</a>
+      <a href="/team">Vårt team</a>
     </li> -->
         <li>
-          <a href="contacts.php">Kontakt</a>
+          <a href="contacts.php">Kontakta oss</a>
         </li>
         <li>
           <a href="faq.php">FAQ</a>
@@ -272,7 +280,7 @@ $canonical = 'https://' . $host . $uri;
       </ul>
       <div class="flex items-center gap-4 md:hidden">
         <a class="group inline-flex h-[50px] items-center justify-between rounded-full border-2" href="sign.php">
-          <span class="inline-block p-3.5 text-sm">Sign Up</span>
+          <span class="inline-block p-3.5 text-sm">Registrera dig</span>
           <span
             class="group-hover:bg-primary inline-flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full bg-black text-white transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15" fill="none">
@@ -304,7 +312,7 @@ $canonical = 'https://' . $host . $uri;
   aria-label="breadcrumb"
   class="flex flex-wrap items-center text-sm text-gray-500 md:text-lg"
 >
-  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/" class="breadcrumb-item">Hem</a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/" class="breadcrumb-item">Hem</a>
   <span class="breadcrumb-item">Integritetspolicy</span>
 </nav>
 <h1>Integritetspolicy</h1>
@@ -313,65 +321,65 @@ $canonical = 'https://' . $host . $uri;
   <!-- INTRO -->
   <div class="grid gap-2">
     <p class="text-sm">Senast uppdaterad: <?= $privacy_last_update ?></p>
-    <p>Vi («Vi») respekterar din integritet och är engagerade i att skydda dina personuppgifter. Denna policy förklarar hur <?= $site_name ?> samlar in, använder och skyddar din information.</p>
+    <p>Vi ("Vi", "Oss") respekterar din integritet och åtar oss att skydda dina personuppgifter. Denna integritetspolicy förklarar hur <?= $site_name ?> samlar in, använder och skyddar din information.</p>
   </div>
   <!-- PRINCIPLES -->
   <div class="grid gap-2 md:gap-4">
     <p class="h3 disc">Transparens</p>
     <p>
-      Vi förklarar tydligt hur dina data används. Kontakta oss på 
+      Vi förklarar tydligt hur dina uppgifter används. Kontakta oss på 
       <a href="mailto:info@<?= $site_domain ?>">info@<?= $site_domain ?></a>
     </p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <p class="h3 disc">Dataanvändning</p>
-    <p>Dina data används för att tillhandahålla tjänster, förbättra plattformen och uppfylla juridiska skyldigheter.</p>
+    <p>Dina uppgifter används för att tillhandahålla tjänster, förbättra plattformen och uppfylla lagliga skyldigheter.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <p class="h3 disc">Dina rättigheter</p>
-    <p>Du kan när som helst begära åtkomst, rättelse eller radering av dina data.</p>
+    <p>Du kan när som helst begära information om dina uppgifter samt begära rättelse eller radering.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <p class="h3 disc">Säkerhet</p>
-    <p>Vi skyddar dina data men kan inte garantera absolut säkerhet.</p>
+    <p>Vi skyddar dina uppgifter men kan inte garantera absolut säkerhet.</p>
   </div>
   <!-- SECTIONS -->
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">1. Datainsamling</h2>
-    <p>Vi samlar in användningsdata (IP, enhet, webbläsare) och all data du tillhandahåller.</p>
+    <p>Vi samlar in användningsdata (IP-adress, enhet, webbläsare) och alla uppgifter du tillhandahåller oss.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">2. Rättslig grund</h2>
-    <p>Behandlingen baseras på samtycke, berättigat intresse och juridiska skyldigheter.</p>
+    <p>Behandlingen baseras på ditt samtycke, berättigade intressen och lagliga skyldigheter.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
-    <h2 class="h3">3. Datadelning</h2>
-    <p>Vi kan dela data med partners, leverantörer och myndigheter vid behov.</p>
+    <h2 class="h3">3. Delning av uppgifter</h2>
+    <p>Vid behov kan vi dela uppgifter med partner, tjänsteleverantörer och myndigheter.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">4. Cookies</h2>
-    <p>Vi använder cookies för funktionalitet och analys. Du kan inaktivera dem.</p>
+    <p>Vi använder cookies för funktionalitet och analys. Du kan inaktivera dessa.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">5. Datalagring</h2>
-    <p>Data lagras endast så länge det är nödvändigt.</p>
+    <p>Uppgifter sparas endast så länge det är absolut nödvändigt.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">6. Internationella överföringar</h2>
-    <p>Data kan överföras med lämpliga skyddsåtgärder.</p>
+    <p>Uppgifter kan överföras med lämpliga skyddsåtgärder.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
-    <h2 class="h3">7. Tredjepartslänkar</h2>
+    <h2 class="h3">7. Länkar från tredje part</h2>
     <p>Vi ansvarar inte för externa webbplatser.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">8. Uppdateringar</h2>
-    <p>Denna policy kan uppdateras.</p>
+    <p>Denna integritetspolicy kan komma att uppdateras.</p>
   </div>
   <!-- RIGHTS -->
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">Dina rättigheter</h2>
-    <p>Du har rätt till åtkomst, rättelse, radering, begränsning eller överföring av data, återkallande av samtycke och att lämna in klagomål.</p>
+    <p>Du har rätt till tillgång, rättelse, radering, begränsning eller överföring av dina uppgifter, samt rätt att återkalla samtycke och lämna in ett klagomål.</p>
   </div>
 </div>
           </div>
@@ -384,16 +392,16 @@ $canonical = 'https://' . $host . $uri;
       <div class="relative grid gap-7 md:gap-10">
         <div class="grid gap-5">
           <nav class="flex flex-col flex-wrap justify-between gap-x-10 gap-y-5 text-white md:flex-row">
-            <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none text-white uppercase max-md:pr-[120px] footer-nav-logo"
-              href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">
+            <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none text-white uppercase max-md:pr-[120px] footer-nav-logotyp"
+              href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">
               <span class="inline-block">
-                  <img src="../favicon-96x96.png" class="footer-logo" alt="logo">
+                  <img src="../favicon-96x96.png" class="footer-logotyp" alt="logotyp">
               </span>
               <?= $site_name ?>
             </a>
             <ul class="flex flex-col gap-x-5 gap-y-4 md:flex-row md:gap-x-7 lg:gap-x-12">
               <li>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">Hem</a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">Hem</a>
               </li>
               <li>
                 <a href="product.php">Produkt</a>
@@ -415,11 +423,14 @@ $canonical = 'https://' . $host . $uri;
               <li>
                 <a href="conditions.php">Användarvillkor</a>
               </li>
+              <li>
+                <a href="risk-warning.php">Risk Warning</a>
+              </li>
             </ul>
           </nav>
           <div class="flex justify-between gap-5">
             <div class="grid gap-5 text-white">
-              <p>Din pålitliga tradingpartner</p>
+              <p>Din pålitliga handelspartner</p>
               <div class="inline-flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
@@ -482,13 +493,43 @@ $canonical = 'https://' . $host . $uri;
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/privacy.php" hreflang="no" title="Norsk">
     🇳🇴
   </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/privacy.php" hreflang="da" title="Dansk">
+    🇩🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/privacy.php" hreflang="fi" title="Suomi">
+    🇫🇮
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/privacy.php" hreflang="hu" title="Magyar">
+    🇭🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/privacy.php" hreflang="sk" title="Slovenčina">
+    🇸🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/privacy.php" hreflang="bg" title="Български">
+    🇧🇬
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/privacy.php" hreflang="ms" title="Bahasa Melayu">
+    🇲🇾
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/privacy.php" hreflang="ru" title="Русский">
+    🇷🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/privacy.php" hreflang="nb" title="Norsk bokmål">
+    🇳🇴
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/privacy.php" hreflang="el" title="Ελληνικά">
+    🇬🇷
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/privacy.php" hreflang="ja" title="日本語">
+    🇯🇵
+  </a>
 </div>
 </div>
           </div>
         </div>
         <div class="grid gap-2.5 text-sm text-gray-500">
             <p>
-                <?= $site_name ?> ansvarar inte för förluster eller skador som kan uppstå genom användning av informationen på denna webbplats, inklusive utbildningsinnehåll, kurser, diagram och analyser. Handel på finansmarknader innebär risk; det är viktigt att beakta dina personliga omständigheter och vid behov söka råd från en kvalificerad professionell innan du börjar. Investera endast pengar du har råd att förlora, och kom ihåg att instrument som FX, CFD:er och kryptovalutor kanske inte passar alla.
+                <?= $site_name ?> tar inget ansvar för förluster eller skador som uppstår genom att man litar på informationen som tillhandahålls på denna webbplats, inklusive utbildningsinnehåll, prisnoteringar, diagram och analyser. Handel på finansmarknaderna innebär risker. Det är därför viktigt att beakta dina personliga omständigheter innan du börjar och vid behov söka råd från en kvalificerad expert. Du bör endast investera pengar du har råd att förlora, och tänk på att instrument som valuta (FX), CFD:er och kryptovalutor inte passar alla.
             </p>
         </div>
         <div class="text-center text-white">

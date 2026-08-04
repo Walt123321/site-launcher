@@ -53,20 +53,61 @@ $canonical = 'https://' . $host . $uri;
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "logo": {
+    "@type": "ImageObject",
+    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+  },
+  "description": <?= json_encode($page_description_main) ?>,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": <?= json_encode($site_url . '/contact.php') ?>
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
   "@type": "SoftwareApplication",
-  "name": "<?= $site_name ?>",
-  "operatingSystem": "ANDROID, iOS",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url . '/') ?>,
+  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "description": <?= json_encode($page_description_main) ?>,
   "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web Browser",
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "<?= $rating_value ?>",
-    "ratingCount": "<?= $rating_count ?>"
+    "ratingValue": <?= json_encode((float) $rating_value) ?>,
+    "bestRating": 5,
+    "worstRating": 1,
+    "ratingCount": <?= json_encode((int) $rating_count) ?>,
+    "reviewCount": <?= json_encode((int) $review_count) ?>
   },
   "offers": {
     "@type": "Offer",
-    "price": "<?= $app_price ?>",
-    "priceCurrency": "<?= $app_currency ?>"
+    "price": <?= json_encode((string) $app_price) ?>,
+    "priceCurrency": <?= json_encode($app_currency) ?>,
+    "availability": "https://schema.org/InStock"
+  },
+  "author": {
+    "@type": "Brand",
+    "name": <?= json_encode($site_name) ?>
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "description": <?= json_encode($page_description_main) ?>,
+  "inLanguage": <?= json_encode($site_lang) ?>
 }
 </script>
   <meta charset="UTF-8">
@@ -75,13 +116,46 @@ $canonical = 'https://' . $host . $uri;
   <title><?= $page_title_private ?></title>
   <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
   <meta name="description" content="<?= $page_description_private ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="<?= $site_name ?>">
+  <meta property="og:url" content="<?= $canonical ?>">
+  <meta property="og:title" content="<?= $page_title_private ?>">
+  <meta property="og:description" content="<?= $page_description_private ?>">
+  <meta property="og:image" content="<?= $site_url ?>/favicon-96x96.png">
+  <meta property="og:image:width" content="96">
+  <meta property="og:image:height" content="96">
+  <meta property="og:image:alt" content="<?= $site_name ?> logo">
   <link rel="stylesheet" href="css/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/main-1.css">
-
-  <link rel="stylesheet" media="all" href="css/main.css">
   <link href="./integration/default-integration.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" rel="stylesheet"/>
 
+<link rel="stylesheet" href="css/private-policy-styles.css">
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/private-policy.php">
+<link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/private-policy.php">
+<link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/private-policy.php">
+<link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/private-policy.php">
+<link rel="alternate" hreflang="it" href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/private-policy.php">
+<link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/private-policy.php">
+<link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/private-policy.php">
+<link rel="alternate" hreflang="nl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/private-policy.php">
+<link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/en/private-policy.php">
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/private-policy.php">
+<link rel="alternate" hreflang="pt" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/private-policy.php">
+<link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/private-policy.php">
+<link rel="alternate" hreflang="pl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/private-policy.php">
+<link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/private-policy.php">
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/private-policy.php">
+<link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/private-policy.php">
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/private-policy.php">
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/private-policy.php">
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/private-policy.php">
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/private-policy.php">
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/private-policy.php">
+<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/private-policy.php">
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/private-policy.php">
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/private-policy.php">
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/private-policy.php">
 </head>
 
 <body>
@@ -139,141 +213,8 @@ $canonical = 'https://' . $host . $uri;
 </header>
 
   <main>
-    <style>
-      @media (max-width: 768px) {
-        .welcome__main {
-          padding-top: 0;
-        }
-
-        .welcome__title {
-          margin-top: 1.5rem;
-          z-index: 50;
-          text-shadow: 2px 2px 5px #000000;
-        }
-
-        .welcome__form::before {
-
-          filter: blur(2px);
-          /* добавляем размытие */
-        }
-
-      }
-    </style>
-        <style>
-.welcome-list {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 16px;
-}
-
-.welcome-list li {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 18px 22px 18px 50px;
-    font-size: 21px;
-    line-height: 1.5;
-    color: #333;
-    position: relative;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    display: flex;
-    align-items: center;
-}
-
-.welcome-list li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.1);
-}
-
-.welcome-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 18px;
-    top: 18px;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #2ecc71;
-    color: white;
-    font-weight: bold;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@media (max-width: 600px) {
-
-    .welcome-list {
-        margin: 25px 15px;
-        gap: 12px;
-    }
-
-    .welcome-list li {
-        padding: 16px 16px 16px 44px;
-        font-size: 15px;
-    }
-
-    .welcome-list li::before {
-        left: 14px;
-        top: 16px;
-    }
-
-}
-
-              .iti__selected-dial-code,
-              .iti__country-name {
-                color: black;
-              }
-
-              .leadform {
-                max-width: 400px;
-                margin: 0 auto;
-              }
-
-              .leadform input {
-                display: block;
-                width: 100%;
-                border-radius: 5px;
-                border: 1px solid #ccc;
-                margin: 20px 0;
-                padding: 15px;
-              }
-
-              .submit {
-                animation: 2s ease 0s infinite normal none running aio-sdk-pulsing;
-                box-shadow: #12393b 0 0 0 0;
-                background: #12393b;
-                border-color: #12393b;
-                color: #e3ff34;
-                padding: 12px;
-                height: 60px;
-                border: 1px solid transparent;
-                border-radius: 50px;
-                margin-top: 20px;
-                text-transform: uppercase;
-                font-weight: 400;
-                font-size: 16px;
-
-                transition: 50ms ease-out;
-
-                outline: 0;
-                box-sizing: border-box;
-                position: relative;
-                cursor: pointer;
-                width: 100%;
-
-              }
-
-              @keyframes aio-sdk-pulsing {
-                100% {
-                  box-shadow: transparent 0 0 0 10px
-                }
-              }
-            </style>
+    
+        
 
 <section class="welcome" aria-labelledby="privacy-title">
     <h1 id="privacy-title" style="text-align: center;">
@@ -361,12 +302,7 @@ $canonical = 'https://' . $host . $uri;
         <span><?= $source ?></span>
       </a>
 
-      <style>
-        .footer__button.button {
-          color: var(--color-emerald-12);
-          background: #d0ee11;
-        }
-      </style>
+      
 
       <a href="sign-up.php" class="footer__button button" data-js-button-form="">
         <?= $button_register ?>
@@ -380,6 +316,32 @@ $canonical = 'https://' . $host . $uri;
         <li class="footer__nav-item"><a href="private-policy.php" class="no-scroll"><?= $footer_privacy ?></a></li>
         <li class="footer__nav-item"><a href="risk-warning.php" class="no-scroll"><?= $footer_risk_warning ?></a></li>
       </ul>
+      <div class="footer__lang-switcher">
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/private-policy.php" hreflang="en" title="English">🇬🇧</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/private-policy.php" hreflang="de" title="Deutsch">🇩🇪</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/private-policy.php" hreflang="fr" title="Français">🇫🇷</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/private-policy.php" hreflang="es" title="Español">🇪🇸</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/private-policy.php" hreflang="it" title="Italiano">🇮🇹</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/private-policy.php" hreflang="bg" title="Български">🇧🇬</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/private-policy.php" hreflang="cs" title="Čeština">🇨🇿</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/private-policy.php" hreflang="da" title="Dansk">🇩🇰</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/private-policy.php" hreflang="el" title="Ελληνικά">🇬🇷</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/private-policy.php" hreflang="fi" title="Suomi">🇫🇮</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/private-policy.php" hreflang="hr" title="Hrvatski">🇭🇷</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/private-policy.php" hreflang="hu" title="Magyar">🇭🇺</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/private-policy.php" hreflang="ja" title="日本語">🇯🇵</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/private-policy.php" hreflang="ms" title="Bahasa Melayu">🇲🇾</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/private-policy.php" hreflang="nb" title="Norsk Bokmål">🇳🇴</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/private-policy.php" hreflang="nl" title="Nederlands">🇳🇱</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/private-policy.php" hreflang="no" title="Norsk">🇳🇴</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/private-policy.php" hreflang="pl" title="Polski">🇵🇱</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/private-policy.php" hreflang="pt" title="Português">🇵🇹</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/private-policy.php" hreflang="ro" title="Română">🇷🇴</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/private-policy.php" hreflang="ru" title="Русский">🇷🇺</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/private-policy.php" hreflang="sk" title="Slovenčina">🇸🇰</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/private-policy.php" hreflang="sv" title="Svenska">🇸🇪</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/private-policy.php" hreflang="tr" title="Türkçe">🇹🇷</a>
+      </div>
     </div>
 
     <div class="footer__bottom">
@@ -396,7 +358,6 @@ $canonical = 'https://' . $host . $uri;
   <div class="places__main container">
     <div class="places__title hidden-tablet">
       <div class="places__image">
-        <img src="images/pntro.png" width="40" height="40" alt="flag">
       </div>
       <h2 class="places__text">
         <?= $places_title ?>
@@ -416,415 +377,11 @@ $canonical = 'https://' . $host . $uri;
   </div>
 </dialog>
   </main>
-  <style>
-    .aio-sdk-form {
-      --aio-sdk-input-border-radius: 8px;
-      --aio-sdk-input-padding: 12px;
-      --aio-sdk-form-padding: 40px;
-      --aio-sdk-input-margin: 20px;
-      --aio-sdk-submit-bg: #e3ff34;
-      --aio-sdk-submit-border-radius: 50px;
-      --aio-sdk-submit-color: #12393b;
-      --aio-sdk-submit-font-size: 16px;
-      --aio-sdk-input-label-margin: 8px;
-    }
+  
 
-    .aio-sdk-form button[type='submit'] {
-      font-weight: 500;
-      height: 60px;
-    }
+  
 
-    .aio-sdk-form button[type='submit']:hover {
-      background: #d0ee11;
-    }
-
-    .aio-sdk-form .aio-sdk-input-container:last-child {
-      padding-top: 4px;
-      margin-bottom: 0;
-    }
-
-    .aio-sdk-input-container::before {
-      color: #999999;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 140%;
-      display: block;
-      content: '';
-    }
-
-    .itit-aio__flag-box,
-    .itit-aio__country-name {
-      color: #222222;
-    }
-
-    .itit-aio__search-input {
-      border-radius: 8px;
-    }
-
-    .itit-aio--inline-dropdown .itit-aio__dropdown-content {
-      box-shadow: none;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    .aio-sdk-input::placeholder {
-      color: #bbbbbb;
-    }
-
-    .itit-aio__country-list::-webkit-scrollbar {
-      width: 4px;
-      height: 4px;
-    }
-
-    .itit-aio__country-list::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: #ddd;
-    }
-
-    .itit-aio__country-list::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    @media (max-width: 1024px) {
-      .aio-sdk-form {
-        --aio-sdk-submit-border-radius: 60px;
-        --aio-sdk-submit-bg: #12393b;
-        --aio-sdk-submit-color: #e3ff34;
-      }
-
-      .aio-sdk-form .aio-sdk-input-container:last-child {
-        padding-top: 4px;
-      }
-
-      .aio-sdk-form button[type='submit']:hover {
-        background: #e3ff34;
-        color: #12393b;
-      }
-    }
-
-    .join__title-accent {
-      white-space: nowrap;
-    }
-
-    .join__block {
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 500px) {
-      .join__block {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        justify-content: center;
-      }
-    }
-  </style>
-
-  <style>
-    .custom-dropdown-wrapper {
-      position: relative;
-      width: 100%;
-    }
-
-    .custom-dropdown-selected {
-      padding-right: 32px !important;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      cursor: pointer;
-      height: auto;
-      box-sizing: border-box;
-      font-size: 17px !important;
-    }
-
-    .custom-dropdown-arrow {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
-      font-size: 14px;
-      color: #555;
-      line-height: 1;
-      height: 1em;
-      display: flex;
-      align-items: center;
-    }
-
-    .custom-dropdown-list {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-top: 4px;
-      max-height: 160px;
-      overflow-y: auto;
-      display: none;
-      z-index: 100;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-      padding: 0;
-      list-style: none;
-    }
-
-    .custom-dropdown-list::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .custom-dropdown-list::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: #ddd;
-    }
-
-    .custom-dropdown-option {
-      padding: 12px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .custom-dropdown-option:hover {
-      background: #f2f2f2;
-    }
-
-    .custom-dropdown-option {
-      padding: 12px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-      /* Совпадает с .itit-aio__flag-box и .itit-aio__country-name */
-      color: #222222;
-      font-size: 16px;
-      font-weight: 400;
-      font-family: inherit;
-    }
-
-    input.custom-dropdown-selected::placeholder {
-      font-size: 14px !important;
-    }
-
-    @media (max-width: 1200px) {
-      input.custom-dropdown-selected::placeholder {
-        font-size: 13px !important;
-      }
-
-      .custom-dropdown-selected {
-        font-size: 13px !important;
-      }
-    }
-
-    @media (max-width: 991px) {
-      input.custom-dropdown-selected::placeholder {
-        font-size: 12px !important;
-      }
-
-      .custom-dropdown-selected {
-        font-size: 12px !important;
-      }
-    }
-  </style>
-
-  <style>
-    /* Enhanced mobile styles for leaders slider */
-    @media (max-width: 768px) {
-      .leaders__slider {
-        margin-block: 2rem 3rem;
-        overflow: hidden;
-        width: 100%;
-      }
-
-      .leaders__slider .swiper-wrapper {
-        /* Let Swiper handle all positioning */
-        display: flex;
-        align-items: center;
-      }
-
-      .leaders__slider .swiper-slide {
-        /* Ensure slides take full width and are centered */
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-      }
-
-      .leaders__card {
-        padding: 1rem;
-        text-align: center;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-      }
-
-      .leaders__text {
-        margin-bottom: 2rem;
-        width: 100%;
-      }
-
-      .leaders__description {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
-      }
-
-      .leaders__info {
-        align-items: center;
-        text-align: center;
-      }
-
-      .leaders__image {
-        margin-bottom: 1rem;
-      }
-
-      .leaders__image>img {
-        width: 15rem;
-        height: 15rem;
-        margin: 0 auto 2rem auto;
-      }
-
-      /* Hide navigation buttons on mobile and show pagination */
-      .swiper-buttons {
-        display: none !important;
-      }
-
-      .leaders__slider .swiper-pagination {
-        display: block !important;
-        position: static;
-        margin-top: 1.5rem;
-      }
-
-      .leaders__slider .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        background: transparent;
-        border: 2px solid var(--color-accent);
-        opacity: 0.5;
-        margin: 0 6px;
-      }
-
-      .leaders__slider .swiper-pagination-bullet-active {
-        background: var(--color-accent);
-        opacity: 1;
-      }
-
-      /* Make slides full width on mobile */
-      .leaders__slider .swiper-slide {
-        width: 100% !important;
-        margin-right: 0 !important;
-      }
-
-      .leaders__slider .swiper-wrapper {
-        display: flex;
-      }
-
-      /* Improve coin positioning on mobile */
-      .leaders__image-coin {
-        z-index: 1;
-      }
-
-      .leaders__image-coin:nth-child(1) {
-        width: 2.5rem;
-        height: 2.5rem;
-        right: -1rem;
-        top: 10%;
-      }
-
-      .leaders__image-coin:nth-child(2) {
-        width: 4rem;
-        height: 3rem;
-        right: -0.5rem;
-        bottom: 1rem;
-      }
-
-      .leaders__image-coin:nth-child(3) {
-        width: 2rem;
-        height: 1.5rem;
-        top: -0.5rem;
-        right: 1rem;
-      }
-
-      .leaders__image-coin:nth-child(4) {
-        width: 2.5rem;
-        height: 2.5rem;
-        left: -1rem;
-        top: 1rem;
-      }
-    }
-
-    /* Enhanced styles for tablets */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .leaders__slider .swiper-buttons {
-        display: flex;
-      }
-
-      .leaders__slider .swiper-pagination {
-        display: none;
-      }
-    }
-
-    /* Enhanced desktop styles */
-    @media (min-width: 1025px) {
-      .leaders__slider .swiper-buttons {
-        display: flex;
-      }
-
-      .leaders__slider .swiper-pagination {
-        display: none;
-      }
-    }
-
-    /* Touch-friendly navigation */
-    .leaders__slider .swiper-pagination-bullet {
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .leaders__slider .swiper-pagination-bullet:hover {
-      transform: scale(1.2);
-    }
-
-    /* Smooth transitions */
-    .leaders__slider .swiper-slide {
-      transition: transform 0.3s ease;
-    }
-
-    .leaders__slider .swiper-slide-active .leaders__card {
-      animation: slideInContent 0.6s ease-out;
-    }
-
-    @keyframes slideInContent {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Enhanced autoplay indicator */
-    .leaders__slider .swiper-pagination-bullet {
-      transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.5);
-    }
-
-    .leaders__slider .swiper-pagination-bullet-active {
-      background: #E3FF34;
-      transform: scale(1.2);
-    }
-
-    /* Ensure proper spacing and centering */
-    .leaders__slider .swiper-container {
-      padding-bottom: 2rem;
-    }
-  </style>
+  
 
   <script src="js/swiper-bundle.min.js"></script>
 
@@ -867,50 +424,6 @@ $canonical = 'https://' . $host . $uri;
         }
       });
 
-      // Initialize other swipers (advantages and feedback sections)
-      const advantagesSwiper = new Swiper('.advantages__swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: {
-          el: '.advantages__swiper .pagination-swiper',
-          clickable: true,
-          renderBullet: function(index, className) {
-            return '<div class="' + className + ' pagination-swiper-dot"></div>';
-          },
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          }
-        }
-      });
-
-      const feedbackSwiper = new Swiper('.feedback__swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: {
-          el: '.feedback__swiper .pagination-swiper',
-          clickable: true,
-          renderBullet: function(index, className) {
-            return '<div class="' + className + ' pagination-swiper-dot"></div>';
-          },
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          }
-        }
-      });
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>

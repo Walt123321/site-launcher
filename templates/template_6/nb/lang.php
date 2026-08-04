@@ -1,0 +1,422 @@
+<?php
+require __DIR__ . '/../lang.php';
+$site_lang = 'nb-NO';
+$form_language = 'nb';
+
+$home_meta_title = "$site_name — Offisiell Nettside | Handelsplattform";
+$home_meta_description = "Få tilgang til globale markeder med $site_name ⭐ Institusjonell AI-analyse ⚡, utførelse med lav latenstid ⚡ og rene grensesnitt designet for moderne finansiell vekst.";
+
+$quiz_consultant_name = 'Lisa';
+$quiz_consultant_role = 'Onboarding-assistent';
+
+$quiz_text_welcome   = "Hei! Dette er $quiz_consultant_name, din personlige onboarding-assistent hos $site_name. Gode nyheter! Tilgangen din er offisielt forhåndsgodkjent. La oss konfigurere den profesjonelle profilen din nå!";
+$quiz_text_q1 = "For å sikre full juridisk og regulatorisk overholdelse, vennligst bekreft ditt nåværende bostedsland: $country_name";
+$quiz_text_a1_yes    = "Ja, dette er mitt nåværende bosted";
+$quiz_text_a1_no     = "Nei";
+
+$quiz_text_q2 = "Perfekt. Vennligst velg passende alderskategori for å finne de mest egnede finansielle instrumentene:";
+
+$quiz_text_q3        = "Finnes det en aktiv bankkonto eller et kredittkort tilgjengelig for å motta regelmessige daglige utbyttebetalinger?";
+$quiz_text_a3_yes    = "Ja, en aktiv konto er tilgjengelig";
+$quiz_text_a3_no     = "Ikke tilgjengelig ennå";
+
+$quiz_text_q4        = "Vennligst oppgi den primære kilden til personlig inntekt. (Denne parameteren hjelper deg med å tilpasse systemets risikostyringsinnstillinger).";
+$quiz_text_a4_1      = "Offisiell Ansettelse / Selvstendig næringsdrivende";
+$quiz_text_a4_2      = "Passiv Inntekt / Personlig Sparing";
+$quiz_text_a4_3      = "Andre kilder";
+
+$quiz_text_q5 = "Flott! Det siste trinnet er en kort telefonverifikasjon fra manageren vår for å bekrefte registreringen din. Samtaler ringes fra 11:00 til 20:00. Vil du være i stand til å ta imot samtalen?";
+$quiz_text_a5_yes    = "Ja, dette tidspunktet passer for samtalen";
+$quiz_text_a5_no     = "Vennligst start samtalen umiddelbart";
+
+$quiz_text_loader    = "Analyserer de forespurte alternativene og initialiserer sikre kontoparametere...";
+$quiz_text_final_ttl = "Konto Autorisert! 🎉 Det sikre digitale arbeidsområdet ditt er fullstendig konfigurert. Fullfør de siste verifikasjonstrinnene nedenfor for å garantere daglige utbetalinger:";
+
+$quiz_placeholder_fname = "Fornavn";
+$quiz_placeholder_lname = "Etternavn";
+$quiz_placeholder_email = "E-postadresse";
+$quiz_placeholder_phone = "Telefonnummer";
+$quiz_btn_submit = "Aktiver Handel";
+$quiz_text_typing       = "skriver en melding...";
+$quiz_text_processing   = "Behandler forespørsel...";
+
+$header_nav_aria_label = "Hovednavigasjon";
+$nav_platform = "Plattform";
+$nav_features = "Funksjoner";
+$nav_markets = "Markeder";
+$nav_process = "Prosess";
+$nav_security = "Sikkerhet";
+$nav_reviews = "Anmeldelser";
+$nav_faq = "FAQ";
+$nav_about = "Om oss";
+$nav_contact = "Kontakt";
+
+$theme_toggle_aria_label = "Bytt til mørkt tema";
+$theme_toggle_text = "Mørk";
+$theme_toggle_text_light = "Lys";
+$theme_toggle_dark_aria_label = "Bytt til mørkt tema";
+$theme_toggle_light_aria_label = "Bytt til lyst tema";
+$header_cta_button = "Start handel";
+$burger_menu_aria_label = "Meny";
+
+$hero_heading_before = "$site_name";
+$hero_heading_accent = "Plattform";
+$hero_description = "Ny innen handel? $site_name tilbyr strukturerte, AI-støttede verktøy designet for å gjøre reisen din transparent. Utforsk krypto, forex og aksjer uten teknisk kaos.";
+$hero_primary_button = "Start handel";
+$hero_secondary_button = "Utforsk funksjoner";
+$hero_badge_ssl = "Beskyttet av SSL-protokoll";
+$hero_badge_guided = "Veiledet forløp for nybegynnere";
+
+$signup_heading = "Opprett din konto";
+$signup_subtitle = "Tar mindre enn 3 minutter. Ingen oppstartsgebyrer.";
+$form_first_name_label = "Fornavn";
+$form_first_name_placeholder = "Ola";
+$form_last_name_label = "Etternavn";
+$form_last_name_placeholder = "Nordmann";
+$form_email_label = "E-postadresse";
+$form_email_placeholder = "ola@example.no";
+$form_phone_label = "Telefonnummer";
+$form_phone_placeholder = "412 34 567";
+$form_submit_button = "Opprett gratis konto";
+$form_legal_before = "Ved å sende inn opplysningene dine godtar du våre ";
+$form_terms_text = "Vilkår og betingelser";
+
+$stats_value_assets = "80+";
+$stats_label_assets = "Handelbare aktiva";
+$stats_value_setup = "Rask";
+$stats_label_setup = "Konto-oppsett";
+$stats_value_support = "24/7";
+$stats_label_support = "Støtte";
+$stats_value_security = "Sikker";
+$stats_label_security = "Databehandling";
+
+$platform_section_label = "Intelligent Arbeidsområde";
+$platform_title_before = "$site_name Profesjonelle Diagrammer.";
+$platform_title_accent = "Bygget for enkle beslutninger.";
+$platform_subtitle = "Overvåk priser i sanntid og utfør handlinger fra et rent grensesnitt.";
+$platform_check_1 = "Sanntids AI-forbedrede diagrammer";
+$platform_check_2 = "Ett-trykks markedsutførelsessystem";
+$platform_cta_button = "Se plattformfunksjoner";
+
+$mockup_overlay_headline = "⚡ Umiddelbar Utførelse Tilgjengelig";
+$mockup_overlay_text = "For å sende denne ordren umiddelbart, aktiver din sikre $site_name terminalstatus.";
+$mockup_overlay_button = "Opprett Sikker Konto";
+$mockup_dashboard_title = "BTC / USD Oversikt";
+$mockup_today = "I dag";
+$mockup_sell_button = "Selg";
+$mockup_buy_button = "Kjøp";
+$mockup_order_pending_text = "Ordre venter på tildeling";
+
+$features_section_label = "Plattformens Kapasitet";
+$features_title = "Alt du trenger for å handle med selvtillit på $site_name";
+$features_subtitle = "Sikkerhet, hastighet og nevral markedsintelligens kombinert i én ren layout";
+$feature_1_title = "Sikkerhet på banknivå";
+$feature_1_text = "SSL-kryptering, sikker databehandling og fullstendig beskyttet kontoarkitektur.";
+$feature_2_title = "AI markedsanalyse";
+$feature_2_text = "Maskinlæringsberegninger i sanntid fokusert på å fange markedsendringer.";
+$feature_3_title = "Lav-latenstid strømmer";
+$feature_3_text = "Smidig infrastruktur fokusert på rask ordrehåndtering ved høyt volum.";
+
+$markets_section_label = "Sanntidsaktiva";
+$markets_title = "Samlet $site_name dashbord for globale målinger";
+$markets_subtitle = "Følg aktivainndelinger i sanntid og bruk automatisert AI-analyse.";
+$markets_ai_box_title = "💡 Operasjonell Effektivitet:";
+$markets_ai_box_text = "Tradisjonell handel krever manuell sporing av hundrevis av indikatorer. $site_name -algoritmer behandler tusenvis av prisendringer per millisekund.";
+$markets_cta_button = "Få tilgang til markeder";
+$markets_table_asset = "Aktivum";
+$markets_table_price = "Pris";
+$markets_table_change = "24t Endring";
+
+$onboarding_section_label = "Onboarding Prosess";
+$onboarding_title = "$site_name gjør starten stressfri";
+$onboarding_subtitle = "Ingen erfaring med krypto? Vår automatiserte guide hjelper deg hele veien.";
+$onboarding_step_1_title = "Sikker Registrering";
+$onboarding_step_1_text = "Skriv inn kontaktinformasjon via vårt krypterte skjema.";
+$onboarding_step_2_title = "AI-veiledet Oppsett";
+$onboarding_step_2_text = "Plattformen viser grensesnittalternativer tilpasset dine preferanser.";
+$onboarding_step_3_title = "Sikker Finansiering";
+$onboarding_step_3_text = "Aktiver kontoen din via pålitelige betalingslag.";
+$onboarding_step_4_title = "Bruk Signaler";
+$onboarding_step_4_text = "Begynn å handle på globale markeder med levende nevrale datastrømmer.";
+
+$mobile_app_image_alt = "$site_name mobil handelsapp på en smarttelefon";
+$mobile_app_section_label = "Mobil Tilgang";
+$mobile_app_title = "Porteføljen din, rett i lomma";
+$mobile_app_subtitle = "Hele $site_name motoren komprimert til en rask mobilopplevelse.";
+$mobile_app_check_1 = "Push-varsler for kritiske prisbevegelser";
+$mobile_app_check_2 = "Biometrisk innlogging med kryptert lokal lagring";
+$mobile_app_check_3 = "Fullstendig berøringsoptimalisert diagrampakke";
+$mobile_app_cta_button = "Hent appen";
+
+$security_section_label = "Balansert Rammeverk";
+$security_title = "Gjennomsiktige operative parametere";
+$security_subtitle = "Vi tror på absolutt ærlighet. Her er hva som gjør systemet vårt unikt.";
+$security_our_title = "Viktigste Fordeler";
+$security_our_item_1 = "Minimalistisk dashbord tilpasset institusjonell hastighet.";
+$security_our_item_2 = "Nevral analytisk databehandling som kjører 24/7.";
+$security_our_item_3 = "Ingen skjulte transaksjonsmarginer eller uventede gebyrer.";
+$security_our_item_4 = "Direkte kryptografisk SSL-kontoarkitektur.";
+$security_our_item_5 = "Veiledet onboarding som tar bare minutter.";
+
+$security_other_badge = "Andre plattformer";
+$security_other_title = "Vanlige Begrensninger i Bransjen";
+$security_other_item_1 = "Overfylte dashbord med reklame som forsinker beslutninger.";
+$security_other_item_2 = "Statiske rapporter i stedet for kontinuerlig liveanalyse.";
+$security_other_item_3 = "Skjulte spreads og uklare gebyrstrukturer.";
+$security_other_item_4 = "Gammel infrastruktur med uensartet databeskyttelse.";
+$security_other_item_5 = "Treg kontoverifisering som kan ta dager.";
+$security_disclaimer = "Sammenligningen gjenspeiler typiske mønstre i bransjen og er gitt til illustrasjonsformål.";
+
+$capabilities_title = "Plattformens kjernefunksjoner i et overblikk";
+$capabilities_subtitle = "Gå gjennom funksjonelle parametere som inngår i din kontotilgang.";
+$capability_table_col_1 = "Kapasitetsparameter";
+$capability_table_col_2 = "Funksjonelle Detaljer";
+$capability_table_col_3 = "Inkludert";
+$capability_check_aria = "Inkludert";
+$capability_1_title = "AI Handelsrammeverk";
+$capability_1_text = "Algoritmebasert behandling som beregner makromålinger.";
+$capability_2_title = "Samlede Strømmer";
+$capability_2_text = "Konsoliderte sanntidsdiagrammer for moderne indekser.";
+$capability_3_title = "Stabilitet På Tvers Av Enheter";
+$capability_3_text = "Fullstendig responsiv visning på mobil, datamaskin og nettbrett.";
+$capability_4_title = "Dekning Av Flere Aktiva";
+$capability_4_text = "Tilgang til krypto, forex og aksjer fra én konto.";
+$capability_5_title = "Automatiserte Risikovarsler";
+$capability_5_text = "Konfigurerbare meldinger for uvanlig volatilitet.";
+$capability_6_title = "Kryptert Datahvelv";
+$capability_6_text = "Personopplysninger isolert bak kryptografisk tilgangskontroll.";
+$capability_7_title = "24/7 Menneskelig Støtte";
+$capability_7_text = "Støttepersonell klar til å hjelpe umiddelbart.";
+
+$payments_section_label = "Innskudd";
+$payments_title = "Fyll på kontoen din med metoder du allerede stoler på";
+$payments_subtitle = "Kort, e-lommebøker og bankoverføringer — beskyttet med SSL-kryptering.";
+$payments_aria_label = "Aksepterte innskuddsmetoder";
+$payment_method_bank_transfer = "Bankoverføring";
+$payment_method_ssl = "SSL-sikret";
+
+$partners_section_label = "Pålitelig Infrastruktur";
+$partners_title = "Bygget med partnere i verdensklasse";
+$partners_aria_label = "$site_name infrastruktur- og betalingspartnere";
+
+$reviews_section_label = "Brukeranmeldelser";
+$reviews_title = "Hva tradere sier om $site_name";
+$reviews_subtitle = "Ærlig tilbakemelding fra vårt globale fellesskap.";
+$review_1_text = "Som nybegynner var krypto skremmende. $site_name gjorde dashbordet så intuitivt at jeg følte meg trygg på noen få minutter.";
+$review_1_role = "Verifisert Detaljtrader";
+$review_2_text = "Grensesnittets renhet sparer meg for timer. AI-analysene er fantastiske.";
+$review_2_role = "Kryptoaktivaanalytiker";
+$review_3_text = "Lav latenstid gjør at jeg kan justere mål underveis.";
+$review_3_role = "Privat Porteføljeforvalter";
+$review_4_text = "Støtten svarte innen to minutter. Enestående service.";
+$review_4_role = "Algoritmebasert Trader";
+
+$review_1_avatar_alt = "Marius Lindqvist, $site_name bruker";
+$review_2_avatar_alt = "Ingrid Solberg, $site_name bruker";
+$review_3_avatar_alt = "Henrik Hagen, $site_name bruker";
+$review_4_avatar_alt = "Elena Johansen, $site_name bruker";
+$hero_growth_visual_alt = "$site_name AI vekstdiagram";
+$mobile_trading_visual_alt = "$site_name mobil handelsapp grensesnitt";
+$cta_security_visual_alt = "AI sikkerhetstiltak som beskytter $site_name kontoer";
+
+$seo_content_title = "$site_name: Styrker tradere gjennom institusjonell AI-arkitektur";
+$seo_content_intro = "Moderne samhandling med aktiva krever absolutt klarhet. $site_name løser kompleksitet med sitt elegante miljø.";
+$seo_block_1_title_before = "Avansert";
+$seo_block_1_title_accent = "Krypto Handelsaktiva";
+$seo_block_1_text_1 = "Blokkjedelikviditet endres raskt, noe som gjør lav latenstid kritisk.";
+$seo_block_1_text_2 = "Plattformen setter volumendringer i kontekst for enklere beslutningstaking.";
+$seo_block_2_title_before = "Dyp";
+$seo_block_2_title_accent = "Nevral Markedsinnsikt";
+$seo_block_2_text_1 = "Automatiserte algoritmer behandler markedsdata for å beregne strukturelle variasjoner.";
+$seo_block_2_text_2 = "Modellene kjører kontinuerlig slik at endringer vises umiddelbart.";
+$seo_block_3_title_before = "Friksjonsfri";
+$seo_block_3_title_accent = "Konto-oppsettsprosess";
+$seo_block_3_text_1 = "Overholdelse trenger ikke å være komplisert. Vår registrering beskytter dataene dine.";
+$seo_block_3_text_2 = "Hvert felt forklarer hvorfor det etterspørres.";
+$seo_block_4_title_before = "Institusjonelt Nivå";
+$seo_block_4_title_accent = "Risikokontroller";
+$seo_block_4_text_1 = "Posisjonsstørrelse og automatiske varsler er hentet fra profesjonelle verktøy.";
+$seo_block_4_text_2 = "Varsler kan konfigureres for å unngå meldingstretthet.";
+
+$faq_section_label = "Støttesenter";
+$faq_title = "Ofte stilte spørsmål";
+$faq_subtitle = "Finn umiddelbare svar angående registrering og tilgang.";
+$faq_1_question = "Hvordan kan jeg starte med $site_name?";
+$faq_1_answer = "Fyll ut registreringsskjemaet ovenfor og aktiver kontoen din.";
+$faq_2_question = "Trenger jeg avansert kryptoerfaring?";
+$faq_2_answer = "Nei. $site_name har en egen modus for nybegynnere.";
+$faq_3_question = "Hva er minimumskravet?";
+$faq_3_answer = "Standardaktiveringen er $app_price $app_currency.";
+$faq_4_question = "Er det noen skjulte gebyrer?";
+$faq_4_answer = "Nei. Vi jobber med fullstendig gebyrgjennomsiktighet.";
+$faq_5_question = "Hvordan fungerer AI-komponenten?";
+$faq_5_answer = "Våre nevrale systemer omgjør data til forenklede trendlinjer.";
+$faq_6_question = "Er mine personopplysninger beskyttet?";
+$faq_6_answer = "Ja. Hver tilkobling er sikret med SSL.";
+
+$final_cta_title = "Klar til å oppleve klarheten i $site_name?";
+$final_cta_subtitle = "Bli med i et moderne system optimalisert for rask drift og databeskyttelse.";
+
+$footer_brand_description = "Moderne analytisk miljø som leverer klar datasporing på tvers av globale aktiva.";
+$footer_platform_title = "Plattform";
+$footer_platform_interface = "Grensesnitt";
+$footer_platform_markets = "Markedsoversikt";
+$footer_pages_title = "Sider";
+$footer_page_about = "Om oss";
+$footer_page_contact = "Kontakt";
+$footer_page_signin = "Logg inn";
+$footer_legal_title = "Juridisk";
+$footer_terms = "Brukervilkår";
+$footer_privacy = "Personvernerklæring";
+$footer_disclaimer_title = "⚠️ Risikovarsel:";
+$footer_disclaimer_text = "Handel med kryptoaktiva innebærer betydelig markedsrisiko. Behold den fullstendige kontrollen over strategien din.";
+$footer_copyright = "Med enerett.";
+
+$about_meta_title = "Om oss | $site_name";
+$about_meta_description = "Les mer om $site_name — vår misjon og AI-teknologi.";
+$about_breadcrumb_name = "Om oss";
+$about_h1 = "Om $site_name";
+$about_p1 = "$site_name ble skapt for å gjøre AI-handelsverktøy tilgjengelige for alle.";
+$about_p2 = "Vi tror at tilgang til globale markeder skal være transparent.";
+$about_h2_mission = "Vår Misjon";
+$about_p_mission_1 = "Vår misjon er å gi tradere klare verktøy for å navigere i markedene.";
+$about_p_mission_2 = "Hver funksjon på $site_name er designet med klarhet i fokus.";
+$about_h2_ai = "Vår AI-tilnærming";
+$about_p_ai_1 = "$site_name kombinerer sanntidsdata med AI-analyse.";
+$about_p_ai_2 = "Våre systemer fungerer som beslutningsstøtte — ikke som gevinstgaranti.";
+$about_li_1 = "Sanntids markedsdataaggregering";
+$about_li_2 = "AI-assistert markedsanalyse";
+$about_li_3 = "Transparente risikovarsler";
+$about_li_4 = "Veiledet onboarding for nye tradere";
+$about_li_5 = "Tilgang til krypto, forex og aksjer";
+$about_li_6 = "Sikkerhetsinfrastruktur på banknivå";
+$about_li_7 = "24/7 kundestøtte";
+$about_li_8 = "Regelmessige plattformoppdateringer";
+$about_h2_security = "Sikkerhet Først";
+$about_p_security_1 = "Vi bruker bransjestandard kryptering for å beskytte dataene dine.";
+$about_p_security_2 = "Sikkerhet er innebygd i alle deler av plattformen.";
+$about_h2_global = "Bygget for Globale Markeder";
+$about_p_global_1 = "$site_name er designet for å støtte tradere i mange regioner.";
+$about_p_global_2 = "Våre partnere hjelper oss med å opprettholde pålitelig tilgang.";
+$about_h2_why = "Hvorfor Velge $site_name";
+$about_why_li_1 = "Klar, strukturert onboarding";
+$about_why_li_2 = "AI-assistert, ærlige forventninger";
+$about_why_li_3 = "Transparent gebyrinformasjon";
+$about_why_li_4 = "Rask kundestøtte";
+$about_why_li_5 = "Regulerte betalingspartnere";
+$about_why_li_6 = "Kontinuerlige plattformforbedringer";
+$about_why_li_7 = "Fokus på utdanning av tradere";
+$about_h2_forward = "Blikket Fremover";
+$about_p_forward_1 = "Vi forbedrer kontinuerlig $site_name basert på tilbakemeldinger.";
+$about_p_forward_2 = "Takk for at du vurderer $site_name.";
+
+$contact_meta_title = "Kontakt | $site_name";
+$contact_meta_description = "Kontakt $site_name-teamet.";
+$contact_breadcrumb_name = "Kontakt";
+$contact_h1 = "Kontakt oss";
+$contact_intro_1 = "Har du spørsmål om kontoen din eller en funksjon? Vi er her for å hjelpe.";
+$contact_intro_2 = "Fyll ut skjemaet nedenfor eller kontakt oss direkte.";
+$contact_h2_help = "Hva Vi Kan Hjelpe Med";
+$contact_li_1 = "Konto-oppsett og verifisering";
+$contact_li_2 = "Plattformfunksjoner og funksjon";
+$contact_li_3 = "Spørsmål om innskudd og uttak";
+$contact_li_4 = "Tekniske problemer";
+$contact_li_5 = "Generell tilbakemelding og forslag";
+$contact_li_6 = "Partnerskaps- og mediehenvendelser";
+$contact_h2_send = "Send oss en melding";
+$contact_p_send = "Skriv inn opplysningene dine nedenfor, så vender teamet vårt tilbake så snart som mulig.";
+$contact_form_fname = "Fornavn";
+$contact_form_lname = "Etternavn";
+$contact_form_email = "E-postadresse";
+$contact_form_submit = "Send melding";
+$contact_h2_info = "Andre Måter å Nå Oss På";
+$contact_support_label = "Støtte:";
+$contact_institutional_label = "Institusjonelle henvendelser:";
+$contact_disclaimer = "Vi tilstreber å besvare alle henvendelser innen 24-48 timer.";
+
+$faq_page_meta_title = "FAQ | $site_name";
+$faq_page_meta_description = "Ofte stilte spørsmål om $site_name — kontoer, innskudd og sikkerhet.";
+$faq_page_breadcrumb_name = "FAQ";
+$faq_page_h1 = "Ofte Stilte Spørsmål";
+$faq_page_subtitle = "Svar på spørsmålene tradere oftest stiller oss.";
+
+$sign_meta_title = "Opprett din konto | $site_name";
+$sign_meta_description = "Opprett din $site_name konto og kom i gang.";
+$sign_breadcrumb_name = "Opprett konto";
+$sign_h1 = "Opprett din konto";
+$sign_subtitle = "Tar mindre enn 3 minutter. Ingen oppstartsgebyrer.";
+
+$conditions_meta_title = "Brukervilkår | $site_name";
+$conditions_meta_description = "Les brukervilkårene for din bruk av $site_name.";
+$conditions_breadcrumb_name = "Vilkår";
+$conditions_h1 = "Brukervilkår";
+$conditions_last_update = "Sist oppdatert: " . date('F Y');
+$conditions_intro = "Disse brukervilkårene regulerer din tilgang til og bruk av $site_name.";
+$conditions_h2_eligibility = "Kvalifikasjon";
+$conditions_p_eligibility = "Du må være minst 18 år for å bruke plattformen.";
+$conditions_h2_account = "Din Konto";
+$conditions_p_account = "Du er ansvarlig for å opprettholde konfidensialiteten til innloggingsopplysningene dine.";
+$conditions_h2_risk = "Handelsrisiko";
+$conditions_p_risk = "Handel med finansielle instrumenter innebærer betydelig risiko.";
+$conditions_h2_conduct = "Akseptabel Bruk";
+$conditions_p_conduct = "Du godtar å ikke misbruke plattformen.";
+$conditions_h2_liability = "Ansvarsbegrensning";
+$conditions_p_liability = "I den grad loven tillater det er $site_name ikke ansvarlig for indirekte skader.";
+$conditions_h2_changes = "Endringer i Vilkår";
+$conditions_p_changes = "Vi kan oppdatere disse vilkårene fra tid til annen.";
+$conditions_h2_contact = "Kontakt";
+$conditions_p_contact = "Spørsmål om disse vilkårene kan sendes til vårt støtteteam.";
+
+$privacy_meta_title = "Personvernerklæring | $site_name";
+$privacy_meta_description = "Les om hvordan $site_name samler inn og beskytter dine personopplysninger.";
+$privacy_breadcrumb_name = "Personvern";
+$privacy_h1 = "Personvernerklæring";
+$privacy_last_update = "Sist oppdatert: " . date('F Y');
+$privacy_intro = "Denne personvernerklæringen forklarer hvordan $site_name behandler opplysningene dine.";
+$privacy_h2_collect = "Opplysninger Vi Samler Inn";
+$privacy_p_collect = "Vi samler inn opplysninger du oppgir direkte ved registrering.";
+$privacy_h2_use = "Hvordan Vi Bruker Opplysningene Dine";
+$privacy_p_use = "Vi bruker opplysningene dine til å levere og forbedre plattformen.";
+$privacy_h2_sharing = "Deling av Opplysninger";
+$privacy_p_sharing = "Vi selger ikke personopplysningene dine til tredjeparter.";
+$privacy_google_choices = 'Du kan administrere hvordan Google bruker informasjon via <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads-innstillinger</a>.';
+$privacy_h2_security = "Datasikkerhet";
+$privacy_p_security = "Vi bruker tekniske tiltak for å beskytte dataene dine.";
+$privacy_h2_rights = "Dine Rettigheter";
+$privacy_p_rights = "Du har rett til å be om innsyn i, mektiggjøring av eller sletting av opplysningene dine.";
+$privacy_h2_retention = "Datalagring";
+$privacy_p_retention = "Vi lagrer bare opplysningene dine så lenge det er nødvendig.";
+$privacy_h2_contact = "Kontakt Oss";
+$privacy_p_contact = "For spørsmål om personvern, kontakt oss via kontaktsiden.";
+
+$page_title_risk_warning = "Risikovarsel | $site_name";
+$page_description_risk_warning = "Forstå risikoene ved automatisert handel med $site_name.";
+$risk_warning_breadcrumb_name = "Risikovarsel";
+$risk_warning_title = "Risikovarsel";
+$risk_warning_intro = "Å forstå risiko er det første trinnet mot ansvarlig handel.";
+$risk_warning_ai_heading = "Hvordan Vårt AI-system Hjelper med Risikostyring:";
+$risk_warning_ai_1 = "<strong>Algoritmisk Effektivitet:</strong> Avanserte algoritmer analyserer signaler for objektiv utførelse.";
+$risk_warning_ai_2 = "<strong>Datadrevne Strategier:</strong> Strategier er basert på verifiserte mønstre.";
+$risk_warning_ai_3 = "<strong>Fleksible Innstillinger:</strong> Juster risikoparametrene dine når som helst.";
+$risk_warning_disclaimer = "<strong>Ansvarsfraskrivelse:</strong> Handel innebærer alltid risiko. Automatiserte systemer garanterer ikke gevinst.";
+$risk_warning_s1_heading = "1. Generelle & Kryptomarkedsrisikoer";
+$risk_warning_s1_intro = "Kryptovalutaer er svært volatile aktiva.";
+$risk_warning_s1_1 = "Verdier kan svinge drastisk innenfor korte tidsrom.";
+$risk_warning_s1_2 = "Markedsverdier kan bli påvirket av endringer i lovgivning.";
+$risk_warning_s1_3 = "Enkelte aktiva kan miste all verdi. Invester bare penger du har råd til å tape.";
+$risk_warning_s2_heading = "2. Utførelses- & Gearingrisikoer";
+$risk_warning_s2_1 = "<strong>Volatilitet:</strong> Ekstreme bevegelser kan føre til forsinkelser.";
+$risk_warning_s2_2 = "<strong>Gearing:</strong> Gearede produkter forsterker både gevinst og tap.";
+$risk_warning_s3_heading = "3. Tekniske & Cybersikkerhetsrisikoer";
+$risk_warning_s3_1 = "<strong>Tekniske Faktorer:</strong> Netthandel innebærer risiko for avbrudd i tilkoblingen.";
+$risk_warning_s3_2 = "<strong>Cybersikkerhet:</strong> Kryptokontoer er mål for phishing-angrep.";
+$risk_warning_s3_3 = "<strong>Tredjeparter:</strong> Vi garanterer ikke for sikkerheten på eksterne plattformer.";
+$risk_warning_s4_heading = "4. Lovgivning & Sluttbestemmelser";
+$risk_warning_s4_1 = "<strong>Juridisk Overholdelse:</strong> Brukerne er selv ansvarlige for å overholde lokal lovgivning.";
+$risk_warning_s4_2 = "<strong>Ingen Gevinstgaranti:</strong> Det finnes ingen risikofri handel.";
+$risk_warning_s4_3 = "<strong>Egnethet:</strong> Hvis du ikke forstår risikoene, er handel ikke egnet.";
+$risk_warning_contact = "<strong>Kontakt:</strong> For spørsmål, kontakt vårt offisielle støtteteam.";
+$footer_risk_warning = "Risikovarsel";
+
+$lang_loaded = true;
+?>

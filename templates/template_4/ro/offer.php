@@ -167,8 +167,6 @@ $canonical = 'https://' . $host . $uri;
         document.getElementById("skeleton")?.remove();
       });
     </script>
-    <script src="../assets/js/lazyload.min.js" defer></script>
-    <script src="../assets/js/scripts.js" defer></script>
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/offer.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/offer.php" />
 <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/offer.php" />
@@ -183,7 +181,17 @@ $canonical = 'https://' . $host . $uri;
 <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/offer.php" />
 <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/offer.php" />
 <link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/offer.php" />
-<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/offer.php" /></head>
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/offer.php" />
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/offer.php" />
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/offer.php" />
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/offer.php" />
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/offer.php" />
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/offer.php" />
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/offer.php" />
+<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/offer.php" />
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/offer.php" />
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/offer.php" />
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/offer.php" /></head>
   <body class="flex min-h-screen flex-col">
     <!-- skeleton -->
     <div id="skeleton">
@@ -622,6 +630,9 @@ $canonical = 'https://' . $host . $uri;
               <li>
                 <a href="conditions.php">Condiții de utilizare</a>
               </li>
+              <li>
+                <a href="risk-warning.php">Risk Warning</a>
+              </li>
             </ul>
           </nav>
           <div class="flex justify-between gap-5">
@@ -688,6 +699,36 @@ $canonical = 'https://' . $host . $uri;
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/offer.php" hreflang="no" title="Norsk">
     🇳🇴
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/offer.php" hreflang="da" title="Dansk">
+    🇩🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/offer.php" hreflang="fi" title="Suomi">
+    🇫🇮
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/offer.php" hreflang="hu" title="Magyar">
+    🇭🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/offer.php" hreflang="sk" title="Slovenčina">
+    🇸🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/offer.php" hreflang="bg" title="Български">
+    🇧🇬
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/offer.php" hreflang="ms" title="Bahasa Melayu">
+    🇲🇾
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/offer.php" hreflang="ru" title="Русский">
+    🇷🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/offer.php" hreflang="nb" title="Norsk bokmål">
+    🇳🇴
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/offer.php" hreflang="el" title="Ελληνικά">
+    🇬🇷
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/offer.php" hreflang="ja" title="日本語">
+    🇯🇵
   </a>
 </div>
 </div>

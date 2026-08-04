@@ -47,20 +47,61 @@ $canonical = 'https://' . $host . $uri;
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "logo": {
+    "@type": "ImageObject",
+    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+  },
+  "description": <?= json_encode($home_meta_description) ?>,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": <?= json_encode($site_url . '/contacts.php') ?>
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
   "@type": "SoftwareApplication",
-  "name": "<?= $site_name ?>",
-  "operatingSystem": "ANDROID, iOS",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url . '/') ?>,
+  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "description": <?= json_encode($home_meta_description) ?>,
   "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web Browser",
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "<?= $rating_value ?>",
-    "ratingCount": "<?= $rating_count ?>"
+    "ratingValue": <?= json_encode((float) $rating_value) ?>,
+    "bestRating": 5,
+    "worstRating": 1,
+    "ratingCount": <?= json_encode((int) $rating_count) ?>,
+    "reviewCount": <?= json_encode((int) $review_count) ?>
   },
   "offers": {
     "@type": "Offer",
-    "price": "<?= $app_price ?>",
-    "priceCurrency": "<?= $app_currency ?>"
+    "price": <?= json_encode((string) $app_price) ?>,
+    "priceCurrency": <?= json_encode($app_currency) ?>,
+    "availability": "https://schema.org/InStock"
+  },
+  "author": {
+    "@type": "Brand",
+    "name": <?= json_encode($site_name) ?>
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "description": <?= json_encode($home_meta_description) ?>,
+  "inLanguage": <?= json_encode($site_lang) ?>
 }
 </script>
     <meta charset="UTF-8" />
@@ -68,6 +109,15 @@ $canonical = 'https://' . $host . $uri;
     <title><?= $offer_meta_title ?></title>
     <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
     <meta name="description" content="<?= $offer_meta_description ?>" />
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="<?= $site_name ?>">
+    <meta property="og:url" content="<?= $canonical ?>">
+    <meta property="og:title" content="<?= $offer_meta_title ?>">
+    <meta property="og:description" content="<?= $offer_meta_description ?>">
+    <meta property="og:image" content="<?= $site_url ?>/favicon-96x96.png">
+    <meta property="og:image:width" content="96">
+    <meta property="og:image:height" content="96">
+    <meta property="og:image:alt" content="<?= $site_name ?> logo">
     <!-- Favicon -->
 <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
@@ -75,7 +125,8 @@ $canonical = 'https://' . $host . $uri;
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
 <link rel="manifest" href="./site.webmanifest" />
   <link rel="stylesheet" href="./integration/default-integration.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" /></noscript>
     <!-- Styles -->
     <style>
       html.loading body > *:not(#skeleton) {
@@ -157,8 +208,6 @@ $canonical = 'https://' . $host . $uri;
         document.getElementById("skeleton")?.remove();
       });
     </script>
-    <script src="./assets/js/lazyload.min.js" defer></script>
-    <script src="./assets/js/scripts.js" defer></script>
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/offer.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/offer.php" />
 <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/offer.php" />
@@ -173,7 +222,17 @@ $canonical = 'https://' . $host . $uri;
 <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/offer.php" />
 <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/offer.php" />
 <link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/offer.php" />
-<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/offer.php" /></head>
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/offer.php" />
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/offer.php" />
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/offer.php" />
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/offer.php" />
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/offer.php" />
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/offer.php" />
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/offer.php" />
+<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/offer.php" />
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/offer.php" />
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/offer.php" />
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/offer.php" /></head>
   <body class="flex min-h-screen flex-col">
     <!-- skeleton -->
     <div id="skeleton">
@@ -370,7 +429,7 @@ $canonical = 'https://' . $host . $uri;
             >
               <div class="offer-visual">
                 <img
-                  src="./assets/img/responsive/orange/phone-3-1033.png"
+                  src="./assets/img/responsive/orange/phone-3-1033.webp"
                   alt="Trading app"
                   class="offer-phone"
                 />
@@ -525,6 +584,8 @@ $canonical = 'https://' . $host . $uri;
                 <?= $form_text_privacy_and ?>
                 <a class="link-underline" href="conditions.php"><?= $form_text_conditions ?></a>
                 <?= $form_text_conditions_of ?>
+                <?= $form_text_risk_warning_note ?>
+                <a class="link-underline" href="risk-warning.php"><?= $footer_risk_warning ?></a>.
               </p>
             </div>
 <div class="flex flex-wrap justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="58" height="39" viewBox="0 0 58 39" fill="none">
@@ -612,6 +673,9 @@ $canonical = 'https://' . $host . $uri;
               <li>
                 <a href="conditions.php"><?= $footnav_conditions ?></a>
               </li>
+              <li>
+                <a href="risk-warning.php"><?= $footer_risk_warning ?></a>
+              </li>
             </ul>
           </nav>
           <div class="flex justify-between gap-5">
@@ -678,6 +742,36 @@ $canonical = 'https://' . $host . $uri;
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/offer.php" hreflang="no" title="Norsk">
     🇳🇴
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/offer.php" hreflang="da" title="Dansk">
+    🇩🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/offer.php" hreflang="fi" title="Suomi">
+    🇫🇮
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/offer.php" hreflang="hu" title="Magyar">
+    🇭🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/offer.php" hreflang="sk" title="Slovenčina">
+    🇸🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/offer.php" hreflang="bg" title="Български">
+    🇧🇬
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/offer.php" hreflang="ms" title="Bahasa Melayu">
+    🇲🇾
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/offer.php" hreflang="ru" title="Русский">
+    🇷🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/offer.php" hreflang="nb" title="Norsk bokmål">
+    🇳🇴
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/offer.php" hreflang="el" title="Ελληνικά">
+    🇬🇷
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/offer.php" hreflang="ja" title="日本語">
+    🇯🇵
   </a>
 </div>
 </div>
@@ -757,7 +851,7 @@ $canonical = 'https://' . $host . $uri;
         <div style="background-color: #1a1a1e !important; border-bottom: 1px solid #27272a !important; padding: 14px 18px !important; display: flex !important; align-items: center !important; justify-content: space-between !important; flex-direction: row !important;">
             <div style="display: flex !important; align-items: center !important; gap: 12px !important; flex-direction: row !important;">
                 <div style="position: relative !important; width: 40px !important; height: 40px !important; border-radius: 50% !important; border: 2px solid #6B5FA7 !important; background-color: #27272a !important; display: flex !important; align-items: center !important; justify-content: center !important; overflow: hidden !important; flex-shrink: 0 !important;">
-                    <img src="./consultant.png" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
+                    <img src="./consultant.webp" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
                     <svg style="display: none; width: 22px; height: 22px; color: #a1a1aa;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     <span style="position: absolute !important; bottom: 0 !important; right: 0 !important; width: 9px !important; height: 9px !important; background-color: #10b981 !important; border: 1.5px solid #121214 !important; border-radius: 50% !important;"></span>
                 </div>
@@ -889,7 +983,7 @@ document.addEventListener('DOMContentLoaded', () => {
         msg.style.cssText = "display: flex !important; gap: 10px !important; max-width: 88% !important; align-items: flex-start !important; flex-direction: row !important; text-align: left !important; animation: chatIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;";
         msg.innerHTML = `
             <div style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid #6B5FA7; background-color: #27272a; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; margin-top: 2px;">
-                <img src="./consultant.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:100%; object-fit:cover;">
+                <img src="./consultant.webp" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:100%; object-fit:cover;">
                 <svg style="display:none; width:14px; height:14px; color:#a1a1aa;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
             </div>
             <div style="background-color: #1e1e22; color: #f4f4f5; padding: 11px 14px; border-radius: 14px; border-top-left-radius: 0; font-size: 13px; line-height: 1.45; border: 1px solid #27272a; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
@@ -1036,7 +1130,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.intlTelInput(phone, {
                         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/utils.js",
                         separateDialCode: true,
-                        initialCountry: phoneCountryEl ? phoneCountryEl.value : 'auto'
+                        initialCountry: phoneCountryEl ? phoneCountryEl.value : 'auto',
+                        geoIpLookup: function (success, failure) {
+                            fetch("https://ipapi.co/json")
+                                .then(function (res) { return res.json(); })
+                                .then(function (data) { success(data.country_code); })
+                                .catch(function () { failure(); });
+                        }
                     });
                 }
             }

@@ -1,13 +1,15 @@
 <?php
 // MANUAL
 $site_name = "$source";
-$site_url = "https://finora-ai.org";
+$site_domain = "{{DOMAIN}}";
+$site_url = "https://$site_domain";
 $app_price = 250;
 $rating_value = 4.7;
 $rating_count = 1808;
 $review_count = 87; // fixed (not randomized per page load) per JSON-LD requirements
 $app_currency = "EUR";
 $site_lang = "en-GB";
+$country_name = "United Kingdom"; // referenced by $quiz_text_q1 below but was never defined — matches template_3/5/6's same placeholder default
 $adress_name = "120 Friedrich Street, Berlin 10117, Germany";
 $site_gmail = "[support.finora-ai@gmail.com](mailto:support.finora-ai@gmail.com)";
 $footer_contact_address = "Address: $adress_name";
@@ -114,6 +116,7 @@ $footer_link_registration = "Registration";
 $footer_contact_title = "Contact Information";
 $footer_contact_address = "Address: $adress_name";
 $footer_contact_email = "Email: $site_gmail";
+$footer_lang_switcher_title = "Language";
 
 $footer_description = "$source provides a reliable and secure online trading platform designed to make financial activities clear, transparent, and efficient. Whether you are a beginner or an experienced investor, our solution combines advanced tools, dedicated support, and an intuitive interface. Thousands of users worldwide trust $source because of its transparency, high security standards, and customer-focused approach. Protecting your data and capital remains our top priority, supported by advanced security technologies. Join the $source community and invest with confidence.";
 $footer_copyright = "© $source 2026";

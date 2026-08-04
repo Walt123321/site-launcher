@@ -154,6 +154,32 @@ if ($uri === "/lander/{$host}/index.php") {
   <link href="./integration/default-integration.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" rel="stylesheet"/>
 
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/index.php">
+<link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/index.php">
+<link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/index.php">
+<link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/index.php">
+<link rel="alternate" hreflang="it" href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/index.php">
+<link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/index.php">
+<link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/index.php">
+<link rel="alternate" hreflang="nl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/index.php">
+<link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/en/index.php">
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/index.php">
+<link rel="alternate" hreflang="pt" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/index.php">
+<link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/index.php">
+<link rel="alternate" hreflang="pl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/index.php">
+<link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/index.php">
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/index.php">
+<link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/index.php">
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/index.php">
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/index.php">
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/index.php">
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/index.php">
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/index.php">
+<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/index.php">
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/index.php">
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/index.php">
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/index.php">
+<link rel="stylesheet" href="custom-styles.css">
 </head>
 
 <body>
@@ -211,30 +237,7 @@ if ($uri === "/lander/{$host}/index.php") {
 </header>
 
   <main>
-    <style>
-      @media (max-width: 768px) {
-        .welcome__main {
-          padding-top: 0;
-        }
-
-        .welcome__title {
-          margin-top: 1.5rem;
-          z-index: 50;
-          text-shadow: 2px 2px 5px #000000;
-        }
-
-        .welcome__form::before {
-
-          filter: blur(2px);
-          /* добавляем размытие */
-        }
-
-        .iti__selected-dial-code {
-          color: gray !important;
-        }
-
-      }
-    </style>
+    
     <section class="welcome" aria-labelledby="welcome-title">
       <h1 class="hide-mobile" style="text-align:center; color:#e3ff34; padding:20px;"><?= $source ?> Platform</h1>
       <div class="welcome__main container">
@@ -251,34 +254,7 @@ if ($uri === "/lander/{$host}/index.php") {
         </div>
         <div class="welcome__form">
           <div class="form">
-            <style>
-              .iti__country-container {
-                pointer-events: none;
-              }
-
-              .iti__arrow {
-                display: none;
-              }
-
-              .leadform {
-                max-width: 400px;
-                margin: 0 auto;
-              }
-
-              .leadform input {
-                display: block;
-                width: 100%;
-                border-radius: 5px;
-                border: 1px solid #ccc;
-                margin: 20px 0;
-                padding: 15px;
-              }
-
-
-              .form {
-                padding: 20px !important;
-              }
-            </style>
+            
 
             <form class="leadform rf-form js-rf-form" id="form" method="post" action="./integration/send.php">
             <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
@@ -976,8 +952,7 @@ if ($uri === "/lander/{$host}/index.php") {
               <?= $seo_p1 ?>
             </p>
 
-            <!-- TODO: replace with the file supplied for the T3 SEO block once provided -->
-            <img class="seo__image" src="images/algorithmic-trading-engine.png" alt="<?= $seo_image_alt ?>" loading="lazy" decoding="async">
+            <img class="seo__image" src="images/algorithmic-trading-engine.webp" alt="<?= $seo_image_alt ?>" width="1600" height="854" loading="lazy" decoding="async">
 
             <div class="seo__features-grid">
               <div class="seo__feature-item">
@@ -1136,57 +1111,7 @@ if ($uri === "/lander/{$host}/index.php") {
 </div>
         <div class="join__form">
           <div class="form" data-js-form="">
-            <style>
-              .iti__selected-dial-code,
-              .iti__country-name {
-                color: black;
-              }
-
-              .leadform {
-                max-width: 400px;
-                margin: 0 auto;
-              }
-
-              .leadform input {
-                display: block;
-                width: 100%;
-                border-radius: 5px;
-                border: 1px solid #ccc;
-                margin: 20px 0;
-                padding: 15px;
-              }
-
-              .submit {
-                animation: 2s ease 0s infinite normal none running aio-sdk-pulsing;
-                box-shadow: #12393b 0 0 0 0;
-                background: #12393b;
-                border-color: #12393b;
-                color: #e3ff34;
-                padding: 12px;
-                height: 60px;
-                border: 1px solid transparent;
-                border-radius: 50px;
-                margin-top: 20px;
-                text-transform: uppercase;
-                font-weight: 400;
-                font-size: 16px;
-
-                transition: 50ms ease-out;
-
-                outline: 0;
-                box-sizing: border-box;
-                position: relative;
-                cursor: pointer;
-                width: 100%;
-
-              }
-
-              @keyframes aio-sdk-pulsing {
-                100% {
-                  box-shadow: transparent 0 0 0 10px
-                }
-              }
-            </style>
+            
 
             <form class="leadform rf-form js-rf-form" id="form2" method="post" action="./integration/send.php">
             <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
@@ -1234,12 +1159,7 @@ if ($uri === "/lander/{$host}/index.php") {
         <span><?= $source ?></span>
       </a>
 
-      <style>
-        .footer__button.button {
-          color: var(--color-emerald-12);
-          background: #d0ee11;
-        }
-      </style>
+      
 
       <a href="sign-up.php" class="footer__button button" data-js-button-form="">
         <?= $button_register ?>
@@ -1253,6 +1173,32 @@ if ($uri === "/lander/{$host}/index.php") {
         <li class="footer__nav-item"><a href="private-policy.php" class="no-scroll"><?= $footer_privacy ?></a></li>
         <li class="footer__nav-item"><a href="risk-warning.php" class="no-scroll"><?= $footer_risk_warning ?></a></li>
       </ul>
+      <div class="footer__lang-switcher">
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/index.php" hreflang="en" title="English">🇬🇧</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/index.php" hreflang="de" title="Deutsch">🇩🇪</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/index.php" hreflang="fr" title="Français">🇫🇷</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/index.php" hreflang="es" title="Español">🇪🇸</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/index.php" hreflang="it" title="Italiano">🇮🇹</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/index.php" hreflang="bg" title="Български">🇧🇬</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/index.php" hreflang="cs" title="Čeština">🇨🇿</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/index.php" hreflang="da" title="Dansk">🇩🇰</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/index.php" hreflang="el" title="Ελληνικά">🇬🇷</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/index.php" hreflang="fi" title="Suomi">🇫🇮</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/index.php" hreflang="hr" title="Hrvatski">🇭🇷</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/index.php" hreflang="hu" title="Magyar">🇭🇺</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/index.php" hreflang="ja" title="日本語">🇯🇵</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/index.php" hreflang="ms" title="Bahasa Melayu">🇲🇾</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/index.php" hreflang="nb" title="Norsk Bokmål">🇳🇴</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/index.php" hreflang="nl" title="Nederlands">🇳🇱</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/index.php" hreflang="no" title="Norsk">🇳🇴</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/index.php" hreflang="pl" title="Polski">🇵🇱</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/index.php" hreflang="pt" title="Português">🇵🇹</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/index.php" hreflang="ro" title="Română">🇷🇴</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/index.php" hreflang="ru" title="Русский">🇷🇺</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/index.php" hreflang="sk" title="Slovenčina">🇸🇰</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/index.php" hreflang="sv" title="Svenska">🇸🇪</a>
+        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/index.php" hreflang="tr" title="Türkçe">🇹🇷</a>
+      </div>
     </div>
 
     <div class="footer__bottom">
@@ -1269,7 +1215,6 @@ if ($uri === "/lander/{$host}/index.php") {
   <div class="places__main container">
     <div class="places__title hidden-tablet">
       <div class="places__image">
-        <img src="images/pntro.png" width="40" height="40" alt="flag">
       </div>
       <h2 class="places__text">
         <?= $places_title ?>
@@ -1289,415 +1234,11 @@ if ($uri === "/lander/{$host}/index.php") {
   </div>
 </dialog>
   </main>
-  <style>
-    .aio-sdk-form {
-      --aio-sdk-input-border-radius: 8px;
-      --aio-sdk-input-padding: 12px;
-      --aio-sdk-form-padding: 40px;
-      --aio-sdk-input-margin: 20px;
-      --aio-sdk-submit-bg: #e3ff34;
-      --aio-sdk-submit-border-radius: 50px;
-      --aio-sdk-submit-color: #12393b;
-      --aio-sdk-submit-font-size: 16px;
-      --aio-sdk-input-label-margin: 8px;
-    }
+  
 
-    .aio-sdk-form button[type='submit'] {
-      font-weight: 500;
-      height: 60px;
-    }
+  
 
-    .aio-sdk-form button[type='submit']:hover {
-      background: #d0ee11;
-    }
-
-    .aio-sdk-form .aio-sdk-input-container:last-child {
-      padding-top: 4px;
-      margin-bottom: 0;
-    }
-
-    .aio-sdk-input-container::before {
-      color: #999999;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 140%;
-      display: block;
-      content: '';
-    }
-
-    .itit-aio__flag-box,
-    .itit-aio__country-name {
-      color: #222222;
-    }
-
-    .itit-aio__search-input {
-      border-radius: 8px;
-    }
-
-    .itit-aio--inline-dropdown .itit-aio__dropdown-content {
-      box-shadow: none;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    .aio-sdk-input::placeholder {
-      color: #bbbbbb;
-    }
-
-    .itit-aio__country-list::-webkit-scrollbar {
-      width: 4px;
-      height: 4px;
-    }
-
-    .itit-aio__country-list::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: #ddd;
-    }
-
-    .itit-aio__country-list::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    @media (max-width: 1024px) {
-      .aio-sdk-form {
-        --aio-sdk-submit-border-radius: 60px;
-        --aio-sdk-submit-bg: #12393b;
-        --aio-sdk-submit-color: #e3ff34;
-      }
-
-      .aio-sdk-form .aio-sdk-input-container:last-child {
-        padding-top: 4px;
-      }
-
-      .aio-sdk-form button[type='submit']:hover {
-        background: #e3ff34;
-        color: #12393b;
-      }
-    }
-
-    .join__title-accent {
-      white-space: nowrap;
-    }
-
-    .join__block {
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 500px) {
-      .join__block {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        justify-content: center;
-      }
-    }
-  </style>
-
-  <style>
-    .custom-dropdown-wrapper {
-      position: relative;
-      width: 100%;
-    }
-
-    .custom-dropdown-selected {
-      padding-right: 32px !important;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      cursor: pointer;
-      height: auto;
-      box-sizing: border-box;
-      font-size: 17px !important;
-    }
-
-    .custom-dropdown-arrow {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
-      font-size: 14px;
-      color: #555;
-      line-height: 1;
-      height: 1em;
-      display: flex;
-      align-items: center;
-    }
-
-    .custom-dropdown-list {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-top: 4px;
-      max-height: 160px;
-      overflow-y: auto;
-      display: none;
-      z-index: 100;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-      padding: 0;
-      list-style: none;
-    }
-
-    .custom-dropdown-list::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .custom-dropdown-list::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: #ddd;
-    }
-
-    .custom-dropdown-option {
-      padding: 12px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .custom-dropdown-option:hover {
-      background: #f2f2f2;
-    }
-
-    .custom-dropdown-option {
-      padding: 12px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-      /* Совпадает с .itit-aio__flag-box и .itit-aio__country-name */
-      color: #222222;
-      font-size: 16px;
-      font-weight: 400;
-      font-family: inherit;
-    }
-
-    input.custom-dropdown-selected::placeholder {
-      font-size: 14px !important;
-    }
-
-    @media (max-width: 1200px) {
-      input.custom-dropdown-selected::placeholder {
-        font-size: 13px !important;
-      }
-
-      .custom-dropdown-selected {
-        font-size: 13px !important;
-      }
-    }
-
-    @media (max-width: 991px) {
-      input.custom-dropdown-selected::placeholder {
-        font-size: 12px !important;
-      }
-
-      .custom-dropdown-selected {
-        font-size: 12px !important;
-      }
-    }
-  </style>
-
-  <style>
-    /* Enhanced mobile styles for leaders slider */
-    @media (max-width: 768px) {
-      .leaders__slider {
-        margin-block: 2rem 3rem;
-        overflow: hidden;
-        width: 100%;
-      }
-
-      .leaders__slider .swiper-wrapper {
-        /* Let Swiper handle all positioning */
-        display: flex;
-        align-items: center;
-      }
-
-      .leaders__slider .swiper-slide {
-        /* Ensure slides take full width and are centered */
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-      }
-
-      .leaders__card {
-        padding: 1rem;
-        text-align: center;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-      }
-
-      .leaders__text {
-        margin-bottom: 2rem;
-        width: 100%;
-      }
-
-      .leaders__description {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
-      }
-
-      .leaders__info {
-        align-items: center;
-        text-align: center;
-      }
-
-      .leaders__image {
-        margin-bottom: 1rem;
-      }
-
-      .leaders__image>img {
-        width: 15rem;
-        height: 15rem;
-        margin: 0 auto 2rem auto;
-      }
-
-      /* Hide navigation buttons on mobile and show pagination */
-      .swiper-buttons {
-        display: none !important;
-      }
-
-      .leaders__slider .swiper-pagination {
-        display: block !important;
-        position: static;
-        margin-top: 1.5rem;
-      }
-
-      .leaders__slider .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        background: transparent;
-        border: 2px solid var(--color-accent);
-        opacity: 0.5;
-        margin: 0 6px;
-      }
-
-      .leaders__slider .swiper-pagination-bullet-active {
-        background: var(--color-accent);
-        opacity: 1;
-      }
-
-      /* Make slides full width on mobile */
-      .leaders__slider .swiper-slide {
-        width: 100% !important;
-        margin-right: 0 !important;
-      }
-
-      .leaders__slider .swiper-wrapper {
-        display: flex;
-      }
-
-      /* Improve coin positioning on mobile */
-      .leaders__image-coin {
-        z-index: 1;
-      }
-
-      .leaders__image-coin:nth-child(1) {
-        width: 2.5rem;
-        height: 2.5rem;
-        right: -1rem;
-        top: 10%;
-      }
-
-      .leaders__image-coin:nth-child(2) {
-        width: 4rem;
-        height: 3rem;
-        right: -0.5rem;
-        bottom: 1rem;
-      }
-
-      .leaders__image-coin:nth-child(3) {
-        width: 2rem;
-        height: 1.5rem;
-        top: -0.5rem;
-        right: 1rem;
-      }
-
-      .leaders__image-coin:nth-child(4) {
-        width: 2.5rem;
-        height: 2.5rem;
-        left: -1rem;
-        top: 1rem;
-      }
-    }
-
-    /* Enhanced styles for tablets */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .leaders__slider .swiper-buttons {
-        display: flex;
-      }
-
-      .leaders__slider .swiper-pagination {
-        display: none;
-      }
-    }
-
-    /* Enhanced desktop styles */
-    @media (min-width: 1025px) {
-      .leaders__slider .swiper-buttons {
-        display: flex;
-      }
-
-      .leaders__slider .swiper-pagination {
-        display: none;
-      }
-    }
-
-    /* Touch-friendly navigation */
-    .leaders__slider .swiper-pagination-bullet {
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .leaders__slider .swiper-pagination-bullet:hover {
-      transform: scale(1.2);
-    }
-
-    /* Smooth transitions */
-    .leaders__slider .swiper-slide {
-      transition: transform 0.3s ease;
-    }
-
-    .leaders__slider .swiper-slide-active .leaders__card {
-      animation: slideInContent 0.6s ease-out;
-    }
-
-    @keyframes slideInContent {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Enhanced autoplay indicator */
-    .leaders__slider .swiper-pagination-bullet {
-      transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.5);
-    }
-
-    .leaders__slider .swiper-pagination-bullet-active {
-      background: #E3FF34;
-      transform: scale(1.2);
-    }
-
-    /* Ensure proper spacing and centering */
-    .leaders__slider .swiper-container {
-      padding-bottom: 2rem;
-    }
-  </style>
+  
 
   <script src="js/swiper-bundle.min.js"></script>
 
@@ -1740,50 +1281,6 @@ if ($uri === "/lander/{$host}/index.php") {
         }
       });
 
-      // Initialize other swipers (advantages and feedback sections)
-      const advantagesSwiper = new Swiper('.advantages__swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: {
-          el: '.advantages__swiper .pagination-swiper',
-          clickable: true,
-          renderBullet: function(index, className) {
-            return '<div class="' + className + ' pagination-swiper-dot"></div>';
-          },
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          }
-        }
-      });
-
-      const feedbackSwiper = new Swiper('.feedback__swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: {
-          el: '.feedback__swiper .pagination-swiper',
-          clickable: true,
-          renderBullet: function(index, className) {
-            return '<div class="' + className + ' pagination-swiper-dot"></div>';
-          },
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          }
-        }
-      });
     });
   </script>
 
@@ -1893,8 +1390,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
   <script src="./integration/validation.js"></script>
-  <script src="./assets/js/lazyload.min.js" defer></script>
-  <script src="./assets/js/scripts.js" defer></script>
   <script src="js/calculator.js" defer></script>
   <script src="js/faq-section.js" defer></script>
 
@@ -1941,18 +1436,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const rootBlock = document.getElementById('chat-quiz-root');
-    if (rootBlock && rootBlock.parentElement !== document.body) {
-        document.body.appendChild(rootBlock);
-    }
-
-    setTimeout(() => {
-        const notiDot = document.getElementById('chat-noti-dot');
-        if (notiDot) notiDot.style.transform = 'scale(1)';
-    }, 3000);
-
-    const quizLang = {
+window.quizLang = {
         welcome: `<?= addslashes($quiz_text_welcome) ?>`,
         q1: `<?= addslashes($quiz_text_q1) ?>`,
         a1_yes: `<?= addslashes($quiz_text_a1_yes) ?>`,
@@ -1972,405 +1456,10 @@ document.addEventListener('DOMContentLoaded', () => {
         finalTitle: `<?= addslashes($quiz_text_final_ttl) ?>`,
         processing: `<?= addslashes($quiz_text_processing) ?>`
     };
-
-    const steps = [
-        { id: 'welcome', type: 'text', content: quizLang.welcome, next: 'q1' },
-        { id: 'q1', type: 'options', question: quizLang.q1, options: [{ text: quizLang.a1_yes, next: 'q2' }, { text: quizLang.a1_no, next: 'q2' }] },
-        { id: 'q2', type: 'options', question: quizLang.q2, options: [{ text: '18–25', next: 'q3' }, { text: '26–40', next: 'q3' }, { text: '41–55', next: 'q3' }, { text: '56+', next: 'q3' }] },
-        { id: 'q3', type: 'options', question: quizLang.q3, options: [{ text: quizLang.a3_yes, next: 'q4' }, { text: quizLang.a3_no, next: 'q4' }] },
-        { id: 'q4', type: 'options', question: quizLang.q4, options: [{ text: quizLang.a4_1, next: 'q5' }, { text: quizLang.a4_2, next: 'q5' }, { text: quizLang.a4_3, next: 'q5' }] },
-        { id: 'q5', type: 'options', question: quizLang.q5, options: [{ text: quizLang.a5_yes, next: 'loader' }, { text: quizLang.a5_no, next: 'loader' }] }
-    ];
-
-    const toggleBtn = document.getElementById('chat-toggle-btn');
-    const chatWindow = document.getElementById('chat-window');
-    const closeBtn = document.getElementById('chat-close-btn');
-    const messagesContainer = document.getElementById('chat-messages');
-    const controlsContainer = document.getElementById('chat-controls');
-    const typingIndicator = document.getElementById('typing-indicator');
-
-    let quizStarted = false;
-
-    function setResponsiveSizes() {
-        if (window.innerWidth < 640) {
-            chatWindow.style.width = 'calc(100vw - 40px)';
-            chatWindow.style.height = '500px';
-        } else {
-            chatWindow.style.width = '385px';
-            chatWindow.style.height = '575px';
-        }
-    }
-    window.addEventListener('resize', setResponsiveSizes);
-    setResponsiveSizes();
-
-    toggleBtn.addEventListener('click', () => {
-        toggleBtn.style.transform = 'scale(0)';
-        setTimeout(() => { toggleBtn.style.display = 'none'; }, 200);
-        
-        chatWindow.style.display = 'flex';
-        setTimeout(() => {
-            chatWindow.style.opacity = '1';
-            chatWindow.style.transform = 'translateY(0)';
-        }, 50);
-        
-        if (!quizStarted) {
-            quizStarted = true;
-            runStep('welcome');
-        }
-    });
-
-    closeBtn.addEventListener('click', () => {
-        chatWindow.style.opacity = '0';
-        chatWindow.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            chatWindow.style.display = 'none';
-            toggleBtn.style.display = 'flex';
-            setTimeout(() => { toggleBtn.style.transform = 'scale(1)'; }, 20);
-        }, 350);
-    });
-
-    function scrollToBottom() {
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    function toggleTyping(show) {
-        typingIndicator.style.display = show ? 'block' : 'none';
-        scrollToBottom();
-    }
-
-    function appendAgentMessage(text) {
-        const msg = document.createElement('div');
-        msg.style.cssText = "display: flex !important; gap: 10px !important; max-width: 88% !important; align-items: flex-start !important; flex-direction: row !important; text-align: left !important; animation: chatIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;";
-        msg.innerHTML = `
-            <div style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid #e3ff34; background-color: #183c3e; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; margin-top: 2px;">
-                <img src="./consultant.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:100%; object-fit:cover;">
-                <svg style="display:none; width:14px; height:14px; color:#a1a1aa;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-            </div>
-            <div style="background-color: #12393b; color: #f4f4f5; padding: 11px 14px; border-radius: 14px; border-top-left-radius: 0; font-size: 13px; line-height: 1.45; border: 1px solid #183c3e; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                ${text}
-            </div>
-        `;
-        messagesContainer.appendChild(msg);
-        scrollToBottom();
-    }
-
-    function appendUserMessage(text) {
-        const msg = document.createElement('div');
-        msg.style.cssText = "display: flex !important; width: 100% !important; justify-content: flex-end !important; flex-direction: row !important; animation: chatIn 0.25s ease-out forwards;";
-        msg.innerHTML = `
-            <div style="background-color: #12393b; color: #e3ff34; padding: 11px 14px; border-radius: 14px; border-top-right-radius: 0; font-size: 13px; font-weight: 500; max-width: 85%; text-align: left; border: 1px solid #e3ff34; box-shadow: 0 4px 12px rgba(227, 255, 52, 0.15);">
-                ${text}
-            </div>
-        `;
-        messagesContainer.appendChild(msg);
-        scrollToBottom();
-    }
-
-    function runStep(stepId) {
-        controlsContainer.innerHTML = '';
-        if (stepId === 'loader') { handleLoaderStep(); return; }
-        if (stepId === 'final') { handleFinalStep(); return; }
-
-        const step = steps.find(s => s.id === stepId);
-        if (!step) return;
-
-        toggleTyping(true);
-
-        setTimeout(() => {
-            toggleTyping(false);
-            if (step.type === 'text') {
-                appendAgentMessage(step.content);
-                setTimeout(() => runStep(step.next), 1000);
-            } else if (step.type === 'options') {
-                appendAgentMessage(step.question);
-                renderOptions(step.options);
-            }
-        }, 1000);
-    }
-
-    function renderOptions(options) {
-        const wrapper = document.createElement('div');
-        if (options.length > 2 || options[0].text.length > 15) {
-            wrapper.style.cssText = "display: flex !important; flex-direction: column !important; gap: 8px !important; width: 100% !important; padding: 0 2px !important;";
-        } else {
-            wrapper.style.cssText = "display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; width: 100% !important; padding: 0 2px !important;";
-        }
-
-        options.forEach(opt => {
-            const btn = document.createElement('button');
-            btn.style.cssText = "background-color: #12393b !important; color: #e4e4e7 !important; border: 1px solid #183c3e !important; border-radius: 10px !important; font-size: 13px !important; font-weight: 500 !important; padding: 11px 14px !important; cursor: pointer !important; text-align: center !important; transition: all 0.2s !important; outline: none !important; width: 100% !important; box-sizing: border-box !important;";
-            btn.textContent = opt.text;
-            
-            btn.onmouseover = () => { btn.style.borderColor = '#e3ff34'; btn.style.color = '#ffffff'; btn.style.backgroundColor = 'rgba(227, 255, 52, 0.08)'; };
-            btn.onmouseout = () => { btn.style.borderColor = '#183c3e'; btn.style.color = '#e4e4e7'; btn.style.backgroundColor = '#12393b'; };
-            
-            btn.addEventListener('click', () => {
-                appendUserMessage(opt.text);
-                controlsContainer.innerHTML = '';
-                setTimeout(() => runStep(opt.next), 500);
-            });
-            wrapper.appendChild(btn);
-        });
-
-        controlsContainer.appendChild(wrapper);
-        scrollToBottom();
-    }
-
-    function handleLoaderStep() {
-        toggleTyping(true);
-        
-        setTimeout(() => {
-            toggleTyping(false);
-            
-            const loaderCard = document.createElement('div');
-            loaderCard.style.cssText = "width: 88% !important; background-color: #12393b !important; border: 1px solid #183c3e !important; padding: 16px !important; border-radius: 14px !important; box-sizing: border-box !important; animation: chatIn 0.3s ease-out forwards; display: flex; flex-direction: column; gap: 10px;";
-            
-            const loaderText = document.createElement('div');
-            loaderText.style.cssText = "color: #e4e4e7; font-size: 12px; font-weight: 500; text-align: left; line-height: 1.4;";
-            loaderText.textContent = quizLang.loaderText;
-            
-            const track = document.createElement('div');
-            track.style.cssText = "width: 100%; height: 6px; background-color: #0f282a; border-radius: 4px; overflow: hidden; position: relative;";
-            
-            const bar = document.createElement('div');
-            bar.style.cssText = "width: 0%; height: 100%; background: linear-gradient(90deg, #e3ff34, #cbe61c); border-radius: 4px; transition: width 0.1s linear;";
-            
-            track.appendChild(bar);
-            loaderCard.appendChild(loaderText);
-            loaderCard.appendChild(track);
-            messagesContainer.appendChild(loaderCard);
-            scrollToBottom();
-
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += 5;
-                if (progress <= 100) {
-                    bar.style.width = progress + '%';
-                } else {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        runStep('final');
-                    }, 300);
-                }
-            }, 80);
-
-        }, 600);
-    }
-
-    function handleFinalStep() {
-        const celebration = document.createElement('div');
-        celebration.style.cssText = "position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:100; overflow:hidden;";
-        for(let i=0; i<25; i++) {
-            const particle = document.createElement('div');
-            const colors = ['#e3ff34', '#183c3e', '#10b981', '#ffffff'];
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            particle.style.cssText = `position: absolute; top: -10px; left: ${Math.random() * 100}%; width: ${Math.random() * 6 + 4}px; height: ${Math.random() * 6 + 4}px; background-color: ${randomColor}; border-radius: 50%; animation: confettiFall 2.2s linear ${Math.random() * 1.5}s forwards; opacity: 0.8;`;
-            celebration.appendChild(particle);
-        }
-        chatWindow.appendChild(celebration);
-
-        toggleTyping(true);
-
-        setTimeout(() => {
-            toggleTyping(false);
-            appendAgentMessage(quizLang.finalTitle);
-
-            const formCard = document.getElementById('cq-form-card');
-            if (formCard) {
-                formCard.style.cssText = "width: 100% !important; background-color: #0d2224 !important; border: 1px solid #183c3e !important; padding: 18px !important; border-radius: 16px !important; box-sizing: border-box !important; margin-top: 6px !important; box-shadow: inset 0 2px 4px rgba(0,0,0,0.4) !important; animation: chatIn 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; display: block !important;";
-                formCard.removeAttribute('hidden');
-                formCard.setAttribute('aria-hidden', 'false');
-                messagesContainer.appendChild(formCard);
-
-                const phone = document.getElementById('cq-field-phone');
-                if (phone && window.intlTelInput) {
-                    const existingIti = window.intlTelInput.getInstance(phone);
-                    if (existingIti) existingIti.destroy();
-                    const phoneCountryEl = document.querySelector('#cq-isolated-form input[name="phone_country"]');
-                    window.intlTelInput(phone, {
-                        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/utils.js",
-                        separateDialCode: true,
-                        initialCountry: phoneCountryEl ? phoneCountryEl.value : 'auto'
-                    });
-                }
-            }
-            controlsContainer.style.setProperty('display', 'none', 'important');
-
-            scrollToBottom();
-            setTimeout(() => celebration.remove(), 4000);
-        }, 1200);
-    }
-});
 </script>
+<script src="js/chat-quiz.js" defer></script>
 
-<style>
-.cq-pure-custom-form {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    width: 100% !important;
-    background: transparent !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-}
 
-.cq-field-group {
-    position: relative !important;
-    width: 100% !important;
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.cq-pure-custom-form .iti {
-    width: 100% !important;
-    display: block !important;
-}
-
-.cq-pure-custom-form .iti__selected-country {
-    background-color: #183c3e !important;
-    padding-right: 5px !important;
-    border-radius: 7px 0 0 7px !important;
-}
-
-.cq-pure-custom-form input[type="text"],
-.cq-pure-custom-form input[type="email"],
-.cq-pure-custom-form input[type="tel"]:not(.iti__tel-input) {
-    display: block !important;
-    width: 100% !important;
-    height: 48px !important;
-    min-height: 48px !important;
-    max-height: 48px !important;
-    box-sizing: border-box !important;
-    background-color: #12393b !important;
-    color: #ffffff !important;
-    border: 1px solid #183c3e !important;
-    border-radius: 8px !important;
-    padding: 0 16px !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    line-height: 48px !important;
-    outline: none !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    transition: border-color 0.2s ease, background-color 0.2s ease !important;
-}
-
-.cq-pure-custom-form input:focus {
-    border-color: #e3ff34 !important;
-    background-color: #154245 !important;
-}
-
-.cq-pure-custom-form .iti__tel-input {
-    display: block !important;
-    width: 100% !important;
-    height: 48px !important;
-    min-height: 48px !important;
-    max-height: 48px !important;
-    box-sizing: border-box !important;
-    background-color: #12393b !important;
-    color: #ffffff !important;
-    border: 1px solid #183c3e !important;
-    border-radius: 8px !important;
-    padding-right: 16px !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    line-height: 48px !important;
-    outline: none !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    transition: border-color 0.2s ease, background-color 0.2s ease !important;
-}
-
-.cq-phone-row {
-    display: flex !important;
-    align-items: center !important;
-    position: relative !important;
-    width: 100% !important;
-}
-
-.cq-phone-prefix-box {
-    position: absolute !important;
-    top: 1px !important;
-    left: 1px !important;
-    width: 76px !important;
-    height: 46px !important;
-    background-color: #183c3e !important;
-    border-right: 1px solid #225356 !important;
-    border-radius: 7px 0 0 7px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 6px !important;
-    pointer-events: none !important;
-    z-index: 10 !important;
-}
-
-.cq-flag-icon {
-    font-size: 16px !important;
-    line-height: 1 !important;
-}
-
-.cq-prefix-code {
-    color: #e4e4e7 !important;
-    font-size: 13px !important;
-    font-weight: 500 !important;
-}
-
-#cq-custom-submit-btn {
-    width: 100% !important;
-    height: 48px !important;
-    min-height: 48px !important;
-    box-sizing: border-box !important;
-    background: linear-gradient(135deg, #e3ff34, #cbe61c) !important;
-    color: #12393b !important;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    border: none !important;
-    border-radius: 8px !important;
-    padding: 0 !important;
-    line-height: 48px !important;
-    text-align: center !important;
-    cursor: pointer !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-    box-shadow: 0 4px 12px rgba(227, 255, 52, 0.25) !important;
-    display: block !important;
-    margin-top: 4px !important;
-    margin-bottom: 0 !important;
-    transition: opacity 0.2s ease, transform 0.2s ease !important;
-}
-
-#cq-custom-submit-btn:hover {
-    opacity: 0.95 !important;
-    transform: translateY(-1px) !important;
-}
-
-.cq-pulse-button {
-    position: relative;
-    animation: cq-bounce 3.2s infinite ease-in-out;
-}
-.cq-pulse-button::before {
-    content: ''; position: absolute; width: 100%; height: 100%; background-color: #e3ff34; border-radius: 50%; z-index: -1; opacity: 0.35; animation: cq-ripple 2.2s infinite ease-out;
-}
-@keyframes cq-ripple {
-    0% { transform: scale(1); opacity: 0.35; }
-    100% { transform: scale(1.55); opacity: 0; }
-}
-@keyframes cq-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-@keyframes chatIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes confettiFall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-    100% { transform: translateY(530px) rotate(360deg); opacity: 0; }
-}
-</style>
 
 </body>
 

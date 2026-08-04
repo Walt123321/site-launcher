@@ -1,0 +1,422 @@
+<?php
+require __DIR__ . '/../lang.php';
+$site_lang = 'tr-TR';
+$form_language = 'tr';
+
+$home_meta_title = "$site_name — Resmi Web Sitesi | Ticaret Platformu";
+$home_meta_description = "$site_name ile küresel piyasalara erişin ⭐ Kurumsal yapay zeka analitiği ⚡, düşük gecikmeli işlem ⚡ ve modern finansal büyüme için tasarlanmış sade arayüzler.";
+
+$quiz_consultant_name = 'Lisa';
+$quiz_consultant_role = 'Kayıt Asistanı';
+
+$quiz_text_welcome   = "Merhaba! Ben $quiz_consultant_name, $site_name üzerindeki kişisel kayıt asistanınız. Harika haberler! Erişiminiz resmi olarak ön onay aldı. Lütfen şimdi profesyonel profilinizi yapılandırmamıza izin verin!";
+$quiz_text_q1 = "Tam yasal uyumluluğu sağlamak için lütfen mevcut ikamet ülkenizi onaylayın: $country_name";
+$quiz_text_a1_yes    = "Evet, burası benim mevcut ikametgahım";
+$quiz_text_a1_no     = "Hayır";
+
+$quiz_text_q2 = "Mükemmel. En uygun finansal araçları bulmak için lütfen uygun yaş kategorisini seçin:";
+
+$quiz_text_q3        = "Düzenli günlük temettü ödemelerini almak için aktif bir banka hesabı veya kredi kartı mevcut mu?";
+$quiz_text_a3_yes    = "Evet, aktif bir hesap mevcut";
+$quiz_text_a3_no     = "Henüz mevcut değil";
+
+$quiz_text_q4        = "Lütfen birincil kişisel gelir kaynağınızı belirtin. (Bu parametre sistem risk yönetimi ayarlarını özelleştirmeye yardımcı olur).";
+$quiz_text_a4_1      = "Resmi İstihdam / Serbest Meslek";
+$quiz_text_a4_2      = "Pasif Gelir / Kişisel Birikimler";
+$quiz_text_a4_3      = "Diğer kaynaklar";
+
+$quiz_text_q5 = "Harika! Son adım, kaydınızı onaylamak için yöneticimizden gelecek kısa bir telefon doğrulamasıdır. Aramalar 11:00 - 20:00 saatleri arasında yapılır. Aramayı kabul edebilecek misiniz?";
+$quiz_text_a5_yes    = "Evet, bu saat arama için uygun";
+$quiz_text_a5_no     = "Lütfen aramayı hemen başlatın";
+
+$quiz_text_loader    = "Talep edilen seçenekler analiz ediliyor ve güvenli hesap parametreleri başlatılıyor...";
+$quiz_text_final_ttl = "Hesap Başarıyla Yetkilendirildi! 🎉 Güvenli dijital çalışma alanınız tamamen yapılandırıldı. Günlük ödemeleri garanti altına almak için lütfen aşağıdaki son doğrulama adımlarını tamamlayın:";
+
+$quiz_placeholder_fname = "Adınız";
+$quiz_placeholder_lname = "Soyadınız";
+$quiz_placeholder_email = "E-posta Adresi";
+$quiz_placeholder_phone = "Telefon Numarası";
+$quiz_btn_submit = "Ticareti Etkinleştir";
+$quiz_text_typing       = "mesaj yazıyor...";
+$quiz_text_processing   = "İstek işleniyor...";
+
+$header_nav_aria_label = "Ana gezinti";
+$nav_platform = "Platform";
+$nav_features = "Özellikler";
+$nav_markets = "Piyasalar";
+$nav_process = "Süreç";
+$nav_security = "Güvenlik";
+$nav_reviews = "İncelemeler";
+$nav_faq = "SSS";
+$nav_about = "Hakkımızda";
+$nav_contact = "İletişim";
+
+$theme_toggle_aria_label = "Karanlık temaya geç";
+$theme_toggle_text = "Karanlık";
+$theme_toggle_text_light = "Aydınlık";
+$theme_toggle_dark_aria_label = "Karanlık temaya geç";
+$theme_toggle_light_aria_label = "Aydınlık temaya geç";
+$header_cta_button = "Ticarete Başla";
+$burger_menu_aria_label = "Menü";
+
+$hero_heading_before = "$site_name";
+$hero_heading_accent = "Platformu";
+$hero_description = "Ticarette yeni misiniz? $site_name, yolculuğunuzu şeffaf hale getirmek için tasarlanmış yapay zeka destekli araçlar sunar. Kripto, forex ve hisse senetlerini teknik karmaşa olmadan keşfedin.";
+$hero_primary_button = "Ticarete başla";
+$hero_secondary_button = "Özellikleri keşfet";
+$hero_badge_ssl = "SSL Protokolü ile Korunan";
+$hero_badge_guided = "Yeni Başlayanlar İçin Kılavuzlu Akış";
+
+$signup_heading = "Hesabınızı oluşturun";
+$signup_subtitle = "3 dakikadan kısa sürer. Kurulum ücreti yok.";
+$form_first_name_label = "Ad";
+$form_first_name_placeholder = "Ahmet";
+$form_last_name_label = "Soyad";
+$form_last_name_placeholder = "Yılmaz";
+$form_email_label = "E-posta adresi";
+$form_email_placeholder = "ahmet@example.com.tr";
+$form_phone_label = "Telefon numarası";
+$form_phone_placeholder = "532 123 4567";
+$form_submit_button = "Ücretsiz hesap oluştur";
+$form_legal_before = "Bilgilerinizi göndererek ";
+$form_terms_text = "Hüküm ve Koşullarımızı";
+
+$stats_value_assets = "80+";
+$stats_label_assets = "İşlem yapılabilir varlık";
+$stats_value_setup = "Hızlı";
+$stats_label_setup = "Hesap kurulumu";
+$stats_value_support = "24/7";
+$stats_label_support = "Destek";
+$stats_value_security = "Güvenli";
+$stats_label_security = "Veri işleme";
+
+$platform_section_label = "Akıllı Çalışma Alanı";
+$platform_title_before = "$site_name Profesyonel Grafikleri.";
+$platform_title_accent = "Basit kararlar için inşa edildi.";
+$platform_subtitle = "Gerçek zamanlı fiyatları izleyin ve bilişsel yükü azaltmak için tasarlanmış sade bir arayüzden işlem yapın.";
+$platform_check_1 = "Yapay zeka destekli gerçek zamanlı grafikler";
+$platform_check_2 = "Tek dokunuşla piyasa işlem sistemi";
+$platform_cta_button = "Platform özelliklerini görüntüle";
+
+$mockup_overlay_headline = "⚡ Anında İşlem Mevcut";
+$mockup_overlay_text = "Bu emri hemen iletmek ve aktif fiyat hedefini yakalamak için güvenli $site_name terminal durumunuzu etkinleştirin.";
+$mockup_overlay_button = "Güvenli Hesap Oluştur";
+$mockup_dashboard_title = "BTC / USD Paneli";
+$mockup_today = "Bugün";
+$mockup_sell_button = "Sat";
+$mockup_buy_button = "Al";
+$mockup_order_pending_text = "Emir Atama Bekliyor";
+
+$features_section_label = "Platform Kapasitesi";
+$features_title = "$site_name ile güvenle işlem yapmak için ihtiyacınız olan her şey";
+$features_subtitle = "Güvenlik, hız ve nöronsal piyasa zekası tek bir net düzende birleşti";
+$feature_1_title = "Banka düzeyinde güvenlik";
+$feature_1_text = "SSL şifreleme, güvenli veri işleme ve tamamen korunan hesap mimarisi.";
+$feature_2_title = "AI piyasa analizi";
+$feature_2_text = "Keskin piyasa dalgalanmalarını yakalamaya odaklanmış gerçek zamanlı makine öğrenimi hesaplamaları.";
+$feature_3_title = "Düşük gecikmeli akışlar";
+$feature_3_text = "Yüksek hacimli dönemlerde hızlı emir işleme odaklı esnek altyapı.";
+
+$markets_section_label = "Gerçek zamanlı varlıklar";
+$markets_title = "Küresel metrikler için birleşik $site_name paneli";
+$markets_subtitle = "Gerçek zamanlı varlık değişikliklerini takip edin ve otomatik AI analizini kullanın.";
+$markets_ai_box_title = "💡 Operasyonel Verimlilik:";
+$markets_ai_box_text = "Geleneksel ticaret yüzlerce göstergenin manuel takibini gerektirir. $site_name algoritmaları milisaniye başına binlerce fiyat değişimini işler.";
+$markets_cta_button = "Piyasalara erişin";
+$markets_table_asset = "Varlık";
+$markets_table_price = "Fiyat";
+$markets_table_change = "24s Değişim";
+
+$onboarding_section_label = "Kayıt Süreci";
+$onboarding_title = "$site_name başlamayı stressiz hale getirir";
+$onboarding_subtitle = "Kripto deneyiminiz yok mu? Otomatik rehberimiz her adımda yanınızda.";
+$onboarding_step_1_title = "Güvenli Kayıt";
+$onboarding_step_1_text = "İletişim bilgilerinizi şifreli formumuz aracılığıyla girin.";
+$onboarding_step_2_title = "AI Rehberliğinde Kurulum";
+$onboarding_step_2_text = "Platform, tercihlerinize uygun arayüz seçenekleri sunar.";
+$onboarding_step_3_title = "Güvenli Fonlama";
+$onboarding_step_3_text = "Hesabınızı güvenilir ödeme katmanları üzerinden etkinleştirin.";
+$onboarding_step_4_title = "Sinyalleri Kullanın";
+$onboarding_step_4_text = "Canlı nöron verilerini kullanarak küresel piyasalarda işlem yapmaya başlayın.";
+
+$mobile_app_image_alt = "Akıllı telefonda çalışan $site_name mobil ticaret uygulaması";
+$mobile_app_section_label = "Mobil Erişim";
+$mobile_app_title = "Portföyünüz cebinizde";
+$mobile_app_subtitle = "Tüm $site_name motoru hızlı bir mobil deneyime sıkıştırıldı.";
+$mobile_app_check_1 = "Kritik fiyat hareketleri için anlık bildirimler";
+$mobile_app_check_2 = "Şifreli yerel depolama ile biyometrik giriş";
+$mobile_app_check_3 = "Dokunmatik ekranlar için optimize edilmiş grafik paketi";
+$mobile_app_cta_button = "Uygulamayı edinin";
+
+$security_section_label = "Dengeli Çerçeve";
+$security_title = "Şeffaf operasyonel parametreler";
+$security_subtitle = "Mutlak dürüstlüğe inanıyoruz. Sistemimizi farklı kılan özellikler bunlardır.";
+$security_our_title = "Temel Avantajlar";
+$security_our_item_1 = "Kurumsal hıza uyarlanmış minimalist panel.";
+$security_our_item_2 = "24/7 çalışan nöron analitik veri işleme.";
+$security_our_item_3 = "Gizli işlem marjları veya beklenmeyen yönetim ücretleri yok.";
+$security_our_item_4 = "Kişisel alanı koruyan doğrudan SSL hesap mimarisi.";
+$security_our_item_5 = "Dakikalar süren rehberli kayıt süreci.";
+
+$security_other_badge = "Diğer platformlar";
+$security_other_title = "Sektördeki Yaygın Sınırlamalar";
+$security_other_item_1 = "Karar vermeyi yavaşlatan reklam dolu karmaşık paneller.";
+$security_other_item_2 = "Canlı analiz yerine statik gün sonu raporları.";
+$security_other_item_3 = "Gizli spreadler ve belirsiz ücret yapıları.";
+$security_other_item_4 = "Eski altyapı ve tutarsız veri koruması.";
+$security_other_item_5 = "Günler sürebilen yavaş hesap doğrulaması.";
+$security_disclaimer = "Karşılaştırma sektördeki tipik kalıpları yansıtır ve bilgilendirme amaçlıdır.";
+
+$capabilities_title = "Bir bakışta platform kapasiteleri";
+$capabilities_subtitle = "Hesap erişiminize dahil edilen fonksiyonel parametreleri inceleyin.";
+$capability_table_col_1 = "Kapasite Parametresi";
+$capability_table_col_2 = "Fonksiyonel Detaylar";
+$capability_table_col_3 = "Dahil";
+$capability_check_aria = "Dahil";
+$capability_1_title = "AI Ticaret Çerçevesi";
+$capability_1_text = "Makro metrikleri hesaplayan algoritmik işleme.";
+$capability_2_title = "Birleştirilmiş Akışlar";
+$capability_2_text = "Konsolide edilmiş gerçek zamanlı grafikler.";
+$capability_3_title = "Çoklu Cihaz Stabilitesi";
+$capability_3_text = "Mobil, masaüstü ve tabletlerde tam uyumlu görünüm.";
+$capability_4_title = "Çoklu Varlık Kapsamı";
+$capability_4_text = "Tek bir hesaptan kripto, forex ve hisse senetlerine erişim.";
+$capability_5_title = "Otomatik Risk Uyarıları";
+$capability_5_text = "Olağandışı dalgalanmalar için yapılandırılabilir bildirimler.";
+$capability_6_title = "Şifreli Veri Kasası";
+$capability_6_text = "Kriptografik erişim kontrolleri ile izole edilmiş kişisel veriler.";
+$capability_7_title = "24/7 Canlı Destek";
+$capability_7_text = "Sorularınızı yanıtlamaya hazır canlı destek ekibi.";
+
+$payments_section_label = "Yatırımlar";
+$payments_title = "Güvendiğiniz yöntemlerle hesabınıza para yatırın";
+$payments_subtitle = "Kartlar, e-cüzdanlar ve banka havaleleri — SSL şifreleme ile korumalı.";
+$payments_aria_label = "Kabul edilen para yatırma yöntemleri";
+$payment_method_bank_transfer = "Banka Havalesi";
+$payment_method_ssl = "SSL Korumalı";
+
+$partners_section_label = "Güvenilir Altyapı";
+$partners_title = "Sektör standardı ortaklarla inşa edildi";
+$partners_aria_label = "$site_name altyapı ve ödeme ortakları";
+
+$reviews_section_label = "Kullanıcı Geri Bildirimleri";
+$reviews_title = "Yatırımcılar $site_name hakkında ne diyor";
+$reviews_subtitle = "Küresel topluluğumuzdan dürüst geri bildirimler.";
+$review_1_text = "Yeni başlayan biri olarak kripto beni korkutuyordu. $site_name paneli o kadar sezgisel tasarlamış ki dakikalar içinde kendime güvendim.";
+$review_1_role = "Doğrulanmış Bireysel Yatırımcı";
+$review_2_text = "Arayüzün sadeliği bana saatler kazandırıyor. AI analizleri harika.";
+$review_2_role = "Kripto Varlık Analisti";
+$review_3_text = "Düşük gecikme süresi, hedefleri anında ayarlamamı sağlıyor.";
+$review_3_role = "Özel Portföy Yöneticisi";
+$review_4_text = "Destek iki dakika içinde yanıt verdi. Olağanüstü hizmet.";
+$review_4_role = "Algoritmik Yatırımcı";
+
+$review_1_avatar_alt = "Mehmet Yılmaz, $site_name kullanıcısı";
+$review_2_avatar_alt = "Ayşe Demir, $site_name kullanıcısı";
+$review_3_avatar_alt = "Can Kaya, $site_name kullanıcısı";
+$review_4_avatar_alt = "Zeynep Şahin, $site_name kullanıcısı";
+$hero_growth_visual_alt = "$site_name AI ticaret büyüme grafiği";
+$mobile_trading_visual_alt = "$site_name mobil ticaret uygulaması arayüzü";
+$cta_security_visual_alt = "$site_name hesaplarını koruyan AI güvenlik önlemleri";
+
+$seo_content_title = "$site_name: Kurumsal AI mimarisi ile yatırımcıları güçlendirme";
+$seo_content_intro = "Modern varlık etkileşimi mutlak netlik gerektirir. $site_name şık ortamıyla karmaşıklığı çözer.";
+$seo_block_1_title_before = "Gelişmiş";
+$seo_block_1_title_accent = "Kripto Varlıklar";
+$seo_block_1_text_1 = "Blokzincir likiditesi hızla değişir ve düşük gecikmeli altyapıyı kritik kılar.";
+$seo_block_1_text_2 = "Platform, daha kolay karar verme için hacim değişikliklerini bağlamlandırır.";
+$seo_block_2_title_before = "Derin";
+$seo_block_2_title_accent = "Nöral Piyasa Analizleri";
+$seo_block_2_text_1 = "Otomatik algoritmalar piyasa verilerini işleyerek yapısal varyasyonları hesaplar.";
+$seo_block_2_text_2 = "Sürekli çalışan modeller sayesinde değişiklikler anında görünür.";
+$seo_block_3_title_before = "Sorunsuz";
+$seo_block_3_title_accent = "Hesap Kurulum Akışı";
+$seo_block_3_text_1 = "Uyumluluk karmaşık olmak zorunda değildir. Kaydımız verilerinizi korur.";
+$seo_block_3_text_2 = "Her alan neden istendiğini açıklar.";
+$seo_block_4_title_before = "Kurumsal Düzeyde";
+$seo_block_4_title_accent = "Risk Kontrolleri";
+$seo_block_4_text_1 = "Pozisyon boyutlandırma ve otomatik uyarılar profesyonel araçlardan alınmıştır.";
+$seo_block_4_text_2 = "Uyarılar bildirim yorgunluğunu önlemek için yapılandırılabilir.";
+
+$faq_section_label = "Destek Merkezi";
+$faq_title = "Sıkça sorulan sorular";
+$faq_subtitle = "Kayıt ve erişim parametreleri hakkında anında yanıtlar bulun.";
+$faq_1_question = "$site_name ile nasıl başlayabilirim?";
+$faq_1_answer = "Yukarıdaki kayıt formunu doldurun ve hesabınızı etkinleştirin.";
+$faq_2_question = "İleri düzey kripto deneyimine ihtiyacım var mı?";
+$faq_2_answer = "Hayır. $site_name yeni başlayanlar için özel bir moda sahiptir.";
+$faq_3_question = "Minimum gereksinim nedir?";
+$faq_3_answer = "Standart aktivasyon tutarı $app_price $app_currency dır.";
+$faq_4_question = "Gizli ücretler var mı?";
+$faq_4_answer = "Hayır. Tam ücret şeffaflığı ile çalışıyoruz.";
+$faq_5_question = "AI bileşeni nasıl çalışır?";
+$faq_5_answer = "Nöral sistemlerimiz verileri basit trend çizgilerine dönüştürür.";
+$faq_6_question = "Kişisel verilerim korunan mı?";
+$faq_6_answer = "Evet. Her bağlantı SSL ile korunmaktadır.";
+
+$final_cta_title = "$site_name netliğini deneyimlemeye hazır mısınız?";
+$final_cta_subtitle = "Hızlı operasyonlar ve veri koruması için optimize edilmiş modern bir sisteme katılın.";
+
+$footer_brand_description = "Küresel varlıklar genelinde net veri takibi sunan modern analitik ortam.";
+$footer_platform_title = "Platform";
+$footer_platform_interface = "Arayüz";
+$footer_platform_markets = "Piyasaya Genel Bakış";
+$footer_pages_title = "Sayfalar";
+$footer_page_about = "Hakkımızda";
+$footer_page_contact = "İletişim";
+$footer_page_signin = "Giriş Yap";
+$footer_legal_title = "Yasal";
+$footer_terms = "Kullanım Koşulları";
+$footer_privacy = "Gizlilik Politikası";
+$footer_disclaimer_title = "⚠️ Risk Uyarısı:";
+$footer_disclaimer_text = "Dijital varlık ticareti önemli piyasa riski içerir. Stratejinizin kontrolünü elinizde tutun.";
+$footer_copyright = "Tüm hakları saklıdır.";
+
+$about_meta_title = "Hakkımızda | $site_name";
+$about_meta_description = "$site_name — misyonumuz ve AI teknolojimiz hakkında bilgi edinin.";
+$about_breadcrumb_name = "Hakkımızda";
+$about_h1 = "$site_name Hakkında";
+$about_p1 = "$site_name, yapay zeka araçlarını herkes için erişilebilir kılmak amacıyla kuruldu.";
+$about_p2 = "Küresel piyasalara erişimin şeffaf olması gerektiğine inanıyoruz.";
+$about_h2_mission = "Misyonumuz";
+$about_p_mission_1 = "Misyonumuz, yatırımcılara piyasalarda gezinmeleri için net araçlar sunmaktır.";
+$about_p_mission_2 = "$site_name üzerindeki her özellik netlik üzerine tasarlanmıştır.";
+$about_h2_ai = "AI Yaklaşımımız";
+$about_p_ai_1 = "$site_name, gerçek zamanlı verileri AI analizi ile birleştirir.";
+$about_p_ai_2 = "Sistemlerimiz karar destek araçları olarak çalışır — kar garantisi vermez.";
+$about_li_1 = "Gerçek zamanlı piyasa veri toplama";
+$about_li_2 = "AI destekli piyasa analizi";
+$about_li_3 = "Şeffaf risk açıklamaları";
+$about_li_4 = "Yeni başlayanlar için rehberli kayıt";
+$about_li_5 = "Kripto, forex ve hisse senetlerine erişim";
+$about_li_6 = "Banka düzeyinde güvenlik altyapısı";
+$about_li_7 = "24/7 müşteri desteği";
+$about_li_8 = "Düzenli platform güncellemeleri";
+$about_h2_security = "Önce Güvenlik";
+$about_p_security_1 = "Verilerinizi korumak için endüstri standardı şifreleme kullanıyoruz.";
+$about_p_security_2 = "Güvenlik platformun her parçasına entegre edilmiştir.";
+$about_h2_global = "Küresel Piyasalar İçin İnşa Edildi";
+$about_p_global_1 = "$site_name, birçok bölgedeki yatırımcıları desteklemek için tasarlanmıştır.";
+$about_p_global_2 = "Ortaklarımız güvenilir erişim sağlamamıza yardımcı olur.";
+$about_h2_why = "Neden $site_name Seçmelisiniz";
+$about_why_li_1 = "Net ve yapılandırılmış kayıt";
+$about_why_li_2 = "AI destekli, dürüst beklentiler";
+$about_why_li_3 = "Şeffaf ücret bilgisi";
+$about_why_li_4 = "Hızlı müşteri desteği";
+$about_why_li_5 = "Düzenlemeye tabi ödeme ortakları";
+$about_why_li_6 = "Sürekli platform iyileştirmeleri";
+$about_why_li_7 = "Yatırımcı eğitimine odaklanma";
+$about_h2_forward = "Geleceğe Bakış";
+$about_p_forward_1 = "$site_name platformunu geri bildirimlere göre sürekli geliştiriyoruz.";
+$about_p_forward_2 = "$site_name platformunu değerlendirdiğiniz için teşekkür ederiz.";
+
+$contact_meta_title = "İletişim | $site_name";
+$contact_meta_description = "$site_name ekibi ile iletişime geçin.";
+$contact_breadcrumb_name = "İletişim";
+$contact_h1 = "Bizimle İletişime Geçin";
+$contact_intro_1 = "Hesabınız veya bir özellik hakkında sorunuz mu var? Yardım etmek için buradayız.";
+$contact_intro_2 = "Aşağıdaki formu doldurun veya doğrudan bizimle iletişime geçin.";
+$contact_h2_help = "Hangi Konularda Yardımcı Olabiliriz";
+$contact_li_1 = "Hesap kurulumu ve doğrulaması";
+$contact_li_2 = "Platform özellikleri ve işleyişi";
+$contact_li_3 = "Para yatırma ve çekme soruları";
+$contact_li_4 = "Teknik sorunlar";
+$contact_li_5 = "Genel geri bildirim ve öneriler";
+$contact_li_6 = "Ortaklık talepleri";
+$contact_h2_send = "Bize Mesaj Gönderin";
+$contact_p_send = "Bilgilerinizi aşağıya girin, ekibimiz en kısa sürede dönüş yapsın.";
+$contact_form_fname = "Ad";
+$contact_form_lname = "Soyad";
+$contact_form_email = "E-posta adresi";
+$contact_form_submit = "Mesaj Gönder";
+$contact_h2_info = "Bize Ulaşmanın Diğer Yolları";
+$contact_support_label = "Destek:";
+$contact_institutional_label = "Kurumsal talepler:";
+$contact_disclaimer = "Tüm taleplere 24-48 saat içinde yanıt vermeyi hedefliyoruz.";
+
+$faq_page_meta_title = "SSS | $site_name";
+$faq_page_meta_description = "$site_name hakkında sıkça sorulan sorular — hesaplar, yatırımlar ve güvenlik.";
+$faq_page_breadcrumb_name = "SSS";
+$faq_page_h1 = "Sıkça Sorulan Sorular";
+$faq_page_subtitle = "Yatırımcıların bize en sık sorduğu soruların yanıtları.";
+
+$sign_meta_title = "Hesabınızı Oluşturun | $site_name";
+$sign_meta_description = "$site_name hesabınızı oluşturun ve ticarete başlayın.";
+$sign_breadcrumb_name = "Kayıt Ol";
+$sign_h1 = "Hesabınızı Oluşturun";
+$sign_subtitle = "3 dakikadan kısa sürer. Kurulum ücreti yok.";
+
+$conditions_meta_title = "Hüküm ve Koşullar | $site_name";
+$conditions_meta_description = "$site_name kullanımını düzenleyen Hüküm ve Koşulları okuyun.";
+$conditions_breadcrumb_name = "Koşullar";
+$conditions_h1 = "Hüküm ve Koşullar";
+$conditions_last_update = "Son güncelleme: " . date('F Y');
+$conditions_intro = "Bu Hüküm ve Koşullar, $site_name platformuna erişiminizi düzenler.";
+$conditions_h2_eligibility = "Uygunluk";
+$conditions_p_eligibility = "Platformu kullanmak için en az 18 yaşında olmalısınız.";
+$conditions_h2_account = "Hesabınız";
+$conditions_p_account = "Giriş bilgilerinizin gizliliğini korumaktan siz sorumlusunuz.";
+$conditions_h2_risk = "Ticaret Riski";
+$conditions_p_risk = "Finansal araçların ticareti önemli riskler içerir.";
+$conditions_h2_conduct = "Kabul Edilebilir Kullanım";
+$conditions_p_conduct = "Platformu kötüye kullanmamayı kabul edersiniz.";
+$conditions_h2_liability = "Sorumluluğun Sınırlandırılması";
+$conditions_p_liability = "Yasaların izin verdiği azami ölçüde $site_name dolaylı zararlardan sorumlu değildir.";
+$conditions_h2_changes = "Şartlardaki Değişiklikler";
+$conditions_p_changes = "Bu Şartları zaman zaman güncelleyebiliriz.";
+$conditions_h2_contact = "İletişim";
+$conditions_p_contact = "Bu Şartlar hakkındaki sorular destek ekibimize gönderilebilir.";
+
+$privacy_meta_title = "Gizlilik Politikası | $site_name";
+$privacy_meta_description = "$site_name platformunun kişisel verilerinizi nasıl topladığını ve koruduğunu öğrenin.";
+$privacy_breadcrumb_name = "Gizlilik";
+$privacy_h1 = "Gizlilik Politikası";
+$privacy_last_update = "Son güncelleme: " . date('F Y');
+$privacy_intro = "Bu Gizlilik Politikası, $site_name platformunun verilerinizi nasıl işlediğini açıklar.";
+$privacy_h2_collect = "Topladığımız Bilgiler";
+$privacy_p_collect = "Kayıt sırasında doğrudan sağladığınız bilgileri topluyoruz.";
+$privacy_h2_use = "Bilgilerinizi Nasıl Kullanıyoruz";
+$privacy_p_use = "Bilgilerinizi platformu sağlamak ve geliştirmek için kullanıyoruz.";
+$privacy_h2_sharing = "Bilgi Paylaşımı";
+$privacy_p_sharing = "Kişisel verilerinizi üçüncü taraflara satmıyoruz.";
+$privacy_google_choices = 'Google bilgileri nasıl kullandığını <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Reklam Ayarları</a> üzerinden yönetebilirsiniz.';
+$privacy_h2_security = "Veri Güvenliği";
+$privacy_p_security = "Verilerinizi korumak için teknik önlemler kullanıyoruz.";
+$privacy_h2_rights = "Haklarınız";
+$privacy_p_rights = "Kişisel verilerinize erişme, düzeltme veya silme hakkına sahipsiniz.";
+$privacy_h2_retention = "Veri Saklama";
+$privacy_p_retention = "Verilerinizi yalnızca gerekli olduğu sürece saklarız.";
+$privacy_h2_contact = "Bizimle İletişime Geçin";
+$privacy_p_contact = "Gizlilik sorularınız için İletişim sayfası üzerinden bize ulaşın.";
+
+$page_title_risk_warning = "Risk Uyarısı | $site_name";
+$page_description_risk_warning = "$site_name ile otomatik ticaretin risklerini anlayın.";
+$risk_warning_breadcrumb_name = "Risk Uyarısı";
+$risk_warning_title = "Risk Uyarısı";
+$risk_warning_intro = "Riskleri anlamak, güvenli ticaretin ilk adımıdır.";
+$risk_warning_ai_heading = "AI Sistemimiz Risk Yönetimine Nasıl Yardımcı Olur:";
+$risk_warning_ai_1 = "<strong>Algoritmik Verimlilik:</strong> Gelişmiş algoritmalar tarafsız işlem için sinyalleri analiz eder.";
+$risk_warning_ai_2 = "<strong>Veriye Dayalı Stratejiler:</strong> Stratejiler doğrulanmış kalıplara dayanır.";
+$risk_warning_ai_3 = "<strong>Esnek Ayarlar:</strong> Risk parametrelerinizi istediğiniz zaman ayarlayın.";
+$risk_warning_disclaimer = "<strong>Sorumluluk Reddi:</strong> Ticaret her zaman risk taşır. Otomatik sistemler kar garantisi vermez.";
+$risk_warning_s1_heading = "1. Genel ve Kripto Piyasa Riskleri";
+$risk_warning_s1_intro = "Kripto paralar son derece dalgalı varlıklardır.";
+$risk_warning_s1_1 = "Değerler kısa sürelerde drastik şekilde dalgalanabilir.";
+$risk_warning_s1_2 = "Piyasa değerleri düzenleyici değişikliklerden etkilenebilir.";
+$risk_warning_s1_3 = "Bazı varlıklar değerini tamamen kaybedebilir. Sadece kaybetmeyi göze alabileceğiniz fonları yatırın.";
+$risk_warning_s2_heading = "2. İşlem ve Kaldıraç Riskleri";
+$risk_warning_s2_1 = "<strong>Dalgalanma:</strong> Aşırı hareketler gecikmelere neden olabilir.";
+$risk_warning_s2_2 = "<strong>Kaldıraç:</strong> Kaldıraçlı ürünler hem kazançları hem de kayıpları artırır.";
+$risk_warning_s3_heading = "3. Teknik ve Siber Güvenlik Riskleri";
+$risk_warning_s3_1 = "<strong>Teknik Faktörler:</strong> Çevrimiçi ticaret bağlantı kopması riski taşır.";
+$risk_warning_s3_2 = "<strong>Siber Güvenlik:</strong> Kripto hesapları kimlik avı saldırılarının hedefidir.";
+$risk_warning_s3_3 = "<strong>Üçüncü Taraflar:</strong> Harici platformların güvenliğini garanti etmiyoruz.";
+$risk_warning_s4_heading = "4. Düzenleyici ve Son Hükümler";
+$risk_warning_s4_1 = "<strong>Yasal Uyumluluk:</strong> Kullanıcılar yerel yasalara uymaktan kendileri sorumludur.";
+$risk_warning_s4_2 = "<strong>Kar Garantisi Yoktur:</strong> Risksiz ticaret diye bir şey yoktur.";
+$risk_warning_s4_3 = "<strong>Uygunluk:</strong> Riskleri anlamıyorsanız ticaret sizin için uygun değildir.";
+$risk_warning_contact = "<strong>İletişim:</strong> Sorularınız için resmi destek ekibimizle iletişime geçin.";
+$footer_risk_warning = "Risk Uyarısı";
+
+$lang_loaded = true;
+?>

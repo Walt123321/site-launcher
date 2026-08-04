@@ -235,6 +235,16 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/" />
 <link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/" />
 <link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/" />
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/" />
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/" />
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/" />
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/" />
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/" />
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/" />
+<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/" />
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/" />
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/" />
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/" />
 </head>
 <body class="flex min-h-screen flex-col">
   <!-- skeleton -->
@@ -1542,6 +1552,9 @@ $stars = str_repeat('★', (int) round($rating_value));
               <li>
                 <a href="conditions.php">Gebruiksvoorwaarden</a>
               </li>
+              <li>
+                <a href="risk-warning.php">Risk Warning</a>
+              </li>
             </ul>
           </nav>
           <div class="flex justify-between gap-5">
@@ -1608,6 +1621,36 @@ $stars = str_repeat('★', (int) round($rating_value));
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/" hreflang="no" title="Norsk">
     🇳🇴
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/" hreflang="da" title="Dansk">
+    🇩🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/" hreflang="fi" title="Suomi">
+    🇫🇮
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/" hreflang="hu" title="Magyar">
+    🇭🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/" hreflang="sk" title="Slovenčina">
+    🇸🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/" hreflang="bg" title="Български">
+    🇧🇬
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/" hreflang="ms" title="Bahasa Melayu">
+    🇲🇾
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/" hreflang="ru" title="Русский">
+    🇷🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/" hreflang="nb" title="Norsk bokmål">
+    🇳🇴
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/" hreflang="el" title="Ελληνικά">
+    🇬🇷
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/" hreflang="ja" title="日本語">
+    🇯🇵
   </a>
 </div>
 </div>

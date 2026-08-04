@@ -1,0 +1,422 @@
+<?php
+require __DIR__ . '/../lang.php';
+$site_lang = 'ro-RO';
+$form_language = 'ro';
+
+$home_meta_title = "$site_name — Site Oficial | Platformă de Tranzacționare";
+$home_meta_description = "Accesați piețele globale cu $site_name ⭐ Analiză IA instituțională ⚡, execuție cu latență redusă ⚡ și interfețe clare concepute pentru creștere financiară modernă.";
+
+$quiz_consultant_name = 'Lisa';
+$quiz_consultant_role = 'Asistent de Inregistrare';
+
+$quiz_text_welcome   = "Bună! Sunt $quiz_consultant_name, asistentul dvs. personal la $site_name. Veste excelentă! Accesul dvs. este pre-aprobat oficial. Vă rugăm să ne permiteți să vă configurăm profilul profesional acum!";
+$quiz_text_q1 = "Pentru a asigura conformitatea juridică și de reglementare deplină, vă rugăm să confirmați țara dvs. actuală de reședință: $country_name";
+$quiz_text_a1_yes    = "Da, aceasta este reședința mea actuală";
+$quiz_text_a1_no     = "Nu";
+
+$quiz_text_q2 = "Perfect. Vă rugăm să selectați categoria de vârstă corespunzătoare pentru a găsi cele mai potrivite instrumente financiare:";
+
+$quiz_text_q3        = "Existe un cont bancar activ sau un card de credit disponibil pentru a primi plăți regulate de dividende zilnice?";
+$quiz_text_a3_yes    = "Da, un cont activ este disponibil";
+$quiz_text_a3_no     = "Nu este disponibil încă";
+
+$quiz_text_q4        = "Vă rugăm să specificați sursa principală de venit personal. (Acest parametru ajută la personalizarea setărilor de gestionare a riscurilor).";
+$quiz_text_a4_1      = "Angajat oficial / Lucrător independent";
+$quiz_text_a4_2      = "Venit pasiv / Economii personale";
+$quiz_text_a4_3      = "Alte surse";
+
+$quiz_text_q5 = "Excelent! Ultimul pas este o scurtă verificare telefonică din partea managerului nostru pentru a confirma înregistrarea. Apelurile se efectuează între orele 11:00 și 20:00. Veți putea prelua apelul?";
+$quiz_text_a5_yes    = "Da, această oră este convenabilă";
+$quiz_text_a5_no     = "Vă rugăm să inițiați apelul imediat";
+
+$quiz_text_loader    = "Se analizează opțiunile solicitate și se inițializează parametrii securizați ai contului...";
+$quiz_text_final_ttl = "Cont Autorizat cu Succes! 🎉 Spațiul de lucru digital securizat este complet configurat. Completați ultimii pași de verificare de mai jos pentru a garanta plățile zilnice:";
+
+$quiz_placeholder_fname = "Prenume";
+$quiz_placeholder_lname = "Nume";
+$quiz_placeholder_email = "Adresă de e-mail";
+$quiz_placeholder_phone = "Număr de telefon";
+$quiz_btn_submit = "Activează Tranzacționarea";
+$quiz_text_typing       = "scrie un mesaj...";
+$quiz_text_processing   = "Se procesează solicitarea...";
+
+$header_nav_aria_label = "Navigație principală";
+$nav_platform = "Platformă";
+$nav_features = "Funcționalități";
+$nav_markets = "Piețe";
+$nav_process = "Proces";
+$nav_security = "Securitate";
+$nav_reviews = "Recenzii";
+$nav_faq = "Întrebări frecvente";
+$nav_about = "Despre noi";
+$nav_contact = "Contact";
+
+$theme_toggle_aria_label = "Comută la tema întunecată";
+$theme_toggle_text = "Întunecat";
+$theme_toggle_text_light = "Luminos";
+$theme_toggle_dark_aria_label = "Comută la tema întunecată";
+$theme_toggle_light_aria_label = "Comută la tema luminoasă";
+$header_cta_button = "Începe tranzacționarea";
+$burger_menu_aria_label = "Meniu";
+
+$hero_heading_before = "$site_name";
+$hero_heading_accent = "Platformă";
+$hero_description = "Nou în tranzacționare? $site_name oferă instrumente structurate asistate de IA concepute pentru a vă face parcursul transparent. Explorați cripto, forex și acțiuni fără haos tehnic.";
+$hero_primary_button = "Începe tranzacționarea";
+$hero_secondary_button = "Explorează funcționalitățile";
+$hero_badge_ssl = "Protejat prin Protocol SSL";
+$hero_badge_guided = "Flux ghidat pentru începători";
+
+$signup_heading = "Creați-vă contul";
+$signup_subtitle = "Durează mai puțin de 3 minute. Fără taxe de configurare.";
+$form_first_name_label = "Prenume";
+$form_first_name_placeholder = "Ion";
+$form_last_name_label = "Nume";
+$form_last_name_placeholder = "Popescu";
+$form_email_label = "Adresă de e-mail";
+$form_email_placeholder = "ion@example.ro";
+$form_phone_label = "Număr de telefon";
+$form_phone_placeholder = "712 345 678";
+$form_submit_button = "Creează un cont gratuit";
+$form_legal_before = "Trimițând datele dvs., sunteți de acord cu ";
+$form_terms_text = "Termenii și Condițiile noastre";
+
+$stats_value_assets = "80+";
+$stats_label_assets = "Active tranzacționabile";
+$stats_value_setup = "Rapid";
+$stats_label_setup = "Configurare cont";
+$stats_value_support = "24/7";
+$stats_label_support = "Asistență";
+$stats_value_security = "Securizat";
+$stats_label_security = "Gestionare date";
+
+$platform_section_label = "Spațiu de Lucru Inteligent";
+$platform_title_before = "Grafice Profesionale $site_name.";
+$platform_title_accent = "Construit pentru decizii simple.";
+$platform_subtitle = "Monitorizați prețurile în timp real, executați acțiuni dintr-o interfață curată concepută pentru a reduce încărcarea cognitivă și tranzacționarea emoțională.";
+$platform_check_1 = "Grafice în timp real îmbunătățite cu IA";
+$platform_check_2 = "Sistem de execuție la nivel de piață printr-o singură atingere";
+$platform_cta_button = "Vezi funcționalitățile platformei";
+
+$mockup_overlay_headline = "⚡ Execuție Instantă Disponibilă";
+$mockup_overlay_text = "Pentru a direcționa imediat această comandă și a captura ținta de preț activă, activați statutul securizat al terminalului $site_name.";
+$mockup_overlay_button = "Creează Cont Securizat";
+$mockup_dashboard_title = "Panou de Control BTC / USD";
+$mockup_today = "Astăzi";
+$mockup_sell_button = "Vinde";
+$mockup_buy_button = "Cumpără";
+$mockup_order_pending_text = "Ordin în Așteptare";
+
+$features_section_label = "Capacitățile Platformei";
+$features_title = "Tot ce aveți nevoie pentru a tranzacționa cu încredere pe $site_name";
+$features_subtitle = "Securitate, viteză și inteligență neurală de piață combinate într-un singur aspect clar";
+$feature_1_title = "Securitate de nivel bancar";
+$feature_1_text = "Criptare SSL, procesare securizată a datelor și arhitectură de cont complet protejată.";
+$feature_2_title = "Analiză de piață cu IA";
+$feature_2_text = "Calculații de învățare automată în timp real axate pe captarea variațiilor bruște de piață.";
+$feature_3_title = "Fluxuri cu latență redusă";
+$feature_3_text = "Infrastructură agilă axată pe gestionarea rapidă a ordinelor în perioadele cu volum mare.";
+
+$markets_section_label = "Active în timp real";
+$markets_title = "Panou de control unificat $site_name pentru metrici globale";
+$markets_subtitle = "Urmăriți modificările activelor în timp real și utilizați analiza automată IA.";
+$markets_ai_box_title = "💡 Eficiență Operațională:";
+$markets_ai_box_text = "Tranzacționarea tradițională necesită urmărirea manuală a sutelor de indicatori. Algoritmii $site_name procesează mii de modificări de preț pe milisecundă.";
+$markets_cta_button = "Accesează piețele";
+$markets_table_asset = "Activ";
+$markets_table_price = "Preț";
+$markets_table_change = "Variație 24h";
+
+$onboarding_section_label = "Proces de Înregistrare";
+$onboarding_title = "$site_name face începutul fără stres";
+$onboarding_subtitle = "Fără experiență anterioară în cripto? Ghidul nostru automatizat vă îndrumă la fiecare pas.";
+$onboarding_step_1_title = "Înregistrare Securizată";
+$onboarding_step_1_text = "Introduceți datele de contact prin sistemul nostru de formulare criptate.";
+$onboarding_step_2_title = "Configurare Ghidată de IA";
+$onboarding_step_2_text = "Platforma prezintă opțiuni de interfață adaptate preferințelor dvs.";
+$onboarding_step_3_title = "Finanțare Sigură";
+$onboarding_step_3_text = "Activați-vă contul prin straturi de plată standardizate și de încredere.";
+$onboarding_step_4_title = "Utilizare Semnale";
+$onboarding_step_4_text = "Începeți să interacționați cu piețele globale folosind date neurale în timp real.";
+
+$mobile_app_image_alt = "Aplicația mobilă de tranzacționare $site_name pe smartphone";
+$mobile_app_section_label = "Acces Mobil";
+$mobile_app_title = "Portofoliul dvs., direct în buzunar";
+$mobile_app_subtitle = "Motorul complet $site_name comprimat într-o experiență mobilă nativă rapidă.";
+$mobile_app_check_1 = "Alerte push pentru mișcări critice de preț";
+$mobile_app_check_2 = "Autentificare biometrică cu stocare locală criptată";
+$mobile_app_check_3 = "Suită completă de grafice optimizată pentru atingere";
+$mobile_app_cta_button = "Descarcă aplicația";
+
+$security_section_label = "Cadru Echilibrat";
+$security_title = "Parametri operationali transparenți";
+$security_subtitle = "Credem în onestitate absolută. Iată ce face sistemul nostru distinct.";
+$security_our_title = "Avantaje Cheie";
+$security_our_item_1 = "Panou minimalist adaptat pentru viteză instituțională.";
+$security_our_item_2 = "Procesare neurală a datelor care rulează 24/7.";
+$security_our_item_3 = "Fără marje ascunse de tranzacție sau taxe neașteptate.";
+$security_our_item_4 = "Arhitectură SSL criptografică directă.";
+$security_our_item_5 = "Înregistrare ghidată care durează minute.";
+
+$security_other_badge = "Alte platforme";
+$security_other_title = "Limitări Comune în Industrie";
+$security_other_item_1 = "Panouri aglomerate cu reclame care încetinesc deciziile.";
+$security_other_item_2 = "Rapoarte statice în loc de analiză live.";
+$security_other_item_3 = "Spread-uri ascunse și costuri neclare.";
+$security_other_item_4 = "Infrastructură învechită cu protecție inconsecventă.";
+$security_other_item_5 = "Verificare lentă care poate dura zile.";
+$security_disclaimer = "Comparația reflectă modele tipice observate în industrie și este oferită în scop ilustrativ.";
+
+$capabilities_title = "Capacitățile principale ale platformei pe scurt";
+$capabilities_subtitle = "Examinați parametrii funcționali incluși în accesul dvs.";
+$capability_table_col_1 = "Parametru Capacitate";
+$capability_table_col_2 = "Detalii Funcționale";
+$capability_table_col_3 = "Inclus";
+$capability_check_aria = "Inclus";
+$capability_1_title = "Cadru de Tranzacționare IA";
+$capability_1_text = "Procesare algoritmică care calculează metrici dinamice.";
+$capability_2_title = "Fluxuri Agregate";
+$capability_2_text = "Grafice dinamice consolidate în timp real.";
+$capability_3_title = "Stabilitate pe Mai Multe Dispozitive";
+$capability_3_text = "Redare optimizată pe mobil, desktop și tablete.";
+$capability_4_title = "Acoperire Multi-Active";
+$capability_4_text = "Acces unificat la cripto, forex și indici.";
+$capability_5_title = "Alerte Automate de Risc";
+$capability_5_text = "Notificări configurabile pentru volatilitate.";
+$capability_6_title = "Seif de Date Criptat";
+$capability_6_text = "Date personale izolate prin controale criptografice.";
+$capability_7_title = "Suport Uman 24/7";
+$capability_7_text = "Operatori de suport disponibili imediat.";
+
+$payments_section_label = "Depuneri";
+$payments_title = "Alimentați-vă contul cu metode în care aveți deja încredere";
+$payments_subtitle = "Carduri, portofele electronice și transferuri bancare — protejate prin criptare SSL.";
+$payments_aria_label = "Metode de depunere acceptate";
+$payment_method_bank_transfer = "Transfer Bancar";
+$payment_method_ssl = "Securizat SSL";
+
+$partners_section_label = "Infrastructură De Încredere";
+$partners_title = "Construit cu parteneri de nivel industrial";
+$partners_aria_label = "Parteneri de infrastructură $site_name";
+
+$reviews_section_label = "Opinia Utilizatorilor";
+$reviews_title = "Ce spun comercianții despre $site_name";
+$reviews_subtitle = "Feedback onest din comunitatea noastră globală.";
+$review_1_text = "Ca începător, cripto mă speria. $site_name a făcut panoul de control atât de intuitiv încât m-am simțit încrezător în câteva minute.";
+$review_1_role = "Comerciant de Retail Verificat";
+$review_2_text = "Curățenia interfeței îmi economisește ore întregi. Analizele IA sunt excelente.";
+$review_2_role = "Analist de Active Cripto";
+$review_3_text = "Execuția cu latență redusă îmi permite să ajustez țintele din mers.";
+$review_3_role = "Manager de Portofoliu Privat";
+$review_4_text = "Suportul a răspuns în două minute. Serviciu excepțional.";
+$review_4_role = "Comerciant Algoritmic";
+
+$review_1_avatar_alt = "Mihai Popa, utilizator $site_name";
+$review_2_avatar_alt = "Elena Ionescu, utilizatoare $site_name";
+$review_3_avatar_alt = "David Radu, utilizator $site_name";
+$review_4_avatar_alt = "Andreea Stan, utilizatoare $site_name";
+$hero_growth_visual_alt = "Grafic de creștere tranzacționare IA $site_name";
+$mobile_trading_visual_alt = "Interfață aplicație mobilă $site_name";
+$cta_security_visual_alt = "Măsuri de securitate IA care protejează conturile $site_name";
+
+$seo_content_title = "$site_name: Împuternicirea comercianților prin arhitectură IA";
+$seo_content_intro = "Interacțiunea modernă cu activele necesită claritate absolută. $site_name rezolvă complexitatea prin mediul său elegant și optimizat.";
+$seo_block_1_title_before = "Avansat";
+$seo_block_1_title_accent = "Active Cripto";
+$seo_block_1_text_1 = "Lichiditatea blockchain se schimbă rapid, făcând infrastructura cu latență redusă critică.";
+$seo_block_1_text_2 = "Platforma contextualizează schimbările de volum pentru o interpretare mai ușoară.";
+$seo_block_2_title_before = "Profund";
+$seo_block_2_title_accent = "Perspective Neurale de Piață";
+$seo_block_2_text_1 = "Algoritmii automați analizează datele de piață pentru a calcula variațiile structurale.";
+$seo_block_2_text_2 = "Modelele rulează continuu pentru a afișa schimbările pe măsură ce apar.";
+$seo_block_3_title_before = "Fără Frecare";
+$seo_block_3_title_accent = "Flux de Configurare Cont";
+$seo_block_3_text_1 = "Conformitatea nu trebuie să fie complicată. Înregistrarea noastră vă protejează datele.";
+$seo_block_3_text_2 = "Fiecare câmp explică de ce este solicitat.";
+$seo_block_4_title_before = "Grad Instituțional";
+$seo_block_4_title_accent = "Controale de Risc";
+$seo_block_4_text_1 = "Dimensionarea poziției și alertele automate împrumută direct din instrumentele profesionale.";
+$seo_block_4_text_2 = "Alertele sunt configurabile pentru a evita oboseala notificărilor.";
+
+$faq_section_label = "Centru de Suport";
+$faq_title = "Întrebări frecvente";
+$faq_subtitle = "Găsiți răspunsuri imediate privind înregistrarea și accesul la platformă.";
+$faq_1_question = "Cum pot începe cu $site_name?";
+$faq_1_answer = "Completați formularul de mai sus și activați parametrii contului.";
+$faq_2_question = "Am nevoie de experiență avansată în cripto?";
+$faq_2_answer = "Nu. $site_name include un mod special pentru începători.";
+$faq_3_question = "Care este cerința minimă?";
+$faq_3_answer = "Suma minimă este $app_price $app_currency.";
+$faq_4_question = "Exista taxe ascunse?";
+$faq_4_answer = "Nu. Operăm cu transparență totală a taxelor.";
+$faq_5_question = "Cum funcționează componenta de IA?";
+$faq_5_answer = "Sistemele noastre evaluează markerii de volatilitate și îi transformă în linii de tendință simple.";
+$faq_6_question = "Datele mele sunt protejate?";
+$faq_6_answer = "Da. Fiecare conexiune este securizată prin SSL.";
+
+$final_cta_title = "Sunteți gata să experimentați claritatea $site_name?";
+$final_cta_subtitle = "Alăturați-vă unui sistem modern optimizat pentru operațiuni rapide și securitate.";
+
+$footer_brand_description = "Mediu analitic modern care oferă mecanisme clare de urmărire a datelor.";
+$footer_platform_title = "Platformă";
+$footer_platform_interface = "Interfață";
+$footer_platform_markets = "Vedere de Ansamblu Piață";
+$footer_pages_title = "Pagini";
+$footer_page_about = "Despre Noi";
+$footer_page_contact = "Contact";
+$footer_page_signin = "Autentificare";
+$footer_legal_title = "Legal";
+$footer_terms = "Termeni de Utilizare";
+$footer_privacy = "Politică de Confidențialitate";
+$footer_disclaimer_title = "⚠️ Avertisment de Risc:";
+$footer_disclaimer_text = "Tranzacționarea activelor digitale implică un risc considerabil de volatilitate. Păstrați controlul complet asupra strategiei dvs.";
+$footer_copyright = "Toate drepturile rezervate.";
+
+$about_meta_title = "Despre Noi | $site_name";
+$about_meta_description = "Aflați mai multe despre $site_name — misiunea noastră și tehnologia IA.";
+$about_breadcrumb_name = "Despre Noi";
+$about_h1 = "Despre $site_name";
+$about_p1 = "$site_name a fost creat pentru a face instrumentele de tranzacționare IA accesibile tuturor.";
+$about_p2 = "Credem că accesul la piețele globale ar trebui să fie transparent și clar.";
+$about_h2_mission = "Misiunea Noastră";
+$about_p_mission_1 = "Misiunea noastră este de a oferi instrumente clare pentru navigarea pe piețele financiare.";
+$about_p_mission_2 = "Fiecare funcție este concepută având în vedere claritatea.";
+$about_h2_ai = "Abordarea Noastră cu IA";
+$about_p_ai_1 = "$site_name combină datele în timp real cu analiza IA.";
+$about_p_ai_2 = "Sistemele noastre sunt instrumente de suport pentru decizii.";
+$about_li_1 = "Agregare date de piață în timp real";
+$about_li_2 = "Analiză de piață asistată de IA";
+$about_li_3 = "Avertismente transparente de risc";
+$about_li_4 = "Înregistrare ghidată pentru începători";
+$about_li_5 = "Acces multi-active: cripto, forex, acțiuni";
+$about_li_6 = "Infrastructură de securitate de nivel bancar";
+$about_li_7 = "Suport clienți 24/7";
+$about_li_8 = "Actualizări regulate ale platformei";
+$about_h2_security = "Securitatea pe Primul Loc";
+$about_p_security_1 = "Folosim criptare standard din industrie pentru a vă proteja datele.";
+$about_p_security_2 = "Securitatea este integrată în fiecare parte a platformei.";
+$about_h2_global = "Construit pentru Piețele Globale";
+$about_p_global_1 = "$site_name este conceput pentru a sprijini comercianții din multe regiuni.";
+$about_p_global_2 = "Partenerii noștri ne ajută să menținem un acces de încredere.";
+$about_h2_why = "De ce să alegeți $site_name";
+$about_why_li_1 = "Înregistrare clară și structurată";
+$about_why_li_2 = "Asistat de IA, fără garanții false";
+$about_why_li_3 = "Informații transparente despre taxe";
+$about_why_li_4 = "Suport clienți receptiv";
+$about_why_li_5 = "Parteneri de plată reglementați";
+$about_why_li_6 = "Îmbunătățiri continue ale platformei";
+$about_why_li_7 = "Focus pe educația comercianților";
+$about_h2_forward = "Privind Spre Viitor";
+$about_p_forward_1 = "Îmbunătățim continuu $site_name pe baza feedback-ului comercianților.";
+$about_p_forward_2 = "Vă mulțumim că ați luat în considerare $site_name.";
+
+$contact_meta_title = "Contactați-ne | $site_name";
+$contact_meta_description = "Intrați în contact cu echipa $site_name.";
+$contact_breadcrumb_name = "Contact";
+$contact_h1 = "Contactați-ne";
+$contact_intro_1 = "Aveți o întrebare despre contul dvs. sau o funcționalitate? Suntem aici să ajutăm.";
+$contact_intro_2 = "Completați formularul de mai jos sau contactați-ne direct.";
+$contact_h2_help = "Cu Ce Vă Putem Ajuta";
+$contact_li_1 = "Configurare și verificare cont";
+$contact_li_2 = "Funcționalitățile platformei";
+$contact_li_3 = "Întrebări despre depuneri și retrageri";
+$contact_li_4 = "Probleme tehnice";
+$contact_li_5 = "Feedback și sugestii generale";
+$contact_li_6 = "Solicitări de parteneriat";
+$contact_h2_send = "Trimiteți-ne un Mesaj";
+$contact_p_send = "Completați datele dvs. mai jos și echipa noastră vă va răspunde.";
+$contact_form_fname = "Prenume";
+$contact_form_lname = "Nume";
+$contact_form_email = "Adresă e-mail";
+$contact_form_submit = "Trimite Mesaj";
+$contact_h2_info = "Alte Moduri de a Ne Contacta";
+$contact_support_label = "Suport:";
+$contact_institutional_label = "Solicitări instituționale:";
+$contact_disclaimer = "Ne propunem să răspundem la toate solicitările în termen de 24-48 de ore.";
+
+$faq_page_meta_title = "Întrebări Frecvente | $site_name";
+$faq_page_meta_description = "Întrebări frecvente despre $site_name — conturi, depuneri și securitate.";
+$faq_page_breadcrumb_name = "Întrebări Frecvente";
+$faq_page_h1 = "Întrebări Frecvente";
+$faq_page_subtitle = "Răspunsuri la întrebările pe care comercianții ni le pun cel mai des.";
+
+$sign_meta_title = "Creați-vă Contul | $site_name";
+$sign_meta_description = "Creați-vă contul $site_name și începeți tranzacționarea.";
+$sign_breadcrumb_name = "Înregistrare";
+$sign_h1 = "Creați-vă Contul";
+$sign_subtitle = "Durează mai puțin de 3 minute. Fără taxe de configurare.";
+
+$conditions_meta_title = "Termeni și Condiții | $site_name";
+$conditions_meta_description = "Citiți Termenii și Condițiile care guvernează utilizarea $site_name.";
+$conditions_breadcrumb_name = "Termeni și Condiții";
+$conditions_h1 = "Termeni și Condiții";
+$conditions_last_update = "Ultima actualizare: " . date('F Y');
+$conditions_intro = "Acești Termeni și Condiții guvernează accesul dvs. la $site_name.";
+$conditions_h2_eligibility = "Eligibilitate";
+$conditions_p_eligibility = "Trebuie să aveți cel puțin 18 ani pentru a utiliza Platforma.";
+$conditions_h2_account = "Contul Dvs.";
+$conditions_p_account = "Sunteți responsabil pentru păstrarea confidențialității datelor de acces.";
+$conditions_h2_risk = "Risc de Tranzacționare";
+$conditions_p_risk = "Tranzacționarea activelor financiare implică riscuri substanțiale.";
+$conditions_h2_conduct = "Utilizare Acceptabilă";
+$conditions_p_conduct = "Sunteți de acord să nu abuzați de Platformă.";
+$conditions_h2_liability = "Limitarea Răspunderii";
+$conditions_p_liability = "În măsura maximă permisă de lege, $site_name nu este răspunzător pentru daune indirecte.";
+$conditions_h2_changes = "Modificări ale Termenilor";
+$conditions_p_changes = "Putem actualiza acești Termeni din când în când.";
+$conditions_h2_contact = "Contact";
+$conditions_p_contact = "Întrebările despre acești Termeni pot fi trimise echipei noastre de suport.";
+
+$privacy_meta_title = "Politică de Confidențialitate | $site_name";
+$privacy_meta_description = "Aflați cum $site_name colectează și protejează datele dvs. personale.";
+$privacy_breadcrumb_name = "Confidențialitate";
+$privacy_h1 = "Politică de Confidențialitate";
+$privacy_last_update = "Ultima actualizare: " . date('F Y');
+$privacy_intro = "Această Politică de Confidențialitate explică modul în care colectăm și protejăm datele dvs.";
+$privacy_h2_collect = "Informațiile Pe Care Le Colectăm";
+$privacy_p_collect = "Colectăm informațiile pe care le furnizați direct la înregistrare.";
+$privacy_h2_use = "Cum Folosim Informațiile Dvs.";
+$privacy_p_use = "Folosim informațiile dvs. pentru a furniza și îmbunătăți Platforma.";
+$privacy_h2_sharing = "Partajarea Informațiilor";
+$privacy_p_sharing = "Nu vindem datele dvs. personale către terți.";
+$privacy_google_choices = 'Puteți gestiona modul în care Google folosește informațiile prin <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Setările Google Ads</a>.';
+$privacy_h2_security = "Securitatea Datelor";
+$privacy_p_security = "Folosim măsuri tehnice standard pentru protejarea datelor.";
+$privacy_h2_rights = "Drepturile Dvs.";
+$privacy_p_rights = "Aveți dreptul de a accesa, corecta sau șterge datele personale.";
+$privacy_h2_retention = "Păstrarea Datelor";
+$privacy_p_retention = "Păstrăm datele doar atât timp cât este necesar.";
+$privacy_h2_contact = "Contactați-ne";
+$privacy_p_contact = "Pentru întrebări legate de confidențialitate, contactați-ne pe pagina de Contact.";
+
+$page_title_risk_warning = "Avertisment de Risc | $site_name";
+$page_description_risk_warning = "Înțelegeți riscurile tranzacționării automatizate cu $site_name.";
+$risk_warning_breadcrumb_name = "Avertisment de Risc";
+$risk_warning_title = "Avertisment de Risc";
+$risk_warning_intro = "Înțelegerea riscurilor este primul pas spre o tranzacționare sigură.";
+$risk_warning_ai_heading = "Cum Ajută Sistemul Nostru IA la Gestionarea Riscului:";
+$risk_warning_ai_1 = "<strong>Eficiență Algoritmică:</strong> Algoritmii avansați analizează semnalele pentru execuție obiectivă.";
+$risk_warning_ai_2 = "<strong>Strategii Bazate pe Date:</strong> Strategiile se bazează pe modele verificate.";
+$risk_warning_ai_3 = "<strong>Setări Flexibile:</strong> Ajustați parametrii de risc în orice moment.";
+$risk_warning_disclaimer = "<strong>Declinare a Răspunderii:</strong> Tranzacționarea implică întotdeauna risc. Sistemele automate nu garantează profitul.";
+$risk_warning_s1_heading = "1. Riscuri Generale și ale Pieței Cripto";
+$risk_warning_s1_intro = "Criptomonedele sunt active extrem de volatile.";
+$risk_warning_s1_1 = "Valorile pot fluctua dramatic în perioade scurte.";
+$risk_warning_s1_2 = "Valorile pot fi afectate de modificări de reglementare.";
+$risk_warning_s1_3 = "Unele active pot își pot pierde valoarea complet.";
+$risk_warning_s2_heading = "2. Riscuri de Execuție și Efect de Levier";
+$risk_warning_s2_1 = "<strong>Volatilitate:</strong> Mișcările extreme pot provoca întârzieri.";
+$risk_warning_s2_2 = "<strong>Efect de Levier:</strong> Produsele cu levier amplifică atât câștigurile, cât și pierderile.";
+$risk_warning_s3_heading = "3. Riscuri Tehnice și Cibernetice";
+$risk_warning_s3_1 = "<strong>Factori Tehnici:</strong> Tranzacționarea online implică riscuri de conexiune.";
+$risk_warning_s3_2 = "<strong>Securitate Cibernetică:</strong> Conturile sunt ținte frecvente pentru phishing.";
+$risk_warning_s3_3 = "<strong>Platforme Terțe:</strong> Nu garantăm pentru securitatea platformelor externe.";
+$risk_warning_s4_heading = "4. Reglementări și Dispoziții Finale";
+$risk_warning_s4_1 = "<strong>Conformitate Juridică:</strong> Utilizatorii sunt responsabili pentru respectarea legilor locale.";
+$risk_warning_s4_2 = "<strong>Fără Garanții de Profit:</strong> Nu există tranzacționare sigură fără risc.";
+$risk_warning_s4_3 = "<strong>Adecvare:</strong> Dacă nu înțelegeți riscurile, tranzacționarea nu este potrivită.";
+$risk_warning_contact = "<strong>Contact:</strong> Pentru întrebări, contactați echipa noastră oficială de suport.";
+$footer_risk_warning = "Avertisment de Risc";
+
+$lang_loaded = true;
+?>

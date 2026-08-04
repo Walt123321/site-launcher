@@ -1,0 +1,422 @@
+<?php
+require __DIR__ . '/../lang.php';
+$site_lang = 'pt-PT';
+$form_language = 'pt';
+
+$home_meta_title = "$site_name — Site Oficial | Plataforma de Negociação";
+$home_meta_description = "Aceda a mercados globais com $site_name ⭐ Análise institucional de IA ⚡, execução de baixa latência ⚡ e interfaces limpas concebidas para o crescimento financeiro moderno.";
+
+$quiz_consultant_name = 'Lisa';
+$quiz_consultant_role = 'Assistente de Integração';
+
+$quiz_text_welcome   = "Olá! Aqui é a $quiz_consultant_name, a sua assistente pessoal na $site_name. Excelentes notícias! O seu acesso foi oficialmente pré-aprovado. Permita-nos configurar o seu perfil profissional agora!";
+$quiz_text_q1 = "Para garantir a conformidade legal e regulamentar total, confirme o seu país de residência atual: $country_name";
+$quiz_text_a1_yes    = "Sim, este é o meu país de residência atual";
+$quiz_text_a1_no     = "Não";
+
+$quiz_text_q2 = "Perfeito. Selecione a faixa etária apropriada para encontrarmos os instrumentos financeiros mais adequados:";
+
+$quiz_text_q3        = "Existe uma conta bancária ativa ou um cartão de crédito disponível para receber pagamentos diários de dividendos?";
+$quiz_text_a3_yes    = "Sim, existe uma conta ativa disponível";
+$quiz_text_a3_no     = "Ainda não disponível";
+
+$quiz_text_q4        = "Especifique a principal fonte de rendimento pessoal. (Este parâmetro ajuda a personalizar as definições de gestão de risco do sistema).";
+$quiz_text_a4_1      = "Emprego Oficial / Trabalhador Independente";
+$quiz_text_a4_2      = "Rendimento Passivo / Poupanças Pessoais";
+$quiz_text_a4_3      = "Outras fontes";
+
+$quiz_text_q5 = "Ótimo! O passo final é uma breve verificação telefónica do nosso gestor para confirmar o seu registo. As chamadas são feitas das 11:00 às 20:00. Poderá atender a chamada?";
+$quiz_text_a5_yes    = "Sim, este horário é conveniente";
+$quiz_text_a5_no     = "Por favor inicie a chamada imediatamente";
+
+$quiz_text_loader    = "A analisar as opções solicitadas e a inicializar os parâmetros seguros da conta...";
+$quiz_text_final_ttl = "Conta Autorizada com Sucesso! 🎉 O seu espaço de trabalho digital seguro está totalmente configurado. Conclua os passos finais de verificação abaixo para garantir pagamentos diários:";
+
+$quiz_placeholder_fname = "Primeiro Nome";
+$quiz_placeholder_lname = "Apelido";
+$quiz_placeholder_email = "Endereço de E-mail";
+$quiz_placeholder_phone = "Número de Telefone";
+$quiz_btn_submit = "Ativar Negociação";
+$quiz_text_typing       = "está a escrever uma mensagem...";
+$quiz_text_processing   = "A processar o pedido...";
+
+$header_nav_aria_label = "Navegação principal";
+$nav_platform = "Plataforma";
+$nav_features = "Recursos";
+$nav_markets = "Mercados";
+$nav_process = "Processo";
+$nav_security = "Segurança";
+$nav_reviews = "Avaliações";
+$nav_faq = "Perguntas Frequentes";
+$nav_about = "Sobre Nós";
+$nav_contact = "Contacto";
+
+$theme_toggle_aria_label = "Mudar para tema escuro";
+$theme_toggle_text = "Escuro";
+$theme_toggle_text_light = "Claro";
+$theme_toggle_dark_aria_label = "Mudar para tema escuro";
+$theme_toggle_light_aria_label = "Mudar para tema claro";
+$header_cta_button = "Começar a Negociar";
+$burger_menu_aria_label = "Menu";
+
+$hero_heading_before = "$site_name";
+$hero_heading_accent = "Plataforma";
+$hero_description = "Novo na negociação? O $site_name oferece ferramentas estruturadas com assistência de IA concebidas para tornar a sua jornada transparente. Explore criptomoedas, forex e ações sem caos técnico.";
+$hero_primary_button = "Começar a negociar";
+$hero_secondary_button = "Explorar recursos";
+$hero_badge_ssl = "Protegido por Protocolo SSL";
+$hero_badge_guided = "Fluxo Guiado para Iniciantes";
+
+$signup_heading = "Crie a sua conta";
+$signup_subtitle = "Demora menos de 3 minutos. Sem taxas de configuração.";
+$form_first_name_label = "Primeiro nome";
+$form_first_name_placeholder = "João";
+$form_last_name_label = "Apelido";
+$form_last_name_placeholder = "Silva";
+$form_email_label = "Endereço de e-mail";
+$form_email_placeholder = "joao@example.pt";
+$form_phone_label = "Número de telefone";
+$form_phone_placeholder = "912 345 678";
+$form_submit_button = "Criar conta gratuita";
+$form_legal_before = "Ao submeter os seus dados, concorda com os nossos ";
+$form_terms_text = "Termos e Condições";
+
+$stats_value_assets = "80+";
+$stats_label_assets = "Ativos negociáveis";
+$stats_value_setup = "Rápido";
+$stats_label_setup = "Configuração de conta";
+$stats_value_support = "24/7";
+$stats_label_support = "Suporte";
+$stats_value_security = "Seguro";
+$stats_label_security = "Tratamento de dados";
+
+$platform_section_label = "Espaço de Trabalho Inteligente";
+$platform_title_before = "Gráficos Profissionais $site_name.";
+$platform_title_accent = "Construído para decisões simples.";
+$platform_subtitle = "Monitorize preços em tempo real e execute ações a partir de uma interface limpa concebida para reduzir a carga cognitiva.";
+$platform_check_1 = "Gráficos em tempo real melhorados por IA";
+$platform_check_2 = "Sistema de execução de mercado com um toque";
+$platform_cta_button = "Ver recursos da plataforma";
+
+$mockup_overlay_headline = "⚡ Execução Instantânea Disponível";
+$mockup_overlay_text = "Para encaminhar esta ordem imediatamente e capturar o objetivo de preço ativo, ative o seu estado de terminal seguro $site_name.";
+$mockup_overlay_button = "Criar Conta Segura";
+$mockup_dashboard_title = "Painel BTC / USD";
+$mockup_today = "Hoje";
+$mockup_sell_button = "Vender";
+$mockup_buy_button = "Comprar";
+$mockup_order_pending_text = "Ordem Pendente de Alocação";
+
+$features_section_label = "Capacidades da Plataforma";
+$features_title = "Tudo o que precisa para negociar com confiança no $site_name";
+$features_subtitle = "Segurança, velocidade e inteligência de mercado neural combinadas num layout claro";
+$feature_1_title = "Segurança de nível bancário";
+$feature_1_text = "Encriptação SSL, processamento seguro de dados e arquitetura de conta totalmente protegida.";
+$feature_2_title = "Análise de mercado IA";
+$feature_2_text = "Cálculos de aprendizagem automática em tempo real focados em capturar variações acentuadas do mercado.";
+$feature_3_title = "Fluxos de baixa latência";
+$feature_3_text = "Infraestrutura ágil focada na gestão rápida de ordens em períodos de elevado volume.";
+
+$markets_section_label = "Ativos em tempo real";
+$markets_title = "Painel unificado $site_name para métricas globais";
+$markets_subtitle = "Acompanhe as alterações de ativos em tempo real e utilize análises automatizadas por IA.";
+$markets_ai_box_title = "💡 Eficiência Operacional:";
+$markets_ai_box_text = "A negociação tradicional exige a monitorização manual de centenas de indicadores. Os algoritmos do $site_name processam milhares de alterações de preços por milissegundo.";
+$markets_cta_button = "Aceder aos mercados";
+$markets_table_asset = "Ativo";
+$markets_table_price = "Preço";
+$markets_table_change = "Variação 24h";
+
+$onboarding_section_label = "Processo de Integração";
+$onboarding_title = "O $site_name torna o início simples e sem stresse";
+$onboarding_subtitle = "Sem experiência prévia em cripto? O nosso guia automatizado acompanha-o em cada etapa.";
+$onboarding_step_1_title = "Registo Seguro";
+$onboarding_step_1_text = "Insira os dados de contacto através do nosso formulário encriptado.";
+$onboarding_step_2_title = "Configuração Guiada por IA";
+$onboarding_step_2_text = "A plataforma apresenta opções de interface correspondentes às suas preferências.";
+$onboarding_step_3_title = "Financiamento Seguro";
+$onboarding_step_3_text = "Active a sua conta através de camadas de pagamento fiáveis.";
+$onboarding_step_4_title = "Utilizar Sinais";
+$onboarding_step_4_text = "Comece a interagir com os mercados globais utilizando dados neurais em direto.";
+
+$mobile_app_image_alt = "Aplicação móvel de negociação $site_name num smartphone";
+$mobile_app_section_label = "Acesso Móvel";
+$mobile_app_title = "O seu portfólio, no seu bolso";
+$mobile_app_subtitle = "O motor completo do $site_name comprimido numa experiência móvel nativa e rápida.";
+$mobile_app_check_1 = "Alertas push para movimentos críticos de preço";
+$mobile_app_check_2 = "Login biométrico com armazenamento local encriptado";
+$mobile_app_check_3 = "Conjunto completo de gráficos otimizados para toque";
+$mobile_app_cta_button = "Obter a aplicação";
+
+$security_section_label = "Estrutura Equilibrada";
+$security_title = "Parâmetros operacionais transparentes";
+$security_subtitle = "Acreditamos na honestidade absoluta. Eis o que torna o nosso sistema distinto.";
+$security_our_title = "Principais Vantagens";
+$security_our_item_1 = "Painel minimalista adaptado para velocidade institucional.";
+$security_our_item_2 = "Processamento de dados neurais 24/7.";
+$security_our_item_3 = "Sem margens ocultas ou taxas de gestão inesperadas.";
+$security_our_item_4 = "Arquitetura de conta SSL criptográfica direta.";
+$security_our_item_5 = "Integração guiada que demora apenas minutos.";
+
+$security_other_badge = "Outras plataformas";
+$security_other_title = "Limitações Comuns da Indústria";
+$security_other_item_1 = "Painéis sobrecarregados com anúncios que abrandam a tomada de decisões.";
+$security_other_item_2 = "Relatórios estáticos em vez de análise contínua em direto.";
+$security_other_item_3 = "Spreads ocultos e custos de levantamento incertos.";
+$security_other_item_4 = "Infraestrutura antiga com proteção de dados inconsistente.";
+$security_other_item_5 = "Verificação de conta lenta que pode demorar dias.";
+$security_disclaimer = "A comparação reflete padrões típicos observados na indústria e é fornecida para fins ilustrativos.";
+
+$capabilities_title = "Capacidades principais da plataforma em síntese";
+$capabilities_subtitle = "Reveja os parâmetros funcionais incluídos no acesso à sua conta.";
+$capability_table_col_1 = "Parâmetro de Capacidade";
+$capability_table_col_2 = "Detalhes Funcionais";
+$capability_table_col_3 = "Incluído";
+$capability_check_aria = "Incluído";
+$capability_1_title = "Estrutura de Negociação IA";
+$capability_1_text = "Processamento algorítmico que calcula métricas dinâmicas.";
+$capability_2_title = "Fluxos Agregados";
+$capability_2_text = "Gráficos dinâmicos consolidados em tempo real.";
+$capability_3_title = "Estabilidade Multi-Dispositivo";
+$capability_3_text = "Renderização totalmente responsiva em telemóveis, computadores e tablets.";
+$capability_4_title = "Cobertura Multi-Ativos";
+$capability_4_text = "Acesso unificado a cripto, forex e ações a partir de uma única conta.";
+$capability_5_title = "Alertas Automáticos de Risco";
+$capability_5_text = "Notificações configuráveis para volatilidade invulgar.";
+$capability_6_title = "Cofre de Dados Encriptado";
+$capability_6_text = "Dados pessoais isolados por controlos de acesso criptográficos.";
+$capability_7_title = "Suporte Humano 24/7";
+$capability_7_text = "Operadores de suporte em direto prontos para ajudar.";
+
+$payments_section_label = "Depósitos";
+$payments_title = "Financie a sua conta com métodos em que já confia";
+$payments_subtitle = "Cartões, carteiras eletrónicas e transferências bancárias — protegidos com encriptação SSL.";
+$payments_aria_label = "Métodos de depósito aceites";
+$payment_method_bank_transfer = "Transferência Bancária";
+$payment_method_ssl = "Protegido por SSL";
+
+$partners_section_label = "Infraestrutura De Confiança";
+$partners_title = "Construído com parceiros de classe mundial";
+$partners_aria_label = "Parceiros de infraestrutura e pagamento do $site_name";
+
+$reviews_section_label = "Feedback dos Utilizadores";
+$reviews_title = "O que os negociadores dizem sobre o $site_name";
+$reviews_subtitle = "Feedback honesto da nossa comunidade global.";
+$review_1_text = "Como iniciante, o mercado cripto assustava-me. O $site_name tornou o painel tão intuitivo que me senti confiante em minutos.";
+$review_1_role = "Comerciante de Retalho Verificado";
+$review_2_text = "A limpeza da interface poupa-me horas. As análises de IA são fantásticas.";
+$review_2_role = "Analista de Ativos Cripto";
+$review_3_text = "A execução de baixa latência permite-me ajustar objetivos em tempo real.";
+$review_3_role = "Gestor de Portfólio Privado";
+$review_4_text = "O suporte respondeu em dois minutos. Serviço excecional.";
+$review_4_role = "Negociador Algorítmico";
+
+$review_1_avatar_alt = "Miguel Silva, utilizador do $site_name";
+$review_2_avatar_alt = "Ana Santos, utilizadora do $site_name";
+$review_3_avatar_alt = "David Ferreira, utilizador do $site_name";
+$review_4_avatar_alt = "Helena Costa, utilizadora do $site_name";
+$hero_growth_visual_alt = "Gráfico de crescimento de negociação IA do $site_name";
+$mobile_trading_visual_alt = "Interface da aplicação móvel $site_name";
+$cta_security_visual_alt = "Medidas de segurança por IA que protegem contas $site_name";
+
+$seo_content_title = "$site_name: Capacitar comerciantes através de arquitetura de IA institucional";
+$seo_content_intro = "A interação moderna com ativos exige clareza absoluta. O $site_name resolve a complexidade através do seu ambiente elegante.";
+$seo_block_1_title_before = "Avançado";
+$seo_block_1_title_accent = "Ativos Cripto";
+$seo_block_1_text_1 = "A liquidez da blockchain muda rapidamente, tornando a infraestrutura de baixa latência crítica.";
+$seo_block_1_text_2 = "A plataforma contextualiza alterações de volume para facilitar a tomada de decisões.";
+$seo_block_2_title_before = "Profunda";
+$seo_block_2_title_accent = "Análise Neural de Mercado";
+$seo_block_2_text_1 = "Algoritmos automatizados analisam dados de mercado para calcular variações estruturais.";
+$seo_block_2_text_2 = "Os modelos funcionam continuamente para que as alterações surjam em tempo real.";
+$seo_block_3_title_before = "Sem Fricção";
+$seo_block_3_title_accent = "Fluxo de Configuração de Conta";
+$seo_block_3_text_1 = "A conformidade não precisa de ser complicada. O nosso registo protege os seus dados.";
+$seo_block_3_text_2 = "Cada campo explica a razão pela qual é solicitado.";
+$seo_block_4_title_before = "Nível Institucional";
+$seo_block_4_title_accent = "Controlos de Risco";
+$seo_block_4_text_1 = "O dimensionamento de posições e alertas automatizados provêm de ferramentas profissionais.";
+$seo_block_4_text_2 = "Os alertas são configuráveis para evitar fadiga de notificações.";
+
+$faq_section_label = "Centro de Suporte";
+$faq_title = "Perguntas frequentes";
+$faq_subtitle = "Encontre respostas imediatas sobre o registo e acesso.";
+$faq_1_question = "Como posso começar com o $site_name?";
+$faq_1_answer = "Basta preencher o formulário acima e ativar a sua conta.";
+$faq_2_question = "Preciso de experiência avançada em cripto?";
+$faq_2_answer = "Não. O $site_name possui um modo dedicado a iniciantes.";
+$faq_3_question = "Qual é o requisito mínimo?";
+$faq_3_answer = "O valor mínimo padrão é $app_price $app_currency.";
+$faq_4_question = "Existem taxas ocultas?";
+$faq_4_answer = "Não. Operamos com total transparência de custos.";
+$faq_5_question = "Como funciona a componente de IA?";
+$faq_5_answer = "Os nossos sistemas neurais convertem dados complexos em linhas de tendência simples.";
+$faq_6_question = "Os meus dados estão protegidos?";
+$faq_6_answer = "Sim. Todas as ligações são protegidas por SSL.";
+
+$final_cta_title = "Pronto para experimentar a clareza do $site_name?";
+$final_cta_subtitle = "Junte-se a um sistema moderno otimizado para operações rápidas e segurança.";
+
+$footer_brand_description = "Ambiente analítico moderno que oferece mecânicas claras de acompanhamento de dados.";
+$footer_platform_title = "Plataforma";
+$footer_platform_interface = "Interface";
+$footer_platform_markets = "Visão Geral do Mercado";
+$footer_pages_title = "Páginas";
+$footer_page_about = "Sobre Nós";
+$footer_page_contact = "Contacto";
+$footer_page_signin = "Iniciar Sessão";
+$footer_legal_title = "Legal";
+$footer_terms = "Termos de Utilização";
+$footer_privacy = "Política de Privacidade";
+$footer_disclaimer_title = "⚠️ Aviso de Risco:";
+$footer_disclaimer_text = "A negociação de ativos digitais envolve um risco considerável de volatilidade. Mantenha o controlo total da sua estratégia.";
+$footer_copyright = "Todos os direitos reservados.";
+
+$about_meta_title = "Sobre Nós | $site_name";
+$about_meta_description = "Saiba mais sobre o $site_name — a nossa missão e tecnologia de IA.";
+$about_breadcrumb_name = "Sobre Nós";
+$about_h1 = "Sobre o $site_name";
+$about_p1 = "O $site_name foi criado para tornar as ferramentas de IA acessíveis a todos.";
+$about_p2 = "Acreditamos que o acesso aos mercados globais deve ser transparente.";
+$about_h2_mission = "A Nossa Missão";
+$about_p_mission_1 = "A nossa missão é fornecer ferramentas claras para navegar nos mercados.";
+$about_p_mission_2 = "Cada funcionalidade do $site_name foi concebida com foco na clareza.";
+$about_h2_ai = "A Nossa Abordagem com IA";
+$about_p_ai_1 = "O $site_name combina dados em tempo real com análise por IA.";
+$about_p_ai_2 = "Os nossos sistemas funcionam como suporte à decisão — não como garantia de lucro.";
+$about_li_1 = "Agregação de dados de mercado em tempo real";
+$about_li_2 = "Análise de mercado assistida por IA";
+$about_li_3 = "Avisos de risco transparentes";
+$about_li_4 = "Integração guiada para novos negociadores";
+$about_li_5 = "Acesso a cripto, forex e ações";
+$about_li_6 = "Infraestrutura de segurança de nível bancário";
+$about_li_7 = "Suporte ao cliente 24/7";
+$about_li_8 = "Atualizações regulares da plataforma";
+$about_h2_security = "Segurança em Primeiro Lugar";
+$about_p_security_1 = "Utilizamos encriptação padrão da indústria para proteger os seus dados.";
+$about_p_security_2 = "A segurança está integrada em cada parte da plataforma.";
+$about_h2_global = "Construído para Mercados Globais";
+$about_p_global_1 = "O $site_name foi concetualizado para apoiar comerciantes de várias regiões.";
+$about_p_global_2 = "Os nossos parceiros ajudam-nos a manter um acesso fiável.";
+$about_h2_why = "Porquê Escolher o $site_name";
+$about_why_li_1 = "Integração clara e estruturada";
+$about_why_li_2 = "Assistido por IA, expectativas honestas";
+$about_why_li_3 = "Informação de preços transparente";
+$about_why_li_4 = "Suporte ao cliente ágil";
+$about_why_li_5 = "Parceiros de pagamento regulados";
+$about_why_li_6 = "Melhorias contínuas na plataforma";
+$about_why_li_7 = "Foco na formação do comerciante";
+$about_h2_forward = "Olhar para o Futuro";
+$about_p_forward_1 = "Melhoramos continuamente o $site_name com base no feedback dos utilizadores.";
+$about_p_forward_2 = "Obrigado por considerar o $site_name.";
+
+$contact_meta_title = "Contacto | $site_name";
+$contact_meta_description = "Entre em contacto com a equipa do $site_name.";
+$contact_breadcrumb_name = "Contacto";
+$contact_h1 = "Contacte-nos";
+$contact_intro_1 = "Tem dúvidas sobre a sua conta ou uma funcionalidade? Estamos aqui para ajudar.";
+$contact_intro_2 = "Preencha o formulário abaixo ou contacte-nos diretamente.";
+$contact_h2_help = "Como Podemos Ajudar";
+$contact_li_1 = "Configuração e verificação de conta";
+$contact_li_2 = "Funcionalidades da plataforma";
+$contact_li_3 = "Questões de depósitos e levantamentos";
+$contact_li_4 = "Problemas técnicos";
+$contact_li_5 = "Feedback geral e sugestões";
+$contact_li_6 = "Pedidos de parceria";
+$contact_h2_send = "Envie-nos uma Mensagem";
+$contact_p_send = "Insira os seus dados abaixo e a nossa equipa responderá o mais breve possível.";
+$contact_form_fname = "Primeiro nome";
+$contact_form_lname = "Apelido";
+$contact_form_email = "Endereço de e-mail";
+$contact_form_submit = "Enviar Mensagem";
+$contact_h2_info = "Outras Formas de nos Contactar";
+$contact_support_label = "Suporte:";
+$contact_institutional_label = "Pedidos institucionais:";
+$contact_disclaimer = "Procuramos responder a todos os pedidos no prazo de 24-48 horas.";
+
+$faq_page_meta_title = "Perguntas Frequentes | $site_name";
+$faq_page_meta_description = "Perguntas frequentes sobre o $site_name — contas, depósitos e segurança.";
+$faq_page_breadcrumb_name = "FAQ";
+$faq_page_h1 = "Perguntas Frequentes";
+$faq_page_subtitle = "Respostas às perguntas mais frequentes dos nossos utilizadores.";
+
+$sign_meta_title = "Crie a sua Conta | $site_name";
+$sign_meta_description = "Crie a sua conta no $site_name e comece a negociar.";
+$sign_breadcrumb_name = "Registar";
+$sign_h1 = "Crie a sua Conta";
+$sign_subtitle = "Demora menos de 3 minutos. Sem taxas de configuração.";
+
+$conditions_meta_title = "Termos e Condições | $site_name";
+$conditions_meta_description = "Leia os Termos e Condições que regem a utilização do $site_name.";
+$conditions_breadcrumb_name = "Termos";
+$conditions_h1 = "Termos e Condições";
+$conditions_last_update = "Última atualização: " . date('F Y');
+$conditions_intro = "Estes Termos e Condições regem o seu acesso e utilização do $site_name.";
+$conditions_h2_eligibility = "Elegibilidade";
+$conditions_p_eligibility = "Deve ter pelo menos 18 anos de idade para utilizar a plataforma.";
+$conditions_h2_account = "A Sua Conta";
+$conditions_p_account = "É responsável por manter a confidencialidade dos seus dados de acesso.";
+$conditions_h2_risk = "Risco de Negociação";
+$conditions_p_risk = "A negociação de instrumentos financeiros envolve riscos substanciais.";
+$conditions_h2_conduct = "Uso Aceitável";
+$conditions_p_conduct = "Concorda em não fazer uso indevido da plataforma.";
+$conditions_h2_liability = "Limitação de Responsabilidade";
+$conditions_p_liability = "Na extensão máxima permitida por lei, o $site_name não é responsável por danos indiretos.";
+$conditions_h2_changes = "Alterações aos Termos";
+$conditions_p_changes = "Podemos atualizar estes Termos periodicamente.";
+$conditions_h2_contact = "Contacto";
+$conditions_p_contact = "Perguntas sobre estes Termos podem ser enviadas para a nossa equipa de suporte.";
+
+$privacy_meta_title = "Política de Privacidade | $site_name";
+$privacy_meta_description = "Saiba como o $site_name recolhe e protege os seus dados pessoais.";
+$privacy_breadcrumb_name = "Privacidade";
+$privacy_h1 = "Política de Privacidade";
+$privacy_last_update = "Última atualização: " . date('F Y');
+$privacy_intro = "Esta Política de Privacidade explica como o $site_name recolhe e protege os seus dados.";
+$privacy_h2_collect = "Informação Que Recolhemos";
+$privacy_p_collect = "Recolhemos informações fornecidas diretamente durante o registo.";
+$privacy_h2_use = "Como Utilizamos a Sua Informação";
+$privacy_p_use = "Utilizamos a sua informação para fornecer e melhorar a plataforma.";
+$privacy_h2_sharing = "Partilha de Informação";
+$privacy_p_sharing = "Não vendemos os seus dados pessoais a terceiros.";
+$privacy_google_choices = 'Pode gerir como o Google utiliza a informação através das <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Definições do Google Ads</a>.';
+$privacy_h2_security = "Segurança dos Dados";
+$privacy_p_security = "Utilizamos medidas técnicas padrão para proteger os seus dados.";
+$privacy_h2_rights = "Os Seus Direitos";
+$privacy_p_rights = "Tem o direito de aceder, corrigir ou eliminar os seus dados pessoais.";
+$privacy_h2_retention = "Retenção de Dados";
+$privacy_p_retention = "Reteremos os seus dados apenas durante o tempo necessário.";
+$privacy_h2_contact = "Contacte-nos";
+$privacy_p_contact = "Para dúvidas sobre privacidade, contacte-nos através da página de Contacto.";
+
+$page_title_risk_warning = "Aviso de Risco | $site_name";
+$page_description_risk_warning = "Compreenda os riscos da negociação automatizada com o $site_name.";
+$risk_warning_breadcrumb_name = "Aviso de Risco";
+$risk_warning_title = "Aviso de Risco";
+$risk_warning_intro = "Compreender os riscos é o primeiro passo para uma negociação consciente.";
+$risk_warning_ai_heading = "Como o Nosso Sistema de IA Ajuda a Gerir o Risco:";
+$risk_warning_ai_1 = "<strong>Eficiência Algorítmica:</strong> Algoritmos avançados analisam sinais para uma execução objetiva.";
+$risk_warning_ai_2 = "<strong>Estratégias Baseadas em Dados:</strong> Estratégias baseiam-se em padrões verificados.";
+$risk_warning_ai_3 = "<strong>Definições Flexíveis:</strong> Ajuste os seus parâmetros de risco a qualquer momento.";
+$risk_warning_disclaimer = "<strong>Isenção de Responsabilidade:</strong> A negociação envolve sempre risco. Os sistemas automatizados não garantem lucros.";
+$risk_warning_s1_heading = "1. Riscos Gerais e do Mercado Cripto";
+$risk_warning_s1_intro = "As criptomoedas são ativos altamente voláteis.";
+$risk_warning_s1_1 = "Os valores podem flutuar drasticamente em curtos períodos.";
+$risk_warning_s1_2 = "Os valores de mercado podem ser afetados por alterações regulatórias.";
+$risk_warning_s1_3 = "Alguns ativos podem perder todo o seu valor. Invista apenas fundos que possa suportar perder.";
+$risk_warning_s2_heading = "2. Riscos de Execução e Alavancagem";
+$risk_warning_s2_1 = "<strong>Volatilidade:</strong> Movimentos extremos podem causar atrasos.";
+$risk_warning_s2_2 = "<strong>Alavancagem:</strong> Produtos alavancados amplificam tanto ganhos como perdas.";
+$risk_warning_s3_heading = "3. Riscos Técnicos e de Cibersegurança";
+$risk_warning_s3_1 = "<strong>Fatores Técnicos:</strong> A negociação online envolve riscos de perda de ligação.";
+$risk_warning_s3_2 = "<strong>Cibersegurança:</strong> As contas cripto são alvos de ataques de phishing.";
+$risk_warning_s3_3 = "<strong>Plataformas de Terceiros:</strong> Não garantimos a segurança de plataformas externas.";
+$risk_warning_s4_heading = "4. Disposições Regulatórias e Finais";
+$risk_warning_s4_1 = "<strong>Conformidade Legal:</strong> Os utilizadores são responsáveis pelo cumprimento das leis locais.";
+$risk_warning_s4_2 = "<strong>Sem Garantias de Lucro:</strong> Não existe negociação isenta de risco.";
+$risk_warning_s4_3 = "<strong>Adequação:</strong> Se não compreender os riscos, a negociação não é adequada.";
+$risk_warning_contact = "<strong>Contacto:</strong> Para qualquer questão, contacte a nossa equipa oficial de suporte.";
+$footer_risk_warning = "Aviso de Risco";
+
+$lang_loaded = true;
+?>

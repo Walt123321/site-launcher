@@ -31,12 +31,76 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <meta name="description" content="<?= $sign_meta_description ?>" />
     <meta property="og:title" content="<?= $sign_meta_title ?>">
     <meta property="og:description" content="<?= $sign_meta_description ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="<?= $site_name ?>">
+    <meta property="og:url" content="<?= $canonical ?>">
+    <meta property="og:image" content="<?= $site_url ?>/favicon-96x96.png">
+    <meta property="og:image:width" content="96">
+    <meta property="og:image:height" content="96">
+    <meta property="og:image:alt" content="<?= $site_name ?> logo">
+
+    <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/sign.php" />
+    <link rel="alternate" hreflang="en" href="<?= $site_url ?>/sign.php" />
+    <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/sign.php" />
+    <link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/sign.php" />
+    <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/sign.php" />
+    <link rel="alternate" hreflang="it" href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/sign.php" />
+    <link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/sign.php" />
+    <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/sign.php" />
+    <link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/sign.php" />
+    <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/sign.php" />
+    <link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/sign.php" />
+    <link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/sign.php" />
+    <link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/sign.php" />
+    <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/sign.php" />
+    <link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/sign.php" />
+    <link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/sign.php" />
+    <link rel="alternate" hreflang="nl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/sign.php" />
+    <link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/sign.php" />
+    <link rel="alternate" hreflang="pl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/sign.php" />
+    <link rel="alternate" hreflang="pt" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/sign.php" />
+    <link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/sign.php" />
+    <link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/sign.php" />
+    <link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/sign.php" />
+    <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/sign.php" />
+    <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/sign.php" />
+
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body data-theme="dark">
 <?php include 'includes/header.php'; ?>
 
 <?php include 'includes/breadcrumb-schema.php'; ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "SoftwareApplication",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url . '/') ?>,
+  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "description": <?= json_encode($sign_meta_description) ?>,
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web Browser",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": <?= json_encode((float) $rating_value) ?>,
+    "bestRating": 5,
+    "worstRating": 1,
+    "ratingCount": <?= json_encode((int) $rating_count) ?>,
+    "reviewCount": <?= json_encode((int) $review_count) ?>
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": <?= json_encode((string) $app_price) ?>,
+    "priceCurrency": <?= json_encode($app_currency) ?>,
+    "availability": "https://schema.org/InStock"
+  },
+  "author": {
+    "@type": "Brand",
+    "name": <?= json_encode($site_name) ?>
+  }
+}
+</script>
 
 <link rel="stylesheet" href="./integration/default-integration.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
@@ -94,8 +158,8 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
                 <div class="trust-payment-icons">
                     <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./visa.png" alt="Visa" loading="lazy"></span>
-                    <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./mastercard.png" alt="Mastercard" loading="lazy"></span>
-                    <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./paypal.png" alt="PayPal" loading="lazy"></span>
+                    <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./mastercard.webp" alt="Mastercard" loading="lazy"></span>
+                    <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./paypal.webp" alt="PayPal" loading="lazy"></span>
                     <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./applepay.svg" alt="Apple Pay" loading="lazy"></span>
                     <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./googlepay.svg" alt="Google Pay" loading="lazy"></span>
                     <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./sepa.svg" alt="SEPA" loading="lazy"></span>
@@ -115,7 +179,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-<script src="./integration/validation.js"></script>
 
 <?php include 'includes/footer.php'; ?>
 <script>

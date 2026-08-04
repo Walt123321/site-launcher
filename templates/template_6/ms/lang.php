@@ -1,0 +1,422 @@
+<?php
+require __DIR__ . '/../lang.php';
+$site_lang = 'ms-MY';
+$form_language = 'ms';
+
+$home_meta_title = "$site_name — Laman Web Rasmi | Platform Dagangan";
+$home_meta_description = "Akses pasaran global dengan $site_name ⭐ Analitik AI berasaskan institusi ⚡, pelaksanaan kependaman rendah ⚡ dan antaramuka bersih yang direka untuk pertumbuhan kewangan moden.";
+
+$quiz_consultant_name = 'Lisa';
+$quiz_consultant_role = 'Pembantu Pendaftaran';
+
+$quiz_text_welcome   = "Helo! Saya $quiz_consultant_name, pembantu pendaftaran peribadi anda di $site_name. Berita baik! Akses anda telah diluluskan secara pra-rasmi. Benarkan kami mengkonfigurasi profil profesional anda sekarang!";
+$quiz_text_q1 = "Untuk memastikan pematuhan undang-undang dan pengawalseliaan penuh, sila sahkan negara kediaman anda semasa: $country_name";
+$quiz_text_a1_yes    = "Ya, ini adalah kediaman semasa saya";
+$quiz_text_a1_no     = "Tidak";
+
+$quiz_text_q2 = "Sempurna. Sila pilih kategori umur yang sesuai untuk mencari instrumen kewangan yang paling sesuai:";
+
+$quiz_text_q3        = "Adakah terdapat akaun bank atau kad kredit aktif yang tersedia untuk menerima pembayaran dividen harian secara tetap?";
+$quiz_text_a3_yes    = "Ya, akaun aktif tersedia";
+$quiz_text_a3_no     = "Belum tersedia";
+
+$quiz_text_q4        = "Sila nyatakan sumber utama pendapatan peribadi. (Parameter ini membantu menyesuaikan tetapan pengurusan risiko sistem).";
+$quiz_text_a4_1      = "Pekerjaan Rasmi / Bekerja Sendiri";
+$quiz_text_a4_2      = "Pendapatan Pasif / Simpanan Peribadi";
+$quiz_text_a4_3      = "Sumber lain";
+
+$quiz_text_q5 = "Hebat! Langkah terakhir ialah pengesahan telefon ringkas daripada pengurus kami untuk mengesahkan pendaftaran anda. Panggilan dibuat dari 11:00 hingga 20:00. Adakah anda boleh menerima panggilan tersebut?";
+$quiz_text_a5_yes    = "Ya, masa ini sesuai untuk panggilan";
+$quiz_text_a5_no     = "Sila mulakan panggilan dengan segera";
+
+$quiz_text_loader    = "Menganalisis pilihan yang diminta dan memulakan parameter akaun yang selamat...";
+$quiz_text_final_ttl = "Akaun Berjaya Diotorisasi! 🎉 Ruang kerja digital anda yang selamat telah dikonfigurasikan sepenuhnya. Sila selesaikan langkah pengesahan terakhir di bawah untuk menjamin pembayaran harian:";
+
+$quiz_placeholder_fname = "Nama Pertama";
+$quiz_placeholder_lname = "Nama Akhir";
+$quiz_placeholder_email = "Alamat E-mel";
+$quiz_placeholder_phone = "Nombor Telefon";
+$quiz_btn_submit = "Aktifkan Dagangan";
+$quiz_text_typing       = "sedang menaip mesej...";
+$quiz_text_processing   = "Memproses permintaan...";
+
+$header_nav_aria_label = "Navigasi utama";
+$nav_platform = "Platform";
+$nav_features = "Ciri-ciri";
+$nav_markets = "Pasaran";
+$nav_process = "Proses";
+$nav_security = "Keselamatan";
+$nav_reviews = "Ulasan";
+$nav_faq = "Soalan Lazim";
+$nav_about = "Tentang Kami";
+$nav_contact = "Hubungi";
+
+$theme_toggle_aria_label = "Tukar ke tema gelap";
+$theme_toggle_text = "Gelap";
+$theme_toggle_text_light = "Cerah";
+$theme_toggle_dark_aria_label = "Tukar ke tema gelap";
+$theme_toggle_light_aria_label = "Tukar ke tema cerah";
+$header_cta_button = "Mula Berdagang";
+$burger_menu_aria_label = "Menu";
+
+$hero_heading_before = "$site_name";
+$hero_heading_accent = "Platform";
+$hero_description = "Baru dalam dagangan? $site_name menyediakan alat terstruktur dengan bantuan AI yang direka untuk menjadikan perjalanan anda telus. Terokai kripto, forex dan saham tanpa kekacauan teknikal.";
+$hero_primary_button = "Mula berdagang";
+$hero_secondary_button = "Terokai ciri-ciri";
+$hero_badge_ssl = "Dilindungi oleh Protokol SSL";
+$hero_badge_guided = "Aliran Terbimbing Pembeli Baru";
+
+$signup_heading = "Cipta akaun anda";
+$signup_subtitle = "Mengambil masa kurang dari 3 minit. Tiada yuran persediaan.";
+$form_first_name_label = "Nama pertama";
+$form_first_name_placeholder = "Ahmad";
+$form_last_name_label = "Nama akhir";
+$form_last_name_placeholder = "Ali";
+$form_email_label = "Alamat e-mel";
+$form_email_placeholder = "ahmad@example.my";
+$form_phone_label = "Nombor telefon";
+$form_phone_placeholder = "012 345 6789";
+$form_submit_button = "Cipta akaun percuma";
+$form_legal_before = "Dengan menyerahkan maklumat anda, anda bersetuju dengan ";
+$form_terms_text = "Terma dan Syarat";
+
+$stats_value_assets = "80+";
+$stats_label_assets = "Aset boleh didagangkan";
+$stats_value_setup = "Pantas";
+$stats_label_setup = "Persediaan akaun";
+$stats_value_support = "24/7";
+$stats_label_support = "Sokongan";
+$stats_value_security = "Selamat";
+$stats_label_security = "Pengendalian data";
+
+$platform_section_label = "Ruang Kerja Pintar";
+$platform_title_before = "Carta Profesional $site_name.";
+$platform_title_accent = "Dibina untuk keputusan mudah.";
+$platform_subtitle = "Pantau harga masa nyata dan laksanakan tindakan daripada antaramuka bersih.";
+$platform_check_1 = "Carta masa nyata dipertingkatkan AI";
+$platform_check_2 = "Sistem pelaksanaan pasaran satu sentuhan";
+$platform_cta_button = "Lihat ciri platform";
+
+$mockup_overlay_headline = "⚡ Pelaksanaan Serta-Merta Tersedia";
+$mockup_overlay_text = "Untuk menghantar pesanan ini serta-merta, aktifkan status terminal $site_name selamat anda.";
+$mockup_overlay_button = "Cipta Akaun Selamat";
+$mockup_dashboard_title = "Papan Pemuka BTC / USD";
+$mockup_today = "Hari Ini";
+$mockup_sell_button = "Jual";
+$mockup_buy_button = "Beli";
+$mockup_order_pending_text = "Pesanan Menunggu Peruntukan";
+
+$features_section_label = "Keupayaan Platform";
+$features_title = "Segala yang anda perlukan untuk berdagang dengan yakin di $site_name";
+$features_subtitle = "Keselamatan, kelajuan dan kecerdasan pasaran neural digabungkan dalam satu susun atur";
+$feature_1_title = "Keselamatan tahap bank";
+$feature_1_text = "Penyulitan SSL, pemprosesan data selamat dan seni bina akaun dilindungi sepenuhnya.";
+$feature_2_title = "Analisis pasaran AI";
+$feature_2_text = "Pengiraan pembelajaran mesin masa nyata difokuskan untuk menangkap pergerakan pasaran tajam.";
+$feature_3_title = "Aliran kependaman rendah";
+$feature_3_text = "Infrastruktur tangkas yang difokuskan pada pengurusan pesanan pantas semasa volum tinggi.";
+
+$markets_section_label = "Aset masa nyata";
+$markets_title = "Papan pemuka bersatu $site_name untuk metrik global";
+$markets_subtitle = "Jejak perubahan aset masa nyata dan gunakan analisis AI automatik.";
+$markets_ai_box_title = "💡 Kecekapan Operasi:";
+$markets_ai_box_text = "Dagangan tradisional memerlukan pemantauan manual ratusan penunjuk. Algoritma $site_name memproses ribuan perubahan harga sesaat.";
+$markets_cta_button = "Akses pasaran";
+$markets_table_asset = "Aset";
+$markets_table_price = "Harga";
+$markets_table_change = "Perubahan 24j";
+
+$onboarding_section_label = "Proses Pendaftaran";
+$onboarding_title = "$site_name menjadikan permulaan bebas tekanan";
+$onboarding_subtitle = "Tiada pengalaman kripto sebelum ini? Panduan automatik kami membantu anda setiap langkah.";
+$onboarding_step_1_title = "Pendaftaran Selamat";
+$onboarding_step_1_text = "Masukkan butiran hubungan melalui borang tersulit kami.";
+$onboarding_step_2_title = "Persediaan Dipandu AI";
+$onboarding_step_2_text = "Platform memaparkan pilihan antaramuka mengikut keutamaan anda.";
+$onboarding_step_3_title = "Pembiayaan Selamat";
+$onboarding_step_3_text = "Aktifkan akaun anda melalui lapisan pembayaran yang dipercayai.";
+$onboarding_step_4_title = "Gunakan Isyarat";
+$onboarding_step_4_text = "Mula berinteraksi dengan pasaran global menggunakan data neural hidup.";
+
+$mobile_app_image_alt = "Aplikasi dagangan mudah alih $site_name di telefon pintar";
+$mobile_app_section_label = "Akses Mudah Alih";
+$mobile_app_title = "Portfolio anda, terus di dalam poket anda";
+$mobile_app_subtitle = "Seluruh enjin $site_name dimampatkan ke dalam pengalaman mudah alih pantas.";
+$mobile_app_check_1 = "Pemberitahuan tolak untuk pergerakan harga kritikal";
+$mobile_app_check_2 = "Log masuk biometrik dengan storan tempatan tersulit";
+$mobile_app_check_3 = "Set carta lengkap dioptimumkan untuk sentuhan";
+$mobile_app_cta_button = "Dapatkan aplikasi";
+
+$security_section_label = "Rangka Kerja Seimbang";
+$security_title = "Parameter operasi yang telus";
+$security_subtitle = "Kami percaya pada kejujuran mutlak. Inilah yang menjadikan sistem kami unik.";
+$security_our_title = "Kelebihan Utama";
+$security_our_item_1 = "Papan pemuka minimalis disesuaikan untuk kelajuan institusi.";
+$security_our_item_2 = "Pemprosesan data analitik neural berjalan 24/7.";
+$security_our_item_3 = "Tiada marjin transaksi tersembunyi atau yuran pengurusan tanpa jangkaan.";
+$security_our_item_4 = "Seni bina akaun SSL kriptografi terus.";
+$security_our_item_5 = "Pendaftaran terbimbing yang mengambil masa beberapa minit sahaja.";
+
+$security_other_badge = "Platform lain";
+$security_other_title = "Keterbatasan Biasa Industri";
+$security_other_item_1 = "Papan pemuka bersepah dengan iklan yang melambat keputusan.";
+$security_other_item_2 = "Laporan statik dan bukannya analisis langsung berterusan.";
+$security_other_item_3 = "Spread tersembunyi dan struktur yuran tidak jelas.";
+$security_other_item_4 = "Infrastruktur lama dengan perlindungan data tidak konsisten.";
+$security_other_item_5 = "Pengesahan akaun perlahan yang boleh mengambil masa berhari-hari.";
+$security_disclaimer = "Perbandingan mencerminkan corak biasa industri dan diberikan untuk tujuan ilustrasi.";
+
+$capabilities_title = "Keupayaan utama platform secara sepintas lalu";
+$capabilities_subtitle = "Semak parameter berfungsi yang disertakan dalam akses akaun anda.";
+$capability_table_col_1 = "Parameter Keupayaan";
+$capability_table_col_2 = "Butiran Berfungsi";
+$capability_table_col_3 = "Disertakan";
+$capability_check_aria = "Disertakan";
+$capability_1_title = "Rangka Kerja Dagangan AI";
+$capability_1_text = "Pemprosesan algoritma mengira metrik makro.";
+$capability_2_title = "Aliran Terkumpul";
+$capability_2_text = "Carta dinamik tersusun secara masa nyata.";
+$capability_3_title = "Kestabilan Merentasi Peranti";
+$capability_3_text = "Paparan responsif sepenuhnya pada telefon, komputer dan tablet.";
+$capability_4_title = "Liputan Pelbagai Aset";
+$capability_4_text = "Akses bersatu ke kripto, forex dan saham dari satu akaun.";
+$capability_5_title = "Amaran Risiko Automatik";
+$capability_5_text = "Pemberitahuan boleh dikonfigurasikan untuk turun naik luar biasa.";
+$capability_6_title = "Bilik Kebal Data Tersulit";
+$capability_6_text = "Data peribadi diasingkan dengan kawalan akses kriptografi.";
+$capability_7_title = "Sokongan Manusia 24/7";
+$capability_7_text = "Operator sokongan langsung sedia membantu serta-merta.";
+
+$payments_section_label = "Deposit";
+$payments_title = "Biayai akaun anda dengan kaedah yang sudah anda percayai";
+$payments_subtitle = "Kad, e-dompet dan pemindahan bank — dilindungi dengan penyulitan SSL.";
+$payments_aria_label = "Kaedah deposit diterima";
+$payment_method_bank_transfer = "Pemindahan Bank";
+$payment_method_ssl = "Dilindungi SSL";
+
+$partners_section_label = "Infrastruktur Dipercayai";
+$partners_title = "Dibina dengan rakan kongsi bertaraf dunia";
+$partners_aria_label = "Rakan kongsi infrastruktur dan pembayaran $site_name";
+
+$reviews_section_label = "Maklum Balas Pengguna";
+$reviews_title = "Apa yang dikatakan pedagang tentang $site_name";
+$reviews_subtitle = "Maklum balas jujur daripada komuniti global kami.";
+$review_1_text = "Sebagai pembeli baru, kripto menakutkan saya. $site_name menjadikan papan pemuka begitu intuitif sehingga saya berasa yakin dalam beberapa minit.";
+$review_1_role = "Pedagang Runcit Disahkan";
+$review_2_text = "Kebersihan antaramuka menjimatkan masa saya. Analisis AI sangat luar biasa.";
+$review_2_role = "Penganalisis Aset Kripto";
+$review_3_text = "Pelaksanaan kependaman rendah membolehkan saya menyesuaikan sasaran serta-merta.";
+$review_3_role = "Pengurus Portfolio Peribadi";
+$review_4_text = "Sokongan menjawab dalam masa dua minit. Perkhidmatan luar biasa.";
+$review_4_role = "Pedagang Algoritma";
+
+$review_1_avatar_alt = "Ahmad Razak, pengguna $site_name";
+$review_2_avatar_alt = "Siti Noor, pengguna $site_name";
+$review_3_avatar_alt = "Daniel Tan, pengguna $site_name";
+$review_4_avatar_alt = "Elena Lee, pengguna $site_name";
+$hero_growth_visual_alt = "Carta pertumbuhan dagangan AI $site_name";
+$mobile_trading_visual_alt = "Antaramuka aplikasi dagangan mudah alih $site_name";
+$cta_security_visual_alt = "Langkah keselamatan AI melindugi akaun $site_name";
+
+$seo_content_title = "$site_name: Memperkasakan pedagang melalui seni bina AI institusi";
+$seo_content_intro = "Interaksi aset moden memerlukan kejelasan mutlak. $site_name menyelesaikan kerumitan melalui persekitarannya yang elegan.";
+$seo_block_1_title_before = "Canggih";
+$seo_block_1_title_accent = "Aset Kripto";
+$seo_block_1_text_1 = "Kecairan rantaian blok berubah dengan pantas, menjadikan infrastruktur kependaman rendah kritikal.";
+$seo_block_1_text_2 = "Platform menyusun perubahan volum mengikut konteks untuk pembuat keputusan yang lebih mudah.";
+$seo_block_2_title_before = "Mendalam";
+$seo_block_2_title_accent = "Analisis Pasaran Neural";
+$seo_block_2_text_1 = "Algoritma automatik memproses data pasaran untuk mengira variasi struktur.";
+$seo_block_2_text_2 = "Model berjalan secara berterusan supaya perubahan muncul dengan serta-merta.";
+$seo_block_3_title_before = "Tanpa Geseran";
+$seo_block_3_title_accent = "Aliran Persediaan Akaun";
+$seo_block_3_text_1 = "Pematuhan tidak perlu rumit. Pendaftaran kami melindungi data anda.";
+$seo_block_3_text_2 = "Setiap medan menerangkan sebab ia diminta.";
+$seo_block_4_title_before = "Tahap Institusi";
+$seo_block_4_title_accent = "Kawalan Risiko";
+$seo_block_4_text_1 = "Penyesuaian saiz kedudukan dan amaran automatik diambil daripada alat profesional.";
+$seo_block_4_text_2 = "Amaran boleh dikonfigurasikan untuk mengelakkan keletihan pemberitahuan.";
+
+$faq_section_label = "Pusat Sokongan";
+$faq_title = "Soalan lazim";
+$faq_subtitle = "Cari jawapan serta-merta mengenai pendaftaran dan akses.";
+$faq_1_question = "Bagaimanakah saya boleh bermula dengan $site_name?";
+$faq_1_answer = "Isi borang pendaftaran di atas dan aktifkan akaun anda.";
+$faq_2_question = "Adakah saya memerlukan pengalaman kripto yang maju?";
+$faq_2_answer = "Tidak. $site_name mempunyai mod khas untuk pembeli baru.";
+$faq_3_question = "Apakah keperluan minimum?";
+$faq_3_answer = "Pengaktifan standard ialah $app_price $app_currency.";
+$faq_4_question = "Adakah terdapat yuran tersembunyi?";
+$faq_4_answer = "Tidak. Kami beroperasi dengan ketelusan yuran penuh.";
+$faq_5_question = "Bagaimanakah komponen AI berfungsi?";
+$faq_5_answer = "Sistem neural kami menukar data kompleks menjadi garis trend mudah.";
+$faq_6_question = "Adakah data peribadi saya dilindungi?";
+$faq_6_answer = "Ya. Setiap sambungan dijamin dengan SSL.";
+
+$final_cta_title = "Sedia untuk mengalami kejelasan $site_name?";
+$final_cta_subtitle = "Sertai sistem moden yang dioptimumkan untuk operasi pantas dan keselamatan data.";
+
+$footer_brand_description = "Persekitaran analitik moden yang menawarkan penjejakan data bersih merentasi aset global.";
+$footer_platform_title = "Platform";
+$footer_platform_interface = "Antaramuka";
+$footer_platform_markets = "Gambaran Keseluruhan Pasaran";
+$footer_pages_title = "Halaman";
+$footer_page_about = "Tentang Kami";
+$footer_page_contact = "Hubungi";
+$footer_page_signin = "Log Masuk";
+$footer_legal_title = "Undang-undang";
+$footer_terms = "Terma Penggunaan";
+$footer_privacy = "Dasar Privasi";
+$footer_disclaimer_title = "⚠️ Amaran Risiko:";
+$footer_disclaimer_text = "Dagangan aset digital melibatkan risiko pasaran yang ketara. Kekalkan kawalan penuh ke atas strategi anda.";
+$footer_copyright = "Hak cipta terpelihara.";
+
+$about_meta_title = "Tentang Kami | $site_name";
+$about_meta_description = "Ketahui lebih lanjut mengenai $site_name — misi dan teknologi AI kami.";
+$about_breadcrumb_name = "Tentang Kami";
+$about_h1 = "Tentang $site_name";
+$about_p1 = "$site_name dicipta untuk menjadikan alat dagangan AI mudah diakses oleh semua.";
+$about_p2 = "Kami percaya bahawa akses ke pasaran global haruslah telus.";
+$about_h2_mission = "Misi Kami";
+$about_p_mission_1 = "Misi kami adalah untuk menyediakan alat yang jelas kepada pedagang untuk mengemudi pasaran.";
+$about_p_mission_2 = "Setiap ciri di $site_name direka dengan kejelasan sebagai fokus utama.";
+$about_h2_ai = "Pendekatan AI Kami";
+$about_p_ai_1 = "$site_name menggabungkan data masa nyata dengan analisis AI.";
+$about_p_ai_2 = "Sistem kami berfungsi sebagai sokongan keputusan — bukannya jaminan keuntungan.";
+$about_li_1 = "Pengagregatan data pasaran masa nyata";
+$about_li_2 = "Analisis pasaran dibantu AI";
+$about_li_3 = "Amaran risiko yang telus";
+$about_li_4 = "Pendaftaran terbimbing untuk pedagang baru";
+$about_li_5 = "Akses ke kripto, forex dan saham";
+$about_li_6 = "Infrastruktur keselamatan tahap bank";
+$about_li_7 = "Sokongan pelanggan 24/7";
+$about_li_8 = "Kemas kini platform secara tetap";
+$about_h2_security = "Keselamatan Dahulu";
+$about_p_security_1 = "Kami menggunakan penyulitan standard industri untuk melindungi data anda.";
+$about_p_security_2 = "Keselamatan diintegrasikan ke dalam setiap bahagian platform.";
+$about_h2_global = "Dibina untuk Pasaran Global";
+$about_p_global_1 = "$site_name direka untuk menyokong pedagang di pelbagai wilayah.";
+$about_p_global_2 = "Rakan kongsi kami membantu kami mengekalkan akses yang dipercayai.";
+$about_h2_why = "Mengapa Memilih $site_name";
+$about_why_li_1 = "Pendaftaran yang jelas dan terstruktur";
+$about_why_li_2 = "Dibantu AI, jangkaan yang jujur";
+$about_why_li_3 = "Maklumat yuran yang telus";
+$about_why_li_4 = "Sokongan pelanggan yang pantas";
+$about_why_li_5 = "Rakan kongsi pembayaran dikawal selia";
+$about_why_li_6 = "Penambahbaikan platform berterusan";
+$about_why_li_7 = "Fokus pada pendidikan pedagang";
+$about_h2_forward = "Melihat ke Hadapan";
+$about_p_forward_1 = "Kami terus meningkatkan $site_name berdasarkan maklum balas pengguna.";
+$about_p_forward_2 = "Terima kasih kerana mempertimbangkan $site_name.";
+
+$contact_meta_title = "Hubungi | $site_name";
+$contact_meta_description = "Hubungi pasukan $site_name.";
+$contact_breadcrumb_name = "Hubungi";
+$contact_h1 = "Hubungi Kami";
+$contact_intro_1 = "Ada soalan mengenai akaun atau ciri anda? Kami di sini untuk membantu.";
+$contact_intro_2 = "Isi borang di bawah atau hubungi kami secara terus.";
+$contact_h2_help = "Bantuan Yang Kami Boleh Berikan";
+$contact_li_1 = "Persediaan dan pengesahan akaun";
+$contact_li_2 = "Ciri platform dan pengoperasian";
+$contact_li_3 = "Soalan deposit dan pengeluaran";
+$contact_li_4 = "Isu teknikal";
+$contact_li_5 = "Maklum balas umum dan cadangan";
+$contact_li_6 = "Pertanyaan perkongsian dan media";
+$contact_h2_send = "Hantar Mesej Kepada Kami";
+$contact_p_send = "Masukkan butiran anda di bawah dan pasukan kami akan membalas secepat mungkin.";
+$contact_form_fname = "Nama pertama";
+$contact_form_lname = "Nama akhir";
+$contact_form_email = "Alamat e-mel";
+$contact_form_submit = "Hantar Mesej";
+$contact_h2_info = "Cara Lain Untuk Menghubungi Kami";
+$contact_support_label = "Sokongan:";
+$contact_institutional_label = "Pertanyaan institusi:";
+$contact_disclaimer = "Kami bertujuan untuk membalas semua pertanyaan dalam masa 24-48 jam.";
+
+$faq_page_meta_title = "Soalan Lazim | $site_name";
+$faq_page_meta_description = "Soalan lazim mengenai $site_name — akaun, deposit dan keselamatan.";
+$faq_page_breadcrumb_name = "Soalan Lazim";
+$faq_page_h1 = "Soalan Lazim";
+$faq_page_subtitle = "Jawapan kepada soalan yang paling kerap ditanya oleh pedagang.";
+
+$sign_meta_title = "Cipta Akaun Anda | $site_name";
+$sign_meta_description = "Cipta akaun $site_name anda dan mula berdagang.";
+$sign_breadcrumb_name = "Daftar";
+$sign_h1 = "Cipta Akaun Anda";
+$sign_subtitle = "Mengambil masa kurang dari 3 minit. Tiada yuran persediaan.";
+
+$conditions_meta_title = "Terma dan Syarat | $site_name";
+$conditions_meta_description = "Baca Terma dan Syarat yang mengawal penggunaan $site_name anda.";
+$conditions_breadcrumb_name = "Terma";
+$conditions_h1 = "Terma dan Syarat";
+$conditions_last_update = "Kemas kini terakhir: " . date('F Y');
+$conditions_intro = "Terma dan Syarat ini mengawal akses dan penggunaan $site_name anda.";
+$conditions_h2_eligibility = "Kelayakan";
+$conditions_p_eligibility = "Anda mesti berumur sekurang-kurangnya 18 tahun untuk menggunakan platform.";
+$conditions_h2_account = "Akaun Anda";
+$conditions_p_account = "Anda bertanggungjawab untuk mengekalkan Kerahsiaan butiran log masuk anda.";
+$conditions_h2_risk = "Risiko Dagangan";
+$conditions_p_risk = "Dagangan instrumen kewangan melibatkan risiko yang ketara.";
+$conditions_h2_conduct = "Penggunaan Yang Boleh Diterima";
+$conditions_p_conduct = "Anda bersetuju untuk tidak menyalahgunakan platform.";
+$conditions_h2_liability = "Had Liabiliti";
+$conditions_p_liability = "Setakat yang dibenarkan oleh undang-undang, $site_name tidak bertanggungjawab atas kerosakan tidak langsung.";
+$conditions_h2_changes = "Perubahan pada Terma";
+$conditions_p_changes = "Kami mungkin mengemas kini Terma ini dari semasa ke semasa.";
+$conditions_h2_contact = "Hubungi";
+$conditions_p_contact = "Soalan mengenai Terma ini boleh dihantar kepada pasukan sokongan kami.";
+
+$privacy_meta_title = "Dasar Privasi | $site_name";
+$privacy_meta_description = "Ketahui bagaimana $site_name mengumpul dan melindungi data peribadi anda.";
+$privacy_breadcrumb_name = "Privasi";
+$privacy_h1 = "Dasar Privasi";
+$privacy_last_update = "Kemas kini terakhir: " . date('F Y');
+$privacy_intro = "Dasar Privasi ini menerangkan bagaimana $site_name mengumpul dan melindungi data anda.";
+$privacy_h2_collect = "Maklumat Yang Kami Kumpul";
+$privacy_p_collect = "Kami mengumpul maklumat yang anda berikan secara terus semasa pendaftaran.";
+$privacy_h2_use = "Bagaimana Kami Menggunakan Maklumat Anda";
+$privacy_p_use = "Kami menggunakan maklumat anda untuk menyediakan dan meningkatkan platform.";
+$privacy_h2_sharing = "Perkongsian Maklumat";
+$privacy_p_sharing = "Kami tidak menjual data peribadi anda kepada pihak ketiga.";
+$privacy_google_choices = 'Anda boleh menguruskan cara Google menggunakan maklumat melalui <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Tetapan Iklan Google</a>.';
+$privacy_h2_security = "Keselamatan Data";
+$privacy_p_security = "Kami menggunakan langkah teknikal standard untuk melindungi data anda.";
+$privacy_h2_rights = "Hak Anda";
+$privacy_p_rights = "Anda berhak untuk meminta akses, pembetulan atau pemadaman data peribadi anda.";
+$privacy_h2_retention = "Penyimpanan Data";
+$privacy_p_retention = "Kami menyimpan data anda hanya selama yang diperlukan.";
+$privacy_h2_contact = "Hubungi Kami";
+$privacy_p_contact = "Untuk soalan privasi, hubungi kami melalui halaman Hubungi.";
+
+$page_title_risk_warning = "Amaran Risiko | $site_name";
+$page_description_risk_warning = "Fahami risiko dagangan automatik dengan $site_name.";
+$risk_warning_breadcrumb_name = "Amaran Risiko";
+$risk_warning_title = "Amaran Risiko";
+$risk_warning_intro = "Memahami risiko adalah langkah pertama ke arah dagangan yang bertanggungjawab.";
+$risk_warning_ai_heading = "Bagaimana Sistem AI Kami Membantu Mengurus Risiko:";
+$risk_warning_ai_1 = "<strong>Kecekapan Algoritma:</strong> Algoritma maju menganalisis isyarat untuk pelaksanaan objektif.";
+$risk_warning_ai_2 = "<strong>Strategi Berasaskan Data:</strong> Strategi berdasarkan corak yang disahkan.";
+$risk_warning_ai_3 = "<strong>Tetapan Fleksibel:</strong> Sesuaikan parameter risiko anda pada bila-bila masa.";
+$risk_warning_disclaimer = "<strong>Penafian:</strong> Dagangan sentiasa melibatkan risiko. Sistem automatik tidak menjamin keuntungan.";
+$risk_warning_s1_heading = "1. Risiko Umun & Pasaran Kripto";
+$risk_warning_s1_intro = "Kriptowang adalah aset yang sangat tidak menentu.";
+$risk_warning_s1_1 = "Nilai boleh turun naik secara mendadak dalam tempoh masa yang singkat.";
+$risk_warning_s1_2 = "Nilai pasaran boleh dipengaruhi oleh perubahan pengawalseliaan.";
+$risk_warning_s1_3 = "Sesetengah aset mungkin kehilangan semua nilai. Laburkan hanya dana yang anda mampu tanggung kerugiannya.";
+$risk_warning_s2_heading = "2. Risiko Pelaksanaan & Tuasan";
+$risk_warning_s2_1 = "<strong>Turun Naik:</strong> Pergerakan melampau boleh menyebabkan kelewatan.";
+$risk_warning_s2_2 = "<strong>Tuasan:</strong> Produk bertuas membesarkan kedua-dua keuntungan dan kerugian.";
+$risk_warning_s3_heading = "3. Risiko Teknikal & Keselamatan Siber";
+$risk_warning_s3_1 = "<strong>Faktor Teknikal:</strong> Dagangan dalam talian melibatkan risiko terputus sambungan.";
+$risk_warning_s3_2 = "<strong>Keselamatan Siber:</strong> Akaun kripto menjadi sasaran phishing.";
+$risk_warning_s3_3 = "<strong>Pihak Ketiga:</strong> Kami tidak menjamin keselamatan platform luaran.";
+$risk_warning_s4_heading = "4. Peruntukan Pengawalseliaan & Akhir";
+$risk_warning_s4_1 = "<strong>Pematuhan Undang-undang:</strong> Pengguna bertanggungjawab mematuhi undang-undang tempatan.";
+$risk_warning_s4_2 = "<strong>Tiada Jaminan Keuntungan:</strong> Tiada dagangan bebas risiko.";
+$risk_warning_s4_3 = "<strong>Kesesuaian:</strong> Jika anda tidak memahami risiko, dagangan tidak sesuai untuk anda.";
+$risk_warning_contact = "<strong>Hubungi:</strong> Untuk soalan, hubungi pasukan sokongan rasmi kami.";
+$footer_risk_warning = "Amaran Risiko";
+
+$lang_loaded = true;
+?>

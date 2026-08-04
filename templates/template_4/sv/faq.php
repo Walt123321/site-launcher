@@ -2,7 +2,7 @@
 // Redirect if default language
 include '../lang.php';
 $extractLang = str_replace('-', '', strtolower(explode('-', $site_lang)[0]));
-$currentLang = 'sv';
+$currentLang = 'de';
 if ($extractLang === $currentLang) {
     header('HTTP/1.1 301 Moved Permanently');
     header('Location: ' . $site_url . "/lander/" . $site_domain . "/faq.php");
@@ -44,13 +44,13 @@ $canonical = 'https://' . $host . $uri;
       "@type": "ListItem",
       "position": 1,
       "name": "<?= $site_name ?>",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/sv/"
+      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/de/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "💸 FAQ 💸",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/sv/#heading-style-h1"
+      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/de/#heading-style-h1"
     }
   ]
 }
@@ -76,8 +76,8 @@ $canonical = 'https://' . $host . $uri;
 </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ | <?= $site_name ?></title>
-    <meta name="description" content="Svar om trading, funktioner, säkerhet och avgifter." />
+    <title>Vanliga frågor (FAQ) | <?= $site_name ?></title>
+    <meta name="description" content="Svar på frågor om handel, funktioner, säkerhet och avgifter." />
     <!-- Favicon -->
 <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
@@ -167,8 +167,6 @@ $canonical = 'https://' . $host . $uri;
         document.getElementById("skeleton")?.remove();
       });
     </script>
-    <script src="../assets/js/lazyload.min.js" defer></script>
-    <script src="../assets/js/scripts.js" defer></script>
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/faq.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/faq.php" />
 <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/faq.php" />
@@ -183,7 +181,17 @@ $canonical = 'https://' . $host . $uri;
 <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/faq.php" />
 <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/faq.php" />
 <link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/faq.php" />
-<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/faq.php" /></head>
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/faq.php" />
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/faq.php" />
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/faq.php" />
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/faq.php" />
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/faq.php" />
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/faq.php" />
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/faq.php" />
+<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/faq.php" />
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/faq.php" />
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/faq.php" />
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/faq.php" /></head>
   <body class="flex min-h-screen flex-col">
     <!-- skeleton -->
     <div id="skeleton">
@@ -198,16 +206,16 @@ $canonical = 'https://' . $host . $uri;
     <div class="container-base">
       <div
         class="rounded-custom flex min-h-[70px] items-center justify-between gap-8 border bg-white px-4.5 py-3 md:px-8">
-        <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none uppercase header-nav-logo" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">
-          <span class="text-primary inline-block header-logo">
-            <img src="../favicon-96x96.png" class="footer-logo" alt="logo">
+        <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none uppercase header-nav-logotyp" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">
+          <span class="text-primary inline-block header-logotyp">
+            <img src="../favicon-96x96.png" class="footer-logotyp" alt="logotyp">
           </span>
           <?= $site_name ?>
         </a>
 <nav class="hiddens grow justify-center lg:flex">
   <ul class="flex flex-row flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-5 lg:gap-x-7">
     <li>
-      <a class="data-active:text-primary" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">Hem</a>
+      <a class="data-active:text-primary" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">Hem</a>
     </li>
     <li>
       <a class="data-active:text-primary" href="product.php">Produkt</a>
@@ -216,7 +224,7 @@ $canonical = 'https://' . $host . $uri;
       <a class="data-active:text-primary" href="offer.php">Erbjudande</a>
     </li>
     <li>
-      <a class="data-active:text-primary" href="contacts.php">Kontakt</a>
+      <a class="data-active:text-primary" href="contacts.php">Kontakta oss</a>
     </li>
     <li>
       <a class="data-active:text-primary" href="faq.php" data-active>FAQ</a>
@@ -236,7 +244,7 @@ $canonical = 'https://' . $host . $uri;
             </span>
           </a>
           <a class="inline-flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full border-2"
-            href="sign.php" aria-label="Sign In">
+            href="sign.php" aria-label="Logga in">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29" fill="none">
               <path
                 d="M1 13.7998C0.447715 13.7998 -4.82823e-08 14.2475 0 14.7998C4.82823e-08 15.3521 0.447715 15.7998 1 15.7998L1 13.7998ZM17.8071 15.5069C18.1976 15.1164 18.1976 14.4832 17.8071 14.0927L11.4431 7.72874C11.0526 7.33821 10.4195 7.33821 10.0289 7.72874C9.63841 8.11926 9.63841 8.75243 10.0289 9.14295L15.6858 14.7998L10.0289 20.4567C9.63841 20.8472 9.63841 21.4803 10.0289 21.8709C10.4195 22.2614 11.0526 22.2614 11.4431 21.8709L17.8071 15.5069ZM1 15.7998L17.1 15.7998L17.1 13.7998L1 13.7998L1 15.7998Z"
@@ -246,7 +254,7 @@ $canonical = 'https://' . $host . $uri;
             </svg>
           </a>
         </div>
-        <button class="menu-icon" data-menu-icon aria-label="open menu">
+        <button class="menu-icon" data-menu-icon aria-label="öppna menyn">
           <svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect y="3" width="38" height="4" rx="2" fill="currentColor" />
             <rect y="15" width="38" height="4" rx="2" fill="currentColor" />
@@ -258,7 +266,7 @@ $canonical = 'https://' . $host . $uri;
     <nav class="mobile-menu" data-mobile-menu>
       <ul class="flex flex-col flex-wrap items-center justify-center gap-y-8">
         <li>
-          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">Hem</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">Hem</a>
         </li>
         <li>
           <a href="product.php">Produkt</a>
@@ -267,10 +275,10 @@ $canonical = 'https://' . $host . $uri;
           <a href="offer.php">Erbjudande</a>
         </li>
         <!-- <li>
-      <a href="/team">Our team</a>
+      <a href="/team">Vårt team</a>
     </li> -->
         <li>
-          <a href="contacts.php">Kontakt</a>
+          <a href="contacts.php">Kontakta oss</a>
         </li>
         <li>
           <a href="faq.php">FAQ</a>
@@ -278,7 +286,7 @@ $canonical = 'https://' . $host . $uri;
       </ul>
       <div class="flex items-center gap-4 md:hidden">
         <a class="group inline-flex h-[50px] items-center justify-between rounded-full border-2" href="sign.php">
-          <span class="inline-block p-3.5 text-sm">Sign Up</span>
+          <span class="inline-block p-3.5 text-sm">Registrera dig</span>
           <span
             class="group-hover:bg-primary inline-flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full bg-black text-white transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15" fill="none">
@@ -310,7 +318,7 @@ $canonical = 'https://' . $host . $uri;
             aria-label="breadcrumb"
             class="flex flex-wrap items-center text-sm text-gray-500 md:text-lg"
           >
-<a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/" class="breadcrumb-item">Hem</a>
+<a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/" class="breadcrumb-item">Hem</a>
 <span class="breadcrumb-item">FAQ</span>
           </nav>
         </div>
@@ -336,7 +344,7 @@ $canonical = 'https://' . $host . $uri;
           </button>
           <div id="content-1" class="max-h-0 overflow-hidden transition-all">
             <div class="px-4 pb-5 md:px-8 md:pb-8">
-              <p>Du kan vara igång på bara några minuter. Skapa ett konto med grunduppgifter, slutför ett kort verifieringssteg och sätt in minst <?= $app_price ?> <?= $app_currency ?>. Därefter låser du upp hela plattformen — live-diagram, handelsverktyg och funktioner för en trygg start.</p>
+              <p>Du kan vara redo på några minuter. Skapa ett konto med dina grunduppgifter, slutför det korta verifieringssteget och sätt in minst <?= $app_price ?> <?= $app_currency ?> att sätta in. Därefter låses hela plattformen upp för dig — inklusive realtidsdiagram, handelsverktyg och funktioner som hjälper dig att komma igång med självförtroende.</p>
             </div>
           </div>
         </div>
@@ -345,7 +353,7 @@ $canonical = 'https://' . $host . $uri;
             class="group-data-active:text-primary hover:text-primary flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-5 md:px-8 md:py-10"
             onclick="toggleAccordion(2)"
           >
-            <span class="h3 text-left transition-colors">Är mina pengar och data säkra? Är <?= $site_name ?> pålitligt?</span>
+            <span class="h3 text-left transition-colors">Är mina pengar och uppgifter säkra? Är <?= $site_name ?> pålitlig?</span>
             <span class="w-[26px] shrink-0 transition-transform group-data-active:rotate-180 md:w-10">
               <svg viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="22.7905" y="32.6563" width="4.62857" height="23.1428" rx="1" transform="rotate(135 22.7905 32.6563)" fill="currentColor" />
@@ -356,7 +364,7 @@ $canonical = 'https://' . $host . $uri;
           </button>
           <div id="content-2" class="max-h-0 overflow-hidden transition-all">
             <div class="px-4 pb-5 md:px-8 md:pb-8">
-              <p>Absolut. Vi skyddar ditt konto med avancerad SSL-kryptering, 2FA-verifiering och säker kallförvaring av medel. Transaktioner behandlas via pålitliga leverantörer och personuppgifter hanteras enligt strikta säkerhetspolicyer. Säkerhet och tillförlitlighet är inbyggt i varje del av plattformen.</p>
+              <p>Absolut. Vi skyddar ditt konto med avancerad SSL-kryptering, tvåfaktorsautentisering (2FA) och säker cold storage-förvaring för medel. Transaktioner hanteras av pålitliga leverantörer, och dina personuppgifter behandlas enligt strikta säkerhetsriktlinjer. Säkerhet och tillförlitlighet är fast förankrade i varje del av plattformen.</p>
             </div>
           </div>
         </div>
@@ -365,7 +373,7 @@ $canonical = 'https://' . $host . $uri;
             class="group-data-active:text-primary hover:text-primary flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-5 md:px-8 md:py-10"
             onclick="toggleAccordion(3)"
           >
-            <span class="h3 text-left transition-colors">När kan jag ta ut min vinst?</span>
+            <span class="h3 text-left transition-colors">När kan jag ta ut mina vinster?</span>
             <span class="w-[26px] shrink-0 transition-transform group-data-active:rotate-180 md:w-10">
               <svg viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="22.7905" y="32.6563" width="4.62857" height="23.1428" rx="1" transform="rotate(135 22.7905 32.6563)" fill="currentColor" />
@@ -376,7 +384,7 @@ $canonical = 'https://' . $host . $uri;
           </button>
           <div id="content-3" class="max-h-0 overflow-hidden transition-all">
             <div class="px-4 pb-5 md:px-8 md:pb-8">
-              <p>Uttag kan begäras när som helst via din kontopanel. Bearbetning tar vanligtvis 1–3 arbetsdagar beroende på vald metod. Du ser alltid avgifter och tidsramar i förväg — inga överraskningar.</p>
+              <p>Du kan begära ett uttag när som helst via din dashboard. Handläggningen tar vanligtvis 1–3 arbetsdagar, beroende på vald metod. Eventuella avgifter och tidsramar visas alltid i förväg — inga överraskningar.</p>
             </div>
           </div>
         </div>
@@ -385,7 +393,7 @@ $canonical = 'https://' . $host . $uri;
             class="group-data-active:text-primary hover:text-primary flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-5 md:px-8 md:py-10"
             onclick="toggleAccordion(4)"
           >
-            <span class="h3 text-left transition-colors">Hur vet jag om denna plattform passar mig?</span>
+            <span class="h3 text-left transition-colors">Hur vet jag om denna plattform är rätt för mig?</span>
             <span class="w-[26px] shrink-0 transition-transform group-data-active:rotate-180 md:w-10">
               <svg viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="22.7905" y="32.6563" width="4.62857" height="23.1428" rx="1" transform="rotate(135 22.7905 32.6563)" fill="currentColor" />
@@ -396,7 +404,7 @@ $canonical = 'https://' . $host . $uri;
           </button>
           <div id="content-4" class="max-h-0 overflow-hidden transition-all">
             <div class="px-4 pb-5 md:px-8 md:pb-8">
-              <p>Det bästa är att prova själv. Börja med minsta insättning och utforska funktionerna steg för steg. Plattformen är nybörjarvänlig men erbjuder kraftfulla verktyg, med support dygnet runt när du behöver det. Du behåller kontrollen hela tiden.</p>
+              <p>Det bästa sättet är att testa själv. Börja med minimiinsättningen och utforska funktionerna steg för steg. Plattformen är utformad för att vara användarvänlig för nybörjare samtidigt som den erbjuder kraftfulla verktyg och 24/7-support som hjälper dig när som helst. Du behåller full kontroll.</p>
             </div>
           </div>
         </div>
@@ -416,7 +424,7 @@ $canonical = 'https://' . $host . $uri;
           </button>
           <div id="content-5" class="max-h-0 overflow-hidden transition-all">
             <div class="px-4 pb-5 md:px-8 md:pb-8">
-              <p>Inte alls. Allt är byggt för att vara tillgängligt från dag ett — med onboarding, enkla guider och AI-assisterade verktyg. Oavsett om du precis börjat eller redan har erfarenhet kan du gå vidare i din egen takt med support alltid tillgänglig.</p>
+              <p>Inte alls. Allt är utformat för att vara tillgängligt från första dagen — med guidad registrering, enkla instruktioner och AI-drivna verktyg som hjälper dig att navigera i handeln. Oavsett om du precis har börjat eller redan har erfarenhet kan du gå fram i din egen takt, och supporten finns alltid där för dig.</p>
             </div>
           </div>
         </div>
@@ -477,7 +485,7 @@ $canonical = 'https://' . $host . $uri;
                 </defs>
               </svg>
             </div>
-            <h2>Hur kan vi hjälpa dig?</h2>
+            <h2>Wie können wir Ihnen helfen?</h2>
           </div>
         <form name="form" method="post"
           class="leadform rf-form js-rf-form group bg-primary rounded-custom relative overflow-hidden px-4 py-8 md:px-8" action="../integration/send.php" data-form>
@@ -486,10 +494,10 @@ $canonical = 'https://' . $host . $uri;
             <input type="text" name="website" tabindex="-1" autocomplete="off">
             <input type="text" name="company" style="position:absolute; left:-9999px;">
           </div>
-          <input type="hidden" name="country" value="sv">
+          <input type="hidden" name="country" value="se">
           <input type="hidden" name="language" value="sv">
-          <input type="hidden" name="phone_country" value="sv">
-          <input type="hidden" name="only_countries" value='["sv"]'>
+          <input type="hidden" name="phone_country" value="se">
+          <input type="hidden" name="only_countries" value='["se"]'>
           <div class="form-preloader hidden">
             <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
               <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
@@ -517,7 +525,7 @@ $canonical = 'https://' . $host . $uri;
                 <input class="input" type="email" name="email" placeholder="Ange din e-postadress" required />
               </label>
               <label class="grid gap-1.5">
-                <span class="label text-white">Telefon</span>
+                <span class="label text-white">Telefonnummer</span>
                 <input class="input" type="tel" name="fullphone" placeholder="" required />
                 <span class="error-msg hide"></span>
               </label>
@@ -533,10 +541,10 @@ $canonical = 'https://' . $host . $uri;
               </div>
               <p class="text-xs text-white">
                 Genom att ange dina personuppgifter och klicka på knappen godkänner du
-                <a class="link-underline" href="privacy.php">Integritetspolicyn</a>
+                <a class="link-underline" href="privacy.php">Integritetspolicy</a>
                 och
-                <a class="link-underline" href="conditions.php">Användarvillkoren</a>
-                för webbplatsen.
+                <a class="link-underline" href="conditions.php">Användarvillkor</a>
+                för denna webbplats.
               </p>
             </div>
 <div class="flex flex-wrap justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="58" height="39" viewBox="0 0 58 39" fill="none">
@@ -593,16 +601,16 @@ $canonical = 'https://' . $host . $uri;
       <div class="relative grid gap-7 md:gap-10">
         <div class="grid gap-5">
           <nav class="flex flex-col flex-wrap justify-between gap-x-10 gap-y-5 text-white md:flex-row">
-            <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none text-white uppercase max-md:pr-[120px] footer-nav-logo"
-              href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">
+            <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none text-white uppercase max-md:pr-[120px] footer-nav-logotyp"
+              href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">
               <span class="inline-block">
-                  <img src="../favicon-96x96.png" class="footer-logo" alt="logo">
+                  <img src="../favicon-96x96.png" class="footer-logotyp" alt="logotyp">
               </span>
               <?= $site_name ?>
             </a>
             <ul class="flex flex-col gap-x-5 gap-y-4 md:flex-row md:gap-x-7 lg:gap-x-12">
               <li>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">Hem</a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">Hem</a>
               </li>
               <li>
                 <a href="product.php">Produkt</a>
@@ -624,11 +632,14 @@ $canonical = 'https://' . $host . $uri;
               <li>
                 <a href="conditions.php">Användarvillkor</a>
               </li>
+              <li>
+                <a href="risk-warning.php">Risk Warning</a>
+              </li>
             </ul>
           </nav>
           <div class="flex justify-between gap-5">
             <div class="grid gap-5 text-white">
-              <p>Din pålitliga tradingpartner</p>
+              <p>Din pålitliga handelspartner</p>
               <div class="inline-flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
@@ -691,13 +702,43 @@ $canonical = 'https://' . $host . $uri;
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/faq.php" hreflang="no" title="Norsk">
     🇳🇴
   </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/faq.php" hreflang="da" title="Dansk">
+    🇩🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/faq.php" hreflang="fi" title="Suomi">
+    🇫🇮
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/faq.php" hreflang="hu" title="Magyar">
+    🇭🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/faq.php" hreflang="sk" title="Slovenčina">
+    🇸🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/faq.php" hreflang="bg" title="Български">
+    🇧🇬
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/faq.php" hreflang="ms" title="Bahasa Melayu">
+    🇲🇾
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/faq.php" hreflang="ru" title="Русский">
+    🇷🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/faq.php" hreflang="nb" title="Norsk bokmål">
+    🇳🇴
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/faq.php" hreflang="el" title="Ελληνικά">
+    🇬🇷
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/faq.php" hreflang="ja" title="日本語">
+    🇯🇵
+  </a>
 </div>
 </div>
           </div>
         </div>
         <div class="grid gap-2.5 text-sm text-gray-500">
             <p>
-                <?= $site_name ?> ansvarar inte för förluster eller skador som kan uppstå genom användning av informationen på denna webbplats, inklusive utbildningsinnehåll, kurser, diagram och analyser. Handel på finansmarknader innebär risk; det är viktigt att beakta dina personliga omständigheter och vid behov söka råd från en kvalificerad professionell innan du börjar. Investera endast pengar du har råd att förlora, och kom ihåg att instrument som FX, CFD:er och kryptovalutor kanske inte passar alla.
+                <?= $site_name ?> tar inget ansvar för förluster eller skador som uppstår genom att man litar på informationen som tillhandahålls på denna webbplats, inklusive utbildningsinnehåll, prisnoteringar, diagram och analyser. Handel på finansmarknaderna innebär risker. Det är därför viktigt att beakta dina personliga omständigheter innan du börjar och vid behov söka råd från en kvalificerad expert. Du bör endast investera pengar du har råd att förlora, och tänk på att instrument som valuta (FX), CFD:er och kryptovalutor inte passar alla.
             </p>
         </div>
         <div class="text-center text-white">

@@ -14,16 +14,26 @@ $schemaGraph = [
             '@id' => $site_url . '#organization',
             'name' => $site_name,
             'url' => $site_url,
-            // Якщо у шаблонах є змінна з логотипом (наприклад, $logo_url або favicon), можна розкоментувати рядок нижче:
-            // 'logo' => $site_url . '/favicon.svg', 
+            'logo' => [
+                '@type' => 'ImageObject',
+                'url' => $site_url . '/favicon-96x96.png',
+            ],
+            'description' => $home_meta_description,
+            'contactPoint' => [
+                '@type' => 'ContactPoint',
+                'contactType' => 'customer support',
+                'url' => $site_url . '/contact.php',
+            ],
         ],
-        
+
         // 2. Розмітка сутності Веб-сайту
         [
             '@type' => 'WebSite',
             '@id' => $site_url . '#website',
             'url' => $site_url,
             'name' => $site_name,
+            'description' => $home_meta_description,
+            'inLanguage' => $site_lang,
             'publisher' => [
                 '@id' => $site_url . '#organization'
             ],

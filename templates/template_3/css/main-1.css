@@ -2253,3 +2253,37 @@ dialog[open] {
 #chat-quiz-root #cq-isolated-form .iti__selected-dial-code {
   color: #ffffff !important;
 }
+
+/* =========================
+   LANGUAGE SWITCHER
+========================= */
+.footer__lang-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.footer__lang-switcher a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(227, 255, 52, 0.08);
+  border: 1px solid rgba(227, 255, 52, 0.3);
+  font-size: 18px;
+  line-height: 1;
+  text-decoration: none;
+  transition: all .25s ease;
+}
+
+.footer__lang-switcher a:hover,
+.footer__lang-switcher a:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(227, 255, 52, 0.2);
+  border-color: #E3FF34;
+}

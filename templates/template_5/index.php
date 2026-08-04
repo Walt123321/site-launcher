@@ -51,28 +51,34 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <meta property="og:image:width" content="96">
     <meta property="og:image:height" content="96">
     <meta property="og:image:alt" content="<?= $site_name ?> logo">
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/index.php" />
+<link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/index.php" />
+<link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/index.php" />
+<link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/index.php" />
+<link rel="alternate" hreflang="nl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/index.php" />
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/index.php" />
+<link rel="alternate" hreflang="pt" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/index.php" />
+<link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/index.php" />
+<link rel="alternate" hreflang="pl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/index.php" />
+<link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/index.php" />
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/index.php" />
+<link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/index.php" />
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/index.php" />
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/index.php" />
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/index.php" />
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/index.php" />
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/index.php" />
+<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/index.php" />
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/index.php" />
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/index.php" />
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/index.php" />
+<link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/index.php" />
+<link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/index.php" />
+<link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/index.php" />
+<link rel="alternate" hreflang="it" href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/index.php" />
 <?php include 'includes/header.php'; ?>
 
 <?php include 'includes/breadcrumb-schema.php'; ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": <?= json_encode($site_name) ?>,
-  "url": <?= json_encode($site_url) ?>,
-  "logo": {
-    "@type": "ImageObject",
-    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
-  },
-  "description": <?= json_encode($home_meta_description) ?>,
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "url": <?= json_encode($site_url . '/contact.php') ?>
-  }
-}
-</script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -101,17 +107,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     "@type": "Brand",
     "name": <?= json_encode($site_name) ?>
   }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": <?= json_encode($site_name) ?>,
-  "url": <?= json_encode($site_url) ?>,
-  "description": <?= json_encode($home_meta_description) ?>,
-  "inLanguage": <?= json_encode($site_lang) ?>
 }
 </script>
 
@@ -310,6 +305,17 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
 </section>
 
+<div style="width:100%;max-width:1100px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
+  <img
+    src="./assets/img/hero-ai-analytics.webp"
+    alt="<?= $home_hero_visual_alt ?>"
+    width="1200"
+    height="676"
+    loading="lazy"
+    decoding="async"
+    style="display:block;width:100%;height:auto;margin:0 auto;border-radius:16px;">
+</div>
+
 <!-- ========================= -->
 <!-- LIVE AI SIGNALS -->
 <!-- ========================= -->
@@ -374,7 +380,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                         </div>
 
                         <div class="signal-badge buy">
-                            <?= $home_signal_long ?>
+                            LONG
                         </div>
 
                     </div>
@@ -567,6 +573,17 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
 </section>
 
+<div style="width:100%;max-width:700px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
+  <img
+    src="./assets/img/ai-signal-sphere.webp"
+    alt="<?= $home_signal_visual_alt ?>"
+    width="1000"
+    height="1000"
+    loading="lazy"
+    decoding="async"
+    style="display:block;width:100%;max-width:360px;height:auto;margin:0 auto;">
+</div>
+
 <!-- ========================= -->
 <!-- WHY SECTION -->
 <!-- ========================= -->
@@ -635,6 +652,17 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
 </section>
 
+<div style="width:100%;max-width:1100px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
+  <img
+    src="./assets/img/crypto-analytics-device.webp"
+    alt="<?= $home_device_visual_alt ?>"
+    width="1200"
+    height="900"
+    loading="lazy"
+    decoding="async"
+    style="display:block;width:100%;max-width:700px;height:auto;margin:0 auto;border-radius:16px;">
+</div>
+
 <!-- ========================= -->
 <!-- REVIEWS -->
 <!-- ========================= -->
@@ -668,7 +696,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                 <div class="review-top">
 
                     <div class="review-avatar">
-                        SM
+                        <img src="./assets/img/user-avatar-1.webp" alt="<?= $home_review_1_avatar_alt ?>" width="58" height="58" loading="lazy" decoding="async">
                     </div>
 
                     <div>
@@ -711,7 +739,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                 <div class="review-top">
 
                     <div class="review-avatar">
-                        EL
+                        <img src="./assets/img/user-avatar-2.webp" alt="<?= $home_review_2_avatar_alt ?>" width="58" height="58" loading="lazy" decoding="async">
                     </div>
 
                     <div>
@@ -750,7 +778,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                 <div class="review-top">
 
                     <div class="review-avatar">
-                        AT
+                        <img src="./assets/img/user-avatar-3.webp" alt="<?= $home_review_3_avatar_alt ?>" width="58" height="58" loading="lazy" decoding="async">
                     </div>
 
                     <div>
@@ -1275,6 +1303,17 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 }
 </script>
 
+<div style="width:100%;max-width:700px;margin:40px auto 0;padding:0 24px;box-sizing:border-box;text-align:center;">
+  <img
+    src="./assets/img/cta-security-shield.webp"
+    alt="<?= $home_security_visual_alt ?>"
+    width="1200"
+    height="676"
+    loading="lazy"
+    decoding="async"
+    style="display:block;width:100%;max-width:340px;height:auto;margin:0 auto;">
+</div>
+
 <!-- ========================= -->
 <!-- FINAL CTA -->
 <!-- ========================= -->
@@ -1312,6 +1351,5 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 ></div>
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-<script src="./integration/validation.js"></script>
 
 <?php include 'includes/footer.php'; ?>

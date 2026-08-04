@@ -156,7 +156,31 @@ else {
     }
     </script>
 
-
+    <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/" />
+    <link rel="alternate" hreflang="en" href="<?= $site_url ?>/" />
+    <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/index.php" />
+    <link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/index.php" />
+    <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/index.php" />
+    <link rel="alternate" hreflang="it" href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/index.php" />
+    <link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/" />
+    <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/" />
+    <link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/" />
+    <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/" />
+    <link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/" />
+    <link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/" />
+    <link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/" />
+    <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/" />
+    <link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/" />
+    <link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/" />
+    <link rel="alternate" hreflang="nl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/" />
+    <link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/" />
+    <link rel="alternate" hreflang="pl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/" />
+    <link rel="alternate" hreflang="pt" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/" />
+    <link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/" />
+    <link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/" />
+    <link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/" />
+    <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/" />
+    <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/" />
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./integration/default-integration.css">
@@ -280,8 +304,8 @@ else {
 
                             <div class="trust-payment-icons">
                                 <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./visa.png" alt="Visa" loading="lazy"></span>
-                                <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./mastercard.png" alt="Mastercard" loading="lazy"></span>
-                                <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./paypal.png" alt="PayPal" loading="lazy"></span>
+                                <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./mastercard.webp" alt="Mastercard" loading="lazy"></span>
+                                <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./paypal.webp" alt="PayPal" loading="lazy"></span>
                                 <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./applepay.svg" alt="Apple Pay" loading="lazy"></span>
                                 <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./googlepay.svg" alt="Google Pay" loading="lazy"></span>
                                 <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./sepa.svg" alt="SEPA" loading="lazy"></span>
@@ -358,6 +382,17 @@ else {
     
             </div>
         </div>
+    </div>
+
+    <div style="width:100%;max-width:1100px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
+        <img
+            src="./assets/img/hero-growth-chart.webp"
+            alt="<?= $hero_growth_visual_alt ?>"
+            width="1200"
+            height="676"
+            loading="lazy"
+            decoding="async"
+            style="display:block;width:100%;height:auto;margin:0 auto;border-radius:16px;">
     </div>
 
     <section class="section-soft" id="platform">
@@ -647,7 +682,7 @@ else {
                     <div class="app-glow"></div>
     
                     <img
-                        src="./app_cryptocurrency.png"
+                        src="./app_cryptocurrency.webp"
                         alt="<?= $mobile_app_image_alt ?>"
                         class="app-phone-image"
                         width="320"
@@ -695,6 +730,18 @@ else {
             </div>
         </div>
     </section>
+
+    <div style="width:100%;max-width:700px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
+        <img
+            src="./assets/img/mobile-trading-light.webp"
+            alt="<?= $mobile_trading_visual_alt ?>"
+            width="900"
+            height="1200"
+            loading="lazy"
+            decoding="async"
+            style="display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border-radius:16px;">
+    </div>
+
     <section class="section-soft" id="security">
         <div class="container">
             <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
@@ -803,6 +850,18 @@ else {
             <p class="comp-disclaimer"><?= $security_disclaimer ?></p>
         </div>
     </section>
+
+    <div style="width:100%;max-width:700px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
+        <img
+            src="./assets/img/cta-ai-security.webp"
+            alt="<?= $cta_security_visual_alt ?>"
+            width="1200"
+            height="1200"
+            loading="lazy"
+            decoding="async"
+            style="display:block;width:100%;max-width:360px;height:auto;margin:0 auto;">
+    </div>
+
     <section>
         <div class="container">
             <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
@@ -946,13 +1005,13 @@ else {
             </div>
     
             <ul class="partners-grid" role="list" aria-label="<?= $partners_aria_label ?>">
-                <li class="partner-chip"><img src="./coinbase.png" alt="Coinbase logo" class="partner-logo" loading="lazy" decoding="async"><span>Coinbase</span></li>
-                <li class="partner-chip"><img src="./tradingview.png" alt="TradingView logo" class="partner-logo" loading="lazy" decoding="async"><span>TradingView</span></li>
+                <li class="partner-chip"><img src="./coinbase.webp" alt="Coinbase logo" class="partner-logo" loading="lazy" decoding="async"><span>Coinbase</span></li>
+                <li class="partner-chip"><img src="./tradingview.webp" alt="TradingView logo" class="partner-logo" loading="lazy" decoding="async"><span>TradingView</span></li>
                 <li class="partner-chip"><img src="./metatrader.png" alt="MetaTrader logo" class="partner-logo" loading="lazy" decoding="async"><span>MetaTrader</span></li>
                 <li class="partner-chip"><img src="./visa.png" alt="Visa logo" class="partner-logo" loading="lazy" decoding="async"><span>Visa</span></li>
-                <li class="partner-chip"><img src="./mastercard.png" alt="Mastercard logo" class="partner-logo" loading="lazy" decoding="async"><span>Mastercard</span></li>
-                <li class="partner-chip"><img src="./paypal.png" alt="PayPal logo" class="partner-logo" loading="lazy" decoding="async"><span>PayPal</span></li>
-                <li class="partner-chip"><img src="./swift.png" alt="SWIFT Network logo" class="partner-logo" loading="lazy" decoding="async"><span>SWIFT Network</span></li>
+                <li class="partner-chip"><img src="./mastercard.webp" alt="Mastercard logo" class="partner-logo" loading="lazy" decoding="async"><span>Mastercard</span></li>
+                <li class="partner-chip"><img src="./paypal.webp" alt="PayPal logo" class="partner-logo" loading="lazy" decoding="async"><span>PayPal</span></li>
+                <li class="partner-chip"><img src="./swift.webp" alt="SWIFT Network logo" class="partner-logo" loading="lazy" decoding="async"><span>SWIFT Network</span></li>
                 <li class="partner-chip"><img src="./cloudflare.png" alt="Cloudflare logo" class="partner-logo" loading="lazy" decoding="async"><span>Cloudflare</span></li>
             </ul>
         </div>
@@ -973,7 +1032,7 @@ else {
                         <p class="review-text"><?= $review_1_text ?></p>
                     </div>
                     <div class="reviewer-info">
-                        <div class="reviewer-avatar">MT</div>
+                        <div class="reviewer-avatar"><img src="./assets/img/user-avatar-1.webp" alt="<?= $review_1_avatar_alt ?>" width="52" height="52" loading="lazy" decoding="async"></div>
                         <div class="reviewer-meta">
                             <h4>Michael Turner</h4>
                             <p><?= $review_1_role ?> • UK 🇬🇧</p>
@@ -987,7 +1046,7 @@ else {
                         <p class="review-text"><?= $review_2_text ?></p>
                     </div>
                     <div class="reviewer-info">
-                        <div class="reviewer-avatar">AM</div>
+                        <div class="reviewer-avatar"><img src="./assets/img/user-avatar-2.webp" alt="<?= $review_2_avatar_alt ?>" width="52" height="52" loading="lazy" decoding="async"></div>
                         <div class="reviewer-meta">
                             <h4>Anna Mitchell</h4>
                             <p><?= $review_2_role ?>  • Canada 🇨🇦</p>
@@ -1001,7 +1060,7 @@ else {
                         <p class="review-text"><?= $review_3_text ?></p>
                     </div>
                     <div class="reviewer-info">
-                        <div class="reviewer-avatar">DK</div>
+                        <div class="reviewer-avatar"><img src="./assets/img/user-avatar-3.webp" alt="<?= $review_3_avatar_alt ?>" width="52" height="52" loading="lazy" decoding="async"></div>
                         <div class="reviewer-meta">
                             <h4>David Kovacs</h4>
                             <p><?= $review_3_role ?> • Germany 🇩🇪</p>
@@ -1015,7 +1074,7 @@ else {
                         <p class="review-text"><?= $review_4_text ?></p>
                     </div>
                     <div class="reviewer-info">
-                        <div class="reviewer-avatar">EL</div>
+                        <div class="reviewer-avatar"><img src="./assets/img/user-avatar-4.webp" alt="<?= $review_4_avatar_alt ?>" width="52" height="52" loading="lazy" decoding="async"></div>
                         <div class="reviewer-meta">
                             <h4>Elena Laurent</h4>
                             <p><?= $review_4_role ?>  • France 🇫🇷</p>
@@ -1199,8 +1258,8 @@ else {
 
                             <div class="trust-payment-icons">
                                 <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./visa.png" alt="Visa" loading="lazy"></span>
-                                <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./mastercard.png" alt="Mastercard" loading="lazy"></span>
-                                <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./paypal.png" alt="PayPal" loading="lazy"></span>
+                                <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./mastercard.webp" alt="Mastercard" loading="lazy"></span>
+                                <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./paypal.webp" alt="PayPal" loading="lazy"></span>
                                 <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./applepay.svg" alt="Apple Pay" loading="lazy"></span>
                                 <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./googlepay.svg" alt="Google Pay" loading="lazy"></span>
                                 <span class="trust-chip" style="background:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:5px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.15);"><img src="./sepa.svg" alt="SEPA" loading="lazy"></span>
@@ -1212,7 +1271,6 @@ else {
         </div>
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-<script src="./integration/validation.js"></script>
 
 <?php include 'includes/footer.php'; ?>
 <script>

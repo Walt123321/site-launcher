@@ -1,4 +1,9 @@
-const forms = document.querySelectorAll('.leadform');
+// Excludes #cq-isolated-form: the chat widget's lead form is initialized
+// separately by initChatForm() in includes/footer.php (it needs its own
+// destroy/reinit handling since the form starts hidden until the quiz
+// completes). Auto-running setupFormValidation() on it here too would
+// double-initialize intl-tel-input on the same phone input.
+const forms = document.querySelectorAll('.leadform:not(#cq-isolated-form)');
 const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
 const languagesByCountry = {
     'AL': 'sq', 'AD': 'ca', 'AM': 'hy', 'AT': 'de', 'AZ': 'az', 'BY': 'be', 'BE': 'nl', 'BA': 'bs', 'BG': 'bg',
@@ -57,6 +62,7 @@ const disposableEmailDomains = [
     'mx-mailsrv.com',
     'jephy-webmail.com',
     'denipl.net',
+    'web-library.net',
 ];
 
 const suspiciousDomainKeywords = ['webmail', 'mailsrv', 'mx-'];

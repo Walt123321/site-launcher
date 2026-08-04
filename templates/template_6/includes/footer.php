@@ -47,6 +47,7 @@
 
                             <ul>
                                 <li><a href="conditions.php"><?= $footer_terms ?></a></li>
+                                <li><a href="risk-warning.php"><?= $footer_risk_warning ?></a></li>
                                 <li><a href="privacy.php"><?= $footer_privacy ?></a></li>
                             </ul>
                         </div>
@@ -59,7 +60,35 @@
                         <strong><?= $footer_disclaimer_title ?></strong>
                         <?= $footer_disclaimer_text ?>
                     </p>
-        
+
+                    <?php $current_lang_code = strtolower(substr((string) ($site_lang ?? 'en'), 0, 2)); ?>
+                    <nav class="lang-switcher" aria-label="Language switcher">
+                        <a href="<?= $site_url ?>/index.php" hreflang="en" lang="en"<?= $current_lang_code === 'en' ? ' class="is-active" aria-current="true"' : '' ?>>🇬🇧 English</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/index.php" hreflang="de" lang="de"<?= $current_lang_code === 'de' ? ' class="is-active" aria-current="true"' : '' ?>>🇩🇪 Deutsch</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/index.php" hreflang="fr" lang="fr"<?= $current_lang_code === 'fr' ? ' class="is-active" aria-current="true"' : '' ?>>🇫🇷 Français</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/index.php" hreflang="es" lang="es"<?= $current_lang_code === 'es' ? ' class="is-active" aria-current="true"' : '' ?>>🇪🇸 Español</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/index.php" hreflang="it" lang="it"<?= $current_lang_code === 'it' ? ' class="is-active" aria-current="true"' : '' ?>>🇮🇹 Italiano</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/index.php" hreflang="hr" lang="hr"<?= $current_lang_code === 'hr' ? ' class="is-active" aria-current="true"' : '' ?>>🇭🇷 Hrvatski</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/index.php" hreflang="ro" lang="ro"<?= $current_lang_code === 'ro' ? ' class="is-active" aria-current="true"' : '' ?>>🇷🇴 Română</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/index.php" hreflang="nl" lang="nl"<?= $current_lang_code === 'nl' ? ' class="is-active" aria-current="true"' : '' ?>>🇳🇱 Nederlands</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/index.php" hreflang="no" lang="no"<?= $current_lang_code === 'no' ? ' class="is-active" aria-current="true"' : '' ?>>🇳🇴 Norsk</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/index.php" hreflang="pt" lang="pt"<?= $current_lang_code === 'pt' ? ' class="is-active" aria-current="true"' : '' ?>>🇵🇹 Português</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/index.php" hreflang="cs" lang="cs"<?= $current_lang_code === 'cs' ? ' class="is-active" aria-current="true"' : '' ?>>🇨🇿 Čeština</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/index.php" hreflang="pl" lang="pl"<?= $current_lang_code === 'pl' ? ' class="is-active" aria-current="true"' : '' ?>>🇵🇱 Polski</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/index.php" hreflang="tr" lang="tr"<?= $current_lang_code === 'tr' ? ' class="is-active" aria-current="true"' : '' ?>>🇹🇷 Türkçe</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/index.php" hreflang="da" lang="da"<?= $current_lang_code === 'da' ? ' class="is-active" aria-current="true"' : '' ?>>🇩🇰 Dansk</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/index.php" hreflang="sv" lang="sv"<?= $current_lang_code === 'sv' ? ' class="is-active" aria-current="true"' : '' ?>>🇸🇪 Svenska</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/index.php" hreflang="fi" lang="fi"<?= $current_lang_code === 'fi' ? ' class="is-active" aria-current="true"' : '' ?>>🇫🇮 Suomi</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/index.php" hreflang="hu" lang="hu"<?= $current_lang_code === 'hu' ? ' class="is-active" aria-current="true"' : '' ?>>🇭🇺 Magyar</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/index.php" hreflang="sk" lang="sk"<?= $current_lang_code === 'sk' ? ' class="is-active" aria-current="true"' : '' ?>>🇸🇰 Slovenčina</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/index.php" hreflang="bg" lang="bg"<?= $current_lang_code === 'bg' ? ' class="is-active" aria-current="true"' : '' ?>>🇧🇬 Български</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/index.php" hreflang="ms" lang="ms"<?= $current_lang_code === 'ms' ? ' class="is-active" aria-current="true"' : '' ?>>🇲🇾 Bahasa Melayu</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/index.php" hreflang="ru" lang="ru"<?= $current_lang_code === 'ru' ? ' class="is-active" aria-current="true"' : '' ?>>🇷🇺 Русский</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/index.php" hreflang="nb" lang="nb"<?= $current_lang_code === 'nb' ? ' class="is-active" aria-current="true"' : '' ?>>🇳🇴 Norsk Bokmål</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/index.php" hreflang="el" lang="el"<?= $current_lang_code === 'el' ? ' class="is-active" aria-current="true"' : '' ?>>🇬🇷 Ελληνικά</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/index.php" hreflang="ja" lang="ja"<?= $current_lang_code === 'ja' ? ' class="is-active" aria-current="true"' : '' ?>>🇯🇵 日本語</a>
+                    </nav>
+
                     <div class="footer-meta-links">
                         <span style="text-align:center; width: 100%;">
                             &copy; 2026 <?= $site_name ?>. <?= $footer_copyright ?>
@@ -70,7 +99,7 @@
         </footer>
     </section>
 <div id="cq-form-card" hidden aria-hidden="true" style="display: none !important;">
-  <form id="cq-isolated-form" class="leadform js-cq-chat-form rf-form js-rf-form cq-pure-custom-form" method="post" action="./integration/send.php">
+  <form id="cq-isolated-form" class="leadform js-cq-chat-form rf-form js-rf-form cq-pure-custom-form" method="post" action="<?= $site_url ?>/integration/send.php">
     <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
     <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
       <input type="text" name="website" tabindex="-1" autocomplete="off">
@@ -103,6 +132,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
+<script src="<?= $site_url ?>/integration/validation.js"></script>
 
 <div id="chat-quiz-root" style="position: fixed !important; bottom: 24px !important; right: 24px !important; z-index: 999999 !important; font-family: 'Inter', system-ui,   -apple-system, sans-serif !important; box-sizing: border-box !important;">
         
@@ -156,7 +186,7 @@
         <div style="background-color: rgba(255, 255, 255, 0.03) !important; border-bottom: 1px solid var(--color-border) !important; padding: 16px 20px !important; display:    flex !important; align-items: center !important; justify-content: space-between !important; flex-direction: row !important;">
                 <div style="display: flex !important; align-items: center !important; gap: 12px !important; flex-direction: row !important;">
                 <div style="position: relative !important; width: 42px !important; height: 42px !important; border-radius: 50% !important; border: 2px solid var(--color-accent) !important; background-color: var(--color-bg-muted) !important; display: flex !important; align-items: center !important;  justify-content: center !important; overflow: hidden !important; flex-shrink: 0 !important;">
-                    <img src="./consultant.png" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none';    this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
+                    <img src="<?= $site_url ?>/consultant.webp" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none';    this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
                     <svg style="display: none; width: 22px; height: 22px; color: var(--color-text-muted);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     <span style="position: absolute !important; bottom: 0 !important; right: 0 !important; width: 10px !important; height: 10px !important; background-color:   var(--color-success) !important; border: 2px solid var(--color-card) !important; border-radius: 50% !important;"></span>
                     </div>
@@ -243,12 +273,37 @@
             if (!form || !window.intlTelInput) return;
 
             const phone = form.querySelector('input[name="fullphone"]');
+            const email = form.querySelector('input[name="email"]');
             const onlyCountriesInput = form.querySelector('input[name="only_countries"]');
             const phoneCountry = form.querySelector('input[name="phone_country"]');
             const preloader = form.querySelector('.form-preloader');
             const errorMsg = form.querySelector('.error-msg');
 
             if (!phone || !preloader) return;
+
+            // Reuses validateEmail() / disposableEmailDomains etc. from
+            // integration/validation.js (loaded via this same footer include),
+            // same blocklist as the main lead form.
+            if (email && typeof validateEmail === 'function') {
+                email.addEventListener('blur', function () {
+                    const result = validateEmail(email.value);
+                    if (!result.valid) {
+                        if (errorMsg) {
+                            errorMsg.innerHTML = result.message;
+                            errorMsg.classList.remove('hide');
+                        }
+                        email.classList.add('error');
+                    } else {
+                        email.value = email.value.trim();
+                    }
+                });
+                email.addEventListener('input', function () {
+                    if (email.classList.contains('error')) {
+                        email.classList.remove('error');
+                        if (errorMsg) errorMsg.classList.add('hide');
+                    }
+                });
+            }
 
             let onlyCountries = [];
             try {
@@ -286,11 +341,25 @@
                     errorMsg.classList.add('hide');
                 }
                 phone.classList.remove('error');
+                if (email) email.classList.remove('error');
             }
 
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 resetErrors();
+
+                if (email && typeof validateEmail === 'function') {
+                    const emailResult = validateEmail(email.value);
+                    if (!emailResult.valid) {
+                        if (errorMsg) {
+                            errorMsg.innerHTML = emailResult.message;
+                            errorMsg.classList.remove('hide');
+                        }
+                        email.classList.add('error');
+                        return;
+                    }
+                    email.value = email.value.trim();
+                }
 
                 if (!phone.value.trim()) {
                     showPhoneError('Required');
@@ -385,7 +454,7 @@
         msg.style.cssText = "display: flex !important; gap: 10px !important; max-width: 88% !important; align-items: flex-start !important; flex-direction: row !important;     text-align: left !important; animation: chatIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;";
             msg.innerHTML = `
         <div style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--color-accent); background-color: var(--color-bg-muted); display: flex;   align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; margin-top: 2px;">
-            <img src="./consultant.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:100%;     object-fit:cover;">
+            <img src="<?= $site_url ?>/consultant.webp" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:100%;     object-fit:cover;">
             <svg style="display:none; width:14px; height:14px; color:var(--color-text-muted);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
             </div>
         <div style="background-color: var(--color-bg-soft); color: var(--color-text-main); padding: 11px 14px; border-radius: 14px; border-top-left-radius: 0; font-size:   13px; line-height: 1.45; border: 1px solid var(--color-border); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">

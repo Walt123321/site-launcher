@@ -1,0 +1,422 @@
+<?php
+require __DIR__ . '/../lang.php';
+$site_lang = 'fi-FI';
+$form_language = 'fi';
+
+$home_meta_title = "$site_name — Virallinen Sivusto | Kaupankäyntialusta";
+$home_meta_description = "Pääse globaaleille markkinoille $site_name ⭐ Institutionaalinen tekoälyanalyysi ⚡, matalan viiveen toteutus ⚡ ja selkeät käyttöliittymät modernille talouskasvulle.";
+
+$quiz_consultant_name = 'Lisa';
+$quiz_consultant_role = 'Perehdytysavustaja';
+
+$quiz_text_welcome   = "Hei! Täällä on $quiz_consultant_name, henkilökohtainen perehdytysavustajasi palvelussa $site_name. Loistavia uutisia! Pääsysi on virallisesti alustavasti hyväksytty. Anna meidän määrittää ammattimainen profiilisi nyt!";
+$quiz_text_q1 = "Täyden lakisääteisen ja sääntelyn noudattamisen varmistamiseksi vahvista nykyinen asuinmaasi: $country_name";
+$quiz_text_a1_yes    = "Kyllä, tämä on nykyinen asuinpaikkani";
+$quiz_text_a1_no     = "Ei";
+
+$quiz_text_q2 = "Täydellistä. Valitse sopiva ikäryhmä löytääksesi sopivimmat rahoitusinsultit:";
+
+$quiz_text_q3        = "Onko käytettävissä aktiivinen pankkitili tai luottokortti säännöllisten päivittäisten osinkomaksujen vastaanottamiseen?";
+$quiz_text_a3_yes    = "Kyllä, aktiivinen tili on käytettävissä";
+$quiz_text_a3_no     = "Ei vielä käytettävissä";
+
+$quiz_text_q4        = "Ilmoita henkilökohtaisten tulojen päälähde. (Tämä auttaa mukauttamaan järjestelmän riskienhallinta-asetuksia).";
+$quiz_text_a4_1      = "Virallinen työsuhde / Yksityinen elinkeinonharjoittaja";
+$quiz_text_a4_2      = "Passiivinen tulo / Henkilökohtaiset säästöt";
+$quiz_text_a4_3      = "Muut lähteet";
+
+$quiz_text_q5 = "Hienoa! Viimeinen vaihe on lyhyt puhelinvahvistus päälliköltämme rekisteröitymisen vahvistamiseksi. Puhelut soitetaan klo 11:00-20:00. Voitko ottaa puhelun vastaan?";
+$quiz_text_a5_yes    = "Kyllä, tämä aika sopii puhelulle";
+$quiz_text_a5_no     = "Soittakaa minulle välittömästi";
+
+$quiz_text_loader    = "Analysoidaan pyydettyjä vaihtoehtoja ja alustetaan turvallisen tilin parametreja...";
+$quiz_text_final_ttl = "Tili valtuutettu onnistuneesti! 🎉 Turvallinen digitaalinen työtilasi on määritetty. Suorita alla olevat viimeiset vahvistusvaiheet varmistaaksesi päivittäiset maksut:";
+
+$quiz_placeholder_fname = "Etunimi";
+$quiz_placeholder_lname = "Sukunimi";
+$quiz_placeholder_email = "Sähköpostiosoite";
+$quiz_placeholder_phone = "Puhelinnumero";
+$quiz_btn_submit = "Aktivoi Kaupankäynti";
+$quiz_text_typing       = "kirjoittaa viestiä...";
+$quiz_text_processing   = "Käsitellään pyyntöä...";
+
+$header_nav_aria_label = "Päänavigaatio";
+$nav_platform = "Alusta";
+$nav_features = "Ominaisuudet";
+$nav_markets = "Markkinat";
+$nav_process = "Prosessit";
+$nav_security = "Turvallisuus";
+$nav_reviews = "Arvostelut";
+$nav_faq = "UKK";
+$nav_about = "Meistä";
+$nav_contact = "Yhteystiedot";
+
+$theme_toggle_aria_label = "Vaihda tummaan teemaan";
+$theme_toggle_text = "Tumma";
+$theme_toggle_text_light = "Vaalea";
+$theme_toggle_dark_aria_label = "Vaihda tummaan teemaan";
+$theme_toggle_light_aria_label = "Vaihda vaaleaan teemaan";
+$header_cta_button = "Aloita kaupankäynti";
+$burger_menu_aria_label = "Valikko";
+
+$hero_heading_before = "$site_name";
+$hero_heading_accent = "Alusta";
+$hero_description = "Uusi kaupankäynnissä? $site_name tarjoaa rakenteellisia, tekoälyavusteisia työkaluja matkasi läpinäkyvyyden varmistamiseksi. Tutki kryptoa, forexalueita ja osakkeita ilman teknistä kaaosta.";
+$hero_primary_button = "Aloita kaupankäynti";
+$hero_secondary_button = "Tutki ominaisuuksia";
+$hero_badge_ssl = "SSL-protokollalla suojattu";
+$hero_badge_guided = "Ohjattu aloittelijan kulku";
+
+$signup_heading = "Luo tili";
+$signup_subtitle = "Kestää alle 3 minuuttia. Ei aloitusmaksuja.";
+$form_first_name_label = "Etunimi";
+$form_first_name_placeholder = "Matti";
+$form_last_name_label = "Sukunimi";
+$form_last_name_placeholder = "Meikäläinen";
+$form_email_label = "Sähköpostiosoite";
+$form_email_placeholder = "matti@example.fi";
+$form_phone_label = "Puhelinnumero";
+$form_phone_placeholder = "40 123 4567";
+$form_submit_button = "Luo ilmainen tili";
+$form_legal_before = "Lähettämällä tietosi hyväksyt ";
+$form_terms_text = "Käyttöehdot";
+
+$stats_value_assets = "80+";
+$stats_label_assets = "Kaupankäynnin kohteena olevaa kohdetta";
+$stats_value_setup = "Nopea";
+$stats_label_setup = "Tilin määritys";
+$stats_value_support = "24/7";
+$stats_label_support = "Tuki";
+$stats_value_security = "Turvallinen";
+$stats_label_security = "Tietojenkäsittely";
+
+$platform_section_label = "Älykäs Työtila";
+$platform_title_before = "$site_name Ammattimaiset Kaaviot.";
+$platform_title_accent = "Rakennettu yksinkertaisia päätöksiä varten.";
+$platform_subtitle = "Seuraa reaaliaikaisia hintoja ja suorita toimintoja selkeästä käyttöliittymästä.";
+$platform_check_1 = "Reaaliaikaiset tekoälyllä tehostetut kaaviot";
+$platform_check_2 = "Yhden kosketuksen markkinatoteutusjärjestelmä";
+$platform_cta_button = "Näytä alustan ominaisuudet";
+
+$mockup_overlay_headline = "⚡ Välitön Toteutus Saatavilla";
+$mockup_overlay_text = "Ohjataksesi tämän tilauksen välittömästi, aktivoi turvallinen $site_name -päätteen tila.";
+$mockup_overlay_button = "Luo Turvallinen Tili";
+$mockup_dashboard_title = "BTC / USD Hallintapaneeli";
+$mockup_today = "Tänään";
+$mockup_sell_button = "Myy";
+$mockup_buy_button = "Osta";
+$mockup_order_pending_text = "Tilaus Odottaa Kohdistusta";
+
+$features_section_label = "Alustan Suorituskyky";
+$features_title = "Kaikki mitä tarvitset käydäksesi kauppaa luottavaisin mielin palvelussa $site_name";
+$features_subtitle = "Turvallisuus, nopeus ja neuraalinen markkina-äly yhdistettynä yhteen selkeään asetteluun";
+$feature_1_title = "Pankkitason turvallisuus";
+$feature_1_text = "SSL-salamittaus, turvallinen tietojenkäsittely ja täysin suojattu tiliarkkitehtuuri.";
+$feature_2_title = "AI markkina-analyysi";
+$feature_2_text = "Reaaliaikaiset koneoppimislaskelmat, jotka keskittyvät terävien markkinavaihteluiden tallentamiseen.";
+$feature_3_title = "Matalan viiveen voimavarat";
+$feature_3_text = "Ketterä infrastruktuuri, joka keskittyy nopeaan tilausten käsittelyyn suuren volyymin aikana.";
+
+$markets_section_label = "Reaaliaikaiset varat";
+$markets_title = "Yhtenäinen $site_name hallintapaneeli globaaleille mittareille";
+$markets_subtitle = "Seuraa reaaliaikaisia varojen muutoksia ja käytä automatisoitua AI-analyysiä.";
+$markets_ai_box_title = "💡 Operatiivinen Tehokkuus:";
+$markets_ai_box_text = "Perinteinen kaupankäynti vaatii satojen indikaattoreiden manuaalista seurantaa. $site_name -algoritmit käsittelevät tuhansia hinnanmuutoksia millisekunnissa.";
+$markets_cta_button = "Pääse markkinoille";
+$markets_table_asset = "Kohde";
+$markets_table_price = "Hinta";
+$markets_table_change = "24t Muutos";
+
+$onboarding_section_label = "Perehdytysprosessi";
+$onboarding_title = "$site_name tekee aloittamisesta stressitöntä";
+$onboarding_subtitle = "Ei aiempaa kokemusta kryptovaluutoista? Automaattinen oppaamme auttaa sinua jokaisessa vaiheessa.";
+$onboarding_step_1_title = "Turvallinen Rekisteröityminen";
+$onboarding_step_1_text = "Syötä yhteystiedot kryptatun lomakkeemme kautta.";
+$onboarding_step_2_title = "AI-ohjattu Asennus";
+$onboarding_step_2_text = "Alusta näyttää mieltymyksiisi sopivat käyttöliittymävaihtoehdot.";
+$onboarding_step_3_title = "Turvallinen Rahoitus";
+$onboarding_step_3_text = "Aktivoi tilisi luotettavien maksukerrosten kautta.";
+$onboarding_step_4_title = "Käytä Signaaleja";
+$onboarding_step_4_text = "Aloita vuorovaikutus globaaleilla markkinoilla suorien neuraalisten tietovirtojen avulla.";
+
+$mobile_app_image_alt = "$site_name mobiilikaupankäyntisovellus älypuhelimessa";
+$mobile_app_section_label = "Mobiilipääsy";
+$mobile_app_title = "Salkkusi suoraan taskussasi";
+$mobile_app_subtitle = "Koko $site_name moottori tiivistettynä nopeaan mobiilikokemukseen.";
+$mobile_app_check_1 = "Push-ilmoitukset kriittisistä hinnanliikkeistä";
+$mobile_app_check_2 = "Biometrinen kirjautuminen salatulla paikallisella tallennustilalla";
+$mobile_app_check_3 = "Täydellinen kosketusottimoitu kaaviopaketti";
+$mobile_app_cta_button = "Hanki sovellus";
+
+$security_section_label = "Tasapainoinen Kehys";
+$security_title = "Läpinäkyvät toimintaparametrit";
+$security_subtitle = "Uskomme ehdottomaan rehellisyyteen. Tässä on se, mikä tekee järjestelmästämme ainutlaatuisen.";
+$security_our_title = "Keskeiset Edut";
+$security_our_item_1 = "Minimalistinen hallintapaneeli räätälöity institutionaaliseen nopeuteen.";
+$security_our_item_2 = "Neuraalinen analyyttinen tietojenkäsittely, joka pyörii 24/7.";
+$security_our_item_3 = "Ei piilotettuja transaktiomarginaaleja tai yllättäviä hallinnointipalkkioita.";
+$security_our_item_4 = "Suora kryptografinen SSL-tiliarkkitehtuuri.";
+$security_our_item_5 = "Ohjattu perehdytys, joka kestää vain minuutteja.";
+
+$security_other_badge = "Muut alustat";
+$security_other_title = "Yleiset Alan Rajoitukset";
+$security_other_item_1 = "Ylikuormitetut hallintapaneelit mainoksilla, jotka hidastavat päätöksentekoa.";
+$security_other_item_2 = "Staattiset raportit jatkuvan live-analyysin sijaan.";
+$security_other_item_3 = "Piilotetut spreadit ja epäselvät palkkiorakenteet.";
+$security_other_item_4 = "Vanhentunut infrastruktuuri, jossa on epäjohdonmukainen tietosuoja.";
+$security_other_item_5 = "Hidas tilin vahvistus, joka voi kestää päiviä.";
+$security_disclaimer = "Vertailu heijastaa alalla havaittuja tyypillisiä malleja ja se on annettu havainnollistamistarkoituksessa.";
+
+$capabilities_title = "Alustan tärkeimmät ominaisuudet yhdellä silmäyksellä";
+$capabilities_subtitle = "Tarkista tilisi käyttöoikeuteen sisältyvät toiminnalliset parametrit.";
+$capability_table_col_1 = "Ominaisuusparametri";
+$capability_table_col_2 = "Toiminnalliset Tiedot";
+$capability_table_col_3 = "Sisältyy";
+$capability_check_aria = "Sisältyy";
+$capability_1_title = "AI Kaupankäyntikehys";
+$capability_1_text = "Algoritminen käsittely, joka laskee makromittareita.";
+$capability_2_title = "Kootut Virrat";
+$capability_2_text = "Konsolidoidut reaaliaikaiset kaaviot modernille indekseille.";
+$capability_3_title = "Laitteiden Välinen Stabiilius";
+$capability_3_text = "Täysin responsiivinen näyttö mobiilissa, tietokoneessa ja tabletissa.";
+$capability_4_title = "Useiden Omaisuusluokien Kattavuus";
+$capability_4_text = "Yhdistetty pääsy kryptoihin, forexiin ja osakkeisiin yhdeltä tililtä.";
+$capability_5_title = "Automaattiset Riskivaroitukset";
+$capability_5_text = "Määritettävät ilmoitukset epätavallisesta volatiliteetista.";
+$capability_6_title = "Salattu Tietoholvi";
+$capability_6_text = "Henkilötiedot eristetty kryptografisilla pääsynvalvonnoilla.";
+$capability_7_title = "24/7 Ihmisen Tuki";
+$capability_7_text = "Live-tukihenkilöt valmiina auttamaan välittömästi.";
+
+$payments_section_label = "Talletukset";
+$payments_title = "Rahoita tiliäsi menetelmillä, joihin jo luotat";
+$payments_subtitle = "Kortit, e-lompakot ja pankkisiirrot — suojattu SSL-salauksella.";
+$payments_aria_label = "Hyväksytyt talletustavat";
+$payment_method_bank_transfer = "Pankkisiirto";
+$payment_method_ssl = "SSL-suojattu";
+
+$partners_section_label = "Luotettava Infrastruktuuri";
+$partners_title = "Rakennettu maailmanluokan kumppaneiden kanssa";
+$partners_aria_label = "$site_name infrastruktuuri- ja maksukumppanit";
+
+$reviews_section_label = "Käyttäjäpalaute";
+$reviews_title = "Mitä kauppiaat sanovat palvelusta $site_name";
+$reviews_subtitle = "Rehellistä palautetta globaalilta yhteisöltämme.";
+$review_1_text = "Aloittelijana krypto pelotti minua. $site_name teki hallintapaneelista niin intuitiivisen, että tunsin oloni varmaksi muutamassa minuutissa.";
+$review_1_role = "Vahvistettu Vähittäiskauppias";
+$review_2_text = "Käyttöliittymän selkeys säästää minulta tunteja. AI-analyysit ovat loistavia.";
+$review_2_role = "Krypto-omaisuuden Analytikko";
+$review_3_text = "Matalan viiveen toteutus mahdollistaa tavoitteiden säätämisen lennossa.";
+$review_3_role = "Yksityinen Salkunhoitaja";
+$review_4_text = "Tuki vastasi kahdessa minuutissa. Poikkeuksellista palvelua.";
+$review_4_role = "Algoritminen Kauppias";
+
+$review_1_avatar_alt = "Mikko Virtanen, $site_name käyttäjä";
+$review_2_avatar_alt = "Anna Korhonen, $site_name käyttäjä";
+$review_3_avatar_alt = "Juha Nieminen, $site_name käyttäjä";
+$review_4_avatar_alt = "Elena Mäkelä, $site_name käyttäjä";
+$hero_growth_visual_alt = "$site_name AI kaupankäynnin kasvukaavio";
+$mobile_trading_visual_alt = "$site_name mobiilisovelluksen käyttöliittymä";
+$cta_security_visual_alt = "AI-turvatoimet, jotka suojaavat $site_name -tilejä";
+
+$seo_content_title = "$site_name: Kauppiaiden voimaannuttaminen institutionaalisella AI-arkkitehtuurilla";
+$seo_content_intro = "Moderni vuorovaikutus varojen kanssa vaatii ehdotonta selkeyttä. $site_name ratkaisee monimutkaisuuden tyylikkäällä ympäristöllään.";
+$seo_block_1_title_before = "Edistynyt";
+$seo_block_1_title_accent = "Kryptovarat";
+$seo_block_1_text_1 = "Lohkoketjun likviditeetti muuttuu nopeasti, mikä tekee matalan viiveen infrastruktuurista kriittisen.";
+$seo_block_1_text_2 = "Alusta suhteuttaa volyymin muutokset helpompaa päätöksentekoa varten.";
+$seo_block_2_title_before = "Syvä";
+$seo_block_2_title_accent = "Neuraalinen Markkina-näkemys";
+$seo_block_2_text_1 = "Automatisoidut algoritmit käsittelevät markkinatietoja laskeakseen rakenteellisia vaihteluita.";
+$seo_block_2_text_2 = "Jatkuvasti pyörivät mallit näyttävät muutokset välittömästi.";
+$seo_block_3_title_before = "Kitkaton";
+$seo_block_3_title_accent = "Tilin Asennusprosessit";
+$seo_block_3_text_1 = "Vaatimustenmukaisuuden ei tarvitse olla monimutkaista. Rekisteröintimme suojaa tietosi.";
+$seo_block_3_text_2 = "Jokainen kenttä selittää, miksi sitä pyydetään.";
+$seo_block_4_title_before = "Institutionaalinen Taso";
+$seo_block_4_title_accent = "Riskienhallinta";
+$seo_block_4_text_1 = "Position mitoitus ja automaattiset varoitukset on otettu ammattimaisista työkaluista.";
+$seo_block_4_text_2 = "Varoitukset ovat määritettävissä ilmoitusuupumuksen välttämiseksi.";
+
+$faq_section_label = "Tukikeskus";
+$faq_title = "Usein kysytyt kysymykset";
+$faq_subtitle = "Löydä välittömiä vastauksia rekisteröintiin ja pääsyyn liittyen.";
+$faq_1_question = "Miten voin aloittaa palvelussa $site_name?";
+$faq_1_answer = "Täytä yllä oleva rekisteröintilomake ja aktivoi tilisi.";
+$faq_2_question = "Tarvitsenko edistynyttä kryptokokemusta?";
+$faq_2_answer = "Ei. $site_name sisältää erityisen tilan aloittelijoille.";
+$faq_3_question = "Mikä on minimivaatimus?";
+$faq_3_answer = "Vakiotilauksen aktivointi on $app_price $app_currency.";
+$faq_4_question = "Onko piilotettuja maksuja?";
+$faq_4_answer = "Ei. Toimimme täysin läpinäkyvillä maksuilla.";
+$faq_5_question = "Miten AI-komponentti toimii?";
+$faq_5_answer = "Neuraalijärjestelmämme muuntavat tiedot yksinkertaisiksi trendiviivoiksi.";
+$faq_6_question = "Ovatko henkilötietoni suojattuja?";
+$faq_6_answer = "Kyllä. Jokainen yhteys on suojattu SSL-salauksella.";
+
+$final_cta_title = "Valmis kokemaan selkeyden palvelussa $site_name?";
+$final_cta_subtitle = "Liity moderniin järjestelmään, joka on optimoitu nopeaan toimintaan ja tietosuojaan.";
+
+$footer_brand_description = "Moderni analyyttinen ympäristö, joka tarjoaa selkeän tiedonseurannan globaaleille varoille.";
+$footer_platform_title = "Alusta";
+$footer_platform_interface = "Käyttöliittymä";
+$footer_platform_markets = "Markkinakatsaus";
+$footer_pages_title = "Sivut";
+$footer_page_about = "Meistä";
+$footer_page_contact = "Yhteystiedot";
+$footer_page_signin = "Kirjaudu sisään";
+$footer_legal_title = "Lakisääteiset";
+$footer_terms = "Käyttöehdot";
+$footer_privacy = "Tietosuojakäytäntö";
+$footer_disclaimer_title = "⚠️ Riskivaroitus:";
+$footer_disclaimer_text = "Kaupankäynti digitaalisilla kryptovaroilla sisältää merkittävän markkinariskin. Säilytä strategiasi täysi hallinta.";
+$footer_copyright = "Kaikki oikeudet pidätetään.";
+
+$about_meta_title = "Meistä | $site_name";
+$about_meta_description = "Lue lisää palvelusta $site_name — missiostamme ja AI-teknologiastamme.";
+$about_breadcrumb_name = "Meistä";
+$about_h1 = "Tietoa Palvelusta $site_name";
+$about_p1 = "$site_name luotiin tekemään AI-kaupankäyntityökaluista kaikkien saatavilla olevia.";
+$about_p2 = "Uskomme, että pääsyn globaaleille markkinoille tulee olla läpinäkyvää.";
+$about_h2_mission = "Meidän Missiomme";
+$about_p_mission_1 = "Missiomme on tarjota kauppiaille selkeitä työkaluja markkinoilla navigoimiseen.";
+$about_p_mission_2 = "Jokainen $site_name -ominaisuus on suunniteltu selkeys edellä.";
+$about_h2_ai = "AI-lähestymistapamme";
+$about_p_ai_1 = "$site_name yhdistää reaaliaikaisen tiedon AI-analyysiin.";
+$about_p_ai_2 = "Järjestelmämme toimivat päätöksenteon tukena — eivät voittotakuuna.";
+$about_li_1 = "Reaaliaikainen markkinatiedon keruu";
+$about_li_2 = "AI-avusteinen markkina-analyysi";
+$about_li_3 = "Läpinäkyvät riskivaroitukset";
+$about_li_4 = "Ohjattu perehdytys uutta kauppiaille";
+$about_li_5 = "Pääsy kryptoihin, forexiin ja osakkeisiin";
+$about_li_6 = "Pankkitason turvallisuusinfrastruktuuri";
+$about_li_7 = "24/7 asiakastuki";
+$about_li_8 = "Säännölliset alustapäivitykset";
+$about_h2_security = "Turvallisuus Ensin";
+$about_p_security_1 = "Käytämme alan standardien mukaista salausta tietojesi suojaamiseen.";
+$about_p_security_2 = "Turvallisuus on sisäänrakennettu alustan jokaiseen osaan.";
+$about_h2_global = "Rakennettu Globaaleille Markkinoille";
+$about_p_global_1 = "$site_name on suunniteltu tukemaan kauppiaita monilla alueilla.";
+$about_p_global_2 = "Kumppanimme auttavat meitä ylläpitämään luotettavaa pääsyä.";
+$about_h2_why = "Miksi Valita $site_name";
+$about_why_li_1 = "Selkeä, rakenteellinen perehdytys";
+$about_why_li_2 = "AI-avusteinen, rehelliset odotukset";
+$about_why_li_3 = "Läpinäkyvät maksutiedot";
+$about_why_li_4 = "Nopea asiakaspalvelu";
+$about_why_li_5 = "Säännellyt maksukumppanit";
+$about_why_li_6 = "Jatkuvat alustaparannukset";
+$about_why_li_7 = "Keskittyminen kauppiaiden koulutukseen";
+$about_h2_forward = "Katse Tulevaisuuteen";
+$about_p_forward_1 = "Parannamme jatkuvasti palvelua $site_name palautteen perusteella.";
+$about_p_forward_2 = "Kiitos, että harkitset palvelua $site_name.";
+
+$contact_meta_title = "Yhteystiedot | $site_name";
+$contact_meta_description = "Ota yhteyttä $site_name -tiimiin.";
+$contact_breadcrumb_name = "Yhteystiedot";
+$contact_h1 = "Ota Yhteyttä";
+$contact_intro_1 = "Onko sinulla kysyttävää tilistäsi tai ominaisuudesta? Olemme täällä auttamassa.";
+$contact_intro_2 = "Täytä alla oleva lomake tai ota meihin yhteyttä suoraan.";
+$contact_h2_help = "Missä Voimme Auttaa";
+$contact_li_1 = "Tilin määritys ja vahvistus";
+$contact_li_2 = "Alustan ominaisuudet ja toiminta";
+$contact_li_3 = "Talletus- ja nostokysymykset";
+$contact_li_4 = "Tekniset ongelmat";
+$contact_li_5 = "Yleinen palaute ja ehdotukset";
+$contact_li_6 = "Kumppanuus- ja mediatiedustelut";
+$contact_h2_send = "Lähetä Meille Viesti";
+$contact_p_send = "Syötä tietosi alle, niin tiimimme vastaa mahdollisimman pian.";
+$contact_form_fname = "Etunimi";
+$contact_form_lname = "Sukunimi";
+$contact_form_email = "Sähköpostiosoite";
+$contact_form_submit = "Lähetä Viesti";
+$contact_h2_info = "Muita Tapoja Ottaa Yhteyttä";
+$contact_support_label = "Tuki:";
+$contact_institutional_label = "Institutionaaliset tiedustelut:";
+$contact_disclaimer = "Pyrimme vastaamaan kaikkiin tiedusteluihin 24-48 tunnin kuluessa.";
+
+$faq_page_meta_title = "FAQ | $site_name";
+$faq_page_meta_description = "Usein kysytyt kysymykset palvelusta $site_name — tilit, talletukset ja turvallisuus.";
+$faq_page_breadcrumb_name = "FAQ";
+$faq_page_h1 = "Usein Kysytyt Kysymykset";
+$faq_page_subtitle = "Vastauksia kysymyksiin, joita kauppiaat kysyvät meiltä useimmiten.";
+
+$sign_meta_title = "Luo Tili | $site_name";
+$sign_meta_description = "Luo $site_name -tili ja aloita kaupankäynti.";
+$sign_breadcrumb_name = "Rekisteröidy";
+$sign_h1 = "Luo Tili";
+$sign_subtitle = "Kestää alle 3 minuuttia. Ei aloitusmaksuja.";
+
+$conditions_meta_title = "Käyttöehdot | $site_name";
+$conditions_meta_description = "Lue käyttöehdot, jotka koskevat palvelun $site_name käyttöä.";
+$conditions_breadcrumb_name = "Ehdot";
+$conditions_h1 = "Käyttöehdot";
+$conditions_last_update = "Viimeksi päivitetty: " . date('F Y');
+$conditions_intro = "Nämä käyttöehdot säätelevät pääsyäsi ja käyttöäsi palvelussa $site_name.";
+$conditions_h2_eligibility = "Kelpoisuus";
+$conditions_p_eligibility = "Sinun on oltava vähintään 18-vuotias käyttääksesi alustaa.";
+$conditions_h2_account = "Sinun Tilisi";
+$conditions_p_account = "Olet vastuussa kirjautumistietojesi luottamuksellisuuden säilyttämisestä.";
+$conditions_h2_risk = "Kaupankäynnin Riski";
+$conditions_p_risk = "Rahoitusinsulttien kaupankäyntiin liittyy huomattava riski.";
+$conditions_h2_conduct = "Hyväksyttävä Käyttö";
+$conditions_p_conduct = "Sitoudut olemaan käyttämättä alustaa väärin.";
+$conditions_h2_liability = "Vastuunrajoitus";
+$conditions_p_liability = "Lain sallimissa rajoissa $site_name ei ole vastuussa epäsuorista vahingoista.";
+$conditions_h2_changes = "Muutokset Ehtoihin";
+$conditions_p_changes = "Saatamme päivittää näitä ehtoja ajoittain.";
+$conditions_h2_contact = "Yhteystiedot";
+$conditions_p_contact = "Näitä ehtoja koskevat kysymykset voidaan lähettää tukitiimillemme.";
+
+$privacy_meta_title = "Tietosuojakäytäntö | $site_name";
+$privacy_meta_description = "Lue, miten $site_name kerää ja suojaa henkilötietojasi.";
+$privacy_breadcrumb_name = "Tietosuoja";
+$privacy_h1 = "Tietosuojakäytäntö";
+$privacy_last_update = "Viimeksi päivitetty: " . date('F Y');
+$privacy_intro = "Tämä tietosuojakäytäntö selittää, miten $site_name käsittelee tietojasi.";
+$privacy_h2_collect = "Keräämämme Tiedot";
+$privacy_p_collect = "Keräämämme tiedot, jotka annat suoraan rekisteröitymisen yhteydessä.";
+$privacy_h2_use = "Miten Käytämme Tietojasi";
+$privacy_p_use = "Käytämme tietojasi alustan tarjoamiseen ja parantamiseen.";
+$privacy_h2_sharing = "Tietojen Jakaaminen";
+$privacy_p_sharing = "Emme myy henkilötietojasi kolmansille osapuolille.";
+$privacy_google_choices = 'Voit hallita sitä, miten Google käyttää tietoja osoitteessa <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads -asetukset</a>.';
+$privacy_h2_security = "Tietoturva";
+$privacy_p_security = "Käytämme teknisiä toimenpiteitä tietojesi suojaamiseksi.";
+$privacy_h2_rights = "Sinun Oikeutesi";
+$privacy_p_rights = "Sinulla on oikeus pyytää pääsyä henkilötietoihisi, niiden korjaamista tai poistamista.";
+$privacy_h2_retention = "Tietojen Säilytys";
+$privacy_p_retention = "Säilytämme tietojasi vain niin kauan kuin se on tarpeen.";
+$privacy_h2_contact = "Ota Yhteyttä";
+$privacy_p_contact = "Tietosuojaa koskevissa kysymyksissä ota meihin yhteyttä Yhteystiedot-sivun kautta.";
+
+$page_title_risk_warning = "Riskivaroitus | $site_name";
+$page_description_risk_warning = "Ymmärrä automaattisen kaupankäynnin riskit palvelussa $site_name.";
+$risk_warning_breadcrumb_name = "Riskivaroitus";
+$risk_warning_title = "Riskivaroitus";
+$risk_warning_intro = "Riskien ymmärtäminen on ensimmäinen askel kohti vastuullista kaupankäyntiä.";
+$risk_warning_ai_heading = "Miten AI-järjestelmämme Auttaa Riskienhallinnassa:";
+$risk_warning_ai_1 = "<strong>Algoritminen Tehokkuus:</strong> Edistyneet algoritmit analysoivat signaaleja puolueetonta toteutusta varten.";
+$risk_warning_ai_2 = "<strong>Tietopohjaiset Strategiat:</strong> Strategiat perustuvat vahvistettuihin kaavoihin.";
+$risk_warning_ai_3 = "<strong>Joustavat Asetukset:</strong> Säädä riskiparametrejasi milloin tahansa.";
+$risk_warning_disclaimer = "<strong>Vastuuvapauslauseke:</strong> Kaupankäyntiin liittyy aina riski. Automaattiset järjestelmät eivät takaa voittoa.";
+$risk_warning_s1_heading = "1. Yleiset & Kryptomarkkinariskit";
+$risk_warning_s1_intro = "Kryptovaluutat ovat erittäin haihtuvia varoja.";
+$risk_warning_s1_1 = "Arvot voivat vaihdella rajusti lyhyissä ajanjaksoissa.";
+$risk_warning_s1_2 = "Markkina-arvoihin voivat vaikuttaa sääntelyn muutokset.";
+$risk_warning_s1_3 = "Jotkin varat voivat menettää kaiken arvon. Sijoita vain rahaa, joka sinulla on varaa menettää.";
+$risk_warning_s2_heading = "2. Toteutus- & Vivutusriskit";
+$risk_warning_s2_1 = "<strong>Volatiliteetti:</strong> Äärimmäiset liikkumiset voivat aiheuttaa viiveitä.";
+$risk_warning_s2_2 = "<strong>Vivutus:</strong> Vivutetut tuotteet voimistavat sekä voittoja että tappioita.";
+$risk_warning_s3_heading = "3. Tekniset & Kyberturvallisuusriskit";
+$risk_warning_s3_1 = "<strong>Tekniset Tekijät:</strong> Verkkokaupankäyntiin liittyy yhteyden katkeamisen riski.";
+$risk_warning_s3_2 = "<strong>Kyberturvallisuus:</strong> Kryptotilit ovat kalastelun kohteina.";
+$risk_warning_s3_3 = "<strong>Kolmannet Osapuolet:</strong> Emme takaa ulkoisten alustojen turvallisuutta.";
+$risk_warning_s4_heading = "4. Sääntely & Loppumääräykset";
+$risk_warning_s4_1 = "<strong>Lakisääteinen Noudattaminen:</strong> Käyttäjät ovat itse vastuussa paikallisten lakien noudattamisesta.";
+$risk_warning_s4_2 = "<strong>Ei Voittotakuuta:</strong> Riskitöntä kaupankäyntiä ei ole olemassa.";
+$risk_warning_s4_3 = "<strong>Soveltuvuus:</strong> Jos et ymmärrä riskejä, kaupankäynti ei sovellu sinulle.";
+$risk_warning_contact = "<strong>Yhteystiedot:</strong> Kysymyksissä ota yhteyttä viralliseen tukitiimiimme.";
+$footer_risk_warning = "Riskivaroitus";
+
+$lang_loaded = true;
+?>

@@ -124,7 +124,6 @@ function sendTGMessage($messageText, $chatid)
     $error = curl_error($ch);
     
     logTimingStats('Telegram', $ch, $chatid);
-    curl_close($ch);
 
     if ($error) {
         logError("Telegram Error: $error | Message: $messageText | ChatID: $chatid");

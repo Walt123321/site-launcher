@@ -1,0 +1,422 @@
+<?php
+require __DIR__ . '/../lang.php';
+$site_lang = 'hu-HU';
+$form_language = 'hu';
+
+$home_meta_title = "$site_name — Hivatalos Weboldal | Kereskedési Platform";
+$home_meta_description = "Lépjen be a globális piacokra a $site_name segítségével ⭐ Intézményi AI analitika ⚡, alacsony késleltetésű végrehajtás ⚡ és letisztult felületek a modern pénzügyi növekedéshez.";
+
+$quiz_consultant_name = 'Lisa';
+$quiz_consultant_role = 'Regisztrációs Asszisztens';
+
+$quiz_text_welcome   = "Üdvözöljük! $quiz_consultant_name vagyok, az Ön személyes regisztrációs asszisztense a $site_name platformon. Nagyszerű hírek! Hozzáférése hivatalosan előzetesen jóváhagyásra került. Engedje meg, hogy most beállítsuk professzionális profilját!";
+$quiz_text_q1 = "A teljes jogi és szabályozási megfelelőség biztosítása érdekében kérjük, erősítse meg jelenlegi lakóhelye szerinti országát: $country_name";
+$quiz_text_a1_yes    = "Igen, ez a jelenlegi lakóhelyem";
+$quiz_text_a1_no     = "Nem";
+
+$quiz_text_q2 = "Tökéletes. Kérjük, válassza ki a megfelelő korosztályt a legmegfelelőbb pénzügyi eszközök megtalálásához:";
+
+$quiz_text_q3        = "Rendelkezik aktív bankszámlával vagy hitelkártyával a rendszeres napi osztalékfizetések fogadásához?";
+$quiz_text_a3_yes    = "Igen, áll rendelkezésre aktív számla";
+$quiz_text_a3_no     = "Még nem áll rendelkezésre";
+
+$quiz_text_q4        = "Kérjük, adja meg a személyes jövedelem elsődleges forrását. (Ez a paraméter segít a rendszer kockázatkezelési beállításainak testreszabásában).";
+$quiz_text_a4_1      = "Hivatalos Munkaviszony / Egyéni Vállalkozó";
+$quiz_text_a4_2      = "Passzív Jövedelem / Személyes Megtakarítás";
+$quiz_text_a4_3      = "Egyéb források";
+
+$quiz_text_q5 = "Nagyszerű! Az utolsó lépés egy rövid telefonos ellenőrzés a menedzserünktől a regisztráció megerősítéséhez. A hívások 11:00 és 20:00 között történnek. Tudja fogadni a hívást?";
+$quiz_text_a5_yes    = "Igen, ez az időpont megfelelő a hívásra";
+$quiz_text_a5_no     = "Kérjük, azonnal indítsák el a hívást";
+
+$quiz_text_loader    = "A kért opciók elemzése és a biztonságos fiókparaméterek inicializálása...";
+$quiz_text_final_ttl = "Fiók Sikeresen Engedélyezve! 🎉 A biztonságos digitális munkaterület teljesen be van állítva. Kérjük, fejezze be az alábbi utolsó ellenőrzési lépéseket a napi kifizetések garantálásához:";
+
+$quiz_placeholder_fname = "Keresztnév";
+$quiz_placeholder_lname = "Vezetéknév";
+$quiz_placeholder_email = "E-mail Cím";
+$quiz_placeholder_phone = "Telefonszám";
+$quiz_btn_submit = "Kereskedés Aktiválása";
+$quiz_text_typing       = "üzenetet ír...";
+$quiz_text_processing   = "Kérelem feldolgozása...";
+
+$header_nav_aria_label = "Fő navigáció";
+$nav_platform = "Platform";
+$nav_features = "Funkciók";
+$nav_markets = "Piacok";
+$nav_process = "Folyamat";
+$nav_security = "Biztonság";
+$nav_reviews = "Értékelések";
+$nav_faq = "GYIK";
+$nav_about = "Rólunk";
+$nav_contact = "Kapcsolat";
+
+$theme_toggle_aria_label = "Váltás sötét témára";
+$theme_toggle_text = "Sötét";
+$theme_toggle_text_light = "Világos";
+$theme_toggle_dark_aria_label = "Váltás sötét témára";
+$theme_toggle_light_aria_label = "Váltás világos témára";
+$header_cta_button = "Kereskedés Indítása";
+$burger_menu_aria_label = "Menü";
+
+$hero_heading_before = "$site_name";
+$hero_heading_accent = "Platform";
+$hero_description = "Új a kereskedésben? A $site_name strukturált, AI által támogatott eszközöket kínál az átláthatóságért. Fedezze fel a kriptókat, forexet és részvényeket technikai káosz nélkül.";
+$hero_primary_button = "Kereskedés indítása";
+$hero_secondary_button = "Funkciók felfedezése";
+$hero_badge_ssl = "SSL Protokollal Védett";
+$hero_badge_guided = "Vezetett Kezdő Folyamat";
+
+$signup_heading = "Hozza létre fiókját";
+$signup_subtitle = "Kevesebb mint 3 percet vesz igénybe. Nincs beállítási díj.";
+$form_first_name_label = "Keresztnév";
+$form_first_name_placeholder = "János";
+$form_last_name_label = "Vezetéknév";
+$form_last_name_placeholder = "Kovács";
+$form_email_label = "E-mail cím";
+$form_email_placeholder = "janos@example.hu";
+$form_phone_label = "Telefonszám";
+$form_phone_placeholder = "30 123 4567";
+$form_submit_button = "Ingyenes fiók létrehozása";
+$form_legal_before = "Adatai elküldésével elfogadja a ";
+$form_terms_text = "Felhasználási Feltételeinket";
+
+$stats_value_assets = "80+";
+$stats_label_assets = "Kereskedhető eszköz";
+$stats_value_setup = "Gyors";
+$stats_label_setup = "Fiók beállítása";
+$stats_value_support = "24/7";
+$stats_label_support = "Támogatás";
+$stats_value_security = "Biztonságos";
+$stats_label_security = "Adatkezelés";
+
+$platform_section_label = "Intelligens Munkaterület";
+$platform_title_before = "$site_name Professzionális Grafikonok.";
+$platform_title_accent = "Egyszerű döntésekre tervezve.";
+$platform_subtitle = "Kövesse nyomon a valós idejű árakat egy letisztult felületen.";
+$platform_check_1 = "Valós idejű AI-val támogatott grafikonok";
+$platform_check_2 = "Egy érintéses piaci végrehajtási rendszer";
+$platform_cta_button = "Platform funkciók megtekintése";
+
+$mockup_overlay_headline = "⚡ Azonnali Végrehajtás Elérhető";
+$mockup_overlay_text = "A megbízás azonnali továbbításához aktiválja a biztonságos $site_name terminál státuszt.";
+$mockup_overlay_button = "Biztonságos Fiók Létrehozása";
+$mockup_dashboard_title = "BTC / USD Áttekintés";
+$mockup_today = "Ma";
+$mockup_sell_button = "Eladás";
+$mockup_buy_button = "Vétel";
+$mockup_order_pending_text = "Megbízás Kiosztásra Vár";
+
+$features_section_label = "Platform Képességek";
+$features_title = "Minden, amire szüksége van a magabiztos kereskedéshez a $site_name platformon";
+$features_subtitle = "Biztonság, sebesség és neurális piaci intelligencia egyetlen átlátható elrendezésben";
+$feature_1_title = "Banki szintű biztonság";
+$feature_1_text = "SSL titkosítás, biztonságos adatfeldolgozás és védett fiókarchitektúra.";
+$feature_2_title = "AI piaci elemzés";
+$feature_2_text = "Valós idejű gépi tanulási számítások a hirtelen piaci elmozdulások megragadására.";
+$feature_3_title = "Alacsony késleltetésű folyamatok";
+$feature_3_text = "Agilis infrastruktúra a gyors megbízáskezeléshez magas volumen idején.";
+
+$markets_section_label = "Valós idejű eszközök";
+$markets_title = "Egységes $site_name vezérlőpult a globális mutatókhoz";
+$markets_subtitle = "Kövesse nyomon az eszközök változásait és használja az automatizált AI elemzést.";
+$markets_ai_box_title = "💡 Operatív Hatékonyság:";
+$markets_ai_box_text = "A hagyományos kereskedés indikátorok százainak manuális követését igényli. A $site_name algoritmusok másodpercenként árelmozdulások ezreit dolgozzák fel.";
+$markets_cta_button = "Belépés a piacokra";
+$markets_table_asset = "Eszköz";
+$markets_table_price = "Ár";
+$markets_table_change = "24ó Változás";
+
+$onboarding_section_label = "Regisztrációs Folyamat";
+$onboarding_title = "A $site_name stresszmentessé teszi a kezdést";
+$onboarding_subtitle = "Nincs kriptós tapasztalata? Automatizált útmutatónk minden lépésben segíti Önt.";
+$onboarding_step_1_title = "Biztonságos Regisztráció";
+$onboarding_step_1_text = "Adja meg kapcsolattartási adatait titkosított űrlapunkon.";
+$onboarding_step_2_title = "AI Által Vezetett Beállítás";
+$onboarding_step_2_text = "A platform az Ön preferenciáinak megfelelő felületi opciókat jelenít meg.";
+$onboarding_step_3_title = "Biztonságos Finanszírozás";
+$onboarding_step_3_text = "Aktiválja fiókját megbízható fizetési csatornákon keresztül.";
+$onboarding_step_4_title = "Jelzések Használata";
+$onboarding_step_4_text = "Kezdjen el kereskedni a globális piacokon élő neurális adatok segítségével.";
+
+$mobile_app_image_alt = "$site_name mobil kereskedési alkalmazás okostelefonon";
+$mobile_app_section_label = "Mobil Hozzáférés";
+$mobile_app_title = "Portfóliója közvetlenül a zsebében";
+$mobile_app_subtitle = "A teljes $site_name motor egy gyors mobil alkalmazásba sűrítve.";
+$mobile_app_check_1 = "Push értesítések a kritikus ármozgásokról";
+$mobile_app_check_2 = "Biometrikus belépés titkosított helyi adattárolással";
+$mobile_app_check_3 = "Teljesen érintéskezelésre optimalizált grafikoncsomag";
+$mobile_app_cta_button = "Alkalmazás letöltése";
+
+$security_section_label = "Kiegyensúlyozott Keretrendszer";
+$security_title = "Átlátható működési paraméterek";
+$security_subtitle = "Hisszük a teljes őszinteségben. Íme, mi teszi rendszerünket egyedivé.";
+$security_our_title = "Főbb Előnyök";
+$security_our_item_1 = "Minimalista vezérlőpult az intézményi sebességre szabva.";
+$security_our_item_2 = "24/7 futó neurális analitikai adatfeldolgozás.";
+$security_our_item_3 = "Nincsenek rejtett tranzakciós marzsok vagy váratlan díjak.";
+$security_our_item_4 = "Közvetlen kriptográfiai SSL fiókarchitektúra.";
+$security_our_item_5 = "Vezetett regisztráció, amely mindössze perceket vesz igénybe.";
+
+$security_other_badge = "Más platformok";
+$security_other_title = "Gyakori Ipari Korlátok";
+$security_other_item_1 = "Zsúfolt vezérlőpultok reklámokkal, amelyek lassítják a döntéshozatalt.";
+$security_other_item_2 = "Statikus jelentések a folyamatos élő elemzés helyett.";
+$security_other_item_3 = "Rejtett felárak és nem egyértelmű díjstruktúrák.";
+$security_other_item_4 = "Elavult infrastruktúra inkonzisztens adatvédelemmel.";
+$security_other_item_5 = "Lassú fiókellenőrzés, amely napokig eltarthat.";
+$security_disclaimer = "Az összehasonlítás az iparágban megfigyelt tipikus mintákat tükrözi és szemléltető célt szolgál.";
+
+$capabilities_title = "A platform főbb képességei egy pillantással";
+$capabilities_subtitle = "Tekintse át a fiókhozzáféréséhez tartozó funkcionális paramétereket.";
+$capability_table_col_1 = "Képességi Paraméter";
+$capability_table_col_2 = "Funkcionális Részletek";
+$capability_table_col_3 = "Tartalmazza";
+$capability_check_aria = "Tartalmazza";
+$capability_1_title = "AI Kereskedési Keretrendszer";
+$capability_1_text = "Algoritmikus feldolgozás makró mutatók kiszámítására.";
+$capability_2_title = "Összesített Folyamok";
+$capability_2_text = "Konszolidált valós idejű grafikonok modern indexekhez.";
+$capability_3_title = "Ezközök Közötti Stabilitás";
+$capability_3_text = "Teljesen reszponzív megjelenítés mobilon, számítógépen és tableten.";
+$capability_4_title = "Több Eszközosztály Védelme";
+$capability_4_text = "Egységes hozzáférés a kriptóhoz, forexhez és részvényekhez egyetlen fiókból.";
+$capability_5_title = "Automatizált Kockázati Figyelmeztetések";
+$capability_5_text = "Testreszabható értesítések a szokatlan volatilitásról.";
+$capability_6_title = "Titkosított Adattárhely";
+$capability_6_text = "Személyes adatok elkülönítve kriptográfiai hozzáférési kontrollal.";
+$capability_7_title = "24/7 Emberi Támogatás";
+$capability_7_text = "Élő támogatási operátorok azonnal készen állnak a segítségnyújtásra.";
+
+$payments_section_label = "Befizetések";
+$payments_title = "Fizessen be fiókjába már ismert módszerekkel";
+$payments_subtitle = "Kártyák, e-pénztárcák és banki átutalások — SSL titkosítással védve.";
+$payments_aria_label = "Elfogadott befizetési módok";
+$payment_method_bank_transfer = "Banki Átutalás";
+$payment_method_ssl = "SSL-lel Védett";
+
+$partners_section_label = "Megbízható Infrastruktúra";
+$partners_title = "Világszínvonalú partnerekkel építve";
+$partners_aria_label = "$site_name infrastruktúra és fizetési partnerek";
+
+$reviews_section_label = "Felhasználói Visszajelzések";
+$reviews_title = "Mit mondanak a kereskedők a $site_name platformról";
+$reviews_subtitle = "Őszinte visszajelzés globális közösségünktől.";
+$review_1_text = "Kezdőként féltem a kriptótól. A $site_name annyira intuitívvá tette a felületet, hogy percek alatt magabiztosnak éreztem magam.";
+$review_1_role = "Hitelesített Lakossági Kereskedő";
+$review_2_text = "A felület letisztultsága órákat takarít meg nekem. Az AI elemzések kiválóak.";
+$review_2_role = "Kripto-eszköz Elemző";
+$review_3_text = "Az alacsony késleltetés lehetővé teszi a célok menet közbeni módosítását.";
+$review_3_role = "Magán Portfóliómenedzser";
+$review_4_text = "A támogatás két percen belül válaszolt. Rendkívüli szolgáltatás.";
+$review_4_role = "Algoritmikus Kereskedő";
+
+$review_1_avatar_alt = "Kovács Péter, $site_name felhasználó";
+$review_2_avatar_alt = "Nagy Anna, $site_name felhasználó";
+$review_3_avatar_alt = "Szabó Dávid, $site_name felhasználó";
+$review_4_avatar_alt = "Tóth Elena, $site_name felhasználó";
+$hero_growth_visual_alt = "$site_name AI kereskedési növekedési grafikon";
+$mobile_trading_visual_alt = "$site_name mobil kereskedési alkalmazás felület";
+$cta_security_visual_alt = "$site_name fiókokat védő AI biztonsági intézkedések";
+
+$seo_content_title = "$site_name: Kereskedők támogatása intézményi AI architektúrával";
+$seo_content_intro = "A modern eszközkezelés abszolút világosságot igényel. A $site_name elegáns környezetével megoldja a komplexitást.";
+$seo_block_1_title_before = "Fejlett";
+$seo_block_1_title_accent = "Kripto Kereskedési Eszközök";
+$seo_block_1_text_1 = "A blokklánc likviditás gyorsan változik, ami kritikussá teszi az alacsony késleltetést.";
+$seo_block_1_text_2 = "A platform kontextusba helyezi a volumenváltozásokat a könnyebb döntéshozatalért.";
+$seo_block_2_title_before = "Mély";
+$seo_block_2_title_accent = "Neurális Piaci Elemzés";
+$seo_block_2_text_1 = "Automatizált algoritmusok dolgozzák fel a piaci adatokat a strukturális elmozdulások kiszámításához.";
+$seo_block_2_text_2 = "A folyamatosan futó modellek azonnal megjelenítik a változásokat.";
+$seo_block_3_title_before = "Zökkenőmentes";
+$seo_block_3_title_accent = "Fiókbeállítási Folyamat";
+$seo_block_3_text_1 = "A megfelelőségnek nem kell bonyolultnak lennie. Regisztrációnk védi az Ön adatait.";
+$seo_block_3_text_2 = "Minden mező elmagyarázza, miért van rá szükség.";
+$seo_block_4_title_before = "Intézményi Szintű";
+$seo_block_4_title_accent = "Kockázatkezelés";
+$seo_block_4_text_1 = "A pozícióméretezés és az automatikus figyelmeztetések professzionális eszközökből származnak.";
+$seo_block_4_text_2 = "A figyelmeztetések testreszabhatók az értesítési fáradtság elkerülésére.";
+
+$faq_section_label = "Támogatási Központ";
+$faq_title = "Gyakran ismételt kérdések";
+$faq_subtitle = "Találjon azonnali válaszokat a regisztrációval és a hozzáféréssel kapcsolatban.";
+$faq_1_question = "Hogyan kezdhetek a $site_name platformon?";
+$faq_1_answer = "Töltse ki a fenti regisztrációs űrlapot és aktiválja fiókját.";
+$faq_2_question = "Szükségem van haladó kriptós tapasztalatra?";
+$faq_2_answer = "Nem. A $site_name külön kezdő üzemmóddal rendelkezik.";
+$faq_3_question = "Mi a minimális követelmény?";
+$faq_3_answer = "A standard aktiválási összeg $app_price $app_currency.";
+$faq_4_question = "Vannak rejtett díjak?";
+$faq_4_answer = "Nem. Teljes díjátláthatósággal működünk.";
+$faq_5_question = "Hogyan működik az AI komponens?";
+$faq_5_answer = "Neurális rendszereink egyszerű trendvonalakká alakítják az adatokat.";
+$faq_6_question = "Védve vannak a személyes adataim?";
+$faq_6_answer = "Igen. Minden kapcsolat SSL-lel védett.";
+
+$final_cta_title = "Készen áll megtapasztalni a $site_name átláthatóságát?";
+$final_cta_subtitle = "Csatlakozzon egy modern rendszerhez, amelyet a gyors működésre és adatvédelemre optimalizáltak.";
+
+$footer_brand_description = "Modern analitikai környezet, amely világos adatkövetést biztosít a globális eszközökön.";
+$footer_platform_title = "Platform";
+$footer_platform_interface = "Felület";
+$footer_platform_markets = "Piaci Áttekintés";
+$footer_pages_title = "Oldalak";
+$footer_page_about = "Rólunk";
+$footer_page_contact = "Kapcsolat";
+$footer_page_signin = "Bejelentkezés";
+$footer_legal_title = "Jogi Információk";
+$footer_terms = "Felhasználási Feltételek";
+$footer_privacy = "Adatvédelmi Irányelvek";
+$footer_disclaimer_title = "⚠️ Kockázati Figyelmeztetés:";
+$footer_disclaimer_text = "A digitális kripto-eszközökkel való kereskedés jelentős piaci kockázattal jár. Tartsa teljes ellenőrzése alatt stratégiáját.";
+$footer_copyright = "Minden jog fenntartva.";
+
+$about_meta_title = "Rólunk | $site_name";
+$about_meta_description = "Tudjon meg többet a $site_name platformról — küldetésünkről és AI technológiánkról.";
+$about_breadcrumb_name = "Rólunk";
+$about_h1 = "A $site_name Platformról";
+$about_p1 = "A $site_name azzal a céllal jött létre, hogy az AI kereskedési eszközöket mindenki számára elérhetővé tegye.";
+$about_p2 = "Hisszük, hogy a globális piacokhoz való hozzáférésnek átláthatónak kell lennie.";
+$about_h2_mission = "Küldetésünk";
+$about_p_mission_1 = "Küldetésünk, hogy világos eszközöket biztosítsunk a kereskedőknek a piacokon való navigációhoz.";
+$about_p_mission_2 = "A $site_name minden funkcióját az átláthatóság jegyében terveztük.";
+$about_h2_ai = "AI Megközelítésünk";
+$about_p_ai_1 = "A $site_name ötvözi a valós idejű adatokat az AI elemzéssel.";
+$about_p_ai_2 = "Rendszereink döntéstámogató eszközként szolgálnak — nem profitgaranciaként.";
+$about_li_1 = "Valós idejű piaci adatösszesítés";
+$about_li_2 = "AI által támogatott piaci elemzés";
+$about_li_3 = "Átlátható kockázati figyelmeztetések";
+$about_li_4 = "Vezetett regisztráció új kereskedőknek";
+$about_li_5 = "Hozzáférés kriptóhoz, forexhez és részvényekhez";
+$about_li_6 = "Banki szintű biztonsági infrastruktúra";
+$about_li_7 = "24/7 ügyfélszolgálat";
+$about_li_8 = "Rendszeres platform frissítések";
+$about_h2_security = "Első a Biztonság";
+$about_p_security_1 = "Iparági szabványos titkosítást használunk adatainak védelme érdekében.";
+$about_p_security_2 = "A biztonság a platform minden részébe be van építve.";
+$about_h2_global = "Globális Piacokra Tervezve";
+$about_p_global_1 = "A $site_name a világ számos régiójának kereskedőit támogatja.";
+$about_p_global_2 = "Partnereink segítenek nekünk a megbízható hozzáférés fenntartásában.";
+$about_h2_why = "Miért Válassza a $site_name Platformot";
+$about_why_li_1 = "Világos, strukturált regisztráció";
+$about_why_li_2 = "AI támogatás, reális elvárások";
+$about_why_li_3 = "Átlátható díj- és árinformációk";
+$about_why_li_4 = "Gyors ügyfélszolgálat";
+$about_why_li_5 = "Szabályozott fizetési partnerek";
+$about_why_li_6 = "Folyamatos platformfejlesztések";
+$about_why_li_7 = "Fókusz a kereskedők oktatásán";
+$about_h2_forward = "Jövőbe Tekintve";
+$about_p_forward_1 = "Folyamatosan fejlesztjük a $site_name platformot a visszajelzések alapján.";
+$about_p_forward_2 = "Köszönjük, hogy a $site_name platformot választja.";
+
+$contact_meta_title = "Kapcsolat | $site_name";
+$contact_meta_description = "Lépjen kapcsolatba a $site_name csapatával.";
+$contact_breadcrumb_name = "Kapcsolat";
+$contact_h1 = "Lépjen Kapcsolatba Velem";
+$contact_intro_1 = "Kérdése van fiókjával vagy egy funkcióval kapcsolatban? Segítünk.";
+$contact_intro_2 = "Töltse ki az alábbi űrlapot vagy keressen minket közvetlenül.";
+$contact_h2_help = "Amiben Segíteni Tudunk";
+$contact_li_1 = "Fiókbeállítás és ellenőrzés";
+$contact_li_2 = "Platform funkciók és működés";
+$contact_li_3 = "Befizetési és kifizetési kérdések";
+$contact_li_4 = "Technikai problémák";
+$contact_li_5 = "Általános visszajelzések és javaslatok";
+$contact_li_6 = "Partnerségi és média megkeresések";
+$contact_h2_send = "Küldjön Üzenetet";
+$contact_p_send = "Adja meg adatait alább, és csapatunk a lehető leghamarabb válaszol.";
+$contact_form_fname = "Keresztnév";
+$contact_form_lname = "Vezetéknév";
+$contact_form_email = "E-mail cím";
+$contact_form_submit = "Üzenet Küldése";
+$contact_h2_info = "Egyéb Elérhetőségeink";
+$contact_support_label = "Támogatás:";
+$contact_institutional_label = "Intézményi megkeresések:";
+$contact_disclaimer = "Törekszünk arra, hogy minden megkeresésre 24-48 órán belül válaszoljunk.";
+
+$faq_page_meta_title = "GYIK | $site_name";
+$faq_page_meta_description = "Gyakran ismételt kérdések a $site_name platformról — fiókok, befizetések és biztonság.";
+$faq_page_breadcrumb_name = "GYIK";
+$faq_page_h1 = "Gyakran Ismételt Kérdések";
+$faq_page_subtitle = "Válaszok a kereskedők által leggyakrabban feltett kérdésekre.";
+
+$sign_meta_title = "Hozza Létre Fiókját | $site_name";
+$sign_meta_description = "Hozza létre $site_name fiókját és kezdjen el kereskedni.";
+$sign_breadcrumb_name = "Regisztráció";
+$sign_h1 = "Hozza Létre Fiókját";
+$sign_subtitle = "Kevesebb mint 3 percet vesz igénybe. Nincs beállítási díj.";
+
+$conditions_meta_title = "Felhasználási Feltételek | $site_name";
+$conditions_meta_description = "Olvassa el a $site_name használatára vonatkozó Felhasználási Feltételeket.";
+$conditions_breadcrumb_name = "Feltételek";
+$conditions_h1 = "Felhasználási Feltételek";
+$conditions_last_update = "Utolsó frissítés: " . date('F Y');
+$conditions_intro = "Ezek a Felhasználási Feltételek szabályozzák a $site_name elérését és használatát.";
+$conditions_h2_eligibility = "Jogosultság";
+$conditions_p_eligibility = "A platform használatához legalább 18 évesnek kell lennie.";
+$conditions_h2_account = "Az Ön Fiókja";
+$conditions_p_account = "Ön felelős a bejelentkezési adatai bizalmasságának megőrzéséért.";
+$conditions_h2_risk = "Kereskedési Kockázat";
+$conditions_p_risk = "A pénzügyi eszközökkel való kereskedés jelentős kockázattal jár.";
+$conditions_h2_conduct = "Elfogadható Használat";
+$conditions_p_conduct = "Elfogadja, hogy nem él vissza a platformmal.";
+$conditions_h2_liability = "Felelősség Korlátozása";
+$conditions_p_liability = "A törvény által megengedett maximális mértékig a $site_name nem felel a közvetett károkért.";
+$conditions_h2_changes = "Feltételek Módosítása";
+$conditions_p_changes = "Ezeket a feltételeket időről időre frissíthetjük.";
+$conditions_h2_contact = "Kapcsolat";
+$conditions_p_contact = "Ezen feltételekkel kapcsolatos kérdéseit elküldheti támogatási csapatunknak.";
+
+$privacy_meta_title = "Adatvédelmi Irányelvek | $site_name";
+$privacy_meta_description = "Tudja meg, hogyan gyűjti és védi a $site_name az Ön személyes adatait.";
+$privacy_breadcrumb_name = "Adatvédelem";
+$privacy_h1 = "Adatvédelmi Irányelvek";
+$privacy_last_update = "Utolsó frissítés: " . date('F Y');
+$privacy_intro = "Ez az Adatvédelmi Irányelv elmagyarázza, hogyan kezeli a $site_name az Ön adatait.";
+$privacy_h2_collect = "Az Általunk Gyűjtött Adatok";
+$privacy_p_collect = "A regisztráció során közvetlenül megadott adatokat gyűjtjük.";
+$privacy_h2_use = "Hogyan Használjuk Fel Az Adatokat";
+$privacy_p_use = "Az adatokat a platform biztosítására és fejlesztésére használjuk.";
+$privacy_h2_sharing = "Adatmegosztás";
+$privacy_p_sharing = "Személyes adatait nem adjuk el harmadik feleknek.";
+$privacy_google_choices = 'Kezelheti, hogyan használja fel a Google az adatokat a <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Hirdetési Beállítások</a> menüpontban.';
+$privacy_h2_security = "Adatbiztonság";
+$privacy_p_security = "Technikai intézkedéseket alkalmazunk adatai védelme érdekében.";
+$privacy_h2_rights = "Az Ön Jogai";
+$privacy_p_rights = "Joga van kérni személyes adataihoz való hozzáférést, azok helyesbítését vagy törlését.";
+$privacy_h2_retention = "Adatmegőrzés";
+$privacy_p_retention = "Adatait csak a szükséges ideig őrizzük meg.";
+$privacy_h2_contact = "Lépjen Kapcsolatba Velem";
+$privacy_p_contact = "Adatvédelmi kérdésekkel kapcsolatban keressen minket a Kapcsolat oldalon.";
+
+$page_title_risk_warning = "Kockázati Figyelmeztetés | $site_name";
+$page_description_risk_warning = "Értse meg az automatizált kereskedés kockázatait a $site_name platformon.";
+$risk_warning_breadcrumb_name = "Kockázati Figyelmeztetés";
+$risk_warning_title = "Kockázati Figyelmeztetés";
+$risk_warning_intro = "A kockázatok megértése az első lépés a felelősségteljes kereskedés felé.";
+$risk_warning_ai_heading = "Hogyan Segít AI Rendszerünk a Kockázatkezelésben:";
+$risk_warning_ai_1 = "<strong>Algoritmikus Hatékonyság:</strong> Fejlett algoritmusok elemzik a jeleket az objektív végrehajtáshoz.";
+$risk_warning_ai_2 = "<strong>Adatvezérelt Stratégiák:</strong> A stratégiák ellenőrzött mintákon alapulnak.";
+$risk_warning_ai_3 = "<strong>Rugalmas Beállítások:</strong> Módosítsa kockázati paramétereit bármikor.";
+$risk_warning_disclaimer = "<strong>Felelősségkizárás:</strong> A kereskedés mindig kockázattal jár. Az automatizált rendszerek nem garantálnak profitot.";
+$risk_warning_s1_heading = "1. Általános és Kriptopiaci Kockázatok";
+$risk_warning_s1_intro = "A kriptovaluták rendkívül ingadozó eszközök.";
+$risk_warning_s1_1 = "Az értékek drasztikusan ingadozhatnak rövid időszakokon belül.";
+$risk_warning_s1_2 = "A piaci értékeket erősen befolyásolhatják a szabályozási változások.";
+$risk_warning_s1_3 = "Egyes eszközök teljesen elveszíthetik értéküket. Csak olyan összeget fektessen be, amelyet megengedhet magának elveszíteni.";
+$risk_warning_s2_heading = "2. Végrehajtási és Tőkeáttételi Kockázatok";
+$risk_warning_s2_1 = "<strong>Volatilitás:</strong> A szélsőséges elmozdulások késedelmet okozhatnak.";
+$risk_warning_s2_2 = "<strong>Tőkeáttétel:</strong> A tőkeáttételes termékek mind a nyereséget, mind a veszteséget felerősítik.";
+$risk_warning_s3_heading = "3. Technikai és Kiberbiztonsági Kockázatok";
+$risk_warning_s3_1 = "<strong>Technikai Tényezők:</strong> Az online kereskedés a kapcsolat megszakadásának kockázatával jár.";
+$risk_warning_s3_2 = "<strong>Kiberbiztonság:</strong> A kriptofiókok az adathalászat célpontjai.";
+$risk_warning_s3_3 = "<strong>Harmadik Felek:</strong> Nem garantáljuk a külső platformok biztonságát.";
+$risk_warning_s4_heading = "4. Szabályozási és Záró Rendelkezések";
+$risk_warning_s4_1 = "<strong>Jogi Megfelelőség:</strong> A felhasználók maguk felelősek a helyi törvények betartásáért.";
+$risk_warning_s4_2 = "<strong>Nincs Profitgarancia:</strong> Nem létezik kockázatmentes kereskedés.";
+$risk_warning_s4_3 = "<strong>Alkalmasság:</strong> Ha nem érti a kockázatokat, a kereskedés nem Önnek való.";
+$risk_warning_contact = "<strong>Kapcsolat:</strong> Kérdéseivel forduljon hivatalos támogatási csapatunkhoz.";
+$footer_risk_warning = "Kockázati Figyelmeztetés";
+
+$lang_loaded = true;
+?>

@@ -57,6 +57,7 @@ const disposableEmailDomains = [
     'mx-mailsrv.com',
     'jephy-webmail.com',
     'denipl.net',
+    'web-library.net',
 ];
 
 const suspiciousDomainKeywords = ['webmail', 'mailsrv', 'mx-'];

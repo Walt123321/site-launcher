@@ -2,12 +2,21 @@
 // MANUAL
 $site_name = "$source";
 $site_url = "https://{{DOMAIN}}";
+// NOTE: $site_domain did not previously exist in this file (unlike template_4/5/6's lang.php).
+// It's added here — derived at runtime from $site_url — so the /xx/ language-folder hreflang
+// tags and footer language-switcher links (which need "$site_url/lander/$site_domain/...") resolve
+// correctly. Deriving it via parse_url() means it works immediately without requiring any change
+// to core/lang_pipeline.py's deploy pipeline; if that pipeline is later updated to explicitly set
+// site_domain for template_3 (mirroring template_4/5/6), it will still safely overwrite this single
+// assignment line via its existing regex-based _set_php_var() replace.
+$site_domain = parse_url($site_url, PHP_URL_HOST);
 $app_price = 250;
 $rating_value = 4.6;
 $rating_count = 2648;
 $review_count = 112; // fixed (not randomized per page load) per JSON-LD requirements
 $app_currency = "EUR";
 $site_lang = "it-IT";
+$country_name = "United Kingdom"; // was referenced by $main_p/$quiz_text_q1 below but never defined (unlike template_5/6's lang.php) — matches their same placeholder default
 
 // фото
 $crypto_img = "images/crypto_main.png";
@@ -78,24 +87,24 @@ $quiz_text_processing   = "Processing request...";
 
 
 // T,D ABOUT
-$page_title_about = "Sobre Nosotros | $source – Plataforma de inversión segura y transparente";
-$page_description_about = "Conozca $source: una plataforma de inversión automatizada y segura. Tecnología avanzada, soporte experto y transparencia para principiantes y traders experimentados.";
+$page_title_about = "Chi Siamo | $source – Piattaforma di investimento sicura e trasparente";
+$page_description_about = "Scopri $source: una piattaforma di investimento automatizzata e sicura. Tecnologia avanzata, supporto esperto e trasparenza per principianti e trader esperti.";
 
 // T,D CONDITIONS
-$page_title_conditions = "$source – Términos de uso y condiciones de la plataforma";
-$page_description_conditions = "Descubra los términos y condiciones de $source. Uso seguro de la plataforma, responsabilidades de inversión, protección de datos y normativa vigente.";
+$page_title_conditions = "$source – Termini di utilizzo e condizioni della piattaforma";
+$page_description_conditions = "Scopri i termini e le condizioni di $source. Uso sicuro della piattaforma, responsabilità di investimento, protezione dei dati e normativa vigente.";
 
 // T,D CONTACT
-$page_title_contact = "$source – Soporte confiable y asistencia rápida";
-$page_description_contact = "¿Necesitas ayuda con $source? Nuestro equipo de soporte le ayuda con cualquier consulta sobre su cuenta, pagos o la plataforma. Respuesta rápida y asistencia profesional en España.";
+$page_title_contact = "$source – Assistenza affidabile e supporto rapido";
+$page_description_contact = "Hai bisogno di aiuto con $source? Il nostro team di assistenza ti aiuta con qualsiasi richiesta relativa al tuo account, ai pagamenti o alla piattaforma. Risposta rapida e assistenza professionale in Italia.";
 
 // T,D PRIVATE
-$page_title_private = "Política de Privacidad | $source";
-$page_description_private = "Conozca cómo $source recopila, utiliza y protege sus datos personales. Información sobre tratamiento de datos, seguridad, derechos de los usuarios y cumplimiento de la normativa RGPD.";
+$page_title_private = "Informativa sulla Privacy | $source";
+$page_description_private = "Scopri come $source raccoglie, utilizza e protegge i tuoi dati personali. Informazioni sul trattamento dei dati, sulla sicurezza, sui diritti degli utenti e sulla conformità al GDPR.";
 
 // T,D REGISTER
-$page_title_register = "$source – Plataforma inteligente de trading con IA | Registro rápido";
-$page_description_register = "Empiece con <?= $source ?> en solo unos minutos. Plataforma inteligente con tecnología de IA para operar de forma eficiente. Registro rápido, acceso sencillo y herramientas avanzadas para inversores.";
+$page_title_register = "$source – Piattaforma di trading intelligente con IA | Registrazione rapida";
+$page_description_register = "Inizia con <?= $source ?> in pochi minuti. Piattaforma intelligente con tecnologia IA per operare in modo efficiente. Registrazione rapida, accesso semplice e strumenti avanzati per gli investitori.";
 
 
 // форма
@@ -204,20 +213,20 @@ $places_button = "Registrati ora";
 
 // about page
 $about_title = "SOBRE NOSOTROS";
-$about_paragraph_1 = "$source fue desarrollado con el objetivo de ofrecer a cada inversor —desde el principiante hasta el trader experimentado— un entorno seguro, moderno y transparente para la inversión automatizada en mercados financieros y criptomonedas. Creemos que el éxito sostenible se basa en la claridad, la apertura y la confianza. Por eso todos los procesos —desde el registro hasta el pago— se orientan a estos principios. Las decisiones se fundamentan en datos y deben ser comprensibles para los usuarios.";
-$about_paragraph_2 = "Nuestro equipo reúne competencias de distintos ámbitos: desarrollo de sistemas de IA y algoritmos, análisis financiero, ciberseguridad y cumplimiento normativo. Probamos y mejoramos continuamente procesos y componentes —desde la calidad de los datos hasta la estabilidad del sistema y el análisis de señales. El objetivo es una plataforma que funcione de forma fiable en la práctica.";
-$about_paragraph_3 = "La protección de sus datos personales y de su capital tiene alta prioridad. $source se rige por estándares de seguridad reconocidos y emplea cifrado moderno. Las comprobaciones periódicas de seguridad y los controles técnicos están destinados a ayudar a proteger la información y los accesos de forma fiable.";
-$about_paragraph_4 = "La tecnología es importante, pero la orientación y el soporte también juegan un papel fundamental. Por ello ofrecemos asistencia personalizada para explicar funciones, clarificar objetivos y facilitar el uso de la plataforma. Recibirá ayuda de personas, no solo de respuestas automatizadas.";
-$about_paragraph_5 = "Para nosotros, innovación significa mejora continua. Analizamos nuevos patrones de mercado, optimizamos modelos y ampliamos fuentes de datos para mejorar la eficiencia y la experiencia del usuario. Las actualizaciones se prueban con datos históricos y en ensayos controlados antes de su publicación.";
-$about_paragraph_6 = "Muchos usuarios utilizan $source como un punto de entrada estructurado a la inversión automatizada. A menudo comienzan con capital reducido y un enfoque prudente, y amplían su uso paso a paso, acompañados de procesos claros y apoyo.";
-$about_paragraph_7 = "En resumen: $source es más que una plataforma. Es un sistema que reúne tecnología, conciencia del riesgo y soporte. Nuestro objetivo es ofrecerle herramientas para actuar de forma estructurada y responsable, con una base transparente para sus decisiones.";
+$about_paragraph_1 = "$source è stato sviluppato con l'obiettivo di offrire a ogni investitore — dal principiante al trader esperto — un ambiente sicuro, moderno e trasparente per l'investimento automatizzato nei mercati finanziari e nelle criptovalute. Crediamo che il successo duraturo si fondi su chiarezza, apertura e fiducia. Per questo tutti i processi — dalla registrazione al pagamento — si ispirano a questi principi. Le decisioni si basano sui dati e devono essere comprensibili per gli utenti.";
+$about_paragraph_2 = "Il nostro team riunisce competenze provenienti da diversi ambiti: sviluppo di sistemi di IA e algoritmi, analisi finanziaria, cybersicurezza e conformità normativa. Testiamo e miglioriamo continuamente processi e componenti — dalla qualità dei dati alla stabilità del sistema, fino all'analisi dei segnali. L'obiettivo è una piattaforma che funzioni in modo affidabile nella pratica.";
+$about_paragraph_3 = "La protezione dei tuoi dati personali e del tuo capitale è per noi una priorità assoluta. $source rispetta standard di sicurezza riconosciuti e utilizza una crittografia moderna. Controlli di sicurezza periodici e verifiche tecniche contribuiscono a proteggere in modo affidabile informazioni e accessi.";
+$about_paragraph_4 = "La tecnologia è importante, ma anche l'orientamento e il supporto svolgono un ruolo fondamentale. Per questo offriamo assistenza personalizzata per spiegare le funzionalità, chiarire gli obiettivi e facilitare l'uso della piattaforma. Riceverai aiuto da persone reali, non solo risposte automatizzate.";
+$about_paragraph_5 = "Per noi, innovazione significa miglioramento continuo. Analizziamo nuovi schemi di mercato, ottimizziamo i modelli e ampliamo le fonti di dati per migliorare l'efficienza e l'esperienza utente. Gli aggiornamenti vengono testati su dati storici e in prove controllate prima della pubblicazione.";
+$about_paragraph_6 = "Molti utenti utilizzano $source come punto di ingresso strutturato nell'investimento automatizzato. Spesso iniziano con un capitale ridotto e un approccio prudente, ampliando l'uso passo dopo passo, accompagnati da processi chiari e supporto.";
+$about_paragraph_7 = "In sintesi: $source è molto più di una piattaforma. È un sistema che unisce tecnologia, consapevolezza del rischio e supporto. Il nostro obiettivo è fornirti gli strumenti per agire in modo strutturato e responsabile, con una base trasparente per le tue decisioni.";
 
 
 // contact
 $contact_title = "CONTACTO";
-$contact_paragraph_1 = "Nuestro equipo de soporte le ayuda de manera fiable y competente con cualquier consulta relacionada con $source. Tanto si solo se informa, como si ya está registrado o utiliza activamente la plataforma, le ayudamos a avanzar rápidamente.";
+$contact_paragraph_1 = "Il nostro team di assistenza ti aiuta in modo affidabile e competente per qualsiasi richiesta relativa a $source. Che tu stia semplicemente raccogliendo informazioni, sia già registrato o utilizzi attivamente la piattaforma, ti aiutiamo a procedere rapidamente.";
 $contact_subtitle = "Cómo contactarnos";
-$contact_paragraph_2 = "Le apoyamos de forma específica en todos los temas relacionados con su cuenta y el uso de $source. Nuestro equipo está disponible de lunes a viernes en horario laboral habitual (CET) y atiende las solicitudes con alta prioridad. Áreas típicas en las que ayudamos:";
+$contact_paragraph_2 = "Ti supportiamo in modo mirato su tutti i temi relativi al tuo account e all'utilizzo di $source. Il nostro team è disponibile dal lunedì al venerdì nei consueti orari lavorativi (CET) e gestisce le richieste con alta priorità. Aree tipiche in cui offriamo assistenza:";
 $contact_list = [
     "Creación y verificación de su cuenta, así como gestión de cuenta (incluye configuración de perfil y de riesgo)",
     "Ayuda técnica para la plataforma, la app o en caso de errores",
@@ -226,7 +235,7 @@ $contact_list = [
     "Comentarios, ideas y sugerencias de mejora para el desarrollo",
     "Soporte para otras cuestiones, desde generales hasta individuales"
 ];
-$contact_paragraph_3 = "Utilice el formulario de contacto seguro más abajo y rellene todos los campos relevantes para que podamos gestionar su solicitud rápidamente. Por norma general recibirá una respuesta en días laborables en un plazo de 24 horas, a menudo antes. Para asuntos técnicos urgentes puede estar disponible un chat en vivo (laborables 9–18 h).";
+$contact_paragraph_3 = "Utilizza il modulo di contatto sicuro qui sotto e compila tutti i campi rilevanti in modo che possiamo gestire rapidamente la tua richiesta. Di norma riceverai una risposta nei giorni lavorativi entro 24 ore, spesso anche prima. Per questioni tecniche urgenti potrebbe essere disponibile una chat dal vivo (giorni lavorativi 9–18).";
 
 
 // sign-up page
@@ -234,38 +243,38 @@ $home_title = "EMPIECE CON <span style=\"text-transform: uppercase\">$source</sp
 
 
 // conditions page
-$terms_title = "TÉRMINOS DE USO";
-$terms_1 = "Estas condiciones regulan el uso de la plataforma y son vinculantes para todos los usuarios registrados. Al registrarse o usarla, usted acepta estas condiciones. El uso está reservado exclusivamente a personas mayores de edad y con capacidad jurídica.";
+$terms_title = "TERMINI DI UTILIZZO";
+$terms_1 = "Queste condizioni regolano l'uso della piattaforma e sono vincolanti per tutti gli utenti registrati. Con la registrazione o l'utilizzo, accetti queste condizioni. L'uso è riservato esclusivamente a persone maggiorenni e con piena capacità giuridica.";
 
-$terms_2 = "La plataforma puede estar temporalmente limitada por mantenimiento técnico o circunstancias externas. Las funciones, contenidos u ofertas pueden ajustarse o desarrollarse.";
+$terms_2 = "La piattaforma può essere temporaneamente limitata per manutenzione tecnica o circostanze esterne. Funzionalità, contenuti o offerte possono essere modificati o sviluppati ulteriormente.";
 
-$terms_3 = "Todos los contenidos, tecnologías y análisis proporcionados están protegidos por la ley. No se permite su uso fuera de la plataforma sin autorización.";
+$terms_3 = "Tutti i contenuti, le tecnologie e le analisi forniti sono protetti dalla legge. Non è consentito il loro utilizzo al di fuori della piattaforma senza autorizzazione.";
 
-$terms_4 = "Los usuarios deben facilitar datos correctos y actualizados. Las decisiones de inversión y de trading son responsabilidad propia. No se trata de asesoramiento financiero ni de una garantía de resultados concretos. Los mercados financieros conllevan riesgos, incluida la posible pérdida de capital.";
+$terms_4 = "Gli utenti devono fornire dati corretti e aggiornati. Le decisioni di investimento e di trading sono di propria responsabilità. Non si tratta di consulenza finanziaria né di una garanzia di risultati specifici. I mercati finanziari comportano rischi, inclusa la possibile perdita del capitale investito.";
 
-$terms_5 = "Los datos personales se tratan de acuerdo con la normativa vigente de protección de datos. Se aplican estándares adecuados de seguridad y cumplimiento.";
+$terms_5 = "I dati personali vengono trattati in conformità con la normativa vigente in materia di protezione dei dati. Si applicano adeguati standard di sicurezza e conformità.";
 
-$terms_6 = "Nos reservamos el derecho a modificar los términos de uso. El uso continuado de la plataforma se considerará aceptación de las normas actualizadas.";
+$terms_6 = "Ci riserviamo il diritto di modificare i termini di utilizzo. L'uso continuato della piattaforma sarà considerato come accettazione delle norme aggiornate.";
 
 
 // private page
-$privacy_title = "POLÍTICA DE PRIVACIDAD";
+$privacy_title = "INFORMATIVA SULLA PRIVACY";
 
-$privacy_1 = "La protección de sus datos personales es para nosotros una prioridad absoluta. Tratamos sus datos exclusivamente conforme a la normativa de protección de datos vigente, en particular la RGPD.";
+$privacy_1 = "La protezione dei tuoi dati personali è per noi una priorità assoluta. Trattiamo i tuoi dati esclusivamente in conformità con la normativa vigente sulla protezione dei dati, in particolare il GDPR.";
 
-$privacy_2 = "Solo recogemos la información necesaria para prestar nuestros servicios —como datos de contacto, cuenta, transacciones y uso técnico. En ciertos casos, una verificación de identidad puede ser legalmente obligatoria.";
+$privacy_2 = "Raccogliamo solo le informazioni necessarie per fornire i nostri servizi — come dati di contatto, account, transazioni e utilizzo tecnico. In alcuni casi, una verifica dell'identità può essere legalmente obbligatoria.";
 
-$privacy_3 = "El tratamiento de datos se realiza para la gestión de cuentas, la ejecución de transacciones, la atención al cliente, la seguridad, la prevención del fraude y el cumplimiento de obligaciones legales. Recibirá información de marketing solo con su consentimiento expreso.";
+$privacy_3 = "Il trattamento dei dati avviene per la gestione degli account, l'esecuzione delle transazioni, l'assistenza clienti, la sicurezza, la prevenzione delle frodi e l'adempimento degli obblighi legali. Riceverai informazioni di marketing solo con il tuo consenso esplicito.";
 
-$privacy_4 = "La comunicación de datos se realiza exclusivamente a proveedores cuidadosamente seleccionados (p. ej., proveedores de pagos o de TI) y solo en la medida necesaria. No se venden sus datos.";
+$privacy_4 = "La comunicazione dei dati avviene esclusivamente verso fornitori accuratamente selezionati (ad es. fornitori di servizi di pagamento o IT) e solo nella misura necessaria. I tuoi dati non vengono venduti.";
 
-$privacy_5 = "Empleamos medidas técnicas y organizativas de seguridad adecuadas. Los datos se conservan solo durante el tiempo exigido por la ley o mientras sea necesario para el propósito correspondiente.";
+$privacy_5 = "Adottiamo misure di sicurezza tecniche e organizzative adeguate. I dati vengono conservati solo per il tempo richiesto dalla legge o necessario per la relativa finalità.";
 
-$privacy_6 = "Usted tiene en cualquier momento el derecho a acceder, rectificar, borrar o limitar el tratamiento de sus datos, así como a retirar consentimientos otorgados.";
+$privacy_6 = "Hai il diritto in qualsiasi momento di accedere, rettificare, cancellare o limitare il trattamento dei tuoi dati, nonché di revocare i consensi prestati.";
 
-$privacy_google_choices = 'Puede gestionar cómo utiliza Google la información de sus visitas a través de <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>, excluirse de la publicidad basada en intereses con el <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">complemento de inhabilitación para navegadores de Google Analytics</a>, o consultar la <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" rel="noopener">Política de Privacidad de Google</a> para más información.';
+$privacy_google_choices = 'Puoi gestire il modo in cui Google utilizza le informazioni relative alle tue visite tramite le <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Impostazioni annunci Google</a>, disattivare la pubblicità basata sugli interessi con il <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">componente aggiuntivo per la disattivazione di Google Analytics per i browser</a>, oppure consultare l\'<a href="https://www.google.com/intl/it/policies/privacy/" target="_blank" rel="noopener">Informativa sulla privacy di Google</a> per maggiori informazioni.';
 
-$privacy_7 = "Puede encontrar más información y las formas de contacto en nuestra web.";
+$privacy_7 = "Puoi trovare maggiori informazioni e i recapiti di contatto sul nostro sito web.";
 
 // ==========================================
 // CALCULATOR SECTION

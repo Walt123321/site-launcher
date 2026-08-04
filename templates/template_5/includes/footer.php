@@ -1,8 +1,16 @@
 <!-- ========================= -->
 <!-- FOOTER -->
 <!-- ========================= -->
-<link rel="stylesheet" href="./integration/default-integration.css">
+<link rel="stylesheet" href="/lander/<?= $site_domain ?>/integration/default-integration.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
+<?php
+// Current page filename (e.g. "about.php"), used to build language-switcher links that
+// stay on the same page regardless of whether we're rendering a root page or a /xx/ page.
+$current_page = basename($_SERVER['SCRIPT_NAME'] ?? '');
+if ($current_page === '') {
+    $current_page = 'index.php';
+}
+?>
 
 
 <footer class="footer">
@@ -21,7 +29,7 @@
                         <div class="footer-logo-icon">
 
                             <img
-                                src="./favicon.svg"
+                                src="/lander/<?= $site_domain ?>/favicon.svg"
                                 alt="<?= $site_name ?>"
                                 class="footer-logo-image"
                             >
@@ -98,6 +106,7 @@
                     <ul class="footer-links">
                         <li><a href="supported-exchanges.php"><?= $nav_exchanges_full ?></a></li>
                         <li><a href="risk-disclosure.php"><?= $nav_risk_full ?></a></li>
+                        <li><a href="risk-warning.php"><?= $footer_risk_warning ?></a></li>
                         <li><a href="aml-policy.php"><?= $nav_aml ?></a></li>
                         <li><a href="cookies.php"><?= $nav_cookies ?></a></li>
                         <li><a href="privacy.php"><?= $nav_privacy ?></a></li>
@@ -151,6 +160,44 @@
 
     </div>
 
+    <!-- LANGUAGE SWITCHER -->
+    <div class="footer-lang">
+
+        <div class="container footer-lang-wrapper">
+
+            <span class="footer-lang-label"><?= $footer_lang_label ?></span>
+
+            <div class="lang-switcher">
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/<?= $current_page ?>" hreflang="hr" title="Hrvatski">🇭🇷 <span>Hrvatski</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/<?= $current_page ?>" hreflang="ro" title="Română">🇷🇴 <span>Română</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/<?= $current_page ?>" hreflang="nl" title="Nederlands">🇳🇱 <span>Nederlands</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/<?= $current_page ?>" hreflang="en" title="English">🇬🇧 <span>English</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/<?= $current_page ?>" hreflang="no" title="Norsk">🇳🇴 <span>Norsk</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/<?= $current_page ?>" hreflang="pt" title="Português">🇵🇹 <span>Português</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/<?= $current_page ?>" hreflang="cs" title="Čeština">🇨🇿 <span>Čeština</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/<?= $current_page ?>" hreflang="pl" title="Polski">🇵🇱 <span>Polski</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/<?= $current_page ?>" hreflang="tr" title="Türkçe">🇹🇷 <span>Türkçe</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/<?= $current_page ?>" hreflang="da" title="Dansk">🇩🇰 <span>Dansk</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/<?= $current_page ?>" hreflang="sv" title="Svenska">🇸🇪 <span>Svenska</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/<?= $current_page ?>" hreflang="fi" title="Suomi">🇫🇮 <span>Suomi</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/<?= $current_page ?>" hreflang="hu" title="Magyar">🇭🇺 <span>Magyar</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/<?= $current_page ?>" hreflang="sk" title="Slovenčina">🇸🇰 <span>Slovenčina</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/<?= $current_page ?>" hreflang="bg" title="Български">🇧🇬 <span>Български</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/<?= $current_page ?>" hreflang="ms" title="Bahasa Melayu">🇲🇾 <span>Bahasa Melayu</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/<?= $current_page ?>" hreflang="ru" title="Русский">🇷🇺 <span>Русский</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/<?= $current_page ?>" hreflang="nb" title="Norsk Bokmål">🇳🇴 <span>Norsk Bokmål</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/<?= $current_page ?>" hreflang="el" title="Ελληνικά">🇬🇷 <span>Ελληνικά</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/<?= $current_page ?>" hreflang="ja" title="日本語">🇯🇵 <span>日本語</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/<?= $current_page ?>" hreflang="de" title="Deutsch">🇩🇪 <span>Deutsch</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/<?= $current_page ?>" hreflang="fr" title="Français">🇫🇷 <span>Français</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/<?= $current_page ?>" hreflang="es" title="Español">🇪🇸 <span>Español</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/<?= $current_page ?>" hreflang="it" title="Italiano">🇮🇹 <span>Italiano</span></a>
+            </div>
+
+        </div>
+
+    </div>
+
     <!-- BOTTOM -->
     <div class="footer-bottom">
 
@@ -164,6 +211,7 @@
                 <a href="privacy.php"><?= $nav_privacy ?></a>
                 <a href="terms.php"><?= $nav_terms ?></a>
                 <a href="risk-disclosure.php"><?= $nav_risk_full ?></a>
+                <a href="risk-warning.php"><?= $footer_risk_warning ?></a>
                 <a href="aml-policy.php"><?= $nav_aml ?></a>
                 <a href="cookies.php"><?= $nav_cookies_short ?></a>
             </div>
@@ -234,11 +282,11 @@ window.MAXIMA_LANG = {
     }
 };
 </script>
-<script src="./assets/js/app.js"></script>
+<script src="/lander/<?= $site_domain ?>/assets/js/app.js"></script>
 
 
 <div id="cq-form-card" hidden aria-hidden="true" style="display: none !important;">
-  <form id="cq-isolated-form" class="leadform js-cq-chat-form rf-form js-rf-form cq-pure-custom-form" method="post" action="./integration/send.php">
+  <form id="cq-isolated-form" class="leadform js-cq-chat-form rf-form js-rf-form cq-pure-custom-form" method="post" action="/lander/<?= $site_domain ?>/integration/send.php">
     <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
     <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
       <input type="text" name="website" tabindex="-1" autocomplete="off">
@@ -278,6 +326,7 @@ window.MAXIMA_LANG = {
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
+<script src="<?= $site_url ?>/integration/validation.js"></script>
 
 <div id="chat-quiz-root" style="position: fixed !important; bottom: 20px !important; right: 20px !important; z-index: 999999 !important; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important; box-sizing: border-box !important;">
     
@@ -293,7 +342,7 @@ window.MAXIMA_LANG = {
         <div style="background-color: #1a1a1e !important; border-bottom: 1px solid #27272a !important; padding: 14px 18px !important; display: flex !important; align-items: center !important; justify-content: space-between !important; flex-direction: row !important;">
             <div style="display: flex !important; align-items: center !important; gap: 12px !important; flex-direction: row !important;">
                 <div style="position: relative !important; width: 40px !important; height: 40px !important; border-radius: 50% !important; border: 2px solid #10b981 !important; background-color: #27272a !important; display: flex !important; align-items: center !important; justify-content: center !important; overflow: hidden !important; flex-shrink: 0 !important;">
-                    <img src="./consultant.png" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
+                    <img src="/lander/<?= $site_domain ?>/consultant.webp" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
                     <svg style="display: none; width: 22px; height: 22px; color: #a1a1aa;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     <span style="position: absolute !important; bottom: 0 !important; right: 0 !important; width: 9px !important; height: 9px !important; background-color: #10b981 !important; border: 1.5px solid #121214 !important; border-radius: 50% !important;"></span>
                 </div>
@@ -381,12 +430,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!form || !window.intlTelInput) return;
 
         const phone = form.querySelector('input[name="fullphone"]');
+        const email = form.querySelector('input[name="email"]');
         const onlyCountriesInput = form.querySelector('input[name="only_countries"]');
         const phoneCountry = form.querySelector('input[name="phone_country"]');
         const preloader = form.querySelector('.form-preloader');
         const errorMsg = form.querySelector('.error-msg');
 
         if (!phone || !preloader) return;
+
+        // Reuses validateEmail() / disposableEmailDomains etc. from
+        // integration/validation.js (loaded via this same footer include),
+        // same blocklist as the main lead form.
+        if (email && typeof validateEmail === 'function') {
+            email.addEventListener('blur', function () {
+                const result = validateEmail(email.value);
+                if (!result.valid) {
+                    if (errorMsg) {
+                        errorMsg.innerHTML = result.message;
+                        errorMsg.classList.remove('hide');
+                    }
+                    email.classList.add('error');
+                } else {
+                    email.value = email.value.trim();
+                }
+            });
+            email.addEventListener('input', function () {
+                if (email.classList.contains('error')) {
+                    email.classList.remove('error');
+                    if (errorMsg) errorMsg.classList.add('hide');
+                }
+            });
+        }
 
         let onlyCountries = [];
         try {
@@ -424,11 +498,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorMsg.classList.add('hide');
             }
             phone.classList.remove('error');
+            if (email) email.classList.remove('error');
         }
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             resetErrors();
+
+            if (email && typeof validateEmail === 'function') {
+                const emailResult = validateEmail(email.value);
+                if (!emailResult.valid) {
+                    if (errorMsg) {
+                        errorMsg.innerHTML = emailResult.message;
+                        errorMsg.classList.remove('hide');
+                    }
+                    email.classList.add('error');
+                    return;
+                }
+                email.value = email.value.trim();
+            }
 
             if (!phone.value.trim()) {
                 showPhoneError('Required');
@@ -524,7 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
         msg.style.cssText = "display: flex !important; gap: 10px !important; max-width: 88% !important; align-items: flex-start !important; flex-direction: row !important; text-align: left !important; animation: chatIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;";
         msg.innerHTML = `
             <div style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid #10b981; background-color: #27272a; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; margin-top: 2px;">
-                <img src="./consultant.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:100%; object-fit:cover;">
+                <img src="/lander/<?= $site_domain ?>/consultant.webp" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:100%; object-fit:cover;">
                 <svg style="display:none; width:14px; height:14px; color:#a1a1aa;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
             </div>
             <div style="background-color: #1e1e22; color: #f4f4f5; padding: 11px 14px; border-radius: 14px; border-top-left-radius: 0; font-size: 13px; line-height: 1.45; border: 1px solid #27272a; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">

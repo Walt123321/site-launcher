@@ -26,19 +26,35 @@ $data = [
     ]
 ];
 
-$ch = curl_init($endpoint);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json; charset=utf-8']);
-curl_exec($ch);
-$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
+function indexnow_send_ping($endpoint, $data, $flag_file) {
+    $ch = curl_init($endpoint);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json; charset=utf-8']);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 2);
+    curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-$log_message = date('Y-m-d H:i:s') . " | IndexNow Response Code: {$code}\n";
-file_put_contents(__DIR__ . '/indexnow_log.txt', $log_message, FILE_APPEND);
+    $log_message = date('Y-m-d H:i:s') . " | IndexNow Response Code: {$code}\n";
+    file_put_contents(__DIR__ . '/indexnow_log.txt', $log_message, FILE_APPEND);
 
-if ($code == 202) {
-    file_put_contents($flag_file, 'done');
+    if ($code == 202) {
+        file_put_contents($flag_file, 'done');
+    }
+}
+
+if (function_exists('fastcgi_finish_request')) {
+    // Finish and flush the response to the visitor first, then run the
+    // (possibly slow) IndexNow ping afterwards so it never delays page render.
+    register_shutdown_function(function () use ($endpoint, $data, $flag_file) {
+        fastcgi_finish_request();
+        indexnow_send_ping($endpoint, $data, $flag_file);
+    });
+} else {
+    // No FPM available to defer the request — keep it synchronous but bounded
+    // so a slow/unreachable endpoint can never blow past the request budget.
+    indexnow_send_ping($endpoint, $data, $flag_file);
 }
 ?>

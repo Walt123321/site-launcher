@@ -2,7 +2,7 @@
 // Redirect if default language
 include '../lang.php';
 $extractLang = str_replace('-', '', strtolower(explode('-', $site_lang)[0]));
-$currentLang = 'sv';
+$currentLang = 'de';
 if ($extractLang === $currentLang) {
     header('HTTP/1.1 301 Moved Permanently');
     header('Location: ' . $site_url . "/lander/" . $site_domain . "/conditions.php");
@@ -40,13 +40,13 @@ $canonical = 'https://' . $host . $uri;
       "@type": "ListItem",
       "position": 1,
       "name": "<?= $site_name ?>",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/sv/"
+      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/de/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "💸 Användarvillkor 💸",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/sv/#heading-style-h1"
+      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/de/#heading-style-h1"
     }
   ]
 }
@@ -161,8 +161,6 @@ $canonical = 'https://' . $host . $uri;
         document.getElementById("skeleton")?.remove();
       });
     </script>
-    <script src="../assets/js/lazyload.min.js" defer></script>
-    <script src="../assets/js/scripts.js" defer></script>
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/conditions.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/conditions.php" />
 <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/conditions.php" />
@@ -177,7 +175,17 @@ $canonical = 'https://' . $host . $uri;
 <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/conditions.php" />
 <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/conditions.php" />
 <link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/conditions.php" />
-<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/conditions.php" /></head>
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/conditions.php" />
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/conditions.php" />
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/conditions.php" />
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/conditions.php" />
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/conditions.php" />
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/conditions.php" />
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/conditions.php" />
+<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/conditions.php" />
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/conditions.php" />
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/conditions.php" />
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/conditions.php" /></head>
   <body class="flex min-h-screen flex-col">
     <!-- skeleton -->
     <div id="skeleton">
@@ -192,16 +200,16 @@ $canonical = 'https://' . $host . $uri;
     <div class="container-base">
       <div
         class="rounded-custom flex min-h-[70px] items-center justify-between gap-8 border bg-white px-4.5 py-3 md:px-8">
-        <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none uppercase header-nav-logo" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">
-          <span class="text-primary inline-block header-logo">
-            <img src="../favicon-96x96.png" class="footer-logo" alt="logo">
+        <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none uppercase header-nav-logotyp" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">
+          <span class="text-primary inline-block header-logotyp">
+            <img src="../favicon-96x96.png" class="footer-logotyp" alt="logotyp">
           </span>
           <?= $site_name ?>
         </a>
 <nav class="hiddens grow justify-center lg:flex">
   <ul class="flex flex-row flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-5 lg:gap-x-7">
     <li>
-      <a class="data-active:text-primary" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">Hem</a>
+      <a class="data-active:text-primary" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">Hem</a>
     </li>
     <li>
       <a class="data-active:text-primary" href="product.php">Produkt</a>
@@ -210,7 +218,7 @@ $canonical = 'https://' . $host . $uri;
       <a class="data-active:text-primary" href="offer.php">Erbjudande</a>
     </li>
     <li>
-      <a class="data-active:text-primary" href="contacts.php">Kontakt</a>
+      <a class="data-active:text-primary" href="contacts.php">Kontakta oss</a>
     </li>
     <li>
       <a class="data-active:text-primary" href="faq.php">FAQ</a>
@@ -230,7 +238,7 @@ $canonical = 'https://' . $host . $uri;
             </span>
           </a>
           <a class="inline-flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full border-2"
-            href="sign.php" aria-label="Sign In">
+            href="sign.php" aria-label="Logga in">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29" fill="none">
               <path
                 d="M1 13.7998C0.447715 13.7998 -4.82823e-08 14.2475 0 14.7998C4.82823e-08 15.3521 0.447715 15.7998 1 15.7998L1 13.7998ZM17.8071 15.5069C18.1976 15.1164 18.1976 14.4832 17.8071 14.0927L11.4431 7.72874C11.0526 7.33821 10.4195 7.33821 10.0289 7.72874C9.63841 8.11926 9.63841 8.75243 10.0289 9.14295L15.6858 14.7998L10.0289 20.4567C9.63841 20.8472 9.63841 21.4803 10.0289 21.8709C10.4195 22.2614 11.0526 22.2614 11.4431 21.8709L17.8071 15.5069ZM1 15.7998L17.1 15.7998L17.1 13.7998L1 13.7998L1 15.7998Z"
@@ -240,7 +248,7 @@ $canonical = 'https://' . $host . $uri;
             </svg>
           </a>
         </div>
-        <button class="menu-icon" data-menu-icon aria-label="open menu">
+        <button class="menu-icon" data-menu-icon aria-label="öppna menyn">
           <svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect y="3" width="38" height="4" rx="2" fill="currentColor" />
             <rect y="15" width="38" height="4" rx="2" fill="currentColor" />
@@ -252,7 +260,7 @@ $canonical = 'https://' . $host . $uri;
     <nav class="mobile-menu" data-mobile-menu>
       <ul class="flex flex-col flex-wrap items-center justify-center gap-y-8">
         <li>
-          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">Hem</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">Hem</a>
         </li>
         <li>
           <a href="product.php">Produkt</a>
@@ -261,10 +269,10 @@ $canonical = 'https://' . $host . $uri;
           <a href="offer.php">Erbjudande</a>
         </li>
         <!-- <li>
-      <a href="/team">Our team</a>
+      <a href="/team">Vårt team</a>
     </li> -->
         <li>
-          <a href="contacts.php">Kontakt</a>
+          <a href="contacts.php">Kontakta oss</a>
         </li>
         <li>
           <a href="faq.php">FAQ</a>
@@ -272,7 +280,7 @@ $canonical = 'https://' . $host . $uri;
       </ul>
       <div class="flex items-center gap-4 md:hidden">
         <a class="group inline-flex h-[50px] items-center justify-between rounded-full border-2" href="sign.php">
-          <span class="inline-block p-3.5 text-sm">Sign Up</span>
+          <span class="inline-block p-3.5 text-sm">Registrera dig</span>
           <span
             class="group-hover:bg-primary inline-flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full bg-black text-white transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15" fill="none">
@@ -301,7 +309,7 @@ $canonical = 'https://' . $host . $uri;
         <div class="container-narrow grid gap-8 md:gap-12">
     <div class="grid gap-5 md:gap-7">
         <nav aria-label="breadcrumb" class="flex flex-wrap items-center text-sm text-gray-500 md:text-lg">
-            <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/" class="breadcrumb-item">Hem</a>
+            <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/" class="breadcrumb-item">Hem</a>
             <span class="breadcrumb-item">Användarvillkor</span>
         </nav>
         <h1>Användarvillkor</h1>
@@ -309,39 +317,39 @@ $canonical = 'https://' . $host . $uri;
 <div class="grid gap-6 md:gap-8">
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">1. Allmänt</h2>
-    <p>Denna webbplats tillhandahåller information om tredjeparts handelsplattformar och relaterade tjänster. Genom att använda webbplatsen godkänner du dessa villkor och vår integritetspolicy. Villkoren kan uppdateras när som helst.</p>
+    <p>Denna webbplats tillhandahåller information om tredjeparts handelsplattformar och relaterade tjänster. Genom att använda denna webbplats godkänner du dessa villkor och vår integritetspolicy. Villkoren kan uppdateras när som helst.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">2. Behörighet</h2>
-    <p>Du måste vara minst 18 år, kunna godkänna dessa villkor och inte vara begränsad av lokala lagar. Vi ansvarar inte för olaglig användning av webbplatsen.</p>
+    <p>Du måste vara minst 18 år gammal, kunna godkänna dessa villkor och inte vara begränsad av lokala lagar. Vi ansvarar inte för olaglig användning av denna webbplats.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">3. Begränsad åtkomst</h2>
-    <p>Vi kan begränsa åtkomst för användare från vissa regioner eller där juridiska eller regulatoriska risker gäller. Tjänster kan vara otillgängliga på begränsade platser.</p>
+    <p>Vi kan begränsa åtkomsten för användare från vissa regioner eller där juridiska eller regulatoriska risker föreligger. Tjänster kan vara otillgängliga i begränsade områden.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
-    <h2 class="h3">4. Förbjuden användning</h2>
-    <p>Du får inte missbruka webbplatsen, inklusive brott mot lagar, kränkning av rättigheter, spridning av skadligt innehåll eller användning av automatiserade system. Vi kan begränsa åtkomst vid brott mot villkoren.</p>
+    <h2 class="h3">4. Otillåten användning</h2>
+    <p>Du får inte missbruka webbplatsen, inklusive brott mot lagar, kränkning av rättigheter, spridning av skadligt innehåll eller användning av automatiserade system. Vid överträdelser kan vi begränsa åtkomsten.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">5. Immateriella rättigheter</h2>
-    <p>Allt innehåll, varumärken och material tillhör oss eller tredje part. Du får endast använda webbplatsen för personligt bruk och får inte kopiera eller ändra innehåll.</p>
+    <p>Allt innehåll, varumärken och material tillhör oss eller tredje part. Du får endast använda webbplatsen för personliga ändamål och får inte kopiera eller ändra innehåll.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">6. Ansvar</h2>
-    <p>Webbplatsen och tjänsterna tillhandahålls «i befintligt skick». Vi ansvarar inte för fel, förluster eller skador till följd av användning av webbplatsen.</p>
+    <p>Webbplatsen och tjänsterna tillhandahålls "i befintligt skick". Vi ansvarar inte för fel, förluster eller skador som uppstår genom användning av denna webbplats.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">7. Tredjepartstjänster</h2>
-    <p>Vi kan visa innehåll eller länkar från tredje part. Vi ansvarar inte för deras riktighet eller tjänster. Verifiera information innan du fattar beslut.</p>
+    <p>Vi kan visa innehåll eller länkar från tredje part. Vi ansvarar inte för deras noggrannhet eller tjänster. Kontrollera informationen innan du fattar ett beslut.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">8. Länkar</h2>
-    <p>Länkar till externa webbplatser tillhandahålls endast för bekvämlighet. Vi stöder eller kontrollerar dem inte och ansvarar inte för deras innehåll.</p>
+    <p>Länkar till externa webbplatser tillhandahålls endast som en service. Vi stöder eller kontrollerar dem inte och ansvarar inte för deras innehåll.</p>
   </div>
   <div class="grid gap-2 md:gap-4">
     <h2 class="h3">9. Övrigt</h2>
-    <p>Vi kan uppdatera eller ändra tjänster och villkor när som helst. Dessa villkor utgör hela avtalet mellan dig och oss. Outnyttjade rättigheter innebär inte avstående.</p>
+    <p>Vi kan uppdatera eller ändra tjänsterna och villkoren när som helst. Dessa villkor utgör hela avtalet mellan dig och oss. Underlåtenhet att genomdriva rättigheter innebär inte att man avstår från dem.</p>
   </div>
 </div>
       </div>
@@ -352,16 +360,16 @@ $canonical = 'https://' . $host . $uri;
       <div class="relative grid gap-7 md:gap-10">
         <div class="grid gap-5">
           <nav class="flex flex-col flex-wrap justify-between gap-x-10 gap-y-5 text-white md:flex-row">
-            <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none text-white uppercase max-md:pr-[120px] footer-nav-logo"
-              href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">
+            <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none text-white uppercase max-md:pr-[120px] footer-nav-logotyp"
+              href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">
               <span class="inline-block">
-                  <img src="../favicon-96x96.png" class="footer-logo" alt="logo">
+                  <img src="../favicon-96x96.png" class="footer-logotyp" alt="logotyp">
               </span>
               <?= $site_name ?>
             </a>
             <ul class="flex flex-col gap-x-5 gap-y-4 md:flex-row md:gap-x-7 lg:gap-x-12">
               <li>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">Hem</a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">Hem</a>
               </li>
               <li>
                 <a href="product.php">Produkt</a>
@@ -383,11 +391,14 @@ $canonical = 'https://' . $host . $uri;
               <li>
                 <a href="conditions.php">Användarvillkor</a>
               </li>
+              <li>
+                <a href="risk-warning.php">Risk Warning</a>
+              </li>
             </ul>
           </nav>
           <div class="flex justify-between gap-5">
             <div class="grid gap-5 text-white">
-              <p>Din pålitliga tradingpartner</p>
+              <p>Din pålitliga handelspartner</p>
               <div class="inline-flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
@@ -450,13 +461,43 @@ $canonical = 'https://' . $host . $uri;
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/conditions.php" hreflang="no" title="Norsk">
     🇳🇴
   </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/conditions.php" hreflang="da" title="Dansk">
+    🇩🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/conditions.php" hreflang="fi" title="Suomi">
+    🇫🇮
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/conditions.php" hreflang="hu" title="Magyar">
+    🇭🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/conditions.php" hreflang="sk" title="Slovenčina">
+    🇸🇰
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/conditions.php" hreflang="bg" title="Български">
+    🇧🇬
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/conditions.php" hreflang="ms" title="Bahasa Melayu">
+    🇲🇾
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/conditions.php" hreflang="ru" title="Русский">
+    🇷🇺
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/conditions.php" hreflang="nb" title="Norsk bokmål">
+    🇳🇴
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/conditions.php" hreflang="el" title="Ελληνικά">
+    🇬🇷
+  </a>
+  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/conditions.php" hreflang="ja" title="日本語">
+    🇯🇵
+  </a>
 </div>
 </div>
           </div>
         </div>
         <div class="grid gap-2.5 text-sm text-gray-500">
             <p>
-                <?= $site_name ?> ansvarar inte för förluster eller skador som kan uppstå genom användning av informationen på denna webbplats, inklusive utbildningsinnehåll, kurser, diagram och analyser. Handel på finansmarknader innebär risk; det är viktigt att beakta dina personliga omständigheter och vid behov söka råd från en kvalificerad professionell innan du börjar. Investera endast pengar du har råd att förlora, och kom ihåg att instrument som FX, CFD:er och kryptovalutor kanske inte passar alla.
+                <?= $site_name ?> tar inget ansvar för förluster eller skador som uppstår genom att man litar på informationen som tillhandahålls på denna webbplats, inklusive utbildningsinnehåll, prisnoteringar, diagram och analyser. Handel på finansmarknaderna innebär risker. Det är därför viktigt att beakta dina personliga omständigheter innan du börjar och vid behov söka råd från en kvalificerad expert. Du bör endast investera pengar du har råd att förlora, och tänk på att instrument som valuta (FX), CFD:er och kryptovalutor inte passar alla.
             </p>
         </div>
         <div class="text-center text-white">

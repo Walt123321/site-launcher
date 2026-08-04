@@ -64,6 +64,7 @@ st.set_page_config(
 
 GEO_PATH = "core/geo_defaults.json"
 BUYERS_PATH = "buyers.json"
+TEST_DOMAINS_PATH = "test_domains.json"
 UNKNOWN_GEO_LABEL = "🏳️ Невідомо / Unknown"
 TOTAL_STEPS = 3
 TEMPLATES = {
@@ -235,6 +236,22 @@ def save_buyer(name: str):
         buyers.append(name)
         with open(BUYERS_PATH, "w", encoding="utf-8") as f:
             json.dump(buyers, f, ensure_ascii=False, indent=2)
+
+
+def load_test_domains() -> list:
+    try:
+        with open(TEST_DOMAINS_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
+def save_test_domain(domain: str):
+    domains = load_test_domains()
+    if domain and domain not in domains:
+        domains.append(domain)
+        with open(TEST_DOMAINS_PATH, "w", encoding="utf-8") as f:
+            json.dump(domains, f, ensure_ascii=False, indent=2)
 
 
 geo = load_geo(_mtime(GEO_PATH))
@@ -418,7 +435,8 @@ def extract_lang_vars(lang_php: str) -> dict:
     }
 
 def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
-                   app_price: Optional[str], app_currency: Optional[str]) -> str:
+                   app_price: Optional[str], app_currency: Optional[str],
+                   is_test: bool = False) -> str:
     # $source
     content = re.sub(r'\$source\s*=\s*".*?";', f'$source = "{brand}";', content)
 
@@ -518,7 +536,16 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
         # Якщо $currency взагалі немає в файлі, додаємо ПЕРЕД ?>
         # Знаходимо ?> і додаємо строку перед нею
         content = content.replace("?>", "$currency = '250EUR'; // Fallback валюта\n?>")
-    
+
+    # ============================================
+    # ТЕСТ-РЕЖИМ: помітка сесії для send.php
+    # ============================================
+    # Коли сайт зібраний у тест-режимі (див. app.py test-domain flow), send.php
+    # маршрутизує всі TG-сповіщення тільки в TGBOT_TECH_TEST_CHATID і пропускає
+    # sendTGMessageToBuyers() — жоден реальний баєр про тестовий лід не дізнається.
+    if is_test:
+        content = content.replace("?>", "$_SESSION['is_test_site'] = true;\n?>", 1)
+
     return content
 
 def build_domain_site_zip(
@@ -529,6 +556,7 @@ def build_domain_site_zip(
     geo_code: str,
     brand: str,
     buyer: str = "",
+    is_test: bool = False,
 ) -> bytes:
     root = Path(site_template_dir)
     if not root.exists() or not root.is_dir():
@@ -572,6 +600,7 @@ def build_domain_site_zip(
                         target_lang=target_lang,
                         app_price=app_price,
                         app_currency=app_currency,
+                        is_test=is_test,
                     )
                     out_bytes = patched.encode("utf-8")
 
@@ -2169,6 +2198,150 @@ elif st.session_state.step == 2:
             disabled=(len(chosen) != k),
             on_click=step2_continue
         )
+
+        st.markdown("---")
+
+        # =====================================================
+        # TEST-DOMAIN LAUNCH (no AI translation, no Sheet row,
+        # Telegram routed only to the test-lead chat)
+        # =====================================================
+        st.markdown("### 🧪 Тестовий запуск")
+        st.caption(
+            "Без AI-перекладу lang.php (береться дефолтний), без рядка в Google "
+            "Sheet, ліди йдуть тільки в тестовий TG-чат. Реальний проєкт у "
+            "Keitaro створюється — щоб одразу відкрити робочий сайт."
+        )
+
+        _test_domains = load_test_domains()
+        _tc1, _tc2 = st.columns([3, 1])
+        with _tc1:
+            _test_domain_sel = st.selectbox(
+                "Тестовий домен",
+                options=_test_domains,
+                key="test_domain_select",
+                placeholder="Ще немає жодного — додай нижче",
+            ) if _test_domains else None
+        with _tc2:
+            st.write("")
+            st.write("")
+
+        with st.expander("➕ Додати тестовий домен у список"):
+            _tdc1, _tdc2 = st.columns([3, 1])
+            with _tdc1:
+                _new_test_domain = st.text_input(
+                    " ", key="new_test_domain_input",
+                    placeholder="test-brand.com", label_visibility="collapsed"
+                )
+            with _tdc2:
+                if st.button("Додати", key="add_test_domain_btn", use_container_width=True):
+                    _clean = _normalize_domain((_new_test_domain or "").strip())
+                    if _clean:
+                        save_test_domain(_clean)
+                        st.session_state.new_test_domain_input = ""
+                        st.rerun()
+
+        _test_template = st.selectbox(
+            "Шаблон для тесту",
+            options=VISIBLE_TEMPLATE_KEYS,
+            format_func=lambda k: TEMPLATES[k]["label"],
+            key="test_template_select",
+        )
+
+        test_clicked = st.button(
+            "🧪 Запустити тест на домені",
+            use_container_width=True,
+            disabled=not _test_domain_sel,
+        )
+
+        if test_clicked:
+            st.session_state.currently_generating_test = True
+            st.session_state.test_domain_active = _test_domain_sel
+            st.session_state.test_template_active = _test_template
+            st.rerun()
+
+        if st.session_state.get("currently_generating_test"):
+
+            test_status_box = st.empty()
+            test_result_box = st.container()
+
+            try:
+                test_domain = st.session_state.get("test_domain_active")
+                test_tpl_id = st.session_state.get("test_template_active", "template_1")
+
+                brand = (st.session_state.get("brand") or "").strip() or "Test"
+                geo_code = st.session_state.get("geo_code") or "UNKNOWN"
+                target_lang = st.session_state.get("target_lang") or "en"
+                geo_code_for_zip = "" if geo_code == "UNKNOWN" else geo_code.lower()
+
+                test_status_box.info("🟡 Готую lang.php (без AI, дефолтний контент шаблону)...")
+
+                raw_lang_bytes = open(TEMPLATES[test_tpl_id]["lang"], "rb").read()
+                raw_lang_text = raw_lang_bytes.decode("utf-8", errors="replace")
+                test_lang_vars = extract_lang_vars(raw_lang_text)
+
+                register_path = next(
+                    (n for n in ("register.php", "sign-up.php", "sign.php")
+                     if (Path(TEMPLATES[test_tpl_id]["dir"]) / n).exists()), ""
+                )
+                about_path = next(
+                    (n for n in ("about.php", "about-us.php")
+                     if (Path(TEMPLATES[test_tpl_id]["dir"]) / n).exists()), ""
+                )
+
+                test_lang_content = _render_placeholders(
+                    raw_lang_text,
+                    domain=test_domain,
+                    target_lang=target_lang,
+                    app_price=test_lang_vars.get("app_price"),
+                    app_currency=test_lang_vars.get("app_currency"),
+                    buyer=st.session_state.get("buyer_name", ""),
+                    brand=brand,
+                    register_path=register_path,
+                    about_path=about_path,
+                    geo_code=geo_code_for_zip,
+                )
+
+                test_status_box.info("🟡 Пакую ZIP...")
+
+                test_zip_bytes = build_domain_site_zip(
+                    domain=test_domain,
+                    site_template_dir=TEMPLATES[test_tpl_id]["dir"],
+                    lang_php_content=test_lang_content,
+                    target_lang=target_lang,
+                    geo_code=geo_code_for_zip,
+                    brand=brand,
+                    buyer=st.session_state.get("buyer_name", ""),
+                    is_test=True,
+                )
+
+                test_status_box.info("🟡 Створюю в Keitaro...")
+
+                from core.keitaro import create_multiple_projects
+
+                test_results = create_multiple_projects(
+                    domains=[test_domain],
+                    zip_map={test_domain: test_zip_bytes},
+                    callback=lambda txt: test_status_box.info(txt),
+                    max_workers=1,
+                    buyer=st.session_state.get("buyer_name") or None,
+                )
+
+                test_errors = [x for x in test_results if x.get("error")]
+
+                if test_errors:
+                    test_status_box.error(f"❌ Помилка тестового запуску: {test_errors}")
+                else:
+                    test_status_box.success(f"✅ Тестовий сайт готовий: https://{test_domain}")
+
+                with test_result_box:
+                    for row in test_results:
+                        st.json(row)
+
+                st.session_state.currently_generating_test = False
+
+            except Exception as e:
+                test_status_box.error(f"❌ Помилка: {str(e)}")
+                st.session_state.currently_generating_test = False
 
         st.markdown("---")
 
