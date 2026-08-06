@@ -742,16 +742,6 @@ $canonical = 'https://' . $host . $uri;
         </div>
     </section>
 
-    <div style="width:100%;max-width:700px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
-        <img
-            src="../assets/img/mobile-trading-light.webp"
-            alt="<?= $mobile_trading_visual_alt ?>"
-            width="1086"
-            height="1448"
-            loading="lazy"
-            decoding="async"
-            style="display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border-radius:16px;">
-    </div>
 
     <section class="section-soft" id="security">
         <div class="container">
