@@ -388,8 +388,8 @@ else {
         <img
             src="./assets/img/hero-growth-chart.webp"
             alt="<?= $hero_growth_visual_alt ?>"
-            width="1200"
-            height="676"
+            width="1672"
+            height="941"
             loading="lazy"
             decoding="async"
             style="display:block;width:100%;height:auto;margin:0 auto;border-radius:16px;">
@@ -735,8 +735,8 @@ else {
         <img
             src="./assets/img/mobile-trading-light.webp"
             alt="<?= $mobile_trading_visual_alt ?>"
-            width="900"
-            height="1200"
+            width="1086"
+            height="1448"
             loading="lazy"
             decoding="async"
             style="display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border-radius:16px;">
@@ -855,8 +855,8 @@ else {
         <img
             src="./assets/img/cta-ai-security.webp"
             alt="<?= $cta_security_visual_alt ?>"
-            width="1200"
-            height="1200"
+            width="1254"
+            height="1254"
             loading="lazy"
             decoding="async"
             style="display:block;width:100%;max-width:360px;height:auto;margin:0 auto;">
