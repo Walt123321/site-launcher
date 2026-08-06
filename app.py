@@ -2226,6 +2226,13 @@ elif st.session_state.step == 2:
             st.write("")
 
         with st.expander("➕ Додати тестовий домен у список"):
+            # Widget values can't be reassigned via session_state after the
+            # widget with that key has already been instantiated this run —
+            # so the clear has to happen here, before st.text_input() below,
+            # driven by a flag set on the *previous* run's button click.
+            if st.session_state.pop("_clear_new_test_domain_input", False):
+                st.session_state.new_test_domain_input = ""
+
             _tdc1, _tdc2 = st.columns([3, 1])
             with _tdc1:
                 _new_test_domain = st.text_input(
@@ -2237,7 +2244,7 @@ elif st.session_state.step == 2:
                     _clean = _normalize_domain((_new_test_domain or "").strip())
                     if _clean:
                         save_test_domain(_clean)
-                        st.session_state.new_test_domain_input = ""
+                        st.session_state._clear_new_test_domain_input = True
                         st.rerun()
 
         _test_template = st.selectbox(
