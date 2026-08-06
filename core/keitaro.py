@@ -101,6 +101,26 @@ def find_domain_by_name(domain):
 
     return None
 
+
+def find_stream_by_campaign(campaign_id, domain=None):
+    r = get(f"{BASE_URL}/campaigns/{campaign_id}/streams")
+    if r.status_code != 200:
+        return None
+
+    rows = r.json()
+    if not rows:
+        return None
+
+    if domain:
+        for row in rows:
+            if row.get("name") == domain:
+                return row["id"]
+
+    # Fall back to whatever is already sitting at position 1 — a reused
+    # campaign (see create_campaign's 422 branch) only ever gets one
+    # stream from this pipeline, so this is safe to reuse either way.
+    return rows[0]["id"]
+
 # =====================================================
 # OFFER
 # =====================================================
@@ -210,15 +230,28 @@ def create_flow(domain, campaign_id, offer_id, callback=None):
 
     r = post(f"{BASE_URL}/streams", payload)
 
-    if r.status_code != 200:
-        raise Exception(f"FLOW ERROR {r.status_code}: {r.text}")
+    if r.status_code == 200:
+        fid = r.json()["id"]
 
-    fid = r.json()["id"]
+        if callback:
+            callback(f"✅ {domain}: flow #{fid}")
 
-    if callback:
-        callback(f"✅ {domain}: flow #{fid}")
+        return fid
 
-    return fid
+    if r.status_code == 422:
+        # Happens when create_campaign() above reused an existing campaign
+        # (e.g. a retry after a prior partial launch) — that campaign
+        # already has a stream at position 1, so Keitaro rejects a second
+        # one with "position: Must be unique". Reuse it instead of failing.
+        existing = find_stream_by_campaign(campaign_id, domain)
+
+        if existing:
+            if callback:
+                callback(f"♻️ {domain}: flow reused")
+
+            return existing
+
+    raise Exception(f"FLOW ERROR {r.status_code}: {r.text}")
 
 # =====================================================
 # DOMAIN
