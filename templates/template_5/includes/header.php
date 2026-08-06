@@ -7,14 +7,14 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="/lander/<?= $site_domain ?>/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-    <link rel="icon" type="image/png" href="/lander/<?= $site_domain ?>/assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 
     <meta property="og:type" content="website">
 
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/lander/<?= $site_domain ?>/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="shortcut icon" href="/favicon.ico" />
 
 <link rel="canonical" href="<?= $canonical ?>">
@@ -40,7 +40,7 @@
 
             <a href="<?= $site_url ?>" class="logo">
 
-                <div class="logo-icon"> <img src="/lander/<?= $site_domain ?>/favicon.svg" alt="<?= $site_name ?>" class="logo-image"></div>
+                <div class="logo-icon"> <img src="/favicon.svg" alt="<?= $site_name ?>" class="logo-image"></div>
 
                 <div class="logo-text">
                     <span class="logo-title"><?= $site_name ?></span>
