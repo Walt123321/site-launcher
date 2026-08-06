@@ -150,7 +150,7 @@ function initials($text) {
     <meta property="og:image:width" content="96">
     <meta property="og:image:height" content="96">
     <meta property="og:image:alt" content="<?= $site_name ?> logo">
-    <link rel="stylesheet" href="./integration/default-integration.css">
+    <link rel="stylesheet" href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/./integration/default-integration.css') ?: time() ?>">
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" /></noscript>
 <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
@@ -209,12 +209,12 @@ function initials($text) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap"
     rel="stylesheet" />
-  <link rel="preload" href="./assets/css/tailwind.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="./assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/./assets/css/tailwind.min.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript>
-    <link rel="stylesheet" href="./assets/css/tailwind.min.css" />
+    <link rel="stylesheet" href="./assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/./assets/css/tailwind.min.css') ?: time() ?>" />
   </noscript>
-  <link rel="stylesheet" href="./assets/css/feature-image.css" />
-  <link rel="stylesheet" href="./assets/css/calculator.css" />
+  <link rel="stylesheet" href="./assets/css/feature-image.css?v=<?= @filemtime(__DIR__ . '/./assets/css/feature-image.css') ?: time() ?>" />
+  <link rel="stylesheet" href="./assets/css/calculator.css?v=<?= @filemtime(__DIR__ . '/./assets/css/calculator.css') ?: time() ?>" />
   <script>
     document.documentElement.classList.add("loading");
     const waitForStylesheet = (href, cb) => {
@@ -1788,10 +1788,10 @@ $stars = str_repeat('★', (int) round($rating_value));
 </div>
 
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js" defer></script>
-  <script src="./integration/validation.js" defer></script>
-  <script src="./assets/js/lazyload.min.js" defer></script>
-  <script src="./assets/js/scripts.js" defer></script>
-  <script src="./assets/js/calculator.js" defer></script>
+  <script src="./integration/validation.js?v=<?= @filemtime(__DIR__ . '/./integration/validation.js') ?: time() ?>" defer></script>
+  <script src="./assets/js/lazyload.min.js?v=<?= @filemtime(__DIR__ . '/./assets/js/lazyload.min.js') ?: time() ?>" defer></script>
+  <script src="./assets/js/scripts.js?v=<?= @filemtime(__DIR__ . '/./assets/js/scripts.js') ?: time() ?>" defer></script>
+  <script src="./assets/js/calculator.js?v=<?= @filemtime(__DIR__ . '/./assets/js/calculator.js') ?: time() ?>" defer></script>
 
 
 
@@ -1860,9 +1860,9 @@ window.quizLang = {
         processing: `<?= addslashes($quiz_text_processing) ?>`
     };
 </script>
-<script src="assets/js/chat-quiz.js" defer></script>
+<script src="assets/js/chat-quiz.js?v=<?= @filemtime(__DIR__ . '/assets/js/chat-quiz.js') ?: time() ?>" defer></script>
 
-<link rel="stylesheet" href="assets/css/chat-quiz.css">
+<link rel="stylesheet" href="assets/css/chat-quiz.css?v=<?= @filemtime(__DIR__ . '/assets/css/chat-quiz.css') ?: time() ?>">
 
 
 </body>

@@ -89,7 +89,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title><?= $site_name ?> | Piattaforma di trading AI</title>
     <meta name="description" content="<?= $site_name ?> ⭐ — piattaforma di trading AI intelligente per analisi di mercato in tempo reale e segnali di trading chiari ⚡ Prova strumenti smart e un tour guidato." />
-    <link rel="stylesheet" href="../integration/default-integration.css">
+    <link rel="stylesheet" href="../integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
 <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
@@ -147,9 +147,9 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap"
     rel="stylesheet" />
-  <link rel="preload" href="../assets/css/tailwind.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="../assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/../assets/css/tailwind.min.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript>
-    <link rel="stylesheet" href="../assets/css/tailwind.min.css" />
+    <link rel="stylesheet" href="../assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/../assets/css/tailwind.min.css') ?: time() ?>" />
   </noscript>
   <script>
     document.documentElement.classList.add("loading");
@@ -1696,8 +1696,8 @@ $stars = str_repeat('★', (int) round($rating_value));
   });
 </script>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-  <script src="../integration/validation.js"></script>
-  <script src="../assets/js/lazyload.min.js" defer></script>
-  <script src="../assets/js/scripts.js" defer></script>
+  <script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
+  <script src="../assets/js/lazyload.min.js?v=<?= @filemtime(__DIR__ . '/../assets/js/lazyload.min.js') ?: time() ?>" defer></script>
+  <script src="../assets/js/scripts.js?v=<?= @filemtime(__DIR__ . '/../assets/js/scripts.js') ?: time() ?>" defer></script>
 </body>
 </html>

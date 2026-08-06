@@ -48,7 +48,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <meta property="og:image:width" content="96">
     <meta property="og:image:height" content="96">
     <meta property="og:image:alt" content="<?= $site_name ?> Logo">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?= @filemtime(__DIR__ . '/../assets/css/style.css') ?: time() ?>">
     <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/contact.php" />
     <link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/contact.php" />
     <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/contact.php" />
@@ -110,7 +110,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 }
 </script>
 
-<link rel="stylesheet" href="../integration/default-integration.css">
+<link rel="stylesheet" href="../integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
 
 <section class="legal-page">
@@ -197,7 +197,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-<script src="../integration/validation.js"></script>
+<script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
 
 <?php include '../includes/footer.php'; ?>
 <script>
@@ -210,4 +210,4 @@ window.APP_LANG = {
     orderPendingAllocation: <?= json_encode($mockup_order_pending_text) ?>
 };
 </script>
-<script src="../assets/js/app.js"></script>
+<script src="../assets/js/app.js?v=<?= @filemtime(__DIR__ . '/../assets/js/app.js') ?: time() ?>"></script>

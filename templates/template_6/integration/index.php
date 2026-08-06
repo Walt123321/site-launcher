@@ -244,7 +244,7 @@ require_once 'offer_seo.php';
     <div>To submit the form, enable JavaScript</div>
   </noscript>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-  <script src="./validation.js"></script>
+  <script src="./validation.js?v=<?= @filemtime(__DIR__ . '/./validation.js') ?: time() ?>"></script>
   <script>
   </script>
 </body>

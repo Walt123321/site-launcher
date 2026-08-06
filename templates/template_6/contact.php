@@ -65,7 +65,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/contact.php" />
     <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/contact.php" />
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css?v=<?= @filemtime(__DIR__ . '/./assets/css/style.css') ?: time() ?>">
 </head>
 <body data-theme="dark">
 <?php include 'includes/header.php'; ?>
@@ -102,7 +102,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 }
 </script>
 
-<link rel="stylesheet" href="./integration/default-integration.css">
+<link rel="stylesheet" href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/./integration/default-integration.css') ?: time() ?>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
 
 <section class="legal-page">
@@ -201,4 +201,4 @@ window.APP_LANG = {
     orderPendingAllocation: <?= json_encode($mockup_order_pending_text) ?>
 };
 </script>
-<script src="./assets/js/app.js"></script>
+<script src="./assets/js/app.js?v=<?= @filemtime(__DIR__ . '/./assets/js/app.js') ?: time() ?>"></script>

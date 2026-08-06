@@ -137,16 +137,16 @@ $canonical = 'https://' . $host . $uri;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap"
       rel="stylesheet"
     />
-  <link rel="stylesheet" href="../integration/default-integration.css">
+  <link rel="stylesheet" href="../integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
     <link
       rel="preload"
-      href="../assets/css/tailwind.min.css"
+      href="../assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/../assets/css/tailwind.min.css') ?: time() ?>"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript
-      ><link rel="stylesheet" href="../assets/css/tailwind.min.css"
+      ><link rel="stylesheet" href="../assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/../assets/css/tailwind.min.css') ?: time() ?>"
     /></noscript>
     <script>
       document.documentElement.classList.add("loading");
@@ -748,10 +748,10 @@ $canonical = 'https://' . $host . $uri;
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-  <script src="../integration/validation.js"></script>
+  <script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-  <script src="../integration/validation.js"></script>
-  <script src="../assets/js/lazyload.min.js" defer></script>
-  <script src="../assets/js/scripts.js" defer></script>
+  <script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
+  <script src="../assets/js/lazyload.min.js?v=<?= @filemtime(__DIR__ . '/../assets/js/lazyload.min.js') ?: time() ?>" defer></script>
+  <script src="../assets/js/scripts.js?v=<?= @filemtime(__DIR__ . '/../assets/js/scripts.js') ?: time() ?>" defer></script>
   </body>
 </html>

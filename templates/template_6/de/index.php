@@ -168,8 +168,8 @@ $canonical = 'https://' . $host . $uri;
 
 
 
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../integration/default-integration.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?= @filemtime(__DIR__ . '/../assets/css/style.css') ?: time() ?>">
+    <link rel="stylesheet" href="../integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
     <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/" />
     <link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/" />
@@ -1272,7 +1272,7 @@ $canonical = 'https://' . $host . $uri;
         </div>
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-<script src="../integration/validation.js"></script>
+<script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
 
 <?php include '../includes/footer.php'; ?>
 <script>
@@ -1285,6 +1285,6 @@ window.APP_LANG = {
     orderPendingAllocation: <?= json_encode($mockup_order_pending_text) ?>
 };
 </script>
-<script src="../assets/js/app.js"></script>
+<script src="../assets/js/app.js?v=<?= @filemtime(__DIR__ . '/../assets/js/app.js') ?: time() ?>"></script>
 </body>
 </html>

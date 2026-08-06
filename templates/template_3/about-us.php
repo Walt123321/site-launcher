@@ -132,13 +132,13 @@ $canonical = 'https://' . $host . $uri;
   <meta property="og:image:width" content="96">
   <meta property="og:image:height" content="96">
   <meta property="og:image:alt" content="<?= $site_name ?> logo">
-  <link rel="stylesheet" href="css/swiper-bundle.min.css">
-  <link rel="stylesheet" href="css/main-1.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css?v=<?= @filemtime(__DIR__ . '/css/swiper-bundle.min.css') ?: time() ?>">
+  <link rel="stylesheet" href="css/main-1.css?v=<?= @filemtime(__DIR__ . '/css/main-1.css') ?: time() ?>">
 
-  <link href="./integration/default-integration.css" rel="stylesheet"/>
+  <link href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/./integration/default-integration.css') ?: time() ?>" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" rel="stylesheet"/>
 
-<link rel="stylesheet" href="css/about-us-styles.css">
+<link rel="stylesheet" href="css/about-us-styles.css?v=<?= @filemtime(__DIR__ . '/css/about-us-styles.css') ?: time() ?>">
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/about-us.php">
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/about-us.php">
 <link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/about-us.php">
@@ -334,7 +334,7 @@ $canonical = 'https://' . $host . $uri;
 
   
 
-  <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/swiper-bundle.min.js?v=<?= @filemtime(__DIR__ . '/js/swiper-bundle.min.js') ?: time() ?>"></script>
 
 
 
@@ -379,7 +379,7 @@ $canonical = 'https://' . $host . $uri;
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-  <script src="./integration/validation.js"></script>
+  <script src="./integration/validation.js?v=<?= @filemtime(__DIR__ . '/./integration/validation.js') ?: time() ?>"></script>
 
   <script>
 document.addEventListener("DOMContentLoaded", () => {

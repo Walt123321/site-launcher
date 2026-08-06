@@ -156,18 +156,18 @@ if ($uri === "/lander/{$host}/index.php") {
   <meta property="og:image:width" content="96">
   <meta property="og:image:height" content="96">
   <meta property="og:image:alt" content="<?= $site_name ?> logo">
-  <link rel="stylesheet" href="../css/swiper-bundle.min.css">
-  <link rel="stylesheet" href="../css/main-1.css">
-  <link rel="stylesheet" href="../css/calculator.css">
-  <link rel="stylesheet" href="../css/security-section.css">
-  <link rel="stylesheet" href="../css/seo-section.css">
-  <link rel="stylesheet" href="../css/faq-section.css">
+  <link rel="stylesheet" href="../css/swiper-bundle.min.css?v=<?= @filemtime(__DIR__ . '/../css/swiper-bundle.min.css') ?: time() ?>">
+  <link rel="stylesheet" href="../css/main-1.css?v=<?= @filemtime(__DIR__ . '/../css/main-1.css') ?: time() ?>">
+  <link rel="stylesheet" href="../css/calculator.css?v=<?= @filemtime(__DIR__ . '/../css/calculator.css') ?: time() ?>">
+  <link rel="stylesheet" href="../css/security-section.css?v=<?= @filemtime(__DIR__ . '/../css/security-section.css') ?: time() ?>">
+  <link rel="stylesheet" href="../css/seo-section.css?v=<?= @filemtime(__DIR__ . '/../css/seo-section.css') ?: time() ?>">
+  <link rel="stylesheet" href="../css/faq-section.css?v=<?= @filemtime(__DIR__ . '/../css/faq-section.css') ?: time() ?>">
   <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="shortcut icon" href="../favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link href="../integration/default-integration.css" rel="stylesheet"/>
+  <link href="../integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" rel="stylesheet"/>
 
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/index.php">
@@ -1767,7 +1767,7 @@ if ($uri === "/lander/{$host}/index.php") {
     }
   </style>
 
-  <script src="../js/swiper-bundle.min.js"></script>
+  <script src="../js/swiper-bundle.min.js?v=<?= @filemtime(__DIR__ . '/../js/swiper-bundle.min.js') ?: time() ?>"></script>
 
 
 
@@ -1916,9 +1916,9 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-  <script src="../integration/validation.js"></script>
-  <script src="../js/calculator.js" defer></script>
-  <script src="../js/faq-section.js" defer></script>
+  <script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
+  <script src="../js/calculator.js?v=<?= @filemtime(__DIR__ . '/../js/calculator.js') ?: time() ?>" defer></script>
+  <script src="../js/faq-section.js?v=<?= @filemtime(__DIR__ . '/../js/faq-section.js') ?: time() ?>" defer></script>
 
 <div id="chat-quiz-root" style="position: fixed !important; bottom: 20px !important; right: 20px !important; z-index: 999999 !important; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important; box-sizing: border-box !important;">
     

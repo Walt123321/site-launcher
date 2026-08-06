@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Congratulations on your successful registration in the system.</title>
-    <link rel="stylesheet" href="thx/thx.css">
+    <link rel="stylesheet" href="thx/thx.css?v=<?= @filemtime(__DIR__ . '/thx/thx.css') ?: time() ?>">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 
     <?php

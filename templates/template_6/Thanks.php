@@ -56,7 +56,7 @@ $active_translation = $thanks_translations[$language] ?? $thanks_translations['e
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= htmlspecialchars($active_translation['title']) ?></title>
     <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
-    <link rel="stylesheet" href="thx/thx.css">
+    <link rel="stylesheet" href="thx/thx.css?v=<?= @filemtime(__DIR__ . '/thx/thx.css') ?: time() ?>">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 
     <!-- fb pixel  -->

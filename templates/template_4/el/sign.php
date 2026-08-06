@@ -78,7 +78,7 @@ $canonical = 'https://' . $host . $uri;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Γίνετε μέλος του <?= $site_name ?> και επιλέξτε ένα πλάνο που ταιριάζει στους στόχους συναλλαγών σας." />
-  <link rel="stylesheet" href="../integration/default-integration.css">
+  <link rel="stylesheet" href="../integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
     <!-- Favicon -->
 <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
@@ -141,12 +141,12 @@ $canonical = 'https://' . $host . $uri;
     />
     <link
       rel="preload"
-      href="../assets/css/tailwind.min.css"
+      href="../assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/../assets/css/tailwind.min.css') ?: time() ?>"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript
-      ><link rel="stylesheet" href="../assets/css/tailwind.min.css"
+      ><link rel="stylesheet" href="../assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/../assets/css/tailwind.min.css') ?: time() ?>"
     /></noscript>
     <script>
       document.documentElement.classList.add("loading");
@@ -643,10 +643,10 @@ $canonical = 'https://' . $host . $uri;
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-  <script src="../integration/validation.js"></script>
+  <script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-  <script src="../integration/validation.js"></script>
-  <script src="../assets/js/lazyload.min.js" defer></script>
-  <script src="../assets/js/scripts.js" defer></script>
+  <script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
+  <script src="../assets/js/lazyload.min.js?v=<?= @filemtime(__DIR__ . '/../assets/js/lazyload.min.js') ?: time() ?>" defer></script>
+  <script src="../assets/js/scripts.js?v=<?= @filemtime(__DIR__ . '/../assets/js/scripts.js') ?: time() ?>" defer></script>
   </body>
 </html>

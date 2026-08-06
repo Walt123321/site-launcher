@@ -130,7 +130,7 @@ if ($uri === "/lander/{$host}/index.php") {
 <link href="./apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="site.webmanifest" rel="manifest"/>
 
-<link href="./integration/default-integration.css" rel="stylesheet"/>
+<link href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/./integration/default-integration.css') ?: time() ?>" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" rel="stylesheet"/>
 <title><?= $page_title_main ?></title>
 <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
@@ -147,13 +147,13 @@ if ($uri === "/lander/{$host}/index.php") {
 <meta content="summary_large_image" name="twitter:card">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Webflow" name="generator"/>
-<link href="normalize.css" rel="stylesheet" type="text/css">
-<link href="webflow.css" rel="stylesheet" type="text/css">
-<link href="papas-exceptional-site-198d4f.webflow.css" rel="stylesheet" type="text/css"/>
+<link href="normalize.css?v=<?= @filemtime(__DIR__ . '/normalize.css') ?: time() ?>" rel="stylesheet" type="text/css">
+<link href="webflow.css?v=<?= @filemtime(__DIR__ . '/webflow.css') ?: time() ?>" rel="stylesheet" type="text/css">
+<link href="papas-exceptional-site-198d4f.webflow.css?v=<?= @filemtime(__DIR__ . '/papas-exceptional-site-198d4f.webflow.css') ?: time() ?>" rel="stylesheet" type="text/css"/>
 
-<script src="webfont.js" type="text/javascript"></script>
-<link href="css.css" media="all" rel="stylesheet"/>
-<link href="css2.css" rel="stylesheet"/>
+<script src="webfont.js?v=<?= @filemtime(__DIR__ . '/webfont.js') ?: time() ?>" type="text/javascript"></script>
+<link href="css.css?v=<?= @filemtime(__DIR__ . '/css.css') ?: time() ?>" media="all" rel="stylesheet"/>
+<link href="css2.css?v=<?= @filemtime(__DIR__ . '/css2.css') ?: time() ?>" rel="stylesheet"/>
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/" />
 <link rel="alternate" hreflang="en" href="<?= $site_url ?>/" />
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/index.php" />
@@ -180,7 +180,7 @@ if ($uri === "/lander/{$host}/index.php") {
 <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/index.php" />
 <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/index.php" />
 
-</link></link></meta><link rel="stylesheet" href="custom-styles.css">
+</link></link></meta><link rel="stylesheet" href="custom-styles.css?v=<?= @filemtime(__DIR__ . '/custom-styles.css') ?: time() ?>">
 </head>
 <body cz-shortcut-listen="true">
 <div class="page-wrapper">
@@ -1256,9 +1256,9 @@ document.addEventListener("DOMContentLoaded", function() {
 </footer>
 
 
-<script src="jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript"></script>
-<script src="webflow.js" type="text/javascript"></script>
-<script src="jquery.min.js"></script>
+<script src="jquery-3.5.1.min.dc5e7f18c8.js?v=<?= @filemtime(__DIR__ . '/jquery-3.5.1.min.dc5e7f18c8.js') ?: time() ?>" type="text/javascript"></script>
+<script src="webflow.js?v=<?= @filemtime(__DIR__ . '/webflow.js') ?: time() ?>" type="text/javascript"></script>
+<script src="jquery.min.js?v=<?= @filemtime(__DIR__ . '/jquery.min.js') ?: time() ?>"></script>
 <div style="height: 0; overflow: hidden; position: absolute; width: 0">
 <a href="<?= $site_url ?>/#">Main Page</a>
 <a href="<?= $site_url ?>/#why-invest">Why invest?</a>
@@ -1455,8 +1455,8 @@ document.addEventListener('click', function (e) {
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-<script src="./integration/validation.js"></script>
-<script src="script.js"></script>
+<script src="./integration/validation.js?v=<?= @filemtime(__DIR__ . '/./integration/validation.js') ?: time() ?>"></script>
+<script src="script.js?v=<?= @filemtime(__DIR__ . '/script.js') ?: time() ?>"></script>
 
 
 
@@ -1483,7 +1483,7 @@ window.quizLang = {
         processing: `<?= addslashes($quiz_text_processing) ?>`
     };
 </script>
-<script src="chat-quiz.js" defer></script>
+<script src="chat-quiz.js?v=<?= @filemtime(__DIR__ . '/chat-quiz.js') ?: time() ?>" defer></script>
 
 
 

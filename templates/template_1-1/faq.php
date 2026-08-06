@@ -113,7 +113,7 @@ $canonical = 'https://' . $host . $uri;
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
   
-  <link rel="stylesheet" href="./integration/default-integration.css">
+  <link rel="stylesheet" href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/./integration/default-integration.css') ?: time() ?>">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
 <title><?= $page_title_faq ?></title>
 <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
@@ -130,18 +130,18 @@ $canonical = 'https://' . $host . $uri;
   <meta content="summary_large_image" name="twitter:card" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="Webflow" name="generator" />
-  <link href="normalize.css" rel="stylesheet" type="text/css" />
-  <link href="webflow.css" rel="stylesheet" type="text/css" />
+  <link href="normalize.css?v=<?= @filemtime(__DIR__ . '/normalize.css') ?: time() ?>" rel="stylesheet" type="text/css" />
+  <link href="webflow.css?v=<?= @filemtime(__DIR__ . '/webflow.css') ?: time() ?>" rel="stylesheet" type="text/css" />
   <link
-    href="papas-exceptional-site-198d4f.webflow.css"
+    href="papas-exceptional-site-198d4f.webflow.css?v=<?= @filemtime(__DIR__ . '/papas-exceptional-site-198d4f.webflow.css') ?: time() ?>"
     rel="stylesheet"
     type="text/css" />
 
   
 
-  <script src="webfont.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="css.css" media="all" />
-  <link href="css2.css" rel="stylesheet" />
+  <script src="webfont.js?v=<?= @filemtime(__DIR__ . '/webfont.js') ?: time() ?>" type="text/javascript"></script>
+  <link rel="stylesheet" href="css.css?v=<?= @filemtime(__DIR__ . '/css.css') ?: time() ?>" media="all" />
+  <link href="css2.css?v=<?= @filemtime(__DIR__ . '/css2.css') ?: time() ?>" rel="stylesheet" />
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/faq.php" />
 <link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/faq.php" />
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/faq.php" />
@@ -170,7 +170,7 @@ $canonical = 'https://' . $host . $uri;
 
   
 
-<link rel="stylesheet" href="faq-styles.css">
+<link rel="stylesheet" href="faq-styles.css?v=<?= @filemtime(__DIR__ . '/faq-styles.css') ?: time() ?>">
 </head>
 
 <body cz-shortcut-listen="true">
@@ -374,11 +374,11 @@ $canonical = 'https://' . $host . $uri;
 
 
   <script
-    src="jquery-3.5.1.min.dc5e7f18c8.js"
+    src="jquery-3.5.1.min.dc5e7f18c8.js?v=<?= @filemtime(__DIR__ . '/jquery-3.5.1.min.dc5e7f18c8.js') ?: time() ?>"
     type="text/javascript"></script>
-  <script src="webflow.js" type="text/javascript"></script>
+  <script src="webflow.js?v=<?= @filemtime(__DIR__ . '/webflow.js') ?: time() ?>" type="text/javascript"></script>
 
-  <script src="jquery.min.js"></script>
+  <script src="jquery.min.js?v=<?= @filemtime(__DIR__ . '/jquery.min.js') ?: time() ?>"></script>
   <div style="height: 0; overflow: hidden; position: absolute; width: 0">
     <a href="#">Home Page</a>
     <a href="<?= $site_url ?>#why-invest">Why Start Investing?</a>
@@ -394,7 +394,7 @@ $canonical = 'https://' . $host . $uri;
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
 
   <!-- Keitaro -->
-  <script src="./integration/validation.js"></script>
+  <script src="./integration/validation.js?v=<?= @filemtime(__DIR__ . '/./integration/validation.js') ?: time() ?>"></script>
   
 <!-- FAQ -->
 
@@ -490,7 +490,7 @@ document.addEventListener('click', function (e) {
   accordion.classList.toggle('active');
 });
 </script>
-  <script src="script.js"></script>
+  <script src="script.js?v=<?= @filemtime(__DIR__ . '/script.js') ?: time() ?>"></script>
 <?php include './integration/chat_widget.php'; ?>
 </body>
 
