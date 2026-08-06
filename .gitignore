@@ -2,5 +2,6 @@ indexnow_log.txt
 local_test/
 newsnik_deploy/
 newsnik_deploy_flat/
+templates_deploy_flat/
 .DS_Store
 *.DS_Store

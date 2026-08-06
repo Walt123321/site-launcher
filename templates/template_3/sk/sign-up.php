@@ -382,7 +382,6 @@ $canonical = 'https://' . $host . $uri;
         <li class="footer__nav-item"><a href="private-policy.php" class="no-scroll"><?= $footer_privacy ?></a></li>
         <li class="footer__nav-item"><a href="risk-warning.php" class="no-scroll"><?= $footer_risk_warning ?></a></li>
       </ul>
-
       <div class="footer__langs">
         <div class="lang-switcher">
     <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sign-up.php" hreflang="en" title="English">🇬🇧</a>
@@ -390,6 +389,25 @@ $canonical = 'https://' . $host . $uri;
     <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/sign-up.php" hreflang="fr" title="Français">🇫🇷</a>
     <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/sign-up.php" hreflang="es" title="Español">🇪🇸</a>
     <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/sign-up.php" hreflang="it" title="Italiano">🇮🇹</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/sign-up.php" hreflang="bg" title="Български">🇧🇬</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/sign-up.php" hreflang="cs" title="Čeština">🇨🇿</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/sign-up.php" hreflang="da" title="Dansk">🇩🇰</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/sign-up.php" hreflang="el" title="Ελληνικά">🇬🇷</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/sign-up.php" hreflang="fi" title="Suomi">🇫🇮</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/sign-up.php" hreflang="hr" title="Hrvatski">🇭🇷</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/sign-up.php" hreflang="hu" title="Magyar">🇭🇺</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/sign-up.php" hreflang="ja" title="日本語">🇯🇵</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/sign-up.php" hreflang="ms" title="Bahasa Melayu">🇲🇾</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/sign-up.php" hreflang="nb" title="Norsk Bokmål">🇳🇴</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/sign-up.php" hreflang="nl" title="Nederlands">🇳🇱</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/sign-up.php" hreflang="no" title="Norsk">🇳🇴</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/sign-up.php" hreflang="pl" title="Polski">🇵🇱</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/sign-up.php" hreflang="pt" title="Português">🇵🇹</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/sign-up.php" hreflang="ro" title="Română">🇷🇴</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/sign-up.php" hreflang="ru" title="Русский">🇷🇺</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/sign-up.php" hreflang="sk" title="Slovenčina">🇸🇰</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/sign-up.php" hreflang="sv" title="Svenska">🇸🇪</a>
+    <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/sign-up.php" hreflang="tr" title="Türkçe">🇹🇷</a>
         </div>
       </div>
     </div>

@@ -31,8 +31,11 @@ function indexnow_send_ping($endpoint, $data, $flag_file) {
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
     curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json; charset=utf-8']);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 2);
+    // Bounded aggressively short: this may run synchronously (no FPM to
+    // defer via fastcgi_finish_request) inside the same execution budget
+    // Keitaro allows the landing page itself, so it must leave headroom.
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 300);
+    curl_setopt($ch, CURLOPT_TIMEOUT_MS, 500);
     curl_exec($ch);
     $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 

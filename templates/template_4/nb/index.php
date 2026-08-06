@@ -450,7 +450,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
               <p class="text-xs text-white">
                 Ved å oppgi dine personopplysninger og klikke på knappen godtar du
                 <a class="link-underline" href="privacy.php">personvernerklæringen</a>
-                und den
+                og
                 <a class="link-underline" href="conditions.php">vilkårene og betingelsene</a>
                 for dette nettstedet.
               </p>
@@ -1271,7 +1271,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
               <p class="text-xs text-white">
                 Ved å oppgi dine personopplysninger og klikke på knappen godtar du
                 <a class="link-underline" href="privacy.php">personvernerklæringen</a>
-                und den
+                og
                 <a class="link-underline" href="conditions.php">vilkårene og betingelsene</a>
                 for dette nettstedet.
               </p>

@@ -36,7 +36,14 @@ $brand_param = isset($_GET['brand']) ? $_GET['brand'] : null;
 $lang = get_active_lang($offer_lang, $lang_param);
 
 // Resolve brand name (query param overrides config)
-$brand = $brand_param ? htmlspecialchars(urldecode($brand_param), ENT_QUOTES, 'UTF-8') : $brand_name;
+// Note: $_GET is already URL-decoded by PHP — do not urldecode() it again
+// (that mangles a literal "%" in a brand name and does nothing for real
+// invalid-UTF-8 bytes anyway). Bogus/bot traffic can send invalid UTF-8 in
+// ?brand=, which would make htmlspecialchars() throw "Malformed UTF-8
+// characters" and silently blank the brand — validate first instead.
+$brand = ($brand_param && mb_check_encoding($brand_param, 'UTF-8'))
+    ? htmlspecialchars($brand_param, ENT_QUOTES, 'UTF-8')
+    : $brand_name;
 
 // --- Load translations ---
 require_once __DIR__ . '/lang.php';

@@ -450,7 +450,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
               <p class="text-xs text-white">
                 Указывая свои персональные данные и нажимая на кнопку, вы соглашаетесь с
                 <a class="link-underline" href="privacy.php">Политикой конфиденциальности</a>
-                und den
+                и
                 <a class="link-underline" href="conditions.php">Условиями использования</a>
                 этого сайта.
               </p>
@@ -1271,7 +1271,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
               <p class="text-xs text-white">
                 Указывая свои персональные данные и нажимая на кнопку, вы соглашаетесь с
                 <a class="link-underline" href="privacy.php">Политикой конфиденциальности</a>
-                und den
+                и
                 <a class="link-underline" href="conditions.php">Условиями использования</a>
                 этого сайта.
               </p>

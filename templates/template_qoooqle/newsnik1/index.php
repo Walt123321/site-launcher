@@ -83,6 +83,11 @@ if ($_host_param !== '' && preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_host
 // 2. Read query params
 $lang  = get_active_lang($offer_lang, qoooqle_get_context_value('lang', null));
 $brand_name_param = trim(qoooqle_get_context_value('brand', $brand_name));
+if ($brand_name_param === '' || !mb_check_encoding($brand_name_param, 'UTF-8')) {
+    // Bogus/bot traffic can send invalid UTF-8 in ?brand= — htmlspecialchars()
+    // would throw "Malformed UTF-8 characters" and silently blank the brand.
+    $brand_name_param = $brand_name;
+}
 
 // 3. Include lang.php
 require_once __DIR__ . '/lang.php';

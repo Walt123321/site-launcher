@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (empty($_SESSION['js_token'])) {
+    $_SESSION['js_token'] = bin2hex(random_bytes(16));
+}
+$jsToken = $_SESSION['js_token'];
 require_once 'offer_seo.php';
 include 'lang.php';
 ?>
