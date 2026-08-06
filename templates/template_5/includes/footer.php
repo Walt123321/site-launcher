@@ -1,7 +1,7 @@
 <!-- ========================= -->
 <!-- FOOTER -->
 <!-- ========================= -->
-<link rel="stylesheet" href="./integration/default-integration.css">
+<link rel="stylesheet" href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
 <?php
 // Current page filename (e.g. "about.php"), used to build language-switcher links that
@@ -282,7 +282,7 @@ window.MAXIMA_LANG = {
     }
 };
 </script>
-<script src="./assets/js/app.js"></script>
+<script src="./assets/js/app.js?v=<?= @filemtime(__DIR__ . '/../assets/js/app.js') ?: time() ?>"></script>
 
 
 <div id="cq-form-card" hidden aria-hidden="true" style="display: none !important;">
@@ -326,7 +326,7 @@ window.MAXIMA_LANG = {
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-<script src="./integration/validation.js"></script>
+<script src="./integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
 
 <div id="chat-quiz-root" style="position: fixed !important; bottom: 20px !important; right: 20px !important; z-index: 999999 !important; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important; box-sizing: border-box !important;">
     

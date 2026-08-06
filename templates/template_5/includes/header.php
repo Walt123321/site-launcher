@@ -7,7 +7,7 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css?v=<?= @filemtime(__DIR__ . '/../assets/css/style.css') ?: time() ?>">
 
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 
