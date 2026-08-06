@@ -27,7 +27,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 }
 ?>
 
-<?php include 'includes/head-start.php'; ?>
+<?php include __DIR__ . '/includes/head-start.php'; ?>
     <title><?= $terms_meta_title ?></title>
     <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
     <meta name="description" content="<?= $terms_meta_description ?>" />
@@ -65,9 +65,9 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 <link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/terms.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/terms.php" />
 <link rel="alternate" hreflang="it" href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/terms.php" />
-<?php include 'includes/header.php'; ?>
+<?php include __DIR__ . '/includes/header.php'; ?>
 
-<?php include 'includes/breadcrumb-schema.php'; ?>
+<?php include __DIR__ . '/includes/breadcrumb-schema.php'; ?>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -163,4 +163,4 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
 </section>
 
-<?php include 'includes/footer.php'; ?>
+<?php include __DIR__ . '/includes/footer.php'; ?>
