@@ -66,15 +66,6 @@ GEO_PATH = "core/geo_defaults.json"
 BUYERS_PATH = "buyers.json"
 TEST_DOMAINS_PATH = "test_domains.json"
 TEST_DOMAIN_STATE_PATH = "test_domain_state.json"
-
-# Adspect DIRECT PHP-integration file for test launches only (see
-# build_domain_site_zip's is_test branch) — tied to one specific Adspect
-# stream ID, not meant for the production bulk-launch path. Kept out of git
-# (local_test/ is gitignored). This file BECOMES the domain's index.php;
-# the money template's own index.php is renamed to content.php alongside
-# it, and gets referenced from Adspect's "Контент" stream setting (Local
-# file action, "content.php").
-ADSPECT_TEST_FILE_PATH = Path("local_test/adspect_index.php")
 UNKNOWN_GEO_LABEL = "🏳️ Невідомо / Unknown"
 TOTAL_STEPS = 3
 TEMPLATES = {
@@ -641,19 +632,14 @@ def build_domain_site_zip(
                             raw_text = raw_text.replace("</BODY>", f'{inline_script}\n</BODY>')
                         else:
                             raw_text += f'\n{inline_script}'
-
+                            
                     rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                     out_bytes = rendered.encode("utf-8")
 
                 else:
                     out_bytes = raw_bytes
 
-            # Тестовий запуск (is_test=True): money-сторінка переїжджає на
-            # content.php, бо на її місце (index.php) стає файл прямої
-            # Adspect-інтеграції (див. крок 4 нижче). Продакшн bulk-лаунч
-            # на 1800 офферів це не чіпає.
-            out_rel = "content.php" if (is_test and rel.replace("\\", "/") == "index.php") else rel
-            z.writestr(f"{domain}/{out_rel}", out_bytes)
+            z.writestr(f"{domain}/{rel}", out_bytes)
 
         # 2) Автоматично додаємо інфраструктуру Qoooqle/новостників, якщо це звичайний шаблон
         if root.name != "template_qoooqle":
@@ -700,12 +686,8 @@ def build_domain_site_zip(
             except Exception as e:
                 print(f"[newsnik_content] Skipped for {domain}: {e}")
 
-        # 3) Автоматично додаємо generic corporate white page (для Adspect/cloaking).
-        # Для is_test-збірок пропускаємо багатосторінкову версію — на цьому
-        # хостингу Keitaro (rontrix.org) вкладені URL типу /whitepage/about.php
-        # не роутяться напряму, тільки кореневий index.php кампанії. Замість
-        # неї нижче (крок 3b) кладеться само-достатня односторінкова версія.
-        if root.name != "template_whitepage" and not is_test:
+        # 3) Автоматично додаємо generic corporate white page (для Adspect/cloaking)
+        if root.name != "template_whitepage":
             whitepage_root = Path("templates/template_whitepage")
             if whitepage_root.exists() and whitepage_root.is_dir():
                 for p in whitepage_root.rglob("*"):
@@ -723,25 +705,6 @@ def build_domain_site_zip(
                         out_bytes = raw_bytes
 
                     z.writestr(f"{domain}/whitepage/{rel}", out_bytes)
-
-        # 3b) is_test: само-достатня односторінкова біла сторінка (inline CSS,
-        # без переходів між сторінками) — призначена для видачі через
-        # Adspect-дію "Локальний файл" (adspect_serve_local), а не через
-        # прямий HTTP-запит до /whitepage/index.php.
-        if is_test:
-            standalone_path = Path("templates/template_whitepage/standalone.php")
-            if standalone_path.exists():
-                raw_text = standalone_path.read_text(encoding="utf-8", errors="replace")
-                rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
-                z.writestr(f"{domain}/whitepage/index.php", rendered.encode("utf-8"))
-
-        # 4) Тестова пряма Adspect PHP-integration (лише для is_test — див.
-        # коментар біля ADSPECT_TEST_FILE_PATH). Стає самим index.php домену;
-        # money-сторінка вже переїхала на content.php (крок 1 вище). Adspect
-        # має бути налаштований: Контент → "content.php" (Локальний файл),
-        # Біла сторінка → "whitepage/index.php" (Локальний файл).
-        if is_test and ADSPECT_TEST_FILE_PATH.exists():
-            z.writestr(f"{domain}/index.php", ADSPECT_TEST_FILE_PATH.read_bytes())
 
     buf.seek(0)
     return buf.getvalue()
