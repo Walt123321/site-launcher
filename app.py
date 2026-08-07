@@ -65,6 +65,7 @@ st.set_page_config(
 GEO_PATH = "core/geo_defaults.json"
 BUYERS_PATH = "buyers.json"
 TEST_DOMAINS_PATH = "test_domains.json"
+TEST_DOMAIN_STATE_PATH = "test_domain_state.json"
 UNKNOWN_GEO_LABEL = "🏳️ Невідомо / Unknown"
 TOTAL_STEPS = 3
 TEMPLATES = {
@@ -252,6 +253,19 @@ def save_test_domain(domain: str):
         domains.append(domain)
         with open(TEST_DOMAINS_PATH, "w", encoding="utf-8") as f:
             json.dump(domains, f, ensure_ascii=False, indent=2)
+
+
+def load_last_test_domain() -> str:
+    try:
+        with open(TEST_DOMAIN_STATE_PATH, "r", encoding="utf-8") as f:
+            return json.load(f).get("last_domain", "")
+    except (FileNotFoundError, json.JSONDecodeError):
+        return ""
+
+
+def save_last_test_domain(domain: str):
+    with open(TEST_DOMAIN_STATE_PATH, "w", encoding="utf-8") as f:
+        json.dump({"last_domain": domain}, f, ensure_ascii=False, indent=2)
 
 
 geo = load_geo(_mtime(GEO_PATH))
@@ -672,6 +686,26 @@ def build_domain_site_zip(
             except Exception as e:
                 print(f"[newsnik_content] Skipped for {domain}: {e}")
 
+        # 3) Автоматично додаємо generic corporate white page (для Adspect/cloaking)
+        if root.name != "template_whitepage":
+            whitepage_root = Path("templates/template_whitepage")
+            if whitepage_root.exists() and whitepage_root.is_dir():
+                for p in whitepage_root.rglob("*"):
+                    if p.is_dir():
+                        continue
+
+                    rel = p.relative_to(whitepage_root).as_posix()
+                    raw_bytes = p.read_bytes()
+
+                    if p.suffix.lower() in TEXT_EXTS:
+                        raw_text = raw_bytes.decode("utf-8", errors="replace")
+                        rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
+                        out_bytes = rendered.encode("utf-8")
+                    else:
+                        out_bytes = raw_bytes
+
+                    z.writestr(f"{domain}/whitepage/{rel}", out_bytes)
+
     buf.seek(0)
     return buf.getvalue()
 
@@ -763,12 +797,28 @@ def build_all_sites_zip(
 
                         z.writestr(f"{domain}/{rel}", out_bytes)
 
+            # Автоматично додаємо generic corporate white page (для Adspect/cloaking)
+            if root.name != "template_whitepage":
+                whitepage_root = Path("templates/template_whitepage")
+                if whitepage_root.exists() and whitepage_root.is_dir():
+                    for p in whitepage_root.rglob("*"):
+                        if p.is_dir():
+                            continue
+
+                        rel = p.relative_to(whitepage_root).as_posix()
+                        raw_bytes = p.read_bytes()
+
+                        if p.suffix.lower() in TEXT_EXTS:
+                            raw_text = raw_bytes.decode("utf-8", errors="replace")
+                            rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
+                            out_bytes = rendered.encode("utf-8")
+                        else:
+                            out_bytes = raw_bytes
+
+                        z.writestr(f"{domain}/whitepage/{rel}", out_bytes)
+
     buf.seek(0)
     return buf.getvalue()
-
-    
-
-
 
 def build_all_sites_zip_multi(
     domain_to_template_dir: dict,
@@ -862,6 +912,26 @@ def build_all_sites_zip_multi(
                             out_bytes = raw_bytes
 
                         z.writestr(f"{domain}/{rel}", out_bytes)
+
+            # Автоматично додаємо generic corporate white page (для Adspect/cloaking)
+            if root.name != "template_whitepage":
+                whitepage_root = Path("templates/template_whitepage")
+                if whitepage_root.exists() and whitepage_root.is_dir():
+                    for p in whitepage_root.rglob("*"):
+                        if p.is_dir():
+                            continue
+
+                        rel = p.relative_to(whitepage_root).as_posix()
+                        raw_bytes = p.read_bytes()
+
+                        if p.suffix.lower() in TEXT_EXTS:
+                            raw_text = raw_bytes.decode("utf-8", errors="replace")
+                            rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
+                            out_bytes = rendered.encode("utf-8")
+                        else:
+                            out_bytes = raw_bytes
+
+                        z.writestr(f"{domain}/whitepage/{rel}", out_bytes)
 
     buf.seek(0)
     return buf.getvalue()
@@ -2215,12 +2285,21 @@ elif st.session_state.step == 2:
         _test_domains = load_test_domains()
         _tc1, _tc2 = st.columns([3, 1])
         with _tc1:
-            _test_domain_sel = st.selectbox(
-                "Тестовий домен",
-                options=_test_domains,
-                key="test_domain_select",
-                placeholder="Ще немає жодного — додай нижче",
-            ) if _test_domains else None
+            if _test_domains:
+                _last_test_domain = load_last_test_domain()
+                _default_test_index = (
+                    _test_domains.index(_last_test_domain)
+                    if _last_test_domain in _test_domains else 0
+                )
+                _test_domain_sel = st.selectbox(
+                    "Тестовий домен",
+                    options=_test_domains,
+                    index=_default_test_index,
+                    key="test_domain_select",
+                    on_change=lambda: save_last_test_domain(st.session_state.test_domain_select),
+                )
+            else:
+                _test_domain_sel = None
         with _tc2:
             st.write("")
             st.write("")
@@ -2264,6 +2343,7 @@ elif st.session_state.step == 2:
             st.session_state.currently_generating_test = True
             st.session_state.test_domain_active = _test_domain_sel
             st.session_state.test_template_active = _test_template
+            save_last_test_domain(_test_domain_sel)
             st.rerun()
 
         if st.session_state.get("currently_generating_test"):

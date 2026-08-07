@@ -3,5 +3,6 @@ local_test/
 newsnik_deploy/
 newsnik_deploy_flat/
 templates_deploy_flat/
+whitepage_deploy/
 .DS_Store
 *.DS_Store
