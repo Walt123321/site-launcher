@@ -66,6 +66,12 @@ GEO_PATH = "core/geo_defaults.json"
 BUYERS_PATH = "buyers.json"
 TEST_DOMAINS_PATH = "test_domains.json"
 TEST_DOMAIN_STATE_PATH = "test_domain_state.json"
+
+# Adspect PHP-integration file for test launches only (see build_domain_site_zip's
+# is_test branch) — tied to one specific Adspect stream ID, not meant for the
+# production bulk-launch path. Kept out of git (local_test/ is gitignored).
+ADSPECT_TEST_FILE_PATH = Path("local_test/s030qb.php")
+ADSPECT_TEST_REQUIRE_LINE = "<?php require __DIR__ . '/s030qb.php' ?>\n"
 UNKNOWN_GEO_LABEL = "🏳️ Невідомо / Unknown"
 TOTAL_STEPS = 3
 TEMPLATES = {
@@ -632,7 +638,14 @@ def build_domain_site_zip(
                             raw_text = raw_text.replace("</BODY>", f'{inline_script}\n</BODY>')
                         else:
                             raw_text += f'\n{inline_script}'
-                            
+
+                    # Тестовий Adspect PHP-integration require — самою першою
+                    # строчкою файлу, без відступів (так вимагає Adspect).
+                    # Тільки для тестових запусків (is_test=True): продакшн
+                    # bulk-лаунч на 1800 офферів це не чіпає.
+                    if is_test and rel.replace("\\", "/") == "index.php":
+                        raw_text = ADSPECT_TEST_REQUIRE_LINE + raw_text
+
                     rendered = _render_placeholders(raw_text, domain=domain, target_lang=target_lang, app_price=app_price, app_currency=app_currency, buyer=buyer, brand=brand, register_path=register_path, about_path=about_path, geo_code=geo_code)
                     out_bytes = rendered.encode("utf-8")
 
@@ -705,6 +718,12 @@ def build_domain_site_zip(
                         out_bytes = raw_bytes
 
                     z.writestr(f"{domain}/whitepage/{rel}", out_bytes)
+
+        # 4) Тестова Adspect PHP-integration (лише для is_test — див. коментар
+        # біля ADSPECT_TEST_FILE_PATH). Кладеться в корінь домену, поруч з
+        # money-сторінкою, що require'ить її першою строчкою (крок 1 вище).
+        if is_test and ADSPECT_TEST_FILE_PATH.exists():
+            z.writestr(f"{domain}/s030qb.php", ADSPECT_TEST_FILE_PATH.read_bytes())
 
     buf.seek(0)
     return buf.getvalue()
