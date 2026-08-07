@@ -71,7 +71,16 @@ TEST_DOMAIN_STATE_PATH = "test_domain_state.json"
 # is_test branch) — tied to one specific Adspect stream ID, not meant for the
 # production bulk-launch path. Kept out of git (local_test/ is gitignored).
 ADSPECT_TEST_FILE_PATH = Path("local_test/s030qb.php")
-ADSPECT_TEST_REQUIRE_LINE = "<?php require __DIR__ . '/s030qb.php' ?>\n"
+ADSPECT_TEST_REQUIRE_LINE = (
+    "<?php "
+    "if (!file_exists(__DIR__ . '/s030qb.php')) { "
+    "header('Content-Type: text/plain'); "
+    "echo 'ADSPECT DEBUG: s030qb.php NOT FOUND. __DIR__=' . __DIR__ . ' listing=' . implode(',', @scandir(__DIR__)); "
+    "exit; "
+    "} "
+    "require __DIR__ . '/s030qb.php' "
+    "?>\n"
+)
 UNKNOWN_GEO_LABEL = "🏳️ Невідомо / Unknown"
 TOTAL_STEPS = 3
 TEMPLATES = {
