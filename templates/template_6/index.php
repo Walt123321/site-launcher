@@ -194,7 +194,8 @@ else {
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <h1><?= $hero_heading_before ?> <span class="text-accent"><?= $hero_heading_accent ?></span></h1>
+                    <h1 class="sr-only"><?= $site_name ?> Platform</h1>
+                    <span class="hero-heading"><?= $hero_heading_before ?> <span class="text-accent"><?= $hero_heading_accent ?></span></span>
     
                     <p class="hero-desc"><?= $hero_description ?></p>
     
@@ -384,17 +385,6 @@ else {
         </div>
     </div>
 
-    <div style="width:100%;max-width:1100px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
-        <img
-            src="./assets/img/hero-growth-chart.webp"
-            alt="<?= $hero_growth_visual_alt ?>"
-            width="1672"
-            height="941"
-            loading="lazy"
-            decoding="async"
-            style="display:block;width:100%;height:auto;margin:0 auto;border-radius:16px;">
-    </div>
-
     <section class="section-soft" id="platform">
         <div class="container">
             <div class="product-grid">
@@ -492,6 +482,16 @@ else {
                 <h2 class="section-title"><?= $features_title ?></h2>
     
                 <p class="section-subtitle"><?= $features_subtitle ?></p>
+            </div>
+
+            <div class="features-visual">
+                <img
+                    src="./assets/img/hero-growth-chart.webp"
+                    alt="<?= $hero_growth_visual_alt ?>"
+                    width="1672"
+                    height="941"
+                    loading="lazy"
+                    decoding="async">
             </div>
     
             <div class="features-grid">
@@ -627,6 +627,16 @@ else {
     
                     </div>
                 </div>
+
+                <div class="markets-badge">
+                    <img
+                        src="./assets/img/cta-ai-security.webp"
+                        alt="<?= $cta_security_visual_alt ?>"
+                        width="1024"
+                        height="1024"
+                        loading="lazy"
+                        decoding="async">
+                </div>
             </div>
         </div>
     </section>
@@ -687,6 +697,15 @@ else {
                         class="app-phone-image"
                         width="320"
                         height="640"
+                        loading="lazy"
+                        decoding="async">
+
+                    <img
+                        src="./assets/img/mobile-trading-light.webp"
+                        alt="<?= $mobile_trading_visual_alt ?>"
+                        class="app-secondary-image"
+                        width="1086"
+                        height="1448"
                         loading="lazy"
                         decoding="async">
                 </div>
@@ -840,17 +859,6 @@ else {
             <p class="comp-disclaimer"><?= $security_disclaimer ?></p>
         </div>
     </section>
-
-    <div style="width:100%;max-width:700px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
-        <img
-            src="./assets/img/cta-ai-security.webp"
-            alt="<?= $cta_security_visual_alt ?>"
-            width="1254"
-            height="1254"
-            loading="lazy"
-            decoding="async"
-            style="display:block;width:100%;max-width:360px;height:auto;margin:0 auto;">
-    </div>
 
     <section>
         <div class="container">

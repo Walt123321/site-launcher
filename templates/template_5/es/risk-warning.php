@@ -52,7 +52,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <meta property="og:image:width" content="96">
     <meta property="og:image:height" content="96">
     <meta property="og:image:alt" content="<?= $site_name ?> logo">
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/risk-warning.php" />
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/risk-warning.php" />
 <link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/risk-warning.php" />
 <link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/risk-warning.php" />
 <link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/risk-warning.php" />

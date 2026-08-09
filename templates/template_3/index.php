@@ -154,7 +154,7 @@ if ($uri === "/lander/{$host}/index.php") {
   <link href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/./integration/default-integration.css') ?: time() ?>" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" rel="stylesheet"/>
 
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/index.php">
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/index.php">
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/index.php">
 <link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/index.php">
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/index.php">

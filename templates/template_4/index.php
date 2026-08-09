@@ -67,7 +67,7 @@ function initials($text) {
       "@type": "ListItem",
       "position": 2,
       "name": "💸 <?= $site_name ?> 💸",
-      "item": "<?= $site_url ?>/#heading-style-h1"
+      "item": <?= json_encode($canonical) ?>
     }
   ]
 }

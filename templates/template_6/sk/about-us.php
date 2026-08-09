@@ -49,7 +49,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <meta property="og:image:height" content="96">
     <meta property="og:image:alt" content="<?= $site_name ?> Logo">
     <link rel="stylesheet" href="../assets/css/style.css?v=<?= @filemtime(__DIR__ . '/../assets/css/style.css') ?: time() ?>">
-    <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/about-us.php" />
+    <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/about-us.php" />
     <link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/about-us.php" />
     <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/about-us.php" />
     <link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/about-us.php" />

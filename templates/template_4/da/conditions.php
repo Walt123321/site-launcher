@@ -46,7 +46,7 @@ $canonical = 'https://' . $host . $uri;
       "@type": "ListItem",
       "position": 2,
       "name": "💸 Brugsbetingelser 💸",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/da/#heading-style-h1"
+      "item": <?= json_encode($canonical) ?>
     }
   ]
 }
@@ -161,7 +161,7 @@ $canonical = 'https://' . $host . $uri;
         document.getElementById("skeleton")?.remove();
       });
     </script>
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/conditions.php">
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/conditions.php">
 <link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/en/conditions.php">
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/conditions.php">
 <link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/conditions.php">

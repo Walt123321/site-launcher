@@ -142,7 +142,7 @@ $canonical = 'https://' . $host . $uri;
   <script src="webfont.js?v=<?= @filemtime(__DIR__ . '/webfont.js') ?: time() ?>" type="text/javascript"></script>
   <link rel="stylesheet" href="css.css?v=<?= @filemtime(__DIR__ . '/css.css') ?: time() ?>" media="all" />
   <link href="css2.css?v=<?= @filemtime(__DIR__ . '/css2.css') ?: time() ?>" rel="stylesheet" />
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/conditions.php" />
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/conditions.php" />
 <link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/conditions.php" />
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/conditions.php" />
 <link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/conditions.php" />

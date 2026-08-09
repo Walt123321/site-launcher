@@ -588,7 +588,7 @@ if ($uri === "/lander/{$host}/index.php") {
 <link href="../css.css?v=<?= @filemtime(__DIR__ . '/../css.css') ?: time() ?>" media="all" rel="stylesheet"/>
 <link href="../css2.css?v=<?= @filemtime(__DIR__ . '/../css2.css') ?: time() ?>" rel="stylesheet"/>
 <link href="../custom-styles.css?v=<?= @filemtime(__DIR__ . '/../custom-styles.css') ?: time() ?>" rel="stylesheet"/>
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/">
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/">
 <link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/">
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">
 <link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/">

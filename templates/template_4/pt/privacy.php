@@ -46,7 +46,7 @@ $canonical = 'https://' . $host . $uri;
       "@type": "ListItem",
       "position": 2,
       "name": "💸 Política de Privacidade 💸",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/pt/#heading-style-h1"
+      "item": <?= json_encode($canonical) ?>
     }
   ]
 }
@@ -161,7 +161,7 @@ $canonical = 'https://' . $host . $uri;
         document.getElementById("skeleton")?.remove();
       });
     </script>
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/privacy.php" />
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/privacy.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/privacy.php" />
 <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/privacy.php" />
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/privacy.php" />

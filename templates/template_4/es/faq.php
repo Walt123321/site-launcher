@@ -50,7 +50,7 @@ $canonical = 'https://' . $host . $uri;
       "@type": "ListItem",
       "position": 2,
       "name": "💸 Preguntas frecuentes 💸",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/es/#heading-style-h1"
+      "item": <?= json_encode($canonical) ?>
     }
   ]
 }
@@ -167,7 +167,7 @@ $canonical = 'https://' . $host . $uri;
         document.getElementById("skeleton")?.remove();
       });
     </script>
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/faq.php" />
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/faq.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/faq.php" />
 <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/faq.php" />
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/faq.php" />

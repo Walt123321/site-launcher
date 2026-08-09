@@ -18,7 +18,7 @@
     <!-- fb pixel  -->
     <img height="1" width="1" src="https://www.facebook.com/tr?id=<?= $pfb; ?>&ev=Lead&noscript=1&eid=<?= $click_id; ?>" />
     <!-- redirect to autologin url after 3 seconds -->
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/Thanks.php" />
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/Thanks.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/Thanks.php" />
 <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/Thanks.php" />
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/Thanks.php" />

@@ -59,7 +59,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
       "@type": "ListItem",
       "position": 2,
       "name": "💸 <?= $site_name ?> 💸",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/it/#heading-style-h1"
+      "item": <?= json_encode($canonical) ?>
     }
   ]
 }

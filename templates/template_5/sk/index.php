@@ -63,7 +63,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <meta property="og:image:width" content="96">
     <meta property="og:image:height" content="96">
     <meta property="og:image:alt" content="<?= $site_name ?> logo">
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/index.php" />
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/index.php" />
 <link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/index.php" />
 <link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/index.php" />
 <link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/index.php" />
@@ -347,17 +347,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
 </section>
 
-<div style="width:100%;max-width:1100px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
-  <img
-    src="../assets/img/hero-ai-analytics.webp"
-    alt="<?= $home_hero_visual_alt ?>"
-    width="1200"
-    height="676"
-    loading="lazy"
-    decoding="async"
-    style="display:block;width:100%;height:auto;margin:0 auto;border-radius:16px;">
-</div>
-
 <!-- ========================= -->
 <!-- LIVE AI SIGNALS -->
 <!-- ========================= -->
@@ -377,6 +366,16 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 <p class="signals-description"><?= $home_signals_desc ?></p>
 
         </div>
+
+            <div class="signals-visual">
+                <img
+                    src="../assets/img/hero-ai-analytics.webp"
+                    alt="<?= $home_hero_visual_alt ?>"
+                    width="1200"
+                    height="676"
+                    loading="lazy"
+                    decoding="async">
+            </div>
 
         <div class="signals-terminal">
 
@@ -615,17 +614,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
 </section>
 
-<div style="width:100%;max-width:700px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
-  <img
-    src="../assets/img/ai-signal-sphere.webp"
-    alt="<?= $home_signal_visual_alt ?>"
-    width="1000"
-    height="1000"
-    loading="lazy"
-    decoding="async"
-    style="display:block;width:100%;max-width:360px;height:auto;margin:0 auto;">
-</div>
-
 <!-- ========================= -->
 <!-- WHY SECTION -->
 <!-- ========================= -->
@@ -657,6 +645,16 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
             <!-- RIGHT -->
             <div class="ai-flow">
+
+                <div class="ai-flow-visual">
+                    <img
+                        src="../assets/img/ai-signal-sphere.webp"
+                        alt="<?= $home_signal_visual_alt ?>"
+                        width="1000"
+                        height="1000"
+                        loading="lazy"
+                        decoding="async">
+                </div>
 
                 <div class="flow-box">
                     <?= $home_flow_1 ?>
@@ -693,17 +691,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     </div>
 
 </section>
-
-<div style="width:100%;max-width:1100px;margin:40px auto;padding:0 24px;box-sizing:border-box;text-align:center;">
-  <img
-    src="../assets/img/crypto-analytics-device.webp"
-    alt="<?= $home_device_visual_alt ?>"
-    width="1200"
-    height="900"
-    loading="lazy"
-    decoding="async"
-    style="display:block;width:100%;max-width:700px;height:auto;margin:0 auto;border-radius:16px;">
-</div>
 
 <!-- ========================= -->
 <!-- REVIEWS -->
@@ -888,6 +875,16 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 <p class="section-description"><?= $home_contact_desc_1 ?></p>
 
                 <p class="section-description"><?= $home_contact_desc_2 ?></p>
+
+                <div class="contact-visual">
+                    <img
+                        src="../assets/img/crypto-analytics-device.webp"
+                        alt="<?= $home_device_visual_alt ?>"
+                        width="1200"
+                        height="900"
+                        loading="lazy"
+                        decoding="async">
+                </div>
 
             </div>
 
@@ -1345,17 +1342,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 }
 </script>
 
-<div style="width:100%;max-width:700px;margin:40px auto 0;padding:0 24px;box-sizing:border-box;text-align:center;">
-  <img
-    src="../assets/img/cta-security-shield.webp"
-    alt="<?= $home_security_visual_alt ?>"
-    width="1200"
-    height="676"
-    loading="lazy"
-    decoding="async"
-    style="display:block;width:100%;max-width:340px;height:auto;margin:0 auto;">
-</div>
-
 <!-- ========================= -->
 <!-- FINAL CTA -->
 <!-- ========================= -->
@@ -1365,6 +1351,16 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <div class="container">
 
         <div class="final-cta-box">
+
+            <div class="final-cta-visual">
+                <img
+                    src="../assets/img/cta-security-shield.webp"
+                    alt="<?= $home_security_visual_alt ?>"
+                    width="1200"
+                    height="676"
+                    loading="lazy"
+                    decoding="async">
+            </div>
 
             <span>
                 <?= $home_cta_label ?>

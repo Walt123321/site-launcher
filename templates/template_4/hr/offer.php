@@ -50,7 +50,7 @@ $canonical = 'https://' . $host . $uri;
       "@type": "ListItem",
       "position": 2,
       "name": "💸 Nabavite Portfolio Tracker 💸",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/hr/#heading-style-h1"
+      "item": <?= json_encode($canonical) ?>
     }
   ]
 }
@@ -167,7 +167,7 @@ $canonical = 'https://' . $host . $uri;
         document.getElementById("skeleton")?.remove();
       });
     </script>
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/offer.php" />
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/offer.php" />
 <link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/offer.php" />
 <link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/offer.php" />
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/offer.php" />

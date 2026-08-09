@@ -59,7 +59,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
       "@type": "ListItem",
       "position": 2,
       "name": "💸 <?= $site_name ?> 💸",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/fi/#heading-style-h1"
+      "item": <?= json_encode($canonical) ?>
     }
   ]
 }
@@ -220,7 +220,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
         ]
       }
     </script>
-<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/lander/<?= $site_domain ?>/">
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/">
 <link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/en/">
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">
 <link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/">

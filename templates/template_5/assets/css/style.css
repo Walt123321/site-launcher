@@ -195,6 +195,10 @@ section {
 
 }
 
+.contact-form .submit-btn {
+    margin-top: 18px;
+}
+
 .header-btn:hover,
 .btn-primary-main:hover,
 .submit-btn:hover {
@@ -498,6 +502,21 @@ section {
 
 /* SIGNALS */
 
+.signals-visual {
+    max-width: 760px;
+    margin: 0 auto 40px;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.signals-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .signals-terminal {
     border-radius: 34px;
     overflow: hidden;
@@ -664,6 +683,17 @@ section {
     gap: 14px;
 }
 
+.ai-flow-visual {
+    max-width: 220px;
+    margin: 0 auto 6px;
+}
+
+.ai-flow-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .flow-box {
     padding: 22px;
     border-radius: 20px;
@@ -720,6 +750,21 @@ section {
 }
 
 /* CONTACT */
+
+.contact-visual {
+    max-width: 420px;
+    margin-top: 28px;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.contact-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
 
 .contact-form {
     padding: 36px;
@@ -818,6 +863,17 @@ section {
     border-radius: 36px;
     padding: 70px;
     text-align: center;
+}
+
+.final-cta-visual {
+    max-width: 160px;
+    margin: 0 auto 24px;
+}
+
+.final-cta-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .final-cta-box span {
@@ -1086,6 +1142,20 @@ section {
     .floating-card {
         display: none;
     }
+
+    /* Stacked hero: unwrap .hero-content so the lead form can be reordered
+       to appear right after the H1, ahead of the description/features/buttons. */
+    .hero-grid > .hero-content {
+        display: contents;
+    }
+
+    .hero-grid > .hero-content > .hero-label { order: 1; }
+    .hero-grid > .hero-content > h1 { order: 2; }
+    .hero-grid > .hero-visual { order: 3; }
+    .hero-grid > .hero-content > .hero-description { order: 4; }
+    .hero-grid > .hero-content > .hero-features { order: 5; }
+    .hero-grid > .hero-content > .hero-buttons { order: 6; }
+    .hero-grid > .hero-content > .hero-trust { order: 7; }
 }
 
 @media (max-width: 900px) {
