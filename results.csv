@@ -1,0 +1,8 @@
+campaign_id,domain,whitepage_offer_id,adspect_stream_id,white_flow_id,status,error
+2032,souverainnoyavex-com,,,,error,Expecting value: line 1 column 1 (char 0)
+2031,piorun-kapitura-pl-com,,,,error,Expecting value: line 1 column 1 (char 0)
+2030,nexork-system-it-com,,,,error,Expecting value: line 1 column 1 (char 0)
+2032,souverainnoyavex-com,2052,163f89ee-b86e-46e1-a242-0f9f378cb0c0,2036,ok,
+2031,piorun-kapitura-pl-com,2053,fe3760a8-66f9-49e0-8d2c-61d3f648ecd6,2037,ok,
+2030,nexork-system-it-com,2054,23492d6e-8aad-49e5-af43-30c5111d3b0c,2038,ok,
+2029,forgecapmoor-com,2055,3d7c1bff-992b-4aa4-b365-cd8b863a49b8,2039,ok,
