@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="thx/thx.css?v=<?= @filemtime(__DIR__ . '/thx/thx.css') ?: time() ?>">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <?php
+    include 'lang.php';
     $pfb = isset($_GET['pfb']) ? $_GET['pfb'] : '';
     $click_id = isset($_GET['click_id']) ? $_GET['click_id'] : '';
     $redirect_url = isset($_GET['redirect_url']) ? $_GET['redirect_url'] : '';

@@ -99,7 +99,7 @@ $canonical = 'https://' . $host . $uri;
         "@type": "ListItem",
         "position": 2,
         "name": "🔥 <?= $site_name ?> 🔥",
-        "item": "<?= $site_url ?>/#heading-style-h1"
+        "item": <?= json_encode($canonical) ?>
         }
     ]
     }
@@ -205,8 +205,7 @@ $canonical = 'https://' . $host . $uri;
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <h1 class="sr-only"><?= $site_name ?> Platform</h1>
-                    <span class="hero-heading"><?= $hero_heading_before ?> <span class="text-accent"><?= $hero_heading_accent ?></span></span>
+                    <h1><?= $hero_heading_before ?> <span class="text-accent"><?= $hero_heading_accent ?></span></h1>
     
                     <p class="hero-desc"><?= $hero_description ?></p>
     
@@ -698,6 +697,15 @@ $canonical = 'https://' . $host . $uri;
                         class="app-phone-image"
                         width="320"
                         height="640"
+                        loading="lazy"
+                        decoding="async">
+
+                    <img
+                        src="../assets/img/mobile-trading-light.webp"
+                        alt="<?= $mobile_trading_visual_alt ?>"
+                        class="app-secondary-image"
+                        width="1086"
+                        height="1448"
                         loading="lazy"
                         decoding="async">
                 </div>

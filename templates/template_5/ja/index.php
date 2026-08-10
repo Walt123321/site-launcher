@@ -37,7 +37,7 @@ $uri = strtok($_SERVER['REQUEST_URI'], '?'); // без GET-параметрів
 $canonical = 'https://' . $host . $uri;
 
 $breadcrumb_name = '💥 ' . $site_name . ' 💥';
-$breadcrumb_url = $site_url . '/#heading-style-h1';
+$breadcrumb_url = $canonical;
 
 ?>
 
