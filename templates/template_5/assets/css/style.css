@@ -1077,13 +1077,16 @@ section {
     border: 1px solid var(--border);
     backdrop-filter: blur(18px);
     box-shadow: var(--shadow);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: .4s ease;
+    /* Slide only, no opacity fade: an opacity transition means the popup
+       is semi-transparent (and reads as "behind" whatever card happens to
+       sit under it) for the whole 400ms it's animating in or out. Staying
+       fully opaque and moving itself off-screen instead means any part of
+       it that's visible is always solidly in front. */
+    transform: translateY(220px);
+    transition: transform .4s ease;
 }
 
 .live-user-popup.active {
-    opacity: 1;
     transform: translateY(0);
 }
 
