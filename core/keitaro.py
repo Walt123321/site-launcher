@@ -1,8 +1,11 @@
 import requests
 import urllib3
 import base64
+import copy
 from concurrent.futures import ThreadPoolExecutor
 import streamlit as st
+
+from deploy_whitepage import build_whitepage_zip
 
 urllib3.disable_warnings()
 
@@ -29,6 +32,20 @@ HEADERS = {
     "Api-Key": API_KEY,
     "Content-Type": "application/json"
 }
+
+# --- Adspect cloaking (optional) ---
+# Every new launch also tries to wire up Adspect+Keitaro cloaking (white
+# page for bots/moderators, real offer for genuine traffic) -- see
+# setup_cloaking() below. This is best-effort: if these secrets aren't
+# configured, cloaking is silently skipped and the launch proceeds as
+# before (money page only). It never blocks or fails a launch.
+ADSPECT_API_KEY = st.secrets.get("ADSPECT_API_KEY", "")
+ADSPECT_BASE = "https://api.adspect.net/v1"
+ADSPECT_TEMPLATE_STREAM_ID = st.secrets.get("ADSPECT_TEMPLATE_STREAM_ID", "")
+ADSPECT_FILTER_NAME = st.secrets.get("ADSPECT_FILTER_NAME", "adspect")
+PILOT_CAMPAIGN_ID = st.secrets.get("PILOT_CAMPAIGN_ID", "")
+
+CLOAKING_ENABLED = bool(ADSPECT_API_KEY and ADSPECT_TEMPLATE_STREAM_ID and PILOT_CAMPAIGN_ID)
 
 # =====================================================
 # HELPERS
@@ -291,6 +308,177 @@ def create_domain(domain, campaign_id, callback=None, buyer=None):
     raise Exception(f"DOMAIN ERROR {r.status_code}: {r.text}")
 
 # =====================================================
+# CLOAKING (Adspect)
+# =====================================================
+# Rolled out to all 1800 existing campaigns via bulk_setup.py (a one-off,
+# manually-run script). This is the same logic, wired directly into every
+# new launch so future domains get cloaking automatically instead of
+# needing a manual bulk_setup.py pass afterwards. The white-flow structure
+# is cloned live from the pilot campaign (PILOT_CAMPAIGN_ID, rontrix.org)
+# rather than hand-built here, so it always matches whatever filter/schema
+# shape Keitaro actually accepted on the one flow that's confirmed working.
+
+def _adspect_headers():
+    auth = base64.b64encode(f"{ADSPECT_API_KEY}:".encode()).decode()
+    return {"Authorization": f"Basic {auth}", "Content-Type": "application/json"}
+
+
+def _adspect_copy_stream(name):
+    r = requests.request(
+        "COPY",
+        f"{ADSPECT_BASE}/streams/{ADSPECT_TEMPLATE_STREAM_ID}",
+        headers=_adspect_headers(),
+        json={"name": name},
+        timeout=TIMEOUT,
+    )
+    if r.status_code not in (200, 201):
+        raise Exception(f"ADSPECT COPY ERROR {r.status_code}: {r.text}")
+    return r.json()["stream_id"]
+
+
+def _find_white_flow_template(streams):
+    for s in streams:
+        for f in (s.get("filters") or []):
+            if f.get("name") == ADSPECT_FILTER_NAME:
+                return s
+    return None
+
+
+def find_offer_by_name_exact(name):
+    """Like find_offer_by_name(), but matches on an exact given name rather
+    than assuming the offer name equals the bare domain (whitepage offers
+    are named "<domain> - whitepage")."""
+    r = get(f"{BASE_URL}/offers")
+    if r.status_code != 200:
+        return None
+    for row in r.json():
+        if row.get("name") == name:
+            return row["id"]
+    return None
+
+
+def create_whitepage_offer(domain, group_id, callback=None):
+    zip_bytes = build_whitepage_zip(domain, "en")
+    archive_b64 = base64.b64encode(zip_bytes).decode()
+    offer_name = f"{domain} - whitepage"
+
+    payload = {
+        "name": offer_name,
+        "group_id": group_id,
+        "offer_type": "local",
+        "state": "active",
+        "archive": archive_b64,
+    }
+
+    r = post(f"{BASE_URL}/offers", payload)
+
+    if r.status_code == 200:
+        oid = r.json()["id"]
+        if callback:
+            callback(f"🛡️ {domain}: whitepage-offer #{oid}")
+        return oid
+
+    if r.status_code == 422:
+        existing = find_offer_by_name_exact(offer_name)
+        if existing:
+            r2 = put(f"{BASE_URL}/offers/{existing}", {"archive": archive_b64})
+            if r2.status_code == 200:
+                if callback:
+                    callback(f"🛡️ {domain}: whitepage-offer #{existing} updated")
+                return existing
+            raise Exception(f"WHITEPAGE OFFER UPDATE ERROR {r2.status_code}: {r2.text}")
+
+    raise Exception(f"WHITEPAGE OFFER ERROR {r.status_code}: {r.text}")
+
+
+def setup_cloaking(domain, campaign_id, money_flow_id, offer_group_id, callback=None):
+    """Best-effort: whitepage offer + Adspect stream + Keitaro white-flow,
+    routing bots/moderators to the white page and everyone else to the
+    money page. Never raises -- cloaking is an enhancement on top of the
+    launch, not a requirement for it to succeed. Returns a status dict that
+    ends up in create_full_project()'s result under "cloaking"."""
+
+    if not CLOAKING_ENABLED:
+        return {"status": "skipped", "reason": "Adspect secrets not configured"}
+
+    try:
+        streams = get(f"{BASE_URL}/campaigns/{campaign_id}/streams").json()
+
+        if _find_white_flow_template(streams):
+            if callback:
+                callback(f"🛡️ {domain}: cloaking already set up, skipping")
+            return {"status": "skipped", "reason": "already set up"}
+
+        money_flow = next((s for s in streams if s.get("id") == money_flow_id), None)
+        if not money_flow:
+            raise Exception(f"money flow #{money_flow_id} not found on campaign #{campaign_id}")
+
+        pilot_streams = get(f"{BASE_URL}/campaigns/{PILOT_CAMPAIGN_ID}/streams").json()
+        template_flow = _find_white_flow_template(pilot_streams)
+        if not template_flow:
+            raise Exception(
+                f"pilot campaign {PILOT_CAMPAIGN_ID} has no flow with the "
+                f"'{ADSPECT_FILTER_NAME}' filter to clone"
+            )
+
+        wp_offer_id = create_whitepage_offer(domain, offer_group_id, callback)
+        adspect_stream_id = _adspect_copy_stream(f"AS - {domain}")
+
+        # Free up the money-flow's position for the white-flow, same as the
+        # pilot (white=1, money=2) -- see bulk_setup.py's create_white_flow
+        # for why this is a bump-then-reuse rather than position-1 maths.
+        old_money_position = money_flow.get("position", 1)
+        bump = put(f"{BASE_URL}/streams/{money_flow['id']}", {"position": old_money_position + 1})
+        if bump.status_code not in (200, 201):
+            raise Exception(f"failed to bump money flow position: {bump.status_code} {bump.text}")
+
+        payload = copy.deepcopy(template_flow)
+        for key in ("id", "created_at", "updated_at", "hash", "state"):
+            payload.pop(key, None)
+
+        payload["campaign_id"] = int(campaign_id)
+        payload["name"] = f"White page - {domain}"
+        payload["position"] = old_money_position
+        payload["type"] = "forced"
+
+        found_filter = False
+        for f in payload.get("filters") or []:
+            if f.get("name") == ADSPECT_FILTER_NAME:
+                f["payload"] = str(adspect_stream_id)
+                f.pop("id", None)
+                found_filter = True
+        if not found_filter:
+            raise Exception("adspect filter missing on cloned pilot template")
+
+        found_offer = False
+        for o in payload.get("offers") or []:
+            o["offer_id"] = wp_offer_id
+            o.pop("id", None)
+            found_offer = True
+        if not found_offer:
+            payload["offers"] = [{"offer_id": wp_offer_id, "share": 100, "state": "active"}]
+
+        r = post(f"{BASE_URL}/streams", payload)
+        if r.status_code not in (200, 201):
+            raise Exception(f"white-flow create failed {r.status_code}: {r.text}")
+        white_flow_id = r.json()["id"]
+
+        if callback:
+            callback(f"✅ {domain}: cloaking wired (white-flow #{white_flow_id})")
+
+        return {
+            "status": "ok",
+            "whitepage_offer_id": wp_offer_id,
+            "adspect_stream_id": adspect_stream_id,
+            "white_flow_id": white_flow_id,
+        }
+
+    except Exception as e:
+        if callback:
+            callback(f"⚠️ {domain}: cloaking setup failed — {e}")
+        return {"status": "error", "error": str(e)}
+
+# =====================================================
 # PROJECT
 # =====================================================
 
@@ -304,12 +492,17 @@ def create_full_project(domain, zip_bytes, callback=None, buyer=None):
     flow_id = create_flow(domain, campaign_id, offer_id, callback)
     domain_id = create_domain(domain, campaign_id, callback, buyer=buyer)
 
+    cloaking = setup_cloaking(
+        domain, campaign_id, flow_id, _groups(buyer)["offer"], callback
+    )
+
     return {
         "domain": domain,
         "offer_id": offer_id,
         "campaign_id": campaign_id,
         "flow_id": flow_id,
         "domain_id": domain_id,
+        "cloaking": cloaking,
         "status": "success"
     }
 
