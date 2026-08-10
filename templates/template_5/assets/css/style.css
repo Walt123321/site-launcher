@@ -343,6 +343,13 @@ section {
 .final-cta-box,
 .seo-expand-wrapper,
 .trust-strip-item {
+    /* .floating-ticker is a fixed bar that becomes visible for nearly the
+       entire scroll range and otherwise sits above this in-flow content
+       by default (any positioned z-index beats un-positioned normal flow,
+       regardless of DOM order) -- give these an explicit stacking context
+       above the ticker's z-index so real content is never hidden under it. */
+    position: relative;
+    z-index: 5;
     background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
     border: 1px solid var(--border);
     backdrop-filter: blur(18px);
@@ -518,6 +525,8 @@ section {
 }
 
 .signals-terminal {
+    position: relative;
+    z-index: 5;
     border-radius: 34px;
     overflow: hidden;
     background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
@@ -1356,6 +1365,8 @@ section {
 }
 
 .faq-item {
+    position: relative;
+    z-index: 5;
     border-radius: 24px;
     background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
     border: 1px solid var(--border);
@@ -2277,7 +2288,10 @@ body {
     position: fixed;
     left: 50%;
     bottom: 26px;
-    z-index: 999;
+    /* Was 999 (above literally everything). Cards/terminal/faq items now
+       carry z-index: 5 specifically so they win over this and are never
+       hidden underneath it -- keep this below that. */
+    z-index: 2;
 
     width: min(980px, calc(100% - 48px));
     height: 46px;
