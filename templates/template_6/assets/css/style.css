@@ -764,18 +764,26 @@
 
         /* --- Markets Widget (7 Currency Pairs) --- */
         .markets-grid {
-            position: relative;
             display: grid;
             grid-template-columns: 0.85fr 1.15fr;
             gap: 88px;
             align-items: center;
         }
 
-        /* Floating AI-security badge overlapping the two markets-grid columns */
+        /* markets-grid's columns are NOT equal width (0.85fr/1.15fr), so a
+           badge centered on the grid itself lands well into the right
+           column instead of on the seam between the two columns. Anchor it
+           to the visual column's own left edge instead -- that edge IS the
+           seam, regardless of the fr ratio above. */
+        .markets-visual-col {
+            position: relative;
+        }
+
+        /* Floating AI-security badge straddling the seam between columns */
         .markets-badge {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 0;
             transform: translate(-50%, -50%);
             width: 120px;
             height: 120px;

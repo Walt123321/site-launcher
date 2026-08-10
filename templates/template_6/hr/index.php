@@ -565,7 +565,7 @@ $canonical = 'https://' . $host . $uri;
                     </div>
                 </div>
     
-                <div>
+                <div class="markets-visual-col">
                     <div class="market-widget">
                         <div class="widget-header">
                             <span><?= $markets_table_asset ?></span>
@@ -637,16 +637,16 @@ $canonical = 'https://' . $host . $uri;
                         </div>
     
                     </div>
-                </div>
 
-                <div class="markets-badge">
-                    <img
-                        src="../assets/img/cta-ai-security.webp"
-                        alt="<?= $cta_security_visual_alt ?>"
-                        width="1024"
-                        height="1024"
-                        loading="lazy"
-                        decoding="async">
+                    <div class="markets-badge">
+                        <img
+                            src="../assets/img/cta-ai-security.webp"
+                            alt="<?= $cta_security_visual_alt ?>"
+                            width="1024"
+                            height="1024"
+                            loading="lazy"
+                            decoding="async">
+                    </div>
                 </div>
             </div>
         </div>
