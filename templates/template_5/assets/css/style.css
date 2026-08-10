@@ -1458,8 +1458,6 @@ section {
     }
 
     .floating-ticker {
-        bottom: 18px;
-        max-width: 980px;
         font-size: 13px;
         padding: 13px 24px;
     }
@@ -2278,17 +2276,18 @@ body {
 
 .floating-ticker {
     position: fixed;
-    left: 50%;
-    bottom: 26px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     /* Always on top of every card/section it scrolls over, by explicit
        request -- content underneath it can be partially covered while it
        passes over. */
     z-index: 999;
 
-    width: min(980px, calc(100% - 48px));
+    width: 100%;
     height: 46px;
 
-    transform: translateX(-50%) translateY(80px);
+    transform: translateY(80px);
 
     display: flex;
     align-items: center;
@@ -2296,10 +2295,8 @@ body {
     overflow: hidden;
     white-space: nowrap;
 
-    border-radius: 999px;
-
     background: rgba(7,17,31,.92);
-    border: 1px solid var(--border);
+    border-top: 1px solid var(--border);
     backdrop-filter: blur(14px);
     box-shadow: var(--shadow);
 
@@ -2314,7 +2311,7 @@ body {
 .floating-ticker.visible {
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
 }
 
 .floating-ticker::before,
@@ -2345,11 +2342,6 @@ body {
 
 @media (max-width: 768px) {
     .floating-ticker {
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-
-        width: auto;
         height: 48px;
 
         transform: translateY(80px);
