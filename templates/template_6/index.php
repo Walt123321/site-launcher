@@ -483,16 +483,6 @@ else {
     
                 <p class="section-subtitle"><?= $features_subtitle ?></p>
             </div>
-
-            <div class="features-visual">
-                <img
-                    src="./assets/img/hero-growth-chart.webp"
-                    alt="<?= $hero_growth_visual_alt ?>"
-                    width="1672"
-                    height="941"
-                    loading="lazy"
-                    decoding="async">
-            </div>
     
             <div class="features-grid">
                 <div class="card">
@@ -626,16 +616,6 @@ else {
                         </div>
     
                     </div>
-
-                    <div class="markets-badge">
-                        <img
-                            src="./assets/img/cta-ai-security.webp"
-                            alt="<?= $cta_security_visual_alt ?>"
-                            width="1024"
-                            height="1024"
-                            loading="lazy"
-                            decoding="async">
-                    </div>
                 </div>
             </div>
         </div>
@@ -644,6 +624,16 @@ else {
     <section id="onboarding">
         <div class="container">
             <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <div class="onboarding-visual">
+                    <img
+                        src="./assets/img/cta-ai-security.webp"
+                        alt="<?= $cta_security_visual_alt ?>"
+                        width="1024"
+                        height="1024"
+                        loading="lazy"
+                        decoding="async">
+                </div>
+
                 <div class="section-label"><?= $onboarding_section_label ?></div>
     
                 <h2 class="section-title"><?= $onboarding_title ?></h2>
@@ -697,15 +687,6 @@ else {
                         class="app-phone-image"
                         width="320"
                         height="640"
-                        loading="lazy"
-                        decoding="async">
-
-                    <img
-                        src="./assets/img/mobile-trading-light.webp"
-                        alt="<?= $mobile_trading_visual_alt ?>"
-                        class="app-secondary-image"
-                        width="1086"
-                        height="1448"
                         loading="lazy"
                         decoding="async">
                 </div>

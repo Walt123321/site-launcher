@@ -720,20 +720,6 @@
         }
 
         /* --- Features --- */
-        .features-visual {
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid var(--color-border);
-            box-shadow: var(--shadow-premium);
-            margin-bottom: 48px;
-        }
-
-        .features-visual img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -768,35 +754,6 @@
             grid-template-columns: 0.85fr 1.15fr;
             gap: 88px;
             align-items: center;
-        }
-
-        /* markets-grid's columns are NOT equal width (0.85fr/1.15fr), so a
-           badge centered on the grid itself lands well into the right
-           column instead of on the seam between the two columns. Anchor it
-           to the visual column's own left edge instead -- that edge IS the
-           seam, regardless of the fr ratio above. */
-        .markets-visual-col {
-            position: relative;
-        }
-
-        /* Floating AI-security badge straddling the seam between columns */
-        .markets-badge {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translate(-50%, -50%);
-            width: 120px;
-            height: 120px;
-            z-index: 2;
-            filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.35));
-            pointer-events: none;
-        }
-
-        .markets-badge img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
         }
 
         .ai-explain-box {
@@ -961,20 +918,21 @@
             50% { transform: translateY(-16px); }
         }
 
-        /* Secondary floating card overlapping the phone mockup */
-        .app-secondary-image {
-            position: absolute;
-            z-index: 2;
-            bottom: 6%;
-            right: 4%;
-            width: 130px;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--color-border);
+        /* --- How It Works (Плавна поява + Сполучна Лінія) --- */
+        .onboarding-visual {
+            width: 96px;
+            height: 96px;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.25));
         }
 
-        /* --- How It Works (Плавна поява + Сполучна Лінія) --- */
+        .onboarding-visual img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .steps-container {
             position: relative;
             margin-top: 40px;
@@ -1678,8 +1636,6 @@
             .features-grid, .reviews-grid, .partners-grid { grid-template-columns: 1fr 1fr; }
             .steps-grid { grid-template-columns: repeat(2, 1fr); }
             .steps-connecting-line { display: none; }
-            /* Absolute-positioned accents assume the desktop 2-column layout */
-            .markets-badge, .app-secondary-image { display: none; }
         }
 
         @media (max-width: 768px) {
