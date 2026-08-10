@@ -156,6 +156,15 @@ def get_campaign_streams(campaign_id):
     return body
 
 
+def get_campaign(campaign_id):
+    """Single-campaign lookup -- much faster than paginating the full
+    1800+ list just to pick out a handful of known ids (--campaign-ids)."""
+    status, body = http("GET", f"{KEITARO_BASE}/campaigns/{campaign_id}", keitaro_headers())
+    if status != 200:
+        return None
+    return body
+
+
 def find_white_flow_template(streams):
     for s in streams:
         for f in s.get("filters") or []:
@@ -327,6 +336,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument(
+        "--campaign-ids",
+        default=None,
+        help="Обработать только эти campaign_id (через запятую), вместо всего "
+             "списка кампаний из Keitaro. --limit при этом игнорируется.",
+    )
     args = ap.parse_args()
 
     missing = [
@@ -358,16 +373,33 @@ def main():
 
     done = load_done_campaigns()
 
-    print("Получаю список кампаний из Keitaro...")
-    # Запас сверх --limit: +1 на пилот и +len(done) на уже обработанные --
-    # оба потом отфильтруются, но должны быть учтены в запасе, иначе
-    # --limit N после resume может недобрать N новых кампаний.
-    fetch_cap = (args.limit + 1 + len(done)) if args.limit else None
-    campaigns = list_campaigns(max_fetch=fetch_cap)
-    campaigns = [c for c in campaigns if str(c["id"]) != str(PILOT_CAMPAIGN_ID)]
-    campaigns = [c for c in campaigns if str(c["id"]) not in done]
-    if args.limit:
-        campaigns = campaigns[: args.limit]
+    if args.campaign_ids:
+        wanted_ids = [x.strip() for x in args.campaign_ids.split(",") if x.strip()]
+        print(f"Получаю {len(wanted_ids)} конкретных кампаний из Keitaro (поштучно)...")
+        campaigns = []
+        missing_ids = []
+        for cid in wanted_ids:
+            c = get_campaign(cid)
+            if c:
+                campaigns.append(c)
+            else:
+                missing_ids.append(cid)
+            time.sleep(RATE_LIMIT_SLEEP)
+        if missing_ids:
+            print(f"  ВНИМАНИЕ: не найдены в Keitaro: {', '.join(missing_ids)}")
+        campaigns = [c for c in campaigns if str(c["id"]) != str(PILOT_CAMPAIGN_ID)]
+        campaigns = [c for c in campaigns if str(c["id"]) not in done]
+    else:
+        print("Получаю список кампаний из Keitaro...")
+        # Запас сверх --limit: +1 на пилот и +len(done) на уже обработанные --
+        # оба потом отфильтруются, но должны быть учтены в запасе, иначе
+        # --limit N после resume может недобрать N новых кампаний.
+        fetch_cap = (args.limit + 1 + len(done)) if args.limit else None
+        campaigns = list_campaigns(max_fetch=fetch_cap)
+        campaigns = [c for c in campaigns if str(c["id"]) != str(PILOT_CAMPAIGN_ID)]
+        campaigns = [c for c in campaigns if str(c["id"]) not in done]
+        if args.limit:
+            campaigns = campaigns[: args.limit]
     print(f"Найдено кампаний-кандидатов: {len(campaigns)}"
           + (f" (группа {BUYER_GROUP_ID})" if BUYER_GROUP_ID else ""))
 
