@@ -336,6 +336,22 @@ def _adspect_copy_stream(name):
     return r.json()["stream_id"]
 
 
+def _adspect_set_countries(stream_id, countries):
+    """Restrict a stream's money-page traffic to the given ISO 3166-1
+    alpha-2 country codes (Adspect's own "countries" field on the stream
+    -- confirmed empty by default on the template, i.e. no restriction).
+    Everyone outside the list gets treated as unsafe, same as any other
+    Adspect filter mismatch -- routed to the safe/white page."""
+    r = requests.patch(
+        f"{ADSPECT_BASE}/streams/{stream_id}",
+        headers=_adspect_headers(),
+        json={"countries": countries},
+        timeout=TIMEOUT,
+    )
+    if r.status_code not in (200, 201):
+        raise Exception(f"ADSPECT SET COUNTRIES ERROR {r.status_code}: {r.text}")
+
+
 def _find_white_flow_template(streams):
     for s in streams:
         for f in (s.get("filters") or []):
@@ -391,12 +407,18 @@ def create_whitepage_offer(domain, group_id, callback=None):
     raise Exception(f"WHITEPAGE OFFER ERROR {r.status_code}: {r.text}")
 
 
-def setup_cloaking(domain, campaign_id, money_flow_id, offer_group_id, callback=None):
+def setup_cloaking(domain, campaign_id, money_flow_id, offer_group_id, callback=None, geo_code=None):
     """Best-effort: whitepage offer + Adspect stream + Keitaro white-flow,
     routing bots/moderators to the white page and everyone else to the
     money page. Never raises -- cloaking is an enhancement on top of the
     launch, not a requirement for it to succeed. Returns a status dict that
-    ends up in create_full_project()'s result under "cloaking"."""
+    ends up in create_full_project()'s result under "cloaking".
+
+    geo_code: the offer's target country (same value already used for
+    currency/language on the page itself), e.g. "US" or "DE". When set to
+    a real country (not None/"" /"UNKNOWN"), the Adspect stream is
+    restricted to that country -- visitors from anywhere else are treated
+    the same as a failed cloaking check and see the white page."""
 
     if not CLOAKING_ENABLED:
         return {"status": "skipped", "reason": "Adspect secrets not configured"}
@@ -423,6 +445,12 @@ def setup_cloaking(domain, campaign_id, money_flow_id, offer_group_id, callback=
 
         wp_offer_id = create_whitepage_offer(domain, offer_group_id, callback)
         adspect_stream_id = _adspect_copy_stream(f"AS - {domain}")
+
+        geo_normalized = (geo_code or "").strip().upper()
+        if geo_normalized and geo_normalized != "UNKNOWN":
+            _adspect_set_countries(adspect_stream_id, [geo_normalized])
+            if callback:
+                callback(f"🌍 {domain}: Adspect restricted to {geo_normalized}")
 
         # Free up the money-flow's position for the white-flow, same as the
         # pilot (white=1, money=2) -- see bulk_setup.py's create_white_flow
@@ -482,7 +510,7 @@ def setup_cloaking(domain, campaign_id, money_flow_id, offer_group_id, callback=
 # PROJECT
 # =====================================================
 
-def create_full_project(domain, zip_bytes, callback=None, buyer=None):
+def create_full_project(domain, zip_bytes, callback=None, buyer=None, geo_code=None):
 
     if callback:
         callback(f"🚀 {domain}: START")
@@ -493,7 +521,7 @@ def create_full_project(domain, zip_bytes, callback=None, buyer=None):
     domain_id = create_domain(domain, campaign_id, callback, buyer=buyer)
 
     cloaking = setup_cloaking(
-        domain, campaign_id, flow_id, _groups(buyer)["offer"], callback
+        domain, campaign_id, flow_id, _groups(buyer)["offer"], callback, geo_code=geo_code
     )
 
     return {
@@ -510,7 +538,7 @@ def create_full_project(domain, zip_bytes, callback=None, buyer=None):
 # MULTI
 # =====================================================
 
-def create_multiple_projects(domains, zip_map, callback=None, max_workers=1, buyer=None):
+def create_multiple_projects(domains, zip_map, callback=None, max_workers=1, buyer=None, geo_code=None):
 
     results = []
 
@@ -529,6 +557,7 @@ def create_multiple_projects(domains, zip_map, callback=None, max_workers=1, buy
                 zip_map[domain],
                 callback,
                 buyer=buyer,
+                geo_code=geo_code,
             )
 
             results.append(result)

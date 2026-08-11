@@ -2220,6 +2220,7 @@ elif st.session_state.step == 2:
                     callback=live_log,
                     max_workers=1,
                     buyer=st.session_state.get("buyer_name") or None,
+                    geo_code=st.session_state.get("geo_code"),
                 )
 
                 progress.progress(1.0)
@@ -2411,6 +2412,7 @@ elif st.session_state.step == 2:
                     callback=lambda txt: test_status_box.info(txt),
                     max_workers=1,
                     buyer=st.session_state.get("buyer_name") or None,
+                    geo_code=st.session_state.get("geo_code"),
                 )
 
                 test_errors = [x for x in test_results if x.get("error")]
