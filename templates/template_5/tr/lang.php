@@ -262,6 +262,7 @@ $home_device_visual_alt = "$site_name aracılığıyla bağlı bir cihazda gör�
 $home_security_visual_alt = "$site_name hesap korumasını temsil eden güvenlik kalkanı";
 $home_contact_eyebrow = "$site_name İLE BAŞLAYIN";
 $home_contact_title = "Platformu Güvenle Keşfedin";
+$home_contact_section_title = "Platformu Güvenle Keşfedin";
 $home_contact_desc_1 = "İster kripto para piyasalarında tamamen yeni olun, ister zaten işlem deneyiminiz olsun, $site_name kullanıcıların dijital varlık fırsatlarını daha iyi anlamalarına yardımcı olmak için tasarlanmış yapay zeka destekli piyasa içgörülerine, gerçek zamanlı izleme araçlarına ve akıllı analitiklere erişim sağlar.";
 $home_contact_desc_2 = "Platform hakkında daha fazla bilgi edinmek, mevcut özellikleri keşfetmek ve $site_name'in gelişmiş teknoloji ve rehberli platform desteği ile kripto para piyasalarında gezinmenize nasıl yardımcı olabileceğini öğrenmek için bilgilerinizi gönderin.";
 $home_seo_toggle = "$site_name Yapay Zeka Platformu Hakkında Daha Fazla Bilgi Edinin";

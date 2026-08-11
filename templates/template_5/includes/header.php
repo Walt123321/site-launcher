@@ -1,4 +1,21 @@
 
+<?php
+// Same-page browser-loaded resources (CSS/JS/img) need to resolve to where
+// the files are actually reachable. Under Keitaro's cloaked "local offer"
+// hosting (see keitaro_cloaked_lander_hosting memory), the real file tree
+// lives at $site_url/lander/$site_domain/... regardless of whether this
+// page is being served via the bare-root proxy (which injects its own
+// <base> tag, but that only helps *relative* URLs) or accessed directly
+// at its real /lander/{domain}/xx/ path. A plain $site_url-absolute path
+// (no /lander/ infix) 404s on the bare-root proxy; a bare relative path
+// 404s on direct /xx/ access one level deep. This is the one URL form
+// that works from both entry points.
+// php -S's built-in dev server has no way to serve /lander/{domain}/ as a
+// separate mirror of the docroot, and $site_domain is still the {{DOMAIN}}
+// placeholder locally anyway (not a resolvable host) — fall back to plain
+// domain-root-relative paths there so local previews render styled.
+$asset_url = (PHP_SAPI === 'cli-server') ? (rtrim(dirname($_SERVER['SCRIPT_NAME'] ?? ''), '/\\')) : ($site_url . '/lander/' . $site_domain);
+?>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -7,15 +24,15 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="./assets/css/style.css?v=<?= @filemtime(__DIR__ . '/../assets/css/style.css') ?: time() ?>">
+    <link rel="stylesheet" href="<?= $asset_url ?>/assets/css/style.css?v=<?= @filemtime(__DIR__ . '/../assets/css/style.css') ?: time() ?>">
 
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="<?= $asset_url ?>/assets/img/favicon.png">
 
     <meta property="og:type" content="website">
 
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" href="<?= $asset_url ?>/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="<?= $asset_url ?>/favicon.svg" />
+<link rel="shortcut icon" href="<?= $asset_url ?>/favicon.ico" />
 
 <link rel="canonical" href="<?= $canonical ?>">
 
@@ -40,7 +57,7 @@
 
             <a href="<?= $site_url ?>" class="logo">
 
-                <div class="logo-icon"> <img src="./favicon.svg" alt="<?= $site_name ?>" class="logo-image"></div>
+                <div class="logo-icon"> <img src="<?= $asset_url ?>/favicon.svg" alt="<?= $site_name ?>" class="logo-image"></div>
 
                 <div class="logo-text">
                     <span class="logo-title"><?= $site_name ?></span>

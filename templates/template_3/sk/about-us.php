@@ -213,7 +213,7 @@ $canonical = 'https://' . $host . $uri;
     <br>
     <p style="text-align: center; max-width: 1000px; margin: 0 auto;" class="leaders__description"><?= $about_paragraph_2 ?></p>
 
-    <img alt="Team working on AI trading platform — <?= $source ?>" style="width: 100%; max-width: 1000px; margin: 0 auto; display: block; border-radius: 15px; margin-top: 30px; margin-bottom: 30px;" src="../team.png" alt="">
+    <img alt="Team working on AI trading platform — <?= $source ?>" style="width: 100%; max-width: 1000px; margin: 0 auto; display: block; border-radius: 15px; margin-top: 30px; margin-bottom: 30px;" src="../team.webp" alt="">
 
     <p style="text-align: center; max-width: 1000px; margin: 0 auto;" class="leaders__description"><?= $about_paragraph_3 ?></p>
     <br>

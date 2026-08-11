@@ -263,6 +263,7 @@ $home_device_visual_alt = "Analize cripto afișate pe un dispozitiv conectat pri
 $home_security_visual_alt = "Scut de securitate reprezentând protecția contului $site_name";
 $home_contact_eyebrow = "ÎNCEPE CU $site_name";
 $home_contact_title = "Explorează Platforma cu Încredere";
+$home_contact_section_title = "Explorează Platforma cu Încredere";
 $home_contact_desc_1 = "Fie că ești complet nou pe piețele de criptomonede sau ai deja experiență în tranzacționare, $site_name oferă acces la informații de piață bazate pe AI, instrumente de monitorizare în timp real și analize inteligente.";
 $home_contact_desc_2 = "Trimite detaliile tale pentru a afla mai multe despre platformă, pentru a explora funcțiile disponibile și pentru a descoperi cum te poate ajuta $site_name să navighezi pe piețele criptomonedelor.";
 $home_seo_toggle = "Află Mai Multe Despre Platforma AI $site_name";

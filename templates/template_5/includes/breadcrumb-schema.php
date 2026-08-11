@@ -16,7 +16,7 @@ $schemaGraph = [
             'url' => $site_url,
             'logo' => [
                 '@type' => 'ImageObject',
-                'url' => $site_url . '/favicon-96x96.png',
+                'url' => $site_url . '/lander/' . $site_domain . '/favicon-96x96.png',
             ],
             'description' => $home_meta_description,
             'contactPoint' => [

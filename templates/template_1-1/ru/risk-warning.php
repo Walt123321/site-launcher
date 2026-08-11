@@ -71,7 +71,7 @@ $canonical = 'https://' . $host . $uri;
   "url": <?= json_encode($site_url) ?>,
   "logo": {{
     "@type": "ImageObject",
-    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+    "url": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>
   }},
   "description": <?= json_encode($page_description_main) ?>,
   "contactPoint": {{
@@ -88,7 +88,7 @@ $canonical = 'https://' . $host . $uri;
   "@type": "SoftwareApplication",
   "name": <?= json_encode($site_name) ?>,
   "url": <?= json_encode($site_url . '/') ?>,
-  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "logo": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>,
   "description": <?= json_encode($page_description_main) ?>,
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web Browser",
@@ -146,7 +146,7 @@ $canonical = 'https://' . $host . $uri;
 <meta content="<?= $canonical ?>" property="og:url"/>
 <meta content="<?= $page_title_risk_warning ?>" property="og:title"/>
 <meta content="<?= $page_description_risk_warning ?>" property="og:description"/>
-<meta content="<?= $site_url ?>/favicon-96x96.png" property="og:image"/>
+<meta content="<?= $site_url ?>/lander/<?= $site_domain ?>/favicon-96x96.png" property="og:image"/>
 <meta content="96" property="og:image:width"/>
 <meta content="96" property="og:image:height"/>
 <meta content="<?= $site_name ?> logo" property="og:image:alt"/>

@@ -272,6 +272,7 @@ $home_device_visual_alt = "Analyses crypto affichées sur un appareil connecté 
 $home_security_visual_alt = "Bouclier de sécurité représentant la protection des comptes $site_name";
 $home_contact_eyebrow = "COMMENCEZ AVEC $site_name";
 $home_contact_title = "Explorez la plateforme en toute confiance";
+$home_contact_section_title = "Explorez la plateforme en toute confiance";
 $home_contact_desc_1 = "Que vous soyez totalement novice sur les marchés de cryptomonnaies ou que vous ayez déjà de l'expérience en trading, $site_name donne accès à des analyses de marché propulsées par l'IA, des outils de surveillance en temps réel et des analyses intelligentes conçues pour aider les utilisateurs à mieux comprendre les opportunités liées aux actifs numériques.";
 $home_contact_desc_2 = "Envoyez vos coordonnées pour en savoir plus sur la plateforme, découvrir les fonctionnalités disponibles et voir comment $site_name peut vous aider à naviguer sur les marchés de cryptomonnaies grâce à une technologie avancée et un accompagnement guidé de la plateforme.";
 $home_seo_toggle = "En savoir plus sur la plateforme IA $site_name";

@@ -80,7 +80,7 @@ function initials($text) {
   "url": <?= json_encode($site_url) ?>,
   "logo": {
     "@type": "ImageObject",
-    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+    "url": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>
   },
   "description": <?= json_encode($home_meta_description) ?>,
   "contactPoint": {
@@ -97,7 +97,7 @@ function initials($text) {
   "@type": "SoftwareApplication",
   "name": <?= json_encode($site_name) ?>,
   "url": <?= json_encode($site_url . '/') ?>,
-  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "logo": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>,
   "description": <?= json_encode($home_meta_description) ?>,
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web Browser",
@@ -146,7 +146,7 @@ function initials($text) {
     <meta property="og:url" content="<?= $site_url ?>/">
     <meta property="og:title" content="<?= $home_meta_title ?>">
     <meta property="og:description" content="<?= $home_meta_description ?>">
-    <meta property="og:image" content="<?= $site_url ?>/favicon-96x96.png">
+    <meta property="og:image" content="<?= $site_url ?>/lander/<?= $site_domain ?>/favicon-96x96.png">
     <meta property="og:image:width" content="96">
     <meta property="og:image:height" content="96">
     <meta property="og:image:alt" content="<?= $site_name ?> logo">

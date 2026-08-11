@@ -72,7 +72,7 @@ if ($uri === "/lander/{$host}/index.php") {
   "url": <?= json_encode($site_url) ?>,
   "logo": {
     "@type": "ImageObject",
-    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+    "url": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>
   },
   "description": <?= json_encode($page_description_main) ?>,
   "contactPoint": {
@@ -89,7 +89,7 @@ if ($uri === "/lander/{$host}/index.php") {
   "@type": "SoftwareApplication",
   "name": <?= json_encode($site_name) ?>,
   "url": <?= json_encode($site_url . '/') ?>,
-  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "logo": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>,
   "description": <?= json_encode($page_description_main) ?>,
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web Browser",
@@ -139,7 +139,7 @@ if ($uri === "/lander/{$host}/index.php") {
 <meta content="<?= $site_url ?>/" property="og:url"/>
 <meta content="<?= $page_title_main ?>" property="og:title"/>
 <meta content="<?= $page_description_main ?>" property="og:description"/>
-<meta content="<?= $site_url ?>/favicon-96x96.png" property="og:image"/>
+<meta content="<?= $site_url ?>/lander/<?= $site_domain ?>/favicon-96x96.png" property="og:image"/>
 <meta content="96" property="og:image:width"/>
 <meta content="96" property="og:image:height"/>
 <meta content="<?= $site_name ?> logo" property="og:image:alt"/>
@@ -1382,7 +1382,7 @@ $faqSchema = [
         <div style="background-color: #1a1a1e !important; border-bottom: 1px solid #27272a !important; padding: 14px 18px !important; display: flex !important; align-items: center !important; justify-content: space-between !important; flex-direction: row !important;">
             <div style="display: flex !important; align-items: center !important; gap: 12px !important; flex-direction: row !important;">
                 <div style="position: relative !important; width: 40px !important; height: 40px !important; border-radius: 50% !important; border: 2px solid #6D28D9 !important; background-color: #27272a !important; display: flex !important; align-items: center !important; justify-content: center !important; overflow: hidden !important; flex-shrink: 0 !important;">
-                    <img src="./consultant.png" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
+                    <img src="./consultant.webp" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
                     <svg style="display: none; width: 22px; height: 22px; color: #a1a1aa;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     <span style="position: absolute !important; bottom: 0 !important; right: 0 !important; width: 9px !important; height: 9px !important; background-color: #10b981 !important; border: 1.5px solid #121214 !important; border-radius: 50% !important;"></span>
                 </div>

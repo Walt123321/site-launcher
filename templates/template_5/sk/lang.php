@@ -272,6 +272,7 @@ $home_device_visual_alt = "Krypto analýzy zobrazené na prepojenom zariadení p
 $home_security_visual_alt = "Bezpečnostný štít predstavujúci ochranu účtu na $site_name";
 $home_contact_eyebrow = "ZAČNITE SO $site_name";
 $home_contact_title = "Preskúmajte platformu s istotou";
+$home_contact_section_title = "Preskúmajte platformu s istotou";
 $home_contact_desc_1 = "Nezáleží na tom, či ste v oblasti kryptomien úplný nováčik, alebo už máte obchodné skúsenosti – $site_name ponúka prístup k prehľadom o trhu vďaka umelej inteligencii, k nástrojom na monitorovanie v reálnom čase a inteligentným analytickým údajom, ktoré sú navrhnuté na to, aby pomohli používateľom lepšie spoznať príležitosti na poli digitálnych aktív.";
 $home_contact_desc_2 = "Zadajte svoje informácie pre ďalšie zistenia o platforme, zistite o dostupných funkciách a objavte, ako $site_name vám pomôže lepšie sa zorientovať na trhoch s kryptomenami vďaka pokročilým technológiám a vedenej podpore platformy.";
 $home_seo_toggle = "Ďalšie informácie o AI platforme $site_name";

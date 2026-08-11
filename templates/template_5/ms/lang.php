@@ -272,6 +272,7 @@ $home_device_visual_alt = "Analisis kripto dipaparkan pada peranti bersambung me
 $home_security_visual_alt = "Perisai keselamatan mewakili perlindungan akaun $site_name";
 $home_contact_eyebrow = "MULA BERSAMA $site_name";
 $home_contact_title = "Terokai Platform Dengan Yakin";
+$home_contact_section_title = "Terokai Platform Dengan Yakin";
 $home_contact_desc_1 = "Sama ada anda benar-benar baharu kepada pasaran mata wang kripto atau sudah mempunyai pengalaman berdagang, $site_name menyediakan akses kepada cerapan pasaran berkuasa AI, alat pemantauan masa nyata dan analitik pintar yang direka untuk membantu pengguna lebih memahami peluang aset digital.";
 $home_contact_desc_2 = "Hantar butiran anda untuk mengetahui lebih lanjut tentang platform, teroka ciri yang tersedia dan temui cara $site_name boleh membantu anda menavigasi pasaran mata wang kripto melalui teknologi canggih dan sokongan platform berpandu.";
 $home_seo_toggle = "Ketahui Lebih Lanjut Mengenai Platform AI $site_name";

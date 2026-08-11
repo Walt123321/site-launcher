@@ -65,7 +65,7 @@ $canonical = 'https://' . $host . $uri;
   "url": <?= json_encode($site_url) ?>,
   "logo": {
     "@type": "ImageObject",
-    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+    "url": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>
   },
   "description": <?= json_encode($page_description_main) ?>,
   "contactPoint": {
@@ -82,7 +82,7 @@ $canonical = 'https://' . $host . $uri;
   "@type": "SoftwareApplication",
   "name": <?= json_encode($site_name) ?>,
   "url": <?= json_encode($site_url . '/') ?>,
-  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "logo": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>,
   "description": <?= json_encode($page_description_main) ?>,
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web Browser",
@@ -128,7 +128,7 @@ $canonical = 'https://' . $host . $uri;
   <meta property="og:url" content="<?= $canonical ?>">
   <meta property="og:title" content="<?= $page_title_about ?>">
   <meta property="og:description" content="<?= $page_description_about ?>">
-  <meta property="og:image" content="<?= $site_url ?>/favicon-96x96.png">
+  <meta property="og:image" content="<?= $site_url ?>/lander/<?= $site_domain ?>/favicon-96x96.png">
   <meta property="og:image:width" content="96">
   <meta property="og:image:height" content="96">
   <meta property="og:image:alt" content="<?= $site_name ?> logo">
@@ -229,7 +229,7 @@ $canonical = 'https://' . $host . $uri;
     <br>
     <p style="text-align: center; max-width: 1000px; margin: 0 auto;" class="leaders__description"><?= $about_paragraph_2 ?></p>
 
-    <img alt="Team working on AI trading platform — <?= $source ?>" style="width: 100%; max-width: 1000px; margin: 0 auto; display: block; border-radius: 15px; margin-top: 30px; margin-bottom: 30px;" src="team.png" alt="">
+    <img alt="Team working on AI trading platform — <?= $source ?>" style="width: 100%; max-width: 1000px; margin: 0 auto; display: block; border-radius: 15px; margin-top: 30px; margin-bottom: 30px;" src="team.webp" alt="">
 
     <p style="text-align: center; max-width: 1000px; margin: 0 auto;" class="leaders__description"><?= $about_paragraph_3 ?></p>
     <br>

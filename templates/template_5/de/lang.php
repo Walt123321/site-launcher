@@ -272,6 +272,7 @@ $home_device_visual_alt = "Krypto-Analysen auf einem verbundenen Gerät über $s
 $home_security_visual_alt = "Sicherheitsschild als Symbol für den $site_name-Kontoschutz";
 $home_contact_eyebrow = "MIT $site_name STARTEN";
 $home_contact_title = "Entdecken Sie die Plattform mit Vertrauen";
+$home_contact_section_title = "Entdecken Sie die Plattform mit Vertrauen";
 $home_contact_desc_1 = "Egal, ob Sie völlig neu in den Kryptomärkten sind oder bereits Handelserfahrung haben – $site_name bietet Zugang zu KI-gestützten Markteinblicken, Echtzeit-Überwachungstools und intelligenten Analysen, die Nutzern helfen, Chancen bei digitalen Vermögenswerten besser zu verstehen.";
 $home_contact_desc_2 = "Übermitteln Sie Ihre Daten, um mehr über die Plattform zu erfahren, verfügbare Funktionen zu entdecken und herauszufinden, wie $site_name Ihnen mit fortschrittlicher Technologie und geführtem Plattform-Support beim Navigieren der Kryptomärkte helfen kann.";
 $home_seo_toggle = "Mehr über die $site_name KI-Plattform erfahren";

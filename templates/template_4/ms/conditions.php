@@ -40,7 +40,7 @@ $canonical = 'https://' . $host . $uri;
       "@type": "ListItem",
       "position": 1,
       "name": "<?= $site_name ?>",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/ms/"
+      "item": "<?= $site_url ?>"
     },
     {
       "@type": "ListItem",

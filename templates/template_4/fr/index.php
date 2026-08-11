@@ -53,7 +53,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
       "@type": "ListItem",
       "position": 1,
       "name": "<?= $site_name ?>",
-      "item": "<?= $site_url ?>/lander/<?= $site_domain ?>/fr/"
+      "item": "<?= $site_url ?>"
     },
     {
       "@type": "ListItem",

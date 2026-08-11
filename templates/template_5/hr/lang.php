@@ -277,6 +277,7 @@ $home_device_visual_alt = "Kripto analitika prikazana na povezanom uređaju pute
 $home_security_visual_alt = "Sigurnosni štit predstavlja zaštitu računa na platformi $site_name";
 $home_contact_eyebrow = "ZAPOČNITE S PLATFORMOM $site_name";
 $home_contact_title = "Istražite platformu s povjerenjem";
+$home_contact_section_title = "Istražite platformu s povjerenjem";
 $home_contact_desc_1 = "Bilo da ste potpuno novi na tržištima kriptovaluta ili već imate iskustva u trgovanju, $site_name pruža pristup AI uvidima u tržište, alatima za praćenje u stvarnom vremenu i inteligentnoj analitici dizajniranoj da pomogne korisnicima u boljem razumijevanju prilika za digitalnu imovinu.";
 $home_contact_desc_2 = "Pošaljite svoje podatke kako biste saznali više o platformi, istražili dostupne značajke i otkrili kako vam $site_name može pomoći u navigaciji tržištima kriptovaluta kroz naprednu tehnologiju i vođenu podršku platforme.";
 $home_seo_toggle = "Saznajte više o AI platformi $site_name";

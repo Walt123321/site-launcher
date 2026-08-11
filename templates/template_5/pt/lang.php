@@ -262,6 +262,7 @@ $home_device_visual_alt = "Análises de criptomoedas apresentadas num dispositiv
 $home_security_visual_alt = "Escudo de segurança representando a proteção da conta $site_name";
 $home_contact_eyebrow = "COMECE COM O $site_name";
 $home_contact_title = "Explore a Plataforma com Confiança";
+$home_contact_section_title = "Explore a Plataforma com Confiança";
 $home_contact_desc_1 = "Seja um principiante nos mercados de criptomoedas ou já tenha experiência em negociação, o $site_name fornece acesso a insights de mercado gerados por IA, ferramentas de monitorização em tempo real e análises inteligentes desenhadas para ajudar os utilizadores a compreender melhor as oportunidades em ativos digitais.";
 $home_contact_desc_2 = "Envie os seus dados para saber mais sobre a plataforma, explorar as funcionalidades disponíveis e descobrir como o $site_name o pode ajudar a navegar nos mercados de criptomoedas através de tecnologia avançada e suporte guiado da plataforma.";
 $home_seo_toggle = "Saiba Mais Sobre A Plataforma IA do $site_name";

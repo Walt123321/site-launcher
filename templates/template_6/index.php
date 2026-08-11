@@ -62,7 +62,7 @@ else {
     <meta property="og:url" content="<?= $site_url ?>/">
     <meta property="og:title" content="<?= $home_meta_title ?>">
     <meta property="og:description" content="<?= $home_meta_description ?>">
-    <meta property="og:image" content="<?= $site_url ?>/app_cryptocurrency.png">
+    <meta property="og:image" content="<?= $site_url ?>/app_cryptocurrency.webp">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="909">
     <meta property="og:image:height" content="1731">
@@ -71,7 +71,7 @@ else {
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= $site_name ?> | Advanced AI Trading Platform">
     <meta name="twitter:description" content="Access global cryptocurrency markets with institutional low-latency execution, automated AI trading models, and multi-tenant  secure core infrastructure.">
-    <meta name="twitter:image" content="./app_cryptocurrency.png">
+    <meta name="twitter:image" content="./app_cryptocurrency.webp">
 
     <script type="application/ld+json">
     {
@@ -103,7 +103,7 @@ else {
       "url": <?= json_encode($site_url) ?>,
       "logo": {
         "@type": "ImageObject",
-        "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+        "url": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>
       },
       "description": <?= json_encode($home_meta_description) ?>,
       "contactPoint": {
@@ -120,7 +120,7 @@ else {
       "@type": "SoftwareApplication",
       "name": <?= json_encode($site_name) ?>,
       "url": <?= json_encode($site_url . '/') ?>,
-      "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+      "logo": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>,
       "description": <?= json_encode($home_meta_description) ?>,
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web Browser",

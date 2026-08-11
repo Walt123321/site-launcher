@@ -268,6 +268,7 @@ $home_device_visual_alt = "Kryptoanalytiikka näytettynä yhdistetyllä laitteel
 $home_security_visual_alt = "Turvakilpi, joka edustaa $site_name-tilin suojausta";
 $home_contact_eyebrow = "ALOITA $site_name-PALVELUN KANSSA";
 $home_contact_title = "Tutustu alustaan luottavaisin mielin";
+$home_contact_section_title = "Tutustu alustaan luottavaisin mielin";
 $home_contact_desc_1 = "Olitpa täysin uusi kryptovaluuttamarkkinoilla tai sinulla on jo kaupankäyntikokemusta, $site_name tarjoaa pääsyn tekoälyyn perustuviin markkinanäkemyksiin, reaaliaikaisiin seurantatyökaluihin ja älykkääseen analytiikkaan, jotka on suunniteltu auttamaan käyttäjiä ymmärtämään digitaalisten varojen mahdollisuuksia paremmin.";
 $home_contact_desc_2 = "Lähetä tietosi saadaksesi lisätietoja alustasta, tutustuaksesi saatavilla oleviin ominaisuuksiin ja saadaksesi selville, miten $site_name voi auttaa sinua navigoimaan kryptovaluuttamarkkinoilla kehittyneen teknologian ja opastetun alustatuen avulla.";
 $home_seo_toggle = "Lue lisää $site_name-tekoälyalustasta";

@@ -1,0 +1,35 @@
+/* Анімація пульсації головної кнопки кольором бренду.
+   box-shadow не можна анімувати напряму — кнопка вже має свій
+   box-shadow заданий інлайново з !important, тож пульсуємо
+   через transform на кнопці + окремий ::after кільце. */
+.cq-pulse-button {
+    animation: cq-brand-pulse 2s ease-in-out infinite;
+}
+.cq-pulse-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+    animation: cq-brand-pulse-ring 2s ease-out infinite;
+    pointer-events: none;
+}
+@keyframes cq-brand-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+@keyframes cq-brand-pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Анімація появи повідомлень */
+@keyframes chatIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes confettiFall {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(450px) rotate(360deg); opacity: 0; }
+}

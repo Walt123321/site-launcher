@@ -268,6 +268,7 @@ $home_device_visual_alt = "Analizy kryptowalutowe wyświetlane na podłączonym 
 $home_security_visual_alt = "Tarcza bezpieczeństwa reprezentująca ochronę konta $site_name";
 $home_contact_eyebrow = "ROZPOCZNIJ Z $site_name";
 $home_contact_title = "Poznaj platformę z pewnością siebie";
+$home_contact_section_title = "Poznaj platformę z pewnością siebie";
 $home_contact_desc_1 = "Niezależnie od tego, czy jesteś zupełnie nowy w świecie kryptowalut, czy masz już doświadczenie w tradingu, $site_name zapewnia dostęp do analiz rynkowych opartych na AI, narzędzi monitorowania w czasie rzeczywistym i inteligentnej analityki zaprojektowanej, aby pomóc użytkownikom lepiej zrozumieć możliwości aktywów cyfrowych.";
 $home_contact_desc_2 = "Prześlij swoje dane, aby dowiedzieć się więcej o platformie, odkryć dostępne funkcje i przekonać się, jak $site_name może pomóc Ci poruszać się po rynkach kryptowalut dzięki zaawansowanej technologii i wsparciu platformy.";
 $home_seo_toggle = "Dowiedz się więcej o platformie AI $site_name";

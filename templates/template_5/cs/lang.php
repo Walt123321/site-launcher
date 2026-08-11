@@ -272,6 +272,7 @@ $home_device_visual_alt = "Krypto analytika zobrazená na připojeném zařízen
 $home_security_visual_alt = "Bezpečnostní štít představující ochranu účtu u $site_name";
 $home_contact_eyebrow = "ZAČNĚTE SE $site_name";
 $home_contact_title = "Prozkoumejte platformu s jistotou";
+$home_contact_section_title = "Prozkoumejte platformu s jistotou";
 $home_contact_desc_1 = "Ať už jste na trzích s kryptoměnami úplní nováčci, nebo už máte zkušenosti s obchodováním, $site_name poskytuje přístup k informacím o trhu využívajícím umělou inteligenci, nástrojům pro monitorování v reálném čase a inteligentní analytice, které uživatelům pomáhají lépe pochopit příležitosti v oblasti digitálních aktiv.";
 $home_contact_desc_2 = "Odešlete své údaje, abyste se dozvěděli více o platformě, prozkoumali dostupné funkce a zjistili, jak vám $site_name může pomoci orientovat se na kryptoměnových trzích prostřednictvím pokročilých technologií a řízené podpory platformy.";
 $home_seo_toggle = "Zjistěte více o AI platformě $site_name";

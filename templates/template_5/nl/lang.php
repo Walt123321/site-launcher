@@ -272,6 +272,7 @@ $home_device_visual_alt = "Crypto-analyses weergegeven op een aangesloten appara
 $home_security_visual_alt = "Beveiligingsschild dat $site_name accountbeveiliging vertegenwoordigt";
 $home_contact_eyebrow = "GA AAN DE SLAG MET $site_name";
 $home_contact_title = "Verken Het Platform Met Vertrouwen";
+$home_contact_section_title = "Verken Het Platform Met Vertrouwen";
 $home_contact_desc_1 = "Of u nu helemaal nieuw bent in de cryptomarkten of al handelservaring heeft, $site_name biedt toegang tot AI-aangedreven marktinzichten, realtime monitoringtools en intelligente analyses ontworpen om gebruikers te helpen de kansen in digitale activa beter te begrijpen.";
 $home_contact_desc_2 = "Dien uw gegevens in om meer te weten te komen over het platform, beschikbare functies te verkennen en te ontdekken hoe $site_name u kan helpen navigeren op de cryptocurrency-markten via geavanceerde technologie en begeleide platformondersteuning.";
 $home_seo_toggle = "Lees Meer Over Het $site_name AI Platform";

@@ -59,7 +59,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <meta property="og:url" content="<?= $site_url ?>/">
     <meta property="og:title" content="<?= $home_meta_title ?>">
     <meta property="og:description" content="<?= $home_meta_description ?>">
-    <meta property="og:image" content="<?= $site_url ?>/favicon-96x96.png">
+    <meta property="og:image" content="<?= $site_url ?>/lander/<?= $site_domain ?>/favicon-96x96.png">
     <meta property="og:image:width" content="96">
     <meta property="og:image:height" content="96">
     <meta property="og:image:alt" content="<?= $site_name ?> logo">
@@ -99,7 +99,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
   "url": <?= json_encode($site_url) ?>,
   "logo": {
     "@type": "ImageObject",
-    "url": <?= json_encode($site_url . '/favicon-96x96.png') ?>
+    "url": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>
   },
   "description": <?= json_encode($home_meta_description) ?>,
   "contactPoint": {
@@ -116,7 +116,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
   "@type": "SoftwareApplication",
   "name": <?= json_encode($site_name) ?>,
   "url": <?= json_encode($site_url . '/') ?>,
-  "logo": <?= json_encode($site_url . '/favicon-96x96.png') ?>,
+  "logo": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>,
   "description": <?= json_encode($home_meta_description) ?>,
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web Browser",
@@ -175,9 +175,10 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                     <?= $home_hero_label ?>
                 </div>
 
-                <h1 style="text-align:center;"><?= $home_hero_title ?></h1>
+                <h1><?= $home_hero_title ?></h1>
 
                 <p class="hero-description"><?= $home_hero_desc ?></p>
+
 
                 <div class="hero-features">
 
@@ -304,6 +305,11 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                     >
                         <?= $home_form_submit_access ?>
                     </button>
+                    <div class="form-trust-badges">
+                        <img src="../assets/img/visa.svg" alt="Visa" width="46" height="28" loading="lazy">
+                        <img src="../assets/img/mastercard.svg" alt="Mastercard" width="46" height="28" loading="lazy">
+                        <img src="../assets/img/sslsecure.svg" alt="SSL Secure" width="82" height="28" loading="lazy">
+                    </div>
 
                 </form>
 
@@ -868,7 +874,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                         <?= mb_strtoupper($home_contact_eyebrow, 'UTF-8') ?>
                     </span>
 
-<h2><?= $home_contact_title ?></h2>
+<h2><?= $home_contact_section_title ?></h2>
 
                 </div>
 
@@ -876,10 +882,12 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
                 <p class="section-description"><?= $home_contact_desc_2 ?></p>
 
-                <div class="contact-visual">
+                <div class="hero-device-wrapper">
+                    <div class="hero-device-aura"></div>
                     <img
                         src="../assets/img/crypto-analytics-device.webp"
                         alt="<?= $home_device_visual_alt ?>"
+                        class="hero-device-img"
                         width="1200"
                         height="900"
                         loading="lazy"
@@ -904,6 +912,8 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                 <input type="hidden" name="language" value="<?= $form_language ?>">
                 <input type="hidden" name="phone_country" value="<?= $form_phone_country ?>">
                 <input type="hidden" name="only_countries" value='<?= $form_only_countries ?>'>
+
+                <h3 class="contact-form-title"><?= $home_contact_title ?></h3>
                 <div class="form-preloader hidden">
                     <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
                     <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
@@ -1353,6 +1363,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
         <div class="final-cta-box">
 
             <div class="final-cta-visual">
+                <div class="final-cta-aura"></div>
                 <img
                     src="../assets/img/cta-security-shield.webp"
                     alt="<?= $home_security_visual_alt ?>"
@@ -1361,10 +1372,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
                     loading="lazy"
                     decoding="async">
             </div>
-
-            <span>
-                <?= $home_cta_label ?>
-            </span>
 
 <h2><?= $home_cta_title ?></h2>
 

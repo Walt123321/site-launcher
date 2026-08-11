@@ -268,6 +268,7 @@ $home_device_visual_alt = "Kriptoelemzés megjelenítve egy csatlakoztatott eszk
 $home_security_visual_alt = "Biztonsági pajzs, amely a $site_name fiókvédelmét jelképezi";
 $home_contact_eyebrow = "KEZDJE EL A $site_name-MAL";
 $home_contact_title = "Fedezze fel a platformot magabiztosan";
+$home_contact_section_title = "Fedezze fel a platformot magabiztosan";
 $home_contact_desc_1 = "Akár teljesen új a kriptovaluta piacokon, akár már van kereskedési tapasztalata, a $site_name hozzáférést biztosít a mesterséges intelligencia alapú piaci betekintésekhez, valós idejű figyelőeszközökhöz és intelligens elemzéshez, amelyeket úgy terveztek, hogy segítsék a felhasználókat a digitális eszközök lehetőségeinek jobb megértésében.";
 $home_contact_desc_2 = "Küldje el adatait, hogy többet megtudjon a platformról, felfedezze az elérhető funkciókat, és megtudja, hogyan segíthet a $site_name eligazodni a kriptovaluta piacokon fejlett technológia és vezetett platformtámogatás révén.";
 $home_seo_toggle = "Tudjon meg többet a $site_name AI platformról";

@@ -6,7 +6,7 @@ from pathlib import Path
 # Paths
 root = Path("/Users/ripper/Documents/site-launcher-test")
 local_test_dir = root / "local_test"
-template_1_1 = root / "templates" / "template_1-1"
+template_5 = root / "templates" / "template_5"
 template_qoooqle = root / "templates" / "template_qoooqle"
 
 # 1. Clean and create local_test directory
@@ -15,22 +15,22 @@ if local_test_dir.exists():
 local_test_dir.mkdir(parents=True, exist_ok=True)
 
 # 2. Read test data from last_local_test.json
-test_data = {"brand": "Test", "lang": "pl", "domain": "test-official.com", "geo": "PL"}
+test_data = {"brand": "Test", "lang": "en", "domain": "test-official.com", "geo": "GB"}
 test_file = template_qoooqle / "last_local_test.json"
 if test_file.exists():
     with open(test_file, "r", encoding="utf-8") as f:
         test_data = json.load(f)
 
 brand = test_data.get("brand", "Test")
-lang = test_data.get("lang", "pl")
+lang = test_data.get("lang", "en")
 domain = test_data.get("domain", "test-official.com")
-geo = test_data.get("geo", "PL")
+geo = test_data.get("geo", "GB")
 
-# 3. Copy template_1-1
-for item in template_1_1.rglob("*"):
+# 3. Copy template_5
+for item in template_5.rglob("*"):
     if item.is_dir() or item.name == "last_local_test.json":
         continue
-    rel = item.relative_to(template_1_1)
+    rel = item.relative_to(template_5)
     dest = local_test_dir / rel
     dest.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(item, dest)

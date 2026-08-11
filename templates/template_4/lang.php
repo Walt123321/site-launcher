@@ -3,7 +3,7 @@
 $site_name = "Test";
 $app_price = 250;
 $site_domain = "{{DOMAIN}}";
-$site_url = "";
+$site_url = "https://$site_domain";
 $rating_value = 4.6;
 $rating_count = 2648;
 $review_count = 134; // fixed (not randomized per page load) per JSON-LD requirements

@@ -262,6 +262,7 @@ $home_device_visual_alt = "$site_name を介して接続されたデバイスに
 $home_security_visual_alt = "$site_name のアカウント保護を表すセキュリティシールド";
 $home_contact_eyebrow = "$site_name を始める";
 $home_contact_title = "自信を持ってプラットフォームを探索する";
+$home_contact_section_title = "自信を持ってプラットフォームを探索する";
 $home_contact_desc_1 = "暗号通貨市場に完全に初心者の場合でも、すでに取引の経験がある場合でも、$site_name は、AIを活用した市場の洞察、リアルタイムの監視ツール、およびユーザーがデジタル資産の機会をよりよく理解できるように設計されたインテリジェントな分析へのアクセスを提供します。";
 $home_contact_desc_2 = "プラットフォームの詳細については詳細を送信し、利用可能な機能を調べ、$site_name が高度なテクノロジーとガイド付きのプラットフォームサポートを通じて暗号通貨市場をナビゲートするのにどのように役立つかを見つけてください。";
 $home_seo_toggle = "$site_name AIプラットフォームの詳細";

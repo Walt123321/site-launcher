@@ -272,6 +272,7 @@ $home_device_visual_alt = "Kryptoanalyse vist på en tilsluttet enhed via $site_
 $home_security_visual_alt = "Sikkerhedsskjold, der repræsenterer $site_name kontobeskyttelse";
 $home_contact_eyebrow = "KOM I GANG MED $site_name";
 $home_contact_title = "Udforsk platformen med selvtillid";
+$home_contact_section_title = "Udforsk platformen med selvtillid";
 $home_contact_desc_1 = "Uanset om du er helt ny inden for kryptovalutamarkeder eller allerede har handelserfaring, giver $site_name adgang til AI-drevet markedsindsigt, overvågningsværktøjer i realtid og intelligente analyser designet til at hjælpe brugere med bedre at forstå mulighederne inden for digitale aktiver.";
 $home_contact_desc_2 = "Indsend dine oplysninger for at lære mere om platformen, udforske tilgængelige funktioner og opdage, hvordan $site_name kan hjælpe dig med at navigere i kryptovalutamarkederne gennem avanceret teknologi og guidet platformsupport.";
 $home_seo_toggle = "Lær mere om $site_name AI Platform";
