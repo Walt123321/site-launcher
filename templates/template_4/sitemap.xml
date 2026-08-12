@@ -228,5 +228,29 @@
     <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/risk-warning.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/risk-warning.php" />
     </url>
 </urlset>

@@ -205,7 +205,7 @@ $js_live_action_6 = "connected to $site_name from";
 
 // HOME PAGE
 $home_hero_label = "AI Crypto Platform For Every Experience Level";
-$home_hero_title = "Explore The Platform With Confidence";
+$home_hero_title = "$site_name Platform";
 $home_hero_desc = "$site_name helps beginners and experienced traders explore crypto markets with AI-powered insights, real-time market monitoring, risk awareness tools, and guided platform support.";
 $home_hero_feat_1 = "Simple AI market insights for new users";
 $home_hero_feat_2 = "Real-time crypto monitoring and signal updates";

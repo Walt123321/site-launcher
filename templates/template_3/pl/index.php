@@ -277,7 +277,7 @@ if ($uri === "/lander/{$host}/index.php") {
       }
     </style>
     <section class="welcome" aria-labelledby="welcome-title">
-      <h1 class="hide-mobile" style="text-align:center; color:#e3ff34; padding:20px;"><?= $source ?> Platform</h1>
+      <h1 style="text-align:center; color:#e3ff34; padding:20px;"><?= $source ?> Platform</h1>
       <div class="welcome__main container">
         <div class="welcome__text">
           <span class="welcome__title" id="welcome-title">
