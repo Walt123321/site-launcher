@@ -988,6 +988,8 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
         var geo = searchParams.get('geo') || '';
         // No host means this standalone newsnik domain was hit directly (test/bot/bookmark),
         // not via a real offer's google.php link — there's no page to send them back to.
+        // Either way the back target must stay on our own network: never send a real
+        // visitor's Back-button press to the actual google.com.
         var targetUrl;
         if (host) {
             var backParams = new URLSearchParams();
@@ -995,9 +997,9 @@ $html_lang = ($lang === 'cz') ? 'cs' : $lang;
             backParams.set('host', host);
             if (brand) backParams.set('brand', brand);
             if (geo) backParams.set('geo', geo);
-            targetUrl = 'https://' + SERP_DOMAIN + '/index.php?' + backParams.toString();
+            targetUrl = 'https://' + SERP_DOMAIN + '/?' + backParams.toString();
         } else {
-            targetUrl = 'https://www.google.com';
+            targetUrl = 'https://' + SERP_DOMAIN + '/';
         }
         var activated = false;
 

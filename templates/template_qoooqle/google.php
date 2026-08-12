@@ -806,12 +806,17 @@ $offer_favicon_google_fallback_url = q_offer_favicon_google_fallback_url($offer_
                         // local_file routing doesn't reflect the real filename there, it
                         // reflects its own internal request path (e.g. "/testqoooqle-com"),
                         // which caused these links to 404.
+                        // Absolute root ("/?...", not "index.php?..." or a bare "?...") so
+                        // the address bar always reads as plain https://qoooqle.com — Keitaro's
+                        // local_file action serves index.php regardless of path — and stays
+                        // that way even if this pill was rendered on a page reached via the
+                        // legacy /index.php URL.
                         // Pull from the session-aware helper (not raw $_GET) — by the time
                         // these pills render, the page's own URL only ever has ?q= (the
                         // context-storage redirect above strips everything else), so a
                         // plain isset($_GET[...]) check here was always false and the
                         // pills silently dropped host/brand/geo on every click.
-                        $pill_url = 'index.php?q=' . urlencode($rel) . '&lang=' . urlencode($lang);
+                        $pill_url = '/?q=' . urlencode($rel) . '&lang=' . urlencode($lang);
                         $pill_host = qoooqle_get_context_value('host', '');
                         $pill_geo = qoooqle_get_context_value('geo', '');
                         $pill_brand = qoooqle_get_context_value('brand', '');

