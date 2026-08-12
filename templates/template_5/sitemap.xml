@@ -642,46 +642,6 @@
     </url>
 
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/about.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/aml-policy.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/contact.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/cookies.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/privacy.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/risk-disclosure.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/risk-warning.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/supported-exchanges.php</loc>
-    </url>
-
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/terms.php</loc>
-    </url>
-
-    <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/</loc>
     </url>
 

@@ -305,7 +305,6 @@ function initials($text) {
 <link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/" />
 <link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/" />
 <link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/" />
-<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/" />
 <link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/" />
 <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/" />
 <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/" />
@@ -521,7 +520,7 @@ function initials($text) {
           <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
           <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
             <input type="text" name="website" tabindex="-1" autocomplete="off">
-            <input type="text" name="company" style="position:absolute; left:-9999px;">
+            <input type="text" name="company" class="u-abs1">
           </div>
           <input type="hidden" name="country" value="<?= $form_country; ?>">
           <input type="hidden" name="language" value="<?= $form_language; ?>">
@@ -1093,7 +1092,7 @@ function initials($text) {
       <div class="swiper" data-slider="reviews">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <div class="border flex flex-col justify-between gap-6 p-6 md:p-10 w-full swiper-border" style="border: 1px solid #ddd; border-radius: 20px;">
+          <div class="border flex flex-col justify-between gap-6 p-6 md:p-10 w-full swiper-border u-bd1">
             <p>
               <?= $review_1_text ?>
             </p>
@@ -1104,7 +1103,7 @@ function initials($text) {
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="border flex flex-col justify-between gap-6 p-6 md:p-10 w-full swiper-border" style="border: 1px solid #ddd; border-radius: 20px;">
+          <div class="border flex flex-col justify-between gap-6 p-6 md:p-10 w-full swiper-border u-bd1">
                 <p>
                   <?= $review_2_text ?>
                 </p>
@@ -1115,7 +1114,7 @@ function initials($text) {
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="border flex flex-col justify-between gap-6 p-6 md:p-10 w-full swiper-border" style="border: 1px solid #ddd; border-radius: 20px;">
+          <div class="border flex flex-col justify-between gap-6 p-6 md:p-10 w-full swiper-border u-bd1">
                 <p>
                   <?= $review_3_text ?>
                 </p>
@@ -1126,7 +1125,7 @@ function initials($text) {
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="border flex flex-col justify-between gap-6 p-6 md:p-10 w-full swiper-border" style="border: 1px solid #ddd; border-radius: 20px;">
+          <div class="border flex flex-col justify-between gap-6 p-6 md:p-10 w-full swiper-border u-bd1">
                 <p>
                   <?= $review_4_text ?>
                 </p>
@@ -1231,31 +1230,31 @@ function initials($text) {
         </button>
         <div id="content-6" class="max-h-0 overflow-hidden transition-all">
           <div class="px-4 pb-5 md:px-8 md:pb-8">
-            <p style="margin-bottom:16px;"><?= $faq_6_about_p1 ?></p>
-            <p style="margin-bottom:16px;"><?= $faq_6_about_p2 ?></p>
+            <p class="u-mb16"><?= $faq_6_about_p1 ?></p>
+            <p class="u-mb16"><?= $faq_6_about_p2 ?></p>
             <p style="margin-bottom:10px; font-weight:500;"><?= $faq_6_about_list_title ?></p>
-            <ul class="pl-5" style="margin-bottom:22px;">
-              <li style="margin-bottom:8px;"><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li1 ?></li>
-              <li style="margin-bottom:8px;"><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li2 ?></li>
-              <li style="margin-bottom:8px;"><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li3 ?></li>
-              <li><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li4 ?></li>
+            <ul class="pl-5 u-mb22">
+              <li class="u-mb8"><span class="u-c1">•</span> <?= $faq_6_about_li1 ?></li>
+              <li class="u-mb8"><span class="u-c1">•</span> <?= $faq_6_about_li2 ?></li>
+              <li class="u-mb8"><span class="u-c1">•</span> <?= $faq_6_about_li3 ?></li>
+              <li><span class="u-c1">•</span> <?= $faq_6_about_li4 ?></li>
             </ul>
-            <p style="margin-bottom:16px;"><?= $faq_6_about_p3 ?></p>
-            <ul class="pl-5" style="margin-bottom:22px;">
-              <li style="margin-bottom:8px;"><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li5 ?></li>
-              <li style="margin-bottom:8px;"><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li6 ?></li>
-              <li style="margin-bottom:8px;"><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li7 ?></li>
-              <li><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li8 ?></li>
+            <p class="u-mb16"><?= $faq_6_about_p3 ?></p>
+            <ul class="pl-5 u-mb22">
+              <li class="u-mb8"><span class="u-c1">•</span> <?= $faq_6_about_li5 ?></li>
+              <li class="u-mb8"><span class="u-c1">•</span> <?= $faq_6_about_li6 ?></li>
+              <li class="u-mb8"><span class="u-c1">•</span> <?= $faq_6_about_li7 ?></li>
+              <li><span class="u-c1">•</span> <?= $faq_6_about_li8 ?></li>
             </ul>
-            <p style="margin-bottom:16px;"><?= $faq_6_about_p4 ?></p>
-            <ul class="pl-5" style="margin-bottom:22px;">
-              <li style="margin-bottom:8px;"><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li9 ?></li>
-              <li style="margin-bottom:8px;"><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li10 ?></li>
-              <li style="margin-bottom:8px;"><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li11 ?></li>
-              <li><span style="color:#6D5DF6;">•</span> <?= $faq_6_about_li12 ?></li>
+            <p class="u-mb16"><?= $faq_6_about_p4 ?></p>
+            <ul class="pl-5 u-mb22">
+              <li class="u-mb8"><span class="u-c1">•</span> <?= $faq_6_about_li9 ?></li>
+              <li class="u-mb8"><span class="u-c1">•</span> <?= $faq_6_about_li10 ?></li>
+              <li class="u-mb8"><span class="u-c1">•</span> <?= $faq_6_about_li11 ?></li>
+              <li><span class="u-c1">•</span> <?= $faq_6_about_li12 ?></li>
             </ul>
-            <p style="margin-bottom:16px;"><?= $faq_6_about_p5 ?></p>
-            <p style="margin-bottom:16px;"><?= $faq_6_about_p6 ?></p>
+            <p class="u-mb16"><?= $faq_6_about_p5 ?></p>
+            <p class="u-mb16"><?= $faq_6_about_p6 ?></p>
             <p><?= $faq_6_about_footer ?></p>
           </div>
         </div>
@@ -1312,7 +1311,7 @@ function initials($text) {
           <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
           <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
             <input type="text" name="website" tabindex="-1" autocomplete="off">
-            <input type="text" name="company" style="position:absolute; left:-9999px;">
+            <input type="text" name="company" class="u-abs1">
           </div>
           <input type="hidden" name="country" value="<?= $form_country; ?>">
           <input type="hidden" name="language" value="<?= $form_language; ?>">
@@ -1415,10 +1414,10 @@ function initials($text) {
         transition:.2s;
       " onmouseover="this.style.background='#f9f9fb'" class="row-block" onmouseout="this.style.background='transparent'">
         <div style="display:flex;align-items:center;gap:10px;font-weight:600;">
-          <span style="color:#6B5FA7;">🤖</span>
+          <span class="u-c2">🤖</span>
           <?= $row_tech_title ?>
         </div>
-        <div class="row-text" style="color:#6b7280;">
+        <div class="row-text u-c3">
           <?= $row_tech_val ?>
         </div>
       </div>
@@ -1429,11 +1428,11 @@ function initials($text) {
         border-bottom:1px solid #eee;
         align-items:center;
       ">
-        <div style="display:flex;gap:10px;font-weight:600;">
-          <span style="color:#6B5FA7;">💳</span>
+        <div class="u-flex1">
+          <span class="u-c2">💳</span>
           <?= $row_funding_title ?>
         </div>
-        <div class="row-text" style="color:#6b7280;">
+        <div class="row-text u-c3">
           <?= $row_funding_val ?>
         </div>
       </div>
@@ -1444,11 +1443,11 @@ function initials($text) {
         border-bottom:1px solid #eee;
         align-items:center;
       ">
-        <div style="display:flex;gap:10px;font-weight:600;">
-          <span style="color:#6B5FA7;">📱</span>
+        <div class="u-flex1">
+          <span class="u-c2">📱</span>
           <?= $row_access_title ?>
         </div>
-        <div class="row-text" style="color:#6b7280;">
+        <div class="row-text u-c3">
           <?= $row_access_val ?>
         </div>
       </div>
@@ -1459,11 +1458,11 @@ function initials($text) {
         border-bottom:1px solid #eee;
         align-items:center;
       ">
-        <div style="display:flex;gap:10px;font-weight:600;">
-          <span style="color:#6B5FA7;">🚀</span>
+        <div class="u-flex1">
+          <span class="u-c2">🚀</span>
           <?= $row_perf_title ?>
         </div>
-        <div class="row-text" style="color:#6b7280;">
+        <div class="row-text u-c3">
           <?= $row_perf_val ?>
         </div>
       </div>
@@ -1474,11 +1473,11 @@ function initials($text) {
         border-bottom:1px solid #eee;
         align-items:center;
       ">
-        <div style="display:flex;gap:10px;font-weight:600;">
-          <span style="color:#6B5FA7;">📊</span>
+        <div class="u-flex1">
+          <span class="u-c2">📊</span>
           <?= $row_instruments_title ?>
         </div>
-        <div class="row-text" style="color:#6b7280;">
+        <div class="row-text u-c3">
           <?= $row_instruments_val ?>
         </div>
       </div>
@@ -1489,11 +1488,11 @@ function initials($text) {
         border-bottom:1px solid #eee;
         align-items:center;
       ">
-        <div style="display:flex;gap:10px;font-weight:600;">
-          <span style="color:#6B5FA7;">✍️</span>
+        <div class="u-flex1">
+          <span class="u-c2">✍️</span>
           <?= $row_setup_title ?>
         </div>
-        <div class="row-text" style="color:#6b7280;">
+        <div class="row-text u-c3">
           <?= $row_setup_val ?>
         </div>
       </div>
@@ -1504,8 +1503,8 @@ function initials($text) {
         align-items:center;
         background:#f6f4ff;
       ">
-        <div class="customer-block" style="display:flex;gap:10px;font-weight:600;">
-          <span style="color:#6B5FA7;">📞</span>
+        <div class="customer-block u-flex1">
+          <span class="u-c2">📞</span>
           <?= $row_support_title ?>
           <span style="font-weight:400;color:#6b7280;margin-left:10px;">
             <?= $row_support_subtitle ?>
@@ -1610,7 +1609,7 @@ $stars = str_repeat('★', (int) round($rating_value));
           </nav>
           <div class="flex justify-between gap-5">
             <div class="grid gap-5 text-white">
-              <p style="color:#6B5FA7;"><?= $footer_partner_text ?></p>
+              <p class="u-c2"><?= $footer_partner_text ?></p>
               <div class="inline-flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
@@ -1691,7 +1690,6 @@ $stars = str_repeat('★', (int) round($rating_value));
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/" hreflang="ms" title="Bahasa Melayu">
     🇲🇾
   </a>
-  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/" hreflang="ru" title="Русский">
     🇷🇺
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/" hreflang="nb" title="Norsk bokmål">
@@ -1752,7 +1750,7 @@ $stars = str_repeat('★', (int) round($rating_value));
     <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
     <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
       <input type="text" name="website" tabindex="-1" autocomplete="off">
-      <input type="text" name="company" style="position:absolute; left:-9999px;">
+      <input type="text" name="company" class="u-abs1">
     </div>
     <input type="hidden" name="country" value="<?= $form_country; ?>">
     <input type="hidden" name="language" value="<?= $form_language; ?>">

@@ -229,7 +229,6 @@ $canonical = 'https://' . $host . $uri;
 <link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/offer.php" />
 <link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/offer.php" />
 <link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/offer.php" />
-<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/offer.php" />
 <link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/offer.php" />
 <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/offer.php" />
 <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/offer.php" /></head>
@@ -761,7 +760,6 @@ $canonical = 'https://' . $host . $uri;
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/offer.php" hreflang="ms" title="Bahasa Melayu">
     🇲🇾
   </a>
-  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/offer.php" hreflang="ru" title="Русский">
     🇷🇺
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/offer.php" hreflang="nb" title="Norsk bokmål">

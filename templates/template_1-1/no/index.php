@@ -610,7 +610,6 @@ if ($uri === "/lander/{$host}/index.php") {
 <link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/">
 <link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/">
 <link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/">
-<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/">
 <link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/">
 <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/">
 <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/">/" />
@@ -1899,7 +1898,6 @@ document.addEventListener("DOMContentLoaded", function() {
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/index.php" hreflang="pl" title="Polski">🇵🇱</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/index.php" hreflang="pt" title="Português">🇵🇹</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/index.php" hreflang="ro" title="Română">🇷🇴</a>
-                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/index.php" hreflang="ru" title="Русский">🇷🇺</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/index.php" hreflang="sk" title="Slovenčina">🇸🇰</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/index.php" hreflang="sv" title="Svenska">🇸🇪</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/index.php" hreflang="tr" title="Türkçe">🇹🇷</a>

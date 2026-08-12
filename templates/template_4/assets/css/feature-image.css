@@ -11,3 +11,15 @@
   height: 200px;
   object-fit: cover;
 }
+
+/* Small utility classes, extracted from repeated inline style="" attributes
+   on index.php to help the text-to-code ratio without changing appearance. */
+.u-c1 { color: #6D5DF6; }
+.u-mb8 { margin-bottom: 8px; }
+.u-c2 { color: #6B5FA7; }
+.u-mb16 { margin-bottom: 16px; }
+.u-c3 { color: #6b7280; }
+.u-flex1 { display: flex; gap: 10px; font-weight: 600; }
+.u-bd1 { border: 1px solid #ddd; border-radius: 20px; }
+.u-abs1 { position: absolute; left: -9999px; }
+.u-mb22 { margin-bottom: 22px; }

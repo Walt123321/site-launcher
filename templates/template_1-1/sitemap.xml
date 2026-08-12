@@ -673,38 +673,6 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/</loc>
-        <lastmod>{{LASTMOD}}</lastmod>
-    </url>
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/register.php</loc>
-        <lastmod>{{LASTMOD}}</lastmod>
-    </url>
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/private-policy.php</loc>
-        <lastmod>{{LASTMOD}}</lastmod>
-    </url>
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/faq.php</loc>
-        <lastmod>{{LASTMOD}}</lastmod>
-    </url>
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/contact.php</loc>
-        <lastmod>{{LASTMOD}}</lastmod>
-    </url>
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/conditions.php</loc>
-        <lastmod>{{LASTMOD}}</lastmod>
-    </url>
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/about.php</loc>
-        <lastmod>{{LASTMOD}}</lastmod>
-    </url>
-    <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/risk-warning.php</loc>
-        <lastmod>{{LASTMOD}}</lastmod>
-    </url>
-    <url>
         <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>

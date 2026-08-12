@@ -1,4 +1,39 @@
 <?php
+// Output minification: strips leading-line indentation and HTML comments
+// from the rendered page (never touches same-line/inline whitespace, or
+// anything inside <script>/<style>/<pre>/<textarea>) to help the ТЗ's
+// text-to-code ratio requirement (11-13%) without a visual change. Hooked
+// here since offer_seo.php is require_once'd by every real page (root +
+// all language folders) before any HTML output starts, and nowhere else
+// (integration/send.php etc. don't include it, so JSON/API responses are
+// never touched).
+if (!function_exists('t1_minify_segment')) {
+    function t1_minify_segment(string $segment): string {
+        $segment = preg_replace('/<!--.*?-->/s', '', $segment);
+        $segment = preg_replace('/[ \t]+\n/', "\n", $segment);
+        $segment = preg_replace('/\n[ \t]+/', "\n", $segment);
+        $segment = preg_replace('/\n{2,}/', "\n", $segment);
+        return $segment;
+    }
+
+    function t1_minify_html(string $html): string {
+        $pattern = '/<(script|style|pre|textarea)\b[^>]*>.*?<\/\1>/is';
+        $result = '';
+        $lastEnd = 0;
+        if (preg_match_all($pattern, $html, $matches, PREG_OFFSET_CAPTURE)) {
+            foreach ($matches[0] as $m) {
+                [$matchedText, $offset] = $m;
+                $result .= t1_minify_segment(substr($html, $lastEnd, $offset - $lastEnd));
+                $result .= $matchedText;
+                $lastEnd = $offset + strlen($matchedText);
+            }
+        }
+        $result .= t1_minify_segment(substr($html, $lastEnd));
+        return $result;
+    }
+
+    ob_start('t1_minify_html');
+}
 
 // ========================================
 // 1) ДАННЫЕ ОФФЕРА (НАСТРОЙКИ БАЙЕРА)
@@ -35,9 +70,10 @@ if (preg_match('/^[a-z]{2}$/', $_qq_geo_guess)) {
     if ($form_country === '') {
         $form_country = $_qq_geo_guess;
     }
-    if ($form_phone_country === 'auto') {
-        $form_phone_country = $_qq_geo_guess;
-    }
+    // Телефонный код страны всегда подтягиваем по IP реального посетителя
+    // (не только для гео 'Unknown') -- чтобы форма показывала правильный
+    // код для гостя из другой страны, а не жёстко зашитый код языка страницы.
+    $form_phone_country = $_qq_geo_guess;
 }
 
 

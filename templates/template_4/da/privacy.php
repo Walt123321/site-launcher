@@ -182,7 +182,6 @@ $canonical = 'https://' . $host . $uri;
 <link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/privacy.php">
 <link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/privacy.php">
 <link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/privacy.php">
-<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/privacy.php">
 <link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/privacy.php">
 <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/privacy.php">
 <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/privacy.php"></head>
@@ -511,7 +510,6 @@ $canonical = 'https://' . $host . $uri;
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/privacy.php" hreflang="ms" title="Bahasa Melayu">
     🇲🇾
   </a>
-  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/privacy.php" hreflang="ru" title="Русский">
     🇷🇺
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/privacy.php" hreflang="nb" title="Norsk bokmål">

@@ -170,7 +170,6 @@ $canonical = 'https://' . $host . $uri;
 <link rel="alternate" hreflang="pl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/register.php" />
 <link rel="alternate" hreflang="pt" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/register.php" />
 <link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/register.php" />
-<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/register.php" />
 <link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/register.php" />
 <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/register.php" />
 <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/register.php" />
@@ -397,7 +396,6 @@ $canonical = 'https://' . $host . $uri;
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/register.php" hreflang="pl" title="Polski">🇵🇱</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/register.php" hreflang="pt" title="Português">🇵🇹</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/register.php" hreflang="ro" title="Română">🇷🇴</a>
-                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/register.php" hreflang="ru" title="Русский">🇷🇺</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/register.php" hreflang="sk" title="Slovenčina">🇸🇰</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/register.php" hreflang="sv" title="Svenska">🇸🇪</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/register.php" hreflang="tr" title="Türkçe">🇹🇷</a>

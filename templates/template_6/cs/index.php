@@ -192,7 +192,6 @@ $canonical = 'https://' . $host . $uri;
     <link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/" />
     <link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/" />
     <link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/" />
-    <link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/" />
     <link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/" />
     <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/" />
     <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/" />
@@ -207,7 +206,7 @@ $canonical = 'https://' . $host . $uri;
                 <div class="hero-content">
                     <h1><?= $hero_heading_before ?> <span class="text-accent"><?= $hero_heading_accent ?></span></h1>
     
-                    <p class="hero-desc"><?= $hero_description ?></p>
+                    <span class="hero-desc"><?= $hero_description ?></span>
     
                     <div class="hero-actions">
                         <a href="#signup-form-anchor" class="btn btn-primary">
@@ -1089,8 +1088,8 @@ $canonical = 'https://' . $host . $uri;
                     <img
                         src="../assets/img/hero-growth-chart.webp"
                         alt="<?= $hero_growth_visual_alt ?>"
-                        width="1672"
-                        height="941"
+                        width="1400"
+                        height="933"
                         loading="lazy"
                         decoding="async">
                 </div>

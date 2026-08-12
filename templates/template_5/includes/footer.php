@@ -185,7 +185,6 @@ if ($current_page === '') {
                 <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/<?= $current_page ?>" hreflang="sk" title="Slovenčina">🇸🇰 <span>Slovenčina</span></a>
                 <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/<?= $current_page ?>" hreflang="bg" title="Български">🇧🇬 <span>Български</span></a>
                 <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/<?= $current_page ?>" hreflang="ms" title="Bahasa Melayu">🇲🇾 <span>Bahasa Melayu</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/<?= $current_page ?>" hreflang="ru" title="Русский">🇷🇺 <span>Русский</span></a>
                 <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/<?= $current_page ?>" hreflang="nb" title="Norsk Bokmål">🇳🇴 <span>Norsk Bokmål</span></a>
                 <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/<?= $current_page ?>" hreflang="el" title="Ελληνικά">🇬🇷 <span>Ελληνικά</span></a>
                 <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/<?= $current_page ?>" hreflang="ja" title="日本語">🇯🇵 <span>日本語</span></a>

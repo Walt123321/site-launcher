@@ -332,7 +332,6 @@ $canonical = 'https://' . $host . $uri;
 <link rel="alternate" hreflang="pl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/private-policy.php" />
 <link rel="alternate" hreflang="pt" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/private-policy.php" />
 <link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/private-policy.php" />
-<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/private-policy.php" />
 <link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/private-policy.php" />
 <link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/private-policy.php" />
 <link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/private-policy.php" />
@@ -835,7 +834,6 @@ $canonical = 'https://' . $host . $uri;
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/private-policy.php" hreflang="pl" title="Polski">🇵🇱</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/private-policy.php" hreflang="pt" title="Português">🇵🇹</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/private-policy.php" hreflang="ro" title="Română">🇷🇴</a>
-                  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/private-policy.php" hreflang="ru" title="Русский">🇷🇺</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/private-policy.php" hreflang="sk" title="Slovenčina">🇸🇰</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/private-policy.php" hreflang="sv" title="Svenska">🇸🇪</a>
                   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/private-policy.php" hreflang="tr" title="Türkçe">🇹🇷</a>

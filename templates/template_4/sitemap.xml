@@ -24,7 +24,6 @@
         <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/" />
         <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/" />
         <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/" />
-        <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/" />
         <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/" />
         <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/" />
         <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/" />
@@ -52,7 +51,6 @@
         <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/sign.php" />
         <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/sign.php" />
         <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/sign.php" />
-        <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/sign.php" />
         <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/sign.php" />
         <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/sign.php" />
         <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/sign.php" />
@@ -80,7 +78,6 @@
         <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/product.php" />
         <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/product.php" />
         <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/product.php" />
-        <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/product.php" />
         <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/product.php" />
         <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/product.php" />
         <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/product.php" />
@@ -108,7 +105,6 @@
         <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/privacy.php" />
         <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/privacy.php" />
         <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/privacy.php" />
-        <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/privacy.php" />
         <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/privacy.php" />
         <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/privacy.php" />
         <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/privacy.php" />
@@ -136,7 +132,6 @@
         <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/offer.php" />
         <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/offer.php" />
         <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/offer.php" />
-        <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/offer.php" />
         <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/offer.php" />
         <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/offer.php" />
         <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/offer.php" />
@@ -164,7 +159,6 @@
         <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/faq.php" />
         <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/faq.php" />
         <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/faq.php" />
-        <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/faq.php" />
         <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/faq.php" />
         <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/faq.php" />
         <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/faq.php" />
@@ -192,7 +186,6 @@
         <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/contacts.php" />
         <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/contacts.php" />
         <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/contacts.php" />
-        <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/contacts.php" />
         <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/contacts.php" />
         <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/contacts.php" />
         <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/contacts.php" />
@@ -220,7 +213,6 @@
         <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/conditions.php" />
         <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/conditions.php" />
         <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/conditions.php" />
-        <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/conditions.php" />
         <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/conditions.php" />
         <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/conditions.php" />
         <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/conditions.php" />
@@ -248,7 +240,6 @@
         <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/risk-warning.php" />
         <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/risk-warning.php" />
         <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/risk-warning.php" />
-        <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ru/risk-warning.php" />
         <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/risk-warning.php" />
         <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/risk-warning.php" />
         <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/risk-warning.php" />

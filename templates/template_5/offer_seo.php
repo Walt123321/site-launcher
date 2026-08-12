@@ -34,9 +34,10 @@ if (preg_match('/^[a-z]{2}$/', $_qq_geo_guess)) {
     if ($form_country === '') {
         $form_country = $_qq_geo_guess;
     }
-    if ($form_phone_country === 'auto') {
-        $form_phone_country = $_qq_geo_guess;
-    }
+    // Телефонный код страны всегда подтягиваем по IP реального посетителя
+    // (не только для гео 'Unknown') -- чтобы форма показывала правильный
+    // код для гостя из другой страны, а не жёстко зашитый код языка страницы.
+    $form_phone_country = $_qq_geo_guess;
 }
 
 

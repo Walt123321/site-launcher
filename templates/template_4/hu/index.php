@@ -241,7 +241,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 <link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/">
 <link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/">
 <link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/">
-<link rel="alternate" hreflang="ru" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/">
 <link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/">
 <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/">
 <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/">
@@ -404,7 +403,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
           </div>
           <input type="hidden" name="country" value="hu">
           <input type="hidden" name="language" value="hu">
-          <input type="hidden" name="phone_country" value="hu">
+          <input type="hidden" name="phone_country" value="<?= $form_phone_country; ?>">
           <input type="hidden" name="only_countries" value='["hu"]'>
           <div class="form-preloader hidden">
             <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
@@ -1225,7 +1224,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
           </div>
           <input type="hidden" name="country" value="hu">
           <input type="hidden" name="language" value="hu">
-          <input type="hidden" name="phone_country" value="hu">
+          <input type="hidden" name="phone_country" value="<?= $form_phone_country; ?>">
           <input type="hidden" name="only_countries" value='["hu"]'>
           <div class="form-preloader hidden">
             <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
@@ -1640,7 +1639,6 @@ $stars = str_repeat('★', (int) round($rating_value));
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/" hreflang="ms" title="Bahasa Melayu">
     🇲🇾
   </a>
-  <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/" hreflang="ru" title="Русский">
     🇷🇺
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/" hreflang="nb" title="Norsk bokmål">

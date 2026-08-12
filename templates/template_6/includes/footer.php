@@ -84,7 +84,6 @@
                         <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/index.php" hreflang="sk" lang="sk"<?= $current_lang_code === 'sk' ? ' class="is-active" aria-current="true"' : '' ?>>🇸🇰 Slovenčina</a>
                         <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/index.php" hreflang="bg" lang="bg"<?= $current_lang_code === 'bg' ? ' class="is-active" aria-current="true"' : '' ?>>🇧🇬 Български</a>
                         <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/index.php" hreflang="ms" lang="ms"<?= $current_lang_code === 'ms' ? ' class="is-active" aria-current="true"' : '' ?>>🇲🇾 Bahasa Melayu</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ru/index.php" hreflang="ru" lang="ru"<?= $current_lang_code === 'ru' ? ' class="is-active" aria-current="true"' : '' ?>>🇷🇺 Русский</a>
                         <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/index.php" hreflang="nb" lang="nb"<?= $current_lang_code === 'nb' ? ' class="is-active" aria-current="true"' : '' ?>>🇳🇴 Norsk Bokmål</a>
                         <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/index.php" hreflang="el" lang="el"<?= $current_lang_code === 'el' ? ' class="is-active" aria-current="true"' : '' ?>>🇬🇷 Ελληνικά</a>
                         <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/index.php" hreflang="ja" lang="ja"<?= $current_lang_code === 'ja' ? ' class="is-active" aria-current="true"' : '' ?>>🇯🇵 日本語</a>
