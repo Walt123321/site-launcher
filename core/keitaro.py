@@ -45,7 +45,16 @@ ADSPECT_TEMPLATE_STREAM_ID = st.secrets.get("ADSPECT_TEMPLATE_STREAM_ID", "")
 ADSPECT_FILTER_NAME = st.secrets.get("ADSPECT_FILTER_NAME", "adspect")
 PILOT_CAMPAIGN_ID = st.secrets.get("PILOT_CAMPAIGN_ID", "")
 
-CLOAKING_ENABLED = bool(ADSPECT_API_KEY and ADSPECT_TEMPLATE_STREAM_ID and PILOT_CAMPAIGN_ID)
+# Temporarily paused (2026-08-12): Adspect/Keitaro never see the visitor's
+# real IP on this server -- it's behind Cloudflare + a second DDoS-Guard
+# relay hop, and nginx's realip module only trusts the Cloudflare ranges,
+# not the DDoS-Guard one, so it never kicks in. Result: every visitor looks
+# like a Cloudflare datacenter IP and gets routed to the white page,
+# including real traffic. Re-enable once realip.inc also trusts the
+# DDoS-Guard relay ranges (AS59692) -- flip this back to True.
+CLOAKING_AUTO_LAUNCH_ENABLED = False
+
+CLOAKING_ENABLED = CLOAKING_AUTO_LAUNCH_ENABLED and bool(ADSPECT_API_KEY and ADSPECT_TEMPLATE_STREAM_ID and PILOT_CAMPAIGN_ID)
 
 # =====================================================
 # HELPERS
