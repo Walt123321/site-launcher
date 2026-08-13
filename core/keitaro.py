@@ -176,7 +176,7 @@ def create_offer(domain, zip_bytes, callback=None, buyer=None):
 
         return oid
 
-    if r.status_code == 422:
+    if r.status_code in (422, 406):
         existing = find_offer_by_name(domain)
 
         if existing:
@@ -219,7 +219,7 @@ def create_campaign(domain, callback=None, buyer=None):
 
         return cid
 
-    if r.status_code == 422:
+    if r.status_code in (422, 406):
         existing = find_campaign_by_name(campaign_name)
 
         if existing:
@@ -264,7 +264,7 @@ def create_flow(domain, campaign_id, offer_id, callback=None):
 
         return fid
 
-    if r.status_code == 422:
+    if r.status_code in (422, 406):
         # Happens when create_campaign() above reused an existing campaign
         # (e.g. a retry after a prior partial launch) — that campaign
         # already has a stream at position 1, so Keitaro rejects a second
@@ -305,7 +305,7 @@ def create_domain(domain, campaign_id, callback=None, buyer=None):
 
         return did
 
-    if r.status_code == 422:
+    if r.status_code in (422, 406):
         existing = find_domain_by_name(domain)
 
         if existing:
@@ -403,7 +403,7 @@ def create_whitepage_offer(domain, group_id, callback=None):
             callback(f"🛡️ {domain}: whitepage-offer #{oid}")
         return oid
 
-    if r.status_code == 422:
+    if r.status_code in (422, 406):
         existing = find_offer_by_name_exact(offer_name)
         if existing:
             r2 = put(f"{BASE_URL}/offers/{existing}", {"archive": archive_b64})

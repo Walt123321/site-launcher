@@ -218,7 +218,7 @@ def create_whitepage_offer(domain, group_id, callback=None):
             callback(f"  whitepage-offer #{oid} создан")
         return oid
 
-    if status == 422:
+    if status in (422, 406):
         existing = find_offer_by_name(offer_name)
         if existing:
             http("PUT", f"{KEITARO_BASE}/offers/{existing}", keitaro_headers(),
