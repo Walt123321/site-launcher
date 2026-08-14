@@ -208,6 +208,7 @@ def create_whitepage_offer(domain, group_id, callback=None):
         "name": offer_name,
         "group_id": group_id,
         "offer_type": "local",
+        "action_type": "local_file",
         "state": "active",
         "archive": archive_b64,
     }
