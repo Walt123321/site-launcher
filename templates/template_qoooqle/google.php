@@ -50,8 +50,15 @@ function qoooqle_store_context_if_needed() {
         $_SESSION['qoooqle_offer_context'] = $context;
     }
 
-    $path = isset($_SERVER['REQUEST_URI']) ? parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) : (isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '/');
-    $path = $path ?: '/';
+    // Завжди редіректимо на голий корінь, а не на $_SERVER['REQUEST_URI']/
+    // SCRIPT_NAME -- під Keitaro's bare-root serving для local-offer кампаній
+    // ці значення відображають РЕАЛЬНИЙ шлях файлу на диску (щось на кшталт
+    // /lander/qoooqle.com/google.php), а не те, що показує адресний рядок
+    // браузера (просто qoooqle.com/) -- та сама розбіжність, що вже ламала
+    // визначення регіональної сторінки в offer_seo.php. google.php -- єдина
+    // "головна" точка входу цього домену, тож жорстко зашитий "/" тут завжди
+    // правильний, на відміну від динамічного визначення шляху.
+    $path = '/';
 
     $keep_params = [];
     if (isset($_GET['q']) && trim((string) $_GET['q']) !== '') {
