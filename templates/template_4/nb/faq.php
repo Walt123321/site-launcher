@@ -294,7 +294,7 @@ $canonical = 'https://' . $host . $uri;
           </span>
         </a>
         <a class="inline-flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full border-2"
-          href="sign.php"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29"
+          href="sign.php" aria-label="Sign Up"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29"
             fill="none">
             <path
               d="M1 13.7998C0.447715 13.7998 -4.82823e-08 14.2475 0 14.7998C4.82823e-08 15.3521 0.447715 15.7998 1 15.7998L1 13.7998ZM17.8071 15.5069C18.1976 15.1164 18.1976 14.4832 17.8071 14.0927L11.4431 7.72874C11.0526 7.33821 10.4195 7.33821 10.0289 7.72874C9.63841 8.11926 9.63841 8.75243 10.0289 9.14295L15.6858 14.7998L10.0289 20.4567C9.63841 20.8472 9.63841 21.4803 10.0289 21.8709C10.4195 22.2614 11.0526 22.2614 11.4431 21.8709L17.8071 15.5069ZM1 15.7998L17.1 15.7998L17.1 13.7998L1 13.7998L1 15.7998Z"
@@ -523,7 +523,7 @@ $canonical = 'https://' . $host . $uri;
               </label>
               <label class="grid gap-1.5">
                 <span class="label text-white">Telefonnummer</span>
-                <input class="input" type="tel" name="fullphone" placeholder="" required />
+                <input class="input" type="tel" name="fullphone" placeholder="" aria-label="Phone" required />
                 <span class="error-msg hide"></span>
               </label>
             </div>
