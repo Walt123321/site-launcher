@@ -1392,8 +1392,8 @@ document.addEventListener("DOMContentLoaded", () => {
   </form>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-  <script src="./integration/validation.js?v=<?= @filemtime(__DIR__ . '/./integration/validation.js') ?: time() ?>"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js" defer></script>
+  <script src="./integration/validation.js?v=<?= @filemtime(__DIR__ . '/./integration/validation.js') ?: time() ?>" defer></script>
   <script src="js/calculator.js?v=<?= @filemtime(__DIR__ . '/js/calculator.js') ?: time() ?>" defer></script>
   <script src="js/faq-section.js?v=<?= @filemtime(__DIR__ . '/js/faq-section.js') ?: time() ?>" defer></script>
 
