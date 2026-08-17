@@ -94,8 +94,19 @@ if ($form_phone_country === 'auto') {
 // налаштована конкретна країна за замовчуванням -- ці сторінки обслуговують
 // відвідувачів з різних країн незалежно від мови самої сторінки. Кореневі
 // сторінки й далі показують налаштовану країну кампанії без змін.
-$_qq_script_dir = isset($_SERVER['SCRIPT_FILENAME']) ? dirname($_SERVER['SCRIPT_FILENAME']) : __DIR__;
-if (preg_match('/^[a-z]{2}$/', $_qq_geo_guess) && $_qq_script_dir !== __DIR__) {
+// SCRIPT_FILENAME НЕ підходить для цієї перевірки: на "голому" кореневому
+// URL кампанії Keitaro сам обробляє запит (інʼєкція <base>-тега, трек кліку)
+// і SCRIPT_FILENAME там може вказувати не на реальний файл шаблону -- перевірено
+// живим тестом, де це призвело до хибного спрацювання на кореневій сторінці.
+// Замість цього дивимось на сам URL (REQUEST_URI), який відображає реально
+// запитаний шлях незалежно від внутрішньої маршрутизації Keitaro: якщо
+// передостанній сегмент шляху -- дволітерний код і відповідна тека реально
+// існує поруч з offer_seo.php, це регіональна сторінка.
+$_qq_uri_path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$_qq_uri_segments = array_values(array_filter(explode('/', $_qq_uri_path), 'strlen'));
+$_qq_lang_segment = count($_qq_uri_segments) >= 2 ? $_qq_uri_segments[count($_qq_uri_segments) - 2] : '';
+$_qq_is_regional_page = preg_match('/^[a-z]{2}$/', $_qq_lang_segment) === 1 && is_dir(__DIR__ . '/' . $_qq_lang_segment);
+if (preg_match('/^[a-z]{2}$/', $_qq_geo_guess) && $_qq_is_regional_page) {
     $form_country = $_qq_geo_guess;
     $form_phone_country = $_qq_geo_guess;
     // only_countries -- це allow-list, з яким звірявся initialCountry на клієнті
