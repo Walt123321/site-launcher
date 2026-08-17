@@ -731,7 +731,7 @@ function initials($text) {
     <div class="feature-grid">
       <div class="feature-card">
         <div class="feature-image">
-          <img src="./global_tr_platform_1.webp" alt="<?= $feature_market_alt ?>" width="1200" height="800" loading="lazy" decoding="async">
+          <img src="./global_tr_platform_1.webp" alt="<?= $feature_market_alt ?>" width="950" height="633" loading="lazy" decoding="async">
         </div>
         <div class="accent"></div>
         <h3><?= $feature_market_title ?></h3>
@@ -741,7 +741,7 @@ function initials($text) {
       </div>
       <div class="feature-card featured">
         <div class="feature-image">
-          <img src="./global_tr_platform_2.webp" alt="<?= $feature_execution_alt ?>" width="1200" height="800" loading="lazy" decoding="async">
+          <img src="./global_tr_platform_2.webp" alt="<?= $feature_execution_alt ?>" width="950" height="633" loading="lazy" decoding="async">
         </div>
         <div class="accent"></div>
         <h3><?= $feature_execution_title ?></h3>
@@ -751,7 +751,7 @@ function initials($text) {
       </div>
       <div class="feature-card">
         <div class="feature-image">
-          <img src="./global_tr_platform_3.webp" alt="<?= $feature_analytics_alt ?>" width="1200" height="800" loading="lazy" decoding="async">
+          <img src="./global_tr_platform_3.webp" alt="<?= $feature_analytics_alt ?>" width="950" height="633" loading="lazy" decoding="async">
         </div>
         <div class="accent"></div>
         <h3><?= $feature_analytics_title ?></h3>
