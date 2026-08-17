@@ -494,10 +494,18 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
         )
         
         # $form_only_countries = json_encode([]) (порожній масив)
+        # count=1 -- обмежуємось ЛИШЕ першим (дефолтним) оголошенням угорі
+        # файлу. Без цього re.sub() зачепив би й умовні рантайм-оверрайди
+        # $form_only_countries у регіональному/'auto'-геоблоці нижче в
+        # offer_seo.php (той самий синтаксис json_encode([...])), тихо
+        # повертаючи їх назад до налаштованого при запуску значення ще на
+        # етапі збірки ZIP -- саме так регіональні сторінки живого домену
+        # показували правильний phone_country, але старий only_countries.
         content = re.sub(
             r"\$form_only_countries\s*=\s*json_encode\(\[.*?\]\);",
             f'$form_only_countries = json_encode([]);',
-            content
+            content,
+            count=1,
         )
     else:
         # ============================================
@@ -525,11 +533,12 @@ def patch_offer_seo(content: str, brand: str, geo_code: str, target_lang: str,
             content,
         )
 
-        # $form_only_countries
+        # $form_only_countries -- count=1, див. пояснення у мультигео-гілці вище
         content = re.sub(
             r"\$form_only_countries\s*=\s*json_encode\(\[.*?\]\);",
             f'$form_only_countries = json_encode(["{geo_lower}"]);',
-            content
+            content,
+            count=1,
         )
 
     # $form_is_autologin не чіпаємо
@@ -2592,11 +2601,17 @@ elif st.session_state.step == 3:
                 st.session_state["step3_autogen_done"] = True
                 st.session_state["favicon_state"] = "generate"
                 st.session_state["currently_generating"] = True
+                # generated_site_zips кешується по домену (нижче, рядок ~2669) і
+                # ніколи сам не застаріває — інакше кожен наступний "Перегенерувати"
+                # для того самого домену тихо повертав би ZIP, зібраний ще ДО
+                # будь-яких правок у templates/, скільки б їх відтоді не було.
+                st.session_state["generated_site_zips"] = {}
                 st.rerun()
             elif st.button("🚀 Згенерувати / Перегенерувати"):
                 # Кнопка: встановлюємо флаг
                 st.session_state["favicon_state"] = "generate"
                 st.session_state["currently_generating"] = True
+                st.session_state["generated_site_zips"] = {}
                 st.rerun()
 
             # ============================================
