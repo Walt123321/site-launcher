@@ -150,7 +150,21 @@ function initials($text) {
     <meta property="og:image:width" content="96">
     <meta property="og:image:height" content="96">
     <meta property="og:image:alt" content="<?= $site_name ?> logo">
-    <link rel="stylesheet" href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/./integration/default-integration.css') ?: time() ?>">
+    <style>
+      .iti.iti--allow-dropdown { width: 100%; }
+      .leadform { position: relative; }
+      .form-preloader { position: absolute; top: 0; bottom: 0; right: 0; left: 0; background: #fff; z-index: 4; display: flex; align-items: center; justify-content: center; }
+      .error-msg { padding-bottom: 10px; color: red; font-size: 14px; text-align: right; }
+      .spinner { animation: rotate 2s linear infinite; z-index: 2; position: absolute; top: 50%; left: 50%; margin: -25px 0 0 -25px; width: 50px; height: 50px; }
+      .spinner .path { stroke: #0077db; stroke-linecap: round; animation: dash 1.5s ease-in-out infinite; }
+      .hide, .hidden { display: none !important; }
+      @keyframes rotate { 100% { transform: rotate(360deg); } }
+      @keyframes dash {
+        0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
+        50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+        100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+      }
+    </style>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" /></noscript>
 <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
@@ -213,8 +227,10 @@ function initials($text) {
   <noscript>
     <link rel="stylesheet" href="./assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/./assets/css/tailwind.min.css') ?: time() ?>" />
   </noscript>
-  <link rel="stylesheet" href="./assets/css/feature-image.css?v=<?= @filemtime(__DIR__ . '/./assets/css/feature-image.css') ?: time() ?>" />
-  <link rel="stylesheet" href="./assets/css/calculator.css?v=<?= @filemtime(__DIR__ . '/./assets/css/calculator.css') ?: time() ?>" />
+  <link rel="preload" href="./assets/css/feature-image.css?v=<?= @filemtime(__DIR__ . '/./assets/css/feature-image.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="./assets/css/feature-image.css?v=<?= @filemtime(__DIR__ . '/./assets/css/feature-image.css') ?: time() ?>" /></noscript>
+  <link rel="preload" href="./assets/css/calculator.css?v=<?= @filemtime(__DIR__ . '/./assets/css/calculator.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="./assets/css/calculator.css?v=<?= @filemtime(__DIR__ . '/./assets/css/calculator.css') ?: time() ?>" /></noscript>
   <script>
     document.documentElement.classList.add("loading");
     const waitForStylesheet = (href, cb) => {
@@ -382,7 +398,7 @@ function initials($text) {
         class="rounded-custom flex min-h-[70px] items-center justify-between gap-8 border bg-white px-4.5 py-3 md:px-8">
         <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none uppercase header-nav-logo" href="<?= $site_url ?>">
           <span class="text-primary inline-block header-logo">
-            <img src="./favicon-96x96.png" class="footer-logo" alt="logo">
+            <img src="./favicon-96x96.png" class="footer-logo" alt="logo" width="30" height="30">
           </span>
           <?= $site_name ?>
         </a>
@@ -731,7 +747,7 @@ function initials($text) {
     <div class="feature-grid">
       <div class="feature-card">
         <div class="feature-image">
-          <img src="./global_tr_platform_1.webp" alt="<?= $feature_market_alt ?>" width="950" height="633" loading="lazy" decoding="async">
+          <img src="./global_tr_platform_1.webp" alt="<?= $feature_market_alt ?>" width="750" height="400" loading="lazy" decoding="async">
         </div>
         <div class="accent"></div>
         <h3><?= $feature_market_title ?></h3>
@@ -741,7 +757,7 @@ function initials($text) {
       </div>
       <div class="feature-card featured">
         <div class="feature-image">
-          <img src="./global_tr_platform_2.webp" alt="<?= $feature_execution_alt ?>" width="950" height="633" loading="lazy" decoding="async">
+          <img src="./global_tr_platform_2.webp" alt="<?= $feature_execution_alt ?>" width="750" height="400" loading="lazy" decoding="async">
         </div>
         <div class="accent"></div>
         <h3><?= $feature_execution_title ?></h3>
@@ -751,7 +767,7 @@ function initials($text) {
       </div>
       <div class="feature-card">
         <div class="feature-image">
-          <img src="./global_tr_platform_3.webp" alt="<?= $feature_analytics_alt ?>" width="950" height="633" loading="lazy" decoding="async">
+          <img src="./global_tr_platform_3.webp" alt="<?= $feature_analytics_alt ?>" width="750" height="400" loading="lazy" decoding="async">
         </div>
         <div class="accent"></div>
         <h3><?= $feature_analytics_title ?></h3>
@@ -1574,7 +1590,7 @@ $stars = str_repeat('★', (int) round($rating_value));
             <a class="font-special inline-flex max-w-60 gap-1.5 text-xl leading-none text-white uppercase max-md:pr-[120px] footer-nav-logo"
               href="<?= $site_url ?>">
               <span class="inline-block">
-                  <img src="./favicon-96x96.png" class="footer-logo" alt="logo">
+                  <img src="./favicon-96x96.png" class="footer-logo" alt="logo" width="30" height="30">
               </span>
               <?= $site_name ?>
             </a>
@@ -1806,7 +1822,7 @@ $stars = str_repeat('★', (int) round($rating_value));
         <div style="background-color: #1a1a1e !important; border-bottom: 1px solid #27272a !important; padding: 14px 18px !important; display: flex !important; align-items: center !important; justify-content: space-between !important; flex-direction: row !important;">
             <div style="display: flex !important; align-items: center !important; gap: 12px !important; flex-direction: row !important;">
                 <div style="position: relative !important; width: 40px !important; height: 40px !important; border-radius: 50% !important; border: 2px solid #6B5FA7 !important; background-color: #27272a !important; display: flex !important; align-items: center !important; justify-content: center !important; overflow: hidden !important; flex-shrink: 0 !important;">
-                    <img src="./consultant.webp" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
+                    <img src="./consultant.webp" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
                     <svg style="display: none; width: 22px; height: 22px; color: #a1a1aa;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     <span style="position: absolute !important; bottom: 0 !important; right: 0 !important; width: 9px !important; height: 9px !important; background-color: #10b981 !important; border: 1.5px solid #121214 !important; border-radius: 50% !important;"></span>
                 </div>
@@ -1858,7 +1874,8 @@ window.quizLang = {
 </script>
 <script src="assets/js/chat-quiz.js?v=<?= @filemtime(__DIR__ . '/assets/js/chat-quiz.js') ?: time() ?>" defer></script>
 
-<link rel="stylesheet" href="assets/css/chat-quiz.css?v=<?= @filemtime(__DIR__ . '/assets/css/chat-quiz.css') ?: time() ?>">
+<link rel="preload" href="assets/css/chat-quiz.css?v=<?= @filemtime(__DIR__ . '/assets/css/chat-quiz.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="assets/css/chat-quiz.css?v=<?= @filemtime(__DIR__ . '/assets/css/chat-quiz.css') ?: time() ?>" /></noscript>
 
 
 </body>
