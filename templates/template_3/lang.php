@@ -19,7 +19,7 @@ $site_lang = "it-IT";
 $country_name = "United Kingdom"; // was referenced by $main_p/$quiz_text_q1 below but never defined (unlike template_5/6's lang.php) — matches their same placeholder default
 
 // фото
-$crypto_img = "images/crypto_main.png";
+$crypto_img = "images/crypto_main.webp";
 
 $main_h1 = "Profitto giornaliero da <span>745€</span> a <span>1860€</span> grazie alla piattaforma di investimento intelligente";
 $main_p = "Offerta limitata: registrati ora — <span>$country_name</span>";
