@@ -296,8 +296,8 @@ function setupFormValidation(form) {
         geoIpLookup: function (success, failure) {
             fetch("https://ipapi.co/json")
                 .then(function (res) { return res.json(); })
-                .then(function (data) { success(data.country_code); })
-                .catch(function () { failure(); });
+                .then(function (data) { success(data.country_code || 'us'); })
+                .catch(function () { success('us'); });
         }
     });
 

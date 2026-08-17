@@ -51,7 +51,8 @@ else {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
     <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
     <link rel="shortcut icon" href="./favicon.ico" />
@@ -183,9 +184,10 @@ else {
 
     <link rel="stylesheet" href="./assets/css/style.css?v=<?= @filemtime(__DIR__ . '/./assets/css/style.css') ?: time() ?>">
     <link rel="stylesheet" href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/./integration/default-integration.css') ?: time() ?>">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" /></noscript>
 </head>
-<body data-theme="dark">
+<body data-theme="light">
 
 <?php include 'includes/header.php'; ?>
 
@@ -685,6 +687,15 @@ else {
                         class="app-phone-image"
                         width="320"
                         height="640"
+                        loading="lazy"
+                        decoding="async">
+
+                    <img
+                        src="./assets/img/mobile-trading-light.webp"
+                        alt="<?= $mobile_trading_visual_alt ?>"
+                        class="app-secondary-image"
+                        width="1086"
+                        height="1448"
                         loading="lazy"
                         decoding="async">
                 </div>

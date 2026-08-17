@@ -74,7 +74,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/contact.php" />
     <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/contact.php" />
 </head>
-<body data-theme="dark">
+<body data-theme="light">
 <?php include '../includes/header.php'; ?>
 
 <?php include '../includes/breadcrumb-schema.php'; ?>
@@ -196,7 +196,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-<script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
 
 <?php include '../includes/footer.php'; ?>
 <script>

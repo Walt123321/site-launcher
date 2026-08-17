@@ -207,8 +207,8 @@ function initials($text) {
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap"
-    rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap" /></noscript>
   <link rel="preload" href="./assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/./assets/css/tailwind.min.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript>
     <link rel="stylesheet" href="./assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/./assets/css/tailwind.min.css') ?: time() ?>" />
@@ -1689,8 +1689,6 @@ $stars = str_repeat('★', (int) round($rating_value));
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/" hreflang="ms" title="Bahasa Melayu">
     🇲🇾
-  </a>
-    🇷🇺
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/" hreflang="nb" title="Norsk bokmål">
     🇳🇴

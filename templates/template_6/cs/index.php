@@ -196,7 +196,7 @@ $canonical = 'https://' . $host . $uri;
     <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/" />
     <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/" />
 </head>
-<body data-theme="dark">
+<body data-theme="light">
 
 <?php include '../includes/header.php'; ?>
 
@@ -696,6 +696,15 @@ $canonical = 'https://' . $host . $uri;
                         class="app-phone-image"
                         width="320"
                         height="640"
+                        loading="lazy"
+                        decoding="async">
+
+                    <img
+                        src="../assets/img/mobile-trading-light.webp"
+                        alt="<?= $mobile_trading_visual_alt ?>"
+                        class="app-secondary-image"
+                        width="1086"
+                        height="1448"
                         loading="lazy"
                         decoding="async">
                 </div>
@@ -1269,7 +1278,6 @@ $canonical = 'https://' . $host . $uri;
         </div>
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
-<script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>"></script>
 
 <?php include '../includes/footer.php'; ?>
 <script>

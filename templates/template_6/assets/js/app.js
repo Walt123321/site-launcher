@@ -21,7 +21,7 @@
             }
         };
         
-        applyTheme(localStorage.getItem('brandTheme') || 'dark');
+        applyTheme(localStorage.getItem('brandTheme') || 'light');
         
         if (themeToggle) {
             themeToggle.addEventListener('click', () => {

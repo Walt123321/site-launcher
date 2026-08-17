@@ -134,10 +134,8 @@ $canonical = 'https://' . $host . $uri;
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap" /></noscript>
     <link rel="stylesheet" href="../integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
     <link
@@ -454,7 +452,7 @@ $canonical = 'https://' . $host . $uri;
     </div>
     <div class="flex items-center justify-center">
       <img
-        src="../assets/img/responsive/orange/phone-4-1033.png"
+        src="../assets/img/responsive/orange/phone-4-1033.webp"
         alt="Mobil grænseflade til porteføljesporing"
         class="w-full h-auto max-w-[340px] mx-auto drop-shadow-xl"
         loading="lazy"
@@ -844,8 +842,6 @@ $canonical = 'https://' . $host . $uri;
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/product.php" hreflang="ms" title="Bahasa Melayu">
     🇲🇾
-  </a>
-    🇷🇺
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/product.php" hreflang="nb" title="Norsk bokmål">
     🇳🇴

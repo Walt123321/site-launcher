@@ -5,7 +5,7 @@
                     <div class="footer-grid">
         
                         <div class="footer-brand">
-                            <a href="<?= $site_url ?>/index.php" class="logo">
+                            <a href="index.php" class="logo">
                                 <div class="logo-icon" style="display: flex; align-items: center; justify-content: center;">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="width: 60%; height: 60%;">
                                         <path d="M14 46 L26 32 L38 38 L50 16" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -26,9 +26,9 @@
                             <h4><?= $footer_platform_title ?></h4>
         
                             <ul>
-                                <li><a href="<?= $site_url ?>/index.php#platform"><?= $footer_platform_interface ?></a></li>
-                                <li><a href="<?= $site_url ?>/index.php#features"><?= $nav_features ?></a></li>
-                                <li><a href="<?= $site_url ?>/index.php#markets"><?= $footer_platform_markets ?></a></li>
+                                <li><a href="index.php#platform"><?= $footer_platform_interface ?></a></li>
+                                <li><a href="index.php#features"><?= $nav_features ?></a></li>
+                                <li><a href="index.php#markets"><?= $footer_platform_markets ?></a></li>
                             </ul>
                         </div>
         
@@ -62,31 +62,37 @@
                         <?= $footer_disclaimer_text ?>
                     </p>
 
-                    <?php $current_lang_code = strtolower(substr((string) ($site_lang ?? 'en'), 0, 2)); ?>
+                    <?php
+                    $current_lang_code = strtolower(substr((string) ($site_lang ?? 'en'), 0, 2));
+                    $current_page = basename($_SERVER['SCRIPT_NAME'] ?? '');
+                    if ($current_page === '') {
+                        $current_page = 'index.php';
+                    }
+                    ?>
                     <nav class="lang-switcher" aria-label="Language switcher">
-                        <a href="<?= $site_url ?>/index.php" hreflang="en" lang="en"<?= $current_lang_code === 'en' ? ' class="is-active" aria-current="true"' : '' ?>>🇬🇧 English</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/index.php" hreflang="de" lang="de"<?= $current_lang_code === 'de' ? ' class="is-active" aria-current="true"' : '' ?>>🇩🇪 Deutsch</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/index.php" hreflang="fr" lang="fr"<?= $current_lang_code === 'fr' ? ' class="is-active" aria-current="true"' : '' ?>>🇫🇷 Français</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/index.php" hreflang="es" lang="es"<?= $current_lang_code === 'es' ? ' class="is-active" aria-current="true"' : '' ?>>🇪🇸 Español</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/index.php" hreflang="it" lang="it"<?= $current_lang_code === 'it' ? ' class="is-active" aria-current="true"' : '' ?>>🇮🇹 Italiano</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/index.php" hreflang="hr" lang="hr"<?= $current_lang_code === 'hr' ? ' class="is-active" aria-current="true"' : '' ?>>🇭🇷 Hrvatski</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/index.php" hreflang="ro" lang="ro"<?= $current_lang_code === 'ro' ? ' class="is-active" aria-current="true"' : '' ?>>🇷🇴 Română</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/index.php" hreflang="nl" lang="nl"<?= $current_lang_code === 'nl' ? ' class="is-active" aria-current="true"' : '' ?>>🇳🇱 Nederlands</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/index.php" hreflang="no" lang="no"<?= $current_lang_code === 'no' ? ' class="is-active" aria-current="true"' : '' ?>>🇳🇴 Norsk</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/index.php" hreflang="pt" lang="pt"<?= $current_lang_code === 'pt' ? ' class="is-active" aria-current="true"' : '' ?>>🇵🇹 Português</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/index.php" hreflang="cs" lang="cs"<?= $current_lang_code === 'cs' ? ' class="is-active" aria-current="true"' : '' ?>>🇨🇿 Čeština</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/index.php" hreflang="pl" lang="pl"<?= $current_lang_code === 'pl' ? ' class="is-active" aria-current="true"' : '' ?>>🇵🇱 Polski</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/index.php" hreflang="tr" lang="tr"<?= $current_lang_code === 'tr' ? ' class="is-active" aria-current="true"' : '' ?>>🇹🇷 Türkçe</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/index.php" hreflang="da" lang="da"<?= $current_lang_code === 'da' ? ' class="is-active" aria-current="true"' : '' ?>>🇩🇰 Dansk</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/index.php" hreflang="sv" lang="sv"<?= $current_lang_code === 'sv' ? ' class="is-active" aria-current="true"' : '' ?>>🇸🇪 Svenska</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/index.php" hreflang="fi" lang="fi"<?= $current_lang_code === 'fi' ? ' class="is-active" aria-current="true"' : '' ?>>🇫🇮 Suomi</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/index.php" hreflang="hu" lang="hu"<?= $current_lang_code === 'hu' ? ' class="is-active" aria-current="true"' : '' ?>>🇭🇺 Magyar</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/index.php" hreflang="sk" lang="sk"<?= $current_lang_code === 'sk' ? ' class="is-active" aria-current="true"' : '' ?>>🇸🇰 Slovenčina</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/index.php" hreflang="bg" lang="bg"<?= $current_lang_code === 'bg' ? ' class="is-active" aria-current="true"' : '' ?>>🇧🇬 Български</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/index.php" hreflang="ms" lang="ms"<?= $current_lang_code === 'ms' ? ' class="is-active" aria-current="true"' : '' ?>>🇲🇾 Bahasa Melayu</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/index.php" hreflang="nb" lang="nb"<?= $current_lang_code === 'nb' ? ' class="is-active" aria-current="true"' : '' ?>>🇳🇴 Norsk Bokmål</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/index.php" hreflang="el" lang="el"<?= $current_lang_code === 'el' ? ' class="is-active" aria-current="true"' : '' ?>>🇬🇷 Ελληνικά</a>
-                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/index.php" hreflang="ja" lang="ja"<?= $current_lang_code === 'ja' ? ' class="is-active" aria-current="true"' : '' ?>>🇯🇵 日本語</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/<?= $current_page ?>" hreflang="en" lang="en"<?= $current_lang_code === 'en' ? ' class="is-active" aria-current="true"' : '' ?>>🇬🇧 English</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/<?= $current_page ?>" hreflang="de" lang="de"<?= $current_lang_code === 'de' ? ' class="is-active" aria-current="true"' : '' ?>>🇩🇪 Deutsch</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/<?= $current_page ?>" hreflang="fr" lang="fr"<?= $current_lang_code === 'fr' ? ' class="is-active" aria-current="true"' : '' ?>>🇫🇷 Français</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/<?= $current_page ?>" hreflang="es" lang="es"<?= $current_lang_code === 'es' ? ' class="is-active" aria-current="true"' : '' ?>>🇪🇸 Español</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/<?= $current_page ?>" hreflang="it" lang="it"<?= $current_lang_code === 'it' ? ' class="is-active" aria-current="true"' : '' ?>>🇮🇹 Italiano</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/<?= $current_page ?>" hreflang="hr" lang="hr"<?= $current_lang_code === 'hr' ? ' class="is-active" aria-current="true"' : '' ?>>🇭🇷 Hrvatski</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/<?= $current_page ?>" hreflang="ro" lang="ro"<?= $current_lang_code === 'ro' ? ' class="is-active" aria-current="true"' : '' ?>>🇷🇴 Română</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/<?= $current_page ?>" hreflang="nl" lang="nl"<?= $current_lang_code === 'nl' ? ' class="is-active" aria-current="true"' : '' ?>>🇳🇱 Nederlands</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/<?= $current_page ?>" hreflang="no" lang="no"<?= $current_lang_code === 'no' ? ' class="is-active" aria-current="true"' : '' ?>>🇳🇴 Norsk</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/<?= $current_page ?>" hreflang="pt" lang="pt"<?= $current_lang_code === 'pt' ? ' class="is-active" aria-current="true"' : '' ?>>🇵🇹 Português</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/<?= $current_page ?>" hreflang="cs" lang="cs"<?= $current_lang_code === 'cs' ? ' class="is-active" aria-current="true"' : '' ?>>🇨🇿 Čeština</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/<?= $current_page ?>" hreflang="pl" lang="pl"<?= $current_lang_code === 'pl' ? ' class="is-active" aria-current="true"' : '' ?>>🇵🇱 Polski</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/<?= $current_page ?>" hreflang="tr" lang="tr"<?= $current_lang_code === 'tr' ? ' class="is-active" aria-current="true"' : '' ?>>🇹🇷 Türkçe</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/<?= $current_page ?>" hreflang="da" lang="da"<?= $current_lang_code === 'da' ? ' class="is-active" aria-current="true"' : '' ?>>🇩🇰 Dansk</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/<?= $current_page ?>" hreflang="sv" lang="sv"<?= $current_lang_code === 'sv' ? ' class="is-active" aria-current="true"' : '' ?>>🇸🇪 Svenska</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/<?= $current_page ?>" hreflang="fi" lang="fi"<?= $current_lang_code === 'fi' ? ' class="is-active" aria-current="true"' : '' ?>>🇫🇮 Suomi</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/<?= $current_page ?>" hreflang="hu" lang="hu"<?= $current_lang_code === 'hu' ? ' class="is-active" aria-current="true"' : '' ?>>🇭🇺 Magyar</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/<?= $current_page ?>" hreflang="sk" lang="sk"<?= $current_lang_code === 'sk' ? ' class="is-active" aria-current="true"' : '' ?>>🇸🇰 Slovenčina</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/<?= $current_page ?>" hreflang="bg" lang="bg"<?= $current_lang_code === 'bg' ? ' class="is-active" aria-current="true"' : '' ?>>🇧🇬 Български</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/<?= $current_page ?>" hreflang="ms" lang="ms"<?= $current_lang_code === 'ms' ? ' class="is-active" aria-current="true"' : '' ?>>🇲🇾 Bahasa Melayu</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/<?= $current_page ?>" hreflang="nb" lang="nb"<?= $current_lang_code === 'nb' ? ' class="is-active" aria-current="true"' : '' ?>>🇳🇴 Norsk Bokmål</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/<?= $current_page ?>" hreflang="el" lang="el"<?= $current_lang_code === 'el' ? ' class="is-active" aria-current="true"' : '' ?>>🇬🇷 Ελληνικά</a>
+                        <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/<?= $current_page ?>" hreflang="ja" lang="ja"<?= $current_lang_code === 'ja' ? ' class="is-active" aria-current="true"' : '' ?>>🇯🇵 日本語</a>
                     </nav>
 
                     <div class="footer-meta-links">

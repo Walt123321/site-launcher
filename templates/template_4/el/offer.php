@@ -135,10 +135,8 @@ $canonical = 'https://' . $host . $uri;
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400&display=swap" /></noscript>
     <link
       rel="preload"
       href="../assets/css/tailwind.min.css?v=<?= @filemtime(__DIR__ . '/../assets/css/tailwind.min.css') ?: time() ?>"
@@ -387,7 +385,7 @@ $canonical = 'https://' . $host . $uri;
             >
               <div class="offer-visual">
                 <img
-                  src="../assets/img/responsive/orange/phone-3-1033.png"
+                  src="../assets/img/responsive/orange/phone-3-1033.webp"
                   alt="Εφαρμογή συναλλαγών"
                   class="offer-phone"
                 />
@@ -716,8 +714,6 @@ $canonical = 'https://' . $host . $uri;
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/offer.php" hreflang="ms" title="Bahasa Melayu">
     🇲🇾
-  </a>
-    🇷🇺
   </a>
   <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/offer.php" hreflang="nb" title="Norsk bokmål">
     🇳🇴

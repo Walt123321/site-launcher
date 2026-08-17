@@ -66,7 +66,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
 
     <link rel="stylesheet" href="./assets/css/style.css?v=<?= @filemtime(__DIR__ . '/./assets/css/style.css') ?: time() ?>">
 </head>
-<body data-theme="dark">
+<body data-theme="light">
 <?php include 'includes/header.php'; ?>
 
 <?php include 'includes/breadcrumb-schema.php'; ?>

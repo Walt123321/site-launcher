@@ -91,10 +91,12 @@ $canonical = 'https://' . $host . $uri;
   <title><?= $page_title_contact ?></title>
   <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
   <meta name="description" content="<?= $page_description_contact ?>">
-  <link rel="stylesheet" href="../css/swiper-bundle.min.css?v=<?= @filemtime(__DIR__ . '/../css/swiper-bundle.min.css') ?: time() ?>">
+  <link rel="preload" href="../css/swiper-bundle.min.css?v=<?= @filemtime(__DIR__ . '/../css/swiper-bundle.min.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="../css/swiper-bundle.min.css?v=<?= @filemtime(__DIR__ . '/../css/swiper-bundle.min.css') ?: time() ?>" /></noscript>
   <link rel="stylesheet" href="../css/main-1.css?v=<?= @filemtime(__DIR__ . '/../css/main-1.css') ?: time() ?>">
   <link href="../integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" rel="stylesheet"/>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" /></noscript>
 
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/contact.php">
 <link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/contact.php">

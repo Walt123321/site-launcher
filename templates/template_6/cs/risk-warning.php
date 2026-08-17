@@ -74,7 +74,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     <link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/risk-warning.php" />
     <link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/risk-warning.php" />
 </head>
-<body data-theme="dark">
+<body data-theme="light">
 <?php include '../includes/header.php'; ?>
 
 <?php include '../includes/breadcrumb-schema.php'; ?>
