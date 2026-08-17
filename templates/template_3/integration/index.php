@@ -225,7 +225,7 @@ require_once 'offer_seo.php';
               <input type="email" name="email" placeholder="Email" required="required">
             </div>
             <div class="inputs-form__input">
-              <input type="tel" name="fullphone" required="required">
+              <input type="tel" name="fullphone" aria-label="Phone" required="required">
               <div class="error-msg hide"></div>
             </div>
           </div>

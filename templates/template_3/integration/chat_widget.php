@@ -31,16 +31,16 @@ if (!isset($asset_url)) { $asset_url = (PHP_SAPI === 'cli-server') ? '' : ($site
       </svg>
     </div>
     <div class="cq-field-group">
-      <input type="text" name="fname" id="cq-field-fname" placeholder="<?= htmlspecialchars($quiz_placeholder_fname) ?>" required>
+      <input type="text" name="fname" id="cq-field-fname" placeholder="<?= htmlspecialchars($quiz_placeholder_fname) ?>" aria-label="<?= htmlspecialchars($quiz_placeholder_fname) ?>" required>
     </div>
     <div class="cq-field-group">
-      <input type="text" name="lname" id="cq-field-lname" placeholder="<?= htmlspecialchars($quiz_placeholder_lname) ?>" required>
+      <input type="text" name="lname" id="cq-field-lname" placeholder="<?= htmlspecialchars($quiz_placeholder_lname) ?>" aria-label="<?= htmlspecialchars($quiz_placeholder_lname) ?>" required>
     </div>
     <div class="cq-field-group">
-      <input type="email" name="email" id="cq-field-email" placeholder="<?= htmlspecialchars($quiz_placeholder_email) ?>" required>
+      <input type="email" name="email" id="cq-field-email" placeholder="<?= htmlspecialchars($quiz_placeholder_email) ?>" aria-label="<?= htmlspecialchars($quiz_placeholder_email) ?>" required>
     </div>
     <div class="cq-field-group">
-      <input type="tel" name="fullphone" id="cq-field-phone" placeholder="" required>
+      <input type="tel" name="fullphone" id="cq-field-phone" placeholder="" aria-label="Phone" required>
       <span class="error-msg hide"></span>
     </div>
     <button type="submit" class="submit" id="cq-custom-submit-btn"><?= $quiz_btn_submit ?></button>

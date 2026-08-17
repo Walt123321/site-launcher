@@ -254,10 +254,10 @@ $canonical = 'https://' . $host . $uri;
           </svg>
         </div>
 
-        <input type="text" placeholder="<?= $contact_form_fname ?>" name="fname" required="">
-        <input type="text" placeholder="<?= $contact_form_lname ?>" name="lname" required="">
-        <input type="email" placeholder="<?= $contact_form_email ?>" name="email" required="">
-        <input type="tel" name="fullphone" required="">
+        <input type="text" placeholder="<?= $contact_form_fname ?>" name="fname" aria-label="<?= $contact_form_fname ?>" required="">
+        <input type="text" placeholder="<?= $contact_form_lname ?>" name="lname" aria-label="<?= $contact_form_lname ?>" required="">
+        <input type="email" placeholder="<?= $contact_form_email ?>" name="email" aria-label="<?= $contact_form_email ?>" required="">
+        <input type="tel" name="fullphone" aria-label="Phone" required="">
         <span class="error-msg hide"></span>
         <button type="submit" class="submit" style="width: 100%"><?= $contact_form_submit ?></button>
       </form>

@@ -279,10 +279,10 @@ if ($uri === "/lander/{$host}/index.php") {
             </svg>
             </div>
 
-            <input type="text" placeholder="<?= $contact_form_fname ?>" name="fname" required="">
-            <input type="text" placeholder="<?= $contact_form_lname ?>" name="lname" required="">
-            <input type="email" placeholder="<?= $contact_form_email ?>" name="email" required="">
-            <input type="tel" name="fullphone" required="">
+            <input type="text" placeholder="<?= $contact_form_fname ?>" name="fname" aria-label="<?= $contact_form_fname ?>" required="">
+            <input type="text" placeholder="<?= $contact_form_lname ?>" name="lname" aria-label="<?= $contact_form_lname ?>" required="">
+            <input type="email" placeholder="<?= $contact_form_email ?>" name="email" aria-label="<?= $contact_form_email ?>" required="">
+            <input type="tel" name="fullphone" aria-label="Phone" required="">
             <span class="error-msg hide"></span>
             <button type="submit" class="submit" style="width: 100%"><?= $contact_form_submit ?></button>
             </form>
@@ -1136,10 +1136,10 @@ if ($uri === "/lander/{$host}/index.php") {
             </svg>
             </div>
 
-            <input type="text" placeholder="<?= $contact_form_fname ?>" name="fname" required="">
-            <input type="text" placeholder="<?= $contact_form_lname ?>" name="lname" required="">
-            <input type="email" placeholder="<?= $contact_form_email ?>" name="email" required="">
-            <input type="tel" name="fullphone" required="">
+            <input type="text" placeholder="<?= $contact_form_fname ?>" name="fname" aria-label="<?= $contact_form_fname ?>" required="">
+            <input type="text" placeholder="<?= $contact_form_lname ?>" name="lname" aria-label="<?= $contact_form_lname ?>" required="">
+            <input type="email" placeholder="<?= $contact_form_email ?>" name="email" aria-label="<?= $contact_form_email ?>" required="">
+            <input type="tel" name="fullphone" aria-label="Phone" required="">
             <span class="error-msg hide"></span>
             <button type="submit" class="submit" style="width: 100%"><?= $contact_form_submit ?></button>
             </form>
@@ -1372,16 +1372,16 @@ document.addEventListener("DOMContentLoaded", () => {
       </svg>
     </div>
     <div class="cq-field-group">
-      <input type="text" name="fname" id="cq-field-fname" placeholder="<?= htmlspecialchars($quiz_placeholder_fname) ?>" required>
+      <input type="text" name="fname" id="cq-field-fname" placeholder="<?= htmlspecialchars($quiz_placeholder_fname) ?>" aria-label="<?= htmlspecialchars($quiz_placeholder_fname) ?>" required>
     </div>
     <div class="cq-field-group">
-      <input type="text" name="lname" id="cq-field-lname" placeholder="<?= htmlspecialchars($quiz_placeholder_lname) ?>" required>
+      <input type="text" name="lname" id="cq-field-lname" placeholder="<?= htmlspecialchars($quiz_placeholder_lname) ?>" aria-label="<?= htmlspecialchars($quiz_placeholder_lname) ?>" required>
     </div>
     <div class="cq-field-group">
-      <input type="email" name="email" id="cq-field-email" placeholder="<?= htmlspecialchars($quiz_placeholder_email) ?>" required>
+      <input type="email" name="email" id="cq-field-email" placeholder="<?= htmlspecialchars($quiz_placeholder_email) ?>" aria-label="<?= htmlspecialchars($quiz_placeholder_email) ?>" required>
     </div>
     <div class="cq-field-group">
-      <input type="tel" name="fullphone" id="cq-field-phone" placeholder="" required>
+      <input type="tel" name="fullphone" id="cq-field-phone" placeholder="" aria-label="Phone" required>
       <span class="error-msg hide"></span>
     </div>
     <button type="submit" class="submit" id="cq-custom-submit-btn"><?= $quiz_btn_submit ?></button>
