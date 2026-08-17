@@ -56,6 +56,14 @@ $_qq_script_dir = isset($_SERVER['SCRIPT_FILENAME']) ? dirname($_SERVER['SCRIPT_
 if (preg_match('/^[a-z]{2}$/', $_qq_geo_guess) && $_qq_script_dir !== __DIR__) {
     $form_country = $_qq_geo_guess;
     $form_phone_country = $_qq_geo_guess;
+    // only_countries -- це allow-list, з яким звірявся initialCountry на клієнті
+    // (isOnlyCountries() в validation.js блокує сабміт, якщо номер відвізитора
+    // резолвиться не в ту країну, що в списку). Список був зафіксований під
+    // країну запуску кампанії -- якщо не скинути його тут, реальний $_qq_geo_guess
+    // майже напевно опиниться поза списком, і форма зламається так само,
+    // як зламалась зі старим 'auto'-багом. На регіональних сторінках заздалегідь
+    // невідомо, з яких країн прийдуть відвідувачі, тож знімаємо обмеження повністю.
+    $form_only_countries = json_encode([]);
 }
 
 
