@@ -377,7 +377,7 @@ if ($uri === "/lander/{$host}/index.php") {
               </div>
             </div>
             <div class="leaders__image">
-              <img src="../images/Warren_Buffett.webp" width="375" height="375" loading="lazy" alt="avatar">
+              <img src="../images/Warren_Buffett.webp" width="375" height="375" alt="avatar" fetchpriority="high">
               <span>
                 <img class="leaders__image-coin visible-tablet" src="../images/coin-2.webp" width="50" height="45" alt="Digital coin growth">
                 <img class="leaders__image-coin" src="../images/coin-3.webp" width="156" height="122" alt="Gold coin investment symbol">
@@ -398,7 +398,7 @@ if ($uri === "/lander/{$host}/index.php") {
               </div>
             </div>
             <div class="leaders__image">
-              <img src="../images/Larry_Fink.webp" width="375" height="375" alt="avatar" style="object-position: 64%;">
+              <img src="../images/Larry_Fink.webp" width="375" height="375" alt="avatar" loading="lazy" style="object-position: 64%;">
               <span>
                 <img class="leaders__image-coin visible-tablet" src="../images/coin-2.webp" width="50" height="45" alt="Digital coin growth">
                 <img class="leaders__image-coin" src="../images/coin-3.webp" width="156" height="122" alt="Gold coin investment symbol">
@@ -419,7 +419,7 @@ if ($uri === "/lander/{$host}/index.php") {
               </div>
             </div>
             <div class="leaders__image">
-              <img src="../images/Jamie_Dimon.webp" width="375" height="375" alt="avatar" style="object-position: 64%;">
+              <img src="../images/Jamie_Dimon.webp" width="375" height="375" alt="avatar" loading="lazy" style="object-position: 64%;">
               <span>
                 <img class="leaders__image-coin visible-tablet" src="../images/coin-2.webp" width="50" height="45" alt="Digital coin growth">
                 <img class="leaders__image-coin" src="../images/coin-3.webp" width="156" height="122" alt="Gold coin investment symbol">
