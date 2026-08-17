@@ -6,3 +6,5 @@ templates_deploy_flat/
 whitepage_deploy/
 .DS_Store
 *.DS_Store
+_keitaro_cleanup/
+truly_dead_domains.txt
