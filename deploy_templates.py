@@ -19,6 +19,7 @@ MAIN_TEMPLATES = {
     "template_4": "template_4",
     "template_5": "template_5",
     "template_6": "template_6",
+    "template_qoooqle": "template_qoooqle",
 }
 
 
