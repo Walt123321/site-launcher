@@ -126,7 +126,7 @@ if ($uri === "/lander/{$host}/index.php") {
 }
 </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon">
   <title><?= $page_title_main ?></title>
   <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
@@ -143,10 +143,14 @@ if ($uri === "/lander/{$host}/index.php") {
   <link rel="preload" href="css/swiper-bundle.min.css?v=<?= @filemtime(__DIR__ . '/css/swiper-bundle.min.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="css/swiper-bundle.min.css?v=<?= @filemtime(__DIR__ . '/css/swiper-bundle.min.css') ?: time() ?>" /></noscript>
   <link rel="stylesheet" href="css/main-1.css?v=<?= @filemtime(__DIR__ . '/css/main-1.css') ?: time() ?>">
-  <link rel="stylesheet" href="css/calculator.css?v=<?= @filemtime(__DIR__ . '/css/calculator.css') ?: time() ?>">
-  <link rel="stylesheet" href="css/security-section.css?v=<?= @filemtime(__DIR__ . '/css/security-section.css') ?: time() ?>">
-  <link rel="stylesheet" href="css/seo-section.css?v=<?= @filemtime(__DIR__ . '/css/seo-section.css') ?: time() ?>">
-  <link rel="stylesheet" href="css/faq-section.css?v=<?= @filemtime(__DIR__ . '/css/faq-section.css') ?: time() ?>">
+  <link rel="preload" href="css/calculator.css?v=<?= @filemtime(__DIR__ . '/css/calculator.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="css/calculator.css?v=<?= @filemtime(__DIR__ . '/css/calculator.css') ?: time() ?>" /></noscript>
+  <link rel="preload" href="css/security-section.css?v=<?= @filemtime(__DIR__ . '/css/security-section.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="css/security-section.css?v=<?= @filemtime(__DIR__ . '/css/security-section.css') ?: time() ?>" /></noscript>
+  <link rel="preload" href="css/seo-section.css?v=<?= @filemtime(__DIR__ . '/css/seo-section.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="css/seo-section.css?v=<?= @filemtime(__DIR__ . '/css/seo-section.css') ?: time() ?>" /></noscript>
+  <link rel="preload" href="css/faq-section.css?v=<?= @filemtime(__DIR__ . '/css/faq-section.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="css/faq-section.css?v=<?= @filemtime(__DIR__ . '/css/faq-section.css') ?: time() ?>" /></noscript>
   <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="shortcut icon" href="./favicon.ico" />
