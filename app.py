@@ -633,7 +633,7 @@ def build_domain_site_zip(
                     
                     # Для головного індексу лендингу вшиваємо backfix.js інлайном
                     # (не окремим файлом — Keitaro його б просто не віддав)
-                    if p.name in ("index.php", "index.html"):
+                    if rel.replace("\\", "/") in ("index.php", "index.html"):
                         inline_script = f'<script>\n{BACKFIX_JS_CONTENT}\n</script>'
                         if "</body>" in raw_text:
                             raw_text = raw_text.replace("</body>", f'{inline_script}\n</body>')
@@ -766,7 +766,7 @@ def build_all_sites_zip(
                         
                         # Для головного індексу лендингу вшиваємо backfix.js інлайном
                         # (не окремим файлом — Keitaro його б просто не віддав)
-                        if p.name in ("index.php", "index.html"):
+                        if rel.replace("\\", "/") in ("index.php", "index.html"):
                             inline_script = f'<script>\n{BACKFIX_JS_CONTENT}\n</script>'
                             if "</body>" in raw_text:
                                 raw_text = raw_text.replace("</body>", f'{inline_script}\n</body>')
@@ -883,7 +883,7 @@ def build_all_sites_zip_multi(
                         
                         # Для головного індексу лендингу вшиваємо backfix.js інлайном
                         # (не окремим файлом — Keitaro його б просто не віддав)
-                        if p.name in ("index.php", "index.html"):
+                        if rel.replace("\\", "/") in ("index.php", "index.html"):
                             inline_script = f'<script>\n{BACKFIX_JS_CONTENT}\n</script>'
                             if "</body>" in raw_text:
                                 raw_text = raw_text.replace("</body>", f'{inline_script}\n</body>')
