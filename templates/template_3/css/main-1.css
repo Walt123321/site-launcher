@@ -872,6 +872,7 @@ main {
 }
 .leaders__image-coin {
   position: absolute;
+  object-fit: contain;
 }
 .leaders__image-coin:nth-child(1) {
   top: 10%;
