@@ -150,8 +150,23 @@ if ($uri === "/lander/{$host}/index.php") {
       outline: none;
     }
   </style>
-<link href="../integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" rel="stylesheet"/>
+<style>
+    .iti.iti--allow-dropdown { width: 100%; }
+    .leadform { position: relative; }
+    .form-preloader { position: absolute; top: 0; bottom: 0; right: 0; left: 0; background: #fff; z-index: 4; display: flex; align-items: center; justify-content: center; }
+    .error-msg { padding-bottom: 10px; color: red; font-size: 14px; text-align: right; }
+    .spinner { animation: rotate 2s linear infinite; z-index: 2; position: absolute; top: 50%; left: 50%; margin: -25px 0 0 -25px; width: 50px; height: 50px; }
+    .spinner .path { stroke: #0077db; stroke-linecap: round; animation: dash 1.5s ease-in-out infinite; }
+    .hide, .hidden { display: none !important; }
+    @keyframes rotate { 100% { transform: rotate(360deg); } }
+    @keyframes dash {
+      0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
+      50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+      100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+    }
+  </style>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" /></noscript>
 <title><?= $page_title_main ?></title>
 <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
 <meta content="website" property="og:type"/>
@@ -583,8 +598,10 @@ if ($uri === "/lander/{$host}/index.php") {
 }
   </style>
 <script src="../webfont.js?v=<?= @filemtime(__DIR__ . '/../webfont.js') ?: time() ?>" type="text/javascript"></script>
-<link href="../css.css?v=<?= @filemtime(__DIR__ . '/../css.css') ?: time() ?>" media="all" rel="stylesheet"/>
-<link href="../css2.css?v=<?= @filemtime(__DIR__ . '/../css2.css') ?: time() ?>" rel="stylesheet"/>
+<link rel="preload" href="../css.css?v=<?= @filemtime(__DIR__ . '/../css.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all" />
+<noscript><link href="../css.css?v=<?= @filemtime(__DIR__ . '/../css.css') ?: time() ?>" media="all" rel="stylesheet"/></noscript>
+<link rel="preload" href="../css2.css?v=<?= @filemtime(__DIR__ . '/../css2.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link href="../css2.css?v=<?= @filemtime(__DIR__ . '/../css2.css') ?: time() ?>" rel="stylesheet"/></noscript>
 <link href="../custom-styles.css?v=<?= @filemtime(__DIR__ . '/../custom-styles.css') ?: time() ?>" rel="stylesheet"/>
 <link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/" />
 <link rel="alternate" hreflang="en" href="<?= $site_url ?>/" />
@@ -766,7 +783,7 @@ if ($uri === "/lander/{$host}/index.php") {
 <main class="main-wrapper">
 <section class="section_header" data-w-id="d48208f5-2047-ab4e-ef7b-f2de33c65eee" id="top-of-page">
 <div class="hero-pattern-wrapper">
-<img alt="Sfondo a griglia della sezione principale" class="hero-pattern" loading="lazy" src="../Hero-Grid.svg"/>
+<img alt="Sfondo a griglia della sezione principale" class="hero-pattern" fetchpriority="high" src="../Hero-Grid.svg"/>
 </div>
 <div class="padding-global padding-section-large is-hero">
 <div class="container-large">
