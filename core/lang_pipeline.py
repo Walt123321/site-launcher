@@ -1521,10 +1521,14 @@ def generate_lang_files(
             rating_count = random.randint(300, 3000)
             price = _make_price(geo_currency)
 
+            # --- DOMAIN FIX ---
+            content = content.replace("{{DOMAIN}}", domain)
+
             # ВАЖЛИВО: site_name має бути "$source"
             content = _set_php_var(content, "site_name", "$source", numeric=False)
 
             content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
+            content = _set_php_var(content, "site_domain", domain, numeric=False)
             content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
             content = _set_php_var(content, "app_price", str(price), numeric=True)
             content = _set_php_var(content, "rating_value", str(rating_value), numeric=True)
@@ -1573,9 +1577,13 @@ def generate_lang_files(
             rating_count = random.randint(300,5000)
             price = _make_price(geo_currency)
         
+            # --- DOMAIN FIX ---
+            content = content.replace("{{DOMAIN}}", domain)
+
             # MANUAL
             content = _set_php_var(content,"site_name","$source",numeric=False)
             content = _set_php_var(content,"site_url",f"https://{domain}",numeric=False)
+            content = _set_php_var(content,"site_domain",domain,numeric=False)
             content = _set_php_var(content,"app_currency",geo_currency,numeric=False)
             content = _set_php_var(content,"app_price",str(price),numeric=True)
             content = _set_php_var(content,"rating_value",str(rating_value),numeric=True)
@@ -2029,9 +2037,13 @@ def generate_lang_files(
                 outs = _llm_transform_strings_onepass(client, model, strings, target_lang, geo_code)
                 content = _apply_strings(content, spans, outs)
 
+            # --- DOMAIN FIX ---
+            content = content.replace("{{DOMAIN}}", domain)
+
             # 2) Тепер override MANUAL змінних — гарантуємо структуру/плейсхолдери
             content = _set_php_var(content, "site_name", brand, numeric=False)
             content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
+            content = _set_php_var(content, "site_domain", domain, numeric=False)
             content = _set_php_var(content, "rating_value", str(rating_value), numeric=True)
             content = _set_php_var(content, "rating_count", str(rating_count), numeric=True)
             content = _set_php_var(content, "app_price", str(price), numeric=True)
