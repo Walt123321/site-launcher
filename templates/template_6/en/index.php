@@ -698,6 +698,15 @@ $canonical = 'https://' . $host . $uri;
                         height="640"
                         loading="lazy"
                         decoding="async">
+
+                    <img
+                        src="../assets/img/mobile-trading-light.webp"
+                        alt="<?= $mobile_trading_visual_alt ?>"
+                        class="app-secondary-image"
+                        width="1086"
+                        height="1448"
+                        loading="lazy"
+                        decoding="async">
                 </div>
     
                 <div>
