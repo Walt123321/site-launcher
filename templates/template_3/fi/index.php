@@ -172,7 +172,21 @@ if ($uri === "/lander/{$host}/index.php") {
   <link rel="shortcut icon" href="../favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link href="../integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/../integration/default-integration.css') ?: time() ?>" rel="stylesheet"/>
+  <style>
+    .iti.iti--allow-dropdown { width: 100%; }
+    .leadform { position: relative; }
+    .form-preloader { position: absolute; top: 0; bottom: 0; right: 0; left: 0; background: #fff; z-index: 4; display: flex; align-items: center; justify-content: center; }
+    .error-msg { padding-bottom: 10px; color: red; font-size: 14px; text-align: right; }
+    .spinner { animation: rotate 2s linear infinite; z-index: 2; position: absolute; top: 50%; left: 50%; margin: -25px 0 0 -25px; width: 50px; height: 50px; }
+    .spinner .path { stroke: #0077db; stroke-linecap: round; animation: dash 1.5s ease-in-out infinite; }
+    .hide, .hidden { display: none !important; }
+    @keyframes rotate { 100% { transform: rotate(360deg); } }
+    @keyframes dash {
+      0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
+      50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+      100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+    }
+  </style>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" /></noscript>
 
@@ -567,7 +581,7 @@ if ($uri === "/lander/{$host}/index.php") {
       <!-- Card 1: Encryption -->
       <div class="security__card">
         <div class="security__icon-box">
-          <svg viewBox="0 0 24 24">
+          <svg viewBox="0 0 24 24" width="28" height="28">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
           </svg>
@@ -583,7 +597,7 @@ if ($uri === "/lander/{$host}/index.php") {
       <!-- Card 2: Segregated Accounts -->
       <div class="security__card">
         <div class="security__icon-box">
-          <svg viewBox="0 0 24 24">
+          <svg viewBox="0 0 24 24" width="28" height="28">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
         </div>
@@ -598,7 +612,7 @@ if ($uri === "/lander/{$host}/index.php") {
       <!-- Card 3: API Protection -->
       <div class="security__card">
         <div class="security__icon-box">
-          <svg viewBox="0 0 24 24">
+          <svg viewBox="0 0 24 24" width="28" height="28">
             <polyline points="16 18 22 12 16 6"></polyline>
             <polyline points="8 6 2 12 8 18"></polyline>
           </svg>
@@ -614,7 +628,7 @@ if ($uri === "/lander/{$host}/index.php") {
       <!-- Card 4: Risk Control -->
       <div class="security__card">
         <div class="security__icon-box">
-          <svg viewBox="0 0 24 24">
+          <svg viewBox="0 0 24 24" width="28" height="28">
             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
           </svg>
         </div>
