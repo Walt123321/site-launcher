@@ -401,10 +401,10 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
             <input type="text" name="website" tabindex="-1" autocomplete="off">
             <input type="text" name="company" style="position:absolute; left:-9999px;">
           </div>
-          <input type="hidden" name="country" value="no">
+          <input type="hidden" name="country" value="<?= $form_country; ?>">
           <input type="hidden" name="language" value="nb">
           <input type="hidden" name="phone_country" value="<?= $form_phone_country; ?>">
-          <input type="hidden" name="only_countries" value='["no"]'>
+          <input type="hidden" name="only_countries" value='<?= $form_only_countries; ?>'>
           <div class="form-preloader hidden">
             <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
               <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
@@ -1222,10 +1222,10 @@ if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
             <input type="text" name="website" tabindex="-1" autocomplete="off">
             <input type="text" name="company" style="position:absolute; left:-9999px;">
           </div>
-          <input type="hidden" name="country" value="no">
+          <input type="hidden" name="country" value="<?= $form_country; ?>">
           <input type="hidden" name="language" value="nb">
           <input type="hidden" name="phone_country" value="<?= $form_phone_country; ?>">
-          <input type="hidden" name="only_countries" value='["no"]'>
+          <input type="hidden" name="only_countries" value='<?= $form_only_countries; ?>'>
           <div class="form-preloader hidden">
             <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
               <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
