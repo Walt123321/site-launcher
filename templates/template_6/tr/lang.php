@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menü";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platformu";
-$hero_description = "Ticarette yeni misiniz? $site_name, yolculuğunuzu şeffaf hale getirmek için tasarlanmış yapay zeka destekli araçlar sunar. Kripto, forex ve hisse senetlerini teknik karmaşa olmadan keşfedin.";
+$hero_description = "Küresel piyasalara erişmenin daha akıllı, daha sade bir yolu";
 $hero_primary_button = "Ticarete başla";
 $hero_secondary_button = "Özellikleri keşfet";
 $hero_badge_ssl = "SSL Protokolü ile Korunan";

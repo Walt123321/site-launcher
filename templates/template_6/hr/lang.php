@@ -64,7 +64,7 @@ $burger_menu_aria_label = "Izbornik";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platforma";
-$hero_description = "Novi ste u trgovanju? $site_name pruža strukturirane alate podržane umjetnom inteligencijom dizajnirane da vaše putovanje učine transparentnim. Istražite kriptovalute, forex i dionice bez tehničkog kaosa.";
+$hero_description = "Pametniji, jasniji način pristupa globalnim tržištima";
 $hero_primary_button = "Započni trgovanje";
 $hero_secondary_button = "Istraži značajke";
 $hero_badge_ssl = "Zaštićeno SSL protokolom";

@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platform";
-$hero_description = "Nieuw in handelen? $site_name biedt gestructureerde, AI-ondersteunde tools ontworpen om uw reis transparant te maken. Ontdek crypto, forex en aandelen zonder technische chaos.";
+$hero_description = "Een slimmere, overzichtelijkere manier om toegang te krijgen tot wereldwijde markten";
 $hero_primary_button = "Start met handelen";
 $hero_secondary_button = "Ontdek functies";
 $hero_badge_ssl = "SSL-protocol beschermd";

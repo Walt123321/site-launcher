@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menü";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platform";
-$hero_description = "Új a kereskedésben? A $site_name strukturált, AI által támogatott eszközöket kínál az átláthatóságért. Fedezze fel a kriptókat, forexet és részvényeket technikai káosz nélkül.";
+$hero_description = "Okosabb, letisztultabb módja a globális piacokhoz való hozzáférésnek";
 $hero_primary_button = "Kereskedés indítása";
 $hero_secondary_button = "Funkciók felfedezése";
 $hero_badge_ssl = "SSL Protokollal Védett";

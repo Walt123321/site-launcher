@@ -61,7 +61,7 @@ $burger_menu_aria_label = "メニュー";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "プラットフォーム";
-$hero_description = "取引は初めてですか？ $site_name は、透明性の高い取引体験を実現するために設計されたAI支援の構造化ツールを提供します。複雑な専門知識なしで、暗号資産、FX、株式を体験できます。";
+$hero_description = "よりスマートでシンプルなグローバル市場へのアクセス方法";
 $hero_primary_button = "取引を開始する";
 $hero_secondary_button = "機能を探索する";
 $hero_badge_ssl = "SSLプロトコル保護";

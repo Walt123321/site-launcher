@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Μενού";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Πλατφόρμα";
-$hero_description = "Νέος στις συναλλαγές; Το $site_name παρέχει δομημένα εργαλεία με υποστήριξη AI σχεδιασμένα για διαφάνεια. Εξερευνήστε κρυπτονομίσματα, forex και μετοχές χωρίς τεχνικό χάος.";
+$hero_description = "Ένας πιο έξυπνος, πιο καθαρός τρόπος πρόσβασης στις παγκόσμιες αγορές";
 $hero_primary_button = "Έναρξη συναλλαγών";
 $hero_secondary_button = "Εξερεύνηση λειτουργιών";
 $hero_badge_ssl = "Προστατεύεται από Πρωτόκολλο SSL";

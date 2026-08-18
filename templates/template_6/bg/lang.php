@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Меню";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Платформа";
-$hero_description = "Нови сте в търговията? $site_name предоставя структурирани инструменти с подкрепата на AI, designed за прозрачност. Изследвайте крипто, forex и акции без технически хаос.";
+$hero_description = "По-умен, по-чист начин за достъп до глобалните пазари";
 $hero_primary_button = "Започни търговия";
 $hero_secondary_button = "Разгледай функциите";
 $hero_badge_ssl = "Защитено с SSL Протокол";

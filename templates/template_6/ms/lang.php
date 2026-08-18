@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platform";
-$hero_description = "Baru dalam dagangan? $site_name menyediakan alat terstruktur dengan bantuan AI yang direka untuk menjadikan perjalanan anda telus. Terokai kripto, forex dan saham tanpa kekacauan teknikal.";
+$hero_description = "Cara yang lebih bijak dan bersih untuk mengakses pasaran global";
 $hero_primary_button = "Mula berdagang";
 $hero_secondary_button = "Terokai ciri-ciri";
 $hero_badge_ssl = "Dilindungi oleh Protokol SSL";

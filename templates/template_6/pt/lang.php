@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Plataforma";
-$hero_description = "Novo na negociação? O $site_name oferece ferramentas estruturadas com assistência de IA concebidas para tornar a sua jornada transparente. Explore criptomoedas, forex e ações sem caos técnico.";
+$hero_description = "Uma forma mais inteligente e simples de aceder aos mercados globais";
 $hero_primary_button = "Começar a negociar";
 $hero_secondary_button = "Explorar recursos";
 $hero_badge_ssl = "Protegido por Protocolo SSL";

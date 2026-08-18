@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Valikko";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Alusta";
-$hero_description = "Uusi kaupankäynnissä? $site_name tarjoaa rakenteellisia, tekoälyavusteisia työkaluja matkasi läpinäkyvyyden varmistamiseksi. Tutki kryptoa, forexalueita ja osakkeita ilman teknistä kaaosta.";
+$hero_description = "Älykkäämpi ja selkeämpi tapa päästä käsiksi globaaleihin markkinoihin";
 $hero_primary_button = "Aloita kaupankäynti";
 $hero_secondary_button = "Tutki ominaisuuksia";
 $hero_badge_ssl = "SSL-protokollalla suojattu";

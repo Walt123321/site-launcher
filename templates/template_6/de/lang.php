@@ -80,7 +80,7 @@ $burger_menu_aria_label = "Menü";
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Plattform";
 
-$hero_description = "Neu im Trading? $site_name bietet strukturierte, KI-gestützte Tools, die Ihren Einstieg transparent gestalten. Entdecken Sie Krypto, Forex und Aktien ohne Technik-Chaos.";
+$hero_description = "Ein intelligenterer, klarerer Weg zum Zugang zu globalen Märkten";
 
 $hero_primary_button = "Jetzt handeln";
 $hero_secondary_button = "Funktionen entdecken";

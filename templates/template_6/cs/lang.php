@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platforma";
-$hero_description = "Jste v obchodování noví? $site_name poskytuje strukturované nástroje s podporou AI navržené pro transparentní obchodování. Prozkoumejte kryptoměny, forex a akcie bez technického chaosu.";
+$hero_description = "Chytřejší a přehlednější způsob přístupu ke globálním trhům";
 $hero_primary_button = "Začít obchodovat";
 $hero_secondary_button = "Prozkoumat funkce";
 $hero_badge_ssl = "Chráněno SSL Protokolem";

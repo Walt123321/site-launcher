@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Meny";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Plattform";
-$hero_description = "Ny innen handel? $site_name tilbyr strukturerte, AI-assisterte verktøy designet for å gjøre din reise transparent. Utforsk krypto, forex og aksjer uten teknisk kaos.";
+$hero_description = "En smartere, renere måte å få tilgang til globale markeder på";
 $hero_primary_button = "Start handel";
 $hero_secondary_button = "Utforsk funksjoner";
 $hero_badge_ssl = "Beskyttet av SSL-protokoll";

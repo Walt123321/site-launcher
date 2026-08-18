@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Meniu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platformă";
-$hero_description = "Nou în tranzacționare? $site_name oferă instrumente structurate asistate de IA concepute pentru a vă face parcursul transparent. Explorați cripto, forex și acțiuni fără haos tehnic.";
+$hero_description = "Un mod mai inteligent și mai clar de a accesa piețele globale";
 $hero_primary_button = "Începe tranzacționarea";
 $hero_secondary_button = "Explorează funcționalitățile";
 $hero_badge_ssl = "Protejat prin Protocol SSL";
