@@ -166,7 +166,7 @@
             background: rgba(255, 255, 255, 0.03);
             color: var(--color-text-main);
             border-color: var(--color-border);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(4px);
         }
 
         .btn-secondary:hover {
@@ -181,7 +181,7 @@
             border: 1px solid var(--color-border);
             border-radius: 28px;
             padding: 44px;
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(4px);
             transition: var(--transition-smooth);
             box-shadow: var(--shadow-premium);
         }
@@ -217,7 +217,7 @@
             top: 0;
             z-index: 1000;
             background-color: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(4px);
             border-bottom: 1px solid var(--color-border);
             height: 94px;
             display: flex;
@@ -391,7 +391,7 @@
             border: 1px solid var(--color-border);
             border-radius: 32px;
             padding: 48px;
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(4px);
             box-shadow: var(--shadow-premium);
             transition: var(--transition-smooth);
             position: relative;
@@ -691,7 +691,7 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(4px);
             z-index: 10;
             display: flex;
             align-items: center;
@@ -779,7 +779,7 @@
             border-radius: 28px;
             padding: 36px;
             box-shadow: var(--shadow-premium);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(4px);
         }
 
         .widget-header {
@@ -919,19 +919,6 @@
             50% { transform: translateY(-16px); }
         }
 
-        /* Secondary floating card overlapping the phone mockup */
-        .app-secondary-image {
-            position: absolute;
-            z-index: 2;
-            bottom: 6%;
-            right: 4%;
-            width: 130px;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--color-border);
-        }
-
         /* --- How It Works (Плавна поява + Сполучна Лінія) --- */
         .onboarding-visual {
             width: 96px;
@@ -1030,7 +1017,7 @@
         .comp-card {
             padding: 48px;
             border-radius: 28px;
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(4px);
             box-shadow: var(--shadow-premium);
         }
 
@@ -1104,7 +1091,7 @@
             border: 1px solid var(--color-border);
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(4px);
             box-shadow: var(--shadow-premium);
         }
 
@@ -1193,7 +1180,7 @@
             color: var(--color-text-secondary);
             font-size: 14px;
             font-weight: 600;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(4px);
             transition: var(--transition-smooth);
         }
 
@@ -1664,8 +1651,6 @@
             .features-grid, .reviews-grid, .partners-grid { grid-template-columns: 1fr 1fr; }
             .steps-grid { grid-template-columns: repeat(2, 1fr); }
             .steps-connecting-line { display: none; }
-            /* Absolute-positioned accent assumes the desktop 2-column layout */
-            .app-secondary-image { display: none; }
         }
 
         @media (max-width: 768px) {
