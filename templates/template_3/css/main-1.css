@@ -354,8 +354,8 @@ main {
   align-items: center;
   border-bottom: var(--border-header);
   background-color: var(--color-black);
-  -webkit-backdrop-filter: blur(0.75rem);
-          backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
 }
 @media (width <= 63.99875rem) {
   .header__body {
@@ -476,8 +476,8 @@ main {
   inset: 0;
   z-index: -1;
   background: rgba(26, 26, 26, 0.6);
-  -webkit-backdrop-filter: blur(1.125rem);
-          backdrop-filter: blur(1.125rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease-in-out;
@@ -2196,8 +2196,8 @@ dialog[open] {
   to {
     opacity: 1;
     transform: translateY(0);
-    -webkit-backdrop-filter: blur(0.75rem);
-            backdrop-filter: blur(0.75rem);
+    -webkit-backdrop-filter: blur(0.25rem);
+            backdrop-filter: blur(0.25rem);
     border-radius: 5rem;
   }
 }
@@ -2209,8 +2209,8 @@ dialog[open] {
   to {
     opacity: 1;
     transform: translateY(0);
-    -webkit-backdrop-filter: blur(0.75rem);
-            backdrop-filter: blur(0.75rem);
+    -webkit-backdrop-filter: blur(0.25rem);
+            backdrop-filter: blur(0.25rem);
     border-radius: 1.5rem 1.5rem 2.5rem 2.5rem;
     background: rgba(17, 17, 17, 0.6);
   }
