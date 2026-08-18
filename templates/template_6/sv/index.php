@@ -72,7 +72,7 @@ $canonical = 'https://' . $host . $uri;
     <meta property="og:url" content="<?= $site_url ?>/">
     <meta property="og:title" content="<?= $home_meta_title ?>">
     <meta property="og:description" content="<?= $home_meta_description ?>">
-    <meta property="og:image" content="<?= $site_url ?>/app_cryptocurrency.webp">
+    <meta property="og:image" content="<?= $site_url ?>/lander/<?= $site_domain ?>/app_cryptocurrency.webp">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="909">
     <meta property="og:image:height" content="1731">
@@ -81,7 +81,7 @@ $canonical = 'https://' . $host . $uri;
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= $site_name ?> | Fortschrittliche KI-Handelsplattform">
     <meta name="twitter:description" content="Greifen Sie auf globale Kryptomärkte zu – mit institutioneller Ausführung bei minimaler Latenz, automatisierten KI-Handelsmodellen und einer sicheren Mandanten-Kerninfrastruktur.">
-    <meta name="twitter:image" content="../app_cryptocurrency.webp">
+    <meta name="twitter:image" content="<?= $site_url ?>/lander/<?= $site_domain ?>/app_cryptocurrency.webp">
 
     <script type="application/ld+json">
     {
