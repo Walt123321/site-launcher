@@ -7,7 +7,12 @@
 <?php
 // Current page filename (e.g. "about.php"), used to build language-switcher links that
 // stay on the same page regardless of whether we're rendering a root page or a /xx/ page.
-$current_page = basename($_SERVER['SCRIPT_NAME'] ?? '');
+// REQUEST_URI, not SCRIPT_NAME/SCRIPT_FILENAME: on Keitaro's bare-root-proxied campaign
+// URL, those server-path variables can reflect Keitaro's own internal routing instead of
+// the real requested path (same class of bug already fixed in offer_seo.php's regional-page
+// detection and google.php's redirect target) -- REQUEST_URI reflects what's actually in the
+// browser's address bar regardless of that internal routing.
+$current_page = basename(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '');
 if ($current_page === '') {
     $current_page = 'index.php';
 }
