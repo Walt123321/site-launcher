@@ -919,19 +919,6 @@
             50% { transform: translateY(-16px); }
         }
 
-        /* Secondary floating card overlapping the phone mockup */
-        .app-secondary-image {
-            position: absolute;
-            z-index: 2;
-            bottom: 6%;
-            right: 4%;
-            width: 130px;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--color-border);
-        }
-
         /* --- How It Works (Плавна поява + Сполучна Лінія) --- */
         .onboarding-visual {
             width: 96px;
@@ -1664,8 +1651,6 @@
             .features-grid, .reviews-grid, .partners-grid { grid-template-columns: 1fr 1fr; }
             .steps-grid { grid-template-columns: repeat(2, 1fr); }
             .steps-connecting-line { display: none; }
-            /* Absolute-positioned accent assumes the desktop 2-column layout */
-            .app-secondary-image { display: none; }
         }
 
         @media (max-width: 768px) {
