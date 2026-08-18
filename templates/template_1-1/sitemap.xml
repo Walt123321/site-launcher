@@ -33,7 +33,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -65,7 +65,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -97,7 +97,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -129,7 +129,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -161,7 +161,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -193,7 +193,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -225,7 +225,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -257,7 +257,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -289,7 +289,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -321,7 +321,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -353,7 +353,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -385,7 +385,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -417,7 +417,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -449,7 +449,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -481,7 +481,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -513,7 +513,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -545,7 +545,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -577,7 +577,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -609,7 +609,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -641,7 +641,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -673,7 +673,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -705,7 +705,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
@@ -737,7 +737,7 @@
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>
-        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/</loc>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/index.php</loc>
         <lastmod>{{LASTMOD}}</lastmod>
     </url>
     <url>

@@ -118,8 +118,7 @@ $canonical = 'https://' . $host . $uri;
   <link rel="shortcut icon" href="./favicon.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
-  <link rel="alternate" hreflang="<?= $site_lang ?>" href="https://<?= $domain ?>/it/" />
-  
+
   <link rel="stylesheet" href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/./integration/default-integration.css') ?: time() ?>">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css">
 <title><?= $page_title_register ?></title>
