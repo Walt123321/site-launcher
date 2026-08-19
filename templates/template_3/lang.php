@@ -16,7 +16,7 @@ $rating_count = 2648;
 $review_count = 112; // fixed (not randomized per page load) per JSON-LD requirements
 $app_currency = "EUR";
 $site_lang = "it-IT";
-$country_name = "United Kingdom"; // was referenced by $main_p/$quiz_text_q1 below but never defined (unlike template_5/6's lang.php) — matches their same placeholder default
+$country_name = "United Kingdom"; // default -- overwritten per-launch by generate_lang_files() via country_name= (see core/lang_pipeline.py)
 
 // фото
 $crypto_img = "images/crypto_main.webp";

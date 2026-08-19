@@ -9,7 +9,7 @@ $rating_count = 1808;
 $review_count = 87; // fixed (not randomized per page load) per JSON-LD requirements
 $app_currency = "EUR";
 $site_lang = "en-GB";
-$country_name = "United Kingdom"; // referenced by $quiz_text_q1 below but was never defined — matches template_3/5/6's same placeholder default
+$country_name = "United Kingdom"; // default -- overwritten per-launch by generate_lang_files() via country_name= (see core/lang_pipeline.py)
 $adress_name = "120 Friedrich Street, Berlin 10117, Germany";
 $site_gmail = "[support.finora-ai@gmail.com](mailto:support.finora-ai@gmail.com)";
 $footer_contact_address = "Address: $adress_name";

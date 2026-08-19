@@ -9,7 +9,7 @@ $rating_count = 2648;
 $review_count = 134; // fixed (not randomized per page load) per JSON-LD requirements
 $app_currency = "EUR";
 $site_lang = "it-IT";
-$country_name = "United Kingdom"; // referenced by $quiz_text_q1 below but was never defined — matches template_1-1/3/5/6's same placeholder default
+$country_name = "United Kingdom"; // default -- overwritten per-launch by generate_lang_files() via country_name= (see core/lang_pipeline.py)
 // Reviews
 $review_1_author = "Private Investor";
 $review_2_author = "Independent Trader";
