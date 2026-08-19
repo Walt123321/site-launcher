@@ -1198,7 +1198,7 @@ else {
     
     <section style="background-color: #0F172A;" id="final-cta">
         <div class="container">
-            <div class="final-cta-grid" style="margin-bottom: 80px;">
+            <div class="final-cta-grid" style="margin-bottom: 40px;">
                 <div class="final-cta-content">
                     <h2><?= $final_cta_title ?></h2>
                     <p class="section-subtitle" style="color: var(--color-text-secondary);"><?= $final_cta_subtitle ?></p>

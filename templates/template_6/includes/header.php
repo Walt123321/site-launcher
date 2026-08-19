@@ -26,7 +26,7 @@
                    🌙  <?= $theme_toggle_text ?>
                 </button>
 
-                <a href="index.php#signup" class="btn btn-primary header-cta-btn">
+                <a href="index.php#signup-form-anchor" class="btn btn-primary header-cta-btn">
                     <?= $header_cta_button ?>
                 </a>
 

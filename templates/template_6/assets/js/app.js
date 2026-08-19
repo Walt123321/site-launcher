@@ -21,16 +21,15 @@
             }
         };
         
-        applyTheme(localStorage.getItem('brandTheme') || 'light');
-        
+        applyTheme('light');
+
         if (themeToggle) {
             themeToggle.addEventListener('click', () => {
                 const nextTheme =
                     document.body.dataset.theme === 'light'
                         ? 'dark'
                         : 'light';
-        
-                localStorage.setItem('brandTheme', nextTheme);
+
                 applyTheme(nextTheme);
             });
         }

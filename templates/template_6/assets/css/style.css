@@ -1453,10 +1453,10 @@
         }
 
         .final-cta-image {
-            max-width: 460px;
+            max-width: 300px;
             width: 100%;
             height: auto;
-            margin-top: 36px;
+            margin-top: 16px;
         }
 
         .footer-top {
@@ -1671,6 +1671,7 @@
             .nav, .header .btn-primary { display: none; }
             .theme-toggle { height: 38px; padding: 0 12px; font-size: 12px; }
             .burger { display: flex; }
+            .final-cta-image { max-width: 200px; margin-top: 8px; }
 
             .nav.mobile-active {
                 display: flex;
