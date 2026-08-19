@@ -599,6 +599,7 @@ main {
 }
 @media (width <= 63.99875rem) {
   .welcome__main {
+    position: relative;
     flex-direction: column;
     row-gap: 2.5rem;
     justify-content: center;
@@ -710,7 +711,7 @@ main {
 }
 @media (width <= 63.99875rem) {
   .welcome__form {
-    position: inherit;
+    position: relative;
     margin-inline: auto;
   }
 }
