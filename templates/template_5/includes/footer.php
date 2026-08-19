@@ -12,10 +12,17 @@
 // the real requested path (same class of bug already fixed in offer_seo.php's regional-page
 // detection and google.php's redirect target) -- REQUEST_URI reflects what's actually in the
 // browser's address bar regardless of that internal routing.
-$current_page = basename(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '');
-if ($current_page === '') {
-    $current_page = 'index.php';
-}
+// basename() on a path ending in "/" (e.g. the bare offer root
+// "/lander/{domain}/" or a regional page "/lander/{domain}/pt/") returns
+// the last FOLDER name, not an empty string -- basename('/lander/foo/')
+// is "foo", not "". That silently broke the language switcher on exactly
+// this bare-root form (it linked to ".../pt/foo" instead of ".../pt/"),
+// so the empty-path check below never caught it. Treat any path ending in
+// "/" the same as an empty path: both mean "the index page".
+$_qq_uri_path_for_page = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '';
+$current_page = ($_qq_uri_path_for_page === '' || substr($_qq_uri_path_for_page, -1) === '/')
+    ? 'index.php'
+    : basename($_qq_uri_path_for_page);
 // Language-switcher links drop the "index.php" filename for the home page
 // (.../pt/ instead of .../pt/index.php, per explicit request -- nginx's
 // try_files already serves index.php as the default document either way)

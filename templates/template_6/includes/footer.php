@@ -68,10 +68,18 @@
                     // campaign URL those server-path variables can reflect Keitaro's own internal
                     // routing instead of the real requested path (same class of bug already fixed
                     // in offer_seo.php's regional-page detection and google.php's redirect target).
-                    $current_page = basename(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '');
-                    if ($current_page === '') {
-                        $current_page = 'index.php';
-                    }
+                    // basename() on a path ending in "/" (bare offer root
+                    // "/lander/{domain}/" or a regional page "/lander/{domain}/de/")
+                    // returns the last FOLDER name, not an empty string --
+                    // basename('/lander/foo/') is "foo", not "". That silently broke
+                    // the switcher on exactly this bare-root form (linked to
+                    // ".../de/foo" instead of ".../de/"), so the empty-path check
+                    // below never caught it. Treat any path ending in "/" the same
+                    // as an empty path: both mean "the index page".
+                    $_qq_uri_path_for_page = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '';
+                    $current_page = ($_qq_uri_path_for_page === '' || substr($_qq_uri_path_for_page, -1) === '/')
+                        ? 'index.php'
+                        : basename($_qq_uri_path_for_page);
                     // Language-switcher links drop the "index.php" filename for the home
                     // page (.../de/ instead of .../de/index.php, per explicit request --
                     // nginx's try_files already serves index.php as the default document
