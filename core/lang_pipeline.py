@@ -819,8 +819,14 @@ def _generate_specials_via_llm(
     def _norm_source_dash(s: str) -> str:
         s = (s or "").strip()
         if s.startswith("$source") and not s.startswith("$source —"):
-            # прибираємо можливий пробіл/коми після $source
-            s = re.sub(r"^\$source\s*[-–—:]?\s*", "$source — ", s)
+            # Прибираємо БУДЬ-ЯКИЙ роздільник після $source (тире, двокрапка,
+            # ТА pipe/бару) перед тим як підставити свій " — " -- модель
+            # інколи ігнорує вимогу конкретного патерну і повертає
+            # "$source | {phrase}" (старий стиль). Якщо character class тут
+            # не включає "|", regex матчить лише "$source " і залишає pipe
+            # незайманим -- результат "$source — | {phrase}", саме той
+            # зайвий "— |" баг, що трапився живцем на кількох доменах.
+            s = re.sub(r"^\$source\s*[-–—:|]?\s*", "$source — ", s)
         return s
     
     def _strip_emoji_inside_words(s: str) -> str:
@@ -954,10 +960,16 @@ def _generate_specials_via_llm(
 
     # TITLE FIX
     if not title.startswith("$source"):
-        title = "$source | Official Cryptocurrency Trading Platform"
+        title = "$source — Official Website | Trading Platform"
 
-    if len(title) < 60:
-        title += " with Advanced AI System"
+    # Раніше тут був `if len(title) < 60: title += " with Advanced AI System"`
+    # -- хардкоджений АНГЛІЙСЬКИЙ суфікс, що чіплявся до тайтла незалежно
+    # від target_lang (зламано на кожному не-англомовному запуску) і
+    # незалежно від того, що фактично попросив промпт вище (length_min тепер
+    # 30, а не 60 -- цей "фікс" систематично спрацьовував на кожному
+    # валідному короткому тайтлі). Прибрано: довжина title вже обмежена
+    # промптом (length_min/length_max), а не через посмертне доклеювання
+    # тексту сюди.
     if len(title) > 100:
         title = title[:100]
 
