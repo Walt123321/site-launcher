@@ -1210,6 +1210,22 @@ else {
                         height="1200"
                         loading="lazy"
                         decoding="async">
+
+                    <div class="trust-badges" style="border-top-color: rgba(255,255,255,0.1);">
+                        <div class="badge-item" style="color: var(--color-text-secondary);">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            <?= $hero_badge_ssl ?>
+                        </div>
+
+                        <div class="badge-item" style="color: var(--color-text-secondary);">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <?= $hero_badge_guided ?>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <div class="signup-card">
