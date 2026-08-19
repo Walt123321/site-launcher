@@ -16,6 +16,12 @@ $current_page = basename(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) 
 if ($current_page === '') {
     $current_page = 'index.php';
 }
+// Language-switcher links drop the "index.php" filename for the home page
+// (.../pt/ instead of .../pt/index.php, per explicit request -- nginx's
+// try_files already serves index.php as the default document either way)
+// but keep it for every other page type, where it's needed to stay on the
+// same page across languages.
+$_qq_switcher_page = ($current_page === 'index.php') ? '' : $current_page;
 ?>
 
 
@@ -174,29 +180,29 @@ if ($current_page === '') {
             <span class="footer-lang-label"><?= $footer_lang_label ?></span>
 
             <div class="lang-switcher">
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/<?= $current_page ?>" hreflang="hr" title="Hrvatski">🇭🇷 <span>Hrvatski</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/<?= $current_page ?>" hreflang="ro" title="Română">🇷🇴 <span>Română</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/<?= $current_page ?>" hreflang="nl" title="Nederlands">🇳🇱 <span>Nederlands</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/<?= $current_page ?>" hreflang="en" title="English">🇬🇧 <span>English</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/<?= $current_page ?>" hreflang="no" title="Norsk">🇳🇴 <span>Norsk</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/<?= $current_page ?>" hreflang="pt" title="Português">🇵🇹 <span>Português</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/<?= $current_page ?>" hreflang="cs" title="Čeština">🇨🇿 <span>Čeština</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/<?= $current_page ?>" hreflang="pl" title="Polski">🇵🇱 <span>Polski</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/<?= $current_page ?>" hreflang="tr" title="Türkçe">🇹🇷 <span>Türkçe</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/<?= $current_page ?>" hreflang="da" title="Dansk">🇩🇰 <span>Dansk</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/<?= $current_page ?>" hreflang="sv" title="Svenska">🇸🇪 <span>Svenska</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/<?= $current_page ?>" hreflang="fi" title="Suomi">🇫🇮 <span>Suomi</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/<?= $current_page ?>" hreflang="hu" title="Magyar">🇭🇺 <span>Magyar</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/<?= $current_page ?>" hreflang="sk" title="Slovenčina">🇸🇰 <span>Slovenčina</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/<?= $current_page ?>" hreflang="bg" title="Български">🇧🇬 <span>Български</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/<?= $current_page ?>" hreflang="ms" title="Bahasa Melayu">🇲🇾 <span>Bahasa Melayu</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/<?= $current_page ?>" hreflang="nb" title="Norsk Bokmål">🇳🇴 <span>Norsk Bokmål</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/<?= $current_page ?>" hreflang="el" title="Ελληνικά">🇬🇷 <span>Ελληνικά</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/<?= $current_page ?>" hreflang="ja" title="日本語">🇯🇵 <span>日本語</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/<?= $current_page ?>" hreflang="de" title="Deutsch">🇩🇪 <span>Deutsch</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/<?= $current_page ?>" hreflang="fr" title="Français">🇫🇷 <span>Français</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/<?= $current_page ?>" hreflang="es" title="Español">🇪🇸 <span>Español</span></a>
-                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/<?= $current_page ?>" hreflang="it" title="Italiano">🇮🇹 <span>Italiano</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/<?= $_qq_switcher_page ?>" hreflang="hr" title="Hrvatski">🇭🇷 <span>Hrvatski</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/<?= $_qq_switcher_page ?>" hreflang="ro" title="Română">🇷🇴 <span>Română</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/<?= $_qq_switcher_page ?>" hreflang="nl" title="Nederlands">🇳🇱 <span>Nederlands</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/<?= $_qq_switcher_page ?>" hreflang="en" title="English">🇬🇧 <span>English</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/<?= $_qq_switcher_page ?>" hreflang="no" title="Norsk">🇳🇴 <span>Norsk</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/<?= $_qq_switcher_page ?>" hreflang="pt" title="Português">🇵🇹 <span>Português</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/<?= $_qq_switcher_page ?>" hreflang="cs" title="Čeština">🇨🇿 <span>Čeština</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/<?= $_qq_switcher_page ?>" hreflang="pl" title="Polski">🇵🇱 <span>Polski</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/<?= $_qq_switcher_page ?>" hreflang="tr" title="Türkçe">🇹🇷 <span>Türkçe</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/<?= $_qq_switcher_page ?>" hreflang="da" title="Dansk">🇩🇰 <span>Dansk</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/<?= $_qq_switcher_page ?>" hreflang="sv" title="Svenska">🇸🇪 <span>Svenska</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/<?= $_qq_switcher_page ?>" hreflang="fi" title="Suomi">🇫🇮 <span>Suomi</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/<?= $_qq_switcher_page ?>" hreflang="hu" title="Magyar">🇭🇺 <span>Magyar</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/<?= $_qq_switcher_page ?>" hreflang="sk" title="Slovenčina">🇸🇰 <span>Slovenčina</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/<?= $_qq_switcher_page ?>" hreflang="bg" title="Български">🇧🇬 <span>Български</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/<?= $_qq_switcher_page ?>" hreflang="ms" title="Bahasa Melayu">🇲🇾 <span>Bahasa Melayu</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/<?= $_qq_switcher_page ?>" hreflang="nb" title="Norsk Bokmål">🇳🇴 <span>Norsk Bokmål</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/<?= $_qq_switcher_page ?>" hreflang="el" title="Ελληνικά">🇬🇷 <span>Ελληνικά</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/<?= $_qq_switcher_page ?>" hreflang="ja" title="日本語">🇯🇵 <span>日本語</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/<?= $_qq_switcher_page ?>" hreflang="de" title="Deutsch">🇩🇪 <span>Deutsch</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/<?= $_qq_switcher_page ?>" hreflang="fr" title="Français">🇫🇷 <span>Français</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/<?= $_qq_switcher_page ?>" hreflang="es" title="Español">🇪🇸 <span>Español</span></a>
+                <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/<?= $_qq_switcher_page ?>" hreflang="it" title="Italiano">🇮🇹 <span>Italiano</span></a>
             </div>
 
         </div>
