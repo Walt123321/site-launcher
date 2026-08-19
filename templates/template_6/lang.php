@@ -82,7 +82,7 @@ $burger_menu_aria_label = "Menu";
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platform";
 
-$hero_description = "Trade crypto, forex, and stocks on $site_name—the smart AI platform built for every trader. Starting out? Enjoy clear, guided tools that wipe out tech chaos. Trading pro? Unlock lightning-fast automation and sharp predictive analytics to maximize your edge. Everything you need lives in one sleek, noise-free space designed for pure results. Claim your market advantage with $site_name today.";
+$hero_description = "Trade crypto, forex, and stocks on {$site_name}—the smart AI platform built for every trader. Starting out? Enjoy clear, guided tools that wipe out tech chaos. Trading pro? Unlock lightning-fast automation and sharp predictive analytics to maximize your edge. Everything you need lives in one sleek, noise-free space designed for pure results. Claim your market advantage with $site_name today.";
 
 $hero_primary_button = "Start trading";
 $hero_secondary_button = "Explore features";
