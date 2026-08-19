@@ -1206,8 +1206,8 @@ else {
                         src="./assets/img/final-cta-visual.webp"
                         alt="<?= $final_cta_visual_alt ?>"
                         class="final-cta-image"
-                        width="480"
-                        height="640"
+                        width="720"
+                        height="960"
                         loading="lazy"
                         decoding="async">
                 </div>
