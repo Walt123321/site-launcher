@@ -587,6 +587,10 @@ main {
     pointer-events: none;
   }
 }
+.welcome > h1 {
+  position: relative;
+  z-index: 2;
+}
 .welcome__main {
   padding-top: 2.25rem;
   display: flex;
