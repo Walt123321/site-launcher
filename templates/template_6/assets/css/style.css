@@ -345,6 +345,10 @@
             min-width: 0;
         }
 
+        .hero-content {
+            text-align: center;
+        }
+
         .hero-content h1 {
             font-size: 62px;
             margin-bottom: 28px;
@@ -1446,6 +1450,15 @@
             font-size: 58px;
             line-height: 1.1;
             margin-bottom: 28px;
+        }
+
+        .final-cta-image {
+            max-width: 240px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow-premium);
+            margin-top: 36px;
         }
 
         .footer-top {

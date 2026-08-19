@@ -80,7 +80,7 @@ $burger_menu_aria_label = "Menü";
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Plattform";
 
-$hero_description = "Ein intelligenterer, klarerer Weg zum Zugang zu globalen Märkten";
+$hero_description = "Handeln Sie mit Krypto, Forex und Aktien auf $site_name – der intelligenten KI-Plattform für jeden Trader. Gerade erst dabei? Genießen Sie klare, geführte Tools, die technisches Chaos beseitigen. Trading-Profi? Schalten Sie blitzschnelle Automatisierung und präzise Prognoseanalysen frei, um Ihren Vorteil zu maximieren. Alles, was Sie brauchen, befindet sich an einem eleganten, störungsfreien Ort für reine Ergebnisse. Sichern Sie sich noch heute Ihren Marktvorteil mit $site_name.";
 
 $hero_primary_button = "Jetzt handeln";
 $hero_secondary_button = "Funktionen entdecken";
@@ -395,6 +395,7 @@ $faq_6_answer = "Ja. Jede Kontoverbindung wird durch standardmäßigen SSL-Schut
 
 $final_cta_title = "Bereit, die Klarheit von $site_name zu erleben?";
 $final_cta_subtitle = "Werden Sie Teil eines modernen Systems, das auf schnelle Abläufe, Datenschutz und transparenten Zugang ausgelegt ist.";
+$final_cta_visual_alt = "$site_name Handelsplattform-Vorschau";
 
 
 // FOOTER

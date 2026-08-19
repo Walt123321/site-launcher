@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Meny";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Plattform";
-$hero_description = "Ett smartare, renare sätt att få tillgång till globala marknader";
+$hero_description = "Handla med krypto, forex och aktier på $site_name, den smarta AI-plattformen byggd för alla traders. Precis kommit igång? Njut av tydliga, guidade verktyg som eliminerar tekniskt kaos. Erfaren trader? Lås upp blixtsnabb automatisering och skarp prediktiv analys för att maximera din fördel. Allt du behöver finns på ett och samma sleka, störningsfria ställe skapat för rena resultat. Ta din marknadsfördel redan idag med $site_name.";
 $hero_primary_button = "Börja handla";
 $hero_secondary_button = "Utforska funktioner";
 $hero_badge_ssl = "Skyddat med SSL-protokoll";
@@ -256,6 +256,7 @@ $faq_6_answer = "Ja. Varje anslutning är säkrad med SSL.";
 
 $final_cta_title = "Klar att uppleva klarheten i $site_name?";
 $final_cta_subtitle = "Gå med i ett modernt system optimerat för snabb drift och dataskydd.";
+$final_cta_visual_alt = "Förhandsvisning av $site_name handelsplattform";
 
 $footer_brand_description = "Modern analytisk miljö som levererar klar dataspårning över globala tillgångar.";
 $footer_platform_title = "Plattform";

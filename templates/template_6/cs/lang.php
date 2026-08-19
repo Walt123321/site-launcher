@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platforma";
-$hero_description = "Chytřejší a přehlednější způsob přístupu ke globálním trhům";
+$hero_description = "Obchodujte s kryptem, forexem a akciemi na $site_name, chytré AI platformě vytvořené pro každého tradera. Teprve začínáte? Užijte si přehledné, vedené nástroje, které odstraňují technický chaos. Zkušený trader? Odemkněte bleskově rychlou automatizaci a přesnou prediktivní analytiku, abyste maximalizovali svou výhodu. Vše, co potřebujete, najdete na jednom elegantním místě bez rušivých prvků, navrženém pro čisté výsledky. Získejte svou tržní výhodu ještě dnes s $site_name.";
 $hero_primary_button = "Začít obchodovat";
 $hero_secondary_button = "Prozkoumat funkce";
 $hero_badge_ssl = "Chráněno SSL Protokolem";
@@ -256,6 +256,7 @@ $faq_6_answer = "Ano. Každé spojení je zabezpečeno pomocí SSL.";
 
 $final_cta_title = "Jste připraveni zažít jasnost $site_name?";
 $final_cta_subtitle = "Připojte se k modernímu systému optimalizovanému pro rychlé operace a bezpečnost.";
+$final_cta_visual_alt = "Náhled obchodní platformy $site_name";
 
 $footer_brand_description = "Moderní analytické prostředí nabízející přehledné sledování dat pro globale aktiva.";
 $footer_platform_title = "Platforma";

@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platform";
-$hero_description = "Cara yang lebih bijak dan bersih untuk mengakses pasaran global";
+$hero_description = "Dagangkan kripto, forex, dan saham di $site_name, platform AI pintar yang dibina untuk setiap peniaga. Baru bermula? Nikmati alat yang jelas dan berpandu yang menghapuskan kekeliruan teknikal. Peniaga berpengalaman? Buka automasi yang pantas kilat dan analitik ramalan yang tepat untuk memaksimumkan kelebihan anda. Segala yang anda perlukan terdapat dalam satu ruang yang kemas dan bebas bunyi bising, direka untuk hasil yang tulen. Rebut kelebihan pasaran anda hari ini bersama $site_name.";
 $hero_primary_button = "Mula berdagang";
 $hero_secondary_button = "Terokai ciri-ciri";
 $hero_badge_ssl = "Dilindungi oleh Protokol SSL";
@@ -256,6 +256,7 @@ $faq_6_answer = "Ya. Setiap sambungan dijamin dengan SSL.";
 
 $final_cta_title = "Sedia untuk mengalami kejelasan $site_name?";
 $final_cta_subtitle = "Sertai sistem moden yang dioptimumkan untuk operasi pantas dan keselamatan data.";
+$final_cta_visual_alt = "Pratonton platform dagangan $site_name";
 
 $footer_brand_description = "Persekitaran analitik moden yang menawarkan penjejakan data bersih merentasi aset global.";
 $footer_platform_title = "Platform";

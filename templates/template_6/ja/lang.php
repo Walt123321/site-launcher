@@ -61,7 +61,7 @@ $burger_menu_aria_label = "メニュー";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "プラットフォーム";
-$hero_description = "よりスマートでシンプルなグローバル市場へのアクセス方法";
+$hero_description = "$site_name で仮想通貨、外国為替、株式を取引しましょう。すべてのトレーダーのために作られたスマートなAIプラットフォームです。始めたばかりですか？ 技術的な混乱を取り除く、分かりやすいガイド付きツールをお楽しみください。経験豊富なトレーダーですか？ 超高速の自動化と鋭い予測分析であなたの優位性を最大化しましょう。必要なものはすべて、純粋な結果のために設計された、洗練されたノイズのない一つの空間にあります。今すぐ $site_name で市場での優位性を手に入れましょう。";
 $hero_primary_button = "取引を開始する";
 $hero_secondary_button = "機能を探索する";
 $hero_badge_ssl = "SSLプロトコル保護";
@@ -256,6 +256,7 @@ $faq_6_answer = "はい。すべての接続はSSL暗号化で保護されてい
 
 $final_cta_title = "$site_name の明確さを体験する準備はできましたか？";
 $final_cta_subtitle = "迅速な運用とデータ保護に最適化された現代的なシステムに参加しましょう。";
+$final_cta_visual_alt = "$site_name 取引プラットフォームのプレビュー";
 
 $footer_brand_description = "グローバル資産全体にわたる明確なデータ追跡を提供する現代的なアナリティクス環境。";
 $footer_platform_title = "プラットフォーム";

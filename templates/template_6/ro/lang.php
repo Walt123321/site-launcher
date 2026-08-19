@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Meniu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platformă";
-$hero_description = "Un mod mai inteligent și mai clar de a accesa piețele globale";
+$hero_description = "Tranzacționează crypto, forex și acțiuni pe $site_name, platforma AI inteligentă creată pentru fiecare trader. Abia începi? Bucură-te de instrumente clare, ghidate, care elimină haosul tehnic. Ești trader experimentat? Deblochează automatizare ultrarapidă și analize predictive precise pentru a-ți maximiza avantajul. Tot ce ai nevoie se află într-un singur spațiu elegant, fără zgomot, conceput pentru rezultate pure. Obține-ți avantajul de piață chiar azi cu $site_name.";
 $hero_primary_button = "Începe tranzacționarea";
 $hero_secondary_button = "Explorează funcționalitățile";
 $hero_badge_ssl = "Protejat prin Protocol SSL";
@@ -256,6 +256,7 @@ $faq_6_answer = "Da. Fiecare conexiune este securizată prin SSL.";
 
 $final_cta_title = "Sunteți gata să experimentați claritatea $site_name?";
 $final_cta_subtitle = "Alăturați-vă unui sistem modern optimizat pentru operațiuni rapide și securitate.";
+$final_cta_visual_alt = "Previzualizare a platformei de tranzacționare $site_name";
 
 $footer_brand_description = "Mediu analitic modern care oferă mecanisme clare de urmărire a datelor.";
 $footer_platform_title = "Platformă";

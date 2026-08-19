@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menü";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platform";
-$hero_description = "Okosabb, letisztultabb módja a globális piacokhoz való hozzáférésnek";
+$hero_description = "Kereskedj kriptóval, forexszel és részvényekkel a $site_name-en, minden trader számára készült okos AI-platformon. Csak most kezded? Élvezd az egyértelmű, végigvezetett eszközöket, amelyek megszüntetik a technikai zűrzavart. Tapasztalt trader vagy? Szabadíts fel villámgyors automatizálást és éles prediktív elemzést, hogy maximalizáld az előnyödet. Mindenre, amire szükséged van, egyetlen letisztult, zajmentes térben találsz rá, amelyet tiszta eredményekre terveztek. Szerezd meg piaci előnyödet még ma a $site_name-mel.";
 $hero_primary_button = "Kereskedés indítása";
 $hero_secondary_button = "Funkciók felfedezése";
 $hero_badge_ssl = "SSL Protokollal Védett";
@@ -256,6 +256,7 @@ $faq_6_answer = "Igen. Minden kapcsolat SSL-lel védett.";
 
 $final_cta_title = "Készen áll megtapasztalni a $site_name átláthatóságát?";
 $final_cta_subtitle = "Csatlakozzon egy modern rendszerhez, amelyet a gyors működésre és adatvédelemre optimalizáltak.";
+$final_cta_visual_alt = "$site_name kereskedési platform előnézete";
 
 $footer_brand_description = "Modern analitikai környezet, amely világos adatkövetést biztosít a globális eszközökön.";
 $footer_platform_title = "Platform";

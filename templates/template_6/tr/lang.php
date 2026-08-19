@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menü";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platformu";
-$hero_description = "Küresel piyasalara erişmenin daha akıllı, daha sade bir yolu";
+$hero_description = "$site_name üzerinde kripto, forex ve hisse senedi işlemleri yapın — her trader için tasarlanmış akıllı yapay zeka platformu. Yeni mi başlıyorsunuz? Teknik karmaşayı ortadan kaldıran açık, rehberli araçların keyfini çıkarın. Deneyimli bir trader mısınız? Avantajınızı en üst düzeye çıkarmak için ışık hızında otomasyonu ve keskin öngörücü analitiği kullanın. İhtiyacınız olan her şey, saf sonuçlar için tasarlanmış tek, şık ve gürültüsüz bir alanda bulunur. Bugün $site_name ile pazar avantajınızı elde edin.";
 $hero_primary_button = "Ticarete başla";
 $hero_secondary_button = "Özellikleri keşfet";
 $hero_badge_ssl = "SSL Protokolü ile Korunan";
@@ -256,6 +256,7 @@ $faq_6_answer = "Evet. Her bağlantı SSL ile korunmaktadır.";
 
 $final_cta_title = "$site_name netliğini deneyimlemeye hazır mısınız?";
 $final_cta_subtitle = "Hızlı operasyonlar ve veri koruması için optimize edilmiş modern bir sisteme katılın.";
+$final_cta_visual_alt = "$site_name işlem platformu önizlemesi";
 
 $footer_brand_description = "Küresel varlıklar genelinde net veri takibi sunan modern analitik ortam.";
 $footer_platform_title = "Platform";

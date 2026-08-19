@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platforma";
-$hero_description = "Mądrzejszy, przejrzystszy sposób na dostęp do globalnych rynków";
+$hero_description = "Handluj kryptowalutami, forex i akcjami na $site_name – inteligentnej platformie AI stworzonej dla każdego tradera. Dopiero zaczynasz? Korzystaj z przejrzystych, prowadzonych narzędzi, które eliminują techniczny chaos. Jesteś doświadczonym traderem? Odblokuj błyskawiczną automatyzację i precyzyjną analitykę predykcyjną, by zmaksymalizować swoją przewagę. Wszystko, czego potrzebujesz, znajduje się w jednym eleganckim, wolnym od szumu miejscu stworzonym dla czystych wyników. Zdobądź swoją przewagę rynkową już dziś z $site_name.";
 $hero_primary_button = "Rozpocznij handel";
 $hero_secondary_button = "Odkryj funkcje";
 $hero_badge_ssl = "Chronione protokołem SSL";
@@ -256,6 +256,7 @@ $faq_6_answer = "Tak. Każde połączenie jest chronione szyfrowaniem SSL.";
 
 $final_cta_title = "Gotowy poznać przejrzystość $site_name?";
 $final_cta_subtitle = "Dołącz do nowoczesnego systemu zoptymalizowanego pod kątem szybkiego działania i bezpieczeństwa.";
+$final_cta_visual_alt = "Podgląd platformy handlowej $site_name";
 
 $footer_brand_description = "Nowoczesne środowisko analityczne oferujące jasne mechanizmy śledzenia danych.";
 $footer_platform_title = "Platforma";

@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Valikko";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Alusta";
-$hero_description = "Älykkäämpi ja selkeämpi tapa päästä käsiksi globaaleihin markkinoihin";
+$hero_description = "Käy kauppaa kryptolla, forexilla ja osakkeilla $site_name-alustalla, joka on älykäs tekoälyalusta jokaiselle treidaajalle. Vasta aloittamassa? Nauti selkeistä, ohjatuista työkaluista, jotka poistavat teknisen kaaoksen. Kokenut treidaaja? Vapauta salamannopea automaatio ja tarkka ennakoiva analytiikka etusi maksimoimiseksi. Kaikki tarvitsemasi löytyy yhdestä tyylikkäästä, häiriöttömästä tilasta, joka on suunniteltu puhtaita tuloksia varten. Lunasta markkinaetusi jo tänään $site_namen kanssa.";
 $hero_primary_button = "Aloita kaupankäynti";
 $hero_secondary_button = "Tutki ominaisuuksia";
 $hero_badge_ssl = "SSL-protokollalla suojattu";
@@ -256,6 +256,7 @@ $faq_6_answer = "Kyllä. Jokainen yhteys on suojattu SSL-salauksella.";
 
 $final_cta_title = "Valmis kokemaan selkeyden palvelussa $site_name?";
 $final_cta_subtitle = "Liity moderniin järjestelmään, joka on optimoitu nopeaan toimintaan ja tietosuojaan.";
+$final_cta_visual_alt = "$site_name-kaupankäyntialustan esikatselu";
 
 $footer_brand_description = "Moderni analyyttinen ympäristö, joka tarjoaa selkeän tiedonseurannan globaaleille varoille.";
 $footer_platform_title = "Alusta";

@@ -64,7 +64,7 @@ $burger_menu_aria_label = "Izbornik";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platforma";
-$hero_description = "Pametniji, jasniji način pristupa globalnim tržištima";
+$hero_description = "Trgujte kriptovalutama, forexom i dionicama na $site_name — pametnoj AI platformi izrađenoj za svakog tradera. Tek počinjete? Uživajte u jasnim, vođenim alatima koji uklanjaju tehnički kaos. Iskusni trader? Otključajte munjevito brzu automatizaciju i oštru prediktivnu analitiku kako biste maksimizirali svoju prednost. Sve što trebate nalazi se na jednom elegantnom, mirnom mjestu osmišljenom za čiste rezultate. Osvojite svoju tržišnu prednost već danas uz $site_name.";
 $hero_primary_button = "Započni trgovanje";
 $hero_secondary_button = "Istraži značajke";
 $hero_badge_ssl = "Zaštićeno SSL protokolom";
@@ -263,6 +263,7 @@ $faq_6_answer = "Da. Svaki račun je zaštićen korištenjem standardne SSL zaš
 
 $final_cta_title = "Spremni iskusiti jasnoću $site_name?";
 $final_cta_subtitle = "Pridružite se modernom sustavu optimiziranom za brze operacije, zaštitu podataka i transparentan pristup.";
+$final_cta_visual_alt = "Pregled trgovinske platforme $site_name";
 
 $footer_brand_description = "Moderno analitičko okruženje koje pruža mehaniku praćenja podataka za globalnu imovinu.";
 $footer_platform_title = "Platforma";

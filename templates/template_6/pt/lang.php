@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Plataforma";
-$hero_description = "Uma forma mais inteligente e simples de aceder aos mercados globais";
+$hero_description = "Negoceie cripto, forex e ações na $site_name, a plataforma de IA inteligente criada para todo tipo de trader. Está a começar? Aproveite ferramentas claras e guiadas que eliminam o caos técnico. É um trader experiente? Desbloqueie automação ultrarrápida e análises preditivas precisas para maximizar a sua vantagem. Tudo o que precisa vive num espaço elegante e sem ruído, pensado para resultados puros. Conquiste hoje mesmo a sua vantagem de mercado com a $site_name.";
 $hero_primary_button = "Começar a negociar";
 $hero_secondary_button = "Explorar recursos";
 $hero_badge_ssl = "Protegido por Protocolo SSL";
@@ -256,6 +256,7 @@ $faq_6_answer = "Sim. Todas as ligações são protegidas por SSL.";
 
 $final_cta_title = "Pronto para experimentar a clareza do $site_name?";
 $final_cta_subtitle = "Junte-se a um sistema moderno otimizado para operações rápidas e segurança.";
+$final_cta_visual_alt = "Pré-visualização da plataforma de negociação $site_name";
 
 $footer_brand_description = "Ambiente analítico moderno que oferece mecânicas claras de acompanhamento de dados.";
 $footer_platform_title = "Plataforma";

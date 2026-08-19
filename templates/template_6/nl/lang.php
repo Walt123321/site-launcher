@@ -61,7 +61,7 @@ $burger_menu_aria_label = "Menu";
 
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Platform";
-$hero_description = "Een slimmere, overzichtelijkere manier om toegang te krijgen tot wereldwijde markten";
+$hero_description = "Handel in crypto, forex en aandelen op $site_name, het slimme AI-platform gebouwd voor elke trader. Net begonnen? Geniet van heldere, begeleide tools die technische chaos wegnemen. Ervaren trader? Ontgrendel bliksemsnelle automatisering en scherpe voorspellende analyses om je voordeel te maximaliseren. Alles wat je nodig hebt bevindt zich in één strakke, rustige ruimte ontworpen voor pure resultaten. Claim vandaag nog je marktvoordeel met $site_name.";
 $hero_primary_button = "Start met handelen";
 $hero_secondary_button = "Ontdek functies";
 $hero_badge_ssl = "SSL-protocol beschermd";
@@ -256,6 +256,7 @@ $faq_6_answer = "Ja. Elke verbinding is beveiligd met SSL.";
 
 $final_cta_title = "Klaar om de helderheid van $site_name te ervaren?";
 $final_cta_subtitle = "Sluit u aan bij een modern systeem geoptimaliseerd voor snelle operaties en gegevensbescherming.";
+$final_cta_visual_alt = "Voorbeeld van $site_name handelsplatform";
 
 $footer_brand_description = "Moderne analytische omgeving voor het volgen van wereldwijde activa.";
 $footer_platform_title = "Platform";

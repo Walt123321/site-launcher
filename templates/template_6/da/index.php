@@ -1211,6 +1211,14 @@ $canonical = 'https://' . $host . $uri;
                 <div class="final-cta-content">
                     <h2><?= $final_cta_title ?></h2>
                     <p class="section-subtitle" style="color: var(--color-text-secondary);"><?= $final_cta_subtitle ?></p>
+                    <img
+                        src="../assets/img/final-cta-visual.webp"
+                        alt="<?= $final_cta_visual_alt ?>"
+                        class="final-cta-image"
+                        width="480"
+                        height="640"
+                        loading="lazy"
+                        decoding="async">
                 </div>
                 <div>
                     <div class="signup-card">

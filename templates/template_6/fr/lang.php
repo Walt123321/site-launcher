@@ -80,7 +80,7 @@ $burger_menu_aria_label = "Menu";
 $hero_heading_before = "$site_name";
 $hero_heading_accent = "Plateforme";
 
-$hero_description = "Une façon plus intelligente et plus claire d'accéder aux marchés mondiaux";
+$hero_description = "Négociez des cryptos, du forex et des actions sur $site_name – la plateforme IA intelligente conçue pour chaque trader. Vous débutez ? Profitez d'outils clairs et guidés qui éliminent le chaos technique. Trader confirmé ? Débloquez une automatisation ultra-rapide et des analyses prédictives précises pour maximiser votre avantage. Tout ce dont vous avez besoin se trouve dans un espace élégant et sans bruit, conçu pour des résultats purs. Prenez votre avantage sur le marché dès aujourd'hui avec $site_name.";
 
 $hero_primary_button = "Commencer à trader";
 $hero_secondary_button = "Découvrir les fonctionnalités";
@@ -395,6 +395,7 @@ $faq_6_answer = "Oui. Chaque connexion de compte est protégée par un chiffreme
 
 $final_cta_title = "Prêt à découvrir la clarté de $site_name ?";
 $final_cta_subtitle = "Rejoignez un système moderne optimisé pour des opérations rapides, la protection des données et un accès transparent.";
+$final_cta_visual_alt = "Aperçu de la plateforme de trading $site_name";
 
 
 // FOOTER
