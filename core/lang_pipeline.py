@@ -411,35 +411,29 @@ def _generate_specials_via_llm(
         "requirements": {
             "title": {
                 "patterns": [
-                    "$source | {phrase}",
-                    "$source 2026 | {phrase}",
-                    "{phrase} – $source"
+                    "$source — {official_site_phrase} | {trading_platform_phrase}"
                 ],
-                "length_min": 42,
+                "pattern_is_mandatory": True,
+                "instructions": (
+                    "Use EXACTLY this one pattern, no variation, no alternate "
+                    "punctuation, no extra words before $source or after the "
+                    "second phrase. {official_site_phrase} must be the "
+                    "target_language translation of 'Official Website' "
+                    "(2-3 words). {trading_platform_phrase} must be the "
+                    "target_language translation of 'Trading Platform' "
+                    "(1-3 words). Do not add a year, emoji, or any other "
+                    "text. The dash between $source and {official_site_phrase} "
+                    "must be a plain em dash '—' with a space on each side, "
+                    "and the separator between the two phrases must be a "
+                    "plain pipe '|' with a space on each side."
+                ),
+                "length_min": 30,
                 "length_max": 68,
-                "style": "short, native, SEO-friendly, promotional but clean",
-                "prefer_topics": [
-                    "AI trading platform",
-                    "market analysis",
-                    "trading signals",
-                    "AI algorithms",
-                    "smart trading",
-                    "trading hub"
-                ],
-                "avoid_topics": [
-                    "crypto",
-                    "cryptocurrency",
-                    "autopilot",
-                    "passive income",
-                    "fast payouts",
-                    "capital protection",
-                    "guaranteed returns"
-                ],
+                "style": "clean, literal, no promotional embellishment",
                 "examples_style_only": [
-                    "$source | Plataforma de trading con IA",
-                    "$source 2026 | Trading con IA y análisis de mercados",
-                    "$source | Hub de trading con inteligencia artificial",
-                    "Trading inteligente con IA – $source"
+                    "$source — Official Website | Trading Platform",
+                    "$source — Sitio Oficial | Plataforma de Trading",
+                    "$source — Offizielle Website | Handelsplattform"
                 ]
             },
             "description": {

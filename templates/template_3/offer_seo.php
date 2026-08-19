@@ -102,10 +102,20 @@ if ($form_phone_country === 'auto') {
 // Замість цього дивимось на сам URL (REQUEST_URI), який відображає реально
 // запитаний шлях незалежно від внутрішньої маршрутизації Keitaro: якщо
 // передостанній сегмент шляху -- дволітерний код і відповідна тека реально
-// існує поруч з offer_seo.php, це регіональна сторінка.
+// існує поруч з offer_seo.php, це регіональна сторінка. URL трапляється у
+// двох формах: .../nb/index.php (мовний код -- передостанній сегмент) і
+// .../nb/ без імені файлу (після фільтрації порожніх сегментів кінцевий
+// слеш зникає, і мовний код стає ОСТАННІМ сегментом) -- перевіряємо
+// останній сегмент першим, інакше друга форма URL завжди хибно
+// приймалась за кореневу сторінку і гео по IP на ній не спрацьовувало.
 $_qq_uri_path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $_qq_uri_segments = array_values(array_filter(explode('/', $_qq_uri_path), 'strlen'));
-$_qq_lang_segment = count($_qq_uri_segments) >= 2 ? $_qq_uri_segments[count($_qq_uri_segments) - 2] : '';
+$_qq_last_segment = count($_qq_uri_segments) >= 1 ? $_qq_uri_segments[count($_qq_uri_segments) - 1] : '';
+if (preg_match('/^[a-z]{2}$/', $_qq_last_segment) === 1) {
+    $_qq_lang_segment = $_qq_last_segment;
+} else {
+    $_qq_lang_segment = count($_qq_uri_segments) >= 2 ? $_qq_uri_segments[count($_qq_uri_segments) - 2] : '';
+}
 $_qq_is_regional_page = preg_match('/^[a-z]{2}$/', $_qq_lang_segment) === 1 && is_dir(__DIR__ . '/' . $_qq_lang_segment);
 if (preg_match('/^[a-z]{2}$/', $_qq_geo_guess) && $_qq_is_regional_page) {
     $form_country = $_qq_geo_guess;
