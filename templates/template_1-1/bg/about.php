@@ -394,7 +394,7 @@ $canonical = 'https://' . $host . $uri;
   <div class="navbar_container">
     <div class="navbar_logo-wrapper">
       <a href="<?= $site_url ?>">
-        <img loading="lazy" src="../favicon.svg" style="width: 25px; margin: 5px"/>
+        <img loading="lazy" src="../favicon.svg?v=<?= @filemtime(__DIR__ . '/../favicon.svg') ?: time() ?>" style="width: 25px; margin: 5px"/>
         <span style="color: black; font-weight: 700; font-size: 15px">
           <?= $source ?>
         </span>
@@ -607,7 +607,7 @@ $canonical = 'https://' . $host . $uri;
               <div class="footer_link-list" style="display: flex; flex-direction: column; gap: 10px">
                 <div>
                   <a class="navbar_link w-nav-link footer-logo-link" href="#" style="background-color: transparent">
-                    <img alt="" class="navbar1_logo" loading="lazy" src="../favicon.svg" style="width: 50px; margin: 5px">
+                    <img alt="" class="navbar1_logo" loading="lazy" src="../favicon.svg?v=<?= @filemtime(__DIR__ . '/../favicon.svg') ?: time() ?>" style="width: 50px; margin: 5px">
                     <span class="heading-style-h4" style="font-weight: 700; color: white;"><?= $footer_logo_name ?></span>
                   </a>
                 </div>

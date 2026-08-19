@@ -26,13 +26,11 @@ $asset_url = (PHP_SAPI === 'cli-server') ? (rtrim(dirname($_SERVER['SCRIPT_NAME'
 
     <link rel="stylesheet" href="<?= $asset_url ?>/assets/css/style.css?v=<?= @filemtime(__DIR__ . '/../assets/css/style.css') ?: time() ?>">
 
-    <link rel="icon" type="image/png" href="<?= $asset_url ?>/assets/img/favicon.png">
-
     <meta property="og:type" content="website">
 
-<link rel="icon" type="image/png" href="<?= $asset_url ?>/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="<?= $asset_url ?>/favicon.svg" />
-<link rel="shortcut icon" href="<?= $asset_url ?>/favicon.ico" />
+<link rel="icon" type="image/png" href="<?= $asset_url ?>/favicon-96x96.png?v=<?= @filemtime(__DIR__ . '/../favicon-96x96.png') ?: time() ?>" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="<?= $asset_url ?>/favicon.svg?v=<?= @filemtime(__DIR__ . '/../favicon.svg') ?: time() ?>" />
+<link rel="shortcut icon" href="<?= $asset_url ?>/favicon.ico?v=<?= @filemtime(__DIR__ . '/../favicon.ico') ?: time() ?>" />
 
 <link rel="canonical" href="<?= $canonical ?>">
 
@@ -57,7 +55,7 @@ $asset_url = (PHP_SAPI === 'cli-server') ? (rtrim(dirname($_SERVER['SCRIPT_NAME'
 
             <a href="<?= $site_url ?>" class="logo">
 
-                <div class="logo-icon"> <img src="<?= $asset_url ?>/favicon.svg" alt="<?= $site_name ?>" class="logo-image"></div>
+                <div class="logo-icon"> <img src="<?= $asset_url ?>/favicon.svg?v=<?= @filemtime(__DIR__ . '/../favicon.svg') ?: time() ?>" alt="<?= $site_name ?>" class="logo-image"></div>
 
                 <div class="logo-text">
                     <span class="logo-title"><?= $site_name ?></span>
