@@ -405,6 +405,14 @@ def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Op
     """
     from datetime import datetime
 
+    # Реальні файли на диску (папка /lander/{domain}/...) завжди лежать під
+    # domain у тому вигляді, як його бачить Keitaro/DNS -- тобто lowercase,
+    # незалежно від того, як домен був введений при запуску. Якщо тут
+    # підставити домен "як є" (наприклад "Site-Name.com"), кожен
+    # /lander/<?= $site_domain ?>/... шлях до CSS/JS/картинок 404-ить,
+    # хоча сама сторінка відкривається -- сайт вантажиться зовсім без стилів.
+    domain = domain.lower()
+
     lastmod = datetime.now().strftime("%Y-%m-%d")
 
     # Формуємо currency

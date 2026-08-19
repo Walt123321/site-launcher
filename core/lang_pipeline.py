@@ -1522,13 +1522,19 @@ def generate_lang_files(
             price = _make_price(geo_currency)
 
             # --- DOMAIN FIX ---
-            content = content.replace("{{DOMAIN}}", domain)
+            # lowercase copy: /lander/{domain}/ paths on disk are always lowercase
+            # regardless of how the domain was typed at launch (real folder names come
+            # from DNS/Keitaro, which normalize to lowercase) -- using the raw-case domain
+            # here would 404 every asset path built from $site_domain, shipping a page
+            # with zero working CSS/JS/images even though the page itself loads.
+            domain_lower = domain.lower()
+            content = content.replace("{{DOMAIN}}", domain_lower)
 
             # ВАЖЛИВО: site_name має бути "$source"
             content = _set_php_var(content, "site_name", "$source", numeric=False)
 
             content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
-            content = _set_php_var(content, "site_domain", domain, numeric=False)
+            content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
             content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
             content = _set_php_var(content, "app_price", str(price), numeric=True)
             content = _set_php_var(content, "rating_value", str(rating_value), numeric=True)
@@ -1578,12 +1584,18 @@ def generate_lang_files(
             price = _make_price(geo_currency)
         
             # --- DOMAIN FIX ---
-            content = content.replace("{{DOMAIN}}", domain)
+            # lowercase copy: /lander/{domain}/ paths on disk are always lowercase
+            # regardless of how the domain was typed at launch (real folder names come
+            # from DNS/Keitaro, which normalize to lowercase) -- using the raw-case domain
+            # here would 404 every asset path built from $site_domain, shipping a page
+            # with zero working CSS/JS/images even though the page itself loads.
+            domain_lower = domain.lower()
+            content = content.replace("{{DOMAIN}}", domain_lower)
 
             # MANUAL
             content = _set_php_var(content,"site_name","$source",numeric=False)
             content = _set_php_var(content,"site_url",f"https://{domain}",numeric=False)
-            content = _set_php_var(content,"site_domain",domain,numeric=False)
+            content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
             content = _set_php_var(content,"app_currency",geo_currency,numeric=False)
             content = _set_php_var(content,"app_price",str(price),numeric=True)
             content = _set_php_var(content,"rating_value",str(rating_value),numeric=True)
@@ -1666,14 +1678,20 @@ def generate_lang_files(
                     progress_cb((idx - 1) / total, f"Processing {domain}...")
         
                 # --- DOMAIN FIX ---
-                content = content.replace("{{DOMAIN}}", domain)
+                # lowercase copy: /lander/{domain}/ paths on disk are always lowercase
+                # regardless of how the domain was typed at launch (real folder names come
+                # from DNS/Keitaro, which normalize to lowercase) -- using the raw-case domain
+                # here would 404 every asset path built from $site_domain, shipping a page
+                # with zero working CSS/JS/images even though the page itself loads.
+                domain_lower = domain.lower()
+                content = content.replace("{{DOMAIN}}", domain_lower)
         
                 # --- BASIC VARS ---
                 price = _make_price(geo_currency)
         
                 content = _set_php_var(content, "site_name", "$source", numeric=False)
                 content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
-                content = _set_php_var(content, "site_domain", domain, numeric=False)
+                content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
                 content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
                 content = _set_php_var(content, "app_price", str(price), numeric=True)
                 content = _set_php_var(content, "site_lang", target_lang, numeric=False)
@@ -1756,7 +1774,13 @@ def generate_lang_files(
                     progress_cb((idx - 1) / total, f"Processing {domain}...")
         
                 # --- DOMAIN FIX ---
-                content = content.replace("{{DOMAIN}}", domain)
+                # lowercase copy: /lander/{domain}/ paths on disk are always lowercase
+                # regardless of how the domain was typed at launch (real folder names come
+                # from DNS/Keitaro, which normalize to lowercase) -- using the raw-case domain
+                # here would 404 every asset path built from $site_domain, shipping a page
+                # with zero working CSS/JS/images even though the page itself loads.
+                domain_lower = domain.lower()
+                content = content.replace("{{DOMAIN}}", domain_lower)
         
                 # --- BASIC VARS ---
                 price = _make_price(geo_currency)
@@ -1764,7 +1788,7 @@ def generate_lang_files(
                 # ФІКС: Замість "$source" тепер передаємо реальний brand, який приходить з інтерфейсу
                 content = _set_php_var(content, "site_name", brand, numeric=False)
                 content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
-                content = _set_php_var(content, "site_domain", domain, numeric=False)
+                content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
                 content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
                 content = _set_php_var(content, "app_price", str(price), numeric=True)
                 content = _set_php_var(content, "site_lang", target_lang, numeric=False)
@@ -1890,14 +1914,20 @@ def generate_lang_files(
                     progress_cb((idx - 1) / total, f"Processing {domain}...")
 
                 # --- DOMAIN FIX ---
-                content = content.replace("{{DOMAIN}}", domain)
+                # lowercase copy: /lander/{domain}/ paths on disk are always lowercase
+                # regardless of how the domain was typed at launch (real folder names come
+                # from DNS/Keitaro, which normalize to lowercase) -- using the raw-case domain
+                # here would 404 every asset path built from $site_domain, shipping a page
+                # with zero working CSS/JS/images even though the page itself loads.
+                domain_lower = domain.lower()
+                content = content.replace("{{DOMAIN}}", domain_lower)
 
                 # --- BASIC VARS ---
                 price = _make_price(geo_currency)
 
                 content = _set_php_var(content, "site_name", brand, numeric=False)
                 content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
-                content = _set_php_var(content, "site_domain", domain, numeric=False)
+                content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
                 content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
                 content = _set_php_var(content, "app_price", str(price), numeric=True)
                 content = _set_php_var(content, "site_lang", target_lang, numeric=False)
@@ -2038,12 +2068,18 @@ def generate_lang_files(
                 content = _apply_strings(content, spans, outs)
 
             # --- DOMAIN FIX ---
-            content = content.replace("{{DOMAIN}}", domain)
+            # lowercase copy: /lander/{domain}/ paths on disk are always lowercase
+            # regardless of how the domain was typed at launch (real folder names come
+            # from DNS/Keitaro, which normalize to lowercase) -- using the raw-case domain
+            # here would 404 every asset path built from $site_domain, shipping a page
+            # with zero working CSS/JS/images even though the page itself loads.
+            domain_lower = domain.lower()
+            content = content.replace("{{DOMAIN}}", domain_lower)
 
             # 2) Тепер override MANUAL змінних — гарантуємо структуру/плейсхолдери
             content = _set_php_var(content, "site_name", brand, numeric=False)
             content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
-            content = _set_php_var(content, "site_domain", domain, numeric=False)
+            content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
             content = _set_php_var(content, "rating_value", str(rating_value), numeric=True)
             content = _set_php_var(content, "rating_count", str(rating_count), numeric=True)
             content = _set_php_var(content, "app_price", str(price), numeric=True)
