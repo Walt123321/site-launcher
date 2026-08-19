@@ -1456,8 +1456,6 @@
             max-width: 380px;
             width: 100%;
             height: auto;
-            border-radius: 20px;
-            box-shadow: var(--shadow-premium);
             margin-top: 36px;
         }
 
