@@ -21,14 +21,14 @@ $home_meta_description = "Access global markets with $site_name ⭐ Institutiona
 $quiz_consultant_name = 'Lisa';
 $quiz_consultant_role = 'Onboarding Assistant';
 
-$quiz_text_welcome   = "Hello! This is $quiz_consultant_name, your personal onboarding assistant at $site_name. Excellent news! Your access is officially pre-approved. Please allow us to configure your professional profile now!";
-$quiz_text_q1 = "To ensure full regulatory and legal compliance, please confirm your country of current residence: $country_name";
+$quiz_text_welcome   = "Hello! This is $quiz_consultant_name, your personal onboarding assistant at $site_name. Excellent news! Your access is officially pre-approved. Please allow us to configure your profile now!";
+$quiz_text_q1 = "To ensure full regulatory compliance on $site_name, please confirm your country of current residence: $country_name";
 $quiz_text_a1_yes    = "Yes, this is my current residence";
 $quiz_text_a1_no     = "No";
 
 $quiz_text_q2 = "Perfect. Please select the appropriate age category to find the most suitable financial instruments:";
 
-$quiz_text_q3        = "Is there an active bank account or a credit card available to receive regular daily dividend payments?";
+$quiz_text_q3        = "Is there an active bank account or a credit card available to receive regular daily dividend payments via $site_name?";
 $quiz_text_a3_yes    = "Yes, an active account is available";
 $quiz_text_a3_no     = "Not available yet";
 
@@ -37,12 +37,12 @@ $quiz_text_a4_1      = "Official Employment / Self-employed";
 $quiz_text_a4_2      = "Passive Income / Personal Savings";
 $quiz_text_a4_3      = "Other sources";
 
-$quiz_text_q5 = "Great! The final step is a brief phone verification from our manager to confirm your registration. Calls are made from 11:00 AM to 8:00 PM. Will you be able to take the call?";
+$quiz_text_q5 = "Great! The final step is a brief phone verification from our manager to confirm your $site_name registration. Calls are made from 11:00 AM to 8:00 PM. Will you be able to take the call?";
 $quiz_text_a5_yes    = "Yes, this time is convenient for the call";
 $quiz_text_a5_no     = "Please initiate the call immediately";
 
-$quiz_text_loader    = "Analyzing the requested options and initializing secure account configuration parameters...";
-$quiz_text_final_ttl = "Account Successfully Authorized! 🎉 The secure digital workspace is fully configured. Please complete the final verification steps below to guarantee daily payments:";
+$quiz_text_loader    = "Analyzing options and initializing secure $site_name account configuration parameters...";
+$quiz_text_final_ttl = "$site_name Account Successfully Authorized! 🎉 The secure digital workspace is fully configured. Please complete the final verification steps below to guarantee daily payments:";
 
 $quiz_placeholder_fname = "First Name";
 $quiz_placeholder_lname = "Last Name";
@@ -135,7 +135,7 @@ $platform_section_label = "Intelligent Workspace";
 $platform_title_before = "$site_name Professional Charts.";
 $platform_title_accent = "Built for simple decisions.";
 
-$platform_subtitle = "Monitor real-time prices, execute actions from a clean interface designed to reduce cognitive load and emotional trading.";
+$platform_subtitle = "Monitor real-time prices and execute actions from a clean interface designed to reduce cognitive load and emotional trading.";
 
 $platform_check_1 = "Real-time AI-enhanced charts";
 $platform_check_2 = "One-tap market execution system";
@@ -168,35 +168,19 @@ $feature_1_title = "Bank-level security";
 $feature_1_text = "SSL encryption, secure data processing and fully protected account architecture.";
 
 $feature_2_title = "AI market analysis";
-$feature_2_text = "Real-time machine learning calculations focused on capturing sharp market variations.";
+$feature_2_text = "Real-time machine learning calculations focused on capturing sharp market variations via $site_name.";
 
 $feature_3_title = "Low-latency flows";
-$feature_3_text = "Agile infrastructure focused on fast order handling during high-volume periods.";
-
-
-// FEATURES
-
-$features_section_label = "Platform Capabilities";
-$features_title = "Everything you need to trade with $site_name confidence";
-$features_subtitle = "Security, speed and neural market intelligence combined in one clear layout";
-
-$feature_1_title = "Bank-level security";
-$feature_1_text = "SSL encryption, secure data processing and fully protected account architecture.";
-
-$feature_2_title = "AI market analysis";
-$feature_2_text = "Real-time machine learning calculations focused on capturing sharp market variations.";
-
-$feature_3_title = "Low-latency flows";
-$feature_3_text = "Agile infrastructure focused on fast order handling during high-volume periods.";
+$feature_3_text = "Agile infrastructure focused on fast order handling during high-volume trading periods.";
 
 
 // MARKETS
 
 $markets_section_label = "Real-time assets";
 
-$markets_title = "Unified $site_name dashboard for global metrics";
+$markets_title = "Unified dashboard for global metrics";
 
-$markets_subtitle = "Follow real-time asset changes, track momentum, and use automated AI analysis to map patterns quickly.";
+$markets_subtitle = "Follow real-time asset changes, track momentum, and use automated $site_name AI analysis to map patterns quickly.";
 
 $markets_ai_box_title = "💡 Operational Efficiency:";
 
@@ -222,13 +206,13 @@ $onboarding_step_1_title = "Secure Sign-up";
 $onboarding_step_1_text = "Input basic contact points through our highly encrypted form entry system.";
 
 $onboarding_step_2_title = "AI Guided Setup";
-$onboarding_step_2_text = "The platform introduces interface options matched to your custom preferences.";
+$onboarding_step_2_text = "The $site_name platform introduces interface options matched to your custom preferences.";
 
 $onboarding_step_3_title = "Safe Funding";
 $onboarding_step_3_text = "Activate your trading operational range via standard, highly reliable payment layers.";
 
 $onboarding_step_4_title = "Deploy Signals";
-$onboarding_step_4_text = "Start interacting with global markets utilizing live neural data streams.";
+$onboarding_step_4_text = "Start interacting with global markets utilizing live $site_name neural data streams.";
 
 
 
@@ -255,15 +239,17 @@ $security_section_label = "Balanced Framework";
 
 $security_title = "Transparent operating parameters";
 
-$security_subtitle = "We believe in absolute honesty. Here is what makes our system distinct, along with our operational limits.";
+$security_subtitle = "We believe in absolute honesty. Here is what makes our $site_name system distinct, along with our operational limits.";
+
+$security_our_badge = "$site_name";
 
 $security_our_title = "Key Advantages";
 
 $security_our_item_1 = "Minimalist dashboard tailored for institutional execution speed.";
-$security_our_item_2 = "Neural analytical data processing running 24/7 across assets.";
+$security_our_item_2 = "$site_name neural analytical data processing running 24/7 across assets.";
 $security_our_item_3 = "Zero hidden transaction margins or unexpected management fees.";
 $security_our_item_4 = "Direct cryptographic SSL account architecture protecting personal space.";
-$security_our_item_5 = "Guided onboarding that takes minutes, not days, to activate.";
+$security_our_item_5 = "Guided $site_name onboarding that takes minutes, not days, to activate.";
 
 $security_other_badge = "Other platforms";
 
@@ -281,7 +267,7 @@ $security_disclaimer = "Comparison reflects typical patterns observed across the
 // CAPABILITIES TABLE
 
 $capabilities_title = "Core platform capabilities at a glance";
-$capabilities_subtitle = "Review functional parameters embedded within your account access framework.";
+$capabilities_subtitle = "Review functional parameters embedded within your $site_name account access framework.";
 
 $capability_table_col_1 = "Capability Parameter";
 $capability_table_col_2 = "Functional Details";
@@ -290,7 +276,7 @@ $capability_table_col_3 = "Included";
 $capability_check_aria = "Included";
 
 $capability_1_title = "AI Trading Framework";
-$capability_1_text = "Algorithmic processing providing structural macro metric calculations dynamically.";
+$capability_1_text = "Algorithmic processing providing structural macro metric calculations dynamically inside $site_name.";
 
 $capability_2_title = "Aggregated Streams";
 $capability_2_text = "Consolidated real-time dynamic charts for modern global indices and tokens.";
@@ -308,7 +294,7 @@ $capability_6_title = "Encrypted Data Vault";
 $capability_6_text = "Personal and account data isolated behind layered cryptographic access controls.";
 
 $capability_7_title = "24/7 Human Back-up";
-$capability_7_text = "Live tech support operators standing by to answer setup questions immediately.";
+$capability_7_text = "Live tech support operators standing by to answer $site_name setup questions immediately.";
 
 
 // PAYMENTS
@@ -340,13 +326,13 @@ $reviews_subtitle = "Honest feedback from our cross-market global community.";
 $review_1_text = "As a beginner, crypto scared me. $site_name made the dashboard so intuitive that I felt confident within minutes. The AI insights are straightforward.";
 $review_1_role = "Verified Retail Operator";
 
-$review_2_text = "The interface cleanup alone saves me hours. Having AI filter the market noise down to core trends changes how I view daily positions.";
+$review_2_text = "The interface cleanup alone saves me hours. Having $site_name AI filter the market noise down to core trends changes how I view daily positions.";
 $review_2_role = "Crypto Asset Analyst";
 
-$review_3_text = "The low latency execution combined with smart alert frameworks allows me to adjust targets on the fly without running multiple programs.";
+$review_3_text = "The low latency execution combined with smart alert frameworks on $site_name allows me to adjust targets on the fly without running multiple programs.";
 $review_3_role = "Private Portfolio Manager";
 
-$review_4_text = "Support responded within two minutes when I was setting up my verification parameters. Exceptional institutional service framework.";
+$review_4_text = "The support responded within two minutes when I was setting up my verification parameters. Exceptional institutional service framework.";
 $review_4_role = "Algorithmic Trader";
 
 $review_1_avatar_alt = "Michael Turner, $site_name user";
@@ -355,7 +341,7 @@ $review_3_avatar_alt = "David Kovacs, $site_name user";
 $review_4_avatar_alt = "Elena Laurent, $site_name user";
 $hero_growth_visual_alt = "$site_name AI trading growth chart";
 $mobile_trading_visual_alt = "$site_name mobile trading app interface";
-$cta_security_visual_alt = "AI security safeguards protecting $site_name accounts";
+$cta_security_visual_alt = "AI security safeguards protecting accounts";
 
 // SEO CONTENT
 
@@ -366,29 +352,29 @@ $seo_content_intro = "Modern asset interaction requires absolute clarity. When d
 $seo_block_1_title_before = "Advanced";
 $seo_block_1_title_accent = "Crypto Trading Assets";
 $seo_block_1_text_1 = "Blockchain liquidity changes rapidly, making low-latency infrastructure critical. $site_name links custom nodes directly into primary digital asset venues, providing users with live price feedback loops. Our clean visual metrics turn chaotic cross-chain structures into organized, readable data channels, allowing market participants to evaluate shifts across major pairs smoothly.";
-$seo_block_1_text_2 = "Beyond raw price feeds, the platform contextualizes volume shifts and liquidity depth so that sudden spikes are easier to interpret rather than reactionary noise. This consistency matters most during volatile sessions, when fragmented tooling elsewhere tends to slow decision-making at the exact moment clarity is needed most.";
+$seo_block_1_text_2 = "Beyond raw price feeds, the $site_name platform contextualizes volume shifts and liquidity depth so that sudden spikes are easier to interpret rather than reactionary noise. This consistency matters most during volatile sessions, when fragmented tooling elsewhere tends to slow decision-making at the exact moment clarity is needed most.";
 
 $seo_block_2_title_before = "Deep";
 $seo_block_2_title_accent = "Neural Market Insights";
 $seo_block_2_text_1 = "Automated algorithms parse incoming market data to calculate structural variations across international forex and commodity indices. $site_name distills complex calculations into clear data trends. These automated insights act as smart helpers, allowing users to build precise research strategies without cognitive overload or emotional fatigue.";
-$seo_block_2_text_2 = "Because the models run continuously rather than on a fixed schedule, shifts in momentum surface as they happen instead of appearing in a delayed summary. The result is a research layer that supports independent judgment rather than replacing it, keeping the final decision firmly in the user's hands.";
+$seo_block_2_text_2 = "Because the $site_name models run continuously rather than on a fixed schedule, shifts in momentum surface as they happen instead of appearing in a delayed summary. The result is a research layer that supports independent judgment rather than replacing it, keeping the final decision firmly in the user's hands.";
 
 $seo_block_3_title_before = "Frictionless";
 $seo_block_3_title_accent = "Account Setup Flow";
-$seo_block_3_text_1 = "Compliance doesn't have to be complicated. Our structured registration pipeline protects private user parameters using secure verification processes. Step-by-step onboarding guidelines adapt dynamically to mobile and desktop displays for a seamless setup experience designed to take under three minutes from initiation to terminal access.";
-$seo_block_3_text_2 = "Every field in the flow explains why it is being requested, so first-time users are never left guessing what a verification step is for. Once submitted, encrypted identity checks run in the background while the rest of the dashboard remains fully browsable.";
+$seo_block_3_text_1 = "Compliance doesn't have to be complicated. Our structured $site_name registration pipeline protects private user parameters using secure verification processes. Step-by-step onboarding guidelines adapt dynamically to mobile and desktop displays for a seamless setup experience designed to take under three minutes from initiation to terminal access.";
+$seo_block_3_text_2 = "Every field in the flow explains why it is being requested, so first-time users are never left guessing what a verification step is for. Once submitted, encrypted $site_name identity checks run in the background while the rest of the dashboard remains fully browsable.";
 
 $seo_block_4_title_before = "Institutional-Grade";
 $seo_block_4_title_accent = "Risk Controls";
 $seo_block_4_text_1 = "Position sizing, exposure limits, and automated volatility flags borrow directly from tooling historically reserved for professional desks. $site_name packages these controls into a simple toggle-based interface, so newer participants inherit the same discipline that experienced traders rely on daily.";
-$seo_block_4_text_2 = "Alerts are configurable per asset, meaning attention is only drawn to markets that genuinely warrant it. This targeted approach helps prevent the alert fatigue that often makes people ignore notifications altogether on less selective platforms.";
+$seo_block_4_text_2 = "Alerts on $site_name are configurable per asset, meaning attention is only drawn to markets that genuinely warrant it. This targeted approach helps prevent the alert fatigue that often makes people ignore notifications altogether on less selective platforms.";
 
 
 // FAQ
 
 $faq_section_label = "Support Hub";
 $faq_title = "Frequently asked questions";
-$faq_subtitle = "Find immediate procedural answers regarding registration and platform access parameters.";
+$faq_subtitle = "Find immediate procedural answers regarding $site_name registration and platform access parameters.";
 
 $faq_1_question = "How can I start with $site_name?";
 $faq_1_answer = "Simply fill out the registration form above, follow our step-by-step secure onboarding flow, and activate your account parameters through our structured payment processing system.";
@@ -403,10 +389,10 @@ $faq_4_question = "Are there any hidden platform operational fees?";
 $faq_4_answer = "No. $site_name operates on absolute fee transparency. We do not apply unexpected platform access margins or hidden withdrawal calculations inside your workspace layer.";
 
 $faq_5_question = "How does the AI intelligence component function?";
-$faq_5_answer = "Our neural systems evaluate deep statistical volatility markers across multiple market layers, converting raw telemetry numbers into simplified trend lines for easier evaluation.";
+$faq_5_answer = "Our $site_name neural systems evaluate deep statistical volatility markers across multiple market layers, converting raw telemetry numbers into simplified trend lines for easier evaluation.";
 
 $faq_6_question = "Is my personal data fully protected?";
-$faq_6_answer = "Yes. Every account pipeline is masked utilizing secure standard SSL protection alongside highly robust cryptographic protocols to isolate private data ranges completely.";
+$faq_6_answer = "Yes. Every $site_name account pipeline is masked utilizing secure standard SSL protection alongside highly robust cryptographic protocols to isolate private data ranges completely.";
 
 
 // FINAL CTA
@@ -418,7 +404,7 @@ $final_cta_visual_alt = "$site_name trading platform preview";
 
 // FOOTER
 
-$footer_brand_description = "Modern analytical environment delivering clear data tracking mechanics across global assets.";
+$footer_brand_description = "Modern $site_name analytical environment delivering clear data tracking mechanics across global assets.";
 
 $footer_platform_title = "Platform";
 $footer_platform_interface = "Interface";
@@ -453,14 +439,14 @@ $about_meta_description = "Learn about $site_name — our mission, our AI-assist
 $about_breadcrumb_name = "About Us";
 $about_h1 = "About $site_name";
 $about_p1 = "$site_name was built to make structured, AI-assisted trading tools accessible to everyone — from first-time traders to experienced professionals.";
-$about_p2 = "We believe access to global markets should be transparent, well explained, and free of unnecessary technical complexity.";
+$about_p2 = "We believe access to global markets through $site_name should be transparent, well explained, and free of unnecessary technical complexity.";
 $about_h2_mission = "Our Mission";
-$about_p_mission_1 = "Our mission is to give traders clear, structured tools for navigating crypto, forex, and stock markets — without hype, and without hiding the risks involved.";
+$about_p_mission_1 = "Our mission at $site_name is to give traders clear, structured tools for navigating crypto, forex, and stock markets — without hype, and without hiding the risks involved.";
 $about_p_mission_2 = "Every feature on $site_name is designed around clarity: what the tool does, why it does it, and what you should expect.";
 $about_h2_ai = "Our AI-Assisted Approach";
 $about_p_ai_1 = "$site_name combines real-time market data with AI-assisted analysis to help you understand market conditions faster.";
 $about_p_ai_2 = "Our systems are designed as decision-support tools — not as guarantees of profit. Trading always carries risk.";
-$about_li_1 = "Real-time market data aggregation";
+$about_li_1 = "Real-time market data aggregation on $site_name";
 $about_li_2 = "AI-assisted market analysis";
 $about_li_3 = "Transparent risk disclosures";
 $about_li_4 = "Guided onboarding for new traders";
@@ -470,7 +456,7 @@ $about_li_7 = "24/7 customer support";
 $about_li_8 = "Regular platform and security updates";
 $about_h2_security = "Security First";
 $about_p_security_1 = "We use industry-standard encryption and secure infrastructure partners to protect your data and account.";
-$about_p_security_2 = "Security is not an afterthought — it's built into every part of the platform.";
+$about_p_security_2 = "Security is not an afterthought at $site_name — it's built into every part of the platform.";
 $about_h2_global = "Built for Global Markets";
 $about_p_global_1 = "$site_name is designed to support traders across many regions, with localized language and currency support.";
 $about_p_global_2 = "Our infrastructure partners help us maintain reliable access regardless of where you trade from.";
@@ -494,10 +480,10 @@ $contact_h1 = "Contact Us";
 $contact_intro_1 = "Have a question about your account, a feature, or how $site_name works? We're here to help.";
 $contact_intro_2 = "Fill out the form below or reach us directly using the details listed further down this page.";
 $contact_h2_help = "What We Can Help With";
-$contact_li_1 = "Account setup and verification";
+$contact_li_1 = "$site_name account setup and verification";
 $contact_li_2 = "Platform features and how they work";
 $contact_li_3 = "Deposit and withdrawal questions";
-$contact_li_4 = "Technical issues";
+$contact_li_4 = "Technical issues on $site_name";
 $contact_li_5 = "General feedback and suggestions";
 $contact_li_6 = "Partnership and media inquiries";
 $contact_h2_send = "Send Us a Message";
@@ -509,7 +495,7 @@ $contact_form_submit = "Send Message";
 $contact_h2_info = "Other Ways to Reach Us";
 $contact_support_label = "Support:";
 $contact_institutional_label = "Institutional inquiries:";
-$contact_disclaimer = "We aim to respond to all inquiries within 24-48 hours.";
+$contact_disclaimer = "We aim to respond to all $site_name inquiries within 24-48 hours.";
 $support_email = "support@" . preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'example.com');
 $institutional_email = "partners@" . preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'example.com');
 
@@ -518,7 +504,7 @@ $faq_page_meta_title = "FAQ | $site_name";
 $faq_page_meta_description = "Frequently asked questions about $site_name — accounts, deposits, security, and how our AI-assisted trading tools work.";
 $faq_page_breadcrumb_name = "FAQ";
 $faq_page_h1 = "Frequently Asked Questions";
-$faq_page_subtitle = "Answers to the questions traders ask us most often. Can't find what you're looking for? Contact our support team.";
+$faq_page_subtitle = "Answers to the questions traders ask us most often about $site_name. Can't find what you're looking for? Contact our support team.";
 
 // --- Sign in / Register page ---
 $sign_meta_title = "Create Your Account | $site_name";
@@ -535,17 +521,17 @@ $conditions_h1 = "Terms & Conditions";
 $conditions_last_update = "Last updated: " . date('F Y');
 $conditions_intro = "These Terms & Conditions ('Terms') govern your access to and use of $site_name (the 'Platform'). By creating an account or using the Platform, you agree to these Terms.";
 $conditions_h2_eligibility = "Eligibility";
-$conditions_p_eligibility = "You must be at least 18 years old and legally able to enter into binding contracts in your jurisdiction to use the Platform.";
+$conditions_p_eligibility = "You must be at least 18 years old and legally able to enter into binding contracts in your jurisdiction to use the $site_name Platform.";
 $conditions_h2_account = "Your Account";
 $conditions_p_account = "You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.";
 $conditions_h2_risk = "Trading Risk";
-$conditions_p_risk = "Trading crypto, forex, and other financial instruments carries substantial risk, including the risk of losing your entire investment. Past performance is not indicative of future results. Nothing on this Platform constitutes financial advice.";
+$conditions_p_risk = "Trading crypto, forex, and other financial instruments on $site_name carries substantial risk, including the risk of losing your entire investment. Past performance is not indicative of future results. Nothing on this Platform constitutes financial advice.";
 $conditions_h2_conduct = "Acceptable Use";
-$conditions_p_conduct = "You agree not to misuse the Platform, attempt unauthorized access, or use the Platform for unlawful purposes.";
+$conditions_p_conduct = "You agree not to misuse the $site_name Platform, attempt unauthorized access, or use the Platform for unlawful purposes.";
 $conditions_h2_liability = "Limitation of Liability";
 $conditions_p_liability = "To the maximum extent permitted by law, $site_name is not liable for any indirect, incidental, or consequential damages arising from your use of the Platform.";
 $conditions_h2_changes = "Changes to These Terms";
-$conditions_p_changes = "We may update these Terms from time to time. Continued use of the Platform after changes take effect constitutes acceptance of the updated Terms.";
+$conditions_p_changes = "We may update these Terms from time to time. Continued use of the $site_name Platform after changes take effect constitutes acceptance of the updated Terms.";
 $conditions_h2_contact = "Contact";
 $conditions_p_contact = "Questions about these Terms can be sent to our support team via the Contact page.";
 
@@ -559,14 +545,14 @@ $privacy_intro = "This Privacy Policy explains how $site_name ('we', 'us') colle
 $privacy_h2_collect = "Information We Collect";
 $privacy_p_collect = "We collect information you provide directly (such as your name, email, and phone number during registration) as well as technical data (such as IP address and browser type) collected automatically.";
 $privacy_h2_use = "How We Use Your Information";
-$privacy_p_use = "We use your information to provide and improve the Platform, to communicate with you, to verify your identity, and to comply with legal obligations.";
+$privacy_p_use = "We use your information to provide and improve the $site_name Platform, to communicate with you, to verify your identity, and to comply with legal obligations.";
 $privacy_h2_sharing = "Sharing of Information";
-$privacy_p_sharing = "We do not sell your personal data. We may share information with trusted service providers who help us operate the Platform, subject to confidentiality obligations.";
+$privacy_p_sharing = "We do not sell your personal data. We may share information with trusted service providers who help us operate the $site_name Platform, subject to confidentiality obligations.";
 $privacy_google_choices = 'You can manage how Google uses information from your visits through <a href="http://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>, opt out of interest-based advertising using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>, or review <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" rel="noopener">Google\'s Privacy Policy</a> for more details.';
 $privacy_h2_security = "Data Security";
 $privacy_p_security = "We use industry-standard technical and organizational measures to protect your data, including encryption of data in transit.";
 $privacy_h2_rights = "Your Rights";
-$privacy_p_rights = "Depending on your jurisdiction, you may have the right to access, correct, or delete your personal data. Contact us to exercise these rights.";
+$privacy_p_rights = "Depending on your jurisdiction, you may have the right to access, correct, or delete your personal data on $site_name. Contact us to exercise these rights.";
 $privacy_h2_retention = "Data Retention";
 $privacy_p_retention = "We retain your personal data only as long as necessary for the purposes described in this policy, or as required by law.";
 $privacy_h2_contact = "Contact Us";
@@ -579,14 +565,14 @@ $page_title_risk_warning = "Risk Warning | $site_name";
 $page_description_risk_warning = "Understand the risks of automated crypto trading with $site_name, including market volatility, execution risk, and regulatory considerations.";
 $risk_warning_breadcrumb_name = "Risk Warning";
 $risk_warning_title = "Risk Warning";
-$risk_warning_intro = "Understanding risks is the first step toward confident trading.";
+$risk_warning_intro = "Understanding risks is the first step toward confident trading on $site_name.";
 
 $risk_warning_ai_heading = "How Our AI System Helps Manage Risk:";
-$risk_warning_ai_1 = "<strong>Algorithmic Efficiency & Emotionless Trading:</strong> Advanced algorithms analyze market signals to execute trades objectively at optimal moments.";
+$risk_warning_ai_1 = "<strong>Algorithmic Efficiency & Emotionless Trading:</strong> Advanced $site_name algorithms analyze market signals to execute trades objectively at optimal moments.";
 $risk_warning_ai_2 = "<strong>Data-Driven Strategies:</strong> Strategies are based on verified market patterns and real-time analysis rather than guesswork.";
 $risk_warning_ai_3 = "<strong>Flexible Settings & Full Control:</strong> Adjust your risk parameters anytime. Track all balances and trades transparently on your dashboard with no hidden fees and restriction-free withdrawals.";
 
-$risk_warning_disclaimer = "<strong>Disclaimer:</strong> Trading always carries risk. Automated systems (including AI) do not guarantee profit, can fail due to software errors or unexpected market events, and require user monitoring. Past performance is not indicative of future results. This platform serves purely informational and marketing purposes and does not provide financial advice.";
+$risk_warning_disclaimer = "<strong>Disclaimer:</strong> Trading always carries risk. Automated systems (including AI) do not guarantee profit, can fail due to software errors or unexpected market events, and require user monitoring. Past performance is not indicative of future results. This $site_name platform serves purely informational and marketing purposes and does not provide financial advice.";
 
 $risk_warning_s1_heading = "1. General & Cryptocurrency Market Risks";
 $risk_warning_s1_intro = "Cryptocurrencies are highly volatile, speculative assets that operate 24/7 with minimal regulatory oversight in most jurisdictions.";
