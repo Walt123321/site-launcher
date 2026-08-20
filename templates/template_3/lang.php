@@ -374,10 +374,12 @@ $risk_warning_s2_2 = "<strong>Leverage Amplification:</strong> Utilizing leverag
 $risk_warning_s3_heading = "3. Technical & Infrastructure Dependencies";
 $risk_warning_s3_1 = "<strong>System Dependencies:</strong> Online trading involves reliance on internet infrastructure, API socket stability, power networks, and hardware functionality.";
 $risk_warning_s3_2 = "<strong>Security Responsibility:</strong> Users must maintain strict security hygiene over account credentials and API keys to prevent unauthorized access.";
+$risk_warning_s3_3 = "<strong>Service Continuity:</strong> Scheduled or emergency maintenance, software updates, or technical outages may temporarily restrict access to trading functionality.";
 
 $risk_warning_s4_heading = "4. Regulatory & Tax Compliance";
 $risk_warning_s4_1 = "<strong>Jurisdictional Rules:</strong> Regulatory frameworks governing digital assets vary by region. Users are responsible for verifying compliance within their local jurisdiction.";
 $risk_warning_s4_2 = "<strong>Tax Obligations:</strong> Users bear full responsibility for reporting and remitting any applicable taxes arising from realized trade gains.";
+$risk_warning_s4_3 = "<strong>Regulatory Change:</strong> Future legal or regulatory developments may affect the availability, functionality, or permissibility of certain products or services without prior notice.";
 
 $risk_warning_contact = "<strong>Inquiries:</strong> For questions regarding this risk disclosure, contact our technical compliance team via the contact section.";
 $footer_risk_warning = "Risk Disclosure";

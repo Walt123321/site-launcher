@@ -226,7 +226,7 @@ $about_heading = "About Us";
 
 $about_text_1 = "$source was established to provide systematic market execution access for both retail and institutional clients. We combine quantitative algorithms, real-time data feeds, and institutional-grade infrastructure to automate trading across equity and digital asset markets. Operational integrity, data security, and execution transparency form the core foundation of our technical operations.";
 
-$about_text_2 = "Our engineering team consists of quantitative developers, machine learning specialists, and financial market infrastructure experts. Every component of $source—from order execution routing to automated risk filtering—undergoes strict backtesting and system auditing to ensure continuous uptime and operational stability.";
+$about_text_2 = "Our engineering team consists of quantitative developers, machine learning specialists, and financial market infrastructure experts. Every component of {$source}—from order execution routing to automated risk filtering—undergoes strict backtesting and system auditing to ensure continuous uptime and operational stability.";
 
 $about_image = "team.png"; // DO NOT MODIFY!!!
 $about_image_alt = "Team";
@@ -371,6 +371,12 @@ $private_policy_section_8_note = "Continuous security monitoring is maintained a
 
 $private_policy_section_9_heading = "9. Retention Schedule";
 $private_policy_section_9_text = "Personal information is retained only as long as necessary to support active accounts or fulfill statutory record-keeping obligations under financial regulations.";
+$private_policy_section_9_list = [
+"For the duration of an active account relationship with our platform.",
+"For any additional period mandated by applicable tax, financial, or regulatory record-keeping requirements.",
+"Until consent is withdrawn, where processing relies solely on user consent."
+];
+$private_policy_section_9_note = "Once retention requirements have been satisfied, personal data is securely deleted or irreversibly anonymized.";
 
 $private_policy_section_10_heading = "10. Statutory User Rights";
 $private_policy_section_10_text = "Under international privacy standards, users possess the following rights:";
