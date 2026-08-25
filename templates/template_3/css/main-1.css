@@ -349,8 +349,13 @@ main {
   font-family: var(--font-family-logo);
   letter-spacing: -0.02rem;
 }
+@media (width <= 87.4875rem) {
+  .header__logo > span {
+    font-size: 1.5rem;
+  }
+}
 .header__body {
-  height: 6.25rem;
+  min-height: 6.25rem;
   align-items: center;
   border-bottom: var(--border-header);
   background-color: var(--color-black);
@@ -403,8 +408,15 @@ main {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
+  row-gap: 0.5rem;
+}
+@media (width <= 87.4875rem) {
+  .header__menu-list {
+    -moz-column-gap: 0.875rem;
+         column-gap: 0.875rem;
+  }
 }
 @media (width <= 63.99875rem) {
   .header__menu-list {
@@ -413,12 +425,24 @@ main {
   }
 }
 .header__menu-link {
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--color-white);
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
   letter-spacing: -0.02rem;
+  white-space: nowrap;
+}
+@media (width <= 87.4875rem) {
+  .header__menu-link {
+    font-size: 0.75rem;
+  }
+}
+@media (width <= 63.99875rem) {
+  .header__menu-link {
+    font-size: 1rem;
+    white-space: normal;
+  }
 }
 @media (any-hover: hover) {
   .header__menu-link:hover {
@@ -438,8 +462,8 @@ main {
   border-radius: 0.625rem;
 }
 .header__button {
-  font-size: 1rem;
-  min-width: 15.25rem;
+  font-size: 0.9375rem;
+  min-width: 11rem;
   text-align: center;
   font-weight: 500;
   line-height: 140%;
@@ -447,8 +471,16 @@ main {
   border-radius: var(--border-radius-button);
   border: 0.0625rem solid var(--color-accent);
   color: var(--color-accent);
-  padding: 1.25rem 2.5rem;
+  padding: 1rem 1.75rem;
+  white-space: nowrap;
   cursor: pointer;
+}
+@media (width <= 87.4875rem) {
+  .header__button {
+    font-size: 0.8125rem;
+    min-width: 8.5rem;
+    padding: 0.75rem 1.25rem;
+  }
 }
 @media (any-hover: hover) {
   .header__button:hover {
