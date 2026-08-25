@@ -1524,6 +1524,22 @@ def generate_lang_files(
     total = max(1, len(domains))
 
     for idx, domain in enumerate(domains, start=1):
+        # Guard against exactly the bug that shipped legacybitfundex.site with
+        # $site_domain = "Legacy Bitfundex.site" (brand name + ".site" instead
+        # of the real domain): every $site_domain/{{DOMAIN}} substitution below
+        # assumes `domain` is already a clean lowercase hostname, since that's
+        # also literally the /lander/{domain}/ folder name on disk. A bad value
+        # here 404s every asset the page loads, but does so silently -- no
+        # exception, just visibly no CSS/JS on the live site. Fail loudly here
+        # instead, before anything gets baked into a launch.
+        if not re.fullmatch(r"[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+", domain):
+            raise ValueError(
+                f"generate_lang_files: {domain!r} doesn't look like a valid lowercase "
+                f"domain (no spaces/uppercase/stray characters allowed) -- refusing to "
+                f"generate, since this becomes $site_domain and the /lander/{{domain}}/ "
+                f"folder name verbatim."
+            )
+
         cc = _infer_cc_from_target_lang(target_lang, geo_code)
         content = template
 

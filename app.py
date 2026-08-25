@@ -413,6 +413,18 @@ def _render_placeholders(text: str, domain: str, target_lang: str, app_price: Op
     # хоча сама сторінка відкривається -- сайт вантажиться зовсім без стилів.
     domain = domain.lower()
 
+    # .lower() alone doesn't catch every bad value that reaches here (e.g. a
+    # brand name accidentally passed in as the domain still 404s every asset
+    # even lowercased -- see legacybitfundex.site, which shipped with
+    # $site_domain = "legacy bitfundex.site"). Fail loudly instead of baking
+    # a malformed value into every {{DOMAIN}} substitution below.
+    if not re.fullmatch(r"[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+", domain):
+        raise ValueError(
+            f"_render_placeholders: {domain!r} doesn't look like a valid domain "
+            f"(no spaces/stray characters allowed) -- refusing to render, since "
+            f"this becomes $site_domain and the /lander/{{domain}}/ folder name verbatim."
+        )
+
     lastmod = datetime.now().strftime("%Y-%m-%d")
 
     # Формуємо currency
