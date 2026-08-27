@@ -45,14 +45,12 @@ ADSPECT_TEMPLATE_STREAM_ID = st.secrets.get("ADSPECT_TEMPLATE_STREAM_ID", "")
 ADSPECT_FILTER_NAME = st.secrets.get("ADSPECT_FILTER_NAME", "adspect")
 PILOT_CAMPAIGN_ID = st.secrets.get("PILOT_CAMPAIGN_ID", "")
 
-# Temporarily paused (2026-08-12): Adspect/Keitaro never see the visitor's
-# real IP on this server -- it's behind Cloudflare + a second DDoS-Guard
-# relay hop, and nginx's realip module only trusts the Cloudflare ranges,
-# not the DDoS-Guard one, so it never kicks in. Result: every visitor looks
-# like a Cloudflare datacenter IP and gets routed to the white page,
-# including real traffic. Re-enable once realip.inc also trusts the
-# DDoS-Guard relay ranges (AS59692) -- flip this back to True.
-CLOAKING_AUTO_LAUNCH_ENABLED = False
+# Was paused 2026-08-12 -- realip.inc didn't trust the DDoS-Guard relay
+# range (AS59692) sitting in front of Cloudflare, so Adspect/Keitaro only
+# ever saw Cloudflare's IP and routed 100% of traffic (including real
+# visitors) to the white page. Confirmed fixed on the server 2026-08-27 --
+# re-enabled.
+CLOAKING_AUTO_LAUNCH_ENABLED = True
 
 CLOAKING_ENABLED = CLOAKING_AUTO_LAUNCH_ENABLED and bool(ADSPECT_API_KEY and ADSPECT_TEMPLATE_STREAM_ID and PILOT_CAMPAIGN_ID)
 
@@ -466,8 +464,15 @@ def setup_cloaking(domain, campaign_id, money_flow_id, offer_group_id, callback=
         # Free up the money-flow's position for the white-flow, same as the
         # pilot (white=1, money=2) -- see bulk_setup.py's create_white_flow
         # for why this is a bump-then-reuse rather than position-1 maths.
+        # Also force type=forced here: create_flow() already sets this for
+        # flows this launcher creates, but money_flow may be a reused/
+        # pre-existing stream (see find_stream_by_campaign) whose type
+        # isn't guaranteed -- and Forced streams are checked as a group
+        # before Regular ones, so a non-forced money-flow could lose to
+        # split-testing/rotation against other Regular flows instead of
+        # deterministically catching the non-cloaked traffic.
         old_money_position = money_flow.get("position", 1)
-        bump = put(f"{BASE_URL}/streams/{money_flow['id']}", {"position": old_money_position + 1})
+        bump = put(f"{BASE_URL}/streams/{money_flow['id']}", {"position": old_money_position + 1, "type": "forced"})
         if bump.status_code not in (200, 201):
             raise Exception(f"failed to bump money flow position: {bump.status_code} {bump.text}")
 

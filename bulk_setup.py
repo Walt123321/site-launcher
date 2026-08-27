@@ -265,10 +265,16 @@ def bump_flow_position(flow_id, new_position):
     """Обновляет позицию существующего flow (используем, чтобы освободить
     место под новый white-flow — см. комментарий в create_white_flow).
     Keitaro /streams/<id> поддерживает GET/PUT/DELETE, PATCH там нет
-    (в отличие от Adspect API) -- отсюда именно PUT."""
+    (в отличие от Adspect API) -- отсюда именно PUT.
+
+    Заодно явно выставляем type=forced: у части старых (добавленных до
+    этого лаунчера) кампаний money-flow мог быть создан как "regular" --
+    Forced-потоки как группа проверяются раньше Regular, а внутри своей
+    группы -- по position (см. доку Keitaro), так что просто сдвинуть
+    position недостаточно для детерминированного срабатывания."""
     status, body = http(
         "PUT", f"{KEITARO_BASE}/streams/{flow_id}", keitaro_headers(),
-        {"position": new_position},
+        {"position": new_position, "type": "forced"},
     )
     if status not in (200, 201):
         raise RuntimeError(f"failed to bump flow {flow_id} to position {new_position}: {status} {body}")
