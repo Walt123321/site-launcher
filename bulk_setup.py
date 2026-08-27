@@ -120,8 +120,17 @@ def list_campaigns(max_fetch=None):
     """GET /campaigns с пагинацией. Возвращает список {id, name, alias, group_id}.
     max_fetch: остановиться, как только набрано столько кампаний (после
     фильтра по BUYER_GROUP_ID) — чтобы --limit не тянул все 1800+ штук
-    только для того, чтобы обрезать их потом."""
+    только для того, чтобы обрезать их потом.
+
+    Этот конкретный Keitaro полностью игнорирует page/per-page и на любой
+    запрос отдаёт один и тот же полный список (все ~1732 кампании разом) --
+    без проверки на повтор page=2 зациклилась бы навечно, раз за разом
+    добавляя те же самые кампании (было поймано и остановлено вручную).
+    Поэтому сверяем id с уже увиденными: если новая страница не принесла
+    ни одного нового id, список исчерпан, останавливаемся -- это работает
+    что при нормальной пагинации, что при этой особенности сервера."""
     campaigns = []
+    seen_ids = set()
     page = 1
     per_page = min(100, max_fetch) if max_fetch else 100
     while True:
@@ -136,9 +145,13 @@ def list_campaigns(max_fetch=None):
         if not rows:
             break
         raw_count = len(rows)
+        new_rows = [r for r in rows if r.get("id") not in seen_ids]
+        if not new_rows:
+            break
+        seen_ids.update(r["id"] for r in new_rows)
         if BUYER_GROUP_ID:
-            rows = [c for c in rows if str(c.get("group_id")) == str(BUYER_GROUP_ID)]
-        campaigns.extend(rows)
+            new_rows = [c for c in new_rows if str(c.get("group_id")) == str(BUYER_GROUP_ID)]
+        campaigns.extend(new_rows)
         if max_fetch and len(campaigns) >= max_fetch:
             return campaigns[:max_fetch]
         if raw_count < per_page:
