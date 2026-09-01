@@ -1290,5 +1290,6 @@ window.APP_LANG = {
 };
 </script>
 <script src="../assets/js/app.js?v=<?= @filemtime(__DIR__ . '/../assets/js/app.js') ?: time() ?>"></script>
+<script src="../integration/validation.js?v=<?= @filemtime(__DIR__ . '/../integration/validation.js') ?: time() ?>" defer></script>
 </body>
 </html>
