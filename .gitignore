@@ -12,6 +12,10 @@ dead_campaigns.csv
 recovered_live_campaigns.csv
 cloudflare_blocked_domains.txt
 cloudflare_phishing_blocked_domains.csv
+maintenance_error_domains.txt
+dead_other_domains.txt
+results.csv
+cloudflare_disable_under_attack.py
 
 # Adhoc scratch/preview output, not project source
 _preview/
