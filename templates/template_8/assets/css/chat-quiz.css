@@ -1,0 +1,191 @@
+.cq-pure-custom-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.cq-field-group {
+    position: relative !important;
+    width: 100% !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.cq-pure-custom-form .iti {
+    width: 100% !important;
+    display: block !important;
+}
+
+.cq-pure-custom-form .iti__selected-country {
+    background-color: #27272a !important;
+    padding-right: 5px !important;
+    border-radius: 7px 0 0 7px !important;
+}
+
+.cq-pure-custom-form input[type="text"],
+.cq-pure-custom-form input[type="email"],
+.cq-pure-custom-form input[type="tel"]:not(.iti__tel-input) {
+    display: block !important;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    box-sizing: border-box !important;
+    background-color: #1e1e22 !important;
+    color: #ffffff !important;
+    border: 1px solid #27272a !important;
+    border-radius: 8px !important;
+    padding: 0 16px !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 48px !important;
+    outline: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, background-color 0.2s ease !important;
+}
+
+.cq-pure-custom-form input:focus {
+    border-color: #00c087 !important;
+    background-color: #222226 !important;
+}
+
+.cq-pure-custom-form .iti__tel-input {
+    display: block !important;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    box-sizing: border-box !important;
+    background-color: #1e1e22 !important;
+    color: #ffffff !important;
+    border: 1px solid #27272a !important;
+    border-radius: 8px !important;
+    padding-right: 16px !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 48px !important;
+    outline: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, background-color 0.2s ease !important;
+}
+
+.cq-phone-row {
+    display: flex !important;
+    align-items: center !important;
+    position: relative !important;
+    width: 100% !important;
+}
+
+.cq-phone-prefix-box {
+    position: absolute !important;
+    top: 1px !important;
+    left: 1px !important;
+    width: 76px !important;
+    height: 46px !important;
+    background-color: #27272a !important;
+    border-right: 1px solid #3f3f46 !important;
+    border-radius: 7px 0 0 7px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+}
+
+.cq-flag-icon {
+    font-size: 16px !important;
+    line-height: 1 !important;
+}
+
+.cq-prefix-code {
+    color: #e4e4e7 !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+
+/* .cq-pure-custom-form input[type="tel"] {
+    padding-left: 90px !important;
+} */
+
+#cq-custom-submit-btn {
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+    background: linear-gradient(135deg, #00e599, #00c087) !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0 !important;
+    line-height: 48px !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 12px rgba(0, 229, 153, 0.3) !important;
+    display: block !important;
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+#cq-custom-submit-btn:hover {
+    opacity: 0.95 !important;
+    transform: translateY(-1px) !important;
+}
+
+.cq-pulse-button {
+    position: relative;
+    animation: cq-bounce 3.2s infinite ease-in-out;
+}
+.cq-pulse-button::before {
+    content: ''; position: absolute; width: 100%; height: 100%; background-color: #00c087; border-radius: 50%; z-index: -1; opacity: 0.35; animation: cq-ripple 2.2s infinite ease-out;
+}
+@keyframes cq-ripple {
+    0% { transform: scale(1); opacity: 0.35; }
+    100% { transform: scale(1.55); opacity: 0; }
+}
+@keyframes cq-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+@keyframes chatIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes confettiFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(530px) rotate(360deg); opacity: 0; }
+}
+
+/* TZ Item 15: chat-widget inline styles externalized for text/code ratio */
+.cq-gen-1 {  position: fixed !important;  bottom: 20px !important;  right: 20px !important;  z-index: 999999 !important;  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;  box-sizing: border-box !important; }
+.cq-gen-2 {  position: relative !important;  width: 62px !important;  height: 62px !important;  border-radius: 50% !important;  background: linear-gradient(135deg, #7008e7, #5d0ec0) !important;  color: #ffffff !important;  border: none !important;  outline: none !important;  cursor: pointer !important;  box-shadow: 0 8px 24px rgba(112, 8, 231, 0.5) !important;  display: flex;  align-items: center !important;  justify-content: center !important;  transition: transform 0.25s ease !important; }
+.cq-gen-3 {  position: absolute !important;  top: -1px !important;  right: -1px !important;  width: 18px !important;  height: 18px !important;  background-color: #05df72 !important;  border-radius: 50% !important;  border: 2px solid #020618 !important;  color: white !important;  font-size: 10px !important;  font-weight: bold !important;  display: flex;  align-items: center !important;  justify-content: center !important;  transform: scale(0);  transition: transform 0.4s ease !important;  z-index: 10 !important; }
+.cq-gen-4 {  width: 26px !important;  height: 26px !important;  transition: transform 0.3s; }
+.cq-gen-5 {  display: none;  position: absolute !important;  bottom: 0 !important;  right: 0 !important;  background-color: #0f172b !important;  border: 1px solid #1e1a4d !important;  border-radius: 20px !important;  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8) !important;  flex-direction: column !important;  overflow: hidden !important;  transition: all 0.35s ease !important;  opacity: 0;  transform: translateY(20px); }
+.cq-gen-6 {  background-color: #1e1a4d !important;  border-bottom: 1px solid rgba(255,255,255,0.1) !important;  padding: 14px 18px !important;  display: flex;  align-items: center !important;  justify-content: space-between !important;  flex-direction: row !important; }
+.cq-gen-7 {  display: flex;  align-items: center !important;  gap: 12px !important;  flex-direction: row !important; }
+.cq-gen-8 {  position: relative !important;  width: 40px !important;  height: 40px !important;  border-radius: 50% !important;  border: 2px solid #5ee9b5 !important;  background-color: #27272a !important;  display: flex;  align-items: center !important;  justify-content: center !important;  overflow: hidden !important;  flex-shrink: 0 !important; }
+.cq-gen-9 {  width: 100% !important;  height: 100% !important;  object-fit: cover !important;  display: block; }
+.cq-gen-10 {  display: none;  width: 22px;  height: 22px;  color: #a1a1aa; }
+.cq-gen-11 {  position: absolute !important;  bottom: 0 !important;  right: 0 !important;  width: 9px !important;  height: 9px !important;  background-color: #05df72 !important;  border: 1.5px solid #020618 !important;  border-radius: 50% !important; }
+.cq-gen-12 {  text-align: left !important; }
+.cq-gen-13 {  color: #ffffff !important;  font-size: 14px !important;  font-weight: 600 !important;  margin: 0 !important;  padding: 0 !important;  line-height: 1.2 !important; }
+.cq-gen-14 {  color: #90a1b9 !important;  font-size: 11px !important;  margin: 0 !important;  padding: 0 !important; }
+.cq-gen-15 {  color: #90a1b9 !important;  background: transparent !important;  border: none !important;  cursor: pointer !important;  padding: 6px !important;  display: flex;  align-items: center !important; }
+.cq-gen-16 {  width: 20px !important;  height: 20px !important; }
+.cq-gen-17 {  flex: 1 !important;  overflow-y: auto !important;  padding: 18px !important;  display: flex;  flex-direction: column !important;  gap: 14px !important;  scroll-behavior: smooth !important; }
+.cq-gen-18 {  display: none;  padding: 10px 18px !important;  font-size: 12px !important;  color: #90a1b9 !important;  font-style: italic !important;  background-color: #0f172b !important;  text-align: left !important; }
+.cq-gen-19 {  padding: 10px 18px !important;  background-color: rgba(30, 26, 77, 0.5) !important;  border-top: 1px solid #1e1a4d !important;  min-height: 20px !important;  display: flex;  align-items: center !important;  justify-content: center !important; }

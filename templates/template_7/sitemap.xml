@@ -1,0 +1,1194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://{{DOMAIN}}/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/" />
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/sign.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/sign.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/sign.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/sign.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/sign.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/sign.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/sign.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/sign.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/sign.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/sign.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/sign.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/sign.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/sign.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/sign.php" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/sign.php" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/sign.php" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/sign.php" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/sign.php" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/sign.php" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/sign.php" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/sign.php" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/sign.php" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/sign.php" />
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/product.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/product.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/product.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/product.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/product.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/product.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/product.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/product.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/product.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/product.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/product.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/product.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/product.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/product.php" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/product.php" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/product.php" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/product.php" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/product.php" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/product.php" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/product.php" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/product.php" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/product.php" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/product.php" />
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/privacy.php" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/privacy.php" />
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/offer.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/offer.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/offer.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/offer.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/offer.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/offer.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/offer.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/offer.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/offer.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/offer.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/offer.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/offer.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/offer.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/offer.php" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/offer.php" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/offer.php" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/offer.php" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/offer.php" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/offer.php" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/offer.php" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/offer.php" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/offer.php" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/offer.php" />
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/faq.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/faq.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/faq.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/faq.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/faq.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/faq.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/faq.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/faq.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/faq.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/faq.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/faq.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/faq.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/faq.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/faq.php" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/faq.php" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/faq.php" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/faq.php" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/faq.php" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/faq.php" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/faq.php" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/faq.php" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/faq.php" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/faq.php" />
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/contacts.php" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/contacts.php" />
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/conditions.php" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/conditions.php" />
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/risk-warning.php" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/risk-warning.php" />
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/de/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/en/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/es/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="hr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/it/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/no/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="ro" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="da" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/da/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="fi" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="hu" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="sk" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="bg" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="ms" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="nb" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="el" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/el/sitemap.php" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/sitemap.php" />
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/cs/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/de/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/en/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/es/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fr/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hr/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/it/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nl/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/no/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pl/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/pt/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ro/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sv/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/tr/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/da/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/fi/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/hu/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/sk/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/bg/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ms/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/nb/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/el/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/sign.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/product.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/privacy.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/offer.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/faq.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/contacts.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/conditions.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/risk-warning.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+    <url>
+        <loc>https://{{DOMAIN}}/lander/{{DOMAIN}}/ja/sitemap.php</loc>
+        <lastmod>{{LASTMOD}}</lastmod>
+    </url>
+</urlset>

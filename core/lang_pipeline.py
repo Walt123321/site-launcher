@@ -280,8 +280,18 @@ def _set_php_var(content: str, var: str, value: str, numeric: bool) -> str:
 # -----------------------------
 
 def _escape_php_string(s: str) -> str:
-    # fallback: безпечне екранування для single-quoted PHP рядків
-    return s.replace("\\", "\\\\").replace("'", "\\'")
+    # _set_php_var's only caller always wraps this in DOUBLE quotes (see
+    # rhs = f'"{...}"' above) -- but this used to escape only backslash and
+    # single-quote (a single-quoted-string escaping rule), leaving embedded
+    # double-quotes and '$' unescaped. That's silently broken PHP for any
+    # value containing a literal '"' (e.g. json.dumps(["gb"]) => '["gb"]',
+    # which produced content = '"["gb"]"' -- a parse error, since PHP reads
+    # that as two adjacent string literals with a bareword `gb` between them)
+    # or a '$' (would start a variable interpolation instead of a literal
+    # dollar sign). Escape for the double-quoted context this is actually
+    # used in; backslash must be escaped first so the following replacements
+    # don't double-escape it.
+    return s.replace("\\", "\\\\").replace('"', '\\"').replace("$", "\\$")
     
 def _get_openai_client() -> OpenAI:
     if OpenAI is None:
@@ -2048,6 +2058,351 @@ def generate_lang_files(
                 raise RuntimeError(f"TEMPLATE_6 FAILED: {e}")
 
         # -------------------------
+        # TEMPLATE 7 (Treu Vermostein) -- same generic flow as template_8/9/10:
+        # scalar substitution + generic whole-file string extraction/
+        # translation. lang.php's extra Treu-Vermostein-specific variables
+        # (about_*, panel*_*, conditions_s*_*, privacy_s*_*, risk_warning_*,
+        # etc.) don't need special-casing here since _extract_strings/
+        # _apply_strings work on the raw PHP string literals, not on variable
+        # names. Note: unlike template_8/9/10, template_7's own lang.php does
+        # NOT ship form_country/form_language/form_phone_country/
+        # form_only_countries defaults -- those hidden form fields are driven
+        # by offer_seo.php (patched separately by patch_offer_seo() in
+        # app.py, which runs on every template's offer_seo.php regardless of
+        # kind). Setting them here anyway, mirroring template_8/9/10, inserts
+        # a fresh assignment into the generated lang.php; since lang.php is
+        # require'd AFTER offer_seo.php on every template_7 page, this
+        # override wins and keeps behavior consistent with the other
+        # already-wired templates.
+        # -------------------------
+        elif template_kind in ("template_7", "template7"):
+
+            try:
+                if progress_cb:
+                    progress_cb((idx - 1) / total, f"Processing {domain}...")
+
+                domain_lower = domain.lower()
+                content = content.replace("{{DOMAIN}}", domain_lower)
+
+                price = _make_price(geo_currency)
+
+                content = _set_php_var(content, "site_name", brand, numeric=False)
+                content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
+                content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
+                content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
+                content = _set_php_var(content, "app_price", str(price), numeric=True)
+                content = _set_php_var(content, "site_lang", target_lang, numeric=False)
+                if country_name:
+                    content = _set_php_var(content, "country_name", country_name, numeric=False)
+
+                # Keitaro form integration variables -- lang.php ships these
+                # as plain "gb"/"en"/"[]" fallback defaults; overwrite with
+                # the real per-launch geo/language so the intl-tel-input
+                # widget (phone_country / only_countries) and the CRM-bound
+                # hidden country/language fields match the actual campaign.
+                form_cc = _infer_cc_from_target_lang(target_lang, geo_code).lower()
+                form_lang_short = (target_lang.split("-")[0].lower() if target_lang else "en")
+                content = _set_php_var(content, "form_country", form_cc, numeric=False)
+                content = _set_php_var(content, "form_language", form_lang_short, numeric=False)
+                content = _set_php_var(content, "form_phone_country", form_cc, numeric=False)
+                content = _set_php_var(content, "form_only_countries", json.dumps([form_cc]), numeric=False)
+
+                rating_value = round(random.uniform(4.6, 5.0), 1)
+                rating_count = random.randint(300, 3000)
+
+                content = _set_php_var(content, "rating_value", str(rating_value), numeric=True)
+                content = _set_php_var(content, "rating_count", str(rating_count), numeric=True)
+
+                custom_instructions = (
+                    f"You are localizing a high-conversion cryptocurrency trading platform template into {target_lang} for the {geo_code} market.\n"
+                    f"\n"
+                    f"RULE 1 — NATURAL, COMPELLING COPY:\n"
+                    f"Translate naturally and fluently. Do not produce stiff machine translations. The copy must feel authentic and persuasive to a native speaker of {target_lang}.\n"
+                    f"\n"
+                    f"RULE 2 — PRESERVE BRAND NAME:\n"
+                    f"The token '$site_name' will be replaced with the actual brand name ({brand}) at runtime. NEVER translate, rename, remove the '$' sign, or replace '$site_name' with any other text. Keep it verbatim as '$site_name'.\n"
+                    f"\n"
+                    f"RULE 3 — PRESERVE ALL HTML TAGS AND ATTRIBUTES:\n"
+                    f"HTML tags like <mark>, <span>, <br>, <strong>, <a> must be kept exactly as they are in the original string. Do NOT drop, modify, or translate any HTML attributes (e.g. data-local-currency, class, href).\n"
+                    f"\n"
+                    f"RULE 4 — PRESERVE PHP VARIABLES:\n"
+                    f"Any token starting with '$' (e.g. $site_name, $app_price, $app_currency) MUST be copied into the translation exactly as-is. Tokens like __PH0__, __PH1__ etc. must also remain completely unchanged.\n"
+                )
+
+                if target_lang.lower() != "en" and target_lang.lower() != "en-us":
+                    if progress_cb:
+                        progress_cb((idx - 1) / total + 0.7 / total, f"Translating (Pass 1)...")
+
+                    strings, spans = _extract_strings(content)
+
+                    if strings:
+                        outs = _llm_transform_strings_onepass(
+                            client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                        )
+                        content = _apply_strings(content, spans, outs)
+
+                    strings, spans = _extract_strings(content)
+
+                    if strings:
+                        if progress_cb:
+                            progress_cb((idx - 1) / total + 0.9 / total, f"Translating (Pass 2)...")
+                        outs = _llm_transform_strings_onepass(
+                            client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                        )
+                        content = _apply_strings(content, spans, outs)
+
+            except Exception as e:
+                raise RuntimeError(f"TEMPLATE_7 FAILED: {e}")
+
+        # -------------------------
+        # TEMPLATE 8 (Ciel Cryptance / Template 8.1)
+        # -------------------------
+        elif template_kind in ("template_8", "template_8.1", "template8"):
+
+            try:
+                if progress_cb:
+                    progress_cb((idx - 1) / total, f"Processing {domain}...")
+
+                domain_lower = domain.lower()
+                content = content.replace("{{DOMAIN}}", domain_lower)
+
+                price = _make_price(geo_currency)
+
+                content = _set_php_var(content, "site_name", brand, numeric=False)
+                content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
+                content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
+                content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
+                content = _set_php_var(content, "app_price", str(price), numeric=True)
+                content = _set_php_var(content, "site_lang", target_lang, numeric=False)
+                if country_name:
+                    content = _set_php_var(content, "country_name", country_name, numeric=False)
+
+                # Keitaro form integration variables -- lang.php ships these
+                # as plain "gb"/"en"/"[]" fallback defaults; overwrite with
+                # the real per-launch geo/language so the intl-tel-input
+                # widget (phone_country / only_countries) and the CRM-bound
+                # hidden country/language fields match the actual campaign.
+                form_cc = _infer_cc_from_target_lang(target_lang, geo_code).lower()
+                form_lang_short = (target_lang.split("-")[0].lower() if target_lang else "en")
+                content = _set_php_var(content, "form_country", form_cc, numeric=False)
+                content = _set_php_var(content, "form_language", form_lang_short, numeric=False)
+                content = _set_php_var(content, "form_phone_country", form_cc, numeric=False)
+                content = _set_php_var(content, "form_only_countries", json.dumps([form_cc]), numeric=False)
+
+                rating_value = round(random.uniform(4.6, 5.0), 1)
+                rating_count = random.randint(300, 3000)
+
+                content = _set_php_var(content, "rating_value", str(rating_value), numeric=True)
+                content = _set_php_var(content, "rating_count", str(rating_count), numeric=True)
+
+                custom_instructions = (
+                    f"You are localizing a high-conversion cryptocurrency trading platform template into {target_lang} for the {geo_code} market.\n"
+                    f"\n"
+                    f"RULE 1 — NATURAL, COMPELLING COPY:\n"
+                    f"Translate naturally and fluently. Do not produce stiff machine translations. The copy must feel authentic and persuasive to a native speaker of {target_lang}.\n"
+                    f"\n"
+                    f"RULE 2 — PRESERVE BRAND NAME:\n"
+                    f"The token '$site_name' will be replaced with the actual brand name ({brand}) at runtime. NEVER translate, rename, remove the '$' sign, or replace '$site_name' with any other text. Keep it verbatim as '$site_name'.\n"
+                    f"\n"
+                    f"RULE 3 — PRESERVE ALL HTML TAGS AND ATTRIBUTES:\n"
+                    f"HTML tags like <mark>, <span>, <br>, <strong>, <a> must be kept exactly as they are in the original string. Do NOT drop, modify, or translate any HTML attributes (e.g. data-local-currency, class, href).\n"
+                    f"\n"
+                    f"RULE 4 — PRESERVE PHP VARIABLES:\n"
+                    f"Any token starting with '$' (e.g. $site_name, $app_price, $app_currency) MUST be copied into the translation exactly as-is. Tokens like __PH0__, __PH1__ etc. must also remain completely unchanged.\n"
+                )
+
+                if target_lang.lower() != "en" and target_lang.lower() != "en-us":
+                    if progress_cb:
+                        progress_cb((idx - 1) / total + 0.7 / total, f"Translating (Pass 1)...")
+
+                    strings, spans = _extract_strings(content)
+
+                    if strings:
+                        outs = _llm_transform_strings_onepass(
+                            client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                        )
+                        content = _apply_strings(content, spans, outs)
+
+                    strings, spans = _extract_strings(content)
+
+                    if strings:
+                        if progress_cb:
+                            progress_cb((idx - 1) / total + 0.9 / total, f"Translating (Pass 2)...")
+                        outs = _llm_transform_strings_onepass(
+                            client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                        )
+                        content = _apply_strings(content, spans, outs)
+
+            except Exception as e:
+                raise RuntimeError(f"TEMPLATE_8 FAILED: {e}")
+
+        # -------------------------
+        # TEMPLATE 9 (Tulong Grow) -- same generic flow as template_8:
+        # scalar substitution + generic whole-file string extraction/
+        # translation. lang.php's extra Tulong-Grow-specific variables
+        # (why_*, feature_*, calc_*, stat_*, table_*, quiz_* etc.) don't
+        # need special-casing here since _extract_strings/_apply_strings
+        # work on the raw PHP string literals, not on variable names.
+        # -------------------------
+        elif template_kind in ("template_9", "template9"):
+
+            try:
+                if progress_cb:
+                    progress_cb((idx - 1) / total, f"Processing {domain}...")
+
+                domain_lower = domain.lower()
+                content = content.replace("{{DOMAIN}}", domain_lower)
+
+                price = _make_price(geo_currency)
+
+                content = _set_php_var(content, "site_name", brand, numeric=False)
+                content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
+                content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
+                content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
+                content = _set_php_var(content, "app_price", str(price), numeric=True)
+                content = _set_php_var(content, "site_lang", target_lang, numeric=False)
+                if country_name:
+                    content = _set_php_var(content, "country_name", country_name, numeric=False)
+
+                # Keitaro form integration variables -- lang.php ships these
+                # as plain "gb"/"en"/"[]" fallback defaults; overwrite with
+                # the real per-launch geo/language so the intl-tel-input
+                # widget (phone_country / only_countries) and the CRM-bound
+                # hidden country/language fields match the actual campaign.
+                form_cc = _infer_cc_from_target_lang(target_lang, geo_code).lower()
+                form_lang_short = (target_lang.split("-")[0].lower() if target_lang else "en")
+                content = _set_php_var(content, "form_country", form_cc, numeric=False)
+                content = _set_php_var(content, "form_language", form_lang_short, numeric=False)
+                content = _set_php_var(content, "form_phone_country", form_cc, numeric=False)
+                content = _set_php_var(content, "form_only_countries", json.dumps([form_cc]), numeric=False)
+
+                rating_value = round(random.uniform(4.6, 5.0), 1)
+                rating_count = random.randint(300, 3000)
+
+                content = _set_php_var(content, "rating_value", str(rating_value), numeric=True)
+                content = _set_php_var(content, "rating_count", str(rating_count), numeric=True)
+
+                custom_instructions = (
+                    f"You are localizing a high-conversion cryptocurrency trading platform template into {target_lang} for the {geo_code} market.\n"
+                    f"\n"
+                    f"RULE 1 — NATURAL, COMPELLING COPY:\n"
+                    f"Translate naturally and fluently. Do not produce stiff machine translations. The copy must feel authentic and persuasive to a native speaker of {target_lang}.\n"
+                    f"\n"
+                    f"RULE 2 — PRESERVE BRAND NAME:\n"
+                    f"The token '$site_name' will be replaced with the actual brand name ({brand}) at runtime. NEVER translate, rename, remove the '$' sign, or replace '$site_name' with any other text. Keep it verbatim as '$site_name'.\n"
+                    f"\n"
+                    f"RULE 3 — PRESERVE ALL HTML TAGS AND ATTRIBUTES:\n"
+                    f"HTML tags like <mark>, <span>, <br>, <strong>, <a> must be kept exactly as they are in the original string. Do NOT drop, modify, or translate any HTML attributes (e.g. data-local-currency, class, href).\n"
+                    f"\n"
+                    f"RULE 4 — PRESERVE PHP VARIABLES:\n"
+                    f"Any token starting with '$' (e.g. $site_name, $app_price, $app_currency) MUST be copied into the translation exactly as-is. Tokens like __PH0__, __PH1__ etc. must also remain completely unchanged.\n"
+                )
+
+                if target_lang.lower() != "en" and target_lang.lower() != "en-us":
+                    if progress_cb:
+                        progress_cb((idx - 1) / total + 0.7 / total, f"Translating (Pass 1)...")
+
+                    strings, spans = _extract_strings(content)
+
+                    if strings:
+                        outs = _llm_transform_strings_onepass(
+                            client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                        )
+                        content = _apply_strings(content, spans, outs)
+
+                    strings, spans = _extract_strings(content)
+
+                    if strings:
+                        if progress_cb:
+                            progress_cb((idx - 1) / total + 0.9 / total, f"Translating (Pass 2)...")
+                        outs = _llm_transform_strings_onepass(
+                            client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                        )
+                        content = _apply_strings(content, spans, outs)
+
+            except Exception as e:
+                raise RuntimeError(f"TEMPLATE_9 FAILED: {e}")
+
+        elif template_kind in ("template_10", "template10"):
+
+            try:
+                if progress_cb:
+                    progress_cb((idx - 1) / total, f"Processing {domain}...")
+
+                domain_lower = domain.lower()
+                content = content.replace("{{DOMAIN}}", domain_lower)
+
+                price = _make_price(geo_currency)
+
+                content = _set_php_var(content, "site_name", brand, numeric=False)
+                content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
+                content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
+                content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
+                content = _set_php_var(content, "app_price", str(price), numeric=True)
+                content = _set_php_var(content, "site_lang", target_lang, numeric=False)
+                if country_name:
+                    content = _set_php_var(content, "country_name", country_name, numeric=False)
+
+                # Keitaro form integration variables -- lang.php ships these
+                # as plain "gb"/"en"/"[]" fallback defaults; overwrite with
+                # the real per-launch geo/language so the intl-tel-input
+                # widget (phone_country / only_countries) and the CRM-bound
+                # hidden country/language fields match the actual campaign.
+                form_cc = _infer_cc_from_target_lang(target_lang, geo_code).lower()
+                form_lang_short = (target_lang.split("-")[0].lower() if target_lang else "en")
+                content = _set_php_var(content, "form_country", form_cc, numeric=False)
+                content = _set_php_var(content, "form_language", form_lang_short, numeric=False)
+                content = _set_php_var(content, "form_phone_country", form_cc, numeric=False)
+                content = _set_php_var(content, "form_only_countries", json.dumps([form_cc]), numeric=False)
+
+                rating_value = round(random.uniform(4.6, 5.0), 1)
+                rating_count = random.randint(300, 3000)
+
+                content = _set_php_var(content, "rating_value", str(rating_value), numeric=True)
+                content = _set_php_var(content, "rating_count", str(rating_count), numeric=True)
+
+                custom_instructions = (
+                    f"You are localizing a high-conversion cryptocurrency trading platform template into {target_lang} for the {geo_code} market.\n"
+                    f"\n"
+                    f"RULE 1 — NATURAL, COMPELLING COPY:\n"
+                    f"Translate naturally and fluently. Do not produce stiff machine translations. The copy must feel authentic and persuasive to a native speaker of {target_lang}.\n"
+                    f"\n"
+                    f"RULE 2 — PRESERVE BRAND NAME:\n"
+                    f"The token '$site_name' will be replaced with the actual brand name ({brand}) at runtime. NEVER translate, rename, remove the '$' sign, or replace '$site_name' with any other text. Keep it verbatim as '$site_name'.\n"
+                    f"\n"
+                    f"RULE 3 — PRESERVE ALL HTML TAGS AND ATTRIBUTES:\n"
+                    f"HTML tags like <mark>, <span>, <br>, <strong>, <a> must be kept exactly as they are in the original string. Do NOT drop, modify, or translate any HTML attributes (e.g. data-local-currency, class, href).\n"
+                    f"\n"
+                    f"RULE 4 — PRESERVE PHP VARIABLES:\n"
+                    f"Any token starting with '$' (e.g. $site_name, $app_price, $app_currency) MUST be copied into the translation exactly as-is. Tokens like __PH0__, __PH1__ etc. must also remain completely unchanged.\n"
+                )
+
+                if target_lang.lower() != "en" and target_lang.lower() != "en-us":
+                    if progress_cb:
+                        progress_cb((idx - 1) / total + 0.7 / total, f"Translating (Pass 1)...")
+
+                    strings, spans = _extract_strings(content)
+
+                    if strings:
+                        outs = _llm_transform_strings_onepass(
+                            client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                        )
+                        content = _apply_strings(content, spans, outs)
+
+                    strings, spans = _extract_strings(content)
+
+                    if strings:
+                        if progress_cb:
+                            progress_cb((idx - 1) / total + 0.9 / total, f"Translating (Pass 2)...")
+                        outs = _llm_transform_strings_onepass(
+                            client, model, strings, target_lang, geo_code, instructions=custom_instructions
+                        )
+                        content = _apply_strings(content, spans, outs)
+
+            except Exception as e:
+                raise RuntimeError(f"TEMPLATE_10 FAILED: {e}")
+
+        # -------------------------
         # TEMPLATE 2 (fixed flow)
         # -------------------------
         elif template_kind == "template_2":
@@ -2179,6 +2534,10 @@ def generate_lang_files_multi(
     model: str = DEFAULT_MODEL,
     geo_defaults: Optional[Dict] = None,
     progress_cb: Optional[Callable[[float, str], None]] = None,
+    template7_bytes: Optional[bytes] = None,
+    template8_bytes: Optional[bytes] = None,
+    template9_bytes: Optional[bytes] = None,
+    template10_bytes: Optional[bytes] = None,
 ) -> List[Dict[str, str]]:
     """
     Generate lang.php for multiple templates.
@@ -2201,7 +2560,23 @@ def generate_lang_files_multi(
             out.append({"domain": d, "content": "<?php // Static Qoooqle template ?>"})
             continue
 
-        if kind in ("template_3", "t3", "3", "template3"):
+        if kind in ("template_7", "t7", "7", "template7"):
+            tpl = template7_bytes if template7_bytes is not None else template1_bytes
+            tk = "template_7"
+
+        elif kind in ("template_8", "t8", "8", "template8", "template_8.1"):
+            tpl = template8_bytes if template8_bytes is not None else template1_bytes
+            tk = "template_8"
+
+        elif kind in ("template_9", "t9", "9", "template9"):
+            tpl = template9_bytes if template9_bytes is not None else template1_bytes
+            tk = "template_9"
+
+        elif kind in ("template_10", "t10", "10", "template10"):
+            tpl = template10_bytes if template10_bytes is not None else template1_bytes
+            tk = "template_10"
+
+        elif kind in ("template_3", "t3", "3", "template3"):
             tpl = template3_bytes
             tk = "template_3"
 

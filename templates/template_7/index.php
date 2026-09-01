@@ -1,0 +1,754 @@
+<?php
+if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
+    $host = substr($_SERVER['HTTP_HOST'], 4);
+    header("Location: https://" . $host . $_SERVER['REQUEST_URI'], true, 301);
+    exit();
+}
+
+session_start();
+if (empty($_SESSION['js_token'])) {
+    $_SESSION['js_token'] = bin2hex(random_bytes(16));
+}
+$jsToken = $_SESSION['js_token'];
+
+// Ловим click id прямо из URL (Keitaro подставляет его как параметр при
+// редиректе на лендинг) — раньше это никак не перехватывалось, если кука
+// _subid от Keitaro почему-то не проставлялась сама. Кладём и в сессию, и
+// в куку, чтобы существующая цепочка чтения в send.php/validation.js
+// подхватила его тем же путём, что и раньше.
+$incomingClickId = $_GET['subid'] ?? $_GET['click_id'] ?? $_GET['clickid'] ?? $_GET['sub_id'] ?? null;
+if (!empty($incomingClickId)) {
+    $_SESSION['click_id'] = $incomingClickId;
+    setcookie('_subid', $incomingClickId, time() + 86400 * 30, '/');
+}
+
+include_once 'indexnow.php';
+
+require_once 'offer_seo.php';
+include 'lang.php';
+
+$host = $_SERVER['HTTP_HOST'];
+$uri = strtok($_SERVER['REQUEST_URI'], '?');
+
+if (strpos(strtolower($uri), '/lander/') !== false && basename($uri) === 'index.php') {
+    $canonical = 'https://' . $host . '/';
+} else {
+    $canonical = 'https://' . $host . $uri;
+}
+?>
+<!DOCTYPE html>
+<html lang="<?= $site_lang ?>">
+<head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "<?= $site_name ?>",
+      "item": "<?= $site_url ?>"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "💸 <?= $site_name ?> 💸",
+      "item": <?= json_encode($canonical) ?>
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "logo": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "SoftwareApplication",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url . '/') ?>,
+  "logo": <?= json_encode($site_url . '/lander/' . $site_domain . '/favicon-96x96.png') ?>,
+  "description": <?= json_encode($home_meta_description) ?>,
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web Browser",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": <?= json_encode((float) $rating_value) ?>,
+    "bestRating": 5,
+    "worstRating": 1,
+    "ratingCount": <?= json_encode((int) $rating_count) ?>,
+    "reviewCount": <?= json_encode((int) $review_count) ?>
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": <?= json_encode((string) $app_price) ?>,
+    "priceCurrency": <?= json_encode($app_currency) ?>,
+    "availability": "https://schema.org/InStock"
+  },
+  "author": { "@type": "Brand", "name": <?= json_encode($site_name) ?> }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": <?= json_encode($site_name) ?>,
+  "url": <?= json_encode($site_url) ?>,
+  "description": <?= json_encode($home_meta_description) ?>,
+  "inLanguage": <?= json_encode($site_lang) ?>
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": <?= json_encode($faq_q1) ?>, "acceptedAnswer": { "@type": "Answer", "text": <?= json_encode($faq_a1) ?> } },
+    { "@type": "Question", "name": <?= json_encode($faq_q2) ?>, "acceptedAnswer": { "@type": "Answer", "text": <?= json_encode($faq_a2) ?> } },
+    { "@type": "Question", "name": <?= json_encode($faq_q3) ?>, "acceptedAnswer": { "@type": "Answer", "text": <?= json_encode($faq_a3) ?> } },
+    { "@type": "Question", "name": <?= json_encode($faq_q4) ?>, "acceptedAnswer": { "@type": "Answer", "text": <?= json_encode($faq_a4) ?> } },
+    { "@type": "Question", "name": <?= json_encode($faq_q5) ?>, "acceptedAnswer": { "@type": "Answer", "text": <?= json_encode($faq_a5) ?> } },
+    { "@type": "Question", "name": <?= json_encode($faq_q6) ?>, "acceptedAnswer": { "@type": "Answer", "text": <?= json_encode($faq_a6) ?> } }
+  ]
+}
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="<?= htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8'); ?>" />
+<title><?= $home_meta_title ?></title>
+<meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1">
+<meta name="description" content="<?= $home_meta_description ?>" />
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="<?= $site_name ?>">
+<meta property="og:url" content="<?= $site_url ?>/">
+<meta property="og:title" content="<?= $home_meta_title ?>">
+<meta property="og:description" content="<?= $home_meta_description ?>">
+<meta property="og:image" content="<?= $site_url ?>/lander/<?= $site_domain ?>/favicon-96x96.png">
+<meta property="og:image:width" content="96">
+<meta property="og:image:height" content="96">
+<meta property="og:image:alt" content="<?= $site_name ?> logo">
+<?php if ($country_flag_code): ?>
+<link rel="icon" type="image/png" href="https://flagcdn.com/96x72/<?= $country_flag_code ?>.png" sizes="96x96" />
+<link rel="shortcut icon" href="https://flagcdn.com/48x36/<?= $country_flag_code ?>.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://flagcdn.com/180x135/<?= $country_flag_code ?>.png" />
+<?php else: ?>
+<link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="shortcut icon" href="./favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+<?php endif; ?>
+<link rel="manifest" href="./site.webmanifest" />
+  <link rel="stylesheet" href="./integration/default-integration.css?v=<?= @filemtime(__DIR__ . '/./integration/default-integration.css') ?: time() ?>">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+<link rel="preload" href="./assets/css/theme.css?v=<?= @filemtime(__DIR__ . '/./assets/css/theme.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="./assets/css/theme.css?v=<?= @filemtime(__DIR__ . '/./assets/css/theme.css') ?: time() ?>" /></noscript>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.css" /></noscript>
+<style>
+  .error-msg { padding-top: 6px; color: #c0392b; font-size: 13px; }
+  .hide, .hidden { display: none !important; }
+  .form-preloader { position: absolute; inset: 0; background: rgba(255,255,255,.85); z-index: 4; display: flex; align-items: center; justify-content: center; border-radius: var(--border-radius); }
+  .spinner { animation: rotate 2s linear infinite; width: 40px; height: 40px; }
+  .spinner .path { stroke: var(--accent); stroke-linecap: round; animation: dash 1.5s ease-in-out infinite; }
+  @keyframes rotate { 100% { transform: rotate(360deg); } }
+  @keyframes dash {
+    0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
+    50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+    100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+  }
+</style>
+<link rel="alternate" hreflang="x-default" href="<?= $site_url ?>/" />
+<link rel="alternate" hreflang="es" href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/" />
+<link rel="alternate" hreflang="cs" href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/" />
+<link rel="alternate" hreflang="de" href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/" />
+<link rel="alternate" hreflang="en" href="<?= $site_url ?>/lander/<?= $site_domain ?>/en/" />
+<link rel="alternate" hreflang="it" href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/" />
+<link rel="alternate" hreflang="fr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/" />
+<link rel="alternate" hreflang="nl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/" />
+<link rel="alternate" hreflang="pl" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/" />
+<link rel="alternate" hreflang="pt" href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/" />
+<link rel="alternate" hreflang="ro" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/" />
+<link rel="alternate" hreflang="sv" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/" />
+<link rel="alternate" hreflang="tr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/" />
+<link rel="alternate" hreflang="hr" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/" />
+<link rel="alternate" hreflang="no" href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/" />
+<link rel="alternate" hreflang="da" href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/" />
+<link rel="alternate" hreflang="fi" href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/" />
+<link rel="alternate" hreflang="hu" href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/" />
+<link rel="alternate" hreflang="sk" href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/" />
+<link rel="alternate" hreflang="bg" href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/" />
+<link rel="alternate" hreflang="ms" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/" />
+<link rel="alternate" hreflang="nb" href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/" />
+<link rel="alternate" hreflang="el" href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/" />
+<link rel="alternate" hreflang="ja" href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/" />
+</head>
+<body>
+<!-- header -->
+<header class="site-header">
+  <div class="inside-header">
+    <div class="site-branding-container">
+      <a class="site-logo" href="<?= $site_url ?>">
+        <?php if ($country_flag_code): ?>
+        <img src="https://flagcdn.com/48x36/<?= $country_flag_code ?>.png" srcset="https://flagcdn.com/96x72/<?= $country_flag_code ?>.png 2x" width="32" height="24" alt="<?= $country_name ?>" loading="eager" decoding="async">
+        <?php else: ?>
+        <img src="./favicon-96x96.png" alt="<?= $site_name ?>" width="32" height="32">
+        <?php endif; ?>
+      </a>
+      <p class="main-title"><a href="<?= $site_url ?>"><?= $site_name ?></a></p>
+    </div>
+    <nav class="main-navigation">
+      <div class="main-nav">
+        <ul>
+          <li><a href="#why-us"><?= $mobnav_product ?></a></li>
+          <li><a href="#faq"><?= $mobnav_faq ?></a></li>
+          <li><a href="#about"><?= $footnav_about ?></a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="header-right">
+      <a href="#form" class="btn"><?= $mobnav_signup ?></a>
+      <button class="menu-toggle-ref" data-menu-icon aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav-ref" data-mobile-menu>
+    <a href="#why-us"><?= $mobnav_product ?></a>
+    <a href="#faq"><?= $mobnav_faq ?></a>
+    <a href="#about"><?= $footnav_about ?></a>
+    <a href="#form"><?= $mobnav_signup ?></a>
+  </nav>
+</header>
+
+<!-- hero -->
+<section class="hero-bg">
+  <div class="container-ref">
+    <div class="hero-copy">
+      <h1><?= $hero_h1 ?></h1>
+      <p><?= $hero_text ?></p>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-media">
+        <img src="./assets/img/tablet-dashboard.webp" alt="<?= $alt_tablet_dashboard ?>" width="700" height="700" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero-form-card" id="form">
+        <h2><?= $hero_form_heading ?></h2>
+        <form name="form" method="post" class="leadform rf-form js-rf-form form-ref" action="./integration/send.php" data-form>
+          <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
+          <div class="t7-gen-1">
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+            <input type="text" name="company" autocomplete="off">
+          </div>
+          <input type="hidden" name="country" value="<?= $form_country; ?>">
+          <input type="hidden" name="language" value="<?= $form_language; ?>">
+          <input type="hidden" name="phone_country" value="<?= $form_phone_country; ?>">
+          <input type="hidden" name="only_countries" value='<?= $form_only_countries; ?>'>
+          <div class="form-preloader hidden">
+            <svg class="spinner" viewBox="0 0 50 50"><circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle></svg>
+          </div>
+          <div class="input_group">
+            <input type="text" name="fname" placeholder="<?= $form_name_placeholder ?>" aria-label="<?= $form_name_placeholder ?>" required />
+          </div>
+          <div class="input_group">
+            <input type="text" name="lname" placeholder="<?= $form_surname_placeholder ?>" aria-label="<?= $form_surname_placeholder ?>" required />
+          </div>
+          <div class="input_group">
+            <input type="email" name="email" placeholder="<?= $form_email_placeholder ?>" aria-label="<?= $form_email_placeholder ?>" required />
+          </div>
+          <div class="input_group">
+            <input type="tel" name="fullphone" placeholder="" aria-label="Phone" required />
+            <span class="error-msg hide"></span>
+          </div>
+          <div class="form-message" data-form-message role="alert">
+            <p data-form-message-title></p>
+            <div data-form-message-content></div>
+          </div>
+          <div class="input_group">
+            <button type="submit" class="btn-submit-ref"><?= $hero_form_button ?></button>
+          </div>
+          <p class="form-disclaimer">
+            <?= $hero_disclaimer_prefix ?>
+            <a href="conditions.php"><?= $hero_terms_link ?></a>
+            <?= $hero_disclaimer_and ?>
+            <a href="privacy.php"><?= $hero_privacy_link ?></a>.
+          </p>
+          <div class="pay-badges">
+            <img src="./assets/img/svg/visa-real.svg" alt="Visa" width="58" height="39" loading="lazy">
+            <img src="./assets/img/svg/mastercard-real.svg" alt="Mastercard" width="58" height="39" loading="lazy">
+            <img src="./assets/img/svg/maestro.svg" alt="Maestro" width="58" height="39" loading="lazy">
+            <img src="./assets/img/svg/sslsecure.svg" alt="Secure SSL Encryption" width="90" height="39" loading="lazy">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="trust-strip">
+      <p class="lead"><?= $trust_strip_text ?></p>
+      <p class="sub"><?= $trust_strip_subtext ?></p>
+      <dl class="trust-stats">
+        <div><dt><?= $trust_stat_1_label ?></dt><dd><?= $trust_stat_1_value ?></dd></div>
+        <div><dt><?= $trust_stat_2_label ?></dt><dd><?= $trust_stat_2_value ?></dd></div>
+        <div><dt><?= $trust_stat_3_label ?></dt><dd><?= $trust_stat_3_value ?></dd></div>
+        <div><dt><?= $trust_stat_4_label ?></dt><dd><?= $trust_stat_4_value ?></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- why us -->
+<section class="features-bg border-gradient" id="why-us">
+  <div class="container-ref">
+    <div class="section-head">
+      <span class="text-gradient-label"><?= $why_us_label ?></span>
+      <h2><?= $why_us_title ?></h2>
+      <p><?= $why_us_subtitle ?></p>
+      <p><?= $why_us_intro ?></p>
+    </div>
+    <div class="features-grid">
+      <div>
+        <span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5L12 2z"/></svg></span>
+        <h3><?= $icon_1_title ?></h3>
+        <p><?= $icon_1_text ?></p>
+      </div>
+      <div>
+        <span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2c1.5 0 3.5 3 3.5 8s-2 8-3.5 8-3.5-3-3.5-8 2-8 3.5-8zM4 12h16"/></svg></span>
+        <h3><?= $icon_2_title ?></h3>
+        <p><?= $icon_2_text ?></p>
+      </div>
+      <div>
+        <span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7v8l10-12h-7z"/></svg></span>
+        <h3><?= $icon_3_title ?></h3>
+        <p><?= $icon_3_text ?></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- panels -->
+<section>
+  <div class="container-ref">
+    <div class="panel-row">
+      <div class="panel-copy">
+        <span class="eyebrow"><?= $panel1_eyebrow ?></span>
+        <h2><?= $panel1_title ?></h2>
+        <p class="lede"><?= $panel1_lede ?></p>
+        <p><?= $panel1_text ?></p>
+      </div>
+      <div class="panel-media">
+        <img src="./assets/img/traders-analyzing.webp" alt="<?= $alt_traders_analyzing ?>" width="700" height="700" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <div class="panel-row reverse">
+      <div class="panel-copy">
+        <span class="eyebrow"><?= $panel2_eyebrow ?></span>
+        <h2><?= $panel2_title ?></h2>
+        <p class="lede"><?= $panel2_lede ?></p>
+        <p><?= $panel2_text ?></p>
+        <a class="btn" href="#form"><?= $panel2_button ?></a>
+      </div>
+      <div class="panel-media">
+        <img src="./assets/img/laptop-chart.webp" alt="<?= $alt_laptop_chart ?>" width="700" height="700" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <div class="panel-row">
+      <div class="panel-copy">
+        <span class="eyebrow"><?= $panel3_eyebrow ?></span>
+        <h2><?= $panel3_title ?></h2>
+        <p class="lede"><?= $panel3_lede ?></p>
+        <p><?= $panel3_text ?></p>
+      </div>
+      <div class="panel-media">
+        <img src="./assets/img/trader-night.webp" alt="<?= $alt_trader_night ?>" width="700" height="700" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <div class="panel-row reverse">
+      <div class="panel-copy">
+        <span class="eyebrow"><?= $panel4_eyebrow ?></span>
+        <h2><?= $panel4_title ?></h2>
+        <p class="lede"><?= $panel4_lede ?></p>
+        <p><?= $panel4_text ?></p>
+      </div>
+      <div class="panel-media">
+        <img src="./assets/img/analyst-portrait.webp" alt="<?= $alt_analyst_portrait ?>" width="500" height="500" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- testimonials -->
+<section class="testimonials-bg border-gradient">
+  <div class="container-ref">
+    <div class="section-head">
+      <span class="text-gradient-label"><?= $testimonials_label ?></span>
+      <h2><?= $testimonials_title ?></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <?php for ($i = 0; $i < 5; $i++): ?><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.3-6.2 3.3 1.2-6.8-5-4.9 6.9-1z"/></svg><?php endfor; ?>
+        </div>
+        <p><?= $review_1_text ?></p>
+        <div class="testimonial-author">
+          <div>
+            <p class="name"><?= $review_1_author ?></p>
+            <p class="role"><?= $review_1_role ?></p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <?php for ($i = 0; $i < 5; $i++): ?><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.3-6.2 3.3 1.2-6.8-5-4.9 6.9-1z"/></svg><?php endfor; ?>
+        </div>
+        <p><?= $review_2_text ?></p>
+        <div class="testimonial-author">
+          <div>
+            <p class="name"><?= $review_2_author ?></p>
+            <p class="role"><?= $review_2_role ?></p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <?php for ($i = 0; $i < 5; $i++): ?><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.3-6.2 3.3 1.2-6.8-5-4.9 6.9-1z"/></svg><?php endfor; ?>
+        </div>
+        <p><?= $review_3_text ?></p>
+        <div class="testimonial-author">
+          <div>
+            <p class="name"><?= $review_3_author ?></p>
+            <p class="role"><?= $review_3_role ?></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="border-gradient" id="faq">
+  <div class="container-ref">
+    <div class="section-head">
+      <span class="text-gradient-label"><?= $faq_label ?></span>
+      <h2><?= $faq_title ?></h2>
+    </div>
+    <div class="accordion-ref">
+      <div class="accordion-item-ref" id="accordion-1">
+        <button class="accordion-toggle-ref" onclick="toggleAccordion(1)">
+          <span><?= $faq_q1 ?></span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="accordion-content-ref" id="content-1"><div class="accordion-content-ref-inner"><p><?= $faq_a1 ?></p></div></div>
+      </div>
+      <div class="accordion-item-ref" id="accordion-2">
+        <button class="accordion-toggle-ref" onclick="toggleAccordion(2)">
+          <span><?= $faq_q2 ?></span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="accordion-content-ref" id="content-2"><div class="accordion-content-ref-inner"><p><?= $faq_a2 ?></p></div></div>
+      </div>
+      <div class="accordion-item-ref" id="accordion-3">
+        <button class="accordion-toggle-ref" onclick="toggleAccordion(3)">
+          <span><?= $faq_q3 ?></span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="accordion-content-ref" id="content-3"><div class="accordion-content-ref-inner"><p><?= $faq_a3 ?></p></div></div>
+      </div>
+      <div class="accordion-item-ref" id="accordion-4">
+        <button class="accordion-toggle-ref" onclick="toggleAccordion(4)">
+          <span><?= $faq_q4 ?></span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="accordion-content-ref" id="content-4"><div class="accordion-content-ref-inner"><p><?= $faq_a4 ?></p></div></div>
+      </div>
+      <div class="accordion-item-ref" id="accordion-5">
+        <button class="accordion-toggle-ref" onclick="toggleAccordion(5)">
+          <span><?= $faq_q5 ?></span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="accordion-content-ref" id="content-5"><div class="accordion-content-ref-inner"><p><?= $faq_a5 ?></p></div></div>
+      </div>
+      <div class="accordion-item-ref" id="accordion-6">
+        <button class="accordion-toggle-ref" onclick="toggleAccordion(6)">
+          <span><?= $faq_q6 ?></span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="accordion-content-ref" id="content-6"><div class="accordion-content-ref-inner"><p><?= $faq_a6 ?></p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- contact -->
+<section class="testimonials-bg border-gradient" id="contact">
+  <div class="container-ref">
+    <div class="section-head" style="text-align:left; margin: 0 0 32px;">
+      <span class="text-gradient-label"><?= $contact_label ?></span>
+      <h2><?= $contact_title ?></h2>
+      <p><?= $contact_subtitle ?></p>
+      <p><?= $contact_text ?></p>
+      <p><?= $contact_form_text ?></p>
+    </div>
+    <form name="form" method="post" class="leadform rf-form js-rf-form form-ref" action="./integration/send.php" style="max-width:520px;" data-form>
+      <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
+      <div class="t7-gen-1">
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+        <input type="text" name="company" autocomplete="off">
+      </div>
+      <input type="hidden" name="country" value="<?= $form_country; ?>">
+      <input type="hidden" name="language" value="<?= $form_language; ?>">
+      <input type="hidden" name="phone_country" value="<?= $form_phone_country; ?>">
+      <input type="hidden" name="only_countries" value='<?= $form_only_countries; ?>'>
+      <div class="form-preloader hidden">
+        <svg class="spinner" viewBox="0 0 50 50"><circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle></svg>
+      </div>
+      <div class="input_group">
+        <input type="text" name="fname" placeholder="<?= $form_name_placeholder ?>" aria-label="<?= $form_name_placeholder ?>" required />
+      </div>
+      <div class="input_group">
+        <input type="text" name="lname" placeholder="<?= $form_surname_placeholder ?>" aria-label="<?= $form_surname_placeholder ?>" required />
+      </div>
+      <div class="input_group">
+        <input type="email" name="email" placeholder="<?= $form_email_placeholder ?>" aria-label="<?= $form_email_placeholder ?>" required />
+      </div>
+      <div class="input_group">
+        <input type="tel" name="fullphone" id="cq-field-phone-2" placeholder="" required />
+        <span class="error-msg hide"></span>
+      </div>
+      <div class="form-message" data-form-message role="alert">
+        <p data-form-message-title></p>
+        <div data-form-message-content></div>
+      </div>
+      <div class="input_group">
+        <button type="submit" class="btn-submit-ref"><?= $contact_form_button ?></button>
+      </div>
+      <div class="pay-badges">
+        <img src="./assets/img/svg/visa-real.svg" alt="Visa" width="58" height="39" loading="lazy">
+        <img src="./assets/img/svg/mastercard-real.svg" alt="Mastercard" width="58" height="39" loading="lazy">
+        <img src="./assets/img/svg/maestro.svg" alt="Maestro" width="58" height="39" loading="lazy">
+        <img src="./assets/img/svg/sslsecure.svg" alt="Secure SSL Encryption" width="90" height="39" loading="lazy">
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- pre-about CTA -->
+<section class="cta-bg">
+  <div class="container-ref cta-inner">
+    <h2><?= $pre_about_title ?></h2>
+    <p><?= $pre_about_text ?></p>
+    <a class="btn" href="#form"><?= $pre_about_button ?></a>
+  </div>
+</section>
+
+<!-- about -->
+<section class="testimonials-bg" id="about">
+  <div class="container-ref">
+    <div class="section-head" style="text-align:left; margin: 0;">
+      <span class="text-gradient-label"><?= $about_label ?></span>
+      <h2><?= $about_title ?></h2>
+      <p><?= $about_intro ?></p>
+      <p><?= $about_text_1 ?></p>
+      <p><?= $about_text_2 ?></p>
+      <p><?= $about_text_3 ?></p>
+      <p><?= $about_text_4 ?></p>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="footer-bg">
+  <div class="container-ref">
+    <div class="footer-grid">
+      <div>
+        <h3><?= $footnav_col_pages ?></h3>
+        <ul>
+          <li><a href="<?= $site_url ?>"><?= $footnav_home ?></a></li>
+          <li><a href="product.php"><?= $footnav_product ?></a></li>
+          <li><a href="offer.php"><?= $footnav_offer ?></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3><?= $footnav_col_support ?></h3>
+        <ul>
+          <li><a href="contacts.php"><?= $footnav_contact ?></a></li>
+          <li><a href="faq.php"><?= $footnav_faq ?></a></li>
+          <li><a href="sitemap.php"><?= $footnav_sitemap ?></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3><?= $footnav_col_legal ?></h3>
+        <ul>
+          <li><a href="privacy.php"><?= $footnav_privacy ?></a></li>
+          <li><a href="conditions.php"><?= $footnav_conditions ?></a></li>
+          <li><a href="risk-warning.php"><?= $footer_risk_warning ?></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3><?= $footnav_col_company ?></h3>
+        <ul>
+          <li><a href="#about"><?= $footnav_about ?></a></li>
+          <li><a href="sign.php"><?= $footnav_signup ?></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-brand">
+      <img src="./favicon-96x96.png" alt="<?= $site_name ?>">
+      <span><?= $site_name ?></span>
+    </div>
+    <div class="footer-legal">
+      <p><?= $footer_disclaimer ?></p>
+    </div>
+    <div class="footer-copyright">
+      <?= $footer_copyright ?>
+      <details class="lang-switcher-ref" class="t7-gen-4">
+        <summary>🌐</summary>
+        <div class="lang-list">
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/es/">🇪🇸</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/cs/">🇨🇿</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/de/">🇩🇪</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/en/">🇬🇧</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/it/">🇮🇹</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fr/">🇫🇷</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nl/">🇳🇱</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pl/">🇵🇱</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/pt/">🇵🇹</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ro/">🇷🇴</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sv/">🇸🇪</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/tr/">🇹🇷</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hr/">🇭🇷</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/no/">🇳🇴</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/da/">🇩🇰</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/fi/">🇫🇮</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/hu/">🇭🇺</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/sk/">🇸🇰</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/bg/">🇧🇬</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ms/">🇲🇾</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/nb/">🇳🇴</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/el/">🇬🇷</a>
+          <a href="<?= $site_url ?>/lander/<?= $site_domain ?>/ja/">🇯🇵</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</footer>
+
+<svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true" focusable="false"><symbol id="icon-sprite-6" viewBox="0 0 76 75">
+  <circle cx="38" cy="37.195" r="28" stroke="#E5E7EB" stroke-width="8" />
+  <path d="M49.808 62.585a27.998 27.998 0 0 0 7.13-46.014 28 28 0 0 0-30.746-4.763" stroke="currentColor" stroke-width="8" stroke-linecap="round" />
+</symbol></svg>
+
+<div id="cq-form-card" hidden aria-hidden="true" class="t7-gen-3">
+  <form id="cq-isolated-form" class="leadform rf-form js-rf-form cq-pure-custom-form" method="post" action="./integration/send.php">
+    <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
+    <div class="t7-gen-1">
+      <input type="text" name="website" tabindex="-1" autocomplete="off">
+      <input type="text" name="company" class="t7-gen-2">
+    </div>
+    <input type="hidden" name="country" value="<?= $form_country; ?>">
+    <input type="hidden" name="language" value="<?= $form_language; ?>">
+    <input type="hidden" name="phone_country" value="<?= $form_phone_country; ?>">
+    <input type="hidden" name="only_countries" value='<?= $form_only_countries; ?>'>
+    <div class="form-preloader hidden">
+      <svg width="50" height="50" class="spinner" viewBox="0 0 50 50">
+        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+      </svg>
+    </div>
+    <div class="absolute inset-0 z-20 hidden items-center justify-center bg-white/50 group-data-loading:flex">
+      <svg class="text-primary animate-spin" width="76" height="75" viewBox="0 0 76 75" fill="none"><use href="#icon-sprite-6"></use></svg>
+    </div>
+    <div class="cq-field-group">
+      <input type="text" name="fname" id="cq-field-fname" placeholder="<?= htmlspecialchars($quiz_placeholder_fname) ?>" aria-label="<?= htmlspecialchars($quiz_placeholder_fname) ?>" required>
+    </div>
+    <div class="cq-field-group">
+      <input type="text" name="lname" id="cq-field-lname" placeholder="<?= htmlspecialchars($quiz_placeholder_lname) ?>" aria-label="<?= htmlspecialchars($quiz_placeholder_lname) ?>" required>
+    </div>
+    <div class="cq-field-group">
+      <input type="email" name="email" id="cq-field-email" placeholder="<?= htmlspecialchars($quiz_placeholder_email) ?>" aria-label="<?= htmlspecialchars($quiz_placeholder_email) ?>" required>
+    </div>
+    <div class="cq-field-group">
+      <input type="tel" name="fullphone" id="cq-field-phone" placeholder="" aria-label="Phone" required>
+      <span class="error-msg hide"></span>
+    </div>
+    <button type="submit" class="submit" id="cq-custom-submit-btn"><?= $quiz_btn_submit ?></button>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js"></script>
+<script src="./integration/validation.js?v=<?= @filemtime(__DIR__ . '/./integration/validation.js') ?: time() ?>"></script>
+<script src="./assets/js/lazyload.min.js?v=<?= @filemtime(__DIR__ . '/./assets/js/lazyload.min.js') ?: time() ?>" defer></script>
+<script src="./assets/js/scripts.js?v=<?= @filemtime(__DIR__ . '/./assets/js/scripts.js') ?: time() ?>" defer></script>
+
+<div id="chat-quiz-root" class="cq-gen-1">
+    <button id="chat-toggle-btn" class="cq-pulse-button cq-gen-2">
+        <span id="chat-noti-dot" class="cq-gen-3">1</span>
+        <svg class="cq-gen-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="cq-chat-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+        </svg>
+    </button>
+    <div id="chat-window" class="cq-gen-5">
+        <div class="cq-gen-6">
+            <div class="cq-gen-7">
+                <div class="cq-gen-8">
+                    <img src="./consultant.webp" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" class="cq-gen-9">
+                    <svg class="cq-gen-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    <span class="cq-gen-11"></span>
+                </div>
+                <div class="cq-gen-12">
+                    <h4 class="cq-gen-13"><?= $quiz_consultant_name ?></h4>
+                    <p class="cq-gen-14"><?= $quiz_consultant_role ?></p>
+                </div>
+            </div>
+            <button id="chat-close-btn" class="cq-gen-15">
+                <svg class="cq-gen-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="chat-messages" class="cq-gen-17">
+            </div>
+        <div id="typing-indicator" class="cq-gen-18">
+            <?= $quiz_consultant_name ?> <?= $quiz_text_typing ?>
+        </div>
+        <div id="chat-controls" class="cq-gen-19">
+            </div>
+    </div>
+</div>
+
+<script>
+window.quizLang = {
+        welcome: `<?= addslashes($quiz_text_welcome) ?>`,
+        q1: `<?= addslashes($quiz_text_q1) ?>`,
+        a1_yes: `<?= addslashes($quiz_text_a1_yes) ?>`,
+        a1_no: `<?= addslashes($quiz_text_a1_no) ?>`,
+        q2: `<?= addslashes($quiz_text_q2) ?>`,
+        q3: `<?= addslashes($quiz_text_q3) ?>`,
+        a3_yes: `<?= addslashes($quiz_text_a3_yes) ?>`,
+        a3_no: `<?= addslashes($quiz_text_a3_no) ?>`,
+        q4: `<?= addslashes($quiz_text_q4) ?>`,
+        a4_1: `<?= addslashes($quiz_text_a4_1) ?>`,
+        a4_2: `<?= addslashes($quiz_text_a4_2) ?>`,
+        a4_3: `<?= addslashes($quiz_text_a4_3) ?>`,
+        q5: `<?= addslashes($quiz_text_q5) ?>`,
+        a5_yes: `<?= addslashes($quiz_text_a5_yes) ?>`,
+        a5_no: `<?= addslashes($quiz_text_a5_no) ?>`,
+        loaderText: `<?= addslashes($quiz_text_loader) ?>`,
+        finalTitle: `<?= addslashes($quiz_text_final_ttl) ?>`,
+        processing: `<?= addslashes($quiz_text_processing) ?>`
+    };
+</script>
+<script src="./assets/js/chat-quiz.js?v=<?= @filemtime(__DIR__ . '/./assets/js/chat-quiz.js') ?: time() ?>" defer></script>
+<link rel="preload" href="./assets/css/chat-quiz.css?v=<?= @filemtime(__DIR__ . '/./assets/css/chat-quiz.css') ?: time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="./assets/css/chat-quiz.css?v=<?= @filemtime(__DIR__ . '/./assets/css/chat-quiz.css') ?: time() ?>" /></noscript>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<?php
+// Output minification: strips leading-line indentation and HTML comments
+// from the rendered page (never touches same-line/inline whitespace, or
+// anything inside <script>/<style>/<pre>/<textarea>) to help the ТЗ's
+// text-to-code ratio requirement (11-13%) without a visual change. Hooked
+// here since offer_seo.php is require_once'd by every real page (root +
+// all language folders) before any HTML output starts, and nowhere else
+// (integration/send.php etc. don't include it, so JSON/API responses are
+// never touched).
+if (!function_exists('t4_minify_segment')) {
+    function t4_minify_segment(string $segment): string {
+        $segment = preg_replace('/<!--.*?-->/s', '', $segment);
+        $segment = preg_replace('/[ \t]+\n/', "\n", $segment);
+        $segment = preg_replace('/\n[ \t]+/', "\n", $segment);
+        $segment = preg_replace('/\n{2,}/', "\n", $segment);
+        return $segment;
+    }
+
+    function t4_minify_html(string $html): string {
+        $pattern = '/<(script|style|pre|textarea)\b[^>]*>.*?<\/\1>/is';
+        $result = '';
+        $lastEnd = 0;
+        if (preg_match_all($pattern, $html, $matches, PREG_OFFSET_CAPTURE)) {
+            foreach ($matches[0] as $m) {
+                [$matchedText, $offset] = $m;
+                $result .= t4_minify_segment(substr($html, $lastEnd, $offset - $lastEnd));
+                $result .= $matchedText;
+                $lastEnd = $offset + strlen($matchedText);
+            }
+        }
+        $result .= t4_minify_segment(substr($html, $lastEnd));
+        return $result;
+    }
+
+    ob_start('t4_minify_html');
+}
+
+// ========================================
+// 1) ДАННЫЕ ОФФЕРА (НАСТРОЙКИ БАЙЕРА)
+// ========================================
+// ВНИМАНИЕ: Настройки для конкретного оффера
+// МЕНЯТЬ: При настройке для нового оффера
+// Основные параметры оффера
+$source = "Rivolixio";                    // Название оффера
+$form_country = 'it';                              // Страна по умолчанию
+$form_language = 'it';                             // Язык по умолчанию
+$form_phone_country = 'it';                      // Страна телефона (auto = автоопределение)
+$form_is_autologin = false;                        // Автологин (true/false)
+$form_only_countries = json_encode(['it']);        // Разрешенные страны
+
+// ========================================
+// АВТООПРЕДЕЛЕНИЕ ГЕО ПО IP (только когда сайт запущен с гео "Unknown")
+// ========================================
+// При запуске с гео "Невідомо / Unknown" сюда прилетают маркеры
+// $form_country = '' и $form_phone_country = 'auto' вместо конкретной страны
+// (см. app.py). Определяем реальную страну посетителя на сервере — без
+// стороннего API и без похода из браузера (клиентский ipapi.co слишком
+// быстро упирался в лимит запросов):
+//   1) заголовок CF-IPCountry — если домен проксируется через Cloudflare;
+//   2) ?geo= / ?country= в URL — если Keitaro передаёт гео своим макросом.
+// Если ни то, ни другое не сработало — маркеры остаются как есть, и дальше
+// отрабатывает штатный клиентский фолбэк (validation.js).
+$_qq_geo_guess = strtolower((string) ($_SERVER['HTTP_CF_IPCOUNTRY'] ?? ''));
+if (!preg_match('/^[a-z]{2}$/', $_qq_geo_guess)) {
+    $_qq_geo_guess = preg_replace('/[^a-z]/', '', strtolower((string) ($_GET['geo'] ?? $_GET['country'] ?? '')));
+}
+if (preg_match('/^[a-z]{2}$/', $_qq_geo_guess)) {
+    if ($form_country === '') {
+        $form_country = $_qq_geo_guess;
+    }
+    if ($form_phone_country === 'auto') {
+        $form_phone_country = $_qq_geo_guess;
+        // Так само як і в блоці для регіональних сторінок нижче: якщо номер
+        // визначився по IP, а only_countries лишився зафіксованим під якусь
+        // іншу країну (буває навіть у режимі 'auto' -- залежить від того, як
+        // саме був запущений конкретний домен), initialCountry опиниться поза
+        // дозволеним списком і віджет покаже глобус замість прапорця замість
+        // реального коду країни. Знімаємо обмеження, коли країна визначена
+        // саме автоматично, а не задана явно при запуску.
+        $form_only_countries = json_encode([]);
+    }
+}
+// Если гео так и не определилось (ни CF-IPCountry, ни макрос Keitaro) --
+// не отдаём буквальный 'auto' в разметку: intl-tel-input's built-in
+// geoIP-фолбэк (client-side ipapi.co) ненадёжен и иногда роняет виджет
+// с JS-ошибкой, оставляя поле телефона без флага/кода страны вообще.
+// Безопасный статический дефолт лучше, чем сломанный виджет.
+if ($form_phone_country === 'auto') {
+    $form_phone_country = 'us';
+}
+
+// На регіональних (мовних) сторінках /xx/... телефонний код форми завжди
+// підтягуємо по реальному IP відвідувача, навіть якщо для кампанії
+// налаштована конкретна країна за замовчуванням -- ці сторінки обслуговують
+// відвідувачів з різних країн незалежно від мови самої сторінки. Кореневі
+// сторінки й далі показують налаштовану країну кампанії без змін.
+// SCRIPT_FILENAME НЕ підходить для цієї перевірки: на "голому" кореневому
+// URL кампанії Keitaro сам обробляє запит (інʼєкція <base>-тега, трек кліку)
+// і SCRIPT_FILENAME там може вказувати не на реальний файл шаблону -- перевірено
+// живим тестом, де це призвело до хибного спрацювання на кореневій сторінці.
+// Замість цього дивимось на сам URL (REQUEST_URI), який відображає реально
+// запитаний шлях незалежно від внутрішньої маршрутизації Keitaro: якщо
+// передостанній сегмент шляху -- дволітерний код і відповідна тека реально
+// існує поруч з offer_seo.php, це регіональна сторінка. URL трапляється у
+// двох формах: .../nb/index.php (мовний код -- передостанній сегмент) і
+// .../nb/ без імені файлу (після фільтрації порожніх сегментів кінцевий
+// слеш зникає, і мовний код стає ОСТАННІМ сегментом) -- перевіряємо
+// останній сегмент першим, інакше друга форма URL завжди хибно
+// приймалась за кореневу сторінку і гео по IP на ній не спрацьовувало.
+$_qq_uri_path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$_qq_uri_segments = array_values(array_filter(explode('/', $_qq_uri_path), 'strlen'));
+$_qq_last_segment = count($_qq_uri_segments) >= 1 ? $_qq_uri_segments[count($_qq_uri_segments) - 1] : '';
+if (preg_match('/^[a-z]{2}$/', $_qq_last_segment) === 1) {
+    $_qq_lang_segment = $_qq_last_segment;
+} else {
+    $_qq_lang_segment = count($_qq_uri_segments) >= 2 ? $_qq_uri_segments[count($_qq_uri_segments) - 2] : '';
+}
+$_qq_is_regional_page = preg_match('/^[a-z]{2}$/', $_qq_lang_segment) === 1 && is_dir(__DIR__ . '/' . $_qq_lang_segment);
+if (preg_match('/^[a-z]{2}$/', $_qq_geo_guess) && $_qq_is_regional_page) {
+    $form_country = $_qq_geo_guess;
+    $form_phone_country = $_qq_geo_guess;
+    // only_countries -- це allow-list, з яким звірявся initialCountry на клієнті
+    // (isOnlyCountries() в validation.js блокує сабміт, якщо номер відвізитора
+    // резолвиться не в ту країну, що в списку). Список був зафіксований під
+    // країну запуску кампанії -- якщо не скинути його тут, реальний $_qq_geo_guess
+    // майже напевно опиниться поза списком, і форма зламається так само,
+    // як зламалась зі старим 'auto'-багом. На регіональних сторінках заздалегідь
+    // невідомо, з яких країн прийдуть відвідувачі, тож знімаємо обмеження повністю.
+    $form_only_countries = json_encode([]);
+}
+// ========================================
+// 2) ДАННЫЕ ДЛЯ CRM (ЛИЧНЫЙ СЕТАП БАЙЕРА)
+// ========================================
+// ВНИМАНИЕ: Личные данные байера для API
+// МЕНЯТЬ: При настройке для конкретного байера
+$_SESSION['buyer_teamlead_chatid'] = '-1003243124891';    // ID чата тимлида
+$_SESSION['buyer_affid'] = 'TNA';                   // Аффилиат ID байера
+$_SESSION['buyer_chatid'] = '5935076163';                // ID чата байера
+$_SESSION['buyer_token'] = '86dbmrlhbhjv8cjkx771h97cr7kaydpfg'; // API токен
+$_SESSION['offer_id'] = 'OFFER_ID';                         // ID оффера в системе
+$_SESSION['affiliate_id'] = 'AFFILIATE_ID';             // ID аффилиата в системе
+// ========================================
+// 3) ТЕХНИЧЕСКИЕ НАСТРОЙКИ (НЕ ТРОГАТЬ)
+// ========================================
+// ВНИМАНИЕ: Техническая конфигурация системы
+// НЕ МЕНЯТЬ: Байеру не изменять!
+// Домен для отслеживания
+$domain = $_SERVER['HTTP_HOST'];
+// Сохранение настроек оффера в сессию
+$_SESSION['form_is_autologin'] = $form_is_autologin;
+$_SESSION['source'] = $source;
+$_SESSION['form_domain'] = $domain;
+// Безопасность сессии
+if (!isset($_SESSION['security_token'])) {
+    $_SESSION['security_token'] = 'SECURE_SESSION_AUTHENTICATION_TOKEN';
+}
+?>

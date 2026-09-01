@@ -8,3 +8,17 @@ whitepage_deploy/
 *.DS_Store
 _keitaro_cleanup/
 truly_dead_domains.txt
+dead_campaigns.csv
+recovered_live_campaigns.csv
+cloudflare_blocked_domains.txt
+cloudflare_phishing_blocked_domains.csv
+
+# Adhoc scratch/preview output, not project source
+_preview/
+builder.py
+generator.py
+
+# Saved reference webpages (competitor/inspiration snapshots), not our own templates
+templates/*_files/
+templates/favicon3423/
+templates/favicon_(3)/

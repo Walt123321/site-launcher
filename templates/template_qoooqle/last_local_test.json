@@ -1,6 +1,6 @@
 {
-  "brand": "Test",
-  "lang": "pl",
-  "domain": "test-official.com",
-  "geo": "PL"
+  "brand": "Sierra Caudalor",
+  "lang": "en",
+  "domain": "localhost:8000/local_test",
+  "geo": "GB"
 }

@@ -1,0 +1,53 @@
+/* Custom overrides not covered by the purged tailwind.min.css bundle.
+   Several utility classes used in the markup (h-8, md:grid-cols-4,
+   opacity-70/80/90...) simply aren't present in that compiled file, so
+   anything here is written as plain CSS rather than guessed Tailwind
+   classes. */
+
+/* Payment badges (hero/bottom lead forms, sign.php) */
+.pay-badges { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.pay-badges img { height: 40px; width: auto; border-radius: 8px; }
+
+/* Partners / supported exchanges strip */
+.partners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+@media (min-width: 768px) { .partners-grid { grid-template-columns: repeat(4, 1fr); gap: 36px; } }
+.partners-grid img { height: 84px; width: auto; max-width: 100%; justify-self: center; }
+
+/* Reviews carousel: hide the native scrollbar, add snap + prev/next buttons */
+.reviews-slider-container { scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x proximity; }
+.reviews-slider-container::-webkit-scrollbar { display: none; }
+.reviews-slider-container [data-slider-item] { scroll-snap-align: start; }
+.reviews-nav { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
+.reviews-nav-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #7008e7; color: #fff; border: none; cursor: pointer; transition: opacity .2s, transform .2s; padding: 0; }
+.reviews-nav-btn:hover:not(:disabled) { transform: scale(1.06); }
+.reviews-nav-btn:disabled { opacity: .35; cursor: default; }
+.reviews-nav-btn svg { width: 20px; height: 20px; }
+
+/* Stats "in numbers" grid */
+.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+.stat-tile { background: #7008e7; border-radius: 16px; padding: 20px 22px; }
+.stat-tile strong { display: block; font-size: 28px; font-weight: 800; color: #fff; line-height: 1.1; }
+.stat-tile span { display: block; margin-top: 4px; font-size: 13px; color: rgba(255, 255, 255, .85); }
+
+/* Whatis (What is [brand]?) feature grid + mini process */
+.whatis-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 768px) { .whatis-grid { grid-template-columns: repeat(2, 1fr); } }
+.whatis-feature { display: flex; gap: 14px; align-items: flex-start; }
+.whatis-feature .card-icon { flex-shrink: 0; }
+.whatis-process { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.whatis-process-step { display: flex; align-items: center; gap: 8px; background: rgba(112, 8, 231, .12); border: 1px solid rgba(112, 8, 231, .35); border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 600; color: #fff; }
+.whatis-process-step .step-num { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: #7008e7; font-size: 11px; }
+.whatis-process-arrow { color: #5ee9b5; opacity: .7; }
+
+/* Benefits (Principaux avantages) 3-col card grid */
+.benefits-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 768px) { .benefits-grid { grid-template-columns: repeat(3, 1fr); } }
+.benefit-card { background: rgba(255, 255, 255, .03); border: 1px solid rgba(255, 255, 255, .08); border-radius: 20px; padding: 24px; }
+.benefit-card .card-icon { margin-bottom: 12px; }
+
+/* How It Works 3-step */
+.howit-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 768px) { .howit-grid { grid-template-columns: repeat(3, 1fr); } }
+.howit-step { background: rgba(255, 255, 255, .03); border: 1px solid rgba(255, 255, 255, .08); border-radius: 20px; padding: 24px; position: relative; }
+.howit-step .step-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #7008e7; color: #fff; font-weight: 700; font-size: 14px; margin-bottom: 12px; }

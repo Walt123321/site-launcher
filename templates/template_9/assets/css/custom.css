@@ -1,0 +1,184 @@
+/* Custom additions on top of the reference site's own compiled tailwind.min.css.
+   Everything here is plain CSS (not guessed Tailwind classes) since it's new UI
+   the reference page didn't have. */
+
+:root { --color-primary: var(--color-brand-start, #2bfdf3); }
+
+/* Payment badges (TZ item 3, stelardividenta.com style) -- real brand marks */
+.pay-badges { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.pay-badges img { height: 40px; width: auto; border-radius: 8px; }
+/* On a plain black section (no bright gradient card behind them), the
+   dark "mastercard"/"maestro"/"SSL ENCRYPTION" sub-text on these badges
+   has almost no contrast. Originally solved with one big backing plate
+   behind the whole row -- looked like a stray empty white block on the
+   page. Give each badge its own small pill instead (same pattern as
+   template_8's .payment-badge), no group-level box. */
+.pay-badges-on-dark img {
+  background: rgba(255, 255, 255, .92);
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+}
+
+/* Phone input widget (intl-tel-input): without an explicit width, the
+   .iti wrapper it injects around the tel input defaults to inline-block
+   and shrinks to content width, ending up visibly narrower than the
+   other fields in the same form even though the <input> itself has
+   w-full applied. */
+.iti { width: 100%; display: block; }
+
+/* Testimonial carousel: hide native scrollbar, snap, prev/next buttons */
+.reviews-slider-container { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x proximity; }
+.reviews-slider-container::-webkit-scrollbar { display: none; }
+.reviews-slider-container [data-slider-item] { scroll-snap-align: start; }
+.reviews-nav { display: flex; justify-content: center; gap: 12px; margin-top: 24px; }
+.reviews-nav-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(90deg, #2bfdf3, #dafe33); color: #000; border: none; cursor: pointer; transition: opacity .2s, transform .2s; padding: 0; }
+.reviews-nav-btn:hover:not(:disabled) { transform: scale(1.06); }
+.reviews-nav-btn:disabled { opacity: .35; cursor: default; }
+.reviews-nav-btn svg { width: 20px; height: 20px; }
+
+/* Footer language dropdown (TZ item 13, footer-based switcher) */
+.footer-lang { position: relative; }
+.footer-lang-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .15); color: #fff; cursor: pointer; font-size: 14px; }
+.footer-lang-menu { display: none; position: absolute; bottom: calc(100% + 8px); left: 0; background: #15171c; border: 1px solid rgba(255, 255, 255, .12); border-radius: 14px; padding: 10px; max-height: 320px; overflow-y: auto; min-width: 180px; z-index: 20; }
+.footer-lang[data-active] .footer-lang-menu { display: block; }
+.footer-lang-menu a { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 8px; color: #f5f5f5; text-decoration: none; font-size: 14px; }
+.footer-lang-menu a:hover { background: rgba(255, 255, 255, .08); }
+
+/* Footer social icons */
+.footer-social { display: flex; align-items: center; gap: 20px; }
+.footer-social a { display: flex; }
+
+/* ============================================================
+   Inner pages (product/offer/contacts/faq/privacy/conditions/
+   risk-warning/sign/Thanks/sitemap): the reference site only ever
+   supplied a homepage, so its compiled tailwind.min.css doesn't
+   contain most layout utilities these pages need. Rather than guess
+   at Tailwind class names that may not exist in that build, every
+   inner-page layout primitive below is plain CSS, keyed off the same
+   --color-brand-start/--color-brand-end tokens the homepage uses.
+   ============================================================ */
+
+/* Sticky header for pages with no hero image behind it */
+.site-header-inner { position: sticky; top: 0; z-index: 30; background: rgba(11, 12, 16, .85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, .08); }
+.inner-nav { display: none; align-items: center; gap: 32px; }
+@media (min-width: 1024px) { .inner-nav { display: flex; } }
+.inner-nav a { font-size: 15px; color: #9a9ba5; text-decoration: none; transition: color .2s; }
+.inner-nav a:hover { color: #fff; }
+
+/* Page hero band (title + lead paragraph under the inner header) */
+.page-hero { padding: 70px 0 10px; text-align: center; }
+.page-hero__eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 14px; color: #9a9ba5; margin-bottom: 18px; }
+.page-hero__eyebrow a { color: #9a9ba5; text-decoration: none; }
+.page-hero__eyebrow a:hover { color: #fff; }
+.page-hero__eyebrow .sep { opacity: .5; }
+.page-hero__eyebrow .current { color: #dafe33; }
+.page-hero h1 { max-width: 760px; margin: 0 auto 20px; }
+.page-hero p { max-width: 640px; margin: 0 auto; font-size: 18px; color: #9a9ba5; }
+
+/* Generic content wrapper for legal / info pages */
+.inner-content { padding: 60px 0 100px; }
+.inner-content .inner-narrow { max-width: 820px; margin: 0 auto; }
+
+/* Legal text (privacy / conditions / risk warning) */
+.legal-block { display: grid; gap: 40px; }
+.legal-block h2 { font-size: 26px; margin-bottom: 16px; }
+.legal-block p { color: #b7b8c2; line-height: 1.7; margin-bottom: 14px; }
+.legal-block p:last-child { margin-bottom: 0; }
+.legal-block ul { display: grid; gap: 12px; margin: 16px 0 0; padding-left: 22px; color: #b7b8c2; }
+.legal-block li { line-height: 1.6; }
+.legal-block li::marker { color: #2bfdf3; }
+.legal-block .legal-updated { display: inline-block; font-size: 13px; color: #9a9ba5; background: rgba(255,255,255,.06); border-radius: 999px; padding: 6px 16px; margin-bottom: 8px; }
+.legal-block .legal-disclaimer { background: rgba(43,253,243,.06); border: 1px solid rgba(43,253,243,.25); border-radius: 16px; padding: 22px 26px; }
+.legal-block .legal-disclaimer p { color: #e5e5ea; margin: 0; }
+
+/* Simple feature/info grid reused by Product & Offer pages */
+.info-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 40px; }
+@media (min-width: 700px) { .info-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .info-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+.info-card { background: rgba(35, 38, 47, .6); border-radius: 20px; padding: 30px; }
+.info-card h3 { font-size: 22px; margin-bottom: 10px; }
+.info-card p { color: #9a9ba5; margin: 0; }
+
+/* Bullet list used on Offer page */
+.check-list { display: grid; gap: 14px; margin: 28px 0; }
+.check-list li { display: flex; align-items: flex-start; gap: 12px; color: #d5d6dd; }
+.check-list li::before { content: "✓"; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(90deg, var(--color-brand-start), var(--color-brand-end)); color: #000; font-size: 13px; font-weight: 700; margin-top: 2px; }
+
+/* Contact page */
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 40px; }
+@media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+.contact-card { background: rgba(35, 38, 47, .6); border-radius: 24px; padding: 36px; }
+.contact-card h3 { font-size: 22px; margin-bottom: 20px; }
+.contact-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+.contact-row:last-child { border-bottom: none; }
+.contact-row .ic { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(43,253,243,.12); color: #2bfdf3; }
+.contact-row a, .contact-row span.val { color: #fff; text-decoration: none; font-weight: 500; }
+.contact-row a:hover { color: #2bfdf3; }
+.contact-row .lbl { display: block; font-size: 13px; color: #9a9ba5; }
+
+/* Sitemap page */
+.sitemap-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 40px; }
+@media (min-width: 640px) { .sitemap-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .sitemap-grid { grid-template-columns: repeat(3, 1fr); } }
+.sitemap-grid a { display: flex; align-items: center; gap: 12px; padding: 18px 20px; border-radius: 14px; background: rgba(35, 38, 47, .6); color: #fff; text-decoration: none; font-weight: 600; transition: transform .2s, background .2s; }
+.sitemap-grid a:hover { transform: translateY(-2px); background: rgba(43,253,243,.12); }
+.sitemap-grid a::before { content: ""; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(90deg, var(--color-brand-start), var(--color-brand-end)); }
+
+/* Thank-you page (kept close to the network's existing thx.css so the
+   celebratory art direction is consistent, retinted with this template's
+   brand gradient instead of the generic blue accent) */
+.thanks-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 16px; text-align: center; background: radial-gradient(ellipse at top, rgba(43,253,243,.10), transparent 60%), #05070c; }
+.thanks-card { max-width: 560px; width: 100%; background: rgba(15, 16, 22, .9); border: 1px solid rgba(255,255,255,.08); border-radius: 28px; padding: 56px 40px; }
+.thanks-card .thanks-icon { width: 84px; height: 84px; margin: 0 auto 28px; border-radius: 50%; background: linear-gradient(135deg, var(--color-brand-start), var(--color-brand-end)); display: flex; align-items: center; justify-content: center; color: #000; }
+.thanks-card h1 { margin-bottom: 16px; }
+.thanks-card p { color: #9a9ba5; font-size: 17px; margin-bottom: 32px; }
+
+/* ============================================================
+   Utility backfill: a handful of standard-Tailwind-scale classes and
+   amber color utilities used across the new inner pages that this
+   template's trimmed tailwind.min.css doesn't happen to contain (it only
+   ships whatever exact classes the reference homepage used). Values match
+   Tailwind's own default scale so these are drop-in, not approximations.
+   ============================================================ */
+.error-msg { padding-top: 6px; color: #ff6467; font-size: 13px; text-align: left; }
+.hide { display: none !important; }
+.form-preloader { position: absolute; inset: 0; background: rgba(2, 6, 24, .85); z-index: 20; display: flex; align-items: center; justify-content: center; border-radius: 18px; }
+.form-preloader.hidden { display: none !important; }
+.spinner { animation: t9-rotate 2s linear infinite; width: 44px; height: 44px; }
+.spinner .path { stroke: #2bfdf3; stroke-linecap: round; animation: t9-dash 1.5s ease-in-out infinite; }
+@keyframes t9-rotate { 100% { transform: rotate(360deg); } }
+@keyframes t9-dash {
+  0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
+  50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+  100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+}
+
+.text-amber-400 { color: #fbbf24; }
+.text-amber-500 { color: #f59e0b; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+
+.mb-2 { margin-bottom: .5rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-20 { margin-top: 5rem; }
+.p-8 { padding: 2rem; }
+.px-10 { padding-left: 2.5rem; padding-right: 2.5rem; }
+.min-h-\[56px\] { min-height: 56px; }
+.rounded-\[24px\] { border-radius: 24px; }
+.max-w-\[52px\] { max-width: 52px; }
+.max-w-\[320px\] { max-width: 320px; }
+.max-w-\[560px\] { max-width: 560px; }
+.max-w-\[700px\] { max-width: 700px; }
+.max-w-\[930px\] { max-width: 930px; }
+.p-\[16px_28px\] { padding: 16px 28px; }
+.text-\[13px\] { font-size: 13px; }
+
+@media (min-width: 48rem) {
+  .md\:p-10 { padding: 2.5rem; }
+  .md\:text-\[30px\] { font-size: 30px; }
+  .md\:text-\[32px\] { font-size: 32px; }
+  .md\:text-\[40px\] { font-size: 40px; }
+}
+@media (min-width: 64rem) {
+  .lg\:text-\[20px\] { font-size: 20px; }
+}
