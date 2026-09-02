@@ -392,6 +392,12 @@ section { padding: 56px 0; }
 
 .pay-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; align-items: center; }
 .pay-badges img { height: 40px; width: auto; border-radius: 8px; }
+/* At 40px, the 4 badges (~316px incl. gaps) narrowly overflow the mobile
+   form card's content width (~308px), wrapping "Secure" onto its own row.
+   Shrink proportionally so all 4 fit on one line, per client feedback. */
+@media (max-width: 480px) {
+  .pay-badges img { height: 32px; }
+}
 
 /* ---------- CTA ---------- */
 .cta-inner { text-align: center; max-width: 640px; margin: 0 auto; }
