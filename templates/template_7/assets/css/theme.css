@@ -378,6 +378,17 @@ section { padding: 56px 0; }
 .form-disclaimer { font-size: 12px; color: var(--contrast-3); opacity: .75; margin-top: 12px; }
 .form-disclaimer a { color: var(--contrast-3); text-decoration: underline; }
 
+/* intl-tel-input's injected markup sits inside .form-ref and inherits its
+   near-white --contrast-3 text color (meant for the dark form card), which
+   is invisible against the library's own white input/dropdown background --
+   the "+44"/country name is unreadable. Force dark text to match the
+   phone input's own color. */
+.form-ref .iti__selected-dial-code,
+.form-ref .iti__country-name,
+.form-ref .iti__country {
+  color: var(--contrast-2);
+}
+
 .pay-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; align-items: center; }
 .pay-badges img { height: 40px; width: auto; border-radius: 8px; }
 
