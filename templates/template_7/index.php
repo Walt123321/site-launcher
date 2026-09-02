@@ -554,7 +554,7 @@ if (strpos(strtolower($uri), '/lander/') !== false && basename($uri) === 'index.
 <!-- about -->
 <section class="testimonials-bg" id="about">
   <div class="container-ref">
-    <div class="section-head" style="text-align:left; margin: 0;">
+    <div class="section-head">
       <span class="text-gradient-label"><?= $about_label ?></span>
       <h2><?= $about_title ?></h2>
       <p><?= $about_intro ?></p>

@@ -93,9 +93,9 @@ a:hover, a:focus { color: var(--accent-2); }
   mask-composite: exclude;
   pointer-events: none;
 }
-.site-branding-container { display: flex; align-items: center; gap: 10px; }
-.site-logo img { height: 32px; width: auto; display: block; border-radius: 4px; }
-.main-title { margin: 0; font-weight: 600; font-size: 16px; color: var(--contrast-3); white-space: nowrap; }
+.site-branding-container { display: flex; align-items: center; gap: 10px; min-width: 0; flex-shrink: 1; }
+.site-logo img { height: 32px; width: auto; display: block; border-radius: 4px; flex-shrink: 0; }
+.main-title { margin: 0; font-weight: 600; font-size: 16px; color: var(--contrast-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .main-title a { color: var(--contrast-3); text-decoration: none; }
 
 .main-navigation { display: none; }
@@ -108,7 +108,7 @@ a:hover, a:focus { color: var(--accent-2); }
 
 .header-flag { border-radius: 3px; margin-left: 4px; flex-shrink: 0; }
 
-.header-right { display: flex; align-items: center; gap: 12px; }
+.header-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 
 .btn {
   border-radius: var(--border-radius);
