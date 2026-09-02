@@ -74,7 +74,7 @@ $page_title_private = "Gizlilik Politikası | $source";
 $page_description_private = "$source'un kişisel verilerinizi nasıl topladığını, kullandığını ve koruduğunu öğrenin. Veri işleme, güvenlik, kullanıcı hakları ve GDPR uyumluluğu hakkında bilgiler.";
 
 $page_title_register = "$source – Yapay Zeka destekli akıllı ticaret platformu | Hızlı kayıt";
-$page_description_register = "Sadece birkaç dakika içinde <?= \$source ?> ile başlayın. Verimli ticaret için yapay zeka teknolojisine sahip akıllı platform. Yatırımcılar için hızlı kayıt, kolay erişim ve gelişmiş araçlar.";
+$page_description_register = "Sadece birkaç dakika içinde $source ile başlayın. Verimli ticaret için yapay zeka teknolojisine sahip akıllı platform. Yatırımcılar için hızlı kayıt, kolay erişim ve gelişmiş araçlar.";
 
 $contact_form_fname = "Adınız";
 $contact_form_lname = "Soyadınız";

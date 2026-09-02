@@ -74,7 +74,7 @@ $page_title_private = "Zásady ochrany osobních údajů | $source";
 $page_description_private = "Zjistěte, jak $source shromažďuje, používá a chrání vaše osobní údaje. Informace o zpracování dat, bezpečnosti, právech uživatelů a souladu s GDPR.";
 
 $page_title_register = "$source – Inteligentní obchodní platforma s AI | Rychlá registrace";
-$page_description_register = "Začněte s <?= \$source ?> během několika minut. Inteligentní platforma s technologií AI pro efektivní obchodování. Rychlá registrace, snadný přístup a pokročilé nástroje pro investory.";
+$page_description_register = "Začněte s $source během několika minut. Inteligentní platforma s technologií AI pro efektivní obchodování. Rychlá registrace, snadný přístup a pokročilé nástroje pro investory.";
 
 $contact_form_fname = "Vaše jméno";
 $contact_form_lname = "Vaše příjmení";

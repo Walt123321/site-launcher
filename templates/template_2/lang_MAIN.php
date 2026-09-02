@@ -76,7 +76,7 @@ $form_button_submit = "Beitreten";
 // HERO MAIN SECTION
 $hero_main_heading = "Verdienen Sie über";
 
-$hero_main_subtext = "durch den Handel <br>mit <productname><?= \$source ?></productname>.";
+$hero_main_subtext = "durch den Handel <br>mit <productname>$source</productname>.";
 
 $hero_main_description = "Die Registrierung ist jetzt geöffnet und <br>steht ab sofort zur Verfügung.";
 

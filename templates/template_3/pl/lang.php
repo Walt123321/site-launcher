@@ -74,7 +74,7 @@ $page_title_private = "Polityka prywatności | $source";
 $page_description_private = "Dowiedz się, jak $source gromadzi, wykorzystuje i chroni Twoje dane osobowe. Informacje o przetwarzaniu danych, bezpieczeństwie, prawach użytkownika i zgodności z RODO.";
 
 $page_title_register = "$source – Inteligentna platforma handlowa z AI | Szybka rejestracja";
-$page_description_register = "Zacznij z <?= \$source ?> w kilka minut. Inteligentna platforma z technologią AI do efektywnego handlu. Szybka rejestracja, łatwy dostęp i zaawansowane narzędzia dla inwestorów.";
+$page_description_register = "Zacznij z $source w kilka minut. Inteligentna platforma z technologią AI do efektywnego handlu. Szybka rejestracja, łatwy dostęp i zaawansowane narzędzia dla inwestorów.";
 
 $contact_form_fname = "Twoje imię";
 $contact_form_lname = "Twoje nazwisko";

@@ -74,7 +74,7 @@ $page_title_private = "Privatlivspolitik | $source";
 $page_description_private = "Lær, hvordan $source indsamler, bruger og beskytter dine personoplysninger. Oplysninger om databehandling, sikkerhed, brugerrettigheder og GDPR-overholdelse.";
 
 $page_title_register = "$source – Intelligent handelsplatform med AI | Hurtig registrering";
-$page_description_register = "Kom i gang med <?= \$source ?> på få minutter. Intelligent platform med AI-teknologi til effektiv handel. Hurtig registrering, nem adgang og avancerede værktøjer til investorer.";
+$page_description_register = "Kom i gang med $source på få minutter. Intelligent platform med AI-teknologi til effektiv handel. Hurtig registrering, nem adgang og avancerede værktøjer til investorer.";
 
 $contact_form_fname = "Dit fornavn";
 $contact_form_lname = "Dit efternavn";

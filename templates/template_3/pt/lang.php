@@ -74,7 +74,7 @@ $page_title_private = "Política de Privacidade | $source";
 $page_description_private = "Descubra como $source recolhe, utiliza e protege os seus dados pessoais. Informações sobre processamento de dados, segurança, direitos do utilizador e conformidade com o RGPD.";
 
 $page_title_register = "$source – Plataforma de negociação inteligente com IA | Registo rápido";
-$page_description_register = "Comece com <?= \$source ?> em poucos minutos. Plataforma inteligente com tecnologia de IA para negociar de forma eficiente. Registo rápido, acesso simples e ferramentas avançadas para investidores.";
+$page_description_register = "Comece com $source em poucos minutos. Plataforma inteligente com tecnologia de IA para negociar de forma eficiente. Registo rápido, acesso simples e ferramentas avançadas para investidores.";
 
 $contact_form_fname = "O seu nome";
 $contact_form_lname = "O seu apelido";
