@@ -28,6 +28,14 @@
     border-radius: 7px 0 0 7px !important;
 }
 
+/* theme.css forces .iti__selected-dial-code/.iti__country to a dark gray
+   (--contrast-2) so it's readable on the main site's white form -- but that
+   same dark gray is nearly invisible on this widget's near-black
+   #27272a button background. Force light text here instead. */
+.cq-pure-custom-form .iti__selected-dial-code {
+    color: #ffffff !important;
+}
+
 .cq-pure-custom-form input[type="text"],
 .cq-pure-custom-form input[type="email"],
 .cq-pure-custom-form input[type="tel"]:not(.iti__tel-input) {
