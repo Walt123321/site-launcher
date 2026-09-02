@@ -26,6 +26,8 @@ DEFAULT_MODEL = "gpt-5-mini"     # оптимально по швидкості/
 SPECIAL_NUMERIC = {"app_price", "rating_value", "rating_count"}
 SPECIAL_STRING = {
     "site_url",
+    "site_domain",
+    "site_slug",
     "app_currency",
     "site_lang",
     "adress_name",
