@@ -106,7 +106,7 @@ TEMPLATES = {
         "lang": "templates/template_6/lang.php",
     },
     "template_7": {
-        "label": "Шаблон 7 (Treu Vermostein)",
+        "label": "Шаблон 7",
         "dir": "templates/template_7",
         "favicon": "templates/template_7/favicon-96x96.png",
         "lang": "templates/template_7/lang.php",
