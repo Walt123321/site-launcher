@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const msg = document.createElement('div');
         msg.style.cssText = "display: flex !important; gap: 10px !important; max-width: 88% !important; align-items: flex-start !important; flex-direction: row !important; text-align: left !important; animation: chatIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;";
         msg.innerHTML = `
-            <div style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid #6B5FA7; background-color: #27272a; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; margin-top: 2px;">
+            <div style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid #b10607; background-color: #27272a; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; margin-top: 2px;">
                 <img src="./consultant.webp?v=2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:100%; object-fit:cover;">
                 <svg style="display:none; width:14px; height:14px; color:#a1a1aa;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
             </div>
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const msg = document.createElement('div');
         msg.style.cssText = "display: flex !important; width: 100% !important; justify-content: flex-end !important; flex-direction: row !important; animation: chatIn 0.25s ease-out forwards;";
         msg.innerHTML = `
-            <div style="background-color: #6B5FA7; color: white; padding: 11px 14px; border-radius: 14px; border-top-right-radius: 0; font-size: 13px; font-weight: 500; max-width: 85%; text-align: left; box-shadow: 0 4px 12px rgba(107, 95, 167, 0.25);">
+            <div style="background-color: #b10607; color: white; padding: 11px 14px; border-radius: 14px; border-top-right-radius: 0; font-size: 13px; font-weight: 500; max-width: 85%; text-align: left; box-shadow: 0 4px 12px rgba(178, 6, 7, 0.25);">
                 ${text}
             </div>
         `;
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.style.cssText = "background-color: #1e1e22 !important; color: #e4e4e7 !important; border: 1px solid #27272a !important; border-radius: 10px !important; font-size: 13px !important; font-weight: 500 !important; padding: 11px 14px !important; cursor: pointer !important; text-align: center !important; transition: all 0.2s !important; outline: none !important; width: 100% !important; box-sizing: border-box !important;";
             btn.textContent = opt.text;
             
-            btn.onmouseover = () => { btn.style.borderColor = '#6B5FA7'; btn.style.color = '#ffffff'; btn.style.backgroundColor = 'rgba(107, 95, 167, 0.12)'; };
+            btn.onmouseover = () => { btn.style.borderColor = '#b10607'; btn.style.color = '#ffffff'; btn.style.backgroundColor = 'rgba(178, 6, 7, 0.12)'; };
             btn.onmouseout = () => { btn.style.borderColor = '#27272a'; btn.style.color = '#e4e4e7'; btn.style.backgroundColor = '#1e1e22'; };
             
             btn.addEventListener('click', () => {
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             track.style.cssText = "width: 100%; height: 6px; background-color: #121214; border-radius: 4px; overflow: hidden; position: relative;";
             
             const bar = document.createElement('div');
-            bar.style.cssText = "width: 0%; height: 100%; background: linear-gradient(90deg, #8175be, #6B5FA7); border-radius: 4px; transition: width 0.1s linear;";
+            bar.style.cssText = "width: 0%; height: 100%; background: linear-gradient(90deg, #f21f1a, #b10607); border-radius: 4px; transition: width 0.1s linear;";
             
             track.appendChild(bar);
             loaderCard.appendChild(loaderText);
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         celebration.style.cssText = "position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:100; overflow:hidden;";
         for(let i=0; i<25; i++) {
             const particle = document.createElement('div');
-            const colors = ['#6B5FA7', '#8175be', '#10b981', '#f59e0b'];
+            const colors = ['#b10607', '#f21f1a', '#10b981', '#f59e0b'];
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
             particle.style.cssText = `position: absolute; top: -10px; left: ${Math.random() * 100}%; width: ${Math.random() * 6 + 4}px; height: ${Math.random() * 6 + 4}px; background-color: ${randomColor}; border-radius: 50%; animation: confettiFall 2.2s linear ${Math.random() * 1.5}s forwards; opacity: 0.8;`;
             celebration.appendChild(particle);
