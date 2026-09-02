@@ -293,7 +293,21 @@ def _escape_php_string(s: str) -> str:
     # dollar sign). Escape for the double-quoted context this is actually
     # used in; backslash must be escaped first so the following replacements
     # don't double-escape it.
-    return s.replace("\\", "\\\\").replace('"', '\\"').replace("$", "\\$")
+    #
+    # "$source" is a deliberate exception. The title/description generation
+    # further up this file (search for `.startswith("$source")`) treats it
+    # as a literal placeholder token that's meant to survive into the
+    # deployed lang.php unescaped, so PHP interpolates it at runtime against
+    # offer_seo.php's real $source value. Escaping it like any other '$'
+    # turns it into "\$source", which PHP prints as the 7 literal
+    # characters "$source" instead of the real brand -- observed live as a
+    # blank title/site_name on brolga-capstead.website (2026-09-02), same
+    # root cause as the site_name fix above. Protect it from the general
+    # '$' escape below so it round-trips as real interpolation again.
+    SOURCE_TOKEN_SENTINEL = "\x00__SOURCE_TOKEN__\x00"
+    s = s.replace("$source", SOURCE_TOKEN_SENTINEL)
+    s = s.replace("\\", "\\\\").replace('"', '\\"').replace("$", "\\$")
+    return s.replace(SOURCE_TOKEN_SENTINEL, "$source")
     
 def _get_openai_client() -> OpenAI:
     if OpenAI is None:
