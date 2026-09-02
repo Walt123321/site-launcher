@@ -398,6 +398,13 @@ section { padding: 56px 0; }
 @media (max-width: 480px) {
   .pay-badges img { height: 32px; }
 }
+/* On desktop the form card is much wider than the 4 badges need, leaving
+   them flush-left with a large empty gap to the right. Center them within
+   the card, per client feedback -- mobile keeps its left-aligned single
+   row as-is. */
+@media (min-width: 900px) {
+  .pay-badges { justify-content: center; }
+}
 
 /* ---------- CTA ---------- */
 .cta-inner { text-align: center; max-width: 640px; margin: 0 auto; }
