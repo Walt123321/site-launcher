@@ -415,7 +415,7 @@ $canonical = 'https://' . $host . $uri;
         <div class="cq-gen-6">
             <div class="cq-gen-7">
                 <div class="cq-gen-8">
-                    <img src="./consultant.webp" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" class="cq-gen-9">
+                    <img src="./consultant.webp?v=<?= @filemtime(__DIR__ . '/consultant.webp') ?: time() ?>" alt="<?= htmlspecialchars($quiz_consultant_name) ?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" class="cq-gen-9">
                     <svg class="cq-gen-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     <span class="cq-gen-11"></span>
                 </div>
