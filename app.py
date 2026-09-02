@@ -2109,6 +2109,17 @@ elif st.session_state.step == 2:
             geo_code = st.session_state.get("geo_code") or "UNKNOWN"
             target_lang = st.session_state.get("target_lang") or "en"
 
+            # Домени, додані вручну (add_manual_domain), не проходять через
+            # step2_generate_candidates і його перевірку бренду -- без цього
+            # гварда порожній "brand" мовчки долітав аж до $source/$site_name
+            # і кожного JSON-LD "name" поля, лишаючи їх усі порожніми на
+            # живому сайті (arveno-luxe.com, avenive-solvoral.site,
+            # brolga-capstead.website, argentum-fondelio.site,
+            # zenithvalorect.online -- усі запущені 2026-09-02 без бренду).
+            if not brand:
+                st.toast("Введи бренднейм.", icon="⚠️")
+                st.stop()
+
             # -------------------------------------------------
             # CHECK DUPLICATES
             # -------------------------------------------------
