@@ -1576,8 +1576,14 @@ def generate_lang_files(
             domain_lower = domain.lower()
             content = content.replace("{{DOMAIN}}", domain_lower)
 
-            # ВАЖЛИВО: site_name має бути "$source"
-            content = _set_php_var(content, "site_name", "$source", numeric=False)
+            # Бренд пишемо напряму (не через рантайм-інтерполяцію "$source" --
+            # _escape_php_string з 9b65ab5 екранує $ у "\$source", тож PHP
+            # більше не інтерполює це як значення змінної $source; замість
+            # реального бренду site_name ламався на живих запусках
+            # template_1/3/4, напр. arveno-luxe.com, avenive-solvoral.site,
+            # brolga-capstead.website, argentum-fondelio.site,
+            # zenithvalorect.online -- усі 2026-09-02).
+            content = _set_php_var(content, "site_name", brand, numeric=False)
 
             content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
             content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
@@ -1638,8 +1644,9 @@ def generate_lang_files(
             domain_lower = domain.lower()
             content = content.replace("{{DOMAIN}}", domain_lower)
 
-            # MANUAL
-            content = _set_php_var(content,"site_name","$source",numeric=False)
+            # MANUAL -- бренд напряму, не через рантайм-інтерполяцію "$source"
+            # (те саме, що для template_1, див. коментар вище по файлу)
+            content = _set_php_var(content,"site_name",brand,numeric=False)
             content = _set_php_var(content,"site_url",f"https://{domain}",numeric=False)
             content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
             content = _set_php_var(content,"app_currency",geo_currency,numeric=False)
@@ -1734,8 +1741,10 @@ def generate_lang_files(
         
                 # --- BASIC VARS ---
                 price = _make_price(geo_currency)
-        
-                content = _set_php_var(content, "site_name", "$source", numeric=False)
+
+                # Бренд напряму, не через рантайм-інтерполяцію "$source"
+                # (те саме, що для template_1, див. коментар вище по файлу)
+                content = _set_php_var(content, "site_name", brand, numeric=False)
                 content = _set_php_var(content, "site_url", f"https://{domain}", numeric=False)
                 content = _set_php_var(content, "site_domain", domain_lower, numeric=False)
                 content = _set_php_var(content, "app_currency", geo_currency, numeric=False)
