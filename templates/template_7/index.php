@@ -401,6 +401,7 @@ if (strpos(strtolower($uri), '/lander/') !== false && basename($uri) === 'index.
         </div>
         <p><?= $review_1_text ?></p>
         <div class="testimonial-author">
+          <img src="./assets/img/review-1.jpg" alt="<?= $review_1_author ?>" width="44" height="44" loading="lazy">
           <div>
             <p class="name"><?= $review_1_author ?></p>
             <p class="role"><?= $review_1_role ?></p>
@@ -413,6 +414,7 @@ if (strpos(strtolower($uri), '/lander/') !== false && basename($uri) === 'index.
         </div>
         <p><?= $review_2_text ?></p>
         <div class="testimonial-author">
+          <img src="./assets/img/review-2.jpg" alt="<?= $review_2_author ?>" width="44" height="44" loading="lazy">
           <div>
             <p class="name"><?= $review_2_author ?></p>
             <p class="role"><?= $review_2_role ?></p>
@@ -425,6 +427,7 @@ if (strpos(strtolower($uri), '/lander/') !== false && basename($uri) === 'index.
         </div>
         <p><?= $review_3_text ?></p>
         <div class="testimonial-author">
+          <img src="./assets/img/review-3.jpg" alt="<?= $review_3_author ?>" width="44" height="44" loading="lazy">
           <div>
             <p class="name"><?= $review_3_author ?></p>
             <p class="role"><?= $review_3_role ?></p>
