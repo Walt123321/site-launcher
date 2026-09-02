@@ -501,14 +501,14 @@ $canonical = 'https://' . $host . $uri;
 <!-- contact -->
 <section class="testimonials-bg border-gradient" id="contact">
   <div class="container-ref">
-    <div class="section-head" style="text-align:left; margin: 0 0 32px;">
+    <div class="section-head">
       <span class="text-gradient-label"><?= $contact_label ?></span>
       <h2><?= $contact_title ?></h2>
       <p><?= $contact_subtitle ?></p>
       <p><?= $contact_text ?></p>
       <p><?= $contact_form_text ?></p>
     </div>
-    <form name="form" method="post" class="leadform rf-form js-rf-form form-ref" action="../integration/send.php" style="max-width:520px;" data-form>
+    <form name="form" method="post" class="leadform rf-form js-rf-form form-ref" action="../integration/send.php" style="max-width:520px; margin:0 auto;" data-form>
       <input type="hidden" name="js_token" value="<?= $jsToken; ?>">
       <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;">
         <input type="text" name="website" tabindex="-1" autocomplete="off">
