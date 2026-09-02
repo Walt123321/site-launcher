@@ -1,11 +1,21 @@
 <?php
+
+// Redirect if this folder's language already matches the root site's language (avoid duplicate content)
+include '../lang.php';
+$extractLang = str_replace('-', '', strtolower(explode('-', $site_lang)[0]));
+$currentLang = 'ro';
+if ($extractLang === $currentLang) {
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ' . $site_url . "/lander/" . $site_domain . "/product.php");
+    exit();
+}
 session_start();
 if (empty($_SESSION['js_token'])) {
     $_SESSION['js_token'] = bin2hex(random_bytes(16));
 }
 $jsToken = $_SESSION['js_token'];
 require_once '../offer_seo.php';
-include '../lang.php';
+include 'lang.php';
 ?>
 <?php
 if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {

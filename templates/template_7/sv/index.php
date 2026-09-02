@@ -1,4 +1,14 @@
 <?php
+
+// Redirect if this folder's language already matches the root site's language (avoid duplicate content)
+include '../lang.php';
+$extractLang = str_replace('-', '', strtolower(explode('-', $site_lang)[0]));
+$currentLang = 'sv';
+if ($extractLang === $currentLang) {
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ' . $site_url . "/lander/" . $site_domain . "/");
+    exit();
+}
 if (strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
     $host = substr($_SERVER['HTTP_HOST'], 4);
     header("Location: https://" . $host . $_SERVER['REQUEST_URI'], true, 301);
@@ -24,7 +34,7 @@ if (!empty($incomingClickId)) {
 
 
 require_once '../offer_seo.php';
-include '../lang.php';
+include 'lang.php';
 
 $host = $_SERVER['HTTP_HOST'];
 $uri = strtok($_SERVER['REQUEST_URI'], '?');
