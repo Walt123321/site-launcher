@@ -420,7 +420,7 @@ section { padding: 56px 0; }
 .footer-grid ul a:hover { color: #fff; }
 
 .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-.footer-brand img { width: 32px; height: 32px; }
+.footer-brand img { height: 32px; width: auto; border-radius: 3px; }
 .footer-brand span { color: #fff; font-weight: 600; }
 
 .footer-legal {

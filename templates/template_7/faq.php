@@ -341,7 +341,11 @@ $canonical = 'https://' . $host . $uri;
       </div>
     </div>
     <div class="footer-brand">
+      <?php if ($country_flag_code): ?>
+      <img src="https://flagcdn.com/48x36/<?= $country_flag_code ?>.png" srcset="https://flagcdn.com/96x72/<?= $country_flag_code ?>.png 2x" alt="<?= $country_name ?>" loading="lazy" decoding="async">
+      <?php else: ?>
       <img src="./favicon-96x96.png" alt="<?= $site_name ?>">
+      <?php endif; ?>
       <span><?= $site_name ?></span>
     </div>
     <div class="footer-legal">
