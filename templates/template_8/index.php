@@ -629,42 +629,42 @@ if (strpos(strtolower($uri), "/lander/") !== false && basename($uri) === "index.
             <div class="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="./assets/img/svg/sprite.svg#ico10"></use></svg>
             </div>
-            <p class="typography-h3"><?= $benefit_1_title ?></p>
+            <h3 class="typography-h3"><?= $benefit_1_title ?></h3>
             <p><?= $benefit_1_text ?></p>
           </div>
           <div class="benefit-card">
             <div class="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="./assets/img/svg/sprite.svg#ico17"></use></svg>
             </div>
-            <p class="typography-h3"><?= $benefit_2_title ?></p>
+            <h3 class="typography-h3"><?= $benefit_2_title ?></h3>
             <p><?= $benefit_2_text ?></p>
           </div>
           <div class="benefit-card">
             <div class="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="./assets/img/svg/sprite.svg#ico27"></use></svg>
             </div>
-            <p class="typography-h3"><?= $benefit_3_title ?></p>
+            <h3 class="typography-h3"><?= $benefit_3_title ?></h3>
             <p><?= $benefit_3_text ?></p>
           </div>
           <div class="benefit-card">
             <div class="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="./assets/img/svg/sprite.svg#ico8"></use></svg>
             </div>
-            <p class="typography-h3"><?= $benefit_4_title ?></p>
+            <h3 class="typography-h3"><?= $benefit_4_title ?></h3>
             <p><?= $benefit_4_text ?></p>
           </div>
           <div class="benefit-card">
             <div class="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="./assets/img/svg/sprite.svg#ico2"></use></svg>
             </div>
-            <p class="typography-h3"><?= $benefit_5_title ?></p>
+            <h3 class="typography-h3"><?= $benefit_5_title ?></h3>
             <p><?= $benefit_5_text ?></p>
           </div>
           <div class="benefit-card">
             <div class="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="./assets/img/svg/sprite.svg#ico27"></use></svg>
             </div>
-            <p class="typography-h3"><?= $benefit_6_title ?></p>
+            <h3 class="typography-h3"><?= $benefit_6_title ?></h3>
             <p><?= $benefit_6_text ?></p>
           </div>
         </div>
@@ -1074,10 +1074,10 @@ if (strpos(strtolower($uri), "/lander/") !== false && basename($uri) === "index.
         <h2 class="max-md:text-center"><?= $faq_title ?></h2>
         <div class="gap-responsive-m24 grid" data-accordion="">
           <div id="accordion-1" class="group/item rounded-responsive-30 border-button-secondary-default overflow-hidden border-2 transition-all">
-            <button class="bg-button-secondary-default group/button gap-responsive-m4 py-responsive-p12 px-responsive-p24 flex w-full cursor-pointer items-center justify-between" onclick="toggleAccordion(1)">
+            <h3><button class="bg-button-secondary-default group/button gap-responsive-m4 py-responsive-p12 px-responsive-p24 flex w-full cursor-pointer items-center justify-between" onclick="toggleAccordion(1)">
               <span class="typography-h3 text-left transition-colors"><?= $faq_q1 ?></span>
               <span class="accordion-icon"></span>
-            </button>
+            </button></h3>
             <div id="content-1" class="max-h-0 overflow-hidden transition-all">
               <div class="gap-responsive-m2 py-responsive-p12 px-responsive-p24 grid">
                 <p><?= $faq_a1 ?></p>
@@ -1086,10 +1086,10 @@ if (strpos(strtolower($uri), "/lander/") !== false && basename($uri) === "index.
           </div>
 
           <div id="accordion-2" class="group/item rounded-responsive-30 border-button-secondary-default overflow-hidden border-2 transition-all">
-            <button class="bg-button-secondary-default group/button gap-responsive-m4 py-responsive-p12 px-responsive-p24 flex w-full cursor-pointer items-center justify-between" onclick="toggleAccordion(2)">
+            <h3><button class="bg-button-secondary-default group/button gap-responsive-m4 py-responsive-p12 px-responsive-p24 flex w-full cursor-pointer items-center justify-between" onclick="toggleAccordion(2)">
               <span class="typography-h3 text-left transition-colors"><?= $faq_q2 ?></span>
               <span class="accordion-icon"></span>
-            </button>
+            </button></h3>
             <div id="content-2" class="max-h-0 overflow-hidden transition-all">
               <div class="gap-responsive-m2 py-responsive-p12 px-responsive-p24 grid">
                 <p><?= $faq_a2 ?></p>
@@ -1098,10 +1098,10 @@ if (strpos(strtolower($uri), "/lander/") !== false && basename($uri) === "index.
           </div>
 
           <div id="accordion-3" class="group/item rounded-responsive-30 border-button-secondary-default overflow-hidden border-2 transition-all">
-            <button class="bg-button-secondary-default group/button gap-responsive-m4 py-responsive-p12 px-responsive-p24 flex w-full cursor-pointer items-center justify-between" onclick="toggleAccordion(3)">
+            <h3><button class="bg-button-secondary-default group/button gap-responsive-m4 py-responsive-p12 px-responsive-p24 flex w-full cursor-pointer items-center justify-between" onclick="toggleAccordion(3)">
               <span class="typography-h3 text-left transition-colors"><?= $faq_q3 ?></span>
               <span class="accordion-icon"></span>
-            </button>
+            </button></h3>
             <div id="content-3" class="max-h-0 overflow-hidden transition-all">
               <div class="gap-responsive-m2 py-responsive-p12 px-responsive-p24 grid">
                 <p><?= $faq_a3 ?></p>
@@ -1110,10 +1110,10 @@ if (strpos(strtolower($uri), "/lander/") !== false && basename($uri) === "index.
           </div>
 
           <div id="accordion-4" class="group/item rounded-responsive-30 border-button-secondary-default overflow-hidden border-2 transition-all">
-            <button class="bg-button-secondary-default group/button gap-responsive-m4 py-responsive-p12 px-responsive-p24 flex w-full cursor-pointer items-center justify-between" onclick="toggleAccordion(4)">
+            <h3><button class="bg-button-secondary-default group/button gap-responsive-m4 py-responsive-p12 px-responsive-p24 flex w-full cursor-pointer items-center justify-between" onclick="toggleAccordion(4)">
               <span class="typography-h3 text-left transition-colors"><?= $faq_q4 ?></span>
               <span class="accordion-icon"></span>
-            </button>
+            </button></h3>
             <div id="content-4" class="max-h-0 overflow-hidden transition-all">
               <div class="gap-responsive-m2 py-responsive-p12 px-responsive-p24 grid">
                 <p><?= $faq_a4 ?></p>
@@ -1122,10 +1122,10 @@ if (strpos(strtolower($uri), "/lander/") !== false && basename($uri) === "index.
           </div>
 
           <div id="accordion-5" class="group/item rounded-responsive-30 border-button-secondary-default overflow-hidden border-2 transition-all">
-            <button class="bg-button-secondary-default group/button gap-responsive-m4 py-responsive-p12 px-responsive-p24 flex w-full cursor-pointer items-center justify-between" onclick="toggleAccordion(5)">
+            <h3><button class="bg-button-secondary-default group/button gap-responsive-m4 py-responsive-p12 px-responsive-p24 flex w-full cursor-pointer items-center justify-between" onclick="toggleAccordion(5)">
               <span class="typography-h3 text-left transition-colors"><?= $faq_q5 ?></span>
               <span class="accordion-icon"></span>
-            </button>
+            </button></h3>
             <div id="content-5" class="max-h-0 overflow-hidden transition-all">
               <div class="gap-responsive-m2 py-responsive-p12 px-responsive-p24 grid">
                 <p><?= $faq_a5 ?></p>
