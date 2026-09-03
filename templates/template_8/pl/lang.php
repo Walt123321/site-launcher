@@ -438,7 +438,7 @@ $how_cta_link = "Jak To Działa";
 
 // -- trust reasons section --
 $trust_label = "Dlaczego Warto Handlować z Nami";
-$trust_intro = "Dołącz do tysięcy użytkowników, którzy już handlują z $site_name. Na naszej stronie wyświetlany jest nawet licznik na żywo, pokazujący, ile osób handluje w tej chwili.";
+$trust_intro = "Dołącz do tysięcy użytkowników, którzy już handlują z $site_name.";
 $trust_1_title = "W Pełni Regulowana";
 $trust_1_text = "$site_name jest należycie zarejestrowana i przestrzega obowiązujących przepisów finansowych. Działamy zgodnie z rygorystycznymi zasadami, aby zapewnić Twoje bezpieczeństwo.";
 $trust_2_title = "Zaawansowane Bezpieczeństwo";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Rejestracja / Logowanie";
 $breadcrumb_product = "Produkt";
 
 // -- sign-up page official heading --
-$official_heading = "Zarejestruj się na Oficjalnej Platformie $site_name™";
+$official_heading = "Zarejestruj się na Oficjalnej Platformie {$site_name}™";
 $official_description = "Załóż darmowe konto, aby zacząć handlować kryptowalutami na bezpiecznej, przejrzystej platformie.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Oferta";
 $offer_cta_h1 = "Zacznij Handlować Już Dziś";
 $offer_cta_text = "Gotowe w kilka minut: zarejestruj się, zasil swoje konto i zacznij handlować kryptowalutami na bezpiecznej, regulowanej platformie.";
 $offer_how_it_works_title = "Jak To Działa";
-$offer_official_platform_title = "To Oficjalna Platforma Handlowa $site_name™";
+$offer_official_platform_title = "To Oficjalna Platforma Handlowa {$site_name}™";
 $offer_official_platform_text = "Wiarygodny, przejrzysty sposób na handel kryptowalutami — z informacjami w czasie rzeczywistym i pełną kontrolą.";
 
 // -- conditions of use page --

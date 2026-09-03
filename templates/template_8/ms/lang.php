@@ -438,7 +438,7 @@ $how_cta_link = "Cara Ia Berfungsi";
 
 // -- trust reasons section --
 $trust_label = "Mengapa Berdagang Dengan Kami";
-$trust_intro = "Sertai ribuan pengguna yang sudah berdagang dengan $site_name. Penghitung langsung juga dipaparkan di laman kami, menunjukkan berapa ramai orang sedang berdagang sekarang.";
+$trust_intro = "Sertai ribuan pengguna yang sudah berdagang dengan $site_name.";
 $trust_1_title = "Dikawal Selia Sepenuhnya";
 $trust_1_text = "$site_name didaftarkan dengan sewajarnya dan mematuhi peraturan kewangan yang berkenaan. Kami beroperasi di bawah peraturan yang ketat untuk memastikan keselamatan anda.";
 $trust_2_title = "Keselamatan Termaju";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Pendaftaran / Log Masuk";
 $breadcrumb_product = "Produk";
 
 // -- sign-up page official heading --
-$official_heading = "Daftar di Platform Rasmi $site_name™";
+$official_heading = "Daftar di Platform Rasmi {$site_name}™";
 $official_description = "Cipta akaun percuma anda untuk mula berdagang mata wang kripto pada platform yang selamat dan telus.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Tawaran";
 $offer_cta_h1 = "Mula Berdagang Hari Ini";
 $offer_cta_text = "Sedia dalam beberapa minit: daftar, biayai akaun anda, dan mula berdagang mata wang kripto pada platform yang selamat dan dikawal selia.";
 $offer_how_it_works_title = "Cara Ia Berfungsi";
-$offer_official_platform_title = "Ini Adalah Platform Dagangan Rasmi $site_name™";
+$offer_official_platform_title = "Ini Adalah Platform Dagangan Rasmi {$site_name}™";
 $offer_official_platform_text = "Cara yang boleh dipercayai dan telus untuk berdagang mata wang kripto — dengan pandangan masa nyata dan kawalan penuh.";
 
 // -- conditions of use page --

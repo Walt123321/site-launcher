@@ -438,7 +438,7 @@ $how_cta_link = "Slik Fungerer Det";
 
 // -- trust reasons section --
 $trust_label = "Hvorfor Handle Med Oss";
-$trust_intro = "Bli med tusenvis av brukere som allerede handler med $site_name. En livetelling vises til og med på nettsiden vår, som viser hvor mange som handler akkurat nå.";
+$trust_intro = "Bli med tusenvis av brukere som allerede handler med $site_name.";
 $trust_1_title = "Fullt Regulert";
 $trust_1_text = "$site_name er behørig registrert og overholder gjeldende finansregelverk. Vi opererer under strenge regler for å sikre din trygghet.";
 $trust_2_title = "Avansert Sikkerhet";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Registrering / Logg Inn";
 $breadcrumb_product = "Produkt";
 
 // -- sign-up page official heading --
-$official_heading = "Registrer Deg på den Offisielle $site_name™-Plattformen";
+$official_heading = "Registrer Deg på den Offisielle {$site_name}™-Plattformen";
 $official_description = "Opprett din gratis konto for å begynne å handle med kryptovaluta på en sikker, gjennomsiktig plattform.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Tilbud";
 $offer_cta_h1 = "Begynn å Handle i Dag";
 $offer_cta_text = "Klar på minutter: registrer deg, finansier kontoen din, og begynn å handle med kryptovaluta på en sikker, regulert plattform.";
 $offer_how_it_works_title = "Slik Fungerer Det";
-$offer_official_platform_title = "Dette Er den Offisielle $site_name™ Handelsplattformen";
+$offer_official_platform_title = "Dette Er den Offisielle {$site_name}™ Handelsplattformen";
 $offer_official_platform_text = "En pålitelig, gjennomsiktig måte å handle kryptovaluta på — med sanntidsinnsikt og full kontroll.";
 
 // -- conditions of use page --

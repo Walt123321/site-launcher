@@ -438,7 +438,7 @@ $how_cta_link = "Näin Se Toimii";
 
 // -- trust reasons section --
 $trust_label = "Miksi Käydä Kauppaa Kanssamme";
-$trust_intro = "Liity tuhansien käyttäjien joukkoon, jotka jo käyvät kauppaa $site_name:n kanssa. Sivustollamme näkyy jopa reaaliaikainen laskuri, joka näyttää, kuinka moni käy kauppaa juuri nyt.";
+$trust_intro = "Liity tuhansien käyttäjien joukkoon, jotka jo käyvät kauppaa $site_name:n kanssa.";
 $trust_1_title = "Täysin Säännelty";
 $trust_1_text = "$site_name on asianmukaisesti rekisteröity ja noudattaa sovellettavia rahoitusmääräyksiä. Toimimme tiukkojen sääntöjen mukaisesti varmistaaksemme turvallisuutesi.";
 $trust_2_title = "Edistynyt Turvallisuus";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Rekisteröinti / Kirjautuminen";
 $breadcrumb_product = "Tuote";
 
 // -- sign-up page official heading --
-$official_heading = "Rekisteröidy Viralliselle $site_name™-Alustalle";
+$official_heading = "Rekisteröidy Viralliselle {$site_name}™-Alustalle";
 $official_description = "Luo ilmainen tilisi aloittaaksesi kryptovaluuttojen kaupankäynnin turvallisella, läpinäkyvällä alustalla.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Tarjous";
 $offer_cta_h1 = "Aloita Kaupankäynti Jo Tänään";
 $offer_cta_text = "Valmis minuuteissa: rekisteröidy, rahoita tilisi ja aloita kryptovaluuttojen kaupankäynti turvallisella, säännellyllä alustalla.";
 $offer_how_it_works_title = "Näin Se Toimii";
-$offer_official_platform_title = "Tämä On Virallinen $site_name™ Kaupankäyntialusta";
+$offer_official_platform_title = "Tämä On Virallinen {$site_name}™ Kaupankäyntialusta";
 $offer_official_platform_text = "Luotettava, läpinäkyvä tapa käydä kauppaa kryptovaluutoilla — reaaliaikaisilla näkemyksillä ja täydellä hallinnalla.";
 
 // -- conditions of use page --

@@ -438,7 +438,7 @@ $how_cta_link = "Kako Radi";
 
 // -- trust reasons section --
 $trust_label = "Zašto Trgovati s Nama";
-$trust_intro = "Pridružite se tisućama korisnika koji već trguju s $site_name. Na našoj stranici čak je prikazan brojač uživo koji pokazuje koliko ljudi trenutno trguje.";
+$trust_intro = "Pridružite se tisućama korisnika koji već trguju s $site_name.";
 $trust_1_title = "Potpuno Regulirano";
 $trust_1_text = "$site_name je propisno registrirana i pridržava se primjenjivih financijskih propisa. Poslujemo prema strogim pravilima kako bismo osigurali vašu sigurnost.";
 $trust_2_title = "Napredna Sigurnost";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Registracija / Prijava";
 $breadcrumb_product = "Proizvod";
 
 // -- sign-up page official heading --
-$official_heading = "Registrirajte se na Službenoj Platformi $site_name™";
+$official_heading = "Registrirajte se na Službenoj Platformi {$site_name}™";
 $official_description = "Otvorite svoj besplatni račun kako biste počeli trgovati kriptovalutama na sigurnoj, transparentnoj platformi.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Ponuda";
 $offer_cta_h1 = "Počnite Trgovati Danas";
 $offer_cta_text = "Spremno za nekoliko minuta: registrirajte se, financirajte svoj račun i počnite trgovati kriptovalutama na sigurnoj, reguliranoj platformi.";
 $offer_how_it_works_title = "Kako Radi";
-$offer_official_platform_title = "Ovo Je Službena Trgovinska Platforma $site_name™";
+$offer_official_platform_title = "Ovo Je Službena Trgovinska Platforma {$site_name}™";
 $offer_official_platform_text = "Pouzdan, transparentan način trgovanja kriptovalutama — s uvidima u stvarnom vremenu i potpunom kontrolom.";
 
 // -- conditions of use page --

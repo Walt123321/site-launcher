@@ -438,7 +438,7 @@ $how_cta_link = "Como Funciona";
 
 // -- trust reasons section --
 $trust_label = "Por Que Negociar Conosco";
-$trust_intro = "Junte-se a milhares de usuários que já negociam com a $site_name. Um contador ao vivo é até exibido em nosso site, mostrando quantas pessoas estão negociando agora.";
+$trust_intro = "Junte-se a milhares de usuários que já negociam com a $site_name.";
 $trust_1_title = "Totalmente Regulamentada";
 $trust_1_text = "A $site_name é devidamente registrada e cumpre com as regulamentações financeiras aplicáveis. Operamos sob regras rigorosas para garantir sua segurança.";
 $trust_2_title = "Segurança Avançada";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Cadastro / Login";
 $breadcrumb_product = "Produto";
 
 // -- sign-up page official heading --
-$official_heading = "Cadastre-se na Plataforma Oficial $site_name™";
+$official_heading = "Cadastre-se na Plataforma Oficial {$site_name}™";
 $official_description = "Crie sua conta gratuita para começar a negociar criptomoedas em uma plataforma segura e transparente.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Oferta";
 $offer_cta_h1 = "Comece a Negociar Hoje";
 $offer_cta_text = "Pronto em minutos: cadastre-se, financie sua conta e comece a negociar criptomoedas em uma plataforma segura e regulamentada.";
 $offer_how_it_works_title = "Como Funciona";
-$offer_official_platform_title = "Esta É a Plataforma Oficial de Negociação $site_name™";
+$offer_official_platform_title = "Esta É a Plataforma Oficial de Negociação {$site_name}™";
 $offer_official_platform_text = "Uma forma confiável e transparente de negociar criptomoedas — com informações em tempo real e controle total.";
 
 // -- conditions of use page --

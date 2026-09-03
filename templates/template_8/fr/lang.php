@@ -438,7 +438,7 @@ $how_cta_link = "Comment ça marche";
 
 // -- trust reasons section --
 $trust_label = "Pourquoi trader avec nous";
-$trust_intro = "Rejoignez des milliers d'utilisateurs qui tradent déjà avec $site_name. Un compteur en direct est même affiché sur notre site, indiquant combien de personnes tradent en ce moment, afin que vous puissiez voir notre communauté active en temps réel.";
+$trust_intro = "Rejoignez des milliers d'utilisateurs qui tradent déjà avec $site_name.";
 $trust_1_title = "Entièrement réglementé";
 $trust_1_text = "$site_name est dûment enregistré et respecte la réglementation financière applicable. Nous opérons selon des règles strictes afin de garantir votre protection.";
 $trust_2_title = "Sécurité de pointe";

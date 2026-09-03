@@ -438,7 +438,7 @@ $how_cta_link = "Jak To Funguje";
 
 // -- trust reasons section --
 $trust_label = "Proč Obchodovat s Námi";
-$trust_intro = "Připojte se k tisícům uživatelů, kteří již obchodují s $site_name. Na našem webu je dokonce zobrazeno živé počítadlo, které ukazuje, kolik lidí právě teď obchoduje.";
+$trust_intro = "Připojte se k tisícům uživatelů, kteří již obchodují s $site_name.";
 $trust_1_title = "Plně Regulovaná";
 $trust_1_text = "$site_name je řádně registrovaná a dodržuje platné finanční předpisy. Působíme podle přísných pravidel, abychom zajistili vaši bezpečnost.";
 $trust_2_title = "Pokročilá Bezpečnost";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Registrace / Přihlášení";
 $breadcrumb_product = "Produkt";
 
 // -- sign-up page official heading --
-$official_heading = "Zaregistrujte se na Oficiální Platformě $site_name™";
+$official_heading = "Zaregistrujte se na Oficiální Platformě {$site_name}™";
 $official_description = "Vytvořte si bezplatný účet a začněte obchodovat s kryptoměnami na bezpečné, transparentní platformě.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Nabídka";
 $offer_cta_h1 = "Začněte Obchodovat Ještě Dnes";
 $offer_cta_text = "Připraveno během minut: zaregistrujte se, financujte svůj účet a začněte obchodovat s kryptoměnami na bezpečné, regulované platformě.";
 $offer_how_it_works_title = "Jak To Funguje";
-$offer_official_platform_title = "Toto Je Oficiální Obchodní Platforma $site_name™";
+$offer_official_platform_title = "Toto Je Oficiální Obchodní Platforma {$site_name}™";
 $offer_official_platform_text = "Důvěryhodný, transparentní způsob obchodování s kryptoměnami — s přehledy v reálném čase a plnou kontrolou.";
 
 // -- conditions of use page --

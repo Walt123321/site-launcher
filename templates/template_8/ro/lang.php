@@ -438,7 +438,7 @@ $how_cta_link = "Cum Funcționează";
 
 // -- trust reasons section --
 $trust_label = "De Ce Să Tranzacționați cu Noi";
-$trust_intro = "Alăturați-vă miilor de utilizatori care tranzacționează deja cu $site_name. Un contor live este chiar afișat pe site-ul nostru, arătând câți oameni tranzacționează chiar acum.";
+$trust_intro = "Alăturați-vă miilor de utilizatori care tranzacționează deja cu $site_name.";
 $trust_1_title = "Complet Reglementat";
 $trust_1_text = "$site_name este înregistrată în mod corespunzător și respectă reglementările financiare aplicabile. Operăm sub reguli stricte pentru a vă asigura siguranța.";
 $trust_2_title = "Securitate Avansată";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Înregistrare / Autentificare";
 $breadcrumb_product = "Produs";
 
 // -- sign-up page official heading --
-$official_heading = "Înregistrați-vă pe Platforma Oficială $site_name™";
+$official_heading = "Înregistrați-vă pe Platforma Oficială {$site_name}™";
 $official_description = "Creați-vă contul gratuit pentru a începe să tranzacționați criptomonede pe o platformă sigură și transparentă.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Ofertă";
 $offer_cta_h1 = "Începeți Tranzacționarea Astăzi";
 $offer_cta_text = "Gata în câteva minute: înregistrați-vă, finanțați-vă contul și începeți să tranzacționați criptomonede pe o platformă sigură și reglementată.";
 $offer_how_it_works_title = "Cum Funcționează";
-$offer_official_platform_title = "Aceasta Este Platforma Oficială de Tranzacționare $site_name™";
+$offer_official_platform_title = "Aceasta Este Platforma Oficială de Tranzacționare {$site_name}™";
 $offer_official_platform_text = "O modalitate de încredere și transparentă de a tranzacționa criptomonede — cu perspective în timp real și control total.";
 
 // -- conditions of use page --

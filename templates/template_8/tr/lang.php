@@ -438,7 +438,7 @@ $how_cta_link = "Nasıl Çalışır";
 
 // -- trust reasons section --
 $trust_label = "Neden Bizimle İşlem Yapmalısınız";
-$trust_intro = "$site_name ile zaten işlem yapan binlerce kullanıcıya katılın. Sitemizde şu anda kaç kişinin işlem yaptığını gösteren canlı bir sayaç bile görüntüleniyor.";
+$trust_intro = "$site_name ile zaten işlem yapan binlerce kullanıcıya katılın.";
 $trust_1_title = "Tamamen Düzenlenmiş";
 $trust_1_text = "$site_name uygun şekilde kayıtlıdır ve geçerli finansal düzenlemelere uygundur. Güvenliğinizi sağlamak için katı kurallar altında faaliyet gösteriyoruz.";
 $trust_2_title = "Gelişmiş Güvenlik";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Kayıt / Giriş Yap";
 $breadcrumb_product = "Ürün";
 
 // -- sign-up page official heading --
-$official_heading = "Resmi $site_name™ Platformuna Kaydolun";
+$official_heading = "Resmi {$site_name}™ Platformuna Kaydolun";
 $official_description = "Güvenli, şeffaf bir platformda kripto para ticaretine başlamak için ücretsiz hesabınızı oluşturun.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Teklif";
 $offer_cta_h1 = "Bugün Ticarete Başlayın";
 $offer_cta_text = "Dakikalar içinde hazır: kaydolun, hesabınızı fonlayın ve güvenli, düzenlenmiş bir platformda kripto para ticaretine başlayın.";
 $offer_how_it_works_title = "Nasıl Çalışır";
-$offer_official_platform_title = "Bu, Resmi $site_name™ Ticaret Platformudur";
+$offer_official_platform_title = "Bu, Resmi {$site_name}™ Ticaret Platformudur";
 $offer_official_platform_text = "Gerçek zamanlı içgörüler ve tam kontrolle kripto para ticareti yapmanın güvenilir, şeffaf bir yolu.";
 
 // -- conditions of use page --

@@ -438,7 +438,7 @@ $how_cta_link = "Hoe het werkt";
 
 // -- trust reasons section --
 $trust_label = "Waarom bij ons handelen";
-$trust_intro = "Sluit u aan bij duizenden gebruikers die al handelen met $site_name. Op onze site staat zelfs een live teller die laat zien hoeveel mensen op dit moment aan het handelen zijn, zodat u onze actieve community in realtime kunt zien.";
+$trust_intro = "Sluit u aan bij duizenden gebruikers die al handelen met $site_name.";
 $trust_1_title = "Volledig gereguleerd";
 $trust_1_text = "$site_name is naar behoren geregistreerd en voldoet aan de geldende financiële regelgeving. Wij opereren volgens strikte regels om uw bescherming te waarborgen.";
 $trust_2_title = "Geavanceerde beveiliging";

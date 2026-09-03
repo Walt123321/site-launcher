@@ -438,7 +438,7 @@ $how_cta_link = "Cómo Funciona";
 
 // -- trust reasons section --
 $trust_label = "Por Qué Operar con Nosotros";
-$trust_intro = "Únete a miles de usuarios que ya operan con $site_name. Incluso se muestra un contador en vivo en nuestro sitio, mostrando cuántas personas están operando en este momento.";
+$trust_intro = "Únete a miles de usuarios que ya operan con $site_name.";
 $trust_1_title = "Totalmente Regulado";
 $trust_1_text = "$site_name está debidamente registrado y cumple con las normativas financieras aplicables. Operamos bajo reglas estrictas para garantizar tu seguridad.";
 $trust_2_title = "Seguridad Avanzada";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Registro / Inicio de Sesión";
 $breadcrumb_product = "Producto";
 
 // -- sign-up page official heading --
-$official_heading = "Regístrate en la Plataforma Oficial $site_name™";
+$official_heading = "Regístrate en la Plataforma Oficial {$site_name}™";
 $official_description = "Crea tu cuenta gratuita para empezar a operar con criptomonedas en una plataforma segura y transparente.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Oferta";
 $offer_cta_h1 = "Empieza a Operar Hoy";
 $offer_cta_text = "Listo en minutos: regístrate, financia tu cuenta y empieza a operar con criptomonedas en una plataforma segura y regulada.";
 $offer_how_it_works_title = "Cómo Funciona";
-$offer_official_platform_title = "Esta Es la Plataforma Oficial de Trading $site_name™";
+$offer_official_platform_title = "Esta Es la Plataforma Oficial de Trading {$site_name}™";
 $offer_official_platform_text = "Una forma confiable y transparente de operar con criptomonedas — con información en tiempo real y control total.";
 
 // -- conditions of use page --

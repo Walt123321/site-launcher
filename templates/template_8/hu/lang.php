@@ -438,7 +438,7 @@ $how_cta_link = "Hogyan Működik";
 
 // -- trust reasons section --
 $trust_label = "Miért Kereskedjen Velünk";
-$trust_intro = "Csatlakozzon több ezer felhasználóhoz, akik már kereskednek a $site_name-nál. Weboldalunkon még egy élő számláló is megjelenik, amely megmutatja, hányan kereskednek éppen.";
+$trust_intro = "Csatlakozzon több ezer felhasználóhoz, akik már kereskednek a $site_name-nál.";
 $trust_1_title = "Teljesen Szabályozott";
 $trust_1_text = "A $site_name megfelelően regisztrált, és megfelel az alkalmazandó pénzügyi szabályozásoknak. Szigorú szabályok szerint működünk, hogy biztosítsuk az Ön biztonságát.";
 $trust_2_title = "Fejlett Biztonság";
@@ -539,7 +539,7 @@ $breadcrumb_current = "Regisztráció / Bejelentkezés";
 $breadcrumb_product = "Termék";
 
 // -- sign-up page official heading --
-$official_heading = "Regisztráljon a Hivatalos $site_name™ Platformon";
+$official_heading = "Regisztráljon a Hivatalos {$site_name}™ Platformon";
 $official_description = "Hozza létre ingyenes fiókját, hogy elkezdjen kereskedni kriptovalutával egy biztonságos, átlátható platformon.";
 
 // -- product page: analytics banner --
@@ -613,7 +613,7 @@ $offer_breadcrumb_current = "Ajánlat";
 $offer_cta_h1 = "Kezdjen Kereskedni Ma";
 $offer_cta_text = "Percek alatt kész: regisztráljon, finanszírozza fiókját, és kezdjen kereskedni kriptovalutával egy biztonságos, szabályozott platformon.";
 $offer_how_it_works_title = "Hogyan Működik";
-$offer_official_platform_title = "Ez a Hivatalos $site_name™ Kereskedési Platform";
+$offer_official_platform_title = "Ez a Hivatalos {$site_name}™ Kereskedési Platform";
 $offer_official_platform_text = "Megbízható, átlátható módja a kriptovaluta-kereskedésnek — valós idejű betekintésekkel és teljes irányítással.";
 
 // -- conditions of use page --
