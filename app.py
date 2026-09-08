@@ -2198,6 +2198,7 @@ elif st.session_state.step == 2:
                 status_box.info("🟡 Генерую lang.php...")
                 st.session_state.favicon_state = "generate"
 
+                gen_failures = []
                 files = generate_lang_files_multi(
                     template1_bytes=open(TEMPLATES["template_1"]["lang"], "rb").read(),
                     template2_bytes=open(TEMPLATES["template_2"]["lang"], "rb").read(),
@@ -2217,6 +2218,7 @@ elif st.session_state.step == 2:
                     brand=brand,
                     model=MODEL,
                     geo_defaults=geo,
+                    failures=gen_failures,
                 )
 
                 progress.progress(0.30)
@@ -2286,14 +2288,24 @@ elif st.session_state.step == 2:
                 for row_id in st.session_state.sheet_rows:
                     update_status(row_id, "Додається в Keitaro")
 
+                # Domains missing from zip_map already failed earlier (lang.php
+                # generation raised — see gen_failures below), so skip them here
+                # instead of letting create_multiple_projects report the
+                # uninformative generic "ZIP missing" for them.
                 results = create_multiple_projects(
-                    domains=domains,
+                    domains=[d for d in domains if d in zip_map],
                     zip_map=zip_map,
                     callback=live_log,
                     max_workers=1,
                     buyer=st.session_state.get("buyer_name") or None,
                     geo_code=st.session_state.get("geo_code"),
                 )
+
+                for gf in gen_failures:
+                    results.append({
+                        "domain": gf["domain"],
+                        "error": f"lang.php generation failed: {gf['error']}",
+                    })
 
                 progress.progress(1.0)
 

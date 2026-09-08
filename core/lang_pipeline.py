@@ -2567,10 +2567,18 @@ def generate_lang_files_multi(
     template8_bytes: Optional[bytes] = None,
     template9_bytes: Optional[bytes] = None,
     template10_bytes: Optional[bytes] = None,
+    failures: Optional[list] = None,
 ) -> List[Dict[str, str]]:
     """
     Generate lang.php for multiple templates.
     domain_templates maps domain -> template id
+
+    failures: if given, a list this function appends {"domain": d, "error": str}
+    to for any domain whose generation raised -- otherwise that domain is just
+    silently missing from the returned list (its exception only goes to
+    stdout). Callers that skip this end up unable to tell "AI generation
+    failed for this domain" apart from any other reason a domain might be
+    missing downstream.
     """
 
     out: List[Dict[str, str]] = []
@@ -2647,6 +2655,8 @@ def generate_lang_files_multi(
                 out.append(files[0])
         except Exception as e:
             print(f"[ERROR] {d}: {e}")
+            if failures is not None:
+                failures.append({"domain": d, "error": str(e)})
         time.sleep(1.2)  # 🔥 КРИТИЧНО
 
     return out
