@@ -2320,8 +2320,11 @@ elif st.session_state.step == 2:
                         st.markdown(f"### 🌐 {row['domain']}")
                         st.json(row)
 
+                # No st.rerun() here on purpose -- it used to wipe the
+                # status_box/result_box output (including any error JSON)
+                # before it was ever visible, since the immediate rerun
+                # skips this whole block once currently_generating is False.
                 st.session_state.currently_generating = False
-                st.rerun()
 
             except Exception as e:
 
@@ -2331,8 +2334,9 @@ elif st.session_state.step == 2:
                 for row_id in st.session_state.get("sheet_rows", []):
                     update_status(row_id, "Помилка")
 
+                # Same reasoning as above -- no rerun, so the error message
+                # actually stays on screen.
                 st.session_state.currently_generating = False
-                st.rerun()
 
 
         st.button(
