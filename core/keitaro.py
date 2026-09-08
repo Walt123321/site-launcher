@@ -49,8 +49,9 @@ PILOT_CAMPAIGN_ID = st.secrets.get("PILOT_CAMPAIGN_ID", "")
 # range (AS59692) sitting in front of Cloudflare, so Adspect/Keitaro only
 # ever saw Cloudflare's IP and routed 100% of traffic (including real
 # visitors) to the white page. Confirmed fixed on the server 2026-08-27 --
-# re-enabled.
-CLOAKING_AUTO_LAUNCH_ENABLED = True
+# re-enabled. Paused again 2026-09-08 on request -- new launches should not
+# get a whitepage/Adspect stream wired up automatically.
+CLOAKING_AUTO_LAUNCH_ENABLED = False
 
 CLOAKING_ENABLED = CLOAKING_AUTO_LAUNCH_ENABLED and bool(ADSPECT_API_KEY and ADSPECT_TEMPLATE_STREAM_ID and PILOT_CAMPAIGN_ID)
 
