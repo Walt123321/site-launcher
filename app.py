@@ -113,19 +113,19 @@ TEMPLATES = {
         "lang": "templates/template_7/lang.php",
     },
     "template_8": {
-        "label": "Шаблон 8.1 (Ciel Cryptance)",
+        "label": "Шаблон 8",
         "dir": "templates/template_8",
         "favicon": "templates/template_8/favicon.svg",
         "lang": "templates/template_8/lang.php",
     },
     "template_9": {
-        "label": "Шаблон 9 (Tulong Grow)",
+        "label": "Шаблон 9",
         "dir": "templates/template_9",
         "favicon": "templates/template_9/favicon-96x96.png",
         "lang": "templates/template_9/lang.php",
     },
     "template_10": {
-        "label": "Шаблон 10 (Sierra Caudalor)",
+        "label": "Шаблон 10",
         "dir": "templates/template_10",
         "favicon": "templates/template_10/favicon-96x96.png",
         "lang": "templates/template_10/lang.php",
@@ -2251,6 +2251,7 @@ elif st.session_state.step == 2:
 
             st.session_state.sheet_rows = rows
             st.session_state.currently_generating = True
+            st.session_state.last_launch_done = False
             st.session_state.favicon_state = "generate"
             st.rerun()
 
@@ -2413,16 +2414,26 @@ elif st.session_state.step == 2:
                     for row_id in st.session_state.sheet_rows:
                         update_status(row_id, "Очікування підняття сайту")
 
+                # Errors get full detail (collapsed by default -- so the
+                # page isn't a wall of raw JSON, but it's there to click
+                # into instead of being lost like before st.rerun() was
+                # removed). Successful domains just get a one-line
+                # confirmation, matching how this looked before errors
+                # needed to stay visible at all.
                 with result_box:
                     for row in results:
-                        st.markdown(f"### 🌐 {row['domain']}")
-                        st.json(row)
+                        if row.get("error"):
+                            with st.expander(f"❌ {row['domain']} — помилка", expanded=False):
+                                st.json(row)
+                        else:
+                            st.success(f"✅ {row['domain']} — домен успішно піднято")
 
                 # No st.rerun() here on purpose -- it used to wipe the
                 # status_box/result_box output (including any error JSON)
                 # before it was ever visible, since the immediate rerun
                 # skips this whole block once currently_generating is False.
                 st.session_state.currently_generating = False
+                st.session_state.last_launch_done = True
 
             except Exception as e:
 
@@ -2435,14 +2446,21 @@ elif st.session_state.step == 2:
                 # Same reasoning as above -- no rerun, so the error message
                 # actually stays on screen.
                 st.session_state.currently_generating = False
+                st.session_state.last_launch_done = True
 
 
-        st.button(
-            "➡️ Далі до Кроку 3",
-            use_container_width=True,
-            disabled=(len(chosen) != k),
-            on_click=step2_continue
-        )
+        # Hidden right after an automated Keitaro launch on this page --
+        # "Крок 3" is the separate manual ТЗ/zip workflow, unrelated to
+        # what "🚀 Запустити" just did, and showing it here just invited
+        # confusion. Resets (button reappears) the next time a launch is
+        # started.
+        if not st.session_state.get("last_launch_done"):
+            st.button(
+                "➡️ Далі до Кроку 3",
+                use_container_width=True,
+                disabled=(len(chosen) != k),
+                on_click=step2_continue
+            )
 
         st.markdown("---")
 
