@@ -16,10 +16,28 @@ define('BACKCLICK_REPORT_CHATID', '-1003243124891');
 // Lead Distribution API v.2 endpoint
 define('ELNOPY_ENDPOINT', 'https://yourleads.org/api/affiliates/v2/leads');
 
-
 // Session security
 define('SECURE_SESSION_TOKEN', 'SECURE_SESSION_AUTHENTICATION_TOKEN');
 define('BUYER_NAME', '{{BUYER_NAME}}');
+
+/**
+ * aff_sub8 value pushed remotely via ../sub8.php (see that file) once the
+ * Google Sheet's "Де знайдений" column is filled in — falls back to
+ * utm_placement (the old behaviour) until then.
+ */
+function getSub8Value()
+{
+    $file = dirname(__DIR__) . '/aff_sub8.txt';
+
+    if (file_exists($file)) {
+        $value = trim(file_get_contents($file));
+        if ($value !== '') {
+            return $value;
+        }
+    }
+
+    return null;
+}
 
 /**
  * Get buyer data from session
@@ -74,7 +92,7 @@ function prepareApiData($data)
         'aff_sub5'  => $data['utm_term'],
         'aff_sub6'  => $data['utm_campaign'],
         'aff_sub7'  => $data['utm_source'],
-        'aff_sub8' => $data['utm_placement'],
+        'aff_sub8' => getSub8Value() ?? $data['utm_placement'],
         'aff_sub9' => $data['adset_name'],
         'aff_sub10' => $data['ad_id'],
 		'aff_sub11' => $data['domain'],

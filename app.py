@@ -21,7 +21,8 @@ from core.lang_pipeline import generate_lang_files_multi
 from core.google_sheet import (
     find_duplicates,
     append_launch,
-    update_status
+    update_status,
+    get_all_rows,
 )
 
 # backfix.js вшивається інлайном прямо в HTML index.php при збірці, а не
@@ -136,6 +137,25 @@ TEMPLATES = {
         "lang": "templates/template_qoooqle/newsnik1/lang.php",
     },
 }
+# Per-template secret for each template's sub8.php (updates the aff_sub8
+# value the CRM lead payload uses — see integration/config.php's
+# getSub8Value()). One shared secret per template, embedded in that
+# template's sub8.php at build time — same convention as indexnow.php's key.
+# template_2 and template_qoooqle have no CRM lead integration wired up
+# (template_2 is hidden from the picker and never had IndexNow either), so
+# neither is in this map.
+SUB8_SECRETS = {
+    "template_1": "ceb40c906f0688611bf27ff4cea5712a",
+    "template_3": "4009e273c79cd7c7d36e39cdfe4de624",
+    "template_4": "fec0374b298f501212e9c96861aba712",
+    "template_5": "5c8d544efb8bb613274e2758b23b3b91",
+    "template_6": "9c127f338404e7376e808c23f28bdb97",
+    "template_7": "cec911c4170947c3ad6d482741cc1ddd",
+    "template_8": "63e82d17521623391f7bda576eef289d",
+    "template_9": "5f2b5544c98d17672315bed924fae70c",
+    "template_10": "8465d812a4493a0d6c6246adef48c716",
+}
+
 # Hidden from the per-domain template picker but kept in TEMPLATES (still
 # referenced directly elsewhere — e.g. qoooqle is auto-included in every
 # site regardless of chosen base template, and already-generated domains
@@ -761,6 +781,72 @@ def build_domain_site_zip(
 
     buf.seek(0)
     return buf.getvalue()
+
+
+# Reverse of TEMPLATES[k]["label"] -> k, used by sync_sub8_from_sheet() to
+# turn the sheet's column H (a human label like "Шаблон 8.1 (Ciel Cryptance)")
+# back into the template key SUB8_SECRETS is keyed on.
+def _template_key_from_label(label: str) -> Optional[str]:
+    for key, info in TEMPLATES.items():
+        if info["label"] == label:
+            return key
+    return None
+
+
+def sync_sub8_from_sheet() -> list[dict]:
+    """Pushes each launched domain's column J ("Де знайдений") to that
+    domain's live sub8.php, so integration/config.php picks it up as
+    aff_sub8 on the next CRM lead submission instead of falling back to
+    utm_placement. J is filled in by hand well after a site goes live, so
+    this has to be a separate manual sync rather than something the launch
+    flow can do at generation time. Also re-pushes on domains whose
+    sub8.php file was reset by a later redeploy (PUT-ing a fresh offer
+    archive replaces the whole live directory, including any file sub8.php
+    wrote at runtime)."""
+    import requests
+    import urllib3
+    urllib3.disable_warnings()
+
+    rows = get_all_rows()
+    results = []
+
+    for row in rows[1:]:
+        domain = row[6].strip() if len(row) > 6 else ""
+        template_label = row[7].strip() if len(row) > 7 else ""
+        j_value = row[9].strip() if len(row) > 9 else ""
+
+        if not domain or not j_value:
+            continue
+
+        tpl_key = _template_key_from_label(template_label)
+        secret = SUB8_SECRETS.get(tpl_key or "")
+
+        if not secret:
+            results.append({
+                "domain": domain, "status": "skipped",
+                "detail": f"unknown/unsupported template: {template_label!r}",
+            })
+            continue
+
+        url = f"https://{domain}/lander/{domain}/sub8.php"
+
+        try:
+            r = requests.get(
+                url, params={"key": secret, "value": j_value},
+                timeout=10, verify=False,
+            )
+            if r.status_code == 200 and r.json().get("ok"):
+                results.append({"domain": domain, "status": "ok", "detail": j_value})
+            else:
+                results.append({
+                    "domain": domain, "status": "error",
+                    "detail": f"HTTP {r.status_code}: {r.text[:200]}",
+                })
+        except Exception as e:
+            results.append({"domain": domain, "status": "error", "detail": str(e)})
+
+    return results
+
 
 def build_all_sites_zip(
     site_template_dir: str,
@@ -2519,6 +2605,42 @@ elif st.session_state.step == 2:
             except Exception as e:
                 test_status_box.error(f"❌ Помилка: {str(e)}")
                 st.session_state.currently_generating_test = False
+
+        st.markdown("---")
+
+        # =====================================================
+        # SUB8 SYNC (aff_sub8 <- Google Sheet column J)
+        # =====================================================
+        st.markdown("### 🔁 Синхронізація aff_sub8")
+        st.caption(
+            "Проходить по всіх рядках таблиці, і для кожного домену з "
+            "заповненою колонкою J (\"Де знайдений\") пушить це значення "
+            "на sub8.php домену. Треба тиснути вручну щоразу, як хтось "
+            "заповнив/змінив J — і після будь-якого redeploy домену "
+            "(перезаливка офера скидає sub8.php)."
+        )
+
+        if st.button("🔁 Синхронізувати зараз", key="sync_sub8_btn"):
+            with st.spinner("Синхронізую..."):
+                try:
+                    sub8_results = sync_sub8_from_sheet()
+                except Exception as e:
+                    sub8_results = None
+                    st.error(f"❌ Помилка синхронізації: {e}")
+
+            if sub8_results is not None:
+                ok_count = sum(1 for r in sub8_results if r["status"] == "ok")
+                err_count = sum(1 for r in sub8_results if r["status"] == "error")
+                skip_count = sum(1 for r in sub8_results if r["status"] == "skipped")
+
+                if not sub8_results:
+                    st.info("Немає доменів із заповненою колонкою J.")
+                else:
+                    st.success(f"✅ Оновлено: {ok_count} | ❌ Помилок: {err_count} | ⏭️ Пропущено: {skip_count}")
+                    with st.expander("Деталі"):
+                        for r in sub8_results:
+                            icon = {"ok": "✅", "error": "❌", "skipped": "⏭️"}[r["status"]]
+                            st.write(f"{icon} {r['domain']} — {r['detail']}")
 
         st.markdown("---")
 
